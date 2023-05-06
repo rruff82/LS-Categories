@@ -1,3 +1,25 @@
+Please note that the "book" in this repository is subject to different license requirements
+than the code.  
+
+Solutions and narrative copyright (c) 2023 Ryan Ruff and is licensed here
+under a the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. 
+To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+The question prompts come from the follow source:
+Lawvere, F.W., and Schanuel, S.H. (2009). Conceptual Mathematics, 2nd Edition. Cambridge University Press
+
+This material is copyright (c) 2009 by Cambridge University Press.  In order to maintain compliance with the
+"fair use" exception:
+* the expressed purpose is for critical discussion
+* the nature of the part reproduced is educational
+* excerpts have been truncated/summarized where possible
+* commercial-use has been restricted
+
+----------------------------------------------------------------------------------
+
+The following license was included with the original PreText Code Space from 
+which this project was forked: https://github.com/PreTeXtBook/pretext-codespace
+
 MIT License
 
 Copyright (c) 2022 Oscar Levin
