@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Article 1: Sets, maps, composition</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="L&amp;S Cat Theory">
+<meta property="book:author" content="Ryan Ruff">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">L&amp;S Cat Theory:</span> <span class="subtitle">Attempted solutions to "Conceptual Mathematics" by Lawvere and Schanuel</span></a></h1>
+<p class="byline">Ryan Ruff</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="part1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="part1.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li>
+<div class="toc-item"><a href="introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="about.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is this?</span></a></div></li>
+<li><div class="toc-item"><a href="session1.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Session 1</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part1.html" class="internal"><span class="codenumber">2</span> <span class="title">Part 1: The Category of Sets</span></a></div>
+<ul class="structural"><li class="active"><div class="toc-item"><a href="article1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Article 1: Sets, maps, composition</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="article1"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.1</span> <span class="title">Article 1: Sets, maps, composition</span>
+</h2>
+<div class="para" id="p-16">This is technically my second time through this content and I think I made some errors in my original solutions to exercises 2-5.  Rather than ignore my mistakes, I've made the decision to recreate them here and explain why I think I was wrong afterward. I hope this method will give more insight into my thought process. To prevent accidental spoilers, this will be treated as a "Hidden Exercise 10".</div>
+<article class="example example-like" id="example-3"><a href="" data-knowl="" class="id-ref example-knowl original has-image" data-refid="hk-example-3"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 1:.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-3"><article class="example example-like"><div class="para" id="p-17">"...understand how we got diagrams..."</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-3" id="solution-3"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like">
+<div class="para" id="p-18">Okay let's start by recreating diagram (i).</div> <figure class="figure figure-like" id="fig-article1-associative-i"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article1-associative-i.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.1.2<span class="period">.</span></span><span class="space"> </span>The original associative law diagram (i) from L&amp;S Article 1.</figcaption></figure> <div class="para" id="p-19">For diagram (iv), we drop set C and connect B directly to D.</div> <figure class="figure figure-like" id="fig-article1-associative-iv"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article1-associative-iv.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.1.3<span class="period">.</span></span><span class="space"> </span>Completed associative law diagram (iv) from L&amp;S Article 1.</figcaption></figure> <div class="para" id="p-20">To get from here to diagram (v), we drop set B and connect A directly to D.</div> <figure class="figure figure-like" id="fig-article1-associative-v"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article1-associative-v.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.1.4<span class="period">.</span></span><span class="space"> </span>Completed associative law diagram (v) from L&amp;S Article 1.</figcaption></figure> <div class="para" id="p-21">As expected, this diagram is an exact match of diagram (iii).</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-4"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-4"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 2.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-4"><article class="example example-like"><div class="para" id="p-22">How many different maps <span class="process-math">\(f\)</span> are there with domain <span class="process-math">\(A\)</span> and codomain <span class="process-math">\(B\text{?...}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like">
+<div class="para" id="p-23">So I approached this like I would an algebraic function like <span class="process-math">\(f(x)=\frac{x^2-1}{x+2}\text{,}\)</span> but instead of feeding in a number I'm feeding in John (<span class="process-math">\(J\)</span>), Mary (<span class="process-math">\(M\)</span>) or Sam (<span class="process-math">\(S\)</span>) and getting out a breakfast order at a diner that only serves eggs (<span class="process-math">\(e\)</span>) or coffee (<span class="process-math">\(c\)</span>) and has a 1 item limit per order.</div> <div class="para" id="p-24">I know that the number of outcomes is going to be the same for each person, so it made sense to focus on one person at a time.  I imagined John's breakfast order, <span class="process-math">\(f(J)\text{,}\)</span> as having 3 possible outcomes.</div> <ol class="decimal">
+<li id="li-1"><div class="para" id="p-derived-li-1">John orders eggs: <span class="process-math">\(f(J)=e\)</span>
+</div></li>
+<li id="li-2"><div class="para" id="p-derived-li-2">John orders coffee: <span class="process-math">\(f(J)=c\)</span>
+</div></li>
+<li id="li-3"><div class="para" id="p-derived-li-3">John fails to place an order at all: <span class="process-math">\(f(J)\)</span> is undefined</div></li>
+</ol> <div class="para" id="p-25">Likewise, Mary and Sam have the same 3 possible outcomes: {eggs,coffee,undefined}. Since these events are independent of each other, the total number of possible outcomes is <span class="process-math">\(3 \cdot 3 \cdot 3 = 27\)</span>  maps in total.</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-5"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-5"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 3.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like"><div class="para" id="p-26">Same, but for maps <span class="process-math">\(A \overset{f}{\longrightarrow} B\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-5" id="solution-5"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like">
+<div class="para" id="p-27">I thought of this function like the "favorite person" map example from the reading.  Using John as an example, I imagined 4 possible character roles in a hypothetical Hollywood love triangle:</div> <ol class="decimal">
+<li id="li-4"><div class="para" id="p-derived-li-4">John is in love with Mary. <span class="process-math">\(f(J)=M\)</span>
+</div></li>
+<li id="li-5"><div class="para" id="p-derived-li-5">John is in love with Sam.  <span class="process-math">\(f(J)=S\)</span>
+</div></li>
+<li id="li-6"><div class="para" id="p-derived-li-6">John is a narcissist, in love with himself: <span class="process-math">\(f(J)=J\)</span>
+</div></li>
+<li id="li-7"><div class="para" id="p-derived-li-7">John is a psychopath, incapable of love: <span class="process-math">\(f(J)\)</span> is undefined</div></li>
+</ol> <div class="para" id="p-28">Given an analogous set of 4 outcomes for Mary and Sam, the total number of possible plot outcomes is <span class="process-math">\(4 \cdot 4 \cdot 4 = 64\text{.}\)</span>
+</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-6"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-6"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 4.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-6"><article class="example example-like"><div class="para" id="p-29">Same, but for maps <span class="process-math">\(B \overset{f}{\longrightarrow} A\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like">
+<div class="para" id="p-30">I imagined this one as a "mystery breakfast order".  I'm the a waiter in a diner delivering one order of eggs and one order of coffee to a table where John, Mary, and Sam are seated.  The map <span class="process-math">\(f\)</span> tells me who ordered a given dish.  Like before, I'll consider one example at a time.  There are 4 possible outcomes for the source of the eggs:</div> <ol class="decimal">
+<li id="li-8"><div class="para" id="p-derived-li-8">John ordered the eggs: <span class="process-math">\(f(e)=J\)</span>
+</div></li>
+<li id="li-9"><div class="para" id="p-derived-li-9">Mary ordered the eggs: <span class="process-math">\(f(e)=M\)</span>
+</div></li>
+<li id="li-10"><div class="para" id="p-derived-li-10">Sam ordered the eggs: <span class="process-math">\(f(e)=S\)</span>
+</div></li>
+<li id="li-11"><div class="para" id="p-derived-li-11">Nobody ordered eggs: <span class="process-math">\(f(e)\)</span> is undefined</div></li>
+</ol> <div class="para" id="p-31">Since there must likewise be 4 sources for the coffee, the total number of possible outcomes is <span class="process-math">\(4 \cdot 4 = 16\text{.}\)</span>
+</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-7"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-7"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 5.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-7"><article class="example example-like"><div class="para" id="p-32">Same, but for maps <span class="process-math">\(B \overset{f}{\longrightarrow} B\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-7" id="solution-7"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-7"><div class="solution solution-like">
+<div class="para" id="p-33">At this point I had observed a pattern and attempted to generalize. Following my reasoning from exercises 2-4, I notice all my answers fit a pattern:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(\text{number of maps}) = (1+(\text{size of codomain}))^\text{size of domain}
+\end{equation*}
+</div>
+<div class="para" id="p-34">In exercise 5, the size of the domain and codmain would each be 2.  Evaluating the expression above gives us <span class="process-math">\((1+2)^2=9\)</span> possible maps.</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-8"><a href="" data-knowl="" class="id-ref example-knowl original has-tabular" data-refid="hk-example-8"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 6.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-8"><article class="example example-like"><div class="para" id="p-35">How many maps <span class="process-math">\(A \overset{f}{\longrightarrow} A\)</span> satisfy <span class="process-math">\(f \circ f = f\text{?}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-8" id="solution-8"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-8"><div class="solution solution-like">
+<div class="para" id="p-36">This is where I started to notice some problems with my previous reasoning. In order for me to talk about the properties of <span class="process-math">\(f \circ f\text{,}\)</span> it didn't make sense for <span class="process-math">\(f\)</span> to be "undefined" for an element in my domain.  If I didn't get something "out", I wouldn't be able to feed it back in.  So instead of considering all <span class="process-math">\(4^3=64\)</span> possible "love triangles" I identified earlier, I could narrow my search down to a more limited set of <span class="process-math">\(3^3=27\)</span> maps by excluding the "psychopaths" from my romance movies because they make it impossible to produce a sequel (more on that idea later).</div> <div class="para" id="p-37">This narrowed my search, but 27 is still too many for me too sort out by hand so I started looking for ways to break it down further. I knew I could satisfy the <span class="process-math">\(f \circ f = f\)</span> constraint with the identity map because clearly <span class="process-math">\(1_A \circ 1_A = 1_A\text{.}\)</span>  I also know I could satisfy <span class="process-math">\(f \circ f = f\)</span> with a "constant function" such as the following:</div> <div class="para" id="p-38">Furthermore, there would need to be a total of 3 such "constant functions" because you'd need one for each of the 3 possible destinations.  At that point it seemed clear I was still missing some. If I could construct a function <span class="process-math">\(f\)</span> with 1 arrow to each point and also a function <span class="process-math">\(f\)</span> with 3 arrows to a single point, it seemed reasonable to assume there'd be a class of maps with 2 arrows leading to a single point.</div> <div class="para" id="p-39">Let's consider the case where that point with two arrows leading in to be "John".  One of the arrows leading to John has to be from himself for <span class="process-math">\(f \circ f (J) = f(J)\)</span> to be true, but the other arrow could originate at either Mary or Sam.  Given these two possible maps exist for each person, we'd have <span class="process-math">\(3 \cdot 2 = 6\)</span> maps of this type.</div> <div class="para" id="p-40">Putting everything together, some patterns seem to emerge when I listed these out in a table using binomials.</div> <figure class="table table-like" id="table-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.1.10<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">number of fixed points</td>
+<td class="l m b0 r0 l0 t0 lines">number of maps</td>
+<td class="l m b0 r0 l0 t0 lines">as binomial</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\binom{3}{1}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\binom{3}{2}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\binom{3}{3}\)</span></td>
+</tr>
+</table></div></figure> <div class="para" id="p-41">Adding up all of these up gives us total of <span class="process-math">\(3+6+1=10\)</span> possible maps.</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-9"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-9"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.11</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 7.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-9"><article class="example example-like"><div class="para" id="p-42">How many maps <span class="process-math">\(B \overset{g}{\longrightarrow} B\)</span> satisfy <span class="process-math">\(g \circ g = g\text{?}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-9" id="solution-9"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-9"><div class="solution solution-like"><div class="para" id="p-43">This was made even easier by the pattern I noticed in the previous example. Given that there are only two elements in the domain, there are <span class="process-math">\(\binom{2}{1}=2\)</span> maps with 1 fixed point and <span class="process-math">\(\binom{2}{2}=1\)</span> map with 2 fixed points (namely, <span class="process-math">\(1_A\)</span>) for total of <span class="process-math">\(2+1=3\text{.}\)</span>
+</div></div></div>
+</div></article></div>
+<article class="example example-like" id="example-10"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-10"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.12</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 8.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-10"><article class="example example-like"><div class="para" id="p-44">...<span class="process-math">\(A \overset{f}{\longrightarrow} B \overset{g}{\longrightarrow} A\)</span> for which <span class="process-math">\(g \circ f = 1_A\text{?...}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-10" id="solution-10"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-10"><div class="solution solution-like"><div class="para" id="p-45">None? B has fewer choices in it than A, so when f maps from A to B it must destroy at least one of them.  The map g would not be able to produce 3 outputs from only 2 inputs, so there's no possible way for the composition to cover all elements of A.</div></div></div>
+</div></article></div>
+<article class="example example-like" id="example-11"><a href="" data-knowl="" class="id-ref example-knowl original has-image" data-refid="hk-example-11"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.13</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 9.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-11"><article class="example example-like"><div class="para" id="p-46">...<span class="process-math">\(B \overset{h}{\longrightarrow} A \overset{k}{\longrightarrow} B\)</span> for which <span class="process-math">\(k \circ h = 1_B\text{?...}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-11" id="solution-11"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-11"><div class="solution solution-like">
+<div class="para" id="p-47">I started here by considering a blank diagram that would fit the composition, and start filling it in one point at a time.</div> <figure class="figure figure-like" id="fig-article1-ex9-1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article1-ex9-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.1.14<span class="period">.</span></span><span class="space"> </span>Empty diagram for <span class="process-math">\(B \overset{h}{\longrightarrow} A \overset{k}{\longrightarrow} B\)</span></figcaption></figure> <div class="para" id="p-48">Since I know each point has to end up back where it started, the only real "choice" is which of the 3 middle points the path goes through.</div> <figure class="figure figure-like" id="fig-article1-ex9-2"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article1-ex9-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.1.15<span class="period">.</span></span><span class="space"> </span>Diagram of potential paths for first point in <span class="process-math">\(B \overset{h}{\longrightarrow} A \overset{k}{\longrightarrow} B\)</span></figcaption></figure> <div class="para" id="p-49">Once I fix the first path, the next point only has two possible intermediary points that it can go through.</div> <figure class="figure figure-like" id="fig-article1-ex9-3"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article1-ex9-3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.1.16<span class="period">.</span></span><span class="space"> </span>Diagram of potential paths for second point in <span class="process-math">\(B \overset{h}{\longrightarrow} A \overset{k}{\longrightarrow} B\)</span></figcaption></figure> <div class="para" id="p-50">Given that there were 3 choices for the first path and 2 choices for the second, there's a total of <span class="process-math">\(3 \cdot 2 = 6\)</span> paths altogether.</div> <div class="para" id="p-51">This also makes sense as the binomial <span class="process-math">\(\binom{3}{2}\text{,}\)</span> because we have 3 possible intermediary points and we need to choose 2 of them.</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-12"><a href="" data-knowl="" class="id-ref example-knowl original has-tabular" data-refid="hk-example-12"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.17</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 10.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-12"><article class="example example-like"><div class="para" id="p-52">[hidden]</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-12" id="solution-12"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-12"><div class="solution solution-like">
+<div class="para" id="p-53">What first clued me in that my answers to exercises 2-5 might be wrong was the hint about "BOOKKEEPING rules" at the very end of the section. Looking back, it's seem like my programming background may have clouded my understanding of "map".</div> <div class="para" id="p-54">I was thinking about a "map" like I would a "function" in a program.  In this analogy I had interpreted "domain" as my "input type" and "codomain" as "output type".  The flaw in this reasoning is that I was allowing "functions" to "error", which is not true under the definitions of "map" and "domain" that were presented.  If the map <span class="process-math">\(f(J)\)</span> produced something "undefined", it would be inaccurate to include <span class="process-math">\(J\)</span> in the domain of <span class="process-math">\(f\)</span> to begin with.</div> <div class="para" id="p-55">This means that the generalized formula I came up with earlier is "off by 1", and the corrected formula should be as follows:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(\text{number of maps}) = (\text{size of codomain})^\text{size of domain}
+\end{equation*}
+</div>
+<div class="para" id="p-56">Under these revised definitions, the answers to excercises 2-5 should be as follows:</div> <figure class="table table-like" id="table-2"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.1.18<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Excercise</td>
+<td class="l m b0 r0 l0 t0 lines">Size of domain</td>
+<td class="l m b0 r0 l0 t0 lines">Size of codomain</td>
+<td class="l m b0 r0 l0 t0 lines">Expression</td>
+<td class="l m b0 r0 l0 t0 lines">Result</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">2^3</td>
+<td class="l m b0 r0 l0 t0 lines">8</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">3^3</td>
+<td class="l m b0 r0 l0 t0 lines">27</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">3^2</td>
+<td class="l m b0 r0 l0 t0 lines">9</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">2^2</td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+</tr>
+</table></div></figure> <div class="para" id="p-57">I can see why these definitions simplify the process of talking about "bookkeeping" for the number maps. It's much easier to count the maps if we limit ourselves to the ones that are well-formed to start with. I'm left wondering if there's a situation where having an "undefined" output token like I used might be a useful construct, but the costs seem to far outweigh the benefits.</div> <div class="para" id="p-58">I can also see some programming parallels here between the "switch" statement in C-like languages and the "match" statement in Rust.  The Rust compiler goes an extra step to verify that every possible outcome has been handled before even attempting to complile the code you give it.  This provides an extra level of assurance that these functions will behave as expected.</div>
+</div></div>
+</div></article></div></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="part1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

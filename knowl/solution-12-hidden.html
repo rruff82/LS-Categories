@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para">What first clued me in that my answers to exercises 2-5 might be wrong was the hint about "BOOKKEEPING rules" at the very end of the section. Looking back, it's seem like my programming background may have clouded my understanding of "map".</div> <div class="para">I was thinking about a "map" like I would a "function" in a program.  In this analogy I had interpreted "domain" as my "input type" and "codomain" as "output type".  The flaw in this reasoning is that I was allowing "functions" to "error", which is not true under the definitions of "map" and "domain" that were presented.  If the map <span class="process-math">\(f(J)\)</span> produced something "undefined", it would be inaccurate to include <span class="process-math">\(J\)</span> in the domain of <span class="process-math">\(f\)</span> to begin with.</div> <div class="para">This means that the generalized formula I came up with earlier is "off by 1", and the corrected formula should be as follows:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(\text{number of maps}) = (\text{size of codomain})^\text{size of domain}
+\end{equation*}
+</div>
+<div class="para">Under these revised definitions, the answers to excercises 2-5 should be as follows:</div> <figure class="table table-like"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.1.18<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Excercise</td>
+<td class="l m b0 r0 l0 t0 lines">Size of domain</td>
+<td class="l m b0 r0 l0 t0 lines">Size of codomain</td>
+<td class="l m b0 r0 l0 t0 lines">Expression</td>
+<td class="l m b0 r0 l0 t0 lines">Result</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">2^3</td>
+<td class="l m b0 r0 l0 t0 lines">8</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">3^3</td>
+<td class="l m b0 r0 l0 t0 lines">27</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">3^2</td>
+<td class="l m b0 r0 l0 t0 lines">9</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">2^2</td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+</tr>
+</table></div></figure> <div class="para">I can see why these definitions simplify the process of talking about "bookkeeping" for the number maps. It's much easier to count the maps if we limit ourselves to the ones that are well-formed to start with. I'm left wondering if there's a situation where having an "undefined" output token like I used might be a useful construct, but the costs seem to far outweigh the benefits.</div> <div class="para">I can also see some programming parallels here between the "switch" statement in C-like languages and the "match" statement in Rust.  The Rust compiler goes an extra step to verify that every possible outcome has been handled before even attempting to complile the code you give it.  This provides an extra level of assurance that these functions will behave as expected.</div>
+</div></body>
+</html>
