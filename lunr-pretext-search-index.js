@@ -145,6 +145,24 @@ var ptx_lunr_docs = [
   "body": " Exercise 10   [hidden]    What first clued me in that my answers to exercises 2-5 might be wrong was the hint about \"BOOKKEEPING rules\" at the very end of the section. Looking back, it's seem like my programming background may have clouded my understanding of \"map\".  I was thinking about a \"map\" like I would a \"function\" in a program. In this analogy I had interpreted \"domain\" as my \"input type\" and \"codomain\" as \"output type\". The flaw in this reasoning is that I was allowing \"functions\" to \"error\", which is not true under the definitions of \"map\" and \"domain\" that were presented. If the map produced something \"undefined\", it would be inaccurate to include in the domain of to begin with.  This means that the generalized formula I came up with earlier is \"off by 1\", and the corrected formula should be as follows:   Under these revised definitions, the answers to excercises 2-5 should be as follows:     Excercise  Size of domain  Size of codomain  Expression  Result    2  3  2  2^3  8    3  3  3  3^3  27    4  2  3  3^2  9    5  2  2  2^2  4     I can see why these definitions simplify the process of talking about \"bookkeeping\" for the number maps. It's much easier to count the maps if we limit ourselves to the ones that are well-formed to start with. I'm left wondering if there's a situation where having an \"undefined\" output token like I used might be a useful construct, but the costs seem to far outweigh the benefits.  I can also see some programming parallels here between the \"switch\" statement in C-like languages and the \"match\" statement in Rust. The Rust compiler goes an extra step to verify that every possible outcome has been handled before even attempting to complile the code you give it. This provides an extra level of assurance that these functions will behave as expected.   "
 },
 {
+  "id": "sec-session2",
+  "level": "1",
+  "url": "sec-session2.html",
+  "type": "Section",
+  "number": "2.2",
+  "title": "Session 2",
+  "body": " Session 2  It feels kind of silly to post solutions to a problem set that includes the answers already, but this seems like a good opportunity to validate my generalization from last week.   Problems on the number of maps from one set to another   How many maps...    We have answers here, so let's confirm the results of the generalization from Article 1:     #    Expression  Result  Correct    1  4  1   1  YES    2  1  4   4  YES    3  0  4   1  YES    4  4  0   0  YES    5  0  0   \"it depends\"  \"mostly\"     The generalization seems to hold up, provided we define our exponential operator in such a way that . This is a common practice, but I've also seen situations where is left undefined instead. In this context, the answer of 1 to problem 5 makes more sense than than the alternative. In programming terms, it seems perfectly reasonable to think of \"no op\" as a \"function\" so there should be an analogous \"null map\" that maps from nothing to nothing.    "
+},
+{
+  "id": "example-13",
+  "level": "2",
+  "url": "sec-session2.html#example-13",
+  "type": "Example",
+  "number": "2.2.1",
+  "title": "Problems on the number of maps from one set to another.",
+  "body": " Problems on the number of maps from one set to another   How many maps...    We have answers here, so let's confirm the results of the generalization from Article 1:     #    Expression  Result  Correct    1  4  1   1  YES    2  1  4   4  YES    3  0  4   1  YES    4  4  0   0  YES    5  0  0   \"it depends\"  \"mostly\"     The generalization seems to hold up, provided we define our exponential operator in such a way that . This is a common practice, but I've also seen situations where is left undefined instead. In this context, the answer of 1 to problem 5 makes more sense than than the alternative. In programming terms, it seems perfectly reasonable to think of \"no op\" as a \"function\" so there should be an analogous \"null map\" that maps from nothing to nothing.   "
+},
+{
   "id": "colophon-2",
   "level": "1",
   "url": "colophon-2.html",
