@@ -1069,6 +1069,202 @@ extra level of assurance that these functions will behave as expected.
               </p>
           </statement>
           <solution>
+            <p>
+              Let's start by recreating the source diagram:
+            </p>
+              <figure xml:id="fig-session3-ex2-1">
+              <caption>Recreation of diagram used in L&amp;S Session 2 Exercise 2</caption>
+              <image width="20%" xml:id="img-session3-ex2-1"> 
+            <latex-image>
+\begin{tikzpicture}[scale=0.5]
+
+% layout the nodes
+\node (A) at (0,3.5) {$A$};
+\node (B) at (4,3.5) {$B$};
+\node (C) at (2,0.5) {$C$};
+
+% begin first map
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(B) edge node[below] {$g$} (A)
+(C) edge node[right] {$k$} (B)
+(A) edge node[left] {$h$} (C)
+(A) edge[bend left] node[above] {$f$} (B);
+
+\end{tikzpicture}
+            </latex-image>
+            </image>
+            </figure>
+            <p>
+              For composition (a), the path would look like this:
+            </p>
+            <figure xml:id="fig-session3-ex2-2">
+              <caption>Recreation of finger tracing steps for L&amp;S Session 2 Exercise 2 Part (a)</caption>
+              <image width="80%" xml:id="img-session3-ex2-2"> 
+            <latex-image>
+\begin{tikzpicture}[scale=.5]
+
+% layout the nodes for step 1
+\node (A1) at (0,3.5) {$A$};
+\node (B1) at (4,3.5) {$B$};
+\node (C1) at (2,0.5) {$C$};
+
+% show the 1st stage of path
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A1) edge[bend left] node[above] {$f$} (B1);
+
+
+% layout the nodes for step 2
+\node (A2) at (6,3.5) {$A$};
+\node (B2) at (10,3.5) {$B$};
+\node (C2) at (8,0.5) {$C$};
+
+% show step 2 path
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(B2) edge node[below] {$g$} (A2)
+(A2) edge[bend left] (B2);
+
+% layout the nodes for step 3
+\node (A3) at (12,3.5) {$A$};
+\node (B3) at (16,3.5) {$B$};
+\node (C3) at (14,0.5) {$C$};
+
+% show stage 3 path
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(B3) edge (A3)
+(A3) edge node[left] {$h$} (C3)
+(A3) edge[bend left] (B3);
+
+% layout the final nodes
+\node (A4) at (18,3.5) {$A$};
+\node (B4) at (22,3.5) {$B$};
+\node (C4) at (20,0.5) {$C$};
+
+% show completed path
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(B4) edge(A4)
+(C4) edge node[right] {$k$} (B4)
+(A4) edge (C4)
+(A4) edge[bend left] (B4);
+
+\end{tikzpicture}
+            </latex-image>
+            </image>
+            </figure>
+            <p>
+              For composition (b) we can only trace out the first two steps. The final map fails because the arrow is pointing the wrong direction.
+            </p>
+            <figure xml:id="fig-session3-ex2-3">
+              <caption>Recreation of finger tracing steps for L&amp;S Session 2 Exercise 2 Part (b)</caption>
+              <image width="80%" xml:id="img-session3-ex2-3"> 
+            <latex-image>
+\begin{tikzpicture}[scale=.5]
+
+% layout the nodes for step 1
+\node (A1) at (0,3.5) {$A$};
+\node (B1) at (4,3.5) {$B$};
+\node (C1) at (2,0.5) {$C$};
+
+% show the 1st stage of path
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(B1) edge node[below] {$g$} (A1);
+
+
+% layout the nodes for step 2
+\node (A2) at (6,3.5) {$A$};
+\node (B2) at (10,3.5) {$B$};
+\node (C2) at (8,0.5) {$C$};
+
+% show step 2 path
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(B2) edge (A2)
+(A2) edge[bend left] node[above] {$f$} (B2);
+
+% layout the nodes for step 3
+\node (A3) at (12,3.5) {$A$};
+\node (B3) at (16,3.5) {$B$};
+\node (C3) at (14,0.5) {$C$};
+
+% show step 3 path
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(B3) edge (A3)
+(A3) edge[bend left] (B3)
+(C3) edge[dashed] node[right] {$k$} (B3);
+
+\end{tikzpicture}
+            </latex-image>
+            </image>
+            </figure>
+            <p>
+              Our final composition is interesting in that takes us through map <m>g</m> twice.
+            </p>
+
+            <figure xml:id="fig-session3-ex2-4">
+              <caption>Recreation of finger tracing steps for L&amp;S Session 2 Exercise 2 Part (c)</caption>
+              <image width="80%" xml:id="img-session3-ex2-4"> 
+            <latex-image>
+\begin{tikzpicture}[scale=.5]
+
+% layout the nodes for step 1
+\node (A1) at (0,3.5) {$A$};
+\node (B1) at (4,3.5) {$B$};
+\node (C1) at (2,0.5) {$C$};
+
+% show the 1st stage of path
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A1) edge node[above] {$h$} (C1);
+
+% layout the nodes for step 2
+\node (A2) at (6,3.5) {$A$};
+\node (B2) at (10,3.5) {$B$};
+\node (C2) at (8,0.5) {$C$};
+
+% show step 2 path
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A2) edge (C2)
+(C2) edge node[right] {$k$} (B2);
+
+
+% layout the nodes for step 3
+\node (A3) at (12,3.5) {$A$};
+\node (B3) at (16,3.5) {$B$};
+\node (C3) at (14,0.5) {$C$};
+
+% show step 3 path
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A3) edge (C3)
+(C3) edge (B3)
+(B3) edge node[below] {$g$} (A3);
+
+% layout the step 4 nodes
+\node (A4) at (18,3.5) {$A$};
+\node (B4) at (22,3.5) {$B$};
+\node (C4) at (20,0.5) {$C$};
+
+% show stage 4 of path
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(B4) edge(A4)
+(C4) edge (B4)
+(A4) edge (C4)
+(A4) edge[bend left] node[above] {$f$}  (B4);
+
+% layout the final nodes
+\node (A5) at (24,3.5) {$A$};
+\node (B5) at (28,3.5) {$B$};
+\node (C5) at (26,0.5) {$C$};
+
+% show completed path
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(B5) edge (A5)
+(C5) edge (B5)
+(A5) edge (C5)
+(A5) edge[bend left] (B5)
+(B5) edge[bend left] node[below] {$g$}  (A5);
+
+
+\end{tikzpicture}
+            </latex-image>
+            </image>
+            </figure>
 
           </solution>
         </example>
