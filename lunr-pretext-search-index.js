@@ -163,6 +163,33 @@ var ptx_lunr_docs = [
   "body": " Problems on the number of maps from one set to another   How many maps...    We have answers here, so let's confirm the results of the generalization from Article 1:     #    Expression  Result  Correct    1  4  1   1  YES    2  1  4   4  YES    3  0  4   1  YES    4  4  0   0  YES    5  0  0   \"it depends\"  \"mostly\"     The generalization seems to hold up, provided we define our exponential operator in such a way that . This is a common practice, but I've also seen situations where is left undefined instead. In this context, the answer of 1 to problem 5 makes more sense than than the alternative. In programming terms, it seems perfectly reasonable to think of \"no op\" as a \"function\" so there should be an analogous \"null map\" that maps from nothing to nothing.   "
 },
 {
+  "id": "sec-session3",
+  "level": "1",
+  "url": "sec-session3.html",
+  "type": "Section",
+  "number": "2.3",
+  "title": "Session 3",
+  "body": " Session 3  This week's reading basically confirmed my generalization from Article 1. I found it somewhat interesting how I instictively happened to use a \"vector norm\" notation, , for the size of domain and codomain while L&S goes through both \"number sign\", , and \"absolute value\", . It seems so natural to want a symbol for \"number of elements\".  For present, I suppose I'll follow the book's convention and save myself two extra characters. It does leave me wondering what kind of distance metrics might be useful for talking about the \"sameness\" of two maps.   Exercise 1   ...Two of the expressions make sense...    So the trick with the map composition is to evaluate them from \"right to left\". The expression for (a) of could be translated into a sequence of steps as follows:   Apply map  Apply map  Apply map  Apply map   Notice how the codomain of each step matches the domain of the following step. Our composite map follows a path from , so it's domain is the \"source\" and codomain is the \"destination\" . Alternatively written, .  Moving on to (b), something interesting happens when we attempt to list out the steps of :   Apply map  Apply map  Apply map   Notice how the codomain for step 2 of is not the same as the domain of in step 3. This map composition is not well defined because the map will not have a valid input to work with.  Having already identified the one that \"doesn't make sense\", let's move directly onto identifying the domain and codomain of the final composition (c) . Applied from right to left, this gives us:   As expected, the domains and codomains link up correctly at each step. This means that the domain of is (same as the domain of the first map applied, ) and the codomain is (same as the codomain of the last map applied, ).     Exercise 2   ...follow the arrows in the diagram with your finger...    Let's start by recreating the source diagram:   Recreation of diagram used in L&S Session 2 Exercise 2      For composition (a), the path would look like this:   Recreation of finger tracing steps for L&S Session 2 Exercise 2 Part (a)      For composition (b) we can only trace out the first two steps. The final map fails because the arrow is pointing the wrong direction.   Recreation of finger tracing steps for L&S Session 2 Exercise 2 Part (b)      Our final composition is interesting in that takes us through map twice.   Recreation of finger tracing steps for L&S Session 2 Exercise 2 Part (c)        "
+},
+{
+  "id": "example-14",
+  "level": "2",
+  "url": "sec-session3.html#example-14",
+  "type": "Example",
+  "number": "2.3.1",
+  "title": "Exercise 1.",
+  "body": " Exercise 1   ...Two of the expressions make sense...    So the trick with the map composition is to evaluate them from \"right to left\". The expression for (a) of could be translated into a sequence of steps as follows:   Apply map  Apply map  Apply map  Apply map   Notice how the codomain of each step matches the domain of the following step. Our composite map follows a path from , so it's domain is the \"source\" and codomain is the \"destination\" . Alternatively written, .  Moving on to (b), something interesting happens when we attempt to list out the steps of :   Apply map  Apply map  Apply map   Notice how the codomain for step 2 of is not the same as the domain of in step 3. This map composition is not well defined because the map will not have a valid input to work with.  Having already identified the one that \"doesn't make sense\", let's move directly onto identifying the domain and codomain of the final composition (c) . Applied from right to left, this gives us:   As expected, the domains and codomains link up correctly at each step. This means that the domain of is (same as the domain of the first map applied, ) and the codomain is (same as the codomain of the last map applied, ).   "
+},
+{
+  "id": "example-15",
+  "level": "2",
+  "url": "sec-session3.html#example-15",
+  "type": "Example",
+  "number": "2.3.2",
+  "title": "Exercise 2.",
+  "body": " Exercise 2   ...follow the arrows in the diagram with your finger...    Let's start by recreating the source diagram:   Recreation of diagram used in L&S Session 2 Exercise 2      For composition (a), the path would look like this:   Recreation of finger tracing steps for L&S Session 2 Exercise 2 Part (a)      For composition (b) we can only trace out the first two steps. The final map fails because the arrow is pointing the wrong direction.   Recreation of finger tracing steps for L&S Session 2 Exercise 2 Part (b)      Our final composition is interesting in that takes us through map twice.   Recreation of finger tracing steps for L&S Session 2 Exercise 2 Part (c)       "
+},
+{
   "id": "colophon-2",
   "level": "1",
   "url": "colophon-2.html",
