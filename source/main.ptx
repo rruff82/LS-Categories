@@ -1073,7 +1073,7 @@ extra level of assurance that these functions will behave as expected.
               Let's start by recreating the source diagram:
             </p>
               <figure xml:id="fig-session3-ex2-1">
-              <caption>Recreation of diagram used in L&amp;S Session 2 Exercise 2</caption>
+              <caption>Recreation of diagram used in L&amp;S Session 3 Exercise 2</caption>
               <image width="20%" xml:id="img-session3-ex2-1"> 
             <latex-image>
 \begin{tikzpicture}[scale=0.5]
@@ -1098,7 +1098,7 @@ extra level of assurance that these functions will behave as expected.
               For composition (a), the path would look like this:
             </p>
             <figure xml:id="fig-session3-ex2-2">
-              <caption>Recreation of finger tracing steps for L&amp;S Session 2 Exercise 2 Part (a)</caption>
+              <caption>Recreation of finger tracing steps for L&amp;S Session 3 Exercise 2 Part (a)</caption>
               <image width="80%" xml:id="img-session3-ex2-2"> 
             <latex-image>
 \begin{tikzpicture}[scale=.5]
@@ -1154,7 +1154,7 @@ extra level of assurance that these functions will behave as expected.
               For composition (b) we can only trace out the first two steps. The final map fails because the arrow is pointing the wrong direction.
             </p>
             <figure xml:id="fig-session3-ex2-3">
-              <caption>Recreation of finger tracing steps for L&amp;S Session 2 Exercise 2 Part (b)</caption>
+              <caption>Recreation of finger tracing steps for L&amp;S Session 3 Exercise 2 Part (b)</caption>
               <image width="80%" xml:id="img-session3-ex2-3"> 
             <latex-image>
 \begin{tikzpicture}[scale=.5]
@@ -1199,7 +1199,7 @@ extra level of assurance that these functions will behave as expected.
             </p>
 
             <figure xml:id="fig-session3-ex2-4">
-              <caption>Recreation of finger tracing steps for L&amp;S Session 2 Exercise 2 Part (c)</caption>
+              <caption>Recreation of finger tracing steps for L&amp;S Session 3 Exercise 2 Part (c)</caption>
               <image width="80%" xml:id="img-session3-ex2-4"> 
             <latex-image>
 \begin{tikzpicture}[scale=.5]
