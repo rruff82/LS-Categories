@@ -1270,7 +1270,158 @@ extra level of assurance that these functions will behave as expected.
         </example>
       </section>
     </chapter>  
-    
+    <chapter xml:id="part2">
+      <title>Part 2: The Algebra of Composition</title>
+  
+      <section xml:id="article2">
+        <title>Article 2: Isomorphisms</title>
+        <p>
+          Time to undo things.
+        </p>
+        <example>
+          <title>Exercise 1</title>
+          <statement>
+            <p>
+              Show that...is an isomorphism.
+            </p>
+          </statement>
+          <solution>
+            <p>
+              For the reflexive property (R), we can note that <m>A \xrightarrow{1_A} A</m> acts as it's own
+              inverse.  Since it leaves every object in place, applying it a second time would also do nothing 
+              so <m>1_A \circ 1_A = 1_A</m>.  If we define <m>f = 1_A</m> and <m>g = 1_A</m>, then the statements
+              <m>f \circ g = 1_A</m> and <m>g \circ f = 1_A</m> hold true and <m>1_A</m> is an isomorphism.
+            </p>
+            <p>
+              For the symmetric property (S), we're given that <m>A \xrightarrow{f} B</m> is an isomorphism with 
+              inverse <m>B \xrightarrow{g} A</m>.  By the definition of inverse, we know <m>g \circ f = 1_A</m> and 
+              <m>f \circ g = 1_B</m>.  It therefore follows that <m>B \xrightarrow{g} A</m> is the inverse of 
+              <m>A \xrightarrow{f} B</m>.
+            </p>
+            <p>
+              For the transitive property, we're given that <m>A \xrightarrow{f} B</m> and <m>B \xrightarrow{k} C</m>
+              are both isomorphisms.  Let <m>B \xrightarrow{f^{-1}} A</m> be the inverse of <m>f</m> such that 
+              <m>f^{-1} \circ f = 1_A</m> and <m>f \circ f^{-1} = 1_B</m>, and let <m>C \xrightarrow{k^{-1}} B</m> be the inverse of <m>k</m> such that 
+              <m>k^{-1} \circ k = 1_B</m> and <m>k \circ k^{-1} = 1_C</m>.  Consider the composition <m>C \xrightarrow{f^{-1} \circ k^{-1}} A</m>:
+            </p>
+            <ol>
+              <li>
+                Consider <m>(f^{-1} \circ k^{-1}) \circ (k \circ f)</m>.  By the associative property, we have
+                <m>(f^{-1} \circ k^{-1}) \circ (k \circ f) = f^{-1} \circ (k^{-1} \circ k) \circ f</m>. Since <m>k^{-1} \circ k=1_B</m>, it follows that <m>f^{-1} \circ (k^{-1} \circ k) \circ f = f^{-1} \circ 1_B \circ f = f^{-1} \circ f = 1_A</m>.
+              </li>  
+              <li>
+                Consider <m>(k \circ f) \circ (f^{-1} \circ k^{-1})</m>.  By the associative property, we have
+                <m>(k \circ f) \circ (f^{-1} \circ k^{-1}) = k \circ (f \circ f^{-1}) \circ k^{-1} </m>.  Since 
+                <m>f \circ f^{-1} = 1_B</m>, it follows that <m>k \circ (f \circ f^{-1}) \circ k^{-1} = k \circ 1_B \circ k^{-1} = k \circ k^{-1} = 1_C</m>
+              </li>
+              <li>
+                Given <m>(f^{-1} \circ k^{-1}) \circ (k \circ f) = 1_A</m> and <m>(k \circ f) \circ (f^{-1} \circ k^{-1}) = 1_C</m>, we can then
+                conclude that <m>A \xrightarrow{k \circ f} C</m> is an isomorphism with an inverse of <m>C \xrightarrow{f^{-1} \circ k^{-1}} A</m>.
+              </li>
+            </ol>
+          </solution>       
+        </example>
+        <example>
+          <title>Exercise 2</title>
+          <statement>
+            <p>
+              Suppose <m>B \xrightarrow{g} A</m> and <m>B \xrightarrow{k} A</m> are <em>both</em> inverses...
+            </p>
+          </statement>
+          <solution>
+            <p>
+              By definition, <m>B \xrightarrow{g} A</m> being an inverse implies <m>g \circ f = 1_A</m> and 
+              <m>f \circ g = 1_B</m>.  Likewise, <m>B \xrightarrow{k} A</m> being an inverse implies <m>k \circ f = 1_A</m> and 
+              <m>f \circ k = 1_B</m>.
+            </p>
+            <p>
+              Suppose that <m>g \neq k</m>. There would need to exist some <m>y \in B</m> with <m>g(y) \neq k(y)</m>.  Denote these
+              values <m>x_1 = g(y)</m> and <m>x_2 = k(y)</m> for some <m>x_1,x_2 \in A</m> with <m>x_1 \neq x_2</m>.  
+            </p>
+            <p>
+              Consider the point: <m>(k \circ f)(x_1)</m>. Since <m>k \circ f = 1_A</m>, we must have 
+              <m>(k \circ f)(x_1) = 1_A(x_1) = x_1</m>.  However, since <m>x_1 = g(y)</m> we can also
+              write this as <m>(k \circ f)(x_1)=(k \circ f)(g(y))</m>.  By the associative property,
+              <m>(k \circ f)(g(y))=k(f(g(y))) = k((f \circ g)(y)) = k(1_B(y)) = k(y) = x_2</m>.  Having
+              shown that <m>(k \circ f)(x_1)=x_1</m> and <m>(k \circ f)(x_1)=x_2</m>, this contradicts
+              our earlier assumption that <m>x_1 \neq x_2</m> and completes our proof that <m>g=k</m> by
+              contradiction.
+            </p>
+          </solution>
+        </example>
+        <example>
+          <title>Exercise 3</title>
+          <statement>
+            <p>
+              If <m>f</m> has an inverse, then <m>f</m> satistfies the two cancellation laws...
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Part (a) is given in the text, so lets focus on (b).  If <m>h \circ f = k \circ f</m>, it follows
+              that <m>(h \circ f) \circ f^{-1} = (k \circ f) \circ f^{-1}</m>.
+            </p>
+            <p>
+              By the associative property, <m>(h \circ f) \circ f^{-1} = h \circ (f \circ f^{-1})</m> and <m>f \circ f^{-1} = 1_B</m>.  Thus,
+              <m>(h \circ f) \circ f^{-1} = h \circ 1_B = h</m>.  By similar reasoning, <m>(k \circ f) \circ f^{-1} = k \circ (f \circ f^{-1}) = k \circ 1_B = k</m>.  
+            </p>
+            <p>
+              It follows that <m>(h \circ f) \circ f^{-1} = (k \circ f) \circ f^{-1}</m> if and only if <m>h = k</m> which completes our proof.
+            </p>
+          </solution>
+        </example>
+        <example>
+          <title>Exercise 4</title>
+          <statement>
+            <p>
+              For each of the five maps above, decide whether it is invertable...
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Let's break it down one map at time.
+            </p>
+            <ol>
+              <li>
+                <m>\mathbb{R} \xrightarrow{f} \mathbb{R}</m> with <m>f(x)=3x+7</m> has a well-defined inverse of <m>f^{-1}(x) = (x-7)/3</m>. 
+              </li>
+              <li>
+                <m>\mathbb{R}_{\geq 0} \xrightarrow{g} \mathbb{R}_{\geq 0}</m> with <m>g(x)=x^2</m> has a well-defined inverse of
+                 <m>g^{-1}(x) = \sqrt{x}</m>. 
+              </li>
+              <li>
+                <m>\mathbb{R} \xrightarrow{h} \mathbb{R}</m> with <m>h(x)=x^2</m> does <em>not</em> have a well-defined inverse.  We 
+                can't ever recover the negative values after squaring them.
+              </li>
+              <li>
+                <m>\mathbb{R} \xrightarrow{k} \mathbb{R}_{\geq 0}</m> with <m>k(x)=x^2</m> also does <em>not</em> have a well-defined 
+                inverse.  Limiting the codomain to the produced outputs doesn't change the fact that we're losing sign information through the map.
+              </li>
+              <li>
+                <m>\mathbb{R}_{\geq 0} \xrightarrow{lk} \mathbb{R}_{\geq 0}</m> with <m>l(x)=\frac{1}{x+1}</m> feels like a trick.  For most
+                intents and purposes, we <em>should</em> have <m>g^{-1}=\frac{1}{x}-1</m> but the domain and codomain don't look right here.  
+                Specifically, we have a problem where <m>g^{-1}(0)</m> is undefined and another problem where <m>g^{-1} &lt; 0</m> 
+                for <m>x &gt; 1</m>.  
+                Based on these observations, I'd have to conclude that <m>k</m> is not invertable.
+              </li>
+            </ol>
+          </solution>
+        </example>
+        <example>
+          <title>Exercise 5</title>
+          <statement>
+            <p>
+              ...how many maps <m>f</m> are there with <m>g \circ f = 1_{\set{0,1}}</m>?...
+            </p>
+          </statement>
+          <solution>
+            <p>
+              
+            </p>
+          </solution>
+        </example>  
+      </section>
+    </chapter>
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
 
