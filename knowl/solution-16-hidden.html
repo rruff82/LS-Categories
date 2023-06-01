@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para">For the reflexive property (R), we can note that <span class="process-math">\(A \xrightarrow{1_A} A\)</span> acts as it's own inverse.  Since it leaves every object in place, applying it a second time would also do nothing so <span class="process-math">\(1_A \circ 1_A = 1_A\text{.}\)</span>  If we define <span class="process-math">\(f = 1_A\)</span> and <span class="process-math">\(g = 1_A\text{,}\)</span> then the statements <span class="process-math">\(f \circ g = 1_A\)</span> and <span class="process-math">\(g \circ f = 1_A\)</span> hold true and <span class="process-math">\(1_A\)</span> is an isomorphism.</div> <div class="para">For the symmetric property (S), we're given that <span class="process-math">\(A \xrightarrow{f} B\)</span> is an isomorphism with inverse <span class="process-math">\(B \xrightarrow{g} A\text{.}\)</span>  By the definition of inverse, we know <span class="process-math">\(g \circ f = 1_A\)</span> and <span class="process-math">\(f \circ g = 1_B\text{.}\)</span>  These are precisely the two statements that define <span class="process-math">\(B \xrightarrow{g} A\)</span> as the inverse of <span class="process-math">\(A \xrightarrow{f} B\text{,}\)</span> just with the order reversed.  By including both possible composition orders in the definition, it guarantees that <span class="process-math">\(f\)</span> is the inverse of <span class="process-math">\(g\)</span> if and only if <span class="process-math">\(g\)</span> is the inverse of <span class="process-math">\(f\text{.}\)</span>
+</div> <div class="para">For the transitive property, we're given that <span class="process-math">\(A \xrightarrow{f} B\)</span> and <span class="process-math">\(B \xrightarrow{k} C\)</span> are both isomorphisms.  Let <span class="process-math">\(B \xrightarrow{f^{-1}} A\)</span> be the inverse of <span class="process-math">\(f\)</span> such that <span class="process-math">\(f^{-1} \circ f = 1_A\)</span> and <span class="process-math">\(f \circ f^{-1} = 1_B\text{,}\)</span> and let <span class="process-math">\(C \xrightarrow{k^{-1}} B\)</span> be the inverse of <span class="process-math">\(k\)</span> such that <span class="process-math">\(k^{-1} \circ k = 1_B\)</span> and <span class="process-math">\(k \circ k^{-1} = 1_C\text{.}\)</span>  Consider the composition <span class="process-math">\(C \xrightarrow{f^{-1} \circ k^{-1}} A\text{:}\)</span>
+</div> <ol class="decimal">
+<li><div class="para">Consider <span class="process-math">\((f^{-1} \circ k^{-1}) \circ (k \circ f)\text{.}\)</span>  By the associative property, we have <span class="process-math">\((f^{-1} \circ k^{-1}) \circ (k \circ f) = f^{-1} \circ (k^{-1} \circ k) \circ f\text{.}\)</span> Since <span class="process-math">\(k^{-1} \circ k=1_B\text{,}\)</span> it follows that <span class="process-math">\(f^{-1} \circ (k^{-1} \circ k) \circ f = f^{-1} \circ 1_B \circ f = f^{-1} \circ f = 1_A\text{.}\)</span>
+</div></li>
+<li><div class="para">Consider <span class="process-math">\((k \circ f) \circ (f^{-1} \circ k^{-1})\text{.}\)</span>  By the associative property, we have <span class="process-math">\((k \circ f) \circ (f^{-1} \circ k^{-1}) = k \circ (f \circ f^{-1}) \circ k^{-1} \text{.}\)</span>  Since <span class="process-math">\(f \circ f^{-1} = 1_B\text{,}\)</span> it follows that <span class="process-math">\(k \circ (f \circ f^{-1}) \circ k^{-1} = k \circ 1_B \circ k^{-1} = k \circ k^{-1} = 1_C\)</span>
+</div></li>
+<li><div class="para">Given <span class="process-math">\((f^{-1} \circ k^{-1}) \circ (k \circ f) = 1_A\)</span> and <span class="process-math">\((k \circ f) \circ (f^{-1} \circ k^{-1}) = 1_C\text{,}\)</span> we can then conclude that <span class="process-math">\(A \xrightarrow{k \circ f} C\)</span> is an isomorphism with an inverse of <span class="process-math">\(C \xrightarrow{f^{-1} \circ k^{-1}} A\text{.}\)</span>
+</div></li>
+</ol>
+</div></body>
+</html>
