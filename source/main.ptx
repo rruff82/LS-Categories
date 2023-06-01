@@ -1420,11 +1420,10 @@ extra level of assurance that these functions will behave as expected.
                 inverse.  Limiting the codomain to the produced outputs doesn't change the fact that we're losing sign information through the map.
               </li>
               <li>
-                <m>\mathbb{R}_{\geq 0} \xrightarrow{l} \mathbb{R}_{\geq 0}</m> with <m>l(x)=\frac{1}{x+1}</m> feels like a trick.  For most
-                intents and purposes, we <em>should</em> have <m>g^{-1}(x)=\frac{1}{x}-1</m> but the domain and codomain don't look right here.  
-                Specifically, we have a problem where <m>g^{-1}(0)</m> is undefined and another problem where <m>g^{-1} &lt; 0</m> 
-                for <m>x &gt; 1</m>.  
-                Based on these observations, I'd have to conclude that <m>k</m> is not invertable.
+                <m>\mathbb{R}_{\geq 0} \xrightarrow{l} \mathbb{R}_{\geq 0}</m> with <m>l(x)=\frac{1}{x+1}</m> feels like a trick question.  
+                For most  intents and purposes, we <em>should</em> have <m>l^{-1}(x)=\frac{1}{x}-1</m> but the domain and codomain don't 
+                look right here.  Specifically, we have a problem where <m>l^{-1}(0)</m> is undefined and another problem where 
+                <m>l^{-1}(x) &lt; 0</m> for <m>x &gt; 1</m>. Based on these observations, I'd have to conclude that <m>l</m> is not invertable.
               </li>
             </ol>
             <p>
@@ -1554,7 +1553,12 @@ extra level of assurance that these functions will behave as expected.
               both be <m>\mathbb{R}_{\geq 0}</m> disqualifies it from being considered an inverse to 
               the map <m>\mathbb{R}_{\geq 0} \xrightarrow{l} \mathbb{R}_{\geq 0}</m>. 
             </p>
-
+            <p>
+              Perhaps what I should really be doing is looking at the compositions.  We can express
+              <m>l \circ l^{-1}</m> as <m>\frac{1}{(\frac{1}{x}-1)+1}</m> or we can express <m>l^{-1} \circ l</m> 
+              as <m>\frac{1}{(\frac{1}{x+1})}-1</m>.  These expressions both simplify to just <m>x</m>, but 
+              the holes left in the map when we divide by zero at <m>x=0</m> or <m>x=-1</m> don't just disappear.
+            </p>
           </solution>
         </example>
         <p>
