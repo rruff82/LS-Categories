@@ -1276,7 +1276,7 @@ extra level of assurance that these functions will behave as expected.
       <title>Part 2: The Algebra of Composition</title>
   
       <section xml:id="article2">
-        <title>Article 2: Isomorphisms</title>
+        <title>Article 2: Isomorphisms, Part 1</title>
         <p>
           Time to undo things!  I think I'm coming into this section with a decent grasp of what an
           isomorphism is already, but this idea that there are two inverses instead of just one still
@@ -1566,8 +1566,14 @@ extra level of assurance that these functions will behave as expected.
           need to remind myself that learing this stuff isn't a race. I'm going to use the subdivisions in Article II to break 
           this up into smaller sections so I can give it more time to sink in.  
         </p>
-
-
+      </section>
+      <section xml:id="article2-p2">
+        <title>Article 2: Isomorphisms, Part 2</title>
+        <p>
+          Choosing to break this article into subsections means that I can take my time with the <em>only</em> excercise.  
+          With that in mind, I'm going to use the opportunity to work on improving my <latex/> skills by attempting to 
+          enumerate these solutions instead of just counting them.  Sounds like fun, huh?
+        </p>
         <example>
           <title>Exercise 5</title>
           <statement>
@@ -1577,8 +1583,90 @@ extra level of assurance that these functions will behave as expected.
           </statement>
           <solution>
             <p>
-              To be continued...
+              Let's begin by reproducing the internal diagram of <m>g</m>:
             </p>
+            <figure xml:id="fig-article2-ex5-1">
+              <caption>Recreation of diagram from Article II, Exercise 5</caption>
+              <image width="80%" xml:id="img-article2-ex5-1"> 
+              <latex-image>
+\begin{tikzpicture}[scale=1]
+
+
+\node (g) at (2.5,0) {$g$};
+
+\node (b) at (-2,2) {$b$};
+\node (p) at (-1,2) {$p$};
+\node (q) at (0,2) {$q$};
+\node (r) at (1,2) {$r$};
+\node (s) at (2,2) {$s$};
+\draw (0,2) circle [x radius=3, y radius=1.25];
+
+\node (0) at (-1.5,-2) {$0$};
+\node (1) at (1.5,-2) {$1$};
+\draw (0,-2) circle [x radius=3, y radius=1.25];
+
+\foreach \src/\dest in {b/0,p/0,q/0,r/1,s/1}
+  \path[-{Stealth},font=\scriptsize,>=angle 90] 
+    (\src) edge (\dest);
+
+\end{tikzpicture}
+              </latex-image>
+              </image>
+            </figure>
+            <p>
+              Since I want <m>g \circ f = 1_{\set{0,1}}</m>, I know that <m>f</m> needs to send each element of <m>\set{0,1}</m> 
+              to something that will return to that value after applying <m>g</m>.  It seems reasonable to assume that the "possible
+              arrows" for <m>f</m> must come from the reversed arrows of <m>g</m> as shown here:
+            </p>
+            <figure xml:id="fig-article2-ex5-2">
+              <caption>Diagram from Article II, Exercise 5 but with reversed arrows</caption>
+              <image width="80%" xml:id="img-article2-ex5-2"> 
+              <latex-image>
+\begin{tikzpicture}[scale=1]
+
+\node (b) at (-2,2) {$b$};
+\node (p) at (-1,2) {$p$};
+\node (q) at (0,2) {$q$};
+\node (r) at (1,2) {$r$};
+\node (s) at (2,2) {$s$};
+\draw (0,2) circle [x radius=3, y radius=1.25];
+
+\node (0) at (-1.5,-2) {$0$};
+\node (1) at (1.5,-2) {$1$};
+\draw (0,-2) circle [x radius=3, y radius=1.25];
+
+\foreach \dest/\src in {b/0,p/0,q/0,r/1,s/1}
+  \path[-{Stealth},dashed,font=\scriptsize,>=angle 90] 
+    (\src) edge (\dest);
+
+\end{tikzpicture}
+              </latex-image>
+              </image>
+            </figure>
+            <p>
+              Since there are three options for where <m>f</m> sends <m>0</m>, two options for where it sends <m>1</m>, 
+              and these choices are independent of each other, the total number of possibilities is the product:
+              <m>3 \times 2 = 6</m>.  This lends them nicely to a 3x2 grid where the row is the choice of where to
+              send <m>0</m> and column is the choice of where to send <m>1</m>.
+            </p>
+            <figure xml:id="fig-article2-ex5-3">
+              <caption>Grid of potential solutions for <m>f</m> in Article II, Exercise 5</caption>
+              <image width="80%" xml:id="img-article2-ex5-3"> 
+              <latex-image>
+\begin{tikzpicture}[scale=1]
+
+ \foreach \x in {0,1}
+    \foreach \y in {0,1,2}
+      {
+        \draw (\x*10,\y*10) circle [x radius=3, y radius=1.25];
+      }
+\end{tikzpicture}
+
+              </latex-image>
+              </image>
+            </figure>
+
+
           </solution>
         </example>  
       </section>
