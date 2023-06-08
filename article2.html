@@ -8,7 +8,7 @@
 <html lang="en-US">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Article 2: Isomorphisms</title>
+<title>Article 2: Isomorphisms, Part 1</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -177,7 +177,7 @@ window.MathJax = {
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="part2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="part2.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="part2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="part2.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="article2-p2.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
@@ -206,12 +206,15 @@ window.MathJax = {
 </li>
 <li>
 <div class="toc-item"><a href="part2.html" class="internal"><span class="codenumber">3</span> <span class="title">Part 2: The Algebra of Composition</span></a></div>
-<ul class="structural"><li class="active"><div class="toc-item"><a href="article2.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Article 2: Isomorphisms</span></a></div></li></ul>
+<ul class="structural">
+<li class="active"><div class="toc-item"><a href="article2.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Article 2: Isomorphisms, Part 1</span></a></div></li>
+<li><div class="toc-item"><a href="article2-p2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Article 2: Isomorphisms, Part 2</span></a></div></li>
+</ul>
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="article2"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">3.1</span> <span class="title">Article 2: Isomorphisms</span>
+<span class="type">Section</span> <span class="codenumber">3.1</span> <span class="title">Article 2: Isomorphisms, Part 1</span>
 </h2>
 <div class="para" id="p-77">Time to undo things!  I think I'm coming into this section with a decent grasp of what an isomorphism is already, but this idea that there are two inverses instead of just one still feels a little weird to me.  I find myself reminding myself that this something I already do, but now I'm just being more specific with my language.</div>
 <div class="para" id="p-78">If teaching has taught me anything, it's that people sometimes have very different ideas about what is meant by seemingly simple phrases like "the opposite of two".  It's often too easy to fall into a trap in assuming that since I'm thinking of two as a position on the number line and the opposite of that is defined relative to the origin, but "negative two" is really only one possible answer.  If the question "what's the oppositve of two?" had beem asked in the kitchen instead of a math class, there's a case to be made that "one half" is actually the more appropriate response. The opposite of doubling a recipe is halving one.  There might even be situations where it may be helpful to think of "opposite" as both the reciprocal and negation, as you would with slopes of perpendicular lines.</div>
@@ -280,16 +283,9 @@ window.MathJax = {
 </div> <div class="para" id="p-101">Perhaps what I should really be doing is looking at the compositions.  We can express <span class="process-math">\(l \circ l^{-1}\)</span> as <span class="process-math">\(\frac{1}{(\frac{1}{x}-1)+1}\)</span> or we can express <span class="process-math">\(l^{-1} \circ l\)</span> as <span class="process-math">\(\frac{1}{(\frac{1}{x+1})}-1\text{.}\)</span>  These expressions both simplify to just <span class="process-math">\(x\text{,}\)</span> but the holes left in the map when we divide by zero at <span class="process-math">\(x=0\)</span> or <span class="process-math">\(x=-1\)</span> don't just disappear.</div>
 </div></div>
 </div></article></div>
-<div class="para" id="p-102">While I'm in the process of undo-ing things, I need to work on undo-ing my tendancy to rush things like this.  I need to remind myself that learing this stuff isn't a race. I'm going to use the subdivisions in Article II to break this up into smaller sections so I can give it more time to sink in.</div>
-<article class="example example-like" id="example-20"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-20"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 5.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-20"><article class="example example-like"><div class="para" id="p-103">...how many maps <span class="process-math">\(f\)</span> are there with <span class="process-math">\(g \circ f = 1_{\set{0,1}}\text{?...}\)</span>
-</div>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-20" id="solution-20"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-20"><div class="solution solution-like"><div class="para" id="p-104">To be continued...</div></div></div>
-</div></article></div></section></div>
+<div class="para" id="p-102">While I'm in the process of undo-ing things, I need to work on undo-ing my tendancy to rush things like this.  I need to remind myself that learing this stuff isn't a race. I'm going to use the subdivisions in Article II to break this up into smaller sections so I can give it more time to sink in.</div></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="part2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="part2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="article2-p2.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer">
