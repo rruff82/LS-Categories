@@ -8,7 +8,7 @@
     </macros>
     <latex-image-preamble>
 \usepackage{pgfplots,amssymb,amsmath,pgfplots}
-\usetikzlibrary{matrix,arrows,decorations.pathmorphing,cd}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing,cd,calc}
 
 \pgfplotsset{compat = newest}
     </latex-image-preamble>
@@ -1572,7 +1572,7 @@ extra level of assurance that these functions will behave as expected.
         <p>
           Choosing to break this article into subsections means that I can take my time with the <em>only</em> excercise.  
           With that in mind, I'm going to use the opportunity to work on improving my <latex/> skills by attempting to 
-          enumerate these solutions instead of just counting them.  Sounds like fun, huh?
+          enumerate the diagrams of these solutions instead of just counting them.  Sounds like fun, huh?
         </p>
         <example>
           <title>Exercise 5</title>
@@ -1646,28 +1646,158 @@ extra level of assurance that these functions will behave as expected.
             <p>
               Since there are three options for where <m>f</m> sends <m>0</m>, two options for where it sends <m>1</m>, 
               and these choices are independent of each other, the total number of possibilities is the product:
-              <m>3 \times 2 = 6</m>.  This lends them nicely to a 3x2 grid where the row is the choice of where to
-              send <m>0</m> and column is the choice of where to send <m>1</m>.
+              <m>3 \times 2 = 6</m>.  This lends them nicely to a 3x2 grid where the column is the choice of where to
+              send <m>0</m> and row is the choice of where to send <m>1</m>.
             </p>
             <figure xml:id="fig-article2-ex5-3">
               <caption>Grid of potential solutions for <m>f</m> in Article II, Exercise 5</caption>
               <image width="80%" xml:id="img-article2-ex5-3"> 
               <latex-image>
-\begin{tikzpicture}[scale=1]
+\begin{tikzpicture}[scale=.5]
+\foreach \x in {0,1,2}
+  \foreach \y in {0,1}
+{
 
- \foreach \x in {0,1}
-    \foreach \y in {0,1,2}
-      {
-        \draw (\x*10,\y*10) circle [x radius=3, y radius=1.25];
-      }
+\node (g) at (10*\x,-10*\y) {};
+\node (q) at ($(g) + (0,2)$) {$q$};
+\node (p) at ($(q) - (1,0)$) {$p$};
+\node (b) at ($(q) - (2,0)$) {$b$};
+\node (r) at ($(q) + (1,0)$) {$r$};
+\node (s) at ($(q) + (2,0)$) {$s$};
+\draw (q) circle [x radius=3, y radius=1.25];
+
+\node (B) at ($(g) - (0,2)$) {};
+\node (b0) at ($(B) - (1.5,0)$) {$0$};
+\node (b1) at ($(B) + (1.5,0)$) {$1$};
+\draw (B) circle [x radius=3, y radius=1.25];
+
+\path[-{Stealth},font=\scriptsize,>=angle 90] 
+  (b0) edge ($(b) + (\x,-0.2)$)
+  (b1) edge ($(r) + (\y,-0.2)$);
+}
+
 \end{tikzpicture}
 
               </latex-image>
               </image>
             </figure>
+            <p>
+                Now, that we've drawn all possible choices for <m>f</m>, let's choose one and see how many
+                options we might have for <m>g</m> with the same property <m>g \circ f = 1_{\set{0,1}}</m>.
+                I'll start by taking a single one:
+            </p>
+            <figure xml:id="fig-article2-ex5-4">
+              <caption>One possible solution to <m>f</m> from Article II, Exercise 5</caption>
+              <image width="80%" xml:id="img-article2-ex5-4"> 
+              <latex-image>
+\begin{tikzpicture}[scale=1]
+
+\node (b) at (-2,2) {$b$};
+\node (p) at (-1,2) {$p$};
+\node (q) at (0,2) {$q$};
+\node (r) at (1,2) {$r$};
+\node (s) at (2,2) {$s$};
+\draw (0,2) circle [x radius=3, y radius=1.25];
+
+\node (0) at (-1.5,-2) {$0$};
+\node (1) at (1.5,-2) {$1$};
+\draw (0,-2) circle [x radius=3, y radius=1.25];
+
+\path[-{Stealth},font=\scriptsize,>=angle 90] 
+  (0) edge (b)
+  (1) edge (r);
+
+\end{tikzpicture}
+              </latex-image>
+              </image>
+            </figure>
+            <p>
+              Like before, I know my map <m>g</m> must contain the reverse of the arrows from my
+              chosen map <m>f</m>, but fixing those arrows still leaves 3 points that are unaccounted
+              for in the map.  For each of those 3 possible sources, there are two possible destinations.
+            </p>
+            <figure xml:id="fig-article2-ex5-5">
+              <caption>Possible choices for <m>g</m> given a choice of <m>f</m></caption>
+              <image width="80%" xml:id="img-article2-ex5-5"> 
+              <latex-image>
+\begin{tikzpicture}[scale=1]
+
+\node (b) at (-2,2) {$b$};
+\node (p) at (-1,2) {$p$};
+\node (q) at (0,2) {$q$};
+\node (r) at (1,2) {$r$};
+\node (s) at (2,2) {$s$};
+\draw (0,2) circle [x radius=3, y radius=1.25];
+
+\node (0) at (-1.5,-2) {$0$};
+\node (1) at (1.5,-2) {$1$};
+\draw (0,-2) circle [x radius=3, y radius=1.25];
+
+\path[-{Stealth},font=\scriptsize,>=angle 90] 
+    (b) edge (0)
+    (r) edge (1);
+
+\foreach \src in {p,q,s}
+  \path[-{Stealth},dashed,font=\scriptsize,>=angle 90] 
+    (\src) edge (0)
+    (\src) edge (1);
+
+\end{tikzpicture}
+              </latex-image>
+              </image>
+            </figure>
+            <p>
+              Since those choices are independent of each other, that means the total number of combinations
+              is <m>2 \times 2 \times 2 = 2^3 = 8</m>.
+            </p>
+
+            <figure xml:id="fig-article2-ex5-6">
+              <caption>Grid of potential maps for <m>g</m> given my chosen <m>f</m></caption>
+              <image width="80%" xml:id="img-article2-ex5-6"> 
+              <latex-image>
+\begin{tikzpicture}[scale=.5]
+\foreach \pDest in {0,1}
+  \foreach \qDest in {0,1}
+    \foreach \sDest in {0,1}
+{
+\pgfmathsetmacro{\i}{\pDest+2*\qDest+4*\sDest}
+
+\pgfmathsetmacro{\x}{mod(\i,3)}
+\pgfmathsetmacro{\y}{(\i-\x)/3}
 
 
+\node (g) at (10*\x,-10*\y) {};
+\node (q) at ($(g) + (0,2)$) {$q$};
+\node (p) at ($(q) - (1,0)$) {$p$};
+\node (b) at ($(q) - (2,0)$) {$b$};
+\node (r) at ($(q) + (1,0)$) {$r$};
+\node (s) at ($(q) + (2,0)$) {$s$};
+\draw (q) circle [x radius=3, y radius=1.25];
+
+\node (B) at ($(g) - (0,2)$) {};
+\node (b0) at ($(B) - (1.5,0)$) {$0$};
+\node (b1) at ($(B) + (1.5,0)$) {$1$};
+\draw (B) circle [x radius=3, y radius=1.25];
+
+\path[-{Stealth},font=\scriptsize,>=angle 90] 
+    (b) edge (b0)
+    (r) edge (b1)
+    (p) edge ($(b0.north) + (3*\pDest,0)$)
+    (q) edge ($(b0.north) + (3*\qDest,0)$)
+    (s) edge ($(b0.north) + (3*\sDest,0)$);
+
+
+}
+\end{tikzpicture}
+
+              </latex-image>
+              </image>
+            </figure>
+            <p>
+              With that, we've completed the exercise (and then some).
+            </p>
           </solution>
+     
         </example>  
       </section>
     </chapter>
