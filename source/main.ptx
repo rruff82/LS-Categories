@@ -1800,6 +1800,165 @@ extra level of assurance that these functions will behave as expected.
      
         </example>  
       </section>
+
+      <section xml:id="article2-p3">
+        <title>Article 2: Isomorphisms, Part 3</title>
+        <p>
+          As I wrap up Article 2, I keep thinking back to the last expression in Exercise 4 and wonder
+          if there's a better way of articulating what I saw.  I'm starting to see more of the connection with the
+          injective (one-to-one) and surjective (onto) properties I typically associate with isomorphisms are  
+          effectively guaranteed by the definitions of retraction and section.   
+        </p>
+        <p>
+          I also find the symbol choice of <m>T</m> in this part of Article 2 somewhat curious.  The programmer 
+          in me wants to associate <m>T</m> with a "type" or "template", while the mathematician in me is 
+          quietly screaming "TOPOLOGY!".  I suppose I'll have to keep going to find out who's right-er.
+        </p>
+        <example>
+          <title>Exercise 6</title>
+          <statement>
+            <p>
+              If the map <m>A \xrightarrow{f} B</m> has a retraction, ...
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Essentially the argument is the same as the preceeding proof with minor substitutions.
+              We're given that <m>A \xrightarrow{f} B</m> has a retraction, so we have some <m>r</m>
+              with the property <m>r \circ f = 1_A</m>.
+            </p>
+            <figure xml:id="fig-article2-ex6-1">
+              <caption>Possible compositions given <m>f</m> has a retraction.</caption>
+              <image width="80%" xml:id="img-article2-ex6-1"> 
+              <latex-image>
+\begin{tikzpicture}[scale=1.75]
+
+\node (A) at (1,1.75) {$A$};
+\node (B) at (2,0) {$B$};
+\node (T) at (0,0) {$T$};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90] 
+    (A) edge[bend left] node[above right]{$f$} (B)
+    (B) edge[bend left] node[below left]{$r$} (A)
+    (A) edge node[above left]{$g$} (T)
+    (B) edge[dashed] node[below]{$t?$} (T);
+\end{tikzpicture}
+
+              </latex-image>
+              </image>
+            </figure>
+           <p>
+            This external diagram implies that we can define a map <m>B \xrightarrow{t} T</m> by
+            using the composition <m>t = g \circ r</m>.  All that remains is to verify that it
+            satistfies the required equation:
+          </p>
+          <me>
+            t \circ f = g \circ r \circ f = g \circ 1_A = g
+          </me>
+          <p>
+            And that completes the proof.  
+          </p>
+          </solution>
+
+        </example>
+        <example>
+         <title>Exercise 7</title>
+          <statement>
+            <p>
+              Suppose the map <m>A \xrightarrow{f} B</m> has a section, ...
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Let's get our bearings straight with a diagram.  We know <m>f</m> has 
+              a section <m>s</m> satisfying <m>f \circ s = 1_B</m>. We also have
+              a set <m>T</m> with a pair of maps <m>B \xrightarrow{t_1} T</m> and
+              <m>B \xrightarrow{t_2} T</m>.
+            </p>  
+            <figure xml:id="fig-article2-ex7-1">
+              <caption>External diagram of given information in Article 2 Exercise 7.</caption>
+              <image width="80%" xml:id="img-article2-ex7-1"> 
+              <latex-image>
+\begin{tikzpicture}[scale=1.75]
+
+\node (A) at (1,1.75) {$A$};
+\node (B) at (2,0) {$B$};
+\node (T) at (0,0) {$T$};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90] 
+    (A) edge[bend left] node[above right]{$f$} (B.north)
+    (B.north) edge[bend left] node[below left]{$s$} (A)
+    (B.south west) edge node[below]{$t_2$} (T.south east)
+    (B.north west) edge node[above]{$t_1$} (T.north east);
+\end{tikzpicture}
+
+              </latex-image>
+              </image>
+            </figure>
+            <p>
+            Now lets further assume that <m>t_1 \neq t_2</m>, so that we have some <m>b \in B</m>
+            such that <m>t_1(b) \neq t_2(b)</m>.  Consider the point defined by <m>s(b)=x</m>.
+            If <m>t_1 \circ f = t_2 \circ f</m>, then it must also hold true that
+            <m>(t_1 \circ f)(x) = (t_2 \circ f)(x)</m> for all <m>x</m>.  If we expand this,
+            we get the following:
+          </p>
+          <me>
+            (t_1 \circ f)(x) = (t_2 \circ f)(x)
+          </me>
+          <me>
+            (t_1 \circ f)(s(b)) = (t_2 \circ f)(s(b))
+          </me>
+          <me>
+            (t_1 \circ f \circ s)(b) = (t_2 \circ f \circ s)(b)
+          </me>
+          <me>
+            (t_1 \circ 1_B)(b) = (t_2 \circ 1_B)(b)
+          </me>
+          <me>
+            t_1(b) = t_2(b)
+          </me>
+          <p>
+            This contradicts our earlier assumption that <m>t_1 \neq </m> and completes the proof.
+            It's a little easier to see what's going on if we rearrange the diagram some:
+          </p>
+           <figure xml:id="fig-article2-ex7-2">
+              <caption>Diagram of compositions induced by assumptions of Article 2 Exercise 7.</caption>
+              <image width="80%" xml:id="img-article2-ex7-2"> 
+              <latex-image>
+
+
+\begin{tikzpicture}[scale=1.75]
+
+
+\node (B1) at (0,0) {$B$};
+\node (A) at (1,0) {$A$};
+\node (B2) at (2,0) {$B$};
+\node (T) at (3,0) {$T$};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90] 
+    (B2.south east) edge node[below]{$t_2$} (T.south west)
+    (B2.north east) edge node[above]{$t_1$} (T.north west)
+    (B1) edge node[above]{$s$} (A)
+    (A) edge node[above]{$f$} (B2)
+    (B1) edge[bend right] node[below]{$1_B$} (B2)
+    (A.north) edge[bend left] (T.north);
+\end{tikzpicture}
+
+              </latex-image>
+              </image>
+            </figure>
+            <p>
+              As long as <m>t_1 \circ f = t_2 \circ f</m>, then <m>t_1 \circ f \circ s = t_2 \circ f \circ s</m>.
+              Since we've defined <m>s</m> as a section of <m>f</m>, it means that <m>f \circ s = 1_B</m>.  
+              Therefore, <m>t_1 \circ f \circ s = t_2 \circ f \circ s</m> holds if and only if <m>t_1 = t_2</m>. 
+            </p>
+          </solution>
+        </example>
+        
+      </section>
     </chapter>
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
