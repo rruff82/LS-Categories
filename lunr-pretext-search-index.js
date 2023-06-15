@@ -253,6 +253,78 @@ var ptx_lunr_docs = [
   "body": " Exercise 5   ...how many maps are there with ?...    Let's begin by reproducing the internal diagram of :   Recreation of diagram from Article II, Exercise 5      Since I want , I know that needs to send each element of to something that will return to that value after applying . It seems reasonable to assume that the \"possible arrows\" for must come from the reversed arrows of as shown here:   Diagram from Article II, Exercise 5 but with reversed arrows      Since there are three options for where sends , two options for where it sends , and these choices are independent of each other, the total number of possibilities is the product: . This lends them nicely to a 3x2 grid where the column is the choice of where to send and row is the choice of where to send .   Grid of potential solutions for in Article II, Exercise 5      Now, that we've drawn all possible choices for , let's choose one and see how many options we might have for with the same property . I'll start by taking a single one:   One possible solution to from Article II, Exercise 5      Like before, I know my map must contain the reverse of the arrows from my chosen map , but fixing those arrows still leaves 3 points that are unaccounted for in the map. For each of those 3 possible sources, there are two possible destinations.   Possible choices for given a choice of      Since those choices are independent of each other, that means the total number of combinations is .   Grid of potential maps for given my chosen      With that, we've completed the exercise (and then some).   "
 },
 {
+  "id": "article2-p3",
+  "level": "1",
+  "url": "article2-p3.html",
+  "type": "Section",
+  "number": "3.3",
+  "title": "Article 2: Isomorphisms, Part 3",
+  "body": " Article 2: Isomorphisms, Part 3  As I wrap up Article 2, I keep thinking back to the last expression in Exercise 4 and wonder if there's a better way of articulating what I saw. I'm starting to see more of the connection with the injective (one-to-one) and surjective (onto) properties I typically associate with isomorphisms are effectively guaranteed by the definitions of retraction and section.  I also find the symbol choice of in this part of Article 2 somewhat curious. The programmer in me wants to associate with a \"type\" or \"template\", while the mathematician in me is quietly screaming \"TOPOLOGY!\". I suppose I'll have to keep going to find out who's right-er.   Exercise 6   If the map has a retraction, ...    Essentially the argument is the same as the preceeding proof with minor substitutions. We're given that has a retraction, so we have some with the property .   Possible compositions given has a retraction.      This external diagram implies that we can define a map by using the composition . All that remains is to verify that it satistfies the required equation:   And that completes the proof.     Exercise 7   Suppose the map has a section, ...    Let's get our bearings straight with a diagram. We know has a section satisfying . We also have a set with a pair of maps and .   External diagram of given information in Article 2 Exercise 7.      Now lets further assume that , so that we have some such that . Consider the point defined by . If , then it must also hold true that for all . If we expand this, we get the following:       This contradicts our earlier assumption that and completes the proof. It's a little easier to see what's going on if we rearrange the diagram some:   Diagram of compositions induced by assumptions of Article 2 Exercise 7.      As long as , then . Since we've defined as a section of , it means that . Therefore, holds if and only if .     Exercise 8   ...the composite of two maps, each having sections, ...    Suppose we have composable maps and with respective sections and . By definition, and .  Based on this information, the composition has a section determined by the reversed composition of the sections . All we need to do is to show that .       It's easy to see why this order reversal is necessary by examining a diagram:   External diagram of given information in Article 2 Exercise 8.         Exercise 9   Suppose is a retraction of ...    Knowing that is a retraction of tells us that . If we define the map , we can prove that through the use of the associative property.      That completes the proof that is idempotent.  If we further assume that is an isomorphism, then we have some inverse function such that and . Since this inverse is unique, it follows that . Consequently, .     Exercise 10   If are both isomorphisms...    I think this one is a little easier to see with a diagram.   External diagram of given information in Article 2 Exercise 10.      Basically, to go backward to from , the order of inverses needs to also be reversed. We can prove this algebraically also.  Since is an isomorphism, it follows that and . Likewise, being an isomorphism implies and . The composition can be shown to sasify the conditions for being the inverse of .  First, we must demonstrate that :     Second, we must demonstrate that :     This complete our proof that      Exercise 11   If ...    Any that maps each element in to a unique element in should do the trick here.   Hypothetical for Article 2 Exercise 11      This has a unique inverse that reverses each of these arrows:   Corresponding for Article 2 Exercise 11      If we have , we'd be unable to define an isomorphism from because we don't have enough points to match them up one by one. One of those points in will have two arrows leading in and cause us to lose information about where we came from in the process:   Illustration of invertability problem with         Exercise 12   How many isomorphisms are there...    Essentially, the number of isomorphisms is a permutation problem. If we decide on a fixed order of elements in , each choice uses up the respective point in that it gets matched to. Therefore, we have 3 choices for Fatima, 2 choices for Omer, and 1 choice for Alysia, or possible choices all together.  The number of automorphisms should be the same, namely 6. It doesn't matter if we're assigning Fatima to or , it's precisely the same number of choices.  The number 27 in this context is the total number of possible maps from a set of 3 elements to another set of 3 elements: . This is the formula we arrived at after article 1. Clearly \"the number of invertable maps\" should be less than \"the total number of maps\" because not every map will be invertable.    "
+},
+{
+  "id": "example-21",
+  "level": "2",
+  "url": "article2-p3.html#example-21",
+  "type": "Example",
+  "number": "3.3.1",
+  "title": "Exercise 6.",
+  "body": " Exercise 6   If the map has a retraction, ...    Essentially the argument is the same as the preceeding proof with minor substitutions. We're given that has a retraction, so we have some with the property .   Possible compositions given has a retraction.      This external diagram implies that we can define a map by using the composition . All that remains is to verify that it satistfies the required equation:   And that completes the proof.   "
+},
+{
+  "id": "example-22",
+  "level": "2",
+  "url": "article2-p3.html#example-22",
+  "type": "Example",
+  "number": "3.3.3",
+  "title": "Exercise 7.",
+  "body": " Exercise 7   Suppose the map has a section, ...    Let's get our bearings straight with a diagram. We know has a section satisfying . We also have a set with a pair of maps and .   External diagram of given information in Article 2 Exercise 7.      Now lets further assume that , so that we have some such that . Consider the point defined by . If , then it must also hold true that for all . If we expand this, we get the following:       This contradicts our earlier assumption that and completes the proof. It's a little easier to see what's going on if we rearrange the diagram some:   Diagram of compositions induced by assumptions of Article 2 Exercise 7.      As long as , then . Since we've defined as a section of , it means that . Therefore, holds if and only if .   "
+},
+{
+  "id": "example-23",
+  "level": "2",
+  "url": "article2-p3.html#example-23",
+  "type": "Example",
+  "number": "3.3.6",
+  "title": "Exercise 8.",
+  "body": " Exercise 8   ...the composite of two maps, each having sections, ...    Suppose we have composable maps and with respective sections and . By definition, and .  Based on this information, the composition has a section determined by the reversed composition of the sections . All we need to do is to show that .       It's easy to see why this order reversal is necessary by examining a diagram:   External diagram of given information in Article 2 Exercise 8.       "
+},
+{
+  "id": "example-24",
+  "level": "2",
+  "url": "article2-p3.html#example-24",
+  "type": "Example",
+  "number": "3.3.8",
+  "title": "Exercise 9.",
+  "body": " Exercise 9   Suppose is a retraction of ...    Knowing that is a retraction of tells us that . If we define the map , we can prove that through the use of the associative property.      That completes the proof that is idempotent.  If we further assume that is an isomorphism, then we have some inverse function such that and . Since this inverse is unique, it follows that . Consequently, .   "
+},
+{
+  "id": "example-25",
+  "level": "2",
+  "url": "article2-p3.html#example-25",
+  "type": "Example",
+  "number": "3.3.9",
+  "title": "Exercise 10.",
+  "body": " Exercise 10   If are both isomorphisms...    I think this one is a little easier to see with a diagram.   External diagram of given information in Article 2 Exercise 10.      Basically, to go backward to from , the order of inverses needs to also be reversed. We can prove this algebraically also.  Since is an isomorphism, it follows that and . Likewise, being an isomorphism implies and . The composition can be shown to sasify the conditions for being the inverse of .  First, we must demonstrate that :     Second, we must demonstrate that :     This complete our proof that    "
+},
+{
+  "id": "example-26",
+  "level": "2",
+  "url": "article2-p3.html#example-26",
+  "type": "Example",
+  "number": "3.3.11",
+  "title": "Exercise 11.",
+  "body": " Exercise 11   If ...    Any that maps each element in to a unique element in should do the trick here.   Hypothetical for Article 2 Exercise 11      This has a unique inverse that reverses each of these arrows:   Corresponding for Article 2 Exercise 11      If we have , we'd be unable to define an isomorphism from because we don't have enough points to match them up one by one. One of those points in will have two arrows leading in and cause us to lose information about where we came from in the process:   Illustration of invertability problem with       "
+},
+{
+  "id": "example-27",
+  "level": "2",
+  "url": "article2-p3.html#example-27",
+  "type": "Example",
+  "number": "3.3.15",
+  "title": "Exercise 12.",
+  "body": " Exercise 12   How many isomorphisms are there...    Essentially, the number of isomorphisms is a permutation problem. If we decide on a fixed order of elements in , each choice uses up the respective point in that it gets matched to. Therefore, we have 3 choices for Fatima, 2 choices for Omer, and 1 choice for Alysia, or possible choices all together.  The number of automorphisms should be the same, namely 6. It doesn't matter if we're assigning Fatima to or , it's precisely the same number of choices.  The number 27 in this context is the total number of possible maps from a set of 3 elements to another set of 3 elements: . This is the formula we arrived at after article 1. Clearly \"the number of invertable maps\" should be less than \"the total number of maps\" because not every map will be invertable.   "
+},
+{
   "id": "colophon-2",
   "level": "1",
   "url": "colophon-2.html",
