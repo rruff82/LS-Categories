@@ -2234,7 +2234,7 @@ extra level of assurance that these functions will behave as expected.
             </p>
             <p>
               The number of automorphisms should be the same, namely 6.  It doesn't matter if we're 
-              assigning Fatima to <m>\set{Fatima,Omer,Alysia}</m> or <m>\set{coffe,tea,cocoa}</m>,
+              assigning Fatima to <m>\set{Fatima,Omer,Alysia}</m> or <m>\set{coffee,tea,cocoa}</m>,
               it's precisely the same number of choices.
             </p>
             <p>
