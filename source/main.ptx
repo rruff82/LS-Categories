@@ -1889,7 +1889,7 @@ extra level of assurance that these functions will behave as expected.
 \path[-{Stealth},font=\scriptsize,>=angle 90] 
     (A) edge[bend left] node[above left]{$f$} (B)
     (B) edge[bend left] node[below right]{$s$} (A)
-    (B.south east) edge node[below left]{$t_2$} (T.north west)
+    (B.south east) edge node[below left]{$t_2$} ($(T.north west)+(0.5mm,0)$)
     (B.east) edge node[above right]{$t_1$} (T.north)
     (A) edge[dashed] (T);
 \end{tikzpicture}
@@ -1920,7 +1920,7 @@ extra level of assurance that these functions will behave as expected.
             t_1(b) = t_2(b)
           </me>
           <p>
-            This contradicts our earlier assumption that <m>t_1 \neq </m> and completes the proof.
+            This contradicts our earlier assumption that <m>t_1 \neq t_2</m> and completes the proof.
             It's a little easier to see what's going on if we rearrange the diagram some:
           </p>
            <figure xml:id="fig-article2-ex7-2">
@@ -1939,8 +1939,8 @@ extra level of assurance that these functions will behave as expected.
 
 
 \path[-{Stealth},font=\scriptsize,>=angle 90] 
-    (B2.south east) edge node[below]{$t_2$} (T.south west)
-    (B2.north east) edge node[above]{$t_1$} (T.north west)
+    ($(B2.south east)+(0,1mm)$) edge node[below]{$t_2$} ($(T.south west)+(0,1mm)$)
+    ($(B2.north east)-(0,1mm)$) edge node[above]{$t_1$} ($(T.north west)-(0,1mm)$)
     (B1) edge node[above]{$s$} (A)
     (A) edge node[above]{$f$} (B2)
     (B1) edge[bend right] node[below]{$1_B$} (B2)
@@ -1999,7 +1999,7 @@ extra level of assurance that these functions will behave as expected.
     (B.east) edge node[above]{$f_2$} (C.west)
     (B.south west) edge[bend left] node[below]{$s_1$} (A.south east)
     (C.south west) edge[bend left] node[below]{$s_2$} (B.south east)
-    (A.north) edge[bend left] node[below]{$f_2 \circ f_1$} (C.north)
+    (A.north) edge[bend left] node[above]{$f_2 \circ f_1$} (C.north)
     (C.south) edge[bend left] node[below]{$s_1 \circ s_2$} (A.south);
 \end{tikzpicture}
 
@@ -2059,11 +2059,11 @@ extra level of assurance that these functions will behave as expected.
 
 
 \path[-{Stealth},font=\scriptsize,>=angle 90]
-    (A.north east) edge node[above]{$f$} (B.north west)
-    (B.north east) edge node[above]{$g$} (C.north west)
-    (B.south west) edge node[below]{$f^{-1}$} (A.south east)
-    (C.south west) edge node[below]{$g^{-1}$} (B.south east)
-    (A.north) edge[bend left] node[below]{$g \circ f$} (C.north)
+    ($(A.north east)-(0,1mm)$) edge node[above]{$f$} ($(B.north west)-(0,1mm)$)
+    ($(B.north east)-(0,1mm)$) edge node[above]{$g$} ($(C.north west)-(0,1mm)$)
+    ($(B.south west)+(0,1mm)$) edge node[below]{$f^{-1}$} ($(A.south east)+(0,1mm)$)
+    ($(C.south west)+(0,1mm)$) edge node[below]{$g^{-1}$} ($(B.south east)+(0,1mm)$)
+    (A.north) edge[bend left] node[above]{$g \circ f$} (C.north)
     (C.south) edge[bend left] node[below]{$f^{-1} \circ g^{-1}$} (A.south);
 \end{tikzpicture}
               </latex-image>
@@ -2117,7 +2117,7 @@ extra level of assurance that these functions will behave as expected.
 \begin{tikzpicture}[scale=1]
 
 % begin first set
-\draw (0,2) circle (1cm);
+\draw (0,2) circle (1.2cm);
 \node (A) at (0,3.5) {$A$};
 \node (A1) at (0,2.7) {Fatima};
 \node (A2) at (0,2) {Omer};
@@ -2127,7 +2127,7 @@ extra level of assurance that these functions will behave as expected.
 
 % begin second set
 \node (B) at (4,3.5) {$B$};
-\draw (4,2) circle (1cm);
+\draw (4,2) circle (1.2cm);
 \node (B1) at (4,2.7) {coffee};
 \node (B2) at (4,2) {tea};
 \node (B3) at (4,1.3) {cocoa};
@@ -2152,7 +2152,7 @@ extra level of assurance that these functions will behave as expected.
 \begin{tikzpicture}[scale=1]
 
 % begin first set
-\draw (0,2) circle (1cm);
+\draw (0,2) circle (1.2cm);
 \node (A) at (0,3.5) {$A$};
 \node (A1) at (0,2.7) {Fatima};
 \node (A2) at (0,2) {Omer};
@@ -2162,7 +2162,7 @@ extra level of assurance that these functions will behave as expected.
 
 % begin second set
 \node (B) at (4,3.5) {$B$};
-\draw (4,2) circle (1cm);
+\draw (4,2) circle (1.2cm);
 \node (B1) at (4,2.7) {coffee};
 \node (B2) at (4,2) {tea};
 \node (B3) at (4,1.3) {cocoa};
@@ -2190,7 +2190,7 @@ extra level of assurance that these functions will behave as expected.
 \begin{tikzpicture}[scale=1]
 
 % begin first set
-\draw (0,2) circle (1cm);
+\draw (0,2) circle (1.2cm);
 \node (A) at (0,3.5) {$A$};
 \node (A1) at (0,2.7) {Fatima};
 \node (A2) at (0,2) {Omer};
@@ -2200,7 +2200,7 @@ extra level of assurance that these functions will behave as expected.
 
 % begin second set
 \node (B) at (4,3.5) {$B$};
-\draw (4,2) circle (1cm);
+\draw (4,2) circle (1.2cm);
 \node (B1) at (4,2.5) {true};
 \node (B2) at (4,1.5) {false};
 
