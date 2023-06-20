@@ -2246,6 +2246,246 @@ extra level of assurance that these functions will behave as expected.
           </solution>
         </example>
       </section>
+      <section xml:id="session4">
+        <title>Session 4: Division of maps</title>
+        <p>
+          While reading this section, I appreciated the fact that "just reverse the arrows" was the official 
+          description of isomorphisms on sets. It makes me feel like my answers to Article 2 are at least on the right
+          track.  I think my main goal for this week is to better understand what "respects the combining-rules" really means.
+        </p>
+        <example>
+          <title>Exercise 1</title>
+          <statement>
+            <p>
+              Finish checking that <m>d</m> is an isomorphism...
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Let's start with <m>h \circ d</m> first.  The composition is applied from right to left, which 
+              means we double first then halve.  
+            </p>
+            <me>
+              (h \circ d)(x) = h(d(x)) = 0.5(2x) = (0.5 \times 2) x = 1 \times x = x
+            </me>
+            <p>
+              Next we check <m>d \circ h</m>, where we halve first and double after:
+            </p>
+            <me>
+              (d \circ h)(x) = d(h(x)) = 2(0.5x) = (2 \times 0.5) x = 1 \times x = x
+            </me>
+            <p>
+              This proof seems kind of trivial since multiplication on <m>\mathbb{R}</m> is commutative.
+            </p>
+          </solution>
+        </example>
+        <example>
+          <title>Exercise 2</title>
+          <statement>
+            <p>
+              Find an isomorphism <m>(\set{odd,even},+) \overset{f}{\longrightarrow} (\set{positive,negative},\times)</m>...
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Let's start by organizing some data.  Perhaps a table of
+              each map will reveal some insight into the structure.
+            </p>
+<table>
+  <title>Function table for <m>(\set{odd,even},+)</m></title>
+  <tabular>
+    <row>
+      <cell><m>+</m></cell>
+      <cell>even</cell>
+      <cell>odd</cell>
+    </row>
+    <row>
+      <cell>even</cell>
+      <cell>even</cell>
+      <cell>odd</cell>
+    </row>
+    <row>
+      <cell>odd</cell>
+      <cell>odd</cell>
+      <cell>even</cell>
+    </row>
+  </tabular>
+</table>
+
+<table>
+  <title>Function table for <m>(\set{positive,negative},\times)</m></title>
+  <tabular>
+    <row>
+      <cell><m>\times</m></cell>
+      <cell>positive</cell>
+      <cell>negative</cell>
+    </row>
+    <row>
+      <cell>positive</cell>
+      <cell>positive</cell>
+      <cell>negative</cell>
+    </row>
+    <row>
+      <cell>negative</cell>
+      <cell>negative</cell>
+      <cell>positive</cell>
+    </row>
+  </tabular>
+</table>
+          <p>
+            These two tables mirror each other quite nicely, which suggests that ordering of options shown here
+            is probably the correct choice of <m>f</m>.  Let's go ahead and define <m>f</m> as follows:
+          </p>
+            <figure xml:id="fig-session4-ex2-1"> 
+<caption>Internal diagram of our potential isomorphism <m>f</m></caption>
+              <image width="80%" xml:id="img-session4-ex2-1"> 
+            <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1.2cm);
+\node (A) at (0,3.5) {$A$};
+\node (A1) at (0,2.5) {even};
+\node (A2) at (0,1.5) {odd};
+
+% begin second set
+\node (B) at (4,3.5) {$B$};
+\draw (4,2) circle (1.2cm);
+\node (B1) at (4,2.5) {positive};
+\node (B2) at (4,1.5) {negative};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+  (A1) edge (B1)
+  (A2) edge (B2);
+
+\end{tikzpicture}
+            </latex-image>
+            </image>
+            </figure>
+            <p>
+              In order for us to show that this <m>f</m> respects the combining rules, we need to 
+              verify that <m>f(a + b) = f(a) \times f(b)</m> for all <m>\set{a,b} \in \mathbb{Z}</m>.
+            </p>
+<table>
+  <title>Combining rule validation table for <m>f</m></title>
+  <tabular>
+    <row>
+
+      <cell><line>For <m>a</m> even, <m>b</m> even:</line>
+        <line><m>f(a + b) = f(a) \times f(b)</m></line>
+        <line><m>f(even + even) = f(even) \times f(even)</m></line>
+        <line><m>f(even) = positive \times positive</m></line>
+        <line><m>positive = positive</m></line>
+        <line>Confirmed &#x2713;</line>
+      </cell>
+      <cell>
+        <line>For <m>a</m> odd, <m>b</m> even:</line>
+        <line><m>f(a + b) = f(a) \times f(b)</m></line>
+        <line><m>f(odd + even) = f(odd) \times f(even)</m></line>
+        <line><m>f(odd) = negative \times positive</m></line>
+        <line><m>negative = negative</m></line>
+        <line>Confirmed &#x2713;</line>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        <line>For <m>a</m> even, <m>b</m> odd:</line>
+        <line><m>f(a + b) = f(a) \times f(b)</m></line>
+        <line><m>f(even + odd) = f(even) \times f(odd)</m></line>
+        <line><m>f(odd) = positive \times negative</m></line>
+        <line><m>negative = negative</m></line>
+        <line>Confirmed &#x2713;</line>
+      </cell>
+      <cell>
+       <line>For <m>a</m> odd, <m>b</m> odd:</line>
+        <line><m>f(a + b) = f(a) \times f(b)</m></line>
+        <line><m>f(odd + odd) = f(odd) \times f(odd)</m></line>
+        <line><m>f(even) = negative \times negative</m></line>
+        <line><m>positive = positive</m></line>
+        <line>Confirmed &#x2713;</line>
+      </cell>
+    </row>
+  </tabular>
+</table>
+<p>Suppose instead we had used the map <m>g</m> given by the alternative assignment:</p>
+            <figure xml:id="fig-session4-ex2-2"> 
+<caption>Internal diagram of alternative map choice <m>g</m></caption>
+              <image width="80%" xml:id="img-session4-ex2-2"> 
+            <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1.2cm);
+\node (A) at (0,3.5) {$A$};
+\node (A1) at (0,2.5) {even};
+\node (A2) at (0,1.5) {odd};
+
+% begin second set
+\node (B) at (4,3.5) {$B$};
+\draw (4,2) circle (1.2cm);
+\node (B1) at (4,2.5) {positive};
+\node (B2) at (4,1.5) {negative};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+  (A1) edge (B2)
+  (A2) edge (B1);
+
+\end{tikzpicture}
+            </latex-image>
+            </image>
+            </figure>
+<p>
+  
+  When <m>a</m> and <m>b</m> are both even, <m>g(a + b) = g(even + even) = g(even) = negative</m> 
+  but <m>g(a) \times g(b) = negative \times negative = positive</m>. Thus, this map fails to preserve 
+  the combining rule <m>g(a + b) = g(a) \times g(b)</m>.  
+</p>
+          </solution>
+        </example>
+        <example>
+          <title>Exercise 3</title>
+          <statement>
+            <p>
+              ...Unmask the imposters...
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Let's go one at a time, begining with (a): 
+              <m>(\mathbb{R},+) \overset{p}{\longrightarrow} (\mathbb{R},+)</m> given by <m>p(x) = x + 1</m>.
+            </p>
+            <p>
+              While it seems like "subtract one" would be a reasonable inverse, this is not an isomorphism because 
+              it fails to respect the  combining-rule <m>p(a+b)=p(a)+p(b)</m>.  Consider the case where <m>a = 1</m> 
+              and <m>b = 2</m>. We have <m>p(a)=2</m> and <m>p(b)=3</m> so <m>p(a)+p(b)=5</m>.  However, this is not 
+              the same as <m>p(a+b)</m>, which evaluates to <m>p(1+2) = p(3) = 4</m> instead.
+            </p>
+            <p>
+              The map in (b) and the map in (c) are both closely related because they share a common definition of <m>sq(x) = x^2</m>,
+              but the domain and codomain.  Again there's an obvious inverse function of "square root", but the domains and codomains 
+              are what concern me.  Notable about (b) is that it fails to map "onto" the entire codomain, because the <m>sq</m> map 
+              never produces any negative numbers as an output.  The map in (c) resolves this by limiting the codomain to non-negative
+              values, but it still fails to "one-to-one" because both 1 and -1 produce an output of 1.  
+            </p>
+            <p>
+              The map in (d) and (e) likewise have similar definitions.  The map defined by the given expression
+              <m>m x = -x</m> acts as its own inverse: <m>(m \circ m) (x) = m(m(x)) = m(-x) = -(-x) = x</m>.  Where (d) and (e) differ
+              is in the "combining-rule".  If we have <m>\set{a,b} \in \mathbb{R}</m>, then a little algebra can show that
+              <m>m(a+b) = -(a+b) = (-a)+(-b) = m(a)+m(b)</m>.  This means that both the indentity rules and the combining rule are 
+              satisfied for (d), making it the only genuine isomorphism in the list. The map in (e) fails to uphold the combining rule 
+              for <m>a = 1</m> and <m>b = 2</m> since <m>m(a+b) = -(1+2) = -3</m> but <m>m(a) \times m(b) = -1 \times -2 = 2</m>.  
+            </p>
+            <p>
+              Finally we have the map (f), which isn't even a map with the specified domain and codomain because the cube of a
+              negative number is still negative.  Had the map been defined with the correct codomain, 
+              <m>(\mathbb{R},\times) \overset{c}{\longrightarrow} (\mathbb{R},\times)</m>, then we'd potentially be able to define
+              an inverse map by using the "cube root" function. 
+            </p>
+          </solution>
+        </example>
+      </section>
     </chapter>
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
