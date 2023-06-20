@@ -325,6 +325,42 @@ var ptx_lunr_docs = [
   "body": " Exercise 12   How many isomorphisms are there...    Essentially, the number of isomorphisms is a permutation problem. If we decide on a fixed order of elements in , each choice uses up the respective point in that it gets matched to. Therefore, we have 3 choices for Fatima, 2 choices for Omer, and 1 choice for Alysia, or possible choices all together.  The number of automorphisms should be the same, namely 6. It doesn't matter if we're assigning Fatima to or , it's precisely the same number of choices.  The number 27 in this context is the total number of possible maps from a set of 3 elements to another set of 3 elements: . This is the formula we arrived at after Article 1. Clearly \"the number of invertable maps\" should be less than \"the total number of maps\" because not every map will be invertable.   "
 },
 {
+  "id": "session4",
+  "level": "1",
+  "url": "session4.html",
+  "type": "Section",
+  "number": "3.4",
+  "title": "Session 4: Division of maps",
+  "body": " Session 4: Division of maps  While reading this section, I appreciated the fact that \"just reverse the arrows\" was the official description of isomorphisms on sets. It makes me feel like my answers to Article 2 are at least on the right track. I think my main goal for this week is to better understand what \"respects the combining-rules\" really means.   Exercise 1   Finish checking that is an isomorphism...    Let's start with first. The composition is applied from right to left, which means we double first then halve.   Next we check , where we halve first and double after:   This proof seems kind of trivial since multiplication on is commutative.     Exercise 2   Find an isomorphism ...    Let's start by organizing some data. Perhaps a table of each map will reveal some insight into the structure.   Function table for     even  odd    even  even  odd    odd  odd  even      Function table for     positive  negative    positive  positive  negative    negative  negative  positive     These two tables mirror each other quite nicely, which suggests that ordering of options shown here is probably the correct choice of . Let's go ahead and define as follows:   Internal diagram of our potential isomorphism      In order for us to show that this respects the combining rules, we need to verify that for all .   Combining rule validation table for    For even, even:      Confirmed ✓    For odd, even:      Confirmed ✓      For even, odd:      Confirmed ✓    For odd, odd:      Confirmed ✓      Suppose instead we had used the map given by the alternative assignment:   Internal diagram of alternative map choice      When and are both even, but . Thus, this map fails to preserve the combining rule .     Exercise 3   ...Unmask the imposters...    Let's go one at a time, begining with (a): given by .  While it seems like \"subtract one\" would be a reasonable inverse, this is not an isomorphism because it fails to respect the combining-rule . Consider the case where and . We have and so . However, this is not the same as , which evaluates to instead.  The map in (b) and the map in (c) are both closely related because they share a common definition of , but the domain and codomain. Again there's an obvious inverse function of \"square root\", but the domains and codomains are what concern me. Notable about (b) is that it fails to map \"onto\" the entire codomain, because the map never produces any negative numbers as an output. The map in (c) resolves this by limiting the codomain to non-negative values, but it still fails to \"one-to-one\" because both 1 and -1 produce an output of 1.  The map in (d) and (e) likewise have similar definitions. The map defined by the given expression acts as its own inverse: . Where (d) and (e) differ is in the \"combining-rule\". If we have , then a little algebra can show that . This means that both the indentity rules and the combining rule are satisfied for (d), making it the only genuine isomorphism in the list. The map in (e) fails to uphold the combining rule for and since but .  Finally we have the map (f), which isn't even a map with the specified domain and codomain because the cube of a negative number is still negative. Had the map been defined with the correct codomain, , then we'd potentially be able to define an inverse map by using the \"cube root\" function.    "
+},
+{
+  "id": "example-28",
+  "level": "2",
+  "url": "session4.html#example-28",
+  "type": "Example",
+  "number": "3.4.1",
+  "title": "Exercise 1.",
+  "body": " Exercise 1   Finish checking that is an isomorphism...    Let's start with first. The composition is applied from right to left, which means we double first then halve.   Next we check , where we halve first and double after:   This proof seems kind of trivial since multiplication on is commutative.   "
+},
+{
+  "id": "example-29",
+  "level": "2",
+  "url": "session4.html#example-29",
+  "type": "Example",
+  "number": "3.4.2",
+  "title": "Exercise 2.",
+  "body": " Exercise 2   Find an isomorphism ...    Let's start by organizing some data. Perhaps a table of each map will reveal some insight into the structure.   Function table for     even  odd    even  even  odd    odd  odd  even      Function table for     positive  negative    positive  positive  negative    negative  negative  positive     These two tables mirror each other quite nicely, which suggests that ordering of options shown here is probably the correct choice of . Let's go ahead and define as follows:   Internal diagram of our potential isomorphism      In order for us to show that this respects the combining rules, we need to verify that for all .   Combining rule validation table for    For even, even:      Confirmed ✓    For odd, even:      Confirmed ✓      For even, odd:      Confirmed ✓    For odd, odd:      Confirmed ✓      Suppose instead we had used the map given by the alternative assignment:   Internal diagram of alternative map choice      When and are both even, but . Thus, this map fails to preserve the combining rule .   "
+},
+{
+  "id": "example-30",
+  "level": "2",
+  "url": "session4.html#example-30",
+  "type": "Example",
+  "number": "3.4.8",
+  "title": "Exercise 3.",
+  "body": " Exercise 3   ...Unmask the imposters...    Let's go one at a time, begining with (a): given by .  While it seems like \"subtract one\" would be a reasonable inverse, this is not an isomorphism because it fails to respect the combining-rule . Consider the case where and . We have and so . However, this is not the same as , which evaluates to instead.  The map in (b) and the map in (c) are both closely related because they share a common definition of , but the domain and codomain. Again there's an obvious inverse function of \"square root\", but the domains and codomains are what concern me. Notable about (b) is that it fails to map \"onto\" the entire codomain, because the map never produces any negative numbers as an output. The map in (c) resolves this by limiting the codomain to non-negative values, but it still fails to \"one-to-one\" because both 1 and -1 produce an output of 1.  The map in (d) and (e) likewise have similar definitions. The map defined by the given expression acts as its own inverse: . Where (d) and (e) differ is in the \"combining-rule\". If we have , then a little algebra can show that . This means that both the indentity rules and the combining rule are satisfied for (d), making it the only genuine isomorphism in the list. The map in (e) fails to uphold the combining rule for and since but .  Finally we have the map (f), which isn't even a map with the specified domain and codomain because the cube of a negative number is still negative. Had the map been defined with the correct codomain, , then we'd potentially be able to define an inverse map by using the \"cube root\" function.   "
+},
+{
   "id": "colophon-2",
   "level": "1",
   "url": "colophon-2.html",
