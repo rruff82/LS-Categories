@@ -298,9 +298,68 @@ window.MathJax = {
 </h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-30"><article class="example example-like"><div class="para" id="p-157">...Unmask the imposters...</div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-30" id="solution-30"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-30"><div class="solution solution-like">
-<div class="para" id="p-158">Let's go one at a time, begining with (a): <span class="process-math">\((\mathbb{R},+) \overset{p}{\longrightarrow} (\mathbb{R},+)\)</span> given by <span class="process-math">\(p(x) = x + 1\text{.}\)</span>
-</div> <div class="para" id="p-159">While it seems like "subtract one" would be a reasonable inverse, this is not an isomorphism because it fails to respect the  combining-rule <span class="process-math">\(p(a+b)=p(a)+p(b)\text{.}\)</span>  Consider the case where <span class="process-math">\(a = 1\)</span> and <span class="process-math">\(b = 2\text{.}\)</span> We have <span class="process-math">\(p(a)=2\)</span> and <span class="process-math">\(p(b)=3\)</span> so <span class="process-math">\(p(a)+p(b)=5\text{.}\)</span>  However, this is not the same as <span class="process-math">\(p(a+b)\text{,}\)</span> which evaluates to <span class="process-math">\(p(1+2) = p(3) = 4\)</span> instead.</div> <div class="para" id="p-160">The map in (b) and the map in (c) are both closely related because they share a common definition of <span class="process-math">\(sq(x) = x^2\text{,}\)</span> but the domain and codomain.  Again there's an obvious inverse function of "square root", but the domains and codomains are what concern me.  Notable about (b) is that it fails to map "onto" the entire codomain, because the <span class="process-math">\(sq\)</span> map never produces any negative numbers as an output.  The map in (c) resolves this by limiting the codomain to non-negative values, but it still fails to "one-to-one" because both 1 and -1 produce an output of 1.</div> <div class="para" id="p-161">The map in (d) and (e) likewise have similar definitions.  The map defined by the given expression <span class="process-math">\(m x = -x\)</span> acts as its own inverse: <span class="process-math">\((m \circ m) (x) = m(m(x)) = m(-x) = -(-x) = x\text{.}\)</span>  Where (d) and (e) differ is in the "combining-rule".  If we have <span class="process-math">\(\set{a,b} \in \mathbb{R}\text{,}\)</span> then a little algebra can show that <span class="process-math">\(m(a+b) = -(a+b) = (-a)+(-b) = m(a)+m(b)\text{.}\)</span>  This means that both the indentity rules and the combining rule are satisfied for (d), making it the only genuine isomorphism in the list. The map in (e) fails to uphold the combining rule for <span class="process-math">\(a = 1\)</span> and <span class="process-math">\(b = 2\)</span> since <span class="process-math">\(m(a+b) = -(1+2) = -3\)</span> but <span class="process-math">\(m(a) \times m(b) = -1 \times -2 = 2\text{.}\)</span>
-</div> <div class="para" id="p-162">Finally we have the map (f), which isn't even a map with the specified domain and codomain because the cube of a negative number is still negative.  Had the map been defined with the correct codomain, <span class="process-math">\((\mathbb{R},\times) \overset{c}{\longrightarrow} (\mathbb{R},\times)\text{,}\)</span> then we'd potentially be able to define an inverse map by using the "cube root" function.</div>
+<div class="para" id="p-158">Let's start with (a): <span class="process-math">\((\mathbb{R},+) \overset{p}{\longrightarrow} (\mathbb{R},+)\)</span> given by <span class="process-math">\(p(x) = x + 1\text{.}\)</span>
+</div> <div class="para" id="p-159">While it seems like "subtract one" would be a reasonable inverse, this is not an isomorphism because it fails to respect the combining-rule <span class="process-math">\(p(a+b)=p(a)+p(b)\text{.}\)</span>  Consider the case where <span class="process-math">\(a = 1\)</span> and <span class="process-math">\(b = 2\text{.}\)</span> We have <span class="process-math">\(p(a)=2\)</span> and <span class="process-math">\(p(b)=3\)</span> so <span class="process-math">\(p(a)+p(b)=5\text{.}\)</span>  However, this is not the same as <span class="process-math">\(p(a+b)\text{,}\)</span> which evaluates to <span class="process-math">\(p(1+2) = p(3) = 4\)</span> instead.</div> <div class="para" id="p-160">The map in (b) and the map in (c) are both closely related because they share a common definition of <span class="process-math">\(sq(x) = x^2\text{,}\)</span> but differ in the domain and codomain.</div> <div class="para" id="p-161">Again there's an obvious inverse function of "square root", but the domains and codomains are what concern me.  Notable about (b) is that it fails to map "onto" the entire codomain, because the <span class="process-math">\(sq\)</span> map never produces any negative numbers as an output.  The map in (c) resolves this by limiting the codomain to non-negative values, but it still fails to "one-to-one" because both 1 and -1 produce an output of 1.</div> <div class="para" id="p-162">The map in (d) and (e) likewise have similar definitions.</div> <div class="para" id="p-163">The map defined by the given expression <span class="process-math">\(m x = -x\)</span> acts as its own inverse: <span class="process-math">\((m \circ m) (x) = m(m(x)) = m(-x) = -(-x) = x\text{.}\)</span>  Where (d) and (e) differ is in the "combining-rule".  If we have <span class="process-math">\(\set{a,b} \in \mathbb{R}\text{,}\)</span> then a little algebra can show that <span class="process-math">\(m(a+b) = -(a+b) = (-a)+(-b) = m(a)+m(b)\text{.}\)</span>  This means that both the indentity rules and the combining rule are satisfied for (d), making it the only genuine isomorphism in the list. The map in (e) fails to uphold the combining rule because <span class="process-math">\(m(a \times b) \neq m(a) \times m(b)\text{.}\)</span>  In the case where <span class="process-math">\(a = 1\)</span> and <span class="process-math">\(b = -1\text{,}\)</span> we have <span class="process-math">\(m(a \times b) = -(1 \times (-1)) = -(-1) = 1\)</span> but <span class="process-math">\(m(a) \times m(b) = -1 \times 1 = -1\text{.}\)</span>
+</div> <div class="para" id="p-164">Finally we have the map (f), which isn't even a map with the specified domain and codomain because the cube of a negative number is still negative.  Had the map been defined with the correct codomain, <span class="process-math">\((\mathbb{R},\times) \overset{c}{\longrightarrow} (\mathbb{R},\times)\text{,}\)</span> then we'd potentially be able to define an inverse map by using the "cube root" function.</div>
+</div></div>
+</div></article></div>
+<div class="para" id="p-165">As I was proof reading this session, I noticed a couple small errors in the 3rd exercise.  One of these was a misread problem, but the other was a little more subtle.  In an effort to get the most out of this as a learning experience,  I thought it might be valuable to talk about what I learned from my mistakes.</div>
+<article class="example example-like" id="example-31"><a href="" data-knowl="" class="id-ref example-knowl original has-tabular" data-refid="hk-example-31"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.9</span><span class="period">.</span><span class="space"> </span><span class="title">Meta-Exercise.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like"><div class="para" id="p-166">As I was proof reading, I noticed an error in Exercise 3 Part (e).  It was a simple case of me not reading the question as precisely as needed. I think I was so excited to show (d) was an isomorphism that I didn't give (e) the amount of skepticism it deserved.  I mistakely read the domain as <span class="process-math">\((\mathbb{R},+)\)</span> instead of <span class="process-math">\((\mathbb{R},\times)\)</span> which made finding a counter-example trivial relative to the actual problem.</div> <div class="para" id="p-167">As I was looking over my solution to fix this, I noticed something else kind of odd. My solution began with "Let's go one at a time" but I had addressed some of the problems in pairs.  There's something that felt natural about approaching them this way, but it also seemed kind of ironic that I had failed to produce a isomorphism between my problems and solutions in a section that was all about matching things up.</div> <div class="para" id="p-168">All of this started to get my thinking about the solutions to these problems as a map <span class="process-math">\(\set{a,b,c,d,e,f} \overset{s}{\longrightarrow} \set{isomorphism,non-isomorphism}\text{.}\)</span> Obviously this map is not invertable, but it made me wonder if the "Hints" to this section provided sufficient information about the functions to identify each one.  Is there some set of descriptions that would establish a one-to-one relationship with these problems?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-31" id="solution-31"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-31"><div class="solution solution-like">
+<div class="para" id="p-169">The first hint tells us that only one of these maps is a "genuine isomorphism", which I concluded was (d). The last hint says that one is "not even a map", which I concluded is (f). The hint that "[s]ome... dont respect the combining rules" explains why I rejected (a) and (e).  It also seems natural to ask "does it have a section?" and "does it have a retraction?".</div> <figure class="table table-like" id="table-7"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">3.4.10<span class="period">.</span></span><span class="space"> </span>Table of selected map properties for Exercise 3</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Item</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">is a map?</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">has a section?</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">has a retraction?</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">respects combining rules?</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">(a)</td>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">No</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">(b)</td>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">No</td>
+<td class="l m b0 r0 l0 t0 lines">No</td>
+<td class="l m b0 r0 l0 t0 lines">N/A</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">(c)</td>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">No</td>
+<td class="l m b0 r0 l0 t0 lines">N/A</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">(d)</td>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">(e)</td>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">No</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">(f)</td>
+<td class="l m b0 r0 l0 t0 lines">No</td>
+<td class="l m b0 r0 l0 t0 lines">N/A</td>
+<td class="l m b0 r0 l0 t0 lines">N/A</td>
+<td class="l m b0 r0 l0 t0 lines">N/A</td>
+</tr>
+</table></div></figure> <div class="para" id="p-170">These four questions are <em class="emphasis">almost</em> enough to identify every problem except for distinguishing between (a) and (e).  The best description of the difference is that (a) fails to preserve the combining-rules <em class="emphasis">in every case</em> while (e) might pass or fail the combining-rules depending on its input.  This is a very subtle difference that I probably would have overlooked had I not made the mistake that I did.</div>
 </div></div>
 </div></article></div></section></div>
 <div class="ptx-content-footer">
