@@ -2453,35 +2453,140 @@ extra level of assurance that these functions will behave as expected.
           </statement>
           <solution>
             <p>
-              Let's go one at a time, begining with (a): 
+              Let's start with (a): 
               <m>(\mathbb{R},+) \overset{p}{\longrightarrow} (\mathbb{R},+)</m> given by <m>p(x) = x + 1</m>.
             </p>
             <p>
               While it seems like "subtract one" would be a reasonable inverse, this is not an isomorphism because 
-              it fails to respect the  combining-rule <m>p(a+b)=p(a)+p(b)</m>.  Consider the case where <m>a = 1</m> 
+              it fails to respect the combining-rule <m>p(a+b)=p(a)+p(b)</m>.  Consider the case where <m>a = 1</m> 
               and <m>b = 2</m>. We have <m>p(a)=2</m> and <m>p(b)=3</m> so <m>p(a)+p(b)=5</m>.  However, this is not 
               the same as <m>p(a+b)</m>, which evaluates to <m>p(1+2) = p(3) = 4</m> instead.
             </p>
             <p>
               The map in (b) and the map in (c) are both closely related because they share a common definition of <m>sq(x) = x^2</m>,
-              but the domain and codomain.  Again there's an obvious inverse function of "square root", but the domains and codomains 
+              but differ in the domain and codomain.
+            </p>
+            <p>
+              Again there's an obvious inverse function of "square root", but the domains and codomains 
               are what concern me.  Notable about (b) is that it fails to map "onto" the entire codomain, because the <m>sq</m> map 
               never produces any negative numbers as an output.  The map in (c) resolves this by limiting the codomain to non-negative
               values, but it still fails to "one-to-one" because both 1 and -1 produce an output of 1.  
             </p>
             <p>
-              The map in (d) and (e) likewise have similar definitions.  The map defined by the given expression
-              <m>m x = -x</m> acts as its own inverse: <m>(m \circ m) (x) = m(m(x)) = m(-x) = -(-x) = x</m>.  Where (d) and (e) differ
+              The map in (d) and (e) likewise have similar definitions.
+            </p>
+            <p>
+              The map defined by the given expression <m>m x = -x</m> acts as its own inverse:
+              <m>(m \circ m) (x) = m(m(x)) = m(-x) = -(-x) = x</m>.  Where (d) and (e) differ
               is in the "combining-rule".  If we have <m>\set{a,b} \in \mathbb{R}</m>, then a little algebra can show that
-              <m>m(a+b) = -(a+b) = (-a)+(-b) = m(a)+m(b)</m>.  This means that both the indentity rules and the combining rule are 
+              <m>m(a+b) = -(a+b) = (-a)+(-b) = m(a)+m(b)</m>.  This means that both the identity rules and the combining-rules are 
               satisfied for (d), making it the only genuine isomorphism in the list. The map in (e) fails to uphold the combining rule 
-              for <m>a = 1</m> and <m>b = 2</m> since <m>m(a+b) = -(1+2) = -3</m> but <m>m(a) \times m(b) = -1 \times -2 = 2</m>.  
+              because <m>m(a \times b) \neq m(a) \times m(b)</m>.  In the case where 
+              <m>a = 1</m> and <m>b = -1</m>, we have <m>m(a \times b) = -(1 \times (-1)) = -(-1) = 1</m> 
+              but <m>m(a) \times m(b) = -1 \times 1 = -1</m>.  
             </p>
             <p>
               Finally we have the map (f), which isn't even a map with the specified domain and codomain because the cube of a
               negative number is still negative.  Had the map been defined with the correct codomain, 
               <m>(\mathbb{R},\times) \overset{c}{\longrightarrow} (\mathbb{R},\times)</m>, then we'd potentially be able to define
               an inverse map by using the "cube root" function. 
+            </p>
+          </solution>
+        </example>
+        <p>
+          As I was proof reading this session, I noticed a couple small errors in the 3rd exercise.  One of these was a misread problem, 
+          but the other was a little more subtle.  In an effort to get the most out of this as a learning experience,  I thought it
+          might be valuable to talk about what I learned from my mistakes.
+        </p>
+        <example>
+          <title>Meta-Exercise</title>
+          <statement>
+            <p>
+              As I was proof reading, I noticed an error in Exercise 3 Part (e).  It was a simple case of me not reading 
+              the question as precisely as needed. I think I was so excited to show (d) was an isomorphism that I didn't 
+              give (e) the amount of skepticism it deserved.  I mistakely read the domain as <m>(\mathbb{R},+)</m> instead
+              of <m>(\mathbb{R},\times)</m> which made finding a counter-example trivial relative to the actual problem. 
+            </p>
+            <p>
+              As I was looking over my solution to fix this, I noticed something else kind of odd. My solution began with
+              "Let's go one at a time" but I had addressed some of the problems in pairs.  There's something that felt natural 
+              about approaching them this way, but it also seemed kind of ironic that I had failed to produce a isomorphism
+              between my problems and solutions in a section that was all about matching things up.
+            </p>
+            <p>
+              All of this started to get my thinking about the solutions to these problems as a map
+              <m>\set{a,b,c,d,e,f} \overset{s}{\longrightarrow} \set{isomorphism,non-isomorphism}</m>.  
+              Obviously this map is not invertable, but it made me wonder if the "Hints" to this section
+              provided sufficient information about the functions to identify each one.  Is there some
+              set of descriptions that would establish a one-to-one relationship with these problems?
+            </p>
+          </statement>
+          <solution>
+            <p>
+              The first hint tells us that only one of these maps is a "genuine isomorphism", which I concluded was (d). 
+              The last hint says that one is "not even a map", which I concluded is (f). The hint that 
+              "[s]ome... dont respect the combining rules" explains why I rejected (a) and (e).  It also seems natural
+              to ask "does it have a section?" and "does it have a retraction?".
+            </p>
+            <table>
+              <title>Table of selected map properties for Exercise 3</title>
+              <tabular>
+                <row header="yes">
+                  <cell>Item</cell>
+                  <cell>is a map?</cell>
+                  <cell>has a section?</cell>
+                  <cell>has a retraction?</cell>
+                  <cell>respects combining rules?</cell>
+                </row>
+                <row>
+                  <cell>(a)</cell>
+                  <cell>Yes</cell>
+                  <cell>Yes</cell>
+                  <cell>Yes</cell>
+                  <cell>No</cell>
+                </row>
+                <row>
+                  <cell>(b)</cell>
+                  <cell>Yes</cell>
+                  <cell>No</cell>
+                  <cell>No</cell>
+                  <cell>N/A</cell>
+                </row>
+                <row>
+                  <cell>(c)</cell>
+                  <cell>Yes</cell>
+                  <cell>Yes</cell>
+                  <cell>No</cell>
+                  <cell>N/A</cell>
+                </row>
+                <row>
+                  <cell>(d)</cell>
+                  <cell>Yes</cell>
+                  <cell>Yes</cell>
+                  <cell>Yes</cell>
+                  <cell>Yes</cell>
+                </row>
+                <row>
+                  <cell>(e)</cell>
+                  <cell>Yes</cell>
+                  <cell>Yes</cell>
+                  <cell>Yes</cell>
+                  <cell>No</cell>
+                </row>
+                <row>
+                  <cell>(f)</cell>
+                  <cell>No</cell>
+                  <cell>N/A</cell>
+                  <cell>N/A</cell>
+                  <cell>N/A</cell>
+                </row>
+              </tabular>
+            </table>
+            <p>
+              These four questions are <em>almost</em> enough to identify every problem except for distinguishing between
+              (a) and (e).  The best description of the difference is that (a) fails to preserve the combining-rules 
+              <em>in every case</em> while (e) might pass or fail the combining-rules depending on its input.  This is 
+              a very subtle difference that I probably would have overlooked had I not made the mistake that I did. 
             </p>
           </solution>
         </example>
