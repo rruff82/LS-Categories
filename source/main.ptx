@@ -2247,7 +2247,7 @@ extra level of assurance that these functions will behave as expected.
         </example>
       </section>
       <section xml:id="session4">
-        <title>Session 4: Division of maps</title>
+        <title>Session 4: Division of maps: Isomorphisms</title>
         <p>
           While reading this section, I appreciated the fact that "just reverse the arrows" was the official 
           description of isomorphisms on sets. It makes me feel like my answers to Article 2 are at least on the right
@@ -2591,6 +2591,115 @@ extra level of assurance that these functions will behave as expected.
           </solution>
         </example>
       </section>
+      <section xml:id="session5">
+        <title>Session 5: Division of maps: Sections and retractions</title>
+        <p>
+          Determine some witty remark to put here later.
+        </p>
+        <example>
+          <title>Exercise 1</title>
+          <statement>
+            <p>
+              Show that... if <m>fa_1 = fa_2</m> then <m>ha_1 = ha_2</m>...
+            </p>
+          </statement>
+          <solution>
+            <p>
+              For part (a), the hint suggests contradiction might be a good approach. Let's assume that <m>h = g \circ f</m> and
+              there exists some pair of points <m>\mathbf{1} \longrightarrow A</m> such that <m>fa_1 = fa_2</m> 
+              but <m>ha_1 \neq ha_2</m>.
+            </p>
+            <figure xml:id="fig-session5-ex1-1"> 
+<caption>Diagram of determination problem (a) in Session 5 Exercise 1</caption>
+              <image width="80%" xml:id="img-session5-ex1-1"> 
+            <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1.2cm);
+\node (A) at (0,3.5) {$A$};
+\node (A1) at (0,2.5) {$a_1$};
+\node (A2) at (0,1.5) {$a_2$};
+
+% begin second set
+\node (B) at (4,8.5) {$B$};
+\draw (4,7) circle (1.2cm);
+\node (B1) at (4,7) {$fa_1 = fa_2$};
+
+% begin first set
+\draw (8,2) circle (1.2cm);
+\node (C) at (8,3.5) {$C$};
+\node (C1) at (8,2.5) {$ha_1$};
+\node (C2) at (8,1.5) {$ha_2$};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+  (A1) edge (B1)
+  (A2) edge (B1)
+  (B1) edge[dashed] node[above right]{$g?$} (C1)
+  (B1) edge[dashed] (C2)
+  (A1) edge (C1)
+  (A2) edge (C2);
+
+\end{tikzpicture}
+            </latex-image>
+            </image>
+            </figure>
+            <p>
+              In this situation, there's no possible map <m>g</m> here with <m>h = g \circ f</m> because <m>g</m> can't send
+              possibly send <m>b</m> to two different destinations (<m>ha_1</m> and <m>ha_2</m>).
+            </p>
+            <p>
+              Now let's consider the converse relationship in (b) where we know that <m>(fa_1 = fa_2) \Rightarrow (ha_1 = ha_2)</m>
+              for all <m>a_1,a_2 \in A</m>.
+            </p>
+<figure xml:id="fig-session5-ex1-2"> 
+<caption>Diagram of determination problem (b) in Session 5 Exercise 1</caption>
+              <image width="80%" xml:id="img-session5-ex1-2"> 
+            <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1.2cm);
+\node (A) at (0,3.5) {$A$};
+\node (A1) at (0,2.5) {$a_1$};
+\node (A2) at (0,2) {$a_2$};
+\node (A3) at (0,1.5) {$a_3$};
+
+
+% begin second set
+\node (B) at (4,8.5) {$B$};
+\draw (4,7) circle (1.2cm);
+\node (B1) at (4,7.5) {$fa_1 = fa_2$};
+\node (B2) at (4,6.5) {$fa_3$};
+
+% begin first set
+\draw (8,2) circle (1.2cm);
+\node (C) at (8,3.5) {$C$};
+\node (C1) at (8,2.5) {$ha_1 = ha_2$};
+\node (C2) at (8,1.5) {$ha_3$};
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+  (A1) edge (B1)
+  (A2) edge (B1)
+  (A3) edge (B2)
+  (B1) edge[dashed] node[above right]{$g?$} (C1)
+  (B2) edge[dashed] (C2)
+  (A1) edge (C1)
+  (A2) edge (C1)
+  (A3) edge (C2);
+
+\end{tikzpicture}
+            </latex-image>
+            </image>
+            </figure>
+            <p>
+              In this situation, we can construct our map <m>g</m> by mapping each <m>fa_i</m> to the respective <m>ha_i</m>.
+            </p>
+          </solution>
+        </example>
+      </section>
+
     </chapter>
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
