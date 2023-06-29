@@ -2694,10 +2694,204 @@ extra level of assurance that these functions will behave as expected.
             </image>
             </figure>
             <p>
-              In this situation, we can construct our map <m>g</m> by mapping each <m>fa_i</m> to the respective <m>ha_i</m>.
+              In this situation, we can construct a map <m>g</m> that has our desired property <m>g \circ f = h</m>.
+              I'd imagine it like taking an image of the maps <m>f</m> and <m>h</m> over the set <m>A = \set{a_1,a_2,a_3,...}</m>
+              and defining <m>g</m> as by the collection of arrows that have an origin at <m>fa_i</m> and destination <m>ha_i</m>.
+            </p>
+            <p>
+              Obviously defining <m>g</m> in this way will potentially leave the possibility of arrows having duplicates,
+              but the property <m>(fa_1 = fa_2) \Rightarrow (ha_1 = ha_2)</m> ensures that if any two arrows share the same
+              origin they must share the same destination.  
+            </p>
+            <p>
+              From a meta-perspective, it makes sense that the converse holds true for use to this practically as a definition. When
+              we say "<m>h</m> is determined by <m>f</m>", we want it to be true if and only if it satisfies the properties
+              we've defined it to have.
             </p>
           </solution>
         </example>
+        <example>
+          <title>Exercise 2</title>
+          <statement>
+            <p>
+              Show that... there is at least one <m>b</m> in <m>B</m> for which <m>h(a) = g(b)</m>...
+            </p>
+          </statement>
+          <solution>
+            <p>
+              I think the key idea in part (a) here is that the point <m>f(a)</m> precisely satisfies the properties
+              we want for establishing the existence of <m>b</m>.  As long as there is some map <m>f</m> with 
+              <m>g \circ f = h</m> then we can define <m>b = f(a)</m> and it follows directly that 
+              <m>h(a) = (g \circ f)(a) = g(f(a)) = g(b)</m>.
+            </p>
+            <p>
+              Proving the converse in (b) seems a little trickier.  I think I'd want to approach this like 
+              I did with "Exercise 1" and consider making an image by applying <m>g</m> to each element 
+              <m>b_1,b_2,... \in \mathbf{1} \longrightarrow B</m>.
+            </p>
+            <p>
+              If we already know that for each <m>gb_i</m> there is at least one <m>a_i</m> such that
+              <m>ha_i = gb_i</m>, we can begin to construct a map <m>f</m> by creating a collection of
+              arrows with origin <m>a_i</m> and destination <m>b_i</m>.
+            </p>
+<figure xml:id="fig-session5-ex2"> 
+<caption>Diagram of problem in Session 5 Exercise 2</caption>
+              <image width="80%" xml:id="img-session5-ex2"> 
+            <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1.2cm);
+\node (A) at (0,3.5) {$A$};
+\node (A1) at (-.5,2.5) {$a_1$};
+\node (A2) at (0,2) {$a_2$};
+\node (A3) at (.5,1.5) {$a_3$};
+
+
+% begin second set
+\node (B) at (4,8.5) {$B$};
+\draw (4,7) circle (1.2cm);
+\node (B1) at (4,7.5) {$b_1$};
+\node (B2) at (4,7) {$b_2$};
+\node (B3) at (4,6.5) {$b_3$};
+
+
+% begin first set
+\draw (8,2) circle (1.2cm);
+\node (C) at (8,3.5) {$C$};
+\node (C1) at (8.5,2.5) {$gb_1$};
+\node (C2) at (8,2) {$gb_2$};
+\node (C3) at (7.5,1.5) {$gb_3$};
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+  (A1) edge[dashed] node[above left]{$f?$} (B1)
+  (A2) edge[dashed] (B2)
+  (A3) edge[dashed] (B3)
+  (B1) edge node[above right]{$g$}  (C1)
+  (B2) edge (C2)
+  (B3) edge (C3)
+  (A1) edge (C1)
+  (A2) edge (C2)
+  (A3) edge node[below]{$h$} (C3);
+
+\end{tikzpicture}
+            </latex-image>
+            </image>
+            </figure>
+            <p>
+              The above definition of <m>f</m> given by <m>f(a_i)=b_i</m> should satisfy the property 
+              <m>h = (g \circ f)</m> since <m>(g \circ f)(a_i) = g(f(a_i)) = g(b_i) = h(a_i)</m>. 
+              We can rest assured we're not missing any origin points in <m>A</m> because we've 
+              already assumed that each <m>a_i \in A</m> each corresponds to at least one <m>b_i \in B</m>,
+              and we can safely assume that no <m>a_i</m> has more than one destination in <m>B</m> because we 
+              found them by iterating over <m>B</m> to begin with.
+            </p>
+          </solution>
+        </example>
+              <example>
+        <title>Exercise 3</title>
+        <statement>
+          <p>
+            Draw... all the sections of <m>f</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Let's start here by reproducing the diagram of <m>f</m>:
+          </p>
+<figure xml:id="fig-session5-ex3-1"> 
+<caption>Internal diagram of map <m>f</m> in Session 5 Exercise 3</caption>
+              <image width="80%" xml:id="img-session5-ex3-1"> 
+            <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) rectangle (4,4);
+\node (A) at (-1,3) {$A = $};
+\draw[fill=black] (1,3.6) circle (0.15em);
+\draw[fill=black] (1,3.2) circle (0.15em);
+\draw[fill=black] (1,2.8) circle (0.15em);
+\draw[fill=black] (1,2.4) circle (0.15em);
+
+\draw[fill=black] (3,2.8) circle (0.15em);
+\draw[fill=black] (3,2.4) circle (0.15em);
+
+% begin second set
+\draw (0,0) rectangle (4,1);
+\node (B) at (-1,0.5) {$B = $};
+
+\draw[fill=black] (1,0.5) circle (0.15em);
+\draw[fill=black] (3,0.5) circle (0.15em);
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+  (A) edge node[right]{$f$} (B);
+
+\end{tikzpicture}
+            </latex-image>
+            </image>
+            </figure>
+            <p>
+              Since there's only two points in <m>B</m>, we're need to have two arrows with one originating at each.  
+              The left arrow needs to have one of four possible destinations, since there are four points in A that get 
+              mapped there by <m>f</m>.  The right arrow needs to have one of two possible destination from the points 
+              stacked above it.  Since these choices are independent, we're looking for a total of <m>4 \times 2 = 8</m> maps.
+            </p>
+
+<figure xml:id="fig-session5-ex3-2"> 
+<caption>Possible sections of <m>f</m> in Session 5 Exercise 3</caption>
+              <image width="80%" xml:id="img-session5-ex3-2"> 
+            <latex-image>
+\begin{tikzpicture}[scale=.5]
+\foreach \pDest in {0,1,2,3}
+  \foreach \qDest in {0,1}
+{
+
+\pgfmathsetmacro{\i}{\pDest+4*\qDest}
+
+\pgfmathsetmacro{\x}{mod(\i,3)}
+\pgfmathsetmacro{\y}{(\i-\x)/3}
+
+\pgfmathsetmacro{\qY}{0.4*\qDest + 2.4}
+\pgfmathsetmacro{\pY}{0.4*\pDest + 2.4}
+
+\node (g) at (10*\x,-6*\y) {};
+\coordinate (qD) at ($(g) + (3,\qY)$);
+\coordinate (pD) at ($(g) + (1,\pY)$);
+
+
+% begin first set
+\draw ($(g) + (0,2)$) rectangle ($(g) + (4,4)$);
+\node (A) at ($(g) + (-1,3)$)  {$A = $};
+\draw[fill=black] ($(g) + (1,3.6)$) circle (0.15em);
+\draw[fill=black] ($(g) + (1,3.2)$) circle (0.15em);
+\draw[fill=black] ($(g) + (1,2.8)$) circle (0.15em);
+\draw[fill=black] ($(g) + (1,2.4)$) circle (0.15em);
+
+\draw[fill=black] ($(g) + (3,2.8)$) circle (0.15em);
+\draw[fill=black] ($(g) + (3,2.4)$) circle (0.15em);
+
+% begin second set
+\draw (g) rectangle ($(g) + (4,1)$);
+\node (B) at ($(g) + (-1,0.5)$)  {$B = $};
+
+
+\coordinate (pO) at ($(g) + (1,0.5)$);
+\draw[fill=black] (pO) circle (0.15em);
+\coordinate (qO) at ($(g) + (3,0.5)$);
+\draw[fill=black] (qO) circle (0.15em);
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+  ($(qO)+(0.2,0)$) edge[bend right] ($(qD)+(0.2,0)$)
+  ($(pO)+(0.2,0)$) edge[bend right] ($(pD)+(0.2,0)$);
+
+}
+\end{tikzpicture}
+            </latex-image>
+            </image>
+            </figure>
+
+        </solution>
+      </example>
       </section>
 
     </chapter>
