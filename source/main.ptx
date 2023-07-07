@@ -2917,7 +2917,110 @@ extra level of assurance that these functions will behave as expected.
         me or not, well, that's another story...
       </p>
       </section>
+      <section xml:id="session6">
+        <title>Session 6: Two general aspects or uses of maps</title>
+        <p>
+          This week's reading didn't have any official exercises in it, but it also seemed important so I 
+          wanted to make sure I gave it the same level of attention as the others.  I find that I need to
+          continually reminding myself that math is not a race and that I should take advantage of current
+          <em>privilege</em> to truly take things slow here.  My purpose isn't to get through the excercises
+          in this book; it's to understand the deeper ideas behind it.
+        </p>
+        <p>
+          This session is filled with beautiful mathematical writing. 
+        </p>
+        <p>
+          I think math courses need more content like this.  At the same time, both the student and teacher
+          in me recognize that this is one of the first things that would be cut from the syllabus if the 
+          class ran short on time.  It makes me sad that our system's focus on measurable learning 
+          objectives means that philosophical discussions are treated as dispensible.
+        </p>
+        <p>
+          In much the same way as the authors describe science as maps being used to understand reality, the
+          education system uses assessments to understand what's going on inside a student's head.  Since
+          we can't observe someone's state of mind, we alter their environment stimuli and see how they
+          respond.  This presents problems when we're using map composition to turn one of many complex
+          mental models down to a multiple choice question for the exam.  As long as a student could 
+          distinguish between "sort" and "partition" by the end of this unit, we don't really care how it
+          impacted their broader understanding of world around them.
+        </p>
+        <p>
+          I think there's a hidden exercise in this session.  I'll mark it as an example here so you can
+          avoid spoilers if desired. 
+        </p>
+      <example>
+        <title>Session 6 Hidden Exercise</title>
+        <statement>
+          <p>
+            What do you notice? What do you wonder?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            After reading through this session, I noticed something very interesting about the last diagram.
+            I'll recreate it here for reference.
+          </p>
+          <figure width="80%" xml:id="fig-session6-1">
+            <caption>The last diagram in L&amp;S Session 6</caption>
+            <image width="80%" xml:id="img-session6-1"> 
+            <latex-image>
+            
+\begin{tikzpicture}[scale=.5]
 
+% begin first set
+\draw (0,0) rectangle (2,5);
+
+\node (A1) at (1,1) {1};
+\node (A2) at (1,2) {2};
+\node (A3) at (1,3) {3};
+\node (A4) at (1,4) {4};
+
+% begin second set
+\draw (4,1) rectangle (7,4);
+\node (B1) at (5.5,1.5) {red};
+\node (B2) at (5.5,2.5) {blond};
+\node (B3) at (5.5,3.5) {black};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+  (A1) edge (B2)
+  (A2) edge (B1)
+  (A3) edge (B2)
+  (A4) edge (B3);
+
+\end{tikzpicture}
+            </latex-image>
+            </image>
+          
+          </figure>
+          <p>
+            What struck me as interesting about this map was how closely it described
+            <em>a book</em>.  There's only a finite number of "words" in the "language" 
+            that the book is written using, and we can index them with positive integers
+            describing their sequence in the book. 
+          </p>
+          <p>
+            This observation struck me as interesting because my reading of this book 
+            works the same as the sampling process.  You could generate a map from time
+            to the index of the word that I'm reading at the time, and compose this map
+            with the book map to find out what word I'm reading.  This would reveal my
+            non-linear path through the book, rereading sections as needed to answer the
+            problems I'm working on.
+          </p>
+          <p>
+            It makes me wonder if this session is actually an exercise in <em>meta-mathematics</em>.
+            Maybe the reason the authors intended to sow seeds of curiousity about their ommission
+            and for me look at the book as a system that can be studied using category theory itself. 
+            The chapters of the book act as a <em>sort</em> for the exercises, but the fact that this
+            chapter doesn't exercises have any means it's not a <em>partition</em>. 
+          </p>
+          <p>
+            I think it's kind of funny that this section of the book about sections would be a counter-example
+            to the book's exercises having a section.
+          </p>
+        </solution>
+      </example>
+      </section>
     </chapter>
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
