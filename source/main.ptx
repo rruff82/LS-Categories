@@ -3070,7 +3070,7 @@ extra level of assurance that these functions will behave as expected.
               <li>
                 <p>
                   With this information in hand, I can set up a ratio to determine <m>x</m>. 
-                  Solving <m>\frac{3.5-(-4.3)}{0-x} \approx \frac{1557.4}{319.19}</m> results in 
+                  Solving <m>\frac{3.5-(-4.3)}{0-x} \approx -\frac{1557.4}{319.19}</m> results in 
                   a solution of <m>x \approx -1.5</m>.
                 </p>
               </li>
