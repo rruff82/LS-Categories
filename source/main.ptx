@@ -3385,6 +3385,57 @@ extra level of assurance that these functions will behave as expected.
           </solution>
         </example>
       </section>
+      <section xml:id="session8">
+        <title>Session 8: Pictures of a map</title>
+        <p>
+          Rather than having exercises of its own, this session was focused on solving the exercises
+          from Article II.  Since I'd already worked out these problems, all that remains for this week
+          is too proofread.  
+        </p>
+        <example>
+          <title>Article II, Exercise 5 Proofreading</title>
+          <statement>
+            (Add the rest of the arrows yourself.)
+          </statement>
+          <solution>
+            <p>
+              My diagram of all 6 sections from earlier matchs up with this incomplete diagram perfectly:
+            </p>
+            <xref ref="fig-article2-ex5-3"/>
+            <p>
+              Likewise, I correctly arrived at a count of 8 retractions and drew those too:
+            </p>
+            <xref ref="fig-article2-ex5-6"/>
+            <p>
+              If there's something to be critical about myself here, it would be that I was
+              perhaps a little lax in assuming the domains and codomains of my maps were the same. 
+              I jumped right into diagrams of <m>g</m> without specifying what it was.  In my defense, 
+              this information was implicit in the diagrams themselves but the authors took an extra
+              effort to explicitly articulate the qualities they were checking for in the map.
+            </p>
+          </solution>
+        </example>
+        <example>
+          <title>Article II, Exercise 8 Proofreading</title>
+          <statement>
+            Prove that the composite of two maps that have sections has a section.
+          </statement>
+          <solution>
+            <p>
+              I must admit, it took me several attempts to verify that my solution was equivalent to
+              the book's with direct substitutions.  I had used <m>\set{f_1, s_1, f_2, s_2}</m> instead
+              of the respective <m>\set{k, s', p, s}</m>.
+            </p>
+            <xref ref="fig-article2-ex8-1"/>
+            <p>
+              I think I actually prefer my notation here over the authors because it makes the connection 
+              between the functions and sections more clear.  I kept forgetting whether <m>s</m> or <m>s'</m>
+              matched up with <m>p</m> or <m>k</m>.  Using the <m>\set{f_1,f_2}</m> notation makes the reversed
+              composition ordering of the sections more readily apparent.
+            </p>
+          </solution> 
+        </example>
+      </section>
     </chapter>
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
