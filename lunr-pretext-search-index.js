@@ -460,6 +460,33 @@ var ptx_lunr_docs = [
   "body": " Aside 3   ...rational explanation for the curious bracketing...    The first thing that jumps out at me about the bracket is that the sums of the adjacent ranks are constant:   8 Player Bracket from L&S Session 7      In other words, the best player is alway paired with the worst player, the next best with the next worst, and so on until all pairs have been assigned. However, the fun doesn't stop there.  The bracket also appears to balance \"skill gap\" between the top half and the bottom half. The winner of the match-up with the highest rank differential goes on to face the winner of the match with the lowest differential in the next round. Those differentials sum to a constant much like the ranks did.   8 player bracket with rank differentials      Between those two conditions, that should be enough to determine the 4 and 16 player brackets. The four player one is easy, since it's essentially embeeded in the original.   4 player bracket      To make the 16 player bracket, I'm going to start by pairing off players based on rank: The player in rank 1 should be paired with the player in rank 16, rank 2 with rank 15, rank 3 with rank 14, and so on until all 8 pairs have been assigned. Since these pairings go from largest score differential to smallest, we can assign the pairs to each of the \"ranks\" in the 8 player bracket to extend it further.   16 player bracket      This works out nicely because if the top 8 players all win their match-ups in the first round of the 16-player bracket, they'd wind up in a bracket that is basically identical to their placement in the 8-player bracket. Likewise, if the top four players continue to win then we end up in a situation identical to the 4-player bracket. It has a nice recursively defined structure.   "
 },
 {
+  "id": "session8",
+  "level": "1",
+  "url": "session8.html",
+  "type": "Section",
+  "number": "3.8",
+  "title": "Session 8: Pictures of a map",
+  "body": " Session 8: Pictures of a map  Rather than having exercises of its own, this session was focused on solving the exercises from Article II. Since I'd already worked out these problems, all that remains for this week is too proofread.   Article II, Exercise 5 Proofreading  (Add the rest of the arrows yourself.)   My diagram of all 6 sections from earlier matchs up with this incomplete diagram perfectly:   Likewise, I correctly arrived at a count of 8 retractions and drew those too:   If there's something to be critical about myself here, it would be that I was perhaps a little lax in assuming the domains and codomains of my maps were the same. I jumped right into diagrams of without specifying what it was. In my defense, this information was implicit in the diagrams themselves but the authors took an extra effort to explicitly articulate the qualities they were checking for in the map.     Article II, Exercise 8 Proofreading  Prove that the composite of two maps that have sections has a section.   I must admit, it took me several attempts to verify that my solution was equivalent to the book's with direct substitutions. I had used instead of the respective .   I think I actually prefer my notation here over the authors because it makes the connection between the functions and sections more clear. I kept forgetting whether or matched up with or . Using the notation makes the reversed composition ordering of the sections more readily apparent.    "
+},
+{
+  "id": "example-39",
+  "level": "2",
+  "url": "session8.html#example-39",
+  "type": "Example",
+  "number": "3.8.1",
+  "title": "Article II, Exercise 5 Proofreading.",
+  "body": " Article II, Exercise 5 Proofreading  (Add the rest of the arrows yourself.)   My diagram of all 6 sections from earlier matchs up with this incomplete diagram perfectly:   Likewise, I correctly arrived at a count of 8 retractions and drew those too:   If there's something to be critical about myself here, it would be that I was perhaps a little lax in assuming the domains and codomains of my maps were the same. I jumped right into diagrams of without specifying what it was. In my defense, this information was implicit in the diagrams themselves but the authors took an extra effort to explicitly articulate the qualities they were checking for in the map.   "
+},
+{
+  "id": "example-40",
+  "level": "2",
+  "url": "session8.html#example-40",
+  "type": "Example",
+  "number": "3.8.2",
+  "title": "Article II, Exercise 8 Proofreading.",
+  "body": " Article II, Exercise 8 Proofreading  Prove that the composite of two maps that have sections has a section.   I must admit, it took me several attempts to verify that my solution was equivalent to the book's with direct substitutions. I had used instead of the respective .   I think I actually prefer my notation here over the authors because it makes the connection between the functions and sections more clear. I kept forgetting whether or matched up with or . Using the notation makes the reversed composition ordering of the sections more readily apparent.   "
+},
+{
   "id": "colophon-2",
   "level": "1",
   "url": "colophon-2.html",
