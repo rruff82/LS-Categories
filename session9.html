@@ -8,7 +8,7 @@
 <html lang="en-US">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Colophon</title>
+<title>Session 9: Retracts and idempotents</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -177,7 +177,7 @@ window.MathJax = {
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="backmatter.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="backmatter.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon">&gt;</span></span></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="session8.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="part2.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
@@ -215,17 +215,134 @@ window.MathJax = {
 <li><div class="toc-item"><a href="session6.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Session 6: Two general aspects or uses of maps</span></a></div></li>
 <li><div class="toc-item"><a href="session7.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Session 7: Isomorphisms and coordinates</span></a></div></li>
 <li><div class="toc-item"><a href="session8.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Session 8: Pictures of a map</span></a></div></li>
-<li><div class="toc-item"><a href="session9.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Session 9: Retracts and idempotents</span></a></div></li>
+<li class="active"><div class="toc-item"><a href="session9.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Session 9: Retracts and idempotents</span></a></div></li>
 </ul>
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="colophon" id="colophon-2"><h2 class="heading hide-type">
-<span class="type">Colophon</span> <span class="codenumber"></span> <span class="title">Colophon</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="session9"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.9</span> <span class="title">Session 9: Retracts and idempotents</span>
 </h2>
-<div class="para" id="p-247">This book was authored in PreTeXt.</div></section></div>
+<div class="para" id="p-230">At last! The exercises have returned!</div>
+<div class="para" id="p-231">The reading this week was interesting in how it approached the relationship between "size of sets" and "properties of maps". <em class="emphasis">The art of counting without counting</em> seemed to be a recurring theme.</div>
+<article class="example example-like" id="example-41"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-41"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.9.1</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 1:.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-41"><article class="example example-like"><div class="para" id="p-232">...unless the set <span class="process-math">\(A\)</span> has a point and <span class="process-math">\(B\)</span> has none...</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-41" id="solution-41"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-41"><div class="solution solution-like">
+<div class="para" id="p-233">So <span class="process-math">\(A \mathrel{\vcenter{\huge \triangleleft} \!\!\!\! \vcenter{\tiny \rightarrow}} B\)</span> means that there exists some map <span class="process-math">\(A \xrightarrow{f} B\text{.}\)</span> In the category of sets, we know that the number of possible maps from <span class="process-math">\(A \longrightarrow B\)</span> is related to the size of the sets by a formula we arrived at in Session 2: <span class="process-math">\({|B|}^{|A|}\text{.}\)</span>  The only time when this expression for number of maps evaluates to 0 is when <span class="process-math">\(|B| = 0\)</span> and <span class="process-math">\(|A| &gt; 0\text{.}\)</span>
+</div> <div class="para" id="p-234">Another way of looking at this might to consider the contrapositive of this statement.  If we know that there does not exist a map from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\text{,}\)</span> that means there must be some origin point in <span class="process-math">\(A\)</span> for the map to act on but no destination point in <span class="process-math">\(B\)</span> to send it to.  Not having a place to send the point to directly implies <span class="process-math">\(B=\emptyset\text{.}\)</span>  If we also had <span class="process-math">\(A =\emptyset\)</span> then we'd have a "null map", so the non-existance of a map also implies <span class="process-math">\(A\)</span> must be non-empty.</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-42"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-42"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.9.2</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 2:.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-42"><article class="example example-like"><div class="para" id="p-235">...Show that (R) ... [and] (T) ...</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-42" id="solution-42"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-42"><div class="solution solution-like">
+<div class="para" id="p-236">Let's start with the reflexive property (R): <span class="process-math">\(A \leq_R A\text{.}\)</span>  This notation indicates that there exist maps <span class="process-math">\(\set{s,r}\)</span> such that <span class="process-math">\(A \xrightarrow{s} A \xrightarrow{r} A\)</span> with <span class="process-math">\(rs = 1_A\text{.}\)</span> Clearly the map <span class="process-math">\(1_A\)</span> already mets both these conditions since <span class="process-math">\(1_A \circ 1_A = 1_A\text{.}\)</span>
+</div> <div class="para" id="p-237">To prove the transitive property (T), we can construct a retraction for the composition of the functions using a composition of their retractions.  If <span class="process-math">\(A \leq_R B\text{,}\)</span> then there exist maps <span class="process-math">\(\set{s_1,r_1}\)</span> such that <span class="process-math">\(A \xrightarrow{s_1} B \xrightarrow{r_1} A\)</span> with <span class="process-math">\(r_1 \circ s_1 = 1_A\text{.}\)</span>   Likewise, <span class="process-math">\(B \leq_R C\text{,}\)</span> then there exist maps <span class="process-math">\(\set{s_2,r_2}\)</span> such that <span class="process-math">\(B \xrightarrow{s_2} C \xrightarrow{r_2} B\)</span> with <span class="process-math">\(r_2 \circ s_2 = 1_B\text{.}\)</span>
+</div> <div class="para" id="p-238">Given these <span class="process-math">\(\set{s_1,r_1,s_2,r_2}\text{,}\)</span> we can define <span class="process-math">\(A \xrightarrow{s_3} C = s_2 \circ s_1\)</span> and define <span class="process-math">\(C \xrightarrow{r_3} A = r_1 \circ r_2\text{.}\)</span>  Note that <span class="process-math">\(r_3 \circ s_3\)</span> can be evaluated as follows using the associative property:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r_3 \circ s_3 = (r_1 \circ r_2) \circ (s_2 \circ s_1)
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= r_1 \circ (r_2 \circ s_2) \circ s_1
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= r_1 \circ 1_B \circ s_1 = r_1 \circ s_1 = 1_A
+\end{equation*}
+</div>
+<div class="para" id="p-239">This completes the proof that <span class="process-math">\(A \leq_R C\text{.}\)</span>
+</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-43"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-43"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.9.3</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 3:.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-43"><article class="example example-like"><div class="para" id="p-240">... Use these maps to construct an isomorphism <span class="process-math">\(A \xrightarrow{f} A'\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-43" id="solution-43"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-43"><div class="solution solution-like">
+<div class="para" id="p-241">So we're given that both <span class="process-math">\(A \mathrel{\substack{s \\[-0.6ex]
+\textstyle\longrightarrow \\[-0.6ex]
+\textstyle\longleftarrow \\[-0.6ex]
+r}} B\)</span> and <span class="process-math">\(A' \mathrel{\substack{ s' \\[-0.6ex]
+\textstyle\longrightarrow \\[-0.6ex]
+\textstyle\longleftarrow \\[-0.6ex]
+r'}} B\)</span> "split the same idempotent" <span class="process-math">\(B \xrightarrow{e} B\text{.}\)</span>
+</div> <div class="para" id="p-242">The definition of "splitting an idempotent" tells us that <span class="process-math">\(sr = e = s'r'\)</span> with <span class="process-math">\(rs = 1_A\)</span> and <span class="process-math">\(r's' = 1_{A'}\text{.}\)</span> Given these maps, we're trying to establish a composition that goes from <span class="process-math">\(A\)</span> to <span class="process-math">\(A'\)</span> using <span class="process-math">\(B\)</span> as a step in between.  To get from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\)</span> we can use map <span class="process-math">\(s\text{,}\)</span> and then to get from <span class="process-math">\(B\)</span> to <span class="process-math">\(A'\)</span> we can use map <span class="process-math">\(s'\text{.}\)</span>
+</div> <div class="para" id="p-243">Let us define <span class="process-math">\(A \xrightarrow{f} A'\)</span> by <span class="process-math">\(r' \circ s\text{.}\)</span>  This map should be a well-defined isomorphism with the inverse map given by <span class="process-math">\(f^{-1} = r \circ s'\text{.}\)</span> To prove this, we must show that <span class="process-math">\(f^{-1} \circ f = 1_A\)</span> and <span class="process-math">\(f \circ f^{-1} = 1_{A'}\text{.}\)</span>
+</div> <div class="para" id="p-244">By the associative property, the first expression can be simplified as follows:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f^{-1} \circ f = (r \circ s') \circ (r' \circ s) 
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= r \circ (s' \circ r') \circ s  
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= r \circ e \circ s  
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= r \circ (s \circ r) \circ s
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= (r \circ s) \circ (r \circ s)
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= 1_A \circ 1_A = 1_A
+\end{equation*}
+</div>
+<div class="para" id="p-245">Likewise, the second expression can be similarly simplified:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f \circ f^{-1} = (r' \circ s) \circ (r \circ s') 
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= r' \circ (s \circ r) \circ s'  
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= r' \circ e \circ s'  
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= r' \circ (s' \circ r') \circ s'
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= (r' \circ s') \circ (r' \circ s')
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= 1_{A'} \circ 1_{A'} = 1_{A'}
+\end{equation*}
+</div>
+<div class="para" id="p-246">These two conditions are sufficient to demonstrate that <span class="process-math">\(f\)</span> is an isomorphism.</div>
+</div></div>
+</div></article></div></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="backmatter.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon">&gt;</span></span>
+<a class="previous-button button" href="session8.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer">

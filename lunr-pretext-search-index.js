@@ -487,6 +487,42 @@ var ptx_lunr_docs = [
   "body": " Article II, Exercise 8 Proofreading  Prove that the composite of two maps that have sections has a section.   I must admit, it took me several attempts to verify that my solution was equivalent to the book's with direct substitutions. I had used instead of the respective .   I think I actually prefer my notation here over the authors because it makes the connection between the functions and sections more clear. I kept forgetting whether or matched up with or . Using the notation makes the reversed composition ordering of the sections more readily apparent.   "
 },
 {
+  "id": "session9",
+  "level": "1",
+  "url": "session9.html",
+  "type": "Section",
+  "number": "3.9",
+  "title": "Session 9: Retracts and idempotents",
+  "body": " Session 9: Retracts and idempotents  At last! The exercises have returned!  The reading this week was interesting in how it approached the relationship between \"size of sets\" and \"properties of maps\". The art of counting without counting seemed to be a recurring theme.   Exercise 1:   ...unless the set has a point and has none...    So means that there exists some map . In the category of sets, we know that the number of possible maps from is related to the size of the sets by a formula we arrived at in Session 2: . The only time when this expression for number of maps evaluates to 0 is when and .  Another way of looking at this might to consider the contrapositive of this statement. If we know that there does not exist a map from to , that means there must be some origin point in for the map to act on but no destination point in to send it to. Not having a place to send the point to directly implies . If we also had then we'd have a \"null map\", so the non-existance of a map also implies must be non-empty.     Exercise 2:   ...Show that (R) ... [and] (T) ...    Let's start with the reflexive property (R): . This notation indicates that there exist maps such that with . Clearly the map already mets both these conditions since .  To prove the transitive property (T), we can construct a retraction for the composition of the functions using a composition of their retractions. If , then there exist maps such that with . Likewise, , then there exist maps such that with .  Given these , we can define and define . Note that can be evaluated as follows using the associative property:     This completes the proof that .     Exercise 3:   ... Use these maps to construct an isomorphism .    So we're given that both and \"split the same idempotent\" .  The definition of \"splitting an idempotent\" tells us that with and . Given these maps, we're trying to establish a composition that goes from to using as a step in between. To get from to we can use map , and then to get from to we can use map .  Let us define by . This map should be a well-defined isomorphism with the inverse map given by . To prove this, we must show that and .  By the associative property, the first expression can be simplified as follows:        Likewise, the second expression can be similarly simplified:        These two conditions are sufficient to demonstrate that is an isomorphism.    "
+},
+{
+  "id": "example-41",
+  "level": "2",
+  "url": "session9.html#example-41",
+  "type": "Example",
+  "number": "3.9.1",
+  "title": "Exercise 1:.",
+  "body": " Exercise 1:   ...unless the set has a point and has none...    So means that there exists some map . In the category of sets, we know that the number of possible maps from is related to the size of the sets by a formula we arrived at in Session 2: . The only time when this expression for number of maps evaluates to 0 is when and .  Another way of looking at this might to consider the contrapositive of this statement. If we know that there does not exist a map from to , that means there must be some origin point in for the map to act on but no destination point in to send it to. Not having a place to send the point to directly implies . If we also had then we'd have a \"null map\", so the non-existance of a map also implies must be non-empty.   "
+},
+{
+  "id": "example-42",
+  "level": "2",
+  "url": "session9.html#example-42",
+  "type": "Example",
+  "number": "3.9.2",
+  "title": "Exercise 2:.",
+  "body": " Exercise 2:   ...Show that (R) ... [and] (T) ...    Let's start with the reflexive property (R): . This notation indicates that there exist maps such that with . Clearly the map already mets both these conditions since .  To prove the transitive property (T), we can construct a retraction for the composition of the functions using a composition of their retractions. If , then there exist maps such that with . Likewise, , then there exist maps such that with .  Given these , we can define and define . Note that can be evaluated as follows using the associative property:     This completes the proof that .   "
+},
+{
+  "id": "example-43",
+  "level": "2",
+  "url": "session9.html#example-43",
+  "type": "Example",
+  "number": "3.9.3",
+  "title": "Exercise 3:.",
+  "body": " Exercise 3:   ... Use these maps to construct an isomorphism .    So we're given that both and \"split the same idempotent\" .  The definition of \"splitting an idempotent\" tells us that with and . Given these maps, we're trying to establish a composition that goes from to using as a step in between. To get from to we can use map , and then to get from to we can use map .  Let us define by . This map should be a well-defined isomorphism with the inverse map given by . To prove this, we must show that and .  By the associative property, the first expression can be simplified as follows:        Likewise, the second expression can be similarly simplified:        These two conditions are sufficient to demonstrate that is an isomorphism.   "
+},
+{
   "id": "colophon-2",
   "level": "1",
   "url": "colophon-2.html",
