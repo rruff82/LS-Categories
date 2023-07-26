@@ -3442,6 +3442,129 @@ extra level of assurance that these functions will behave as expected.
           then I miss out on moments for reflection like this.
         </p>
       </section>
+      <section xml:id="session9">
+        <title>Session 9: Retracts and idempotents</title>
+        <p>
+          At last! The exercises have returned!
+        </p>
+        <p>
+          The reading this week was interesting in how it approached the relationship between 
+          "size of sets" and "properties of maps". <em>The art of counting without counting</em>
+          seemed to be a recurring theme.
+        </p>
+        <example>
+          <title>Exercise 1:</title>
+          <statement>
+            <p>
+              ...unless the set <m>A</m> has a point and <m>B</m> has none...
+            </p>
+          </statement>
+          <solution>
+            <p>
+              So <m>A \mathrel{\vcenter{\huge \triangleleft} \!\!\!\! \vcenter{\tiny \rightarrow}} B</m>
+              means that there exists some map <m>A \xrightarrow{f} B</m>. In the category of sets, we know
+              that the number of possible maps from <m>A \longrightarrow B</m> is related to the size of the
+              sets by a formula we arrived at in Session 2: <m>{|B|}^{|A|}</m>.  The only time when this expression
+              for number of maps evaluates to 0 is when <m>|B| = 0</m> and <m>|A| > 0</m>.
+            </p>
+            <p>
+              Another way of looking at this might to consider the contrapositive of this statement.  If we know that
+              there does not exist a map from <m>A</m> to <m>B</m>, that means there must be some origin point in <m>A</m> for the 
+              map to act on but no destination point in <m>B</m> to send it to.  Not having a place to send the point to 
+              directly implies <m>B=\emptyset</m>.  If we also had <m>A =\emptyset</m> then we'd have a "null map", so the non-existance
+              of a map also implies <m>A</m> must be non-empty.  
+            </p>
+          </solution>
+        </example>
+        <example>
+          <title>Exercise 2:</title>
+          <statement>
+            <p>
+              ...Show that (R) ... [and] (T) ...
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Let's start with the reflexive property (R): <m>A \leq_R A</m>.  This notation indicates that there
+              exist maps <m>\set{s,r}</m> such that <m>A \xrightarrow{s} A \xrightarrow{r} A</m> with
+              <m>rs = 1_A</m>. Clearly the map <m>1_A</m> already mets both these conditions since 
+              <m>1_A \circ 1_A = 1_A</m>. 
+            </p>
+            <p>
+              To prove the transitive property (T), we can construct a retraction for the composition of the 
+              functions using a composition of their retractions.  If <m>A \leq_R B</m>, then there exist maps
+              <m>\set{s_1,r_1}</m> such that <m>A \xrightarrow{s_1} B \xrightarrow{r_1} A</m> with
+              <m>r_1 \circ s_1 = 1_A</m>.   Likewise, <m>B \leq_R C</m>, then there exist maps
+              <m>\set{s_2,r_2}</m> such that <m>B \xrightarrow{s_2} C \xrightarrow{r_2} B</m> with
+              <m>r_2 \circ s_2 = 1_B</m>. 
+            </p>
+            <p>
+              Given these <m>\set{s_1,r_1,s_2,r_2}</m>, we can define <m>A \xrightarrow{s_3} C = s_2 \circ s_1</m>
+              and define <m>C \xrightarrow{r_3} A = r_1 \circ r_2</m>.  Note that <m>r_3 \circ s_3</m> can be
+              evaluated as follows using the associative property:
+            </p>
+            <me>r_3 \circ s_3 = (r_1 \circ r_2) \circ (s_2 \circ s_1)</me>
+            <me>= r_1 \circ (r_2 \circ s_2) \circ s_1</me>
+            <me>= r_1 \circ 1_B \circ s_1 = r_1 \circ s_1 = 1_A</me>
+            <p>
+              This completes the proof that <m>A \leq_R C</m>.
+            </p>
+          </solution>
+        </example>
+        <example>
+          <title>Exercise 3:</title>
+          <statement>
+            <p>
+              ... Use these maps to construct an isomorphism <m>A \xrightarrow{f} A'</m>.
+            </p>
+          </statement>
+          <solution>
+            <p>
+              So we're given that both <m>A \mathrel{\substack{s \\[-0.6ex]
+                \textstyle\longrightarrow \\[-0.6ex]
+                \textstyle\longleftarrow \\[-0.6ex]
+                 r}} B</m> and <m>A' \mathrel{\substack{ s' \\[-0.6ex]
+                  \textstyle\longrightarrow \\[-0.6ex]
+                  \textstyle\longleftarrow \\[-0.6ex]
+                   r'}} B</m> "split the same idempotent" <m>B \xrightarrow{e} B</m>. 
+            </p>
+            <p>
+              The definition of "splitting an idempotent" tells us that <m>sr = e = s'r'</m>
+              with <m>rs = 1_A</m> and <m>r's' = 1_{A'}</m>. Given these maps, we're trying to 
+              establish a composition that goes from <m>A</m> to <m>A'</m> using <m>B</m> as a step
+              in between.  To get from <m>A</m> to <m>B</m> we can use map <m>s</m>, and then to
+              get from <m>B</m> to <m>A'</m> we can use map <m>s'</m>.
+            </p>
+            <p>
+              Let us define <m>A \xrightarrow{f} A'</m> by <m>r' \circ s</m>.  This map should be a 
+              well-defined isomorphism with the inverse map given by <m>f^{-1} = r \circ s'</m>.
+              To prove this, we must show that <m>f^{-1} \circ f = 1_A</m> and <m>f \circ f^{-1} = 1_{A'}</m>.
+            </p>
+            <p>
+              By the associative property, the first expression can be simplified as follows:
+            </p>
+           <me>f^{-1} \circ f = (r \circ s') \circ (r' \circ s) </me>
+           <me> = r \circ (s' \circ r') \circ s  </me>
+           <me> = r \circ e \circ s  </me>
+           <me> = r \circ (s \circ r) \circ s</me>
+           <me> = (r \circ s) \circ (r \circ s)</me>
+           <me> = 1_A \circ 1_A = 1_A</me>
+           <p>
+            Likewise, the second expression can be similarly simplified:
+          </p>  
+          <me>f \circ f^{-1} = (r' \circ s) \circ (r \circ s') </me>
+          <me> = r' \circ (s \circ r) \circ s'  </me>
+          <me> = r' \circ e \circ s'  </me>
+          <me> = r' \circ (s' \circ r') \circ s'</me>
+          <me> = (r' \circ s') \circ (r' \circ s')</me>
+          <me> = 1_{A'} \circ 1_{A'} = 1_{A'}</me>
+          <p>
+            These two conditions are sufficient to demonstrate that <m>f</m> is an isomorphism.
+          </p>
+          </solution>
+        </example>
+      </section>
+
     </chapter>
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
