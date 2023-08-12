@@ -568,6 +568,51 @@ var ptx_lunr_docs = [
   "body": " Problem 1*   Same as Problem 1 at top of page, except...    Upon reading this problem, it sounded very similar to one of the situations in the \"zoo\" from Session 4. Specifically, I was thinking of the map in Exercise 3 Item (c) where is given by . On closer inspection, my notes from that section indicate that this had a section but no retraction -- which is the reverse of what I'm looking for here. I played around with item (a) from the zoo for a bit, but I wasn't quite happy with how the domains and codomains weren't aligning. This got me thinking about a clue at the end of Session 9. Specifically, the authors mention \"Georg Cantor\" by name.  With the realization that I could use infinite sets of varying sizes, I decided that I could combine this notion with the ideas behind the set sizes in Problem 1 by making a map from a \"countably infinite set\" to an \"uncountably infinite set\". In this situation, I could theoretically use Cantor's diagonalization argument to prove the non-existance of my section.  I decided to use a \"binary representation\" map that takes each positive integer and turns it into a binary representation of a real number between 0 and 1 by prepending \"0.\" to the reversed binary representation of the integer. Like so:     x in base 10  x in base 2  f(x) in base 2    1  1  0.1    2  10  0.01    3  11  0.11    4  100  0.001    ...  ...  ...     We can construct a map that iterates along the digits of the input and sums up the product of that digit with the respective powers of 2. For example, could be evaluated as follows:    Assuming we started with some positive integer and applied to it, it would be in the table above and this map will return the number we started with. Thus we have a well defined retraction becaues . However, Cantor's diagonal argument suggest that there still exists at least one real number in the interval (0,1) for which there is no inverse. Consider the real number constructed by taking a single \"bit\" from each line of the table following the diagonal and flipping it while adding trailing zeroes to the right as needed:     x in base 10  x in base 2  f(x) in base 2  \"flipped\" bit    1  1  0. 1  0    2  10  0.0 1  0    3  11  0.11 0  1    4  100  0.001 0  1    ...  ...  ...     By concatenating all these flipped bits together we can constuct a number given by the binary expansion \"0.0011...\" as defined above. This number doesn't have a corresponding value in the table for because it differs from every output by at least one bit. Since is undefined, we have . The uniqueness of the inverses we proved in Article 2 implies that the section couldn't be anything other than the retraction , so we must conlude that does not have section.   "
 },
 {
+  "id": "quiz2",
+  "level": "1",
+  "url": "quiz2.html",
+  "type": "Section",
+  "number": "3.11",
+  "title": "Summary\/Quiz on Opposed Maps",
+  "body": " Summary\/Quiz on Opposed Maps  After reading over the How to solve the quiz problems section, I think I was mostly on track. A \"fussy professor\" might have taken issue with me, but since I worked through these last two sections on crowded 8-hour flights I deserve to cut myself a little slack.  The authors included one more \"quiz\" before the \"test\" and I think I'm about ready for it. It seemed like the answers to this quiz were meant as more of a study-guide than anything else.   Problem 1   Given two maps...    I went with always and endomap . As long as the domain and codomain of the maps match up, there's no reason why we shouldn't be able to compose them. Once we do compose them, the resulting maps have the property that the codomain and domain are the same: and . This definition was repeated just a few pages prior.     Problem 2   If we know that ...    I went with , endomap , idempotent , and . I don't know how many times I referred back to Article II for the definitions of retraction and section on page 49 but I think it's finally starting to sink in. The notion that \"only endomaps have a chance to be idempotent \" was emphasized in the quiz solution to 2(a).     Problem 3   If we even know that ...    I went with and . One of the big results from Article II Exercise 2 was that if an inverse map exists then it must be unique. Stating that is an isomorphism , is equivalent to saying that the section and retraction are uniquely defined by .     Problem 4   Going back to 0...    I chose could be different from in both cases. In the \"Composition of opposed maps\" on the previous page they use the maps and as an example. With those definitions, would be \"the father of my paternal grandmother\" which is clearly a different person than \"my father\" so . Likewise, the map would be like a relation of \"maternal grandfather\". Clearly the \"maternal grandfather of my maternal grandfather\" described by would be a different person than \"my maternal grandfather\" . Since we only need one counter-example to prove maps different, QED .    "
+},
+{
+  "id": "example-48",
+  "level": "2",
+  "url": "quiz2.html#example-48",
+  "type": "Example",
+  "number": "3.11.1",
+  "title": "Problem 1.",
+  "body": " Problem 1   Given two maps...    I went with always and endomap . As long as the domain and codomain of the maps match up, there's no reason why we shouldn't be able to compose them. Once we do compose them, the resulting maps have the property that the codomain and domain are the same: and . This definition was repeated just a few pages prior.   "
+},
+{
+  "id": "example-49",
+  "level": "2",
+  "url": "quiz2.html#example-49",
+  "type": "Example",
+  "number": "3.11.2",
+  "title": "Problem 2.",
+  "body": " Problem 2   If we know that ...    I went with , endomap , idempotent , and . I don't know how many times I referred back to Article II for the definitions of retraction and section on page 49 but I think it's finally starting to sink in. The notion that \"only endomaps have a chance to be idempotent \" was emphasized in the quiz solution to 2(a).   "
+},
+{
+  "id": "example-50",
+  "level": "2",
+  "url": "quiz2.html#example-50",
+  "type": "Example",
+  "number": "3.11.3",
+  "title": "Problem 3.",
+  "body": " Problem 3   If we even know that ...    I went with and . One of the big results from Article II Exercise 2 was that if an inverse map exists then it must be unique. Stating that is an isomorphism , is equivalent to saying that the section and retraction are uniquely defined by .   "
+},
+{
+  "id": "example-51",
+  "level": "2",
+  "url": "quiz2.html#example-51",
+  "type": "Example",
+  "number": "3.11.4",
+  "title": "Problem 4.",
+  "body": " Problem 4   Going back to 0...    I chose could be different from in both cases. In the \"Composition of opposed maps\" on the previous page they use the maps and as an example. With those definitions, would be \"the father of my paternal grandmother\" which is clearly a different person than \"my father\" so . Likewise, the map would be like a relation of \"maternal grandfather\". Clearly the \"maternal grandfather of my maternal grandfather\" described by would be a different person than \"my maternal grandfather\" . Since we only need one counter-example to prove maps different, QED .   "
+},
+{
   "id": "colophon-2",
   "level": "1",
   "url": "colophon-2.html",
