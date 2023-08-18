@@ -574,7 +574,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.11",
   "title": "Summary\/Quiz on Opposed Maps",
-  "body": " Summary\/Quiz on Opposed Maps  After reading over the How to solve the quiz problems section, I think I was mostly on track. A \"fussy professor\" might have taken issue with me, but since I worked through these last two sections on crowded 8-hour flights I deserve to cut myself a little slack.  The authors included one more \"quiz\" before the \"test\" and I think I'm about ready for it. It seemed like the answers to this quiz were meant as more of a study-guide than anything else.   Problem 1   Given two maps...    I went with always and endomap . As long as the domain and codomain of the maps match up, there's no reason why we shouldn't be able to compose them. Once we do compose them, the resulting maps have the property that the codomain and domain are the same: and . This definition was repeated just a few pages prior.     Problem 2   If we know that ...    I went with , endomap , idempotent , and . I don't know how many times I referred back to Article II for the definitions of retraction and section on page 49 but I think it's finally starting to sink in. The notion that \"only endomaps have a chance to be idempotent \" was emphasized in the quiz solution to 2(a).     Problem 3   If we even know that ...    I went with and . One of the big results from Article II Exercise 2 was that if an inverse map exists then it must be unique. Stating that is an isomorphism , is equivalent to saying that the section and retraction are uniquely defined by .     Problem 4   Going back to 0...    I chose could be different from in both cases. In the \"Composition of opposed maps\" on the previous page they use the maps and as an example. With those definitions, would be \"the father of my paternal grandmother\" which is clearly a different person than \"my father\" so . Likewise, the map would be like a relation of \"maternal grandfather\". Clearly the \"maternal grandfather of my maternal grandfather\" described by would be a different person than \"my maternal grandfather\" . Since we only need one counter-example to prove maps different, QED .    "
+  "body": " Summary\/Quiz on Opposed Maps  After reading over the How to solve the quiz problems section, I think I was mostly on track. A \"fussy professor\" might have taken issue with me, but since I worked through these last two sections on crowded 8-hour flights I deserve to cut myself a little slack.  The authors included one more \"quiz\" before the \"test\" and I think I'm about ready for it. It seemed like the answers to this quiz were meant as more of a study-guide than anything else.   Problem 1   Given two maps...    I went with always and endomap . As long as the domain and codomain of the maps match up, there's no reason why we shouldn't be able to compose them. Once we do compose them, the resulting maps have the property that the codomain and domain are the same: and . This definition was repeated just a few pages prior.     Problem 2   If we know that ...    I went with , endomap , idempotent , and . I don't know how many times I referred back to Article II for the definitions of retraction and section on page 49 but I think it's finally starting to sink in. The notion that \"only endomaps have a chance to be idempotent \" was emphasized in the quiz solution to 2(a).     Problem 3   If we even know that ...    I went with and . One of the big results from Article II Exercise 2 was that if an inverse map exists then it must be unique. Stating that is an isomorphism is equivalent to saying that the section and retraction are uniquely defined by the inverse .     Problem 4   Going back to 0...    I chose could be different from in both cases. In the \"Composition of opposed maps\" on the previous page they use the maps and as an example. With those definitions, would be \"the father of my paternal grandmother\" which is clearly a different person than \"my father\" so . Likewise, the map would be like a relation of \"maternal grandfather\". Clearly the \"maternal grandfather of my maternal grandfather\" described by would be a different person than \"my maternal grandfather\" . Since we only need one counter-example to prove maps different, QED .    "
 },
 {
   "id": "example-48",
@@ -601,7 +601,7 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "3.11.3",
   "title": "Problem 3.",
-  "body": " Problem 3   If we even know that ...    I went with and . One of the big results from Article II Exercise 2 was that if an inverse map exists then it must be unique. Stating that is an isomorphism , is equivalent to saying that the section and retraction are uniquely defined by .   "
+  "body": " Problem 3   If we even know that ...    I went with and . One of the big results from Article II Exercise 2 was that if an inverse map exists then it must be unique. Stating that is an isomorphism is equivalent to saying that the section and retraction are uniquely defined by the inverse .   "
 },
 {
   "id": "example-51",
@@ -611,6 +611,24 @@ var ptx_lunr_docs = [
   "number": "3.11.4",
   "title": "Problem 4.",
   "body": " Problem 4   Going back to 0...    I chose could be different from in both cases. In the \"Composition of opposed maps\" on the previous page they use the maps and as an example. With those definitions, would be \"the father of my paternal grandmother\" which is clearly a different person than \"my father\" so . Likewise, the map would be like a relation of \"maternal grandfather\". Clearly the \"maternal grandfather of my maternal grandfather\" described by would be a different person than \"my maternal grandfather\" . Since we only need one counter-example to prove maps different, QED .   "
+},
+{
+  "id": "test1",
+  "level": "1",
+  "url": "test1.html",
+  "type": "Section",
+  "number": "3.12",
+  "title": "Test 1",
+  "body": " Test 1  This week I worked through Test 1, and honestly, it wasn't half as hard as I remembered it being the first time I attempted it. I even managed to dig out my original attempt for comparison and I'm much more confident in my new solutions than the old ones. Even though it was easier than expected, I feel uneasy about sharing \"test solutions\" too widely. I do think it's fair to reflect on the mistake I made though.   Test 1 Reflection   What I learned from comparing my attempts.    I think the first time I attempted this I made a mistake in problem 1(b). Looking over my notes, it seems like I was still confused about the definition of idempotent . Rather than coming up with a endomap that satisfied , I seem to have constructed one where . As a result of using an involution instead, I was justifiably having a hard time showing the properties in part (c). This defintion actually appears on the page adjacent to the test with a note to \"see Article III\", so I'd expect that this was a common mistake made by students while in development.    I really would like some feedback on my test solutions anyway. Just as a sanity check for myself. If you're an experienced enough mathematician to look over it, connect with me on Mathstodon and I'd be happy to direct message you a link! I even figured out how to add raster images this week so it includes a bonus cat pic!  "
+},
+{
+  "id": "example-52",
+  "level": "2",
+  "url": "test1.html#example-52",
+  "type": "Example",
+  "number": "3.12.1",
+  "title": "Test 1 Reflection.",
+  "body": " Test 1 Reflection   What I learned from comparing my attempts.    I think the first time I attempted this I made a mistake in problem 1(b). Looking over my notes, it seems like I was still confused about the definition of idempotent . Rather than coming up with a endomap that satisfied , I seem to have constructed one where . As a result of using an involution instead, I was justifiably having a hard time showing the properties in part (c). This defintion actually appears on the page adjacent to the test with a note to \"see Article III\", so I'd expect that this was a common mistake made by students while in development.   "
 },
 {
   "id": "colophon-2",
