@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para">Let's sort through our givens here.  We know we have <span class="process-math">\(A \mathrel{\substack{s \\[-0.6ex]
+\textstyle\longrightarrow \\[-0.6ex]
+\textstyle\longleftarrow \\[-0.6ex]
+r}} X\)</span> with <span class="process-math">\(r \circ s = 1_A\text{.}\)</span>  We also know that <span class="process-math">\(X\)</span> has a fixed point property: for every endomap <span class="process-math">\(X \xrightarrow{f} X\)</span> there exists some <span class="process-math">\(T \xrightarrow{x} X\)</span> with <span class="process-math">\(f x = x\text{.}\)</span>  We want to show that <span class="process-math">\(A\)</span> has the same property for maps from <span class="process-math">\(T\text{.}\)</span>
+</div> <div class="para">Let's start by having a look at the class of endomaps <span class="process-math">\(A \xrightarrow{g} A\text{.}\)</span> Each map <span class="process-math">\(g\)</span> must have some corresponding map <span class="process-math">\(f\)</span> given by <span class="process-math">\(f = s \circ g \circ r\text{.}\)</span>  We can apply <span class="process-math">\(r\)</span> on the left and <span class="process-math">\(s\)</span> on the right to get an equivalent expresson for <span class="process-math">\(g\)</span> in terms of <span class="process-math">\(f\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f = s \circ g \circ r
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\implies r \circ f \circ s = r \circ s \circ g \circ r \circ s
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\implies r \circ f \circ s = 1_A \circ g \circ 1_A
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\implies r \circ f \circ s = g
+\end{equation*}
+</div>
+<div class="para">Since this map  <span class="process-math">\(f\)</span> has some fixed point <span class="process-math">\(x\)</span> such that <span class="process-math">\(f x = x\text{,}\)</span> there must be some corresponding point in <span class="process-math">\(A\)</span> given by <span class="process-math">\(y = s x\)</span> that has this property for <span class="process-math">\(g\text{.}\)</span> It should then follow that <span class="process-math">\(y = s x\)</span> is a fixed point of <span class="process-math">\(g\)</span> satisfying.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g (y) = g \circ s (x)
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= (s \circ f \circ r) \circ s (x)
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= s \circ f \circ r \circ s (x)
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= s \circ f \circ (r \circ s) (x)
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= s \circ f \circ 1_A (x)
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= s \circ f (x)
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= s \circ x = y
+\end{equation*}
+</div>
+<div class="para">Having proven that <span class="process-math">\(g y = y\text{,}\)</span> we've established our fixed point property and I think we're done.</div>
+</div></body>
+</html>
