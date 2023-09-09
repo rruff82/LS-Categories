@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Article 3: Examples of Categories, Part 2</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="L&amp;S Cat Theory">
+<meta property="book:author" content="Ryan Ruff">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">L&amp;S Cat Theory:</span> <span class="subtitle">Attempted solutions to "Conceptual Mathematics" by Lawvere and Schanuel</span></a></h1>
+<p class="byline">Ryan Ruff</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="article3.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="part3.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li>
+<div class="toc-item"><a href="introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="about.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is this?</span></a></div></li>
+<li><div class="toc-item"><a href="session1.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Session 1</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part1.html" class="internal"><span class="codenumber">2</span> <span class="title">Part 1: The Category of Sets</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="article1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Article 1: Sets, maps, composition</span></a></div></li>
+<li><div class="toc-item"><a href="sec-session2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Session 2</span></a></div></li>
+<li><div class="toc-item"><a href="sec-session3.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Session 3</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part2.html" class="internal"><span class="codenumber">3</span> <span class="title">Part 2: The Algebra of Composition</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="article2.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Article 2: Isomorphisms, Part 1</span></a></div></li>
+<li><div class="toc-item"><a href="article2-p2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Article 2: Isomorphisms, Part 2</span></a></div></li>
+<li><div class="toc-item"><a href="article2-p3.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Article 2: Isomorphisms, Part 3</span></a></div></li>
+<li><div class="toc-item"><a href="session4.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Session 4: Division of maps: Isomorphisms</span></a></div></li>
+<li><div class="toc-item"><a href="session5.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Session 5: Division of maps: Sections and retractions</span></a></div></li>
+<li><div class="toc-item"><a href="session6.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Session 6: Two general aspects or uses of maps</span></a></div></li>
+<li><div class="toc-item"><a href="session7.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Session 7: Isomorphisms and coordinates</span></a></div></li>
+<li><div class="toc-item"><a href="session8.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Session 8: Pictures of a map</span></a></div></li>
+<li><div class="toc-item"><a href="session9.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Session 9: Retracts and idempotents</span></a></div></li>
+<li><div class="toc-item"><a href="quiz1.html" class="internal"><span class="codenumber">3.10</span> <span class="title">Quiz</span></a></div></li>
+<li><div class="toc-item"><a href="quiz2.html" class="internal"><span class="codenumber">3.11</span> <span class="title">Summary/Quiz on Opposed Maps</span></a></div></li>
+<li><div class="toc-item"><a href="test1.html" class="internal"><span class="codenumber">3.12</span> <span class="title">Test 1</span></a></div></li>
+<li><div class="toc-item"><a href="session10.html" class="internal"><span class="codenumber">3.13</span> <span class="title">Brouwer's theorems</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part3.html" class="internal"><span class="codenumber">4</span> <span class="title">Part 3: Categories of Structured Sets</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="article3.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Article 3: Examples of Categories, Part 1</span></a></div></li>
+<li class="active"><div class="toc-item"><a href="article3-p2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Article 3: Examples of Categories, Part 2</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="article3-p2"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">4.2</span> <span class="title">Article 3: Examples of Categories, Part 2</span>
+</h2>
+<div class="para" id="p-380">It's really interesting to the use of formalized abstraction here.  We looked at some simple examples in <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span> and now we're embedding that in this broader category of directed graphs <span class="process-math">\(\mathcal{S}^{\downarrow^{\bullet}_{\bullet} \downarrow}\)</span> in a way that preserves the properties we used.  It feels like we're "stepping out of the box" in a very deliberate fashion so what we can take what we know "outside" and apply it to solve problems "inside".</div>
+<article class="example example-like" id="example-65"><a href="" data-knowl="" class="id-ref example-knowl original has-image has-tabular" data-refid="hk-example-65"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 10:.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-65"><article class="example example-like"><div class="para" id="p-381">Complete the specification...</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image has-tabular" data-refid="hk-solution-65" id="solution-65"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-65"><div class="solution solution-like">
+<div class="para" id="p-382">Okay my first step here is to reproduce our diagram:</div> <figure class="figure figure-like" id="fig-article3-ex10-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-article3-ex10-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.2<span class="period">.</span></span><span class="space"> </span>Directed graph for Article 3 Exercise 10</figcaption></figure> <div class="para" id="p-383">While creating the diagram, there's some obvious structural patterns. In order to draw this, I started by placing the six points in <span class="process-math">\(P = \{k,m,n,p,q,r\}\text{.}\)</span>  The other objects are the arrows, namely <span class="process-math">\(X = \{a,b,c,d,e\}\text{.}\)</span> Our maps <span class="process-math">\(X \xrightarrow{s} P\)</span> and <span class="process-math">\(X \xrightarrow{t} P\)</span> represent the source and target of each arrow.  For me, it seemed natural to structure this information into a table:</div> <figure class="table table-like" id="table-10"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">4.2.3<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1 \xrightarrow{x} X\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(s(x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(t(x)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(k\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(m\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(b\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(m\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(m\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(c\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(k\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(m\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(d\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(p\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(q\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(e\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(m\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(r\)</span></td>
+</tr>
+</table></div></figure> <div class="para" id="p-384">Based on this table, the questions become fairly straight forward. The input <span class="process-math">\(b \in X\)</span> has the same output points for <span class="process-math">\(s\)</span> and <span class="process-math">\(t\text{,}\)</span> specifically <span class="process-math">\(s(b) = t(b) = m\text{.}\)</span>  There is no element <span class="process-math">\(x \in X\)</span> with <span class="process-math">\(t(x) = k\text{.}\)</span>
+</div> <div class="para" id="p-385">I'm thinking these sub-questions are important because they show that these arrow maps have neither "retraction" nor "sections". Unless we're very specific about the qualities of our maps, our source and target maps will likely be non-invertable. I find arrows <span class="process-math">\(a\)</span> and <span class="process-math">\(c\)</span> particularly interesting because they are <em class="emphasis">two different arrows</em> with the same source <span class="process-math">\(s(a) = s(c) = k\)</span> and same target <span class="process-math">\(t(a) = t(c) = m\text{.}\)</span> I feel like I'm fighting a natural tendancy to assume that "having the same source and target" makes them "the same arrow" but that equivalency may not necessarily hold true in a broader category.</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-66"><a href="" data-knowl="" class="id-ref example-knowl original has-image" data-refid="hk-example-66"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 11:.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-66"><article class="example example-like"><div class="para" id="p-386">If <span class="process-math">\(f\)</span> as above and...</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-66" id="solution-66"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-66"><div class="solution solution-like">
+<div class="para" id="p-387">Let's begin with a recap of what we know about <span class="process-math">\(f\text{:}\)</span>
+</div> <figure class="figure figure-like" id="fig-article3-ex11-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-article3-ex11-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.5<span class="period">.</span></span><span class="space"> </span>Definition of <span class="process-math">\(f\)</span> for Article 3 Exercise 11</figcaption></figure> <div class="para" id="p-388">We're told that <span class="process-math">\(f\)</span> "preserves source and target relations", which is defined by having a pair of maps <span class="process-math">\(X \xrightarrow{f_A} Y\)</span> and <span class="process-math">\(P \xrightarrow{f_D} Q\)</span> satisfying <span class="process-math">\(f_D s = s' f_A\)</span> and <span class="process-math">\(f_D t = t' f_A\text{.}\)</span>
+</div> <div class="para" id="p-389">Consider another map <span class="process-math">\(g\)</span> with the same property:</div> <figure class="figure figure-like" id="fig-article3-ex11-2"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-article3-ex11-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.6<span class="period">.</span></span><span class="space"> </span>Definition of <span class="process-math">\(g\)</span> for Article 3 Exercise 11</figcaption></figure> <div class="para" id="p-390">In order to preserve source and target relations, there would need to exist <span class="process-math">\(Y \xrightarrow{g_A} Z\)</span> and <span class="process-math">\(Q \xrightarrow{g_D} R\)</span> with <span class="process-math">\(g_D s' = s'' g_A\)</span> and <span class="process-math">\(g_D t' = t''' g_A\text{.}\)</span>
+</div> <div class="para" id="p-391">We can form a composition of maps <span class="process-math">\(g_D \circ f_D\)</span> and <span class="process-math">\(g_A \circ f_A\)</span> as shown below:</div> <figure class="figure figure-like" id="fig-article3-ex11-3"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-article3-ex11-3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.7<span class="period">.</span></span><span class="space"> </span>Composition diagram for Article 3 Exercise 11</figcaption></figure> <div class="para" id="p-392">In order to show that the composition preserves source and target relations, we'd need to demonstrate that both <span class="process-math">\((g_D \circ f_D) s = s'' (g_A \circ f_A)\)</span> and <span class="process-math">\((g_D \circ f_D) t = t'' (g_A \circ f_A)\text{.}\)</span>
+</div> <div class="para" id="p-393">By the associative property, <span class="process-math">\((g_D \circ f_D) s = g_D \circ (f_D \circ s)\text{.}\)</span> Using the substition <span class="process-math">\(f_D \circ s = s' f_D\)</span> gives us <span class="process-math">\(g_D \circ s' \circ f_A\text{,}\)</span> and allows us to the perform a subsitution using <span class="process-math">\(g_D \circ s' = s'' g_A\)</span> to show <span class="process-math">\(g_D \circ s' \circ f_A = s'' \circ g_A \circ f_A\text{.}\)</span> It follows that <span class="process-math">\((g_D \circ f_D) s = s'' (g_A \circ f_A)\text{.}\)</span>
+</div> <div class="para" id="p-394">We can apply a similar process on <span class="process-math">\((g_D \circ f_D) t\text{.}\)</span> The associative property gives us <span class="process-math">\(g_D \circ (f_D \circ t)\text{,}\)</span> which allows us to use the substition <span class="process-math">\(f_D \circ t = t' f_D\)</span> to get <span class="process-math">\(g_D \circ t' \circ f_A\text{.}\)</span> Next we use our property that <span class="process-math">\(g_D \circ t' = t'' g_A\)</span> to perform another subsitution resulting in <span class="process-math">\(g_D \circ t' \circ f_A = t'' \circ g_A \circ f_A\text{.}\)</span> It follows that <span class="process-math">\((g_D \circ f_D) t = t'' (g_A \circ f_A)\text{.}\)</span>
+</div> <div class="para" id="p-395">Having established the source and target preservation properties, we can conclude that <span class="process-math">\(g \circ f \)</span> is an well defined <span class="process-math">\(\mathcal{S}^{\downarrow^{\bullet}_{\bullet} \downarrow}\)</span>-map:</div> <figure class="figure figure-like" id="fig-article3-ex11-4"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-article3-ex11-4.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.8<span class="period">.</span></span><span class="space"> </span>Definition of <span class="process-math">\(g \circ f\)</span> for Article 3 Exercise 11</figcaption></figure>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-67"><a href="" data-knowl="" class="id-ref example-knowl original has-image" data-refid="hk-example-67"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.9</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 12:.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-67"><article class="example example-like"><div class="para" id="p-396">If we denote the result of the above process by <span class="process-math">\(I(f)\text{...}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-67" id="solution-67"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-67"><div class="solution solution-like">
+<div class="para" id="p-397">We want to show that <span class="process-math">\(I(g \circ f) = I(g) \circ I(f)\text{.}\)</span>  Or, "the composition of embeddings is the same as the embedding of the composition".</div> <div class="para" id="p-398">Our embedding of <span class="process-math">\(I(f)\)</span> can be illustrated by the following diagram:</div> <figure class="figure figure-like" id="fig-article3-ex12-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-article3-ex12-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.10<span class="period">.</span></span><span class="space"> </span>Diagram of <span class="process-math">\(I(f)\)</span> for Article 3 Exercise 12</figcaption></figure> <div class="para" id="p-399">In order to preserve structure, the <span class="process-math">\(\mathcal{S}^{\downarrow^{\bullet}_{\bullet} \downarrow}\)</span>-map is required to preserve the relations <span class="process-math">\(f \circ 1_X = 1_Y \circ f\)</span> and <span class="process-math">\(f \circ \alpha = \beta \circ f\text{.}\)</span>  The former is a trivial result of the identity map, while the later is a property <span class="process-math">\(f\)</span> inherits from being an object in <span class="process-math">\(\mathcal{S}^{\circlearrowright}\text{.}\)</span>
+</div> <div class="para" id="p-400">Similarly, our embedding of <span class="process-math">\(I(g)\)</span> can be illustrated as follows:</div> <figure class="figure figure-like" id="fig-article3-ex12-2"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-article3-ex12-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.11<span class="period">.</span></span><span class="space"> </span>Diagram of <span class="process-math">\(I(g)\)</span> for Article 3 Exercise 12</figcaption></figure> <div class="para" id="p-401">Like before, this <span class="process-math">\(\boxed{Y^{\circlearrowright \beta}} \xrightarrow{g} \boxed{Z^{\circlearrowright \gamma}}\)</span> preserves the properties <span class="process-math">\(g \circ 1_Y = 1_Z \circ g\)</span> and <span class="process-math">\(g \circ \beta = \gamma \circ g\text{.}\)</span>
+</div> <div class="para" id="p-402">The embedding of our composition also should have similar structure:</div> <figure class="figure figure-like" id="fig-article3-ex12-3"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-article3-ex12-3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.12<span class="period">.</span></span><span class="space"> </span>Diagram of <span class="process-math">\(I(g)\)</span> for Article 3 Exercise 12</figcaption></figure> <div class="para" id="p-403">This needs to satisfy <span class="process-math">\(g \circ f \circ 1_X = 1_Z \circ g \circ f\)</span> and <span class="process-math">\(g \circ f \circ \alpha = \gamma \circ g \circ f\text{.}\)</span>  The former is again a trivial result of the identity map.  The latter is implied by the fact that since <span class="process-math">\(\boxed{X^{\circlearrowright \alpha}} \xrightarrow{f} \boxed{Y^{\circlearrowright \beta}}\)</span> and <span class="process-math">\(\boxed{Y^{\circlearrowright \beta}} \xrightarrow{g} \boxed{Z^{\circlearrowright \gamma}}\)</span> are both objects in <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span> that we must also have <span class="process-math">\(g \circ f \in \mathcal{S}^{\circlearrowright}\text{.}\)</span> This <span class="process-math">\(\boxed{X^{\circlearrowright \alpha}} \xrightarrow{g \circ f} \boxed{Z^{\circlearrowright \gamma}}\)</span> establishes the relation <span class="process-math">\(g \circ f \circ \alpha = \gamma \circ g \circ f\text{.}\)</span>
+</div> <div class="para" id="p-404">Finally, let's compose these embeddings together and verify everything still holds:</div> <figure class="figure figure-like" id="fig-article3-ex12-4"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-article3-ex12-4.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.13<span class="period">.</span></span><span class="space"> </span>Composition diagram of <span class="process-math">\(I(g) \circ I(f)\)</span> for Article 3 Exercise 12</figcaption></figure> <div class="para" id="p-405">It's easy to see how the embedding illustrations above are composed together together to produce an embedding of the compositions.  The identity property ensures that <span class="process-math">\(g \circ f \circ 1_X = g \circ 1_Y \circ f = 1_Z \circ g \circ f\text{.}\)</span> The structure inherited from the endomaps ensures that <span class="process-math">\(g \circ f \circ \alpha = g \circ \beta \circ f = \gamma g \circ f\text{.}\)</span>
+</div> <div class="para" id="p-406">Having shown that these properties are preserved, I think we've sufficiently demonstrated that <span class="process-math">\(I(g \circ f) = I(g) \circ I(f)\text{.}\)</span>
+</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-68"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-68"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.14</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 13:.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-68"><article class="example example-like"><div class="para" id="p-407">(Fullness) Show that...</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-68" id="solution-68"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-68"><div class="solution solution-like">
+<div class="para" id="p-408">We're given an <span class="process-math">\(\mathcal{S}^{\downarrow^{\bullet}_{\bullet} \downarrow}\)</span>-morphism that comes via the insertion <span class="process-math">\(I\)</span> that we used previously:</div> <a href="" class="xref" data-knowl="./knowl/fig-article3-ex12-1.html" title="Figure 4.2.10">Figure 4.2.10</a> <div class="para" id="p-409">The source preservation property of <span class="process-math">\(f\)</span> implies that <span class="process-math">\(f_D \circ 1_X = 1_Y \circ f_A\text{,}\)</span> but since <span class="process-math">\(1_X\)</span> and <span class="process-math">\(1_Y\)</span> are identity maps we can just say <span class="process-math">\(f_D = f_A = f\text{.}\)</span>  Since the target preservation property says <span class="process-math">\(f_D \circ \alpha = \beta \circ f_A\text{,}\)</span> we can substitute <span class="process-math">\(f\)</span> to get <span class="process-math">\(f \circ \alpha = \beta \circ f\text{.}\)</span>  This property establishes that <span class="process-math">\(f\)</span> exists and is a valid <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-morphism: <span class="process-math">\(\boxed{X^{\circlearrowright \alpha}} \xrightarrow{f} \boxed{Y^{\circlearrowright \beta}}\)</span> .</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-69"><a href="" data-knowl="" class="id-ref example-knowl original has-image has-tabular" data-refid="hk-example-69"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.15</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 14:.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-69"><article class="example example-like"><div class="para" id="p-410">Give an example of <span class="process-math">\(\mathcal{S}\)</span> of two endomaps...</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image has-tabular" data-refid="hk-solution-69" id="solution-69"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-69"><div class="solution solution-like">
+<div class="para" id="p-411">To be honest, I wasn't quite sure how to start this one at first so I just started exploring small endomaps. I explored too many to review them all, but in the process I learned some things.</div> <div class="para" id="p-412">I think I had conceptually confused <span class="process-math">\(f_D\)</span> and <span class="process-math">\(f_A\)</span> at first. I was under the impression that <span class="process-math">\(f_A\)</span> "produced an arrow" and <span class="process-math">\(f_D\)</span> "produced a dot", but a closer reading of the book stated that <span class="process-math">\(f_A\)</span> "operates on arrows" and <span class="process-math">\(f_D\)</span> "operates on dots". Eventually I made a mental shift to the Spanish <span class="process-math">\(antes\)</span> (before) and <span class="process-math">\(despues\)</span> (after) because it helped me remember the relationship with the endomaps.</div> <div class="para" id="p-413">I found tables to be a nice way of organizing all the information about my "arrows" and "dots".  Having my information organized reminded me of Exercise 10.  Looking back over my notes, I had noticed earlier that the diagram included a pair of two different arrows with the same source and destination.  I took this as a hint.</div> <div class="para" id="p-414">I  also found myself repeatedly going back to the map in Example 9 as a reference.  There was something about the way the endomap removes an element that seemed like it might be important.  I labeled the arrows in addition to the points to help keep track of what I was working with:</div> <figure class="figure figure-like" id="fig-article3-ex14-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-article3-ex14-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.16<span class="period">.</span></span><span class="space"> </span>Internal diagram of map <span class="process-math">\(\alpha\)</span> from Exercise 9</figcaption></figure> <div class="para" id="p-415">I had a hunch that <span class="process-math">\(\alpha^3=\alpha\)</span> might help establish that <span class="process-math">\(f_D \circ \alpha = \beta \circ f_A\text{.}\)</span>  My idea revolved around the idea that if I could somehow make <span class="process-math">\(f_D\text{,}\)</span> <span class="process-math">\(f_A\text{,}\)</span> and <span class="process-math">\(\beta\)</span> by composing <span class="process-math">\(\alpha\)</span> with itself multiple times that I could set up a situation where they balance out.</div> <div class="para" id="p-416">I think I also was confused about the inclusion <span class="process-math">\(J\)</span> and the property that the "source and target structures are the same map".  I wasn't sure if I needed to enforce this restriction on that all arrows in my endomaps were loops or not.  I started to wonder how much of this ambiguity was intentional, and if looser of a definition of "loop" might be in order.</div> <div class="para" id="p-417">A flash of insight came as I was trying to pick out a cat photo for the week and see Alphonse nuzzling Konshu:</div> <figure class="figure figure-like" id="fig-nuzzle-konshu"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/images/al-konshu-nuzzle.png" class="contained" alt="A brown tabby lays in a blue cat bed and nuzzles a small figure depicting the Egyptian diety Konshu."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.17<span class="period">.</span></span><span class="space"> </span>Alphonse nuzzles a statuette of Konshu.</figcaption></figure> <div class="para" id="p-418">I started to think about <em class="emphasis">Moon Knight</em> and the relation between the depiction of Konshu in the comic books versus the mythological depiction of the same character.  I wondered how my mental model of Konshu might vary depending on which version I encountered first.  To appease my "fussy professor", I'm going to define my set <span class="process-math">\(X\)</span> to be the set of "Konshu Models" <span class="process-math">\(\{\text{Comic Konshu},\text{Myth Konshu},\text{My Konshu}\}\)</span> and endomap <span class="process-math">\(\alpha\)</span> to be the "influences" acting on those models.</div> <figure class="figure figure-like" id="fig-article3-ex14-2"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-article3-ex14-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.18<span class="period">.</span></span><span class="space"> </span>Defining <span class="process-math">\(X\)</span> and <span class="process-math">\(\alpha\)</span> on "Konshu models"</figcaption></figure> <div class="para" id="p-419">I reasoned that the <em class="emphasis">Moon Knight</em> from the comics used the mythology around Konshu to develop the character, but as more people read the comic they start to project qualities from the comic character back to the diety.  Whether those projections align with the mythology will impact the design of later comics, forming a sort of feedback loop.  Prior to seeing the Netflix show, my model of Konshu isn't really impacted by either — I'm just off in my own little world.</div> <div class="para" id="p-420">Now let's denote <span class="process-math">\(f\)</span> to be a map describing how my metal model might change after exposure to new ideas. Maybe seeing the Netflix show prompts me to read a bunch of comics or mythology.  In either case, it forms a feedback loop between my model of the comic Konshu and my model of the myth Konshu. Let's call this our set <span class="process-math">\(Y\)</span> and endomap <span class="process-math">\(\beta\text{:}\)</span>
+</div> <figure class="figure figure-like" id="fig-article3-ex14-3"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-article3-ex14-3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.19<span class="period">.</span></span><span class="space"> </span>Defining <span class="process-math">\(Y\)</span> and <span class="process-math">\(\beta\)</span> on mental models.</figcaption></figure> <div class="para" id="p-421">Now let's consider or maps <span class="process-math">\(f_A\)</span> and <span class="process-math">\(f_D\text{.}\)</span>  Let's say that <span class="process-math">\(f_A\)</span> is the case where I learn about Konshu mythos before watching the Netflix show and <span class="process-math">\(f_D\)</span> to be the case where I'm exposed to the mythology after.  For the sake of convenience, I'm going to relabel the points in the <span class="process-math">\(X\)</span> as <span class="process-math">\(\{a,b,c\}\)</span> and the points in <span class="process-math">\(Y\)</span> as <span class="process-math">\(\{0,1\}\text{:}\)</span>
+</div> <figure class="figure figure-like" id="fig-article3-ex14-4"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex14-4.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.20<span class="period">.</span></span><span class="space"> </span>Defining <span class="process-math">\(f_A\)</span> and <span class="process-math">\(f_D\)</span> on "Konshu models"</figcaption></figure> <div class="para" id="p-422">Since <span class="process-math">\(f_A(a) = 0\)</span> and <span class="process-math">\(f_D(a) = 1\text{,}\)</span> clearly <span class="process-math">\(f_D \neq f_A\text{.}\)</span> However, we can also show that <span class="process-math">\(f_D \circ \alpha = \beta \circ f_A\)</span> by evaluting them over the entire codomain:</div> <figure class="table table-like" id="table-11"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">4.2.21<span class="period">.</span></span><span class="space"> </span>Exploring outputs of compositions</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1 \xrightarrow{x} X\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\alpha(x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f_A(x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f_D(x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((f_D \circ \alpha)(x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((beta \circ f_A)(x)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f_D(a) = 1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\beta(0) = 1\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(b\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(c\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f_D(c) = 1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\beta(0) = 1\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(c\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(b\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f_D(b) = 0\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\beta(1) = 0\)</span></td>
+</tr>
+</table></div></figure> <div class="para" id="p-423">In the table above, notice that the columns for <span class="process-math">\(\beta \circ f_A\)</span> and <span class="process-math">\(f_D \circ \alpha\)</span> are equivalent for all three points.  Thus, we have <span class="process-math">\(f_D \circ \alpha = \beta \circ f_A\)</span> with <span class="process-math">\(f_A \neq f_D\text{.}\)</span>
+</div> <div class="para" id="p-424">I'm thinking that the moral of the story here is these endomaps contain more than self-loops, but our insertion <span class="process-math">\(J\)</span> fails to enforce that condition.  If the endomap contains only self loops it has an insertion that makes a commutative diagram, but just because we have a commutative diagram like this doesn't mean it came from that insertion.</div>
+</div></div>
+</div></article></div></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="article3.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
