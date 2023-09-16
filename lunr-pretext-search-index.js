@@ -811,6 +811,105 @@ var ptx_lunr_docs = [
   "body": " Exercise 14:   Give an example of of two endomaps...    To be honest, I wasn't quite sure how to start this one at first so I just started exploring small endomaps. I explored too many to review them all, but in the process I learned some things.  I think I had conceptually confused and at first. I was under the impression that \"produced an arrow\" and \"produced a dot\", but a closer reading of the book stated that \"operates on arrows\" and \"operates on dots\". Eventually I made a mental shift to the Spanish (before) and (after) because it helped me remember the relationship with the endomaps.  I found tables to be a nice way of organizing all the information about my \"arrows\" and \"dots\". Having my information organized reminded me of Exercise 10. Looking back over my notes, I had noticed earlier that the diagram included a pair of two different arrows with the same source and destination. I took this as a hint.  I also found myself repeatedly going back to the map in Example 9 as a reference. There was something about the way the endomap removes an element that seemed like it might be important. I labeled the arrows in addition to the points to help keep track of what I was working with:   Internal diagram of map from Exercise 9      I had a hunch that might help establish that . My idea revolved around the idea that if I could somehow make , , and by composing with itself multiple times that I could set up a situation where they balance out.  I think I also was confused about the inclusion and the property that the \"source and target structures are the same map\". I wasn't sure if I needed to enforce this restriction on that all arrows in my endomaps were loops or not. I started to wonder how much of this ambiguity was intentional, and if looser of a definition of \"loop\" might be in order.  A flash of insight came as I was trying to pick out a cat photo for the week and see Alphonse nuzzling Konshu:   Alphonse nuzzles a statuette of Konshu.   A brown tabby lays in a blue cat bed and nuzzles a small figure depicting the Egyptian deity Konshu.    I started to think about Moon Knight and the relation between the depiction of Konshu in the comic books versus the mythological depiction of the same character. I wondered how my mental model of Konshu might vary depending on which version I encountered first. To appease my \"fussy professor\", I'm going to define my set to be the set of \"Konshu Models\" and endomap to be the \"influences\" acting on those models.   Defining and on \"Konshu models\"      I reasoned that the Moon Knight from the comics used the mythology around Konshu to develop the character, but as more people read the comic they start to project qualities from the comic character back to the deity. Whether those projections align with the mythology will impact the design of later comics, forming a sort of feedback loop. Prior to seeing the Netflix show, my model of Konshu isn't really impacted by either I'm just off in my own little world.  Now let's denote to be a map describing how my metal model might change after exposure to new ideas. Maybe seeing the Netflix show prompts me to read a bunch of comics or mythology. In either case, it forms a feedback loop between my model of the comic Konshu and my model of the myth Konshu. Let's call this our set and endomap :   Defining and on mental models.      Now let's consider or maps and . Let's say that is the case where I learn about Konshu mythos before watching the Netflix show and to be the case where I'm exposed to the mythology after. For the sake of convenience, I'm going to relabel the points in the as and the points in as :   Defining and on \"Konshu models\"      Since and , clearly . However, we can also show that by evaluting them over the entire codomain:   Exploring outputs of compositions                                     In the table above, notice that the columns for and are equivalent for all three points. Thus, we have with .  I'm thinking that the moral of the story here is these endomaps contain more than self-loops, but our insertion fails to enforce that condition. If the endomap contains only self loops it has an insertion that makes a commutative diagram, but just because we have a commutative diagram like this doesn't mean it came from that insertion.   "
 },
 {
+  "id": "article3-p3",
+  "level": "1",
+  "url": "article3-p3.html",
+  "type": "Section",
+  "number": "4.3",
+  "title": "Article 3: Examples of Categories, Part 3",
+  "body": " Article 3: Examples of Categories, Part 3  Another week, another category. This time we're working with \"Reflexive Graphs\". Let's get to it!   Exercise 15   In a reflexive graph...    Let's start with our definition:   Definition of \"reflexive graph\"      Given this, we want to show and satisfy for . Since there's only four cases, it shouldn't be too much effort to list them all out:                        Conceptually, these properties would seem to imply that every point in serves as both source and target for some arrow in .     Exercise 16:   Show that... is determined by    First, let's formulate our definition with a diagram:   Structure preserving maps on reflexive graphs?      Where this gets interesting is when we look at all possible paths we can follow between and in addition to the ones between and . To follow the pattern of the previous categories, we'd need to enforce all 3 of the following:                   The order of that last one seems a little bit tricky since our retraction is heading in the opposite direction. At the same time, this map is presicely what allows us to \"solve\" for in terms of . In Exercise 15, we saw that this only works if there's an arrow forming a \"self-loop\" at each point. All our map needs to do is match up the self-looping arrows on each point in with the corresponding self-looping arrows on .  Let's suppose we use the common section on a point to produce some arrow . It follows that this arrow needs to form a self-loop such that , since and imply and respectively. We can then pair that point with a corresponding self-looping arrow with . We know such a loop needs to exist because and would need to satisfy . Finally, we can put this all together to define over all possible points in .  I feel like there's probably an easier way to demonstrate this using contradiction.  Suppose for a minute that there did exist some point which satistfies . You could use the structure preserving criteria of to establish that . Since we also know , that previous equation simplifies down to , which directly contradicts the identity property of . Our assumption must therefore be false and . QED .     Exercise 17:   Consider a structure...    Let's lay out the structure we're examining:   Map structure for Article 3 Exercise 17      If we're going to build a map between two such structures, we'll need to include a pair of maps like so:   Paired structures for Article 3 Exercise 17      At a glance, the structure of this combined diagram resembles a composition of two -morphisms with another yet-to-be named structure that's resembles our reflexive graph. I feel like it deserves some cool symbol like .  Let's start with the more familiar structures. I'd want this map to preserve the behavior of the endomaps and on each set. I'd want the maps to behave like -morphisms here. Specifically, means that I'd want and means that I'd want .  With the remaining four maps, , we can form multiple paths from to and to . We'd want this map to preserve those relations as well: and   Having a set of four equations to go with four pairs of maps seems consistent we what we saw for the other maps.     Exercise 18:   If has a retraction...    To prove is injective, we'll need the provided definition:   External diagram to define injectivity      We're given that has a retraction such that . To prove is injective, we need to demonstrate that for any and it follows that .  Let's approach this through contradiction. Suppose we had some that satisfy . Compose on the left of both sides:     This contradicts our assumption that , which means that no such exist. It follows that and is injective.     Exercise 19:   ... in .    Our maps here are defined by the following diagram:   Diagram showing definitions of      To show in , we'll need to demonstrate that over the entire domain . We're given both and , so these are fairly trivial:        Since those are the only points we have, we can safely conclude that .     Exercise 20:   ... is injective.    Since is only defined for two points, any and such that would directly imply that these two points are in fact the complete set . Since , it follows that so clearly .     Exercise 21:   ... exactly two retractions .    Essentially, the retractions must contain the reversed arrows of , but that leaves two possible places for it to send the third point which didn't already have an origin defined:   Diagram showing possible retractions      For any retraction , we'd be forced to have and in order to have . As a map , needs to do something with the point and there are only two choices. Let's call them such that and .     Exercise 22:   ... has no retraction in .    As in the previous exercise, our only possible retractions are and , depending on where they send . For to be a valid -map, it needs to have the property . We'll test each of our two possiblities for in turn.  For , we'd have and . Since , is not a valid -map.  For , we'd have and . Since , is not a valid -map.  Having exhausted both possible retractions of , we're forced to conlude that no retraction exists in .     Exercise 23:   How many of the eight maps...    I'm going to start by sketching out the eight possible maps :   Grid of possible maps      In order for to be an -map, it needs to satisfy . Let's go through those maps again, but this time produce tables of those values for each of    Grid of possible maps      It appears that there are precisely two possible -maps. The one that sends everything to 0 and the one that sends everything to 0 but which it instead sends to . These two maps make sense when considering the behavior of the endomap which always returns 0.     Exercise 24:   ...in the 'looser' category .    Let's diagram the insertion for our present maps:   Commutative square of maps for      Suppose is a retraction for in such that . We saw in Exercise 21 that there are precisely two possible maps could be. We know and . The only question was if or .  However, for to be a member of this category, it needs to satisfy the equation on the following commutative square:   Commutative square of maps for      In Exercise 23, our exhaustive search of maps revealed only two maps for which . However, neither of those maps match up with the only two possible retractions for . We're forced to conclude that can't exist a map meeting these conditions.    I think this is a good stopping point for the week. Despite being in the middle of \"Retractions and injectivity\", I want to be able to take my time with Exercise 25. Page breaks are breaks too!  "
+},
+{
+  "id": "example-70",
+  "level": "2",
+  "url": "article3-p3.html#example-70",
+  "type": "Example",
+  "number": "4.3.1",
+  "title": "Exercise 15.",
+  "body": " Exercise 15   In a reflexive graph...    Let's start with our definition:   Definition of \"reflexive graph\"      Given this, we want to show and satisfy for . Since there's only four cases, it shouldn't be too much effort to list them all out:                        Conceptually, these properties would seem to imply that every point in serves as both source and target for some arrow in .   "
+},
+{
+  "id": "example-71",
+  "level": "2",
+  "url": "article3-p3.html#example-71",
+  "type": "Example",
+  "number": "4.3.3",
+  "title": "Exercise 16:.",
+  "body": " Exercise 16:   Show that... is determined by    First, let's formulate our definition with a diagram:   Structure preserving maps on reflexive graphs?      Where this gets interesting is when we look at all possible paths we can follow between and in addition to the ones between and . To follow the pattern of the previous categories, we'd need to enforce all 3 of the following:                   The order of that last one seems a little bit tricky since our retraction is heading in the opposite direction. At the same time, this map is presicely what allows us to \"solve\" for in terms of . In Exercise 15, we saw that this only works if there's an arrow forming a \"self-loop\" at each point. All our map needs to do is match up the self-looping arrows on each point in with the corresponding self-looping arrows on .  Let's suppose we use the common section on a point to produce some arrow . It follows that this arrow needs to form a self-loop such that , since and imply and respectively. We can then pair that point with a corresponding self-looping arrow with . We know such a loop needs to exist because and would need to satisfy . Finally, we can put this all together to define over all possible points in .  I feel like there's probably an easier way to demonstrate this using contradiction.  Suppose for a minute that there did exist some point which satistfies . You could use the structure preserving criteria of to establish that . Since we also know , that previous equation simplifies down to , which directly contradicts the identity property of . Our assumption must therefore be false and . QED .   "
+},
+{
+  "id": "example-72",
+  "level": "2",
+  "url": "article3-p3.html#example-72",
+  "type": "Example",
+  "number": "4.3.5",
+  "title": "Exercise 17:.",
+  "body": " Exercise 17:   Consider a structure...    Let's lay out the structure we're examining:   Map structure for Article 3 Exercise 17      If we're going to build a map between two such structures, we'll need to include a pair of maps like so:   Paired structures for Article 3 Exercise 17      At a glance, the structure of this combined diagram resembles a composition of two -morphisms with another yet-to-be named structure that's resembles our reflexive graph. I feel like it deserves some cool symbol like .  Let's start with the more familiar structures. I'd want this map to preserve the behavior of the endomaps and on each set. I'd want the maps to behave like -morphisms here. Specifically, means that I'd want and means that I'd want .  With the remaining four maps, , we can form multiple paths from to and to . We'd want this map to preserve those relations as well: and   Having a set of four equations to go with four pairs of maps seems consistent we what we saw for the other maps.   "
+},
+{
+  "id": "example-73",
+  "level": "2",
+  "url": "article3-p3.html#example-73",
+  "type": "Example",
+  "number": "4.3.8",
+  "title": "Exercise 18:.",
+  "body": " Exercise 18:   If has a retraction...    To prove is injective, we'll need the provided definition:   External diagram to define injectivity      We're given that has a retraction such that . To prove is injective, we need to demonstrate that for any and it follows that .  Let's approach this through contradiction. Suppose we had some that satisfy . Compose on the left of both sides:     This contradicts our assumption that , which means that no such exist. It follows that and is injective.   "
+},
+{
+  "id": "example-74",
+  "level": "2",
+  "url": "article3-p3.html#example-74",
+  "type": "Example",
+  "number": "4.3.10",
+  "title": "Exercise 19:.",
+  "body": " Exercise 19:   ... in .    Our maps here are defined by the following diagram:   Diagram showing definitions of      To show in , we'll need to demonstrate that over the entire domain . We're given both and , so these are fairly trivial:        Since those are the only points we have, we can safely conclude that .   "
+},
+{
+  "id": "example-75",
+  "level": "2",
+  "url": "article3-p3.html#example-75",
+  "type": "Example",
+  "number": "4.3.12",
+  "title": "Exercise 20:.",
+  "body": " Exercise 20:   ... is injective.    Since is only defined for two points, any and such that would directly imply that these two points are in fact the complete set . Since , it follows that so clearly .   "
+},
+{
+  "id": "example-76",
+  "level": "2",
+  "url": "article3-p3.html#example-76",
+  "type": "Example",
+  "number": "4.3.13",
+  "title": "Exercise 21:.",
+  "body": " Exercise 21:   ... exactly two retractions .    Essentially, the retractions must contain the reversed arrows of , but that leaves two possible places for it to send the third point which didn't already have an origin defined:   Diagram showing possible retractions      For any retraction , we'd be forced to have and in order to have . As a map , needs to do something with the point and there are only two choices. Let's call them such that and .   "
+},
+{
+  "id": "example-77",
+  "level": "2",
+  "url": "article3-p3.html#example-77",
+  "type": "Example",
+  "number": "4.3.15",
+  "title": "Exercise 22:.",
+  "body": " Exercise 22:   ... has no retraction in .    As in the previous exercise, our only possible retractions are and , depending on where they send . For to be a valid -map, it needs to have the property . We'll test each of our two possiblities for in turn.  For , we'd have and . Since , is not a valid -map.  For , we'd have and . Since , is not a valid -map.  Having exhausted both possible retractions of , we're forced to conlude that no retraction exists in .   "
+},
+{
+  "id": "example-78",
+  "level": "2",
+  "url": "article3-p3.html#example-78",
+  "type": "Example",
+  "number": "4.3.16",
+  "title": "Exercise 23:.",
+  "body": " Exercise 23:   How many of the eight maps...    I'm going to start by sketching out the eight possible maps :   Grid of possible maps      In order for to be an -map, it needs to satisfy . Let's go through those maps again, but this time produce tables of those values for each of    Grid of possible maps      It appears that there are precisely two possible -maps. The one that sends everything to 0 and the one that sends everything to 0 but which it instead sends to . These two maps make sense when considering the behavior of the endomap which always returns 0.   "
+},
+{
+  "id": "example-79",
+  "level": "2",
+  "url": "article3-p3.html#example-79",
+  "type": "Example",
+  "number": "4.3.19",
+  "title": "Exercise 24:.",
+  "body": " Exercise 24:   ...in the 'looser' category .    Let's diagram the insertion for our present maps:   Commutative square of maps for      Suppose is a retraction for in such that . We saw in Exercise 21 that there are precisely two possible maps could be. We know and . The only question was if or .  However, for to be a member of this category, it needs to satisfy the equation on the following commutative square:   Commutative square of maps for      In Exercise 23, our exhaustive search of maps revealed only two maps for which . However, neither of those maps match up with the only two possible retractions for . We're forced to conclude that can't exist a map meeting these conditions.   "
+},
+{
   "id": "colophon-2",
   "level": "1",
   "url": "colophon-2.html",
