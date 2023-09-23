@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">4.4.1.1</span><span class="period">.</span>
+</h3>
+<div class="para">Given a <span class="process-math">\(\mathcal{S}^{\downarrow^{\bullet}_{\bullet} \downarrow}\)</span>-map between two graphs, we want to show <span class="process-math">\(f_D \circ s = f_D \circ t\)</span> can only be true when <span class="process-math">\(f_A\)</span> maps every arrow in <span class="process-math">\(X\)</span> to a <em class="emphasis">loop</em> in <span class="process-math">\(Y\text{.}\)</span>  Our external diagram is reproduced below:</div> <figure class="figure figure-like"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex25-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.2<span class="period">.</span></span><span class="space"> </span>Definition of <span class="process-math">\(\mathcal{S}^{\downarrow^{\!\bullet}_{\!\bullet} \!\downarrow}\)</span>-map</figcaption></figure> <div class="para">Thinking back to Exercises 9, the looping behavior of our endomap <span class="process-math">\(\alpha\)</span> was based on the property that <span class="process-math">\(\alpha^3 = \alpha\text{.}\)</span> I'm going to suggest that we can define an <em class="emphasis">n-loop</em> by the existence of endomap such that <span class="process-math">\(\alpha^{n+1} = \alpha\)</span> over some subspace with that many elements. Then each <em class="emphasis">1-loop</em> would be a <em class="emphasis">fixed point</em> for the endomap and a <em class="emphasis">2-loop</em> would be an <em class="emphasis">antipodal</em> endomap on two points.</div> <div class="para">So what would these loops look like here? An n-loop in <span class="process-math">\(Y\)</span> would need to be some sequence of <span class="process-math">\(\{y_1, y_2, ..., y_n\}\)</span> where <span class="process-math">\(s y_n = t y_{n-1}\text{.}\)</span>
+</div> <div class="para">I think the key to is that the equation <span class="process-math">\(f_D \circ s = f_D \circ t\)</span> is essentially identifying a fixed point where both the source and target of an arrow from <span class="process-math">\(X\)</span> wind up at the same point in <span class="process-math">\(Q\)</span> after the transformation. Our category enforces that <span class="process-math">\(f_D \circ s = s' \circ f_A\)</span> and <span class="process-math">\(f_D \circ t = t' \circ f_A\text{,}\)</span> so it follows that this equation is equivalent to the expression <span class="process-math">\(s' \circ f_A = t' \circ f_A\text{.}\)</span> In other words, any <span class="process-math">\(x \in X\)</span> for which <span class="process-math">\((f_D \circ s)(x) = (f_D \circ t)(x)\)</span> would directly correspond with a loop <span class="process-math">\(y = f_A x \in Y\)</span> such that <span class="process-math">\(s' y = t' y\text{.}\)</span>
+</div> <div class="para">Clearly, any self-loop in <span class="process-math">\(X\)</span> must get matched up with a self-loop in <span class="process-math">\(Y\text{.}\)</span> If for any <span class="process-math">\(\mathbf{1} \xrightarrow{x} X\)</span> we have <span class="process-math">\(s x = t x\text{,}\)</span> it follows naturally that both <span class="process-math">\((f_D \circ s)(x) = (f_D \circ t)(x)\)</span> and <span class="process-math">\((s' \circ f_A)(x) = (t' \circ f_A)(x)\text{.}\)</span>
+</div> <div class="para">Suppose we have some arrow in <span class="process-math">\(X\)</span> satisfying <span class="process-math">\((f_D \circ s)(x) = (f_D \circ t)(x)\)</span> but for which <span class="process-math">\(s(x) \neq t(x)\text{.}\)</span>  This needs to map to an arrow <span class="process-math">\(y = f_A(x)\)</span> which would need to satisfy the condition that <span class="process-math">\((s' \circ f_A)(x) = (t' \circ f_A)(x)\text{.}\)</span>  It follows that <span class="process-math">\(s' y = t' y\)</span> which forms another self-loop.  So whether or not we start with a self-loop in <span class="process-math">\(X\text{,}\)</span> we must wind up with one in <span class="process-math">\(Y\text{.}\)</span>
+</div> <div class="para">This result seems almost too simple. I was expecting to need to work with loops of varying lengths, but it turns out the 1-loops were the only ones I needed.  I may need to come back to this later.</div>
+</div>
+<span class="incontext"><a href="article3-p4.html#solution-80" class="internal">in-context</a></span>
+</body>
+</html>
