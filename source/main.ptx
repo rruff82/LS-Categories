@@ -6851,6 +6851,55 @@ extra level of assurance that these functions will behave as expected.
           Caturday and I want to give it the time it deserves.  Until next time!
         </p>
       </section>
+      <section xml:id="article3-p5">
+        <title>Article 3: Examples of Categories, Part 5</title>
+        <p>
+          Alright, last problem of the Article. 
+        </p>
+        <example>
+          <title>Exercise 30:</title>
+          <statement>
+            <p>
+              If <m>S, s, t</m> is a given bipointed object...
+            </p>
+          </statement>
+          <solution>
+            <p>
+              There's a lot to unpack here.  Let's start with the "bipointed object":
+            </p>
+            <figure xml:id="fig-article3-30-1">
+              <caption>Definition of bipointed object. </caption>
+                  <image width="80%" xml:id="img-article3-ex30-1">
+                          <latex-image>
+              \begin{tikzpicture}[scale=1]
+              
+              \node (EQ0) at (-1, 4) {$\mathbf{1}$};
+              \node (EQ1) at (1, 4) {$S$};
+              \path[-{Stealth},font=\scriptsize,>=angle 90];
+
+              \coordinate (D) at (-2,0);
+              \coordinate (X) at (2,2);
+              \coordinate (Y) at (2,-2);
+              \draw[fill=black] (D) circle (0.15em);
+              \draw[fill=black] (X) circle (0.15em);
+              \draw[fill=black] (Y) circle (0.15em);
+              \draw (-3,-1) rectangle (-1,1);
+              \draw (1,-3) rectangle (3,3);
+
+              % add links
+              \path[-{Stealth},font=\scriptsize,>=angle 90]
+               (D) edge node[above]{$s$} (X)
+               (D) edge node[below]{$t$} (Y)
+               (EQ0.north east) edge node[above]{$s$} (EQ1.north west)
+               (EQ0.south east) edge node[below]{$t$} (EQ1.south west);
+ 
+              \end{tikzpicture}
+              </latex-image>
+              </image>
+              </figure> 
+          </solution>
+        </example>
+      </section>
     </chapter>
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
