@@ -5,7 +5,7 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Article 3: Examples of Categories, Part 3</title>
@@ -14,172 +14,99 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="L&amp;S Cat Theory">
 <meta property="book:author" content="Ryan Ruff">
-<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
-    processHtmlClass: "process-math",
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
   },
-  chtml: {
-    scale: 0.98,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
   },
-  startup: {
+  "startup": {
     pageReady() {
       return MathJax.startup.defaultPageReady().then(function () {
       console.log("in ready function");
       rsMathReady();
       }
     )}
-  },
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.31/pretext_search.js"></script><link href="https://pretextbook.org/css/0.81/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.31</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.31/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.31/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.31/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.81/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/setcolors.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" href=""></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
 <h1 class="heading"><a href="my-great-book.html"><span class="title">L&amp;S Cat Theory:</span> <span class="subtitle">Attempted solutions to "Conceptual Mathematics" by Lawvere and Schanuel</span></a></h1>
 <p class="byline">Ryan Ruff</p>
 </div>
-<div id="searchresultsplaceholder" style="display: none">
-<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
-</h2>
-<div id="searchempty"><span>No results.</span></div>
-<ol id="searchresults"></ol>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
 </div>
-</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
-<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden avatar">
-<li data-val="You!" tabindex="-1">
-<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
-<li data-val="😺" tabindex="-1">
-<span id="the😺" class="avatarcheck"></span>😺</li>
-<li data-val="👤" tabindex="-1">
-<span id="the👤" class="avatarcheck"></span>👤</li>
-<li data-val="👽" tabindex="-1">
-<span id="the👽" class="avatarcheck"></span>👽</li>
-<li data-val="🐶" tabindex="-1">
-<span id="the🐶" class="avatarcheck"></span>🐶</li>
-<li data-val="🐼" tabindex="-1">
-<span id="the🐼" class="avatarcheck"></span>🐼</li>
-<li data-val="🌈" tabindex="-1">
-<span id="the🌈" class="avatarcheck"></span>🌈</li>
-</ol>
-</li>
-<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden fontfamily">
-<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
-<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
-</li>
-<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
-<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
-</li>
-</ol>
-</li>
-<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden fonts">
-<li>Size</li>
-<li><span id="thesize">12</span></li>
-<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
-<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
-<li>Width</li>
-<li><span id="thewdth">100</span></li>
-<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
-<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
-<li>Weight</li>
-<li><span id="thewght">400</span></li>
-<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
-<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
-<li>Letter spacing</li>
-<li>
-<span id="thelspace">0</span><span class="byunits">/200</span>
-</li>
-<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
-<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
-<li>Word spacing</li>
-<li>
-<span id="thewspace">0</span><span class="byunits">/50</span>
-</li>
-<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
-<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
-<li>Line Spacing</li>
-<li>
-<span id="theheight">135</span><span class="byunits">/100</span>
-</li>
-<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
-<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
-</ol>
-</li>
-<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden atmosphere">
-<li data-val="default" tabindex="-1">
-<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
-<li data-val="pastel" tabindex="-1">
-<span id="thepastel" class="atmospherecheck"></span>pastel</li>
-<li data-val="darktwilight" tabindex="-1">
-<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
-<li data-val="dark" tabindex="-1">
-<span id="thedark" class="atmospherecheck"></span>dark</li>
-<li data-val="darkmidnight" tabindex="-1">
-<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
-</ol>
-</li>
-<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden ruler">
-<li data-val="none" tabindex="-1">
-<span id="thenone" class="rulercheck">✔️</span>none</li>
-<li data-val="underline" tabindex="-1">
-<span id="theunderline" class="rulercheck"></span>underline</li>
-<li data-val="lunderline" tabindex="-1">
-<span id="thelunderline" class="rulercheck"></span>L-underline</li>
-<li data-val="greybar" tabindex="-1">
-<span id="thegreybar" class="rulercheck"></span>grey bar</li>
-<li data-val="lightbox" tabindex="-1">
-<span id="thelightbox" class="rulercheck"></span>light box</li>
-<li data-val="sunrise" tabindex="-1">
-<span id="thesunrise" class="rulercheck"></span>sunrise</li>
-<li data-val="sunriseunderline" tabindex="-1">
-<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
-<li class="moveQ">Motion by:</li>
-<li data-val="mouse" tabindex="-1">
-<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
-<li data-val="arrow" tabindex="-1">
-<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
-<li data-val="eye" tabindex="-1">
-<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
-</ol>
-</li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="article3-p2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="part3.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="article3-p4.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
-<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
-</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="article3-p2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="part3.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="article3-p4.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -187,63 +114,64 @@ window.MathJax = {
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
-<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
-<li>
-<div class="toc-item"><a href="introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="about.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is this?</span></a></div></li>
-<li><div class="toc-item"><a href="session1.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Session 1</span></a></div></li>
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="about.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is this?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session1.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Session 1</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="part1.html" class="internal"><span class="codenumber">2</span> <span class="title">Part 1: The Category of Sets</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="article1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Article 1: Sets, maps, composition</span></a></div></li>
-<li><div class="toc-item"><a href="sec-session2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Session 2</span></a></div></li>
-<li><div class="toc-item"><a href="sec-session3.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Session 3</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part1.html" class="internal"><span class="codenumber">2</span> <span class="title">Part 1: The Category of Sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Article 1: Sets, maps, composition</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-session2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Session 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-session3.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Session 3</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="part2.html" class="internal"><span class="codenumber">3</span> <span class="title">Part 2: The Algebra of Composition</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="article2.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Article 2: Isomorphisms, Part 1</span></a></div></li>
-<li><div class="toc-item"><a href="article2-p2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Article 2: Isomorphisms, Part 2</span></a></div></li>
-<li><div class="toc-item"><a href="article2-p3.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Article 2: Isomorphisms, Part 3</span></a></div></li>
-<li><div class="toc-item"><a href="session4.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Session 4: Division of maps: Isomorphisms</span></a></div></li>
-<li><div class="toc-item"><a href="session5.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Session 5: Division of maps: Sections and retractions</span></a></div></li>
-<li><div class="toc-item"><a href="session6.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Session 6: Two general aspects or uses of maps</span></a></div></li>
-<li><div class="toc-item"><a href="session7.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Session 7: Isomorphisms and coordinates</span></a></div></li>
-<li><div class="toc-item"><a href="session8.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Session 8: Pictures of a map</span></a></div></li>
-<li><div class="toc-item"><a href="session9.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Session 9: Retracts and idempotents</span></a></div></li>
-<li><div class="toc-item"><a href="quiz1.html" class="internal"><span class="codenumber">3.10</span> <span class="title">Quiz</span></a></div></li>
-<li><div class="toc-item"><a href="quiz2.html" class="internal"><span class="codenumber">3.11</span> <span class="title">Summary/Quiz on Opposed Maps</span></a></div></li>
-<li><div class="toc-item"><a href="test1.html" class="internal"><span class="codenumber">3.12</span> <span class="title">Test 1</span></a></div></li>
-<li><div class="toc-item"><a href="session10.html" class="internal"><span class="codenumber">3.13</span> <span class="title">Brouwer's theorems</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part2.html" class="internal"><span class="codenumber">3</span> <span class="title">Part 2: The Algebra of Composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Article 2: Isomorphisms, Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2-p2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Article 2: Isomorphisms, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2-p3.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Article 2: Isomorphisms, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session4.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Session 4: Division of maps: Isomorphisms</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session5.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Session 5: Division of maps: Sections and retractions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session6.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Session 6: Two general aspects or uses of maps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session7.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Session 7: Isomorphisms and coordinates</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session8.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Session 8: Pictures of a map</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session9.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Session 9: Retracts and idempotents</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quiz1.html" class="internal"><span class="codenumber">3.10</span> <span class="title">Quiz</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quiz2.html" class="internal"><span class="codenumber">3.11</span> <span class="title">Summary/Quiz on Opposed Maps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="test1.html" class="internal"><span class="codenumber">3.12</span> <span class="title">Test 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session10.html" class="internal"><span class="codenumber">3.13</span> <span class="title">Brouwer’s theorems</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="part3.html" class="internal"><span class="codenumber">4</span> <span class="title">Part 3: Categories of Structured Sets</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="article3.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Article 3: Examples of Categories, Part 1</span></a></div></li>
-<li><div class="toc-item"><a href="article3-p2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Article 3: Examples of Categories, Part 2</span></a></div></li>
-<li class="active"><div class="toc-item"><a href="article3-p3.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Article 3: Examples of Categories, Part 3</span></a></div></li>
-<li><div class="toc-item"><a href="article3-p4.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Article 3: Examples of Categories, Part 4</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="part3.html" class="internal"><span class="codenumber">4</span> <span class="title">Part 3: Categories of Structured Sets</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Article 3: Examples of Categories, Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Article 3: Examples of Categories, Part 2</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="article3-p3.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Article 3: Examples of Categories, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p4.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Article 3: Examples of Categories, Part 4</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p5.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Article 3: Examples of Categories, Part 5</span></a></div></li>
 </ul>
 </li>
-<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="article3-p3"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">4.3</span> <span class="title">Article 3: Examples of Categories, Part 3</span>
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.3</span><span class="space"> </span><span class="title">Article 3: Examples of Categories, Part 3</span>
 </h2>
-<div class="para" id="p-425">Another week, another category.  This time we're working with "Reflexive Graphs". Let's get to it!</div>
+<div class="para" id="p-425">Another week, another category.  This time we’re working with "Reflexive Graphs". Let’s get to it!</div>
 <article class="example example-like" id="example-70"><a href="" data-knowl="" class="id-ref example-knowl original has-image" data-refid="hk-example-70"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 15.</span>
 </h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-70"><article class="example example-like"><div class="para" id="p-426">In a reflexive graph...</div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-70" id="solution-70"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-70"><div class="solution solution-like">
-<div class="para" id="p-427">Let's start with our definition:</div> <figure class="figure figure-like" id="fig-article3-ex15-1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex15-1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.2<span class="period">.</span></span><span class="space"> </span>Definition of "reflexive graph"</figcaption></figure> <div class="para" id="p-428">Given this, we want to show <span class="process-math">\(e_1 = i s\)</span> and <span class="process-math">\(e_0 = i t\)</span> satisfy <span class="process-math">\(e_k e_j = e_j\)</span> for <span class="process-math">\(k, j = 0, 1\text{.}\)</span>  Since there's only four cases, it shouldn't be too much effort to list them all out:</div> <ul class="disc">
+<div class="para" id="p-427">Let’s start with our definition:</div> <figure class="figure figure-like" id="fig-article3-ex15-1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex15-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.2<span class="period">.</span></span><span class="space"> </span>Definition of "reflexive graph"</figcaption></figure> <div class="para" id="p-428">Given this, we want to show <span class="process-math">\(e_1 = i s\)</span> and <span class="process-math">\(e_0 = i t\)</span> satisfy <span class="process-math">\(e_k e_j = e_j\)</span> for <span class="process-math">\(k, j = 0, 1\text{.}\)</span>  Since there’s only four cases, it shouldn’t be too much effort to list them all out:</div> <ul class="disc">
 <li id="li-38"><div class="para" id="p-429"><span class="process-math">\(\displaystyle e_0 e_0 = i t i t = i 1_P t = i t = e_0\)</span></div></li>
 <li id="li-39"><div class="para" id="p-430"><span class="process-math">\(\displaystyle e_0 e_1 = i t i s = i 1_P s = i s = e_1\)</span></div></li>
 <li id="li-40"><div class="para" id="p-431"><span class="process-math">\(\displaystyle e_1 e_0 = i s i t = i 1_P t = i t = e_0\)</span></div></li>
@@ -258,14 +186,14 @@ window.MathJax = {
 </div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-71" id="solution-71"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-71"><div class="solution solution-like">
-<div class="para" id="p-435">First, let's formulate our definition with a diagram:</div> <figure class="figure figure-like" id="fig-article3-ex16-1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex16-1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.4<span class="period">.</span></span><span class="space"> </span>Structure preserving maps on reflexive graphs?</figcaption></figure> <div class="para" id="p-436">Where this gets interesting is when we look at all possible paths we can follow between <span class="process-math">\(Y\)</span> and <span class="process-math">\(P\)</span> in addition to the ones between <span class="process-math">\(X\)</span> and <span class="process-math">\(Q\text{.}\)</span>  To follow the pattern of the previous categories, we'd need to enforce all 3 of the following:</div> <ul class="disc">
+<div class="para" id="p-435">First, let’s formulate our definition with a diagram:</div> <figure class="figure figure-like" id="fig-article3-ex16-1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex16-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.4<span class="period">.</span></span><span class="space"> </span>Structure preserving maps on reflexive graphs?</figcaption></figure> <div class="para" id="p-436">Where this gets interesting is when we look at all possible paths we can follow between <span class="process-math">\(Y\)</span> and <span class="process-math">\(P\)</span> in addition to the ones between <span class="process-math">\(X\)</span> and <span class="process-math">\(Q\text{.}\)</span>  To follow the pattern of the previous categories, we’d need to enforce all 3 of the following:</div> <ul class="disc">
 <li id="li-42"><div class="para" id="p-437"><span class="process-math">\(\displaystyle f_D s = s' f_A\)</span></div></li>
 <li id="li-43"><div class="para" id="p-438"><span class="process-math">\(\displaystyle f_D t = t' f_A\)</span></div></li>
 <li id="li-44"><div class="para" id="p-439"><span class="process-math">\(\displaystyle f_A i = i' f_D\)</span></div></li>
-</ul> <div class="para" id="p-440">The order of that last one seems a little bit tricky since our retraction <span class="process-math">\(i\)</span> is heading in the opposite direction.  At the same time, this map <span class="process-math">\(i\)</span> is presicely what allows us to "solve" for <span class="process-math">\(f_D\)</span> in terms of <span class="process-math">\(f_A\text{.}\)</span> In Exercise 15, we saw that this <span class="process-math">\(i\)</span> only works if there's an arrow forming a "self-loop" at each point. All our map <span class="process-math">\(f_D\)</span> needs to do is match up the self-looping arrows on each point in <span class="process-math">\(P\)</span> with the corresponding self-looping arrows on <span class="process-math">\(Q\text{.}\)</span>
-</div> <div class="para" id="p-441">Let's suppose we use the common section <span class="process-math">\(i\)</span> on a point <span class="process-math">\(p \in P\)</span> to produce some arrow <span class="process-math">\(x = i p \in X\text{.}\)</span> It follows that this arrow <span class="process-math">\(x\)</span> needs to form a self-loop such that <span class="process-math">\(s x = t x = p\text{,}\)</span> since <span class="process-math">\(s i = 1_P\)</span> and <span class="process-math">\(t i = 1_P\)</span> imply <span class="process-math">\(s \circ x = s \circ i \circ p = 1_P \circ p = p\)</span> and <span class="process-math">\(t \circ x = t \circ i \circ p = 1_P \circ p = p\)</span> respectively. We can then pair that point with a corresponding self-looping arrow <span class="process-math">\(f_A(x) = y \in Y\)</span> with <span class="process-math">\(s'(y) = t'(y) = q\text{.}\)</span> We know such a loop needs to exist because <span class="process-math">\(f_D s x = s' f_A x = s' y\)</span> and <span class="process-math">\(f_D t x = t' f_A x = t' y\)</span> would need to satisfy <span class="process-math">\(f_D s x = f_D t x\text{.}\)</span> Finally, we can put this all together to define <span class="process-math">\(f_D p = s' f_A i p = t' f_A i p = q\)</span> over all possible points in <span class="process-math">\(P\text{.}\)</span>
-</div> <div class="para" id="p-442">I feel like there's probably an easier way to demonstrate this using contradiction.</div> <div class="para" id="p-443">Suppose for a minute that there did exist some point <span class="process-math">\(p\)</span> which satistfies <span class="process-math">\(f_D(p) \neq (s' \circ f_A \circ i)(p)\text{.}\)</span>  You could use the structure preserving criteria of <span class="process-math">\(f_A i = i' f_D\)</span> to establish that <span class="process-math">\(f_D(p) \neq (s' \circ i' \circ f_D)(p)\text{.}\)</span>  Since we also know <span class="process-math">\(s' i' = 1_Q\text{,}\)</span> that previous equation simplifies down to <span class="process-math">\(f_D(p) \neq (1_Q \circ f_D)(p)\text{,}\)</span> which directly contradicts the identity property of <span class="process-math">\(1_Q\text{.}\)</span> Our assumption must therefore be false and <span class="process-math">\(f_D = s' \circ f_A \circ i\text{.}\)</span> <em class="emphasis">QED</em>.</div>
+</ul> <div class="para" id="p-440">The order of that last one seems a little bit tricky since our retraction <span class="process-math">\(i\)</span> is heading in the opposite direction.  At the same time, this map <span class="process-math">\(i\)</span> is presicely what allows us to "solve" for <span class="process-math">\(f_D\)</span> in terms of <span class="process-math">\(f_A\text{.}\)</span> In Exercise 15, we saw that this <span class="process-math">\(i\)</span> only works if there’s an arrow forming a "self-loop" at each point. All our map <span class="process-math">\(f_D\)</span> needs to do is match up the self-looping arrows on each point in <span class="process-math">\(P\)</span> with the corresponding self-looping arrows on <span class="process-math">\(Q\text{.}\)</span>
+</div> <div class="para" id="p-441">Let’s suppose we use the common section <span class="process-math">\(i\)</span> on a point <span class="process-math">\(p \in P\)</span> to produce some arrow <span class="process-math">\(x = i p \in X\text{.}\)</span> It follows that this arrow <span class="process-math">\(x\)</span> needs to form a self-loop such that <span class="process-math">\(s x = t x = p\text{,}\)</span> since <span class="process-math">\(s i = 1_P\)</span> and <span class="process-math">\(t i = 1_P\)</span> imply <span class="process-math">\(s \circ x = s \circ i \circ p = 1_P \circ p = p\)</span> and <span class="process-math">\(t \circ x = t \circ i \circ p = 1_P \circ p = p\)</span> respectively. We can then pair that point with a corresponding self-looping arrow <span class="process-math">\(f_A(x) = y \in Y\)</span> with <span class="process-math">\(s'(y) = t'(y) = q\text{.}\)</span> We know such a loop needs to exist because <span class="process-math">\(f_D s x = s' f_A x = s' y\)</span> and <span class="process-math">\(f_D t x = t' f_A x = t' y\)</span> would need to satisfy <span class="process-math">\(f_D s x = f_D t x\text{.}\)</span> Finally, we can put this all together to define <span class="process-math">\(f_D p = s' f_A i p = t' f_A i p = q\)</span> over all possible points in <span class="process-math">\(P\text{.}\)</span>
+</div> <div class="para" id="p-442">I feel like there’s probably an easier way to demonstrate this using contradiction.</div> <div class="para" id="p-443">Suppose for a minute that there did exist some point <span class="process-math">\(p\)</span> which satistfies <span class="process-math">\(f_D(p) \neq (s' \circ f_A \circ i)(p)\text{.}\)</span>  You could use the structure preserving criteria of <span class="process-math">\(f_A i = i' f_D\)</span> to establish that <span class="process-math">\(f_D(p) \neq (s' \circ i' \circ f_D)(p)\text{.}\)</span>  Since we also know <span class="process-math">\(s' i' = 1_Q\text{,}\)</span> that previous equation simplifies down to <span class="process-math">\(f_D(p) \neq (1_Q \circ f_D)(p)\text{,}\)</span> which directly contradicts the identity property of <span class="process-math">\(1_Q\text{.}\)</span> Our assumption must therefore be false and <span class="process-math">\(f_D = s' \circ f_A \circ i\text{.}\)</span> <em class="emphasis">QED</em>.</div>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-72"><a href="" data-knowl="" class="id-ref example-knowl original has-image" data-refid="hk-example-72"><h3 class="heading">
@@ -273,12 +201,12 @@ window.MathJax = {
 </h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-72"><article class="example example-like"><div class="para" id="p-444">Consider a structure...</div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-72" id="solution-72"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-72"><div class="solution solution-like">
-<div class="para" id="p-445">Let's lay out the structure we're examining:</div> <figure class="figure figure-like" id="fig-article3-ex17-1"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="generated/latex-image/img-article3-ex17-1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.6<span class="period">.</span></span><span class="space"> </span>Map structure for Article 3 Exercise 17</figcaption></figure> <div class="para" id="p-446">If we're going to build a map between two such structures, we'll need to include a pair of maps like so:</div> <figure class="figure figure-like" id="fig-article3-ex17-2"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex17-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.7<span class="period">.</span></span><span class="space"> </span>Paired structures for Article 3 Exercise 17</figcaption></figure> <div class="para" id="p-447">At a glance, the structure of this combined diagram resembles a composition of two <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-morphisms with another yet-to-be named structure that's resembles our reflexive graph. I feel like it deserves some cool symbol like <span class="process-math">\(\mathcal{S}^{\downarrow^{\bullet}_{\bullet} \uparrow}\text{.}\)</span>
-</div> <div class="para" id="p-448">Let's start with the more familiar structures.  I'd want this map to preserve the behavior of the endomaps <span class="process-math">\(\phi_n\)</span> and <span class="process-math">\(\mu_n\)</span> on each set.  I'd want the maps <span class="process-math">\(f_M, f_D\)</span> to behave like <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-morphisms here.  Specifically, <span class="process-math">\(\boxed{M_0^{\circlearrowright \phi_0}} \xrightarrow{f_M} \boxed{M_1^{\circlearrowright \phi_1}}\)</span> means that I'd want <span class="process-math">\(f_M \circ \phi_0 = \phi_1 f_M\)</span> and <span class="process-math">\(\boxed{F_0^{\circlearrowright \mu_0}} \xrightarrow{f_F} \boxed{M_1^{\circlearrowright \mu_1}}\)</span> means that I'd want <span class="process-math">\(f_M \circ \mu_0 = \mu_1 f_F\text{.}\)</span>
+<div class="para" id="p-445">Let’s lay out the structure we’re examining:</div> <figure class="figure figure-like" id="fig-article3-ex17-1"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="generated/latex-image/img-article3-ex17-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.6<span class="period">.</span></span><span class="space"> </span>Map structure for Article 3 Exercise 17</figcaption></figure> <div class="para" id="p-446">If we’re going to build a map between two such structures, we’ll need to include a pair of maps like so:</div> <figure class="figure figure-like" id="fig-article3-ex17-2"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex17-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.7<span class="period">.</span></span><span class="space"> </span>Paired structures for Article 3 Exercise 17</figcaption></figure> <div class="para" id="p-447">At a glance, the structure of this combined diagram resembles a composition of two <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-morphisms with another yet-to-be named structure that’s resembles our reflexive graph. I feel like it deserves some cool symbol like <span class="process-math">\(\mathcal{S}^{\downarrow^{\bullet}_{\bullet} \uparrow}\text{.}\)</span>
+</div> <div class="para" id="p-448">Let’s start with the more familiar structures.  I’d want this map to preserve the behavior of the endomaps <span class="process-math">\(\phi_n\)</span> and <span class="process-math">\(\mu_n\)</span> on each set.  I’d want the maps <span class="process-math">\(f_M, f_D\)</span> to behave like <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-morphisms here.  Specifically, <span class="process-math">\(\boxed{M_0^{\circlearrowright \phi_0}} \xrightarrow{f_M} \boxed{M_1^{\circlearrowright \phi_1}}\)</span> means that I’d want <span class="process-math">\(f_M \circ \phi_0 = \phi_1 f_M\)</span> and <span class="process-math">\(\boxed{F_0^{\circlearrowright \mu_0}} \xrightarrow{f_F} \boxed{M_1^{\circlearrowright \mu_1}}\)</span> means that I’d want <span class="process-math">\(f_M \circ \mu_0 = \mu_1 f_F\text{.}\)</span>
 </div> <div class="para logical" id="p-449">
-<div class="para">With the remaining four maps, <span class="process-math">\(\mu_n',\phi_n'\text{,}\)</span> we can form multiple paths from <span class="process-math">\(M_0\)</span> to <span class="process-math">\(F_1\)</span> and <span class="process-math">\(M_1\)</span> to <span class="process-math">\(F_0\text{.}\)</span> We'd want this map to preserve those relations as well:</div>
+<div class="para">With the remaining four maps, <span class="process-math">\(\mu_n',\phi_n'\text{,}\)</span> we can form multiple paths from <span class="process-math">\(M_0\)</span> to <span class="process-math">\(F_1\)</span> and <span class="process-math">\(M_1\)</span> to <span class="process-math">\(F_0\text{.}\)</span> We’d want this map to preserve those relations as well:</div>
 <div class="displaymath process-math">
 \begin{equation*}
 f_F \circ \mu_0' = \mu_1' \circ f_M
@@ -298,9 +226,9 @@ f_M \circ \phi_0' = \phi_1' \circ f_F
 </h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-73"><article class="example example-like"><div class="para" id="p-451">If <span class="process-math">\(a\)</span> has a retraction...</div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-73" id="solution-73"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-73"><div class="solution solution-like">
-<div class="para" id="p-452">To prove <span class="process-math">\(a\)</span> is injective, we'll need the provided definition:</div> <figure class="figure figure-like" id="fig-article3-ex18-1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex18-1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.9<span class="period">.</span></span><span class="space"> </span>External diagram to define injectivity</figcaption></figure> <div class="para" id="p-453">We're given that <span class="process-math">\(a\)</span> has a retraction <span class="process-math">\(p\)</span> such that <span class="process-math">\(p a=1_X\text{.}\)</span>  To prove <span class="process-math">\(a\)</span> is injective, we need to demonstrate that for any <span class="process-math">\(\mathbf{1} \xrightarrow{x_0} T\)</span> and <span class="process-math">\(\mathbf{1} \xrightarrow{x_1} T\)</span> it follows that <span class="process-math">\(a x_0 = a x_1 \implies x_0 = x_1\text{.}\)</span>
-</div> <div class="para" id="p-454">Let's approach this through contradiction.  Suppose we had some <span class="process-math">\(x_0 \neq x_1\)</span> that satisfy <span class="process-math">\(a x_0 = a x_1\text{.}\)</span> Compose <span class="process-math">\(p\)</span> on the left of both sides:</div>
+<div class="para" id="p-452">To prove <span class="process-math">\(a\)</span> is injective, we’ll need the provided definition:</div> <figure class="figure figure-like" id="fig-article3-ex18-1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex18-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.9<span class="period">.</span></span><span class="space"> </span>External diagram to define injectivity</figcaption></figure> <div class="para" id="p-453">We’re given that <span class="process-math">\(a\)</span> has a retraction <span class="process-math">\(p\)</span> such that <span class="process-math">\(p a=1_X\text{.}\)</span>  To prove <span class="process-math">\(a\)</span> is injective, we need to demonstrate that for any <span class="process-math">\(\mathbf{1} \xrightarrow{x_0} T\)</span> and <span class="process-math">\(\mathbf{1} \xrightarrow{x_1} T\)</span> it follows that <span class="process-math">\(a x_0 = a x_1 \implies x_0 = x_1\text{.}\)</span>
+</div> <div class="para" id="p-454">Let’s approach this through contradiction.  Suppose we had some <span class="process-math">\(x_0 \neq x_1\)</span> that satisfy <span class="process-math">\(a x_0 = a x_1\text{.}\)</span> Compose <span class="process-math">\(p\)</span> on the left of both sides:</div>
 <div class="displaymath process-math">
 \begin{equation*}
 p a x_0 = p a x_1
@@ -326,7 +254,7 @@ p a x_0 = p a x_1
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-74" id="solution-74"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-74"><div class="solution solution-like">
 <div class="para" id="p-457">Our maps here are defined by the following diagram:</div> <figure class="figure figure-like" id="fig-article3-ex19-1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex19-1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.11<span class="period">.</span></span><span class="space"> </span>Diagram showing definitions of <span class="process-math">\(\alpha,\beta\)</span></figcaption></figure> <div class="para" id="p-458">To show <span class="process-math">\(a\)</span> in <span class="process-math">\(\mathcal{S}^{\circlearrowright}\text{,}\)</span> we'll need to demonstrate that <span class="process-math">\(a \alpha = \beta a\)</span> over the entire domain <span class="process-math">\(\{0,x\}\text{.}\)</span> We're given both <span class="process-math">\(a 0 = 0\)</span> and <span class="process-math">\(a x = y\text{,}\)</span> so these are fairly trivial:</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.11<span class="period">.</span></span><span class="space"> </span>Diagram showing definitions of <span class="process-math">\(\alpha,\beta\)</span></figcaption></figure> <div class="para" id="p-458">To show <span class="process-math">\(a\)</span> in <span class="process-math">\(\mathcal{S}^{\circlearrowright}\text{,}\)</span> we’ll need to demonstrate that <span class="process-math">\(a \alpha = \beta a\)</span> over the entire domain <span class="process-math">\(\{0,x\}\text{.}\)</span> We’re given both <span class="process-math">\(a 0 = 0\)</span> and <span class="process-math">\(a x = y\text{,}\)</span> so these are fairly trivial:</div>
 <div class="displaymath process-math">
 \begin{equation*}
 a \alpha 0 = a 0 = 0
@@ -374,8 +302,8 @@ a \alpha x = a 0 = 0
 </div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-76" id="solution-76"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-76"><div class="solution solution-like">
-<div class="para" id="p-463">Essentially, the retractions <span class="process-math">\(p\)</span> must contain the reversed arrows of <span class="process-math">\(a\text{,}\)</span> but that leaves two possible places for it to send the third point which didn't already have an origin defined:</div> <figure class="figure figure-like" id="fig-article3-ex21-1"><div class="image-box" style="width: 30%; margin-left: 35%; margin-right: 35%;"><img src="generated/latex-image/img-article3-ex21-1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.14<span class="period">.</span></span><span class="space"> </span>Diagram showing possible retractions</figcaption></figure> <div class="para" id="p-464">For any retraction <span class="process-math">\(p_n\text{,}\)</span> we'd be forced to have <span class="process-math">\(p_n 0 = 0\)</span> and <span class="process-math">\(p_n y = x\)</span> in order to have <span class="process-math">\(p_n a = 1_X\text{.}\)</span>  As a map <span class="process-math">\(Y \xrightarrow{p_n} X\text{,}\)</span> <span class="process-math">\(p_n\)</span> needs to do something with the point <span class="process-math">\(\bar{y} \in Y\)</span> and there are only two choices.  Let's call them <span class="process-math">\(\{p_0, p_1\}\)</span> such that <span class="process-math">\(p_0 \bar{y} = 0\)</span> and <span class="process-math">\(p_1 \bar{y} = x\text{.}\)</span>
+<div class="para" id="p-463">Essentially, the retractions <span class="process-math">\(p\)</span> must contain the reversed arrows of <span class="process-math">\(a\text{,}\)</span> but that leaves two possible places for it to send the third point which didn’t already have an origin defined:</div> <figure class="figure figure-like" id="fig-article3-ex21-1"><div class="image-box" style="width: 30%; margin-left: 35%; margin-right: 35%;"><img src="generated/latex-image/img-article3-ex21-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.14<span class="period">.</span></span><span class="space"> </span>Diagram showing possible retractions</figcaption></figure> <div class="para" id="p-464">For any retraction <span class="process-math">\(p_n\text{,}\)</span> we’d be forced to have <span class="process-math">\(p_n 0 = 0\)</span> and <span class="process-math">\(p_n y = x\)</span> in order to have <span class="process-math">\(p_n a = 1_X\text{.}\)</span>  As a map <span class="process-math">\(Y \xrightarrow{p_n} X\text{,}\)</span> <span class="process-math">\(p_n\)</span> needs to do something with the point <span class="process-math">\(\bar{y} \in Y\)</span> and there are only two choices.  Let’s call them <span class="process-math">\(\{p_0, p_1\}\)</span> such that <span class="process-math">\(p_0 \bar{y} = 0\)</span> and <span class="process-math">\(p_1 \bar{y} = x\text{.}\)</span>
 </div>
 </div></div>
 </div></article></div>
@@ -385,7 +313,7 @@ a \alpha x = a 0 = 0
 </div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-77" id="solution-77"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-77"><div class="solution solution-like">
-<div class="para" id="p-466">As in the previous exercise, our only possible retractions are <span class="process-math">\(p_0\)</span> and <span class="process-math">\(p_1\text{,}\)</span> depending on where they send <span class="process-math">\(\bar{y}\text{.}\)</span> For <span class="process-math">\(\boxed{Y^{\circlearrowright \beta}} \xrightarrow{p_n} \boxed{X^{\circlearrowright \alpha}}\)</span> to be a valid <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-map, it needs to have the property <span class="process-math">\(p_n \circ \beta = \alpha \circ p_n\text{.}\)</span> We'll test each of our two possiblities for <span class="process-math">\(p_n\)</span> in turn.</div> <div class="para" id="p-467">For <span class="process-math">\(p_0\text{,}\)</span> we'd have <span class="process-math">\(p_0 \beta \bar{y} = p_0 y = x\)</span> and <span class="process-math">\(\alpha p_0 \bar{y} = \alpha 0 = 0\text{.}\)</span>  Since <span class="process-math">\(p_0 \beta \bar{y} \neq \alpha p_0 \bar{y}\text{,}\)</span> <span class="process-math">\(p_0\)</span> is not a valid <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-map.</div> <div class="para" id="p-468">For <span class="process-math">\(p_1\text{,}\)</span> we'd have <span class="process-math">\(p_1 \beta \bar{y} = p_1 y = x\)</span> and <span class="process-math">\(\alpha p_1 \bar{y} = \alpha x = 0\text{.}\)</span>  Since <span class="process-math">\(p_1 \beta \bar{y} \neq \alpha p_1 \bar{y}\text{,}\)</span> <span class="process-math">\(p_1\)</span> is not a valid <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-map.</div> <div class="para" id="p-469">Having exhausted both possible retractions of <span class="process-math">\(a\text{,}\)</span> we're forced to conlude that no retraction exists in <span class="process-math">\(\mathcal{S}^{\circlearrowright}\text{.}\)</span>
+<div class="para" id="p-466">As in the previous exercise, our only possible retractions are <span class="process-math">\(p_0\)</span> and <span class="process-math">\(p_1\text{,}\)</span> depending on where they send <span class="process-math">\(\bar{y}\text{.}\)</span> For <span class="process-math">\(\boxed{Y^{\circlearrowright \beta}} \xrightarrow{p_n} \boxed{X^{\circlearrowright \alpha}}\)</span> to be a valid <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-map, it needs to have the property <span class="process-math">\(p_n \circ \beta = \alpha \circ p_n\text{.}\)</span> We’ll test each of our two possiblities for <span class="process-math">\(p_n\)</span> in turn.</div> <div class="para" id="p-467">For <span class="process-math">\(p_0\text{,}\)</span> we’d have <span class="process-math">\(p_0 \beta \bar{y} = p_0 y = x\)</span> and <span class="process-math">\(\alpha p_0 \bar{y} = \alpha 0 = 0\text{.}\)</span>  Since <span class="process-math">\(p_0 \beta \bar{y} \neq \alpha p_0 \bar{y}\text{,}\)</span> <span class="process-math">\(p_0\)</span> is not a valid <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-map.</div> <div class="para" id="p-468">For <span class="process-math">\(p_1\text{,}\)</span> we’d have <span class="process-math">\(p_1 \beta \bar{y} = p_1 y = x\)</span> and <span class="process-math">\(\alpha p_1 \bar{y} = \alpha x = 0\text{.}\)</span>  Since <span class="process-math">\(p_1 \beta \bar{y} \neq \alpha p_1 \bar{y}\text{,}\)</span> <span class="process-math">\(p_1\)</span> is not a valid <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-map.</div> <div class="para" id="p-469">Having exhausted both possible retractions of <span class="process-math">\(a\text{,}\)</span> we’re forced to conlude that no retraction exists in <span class="process-math">\(\mathcal{S}^{\circlearrowright}\text{.}\)</span>
 </div>
 </div></div>
 </div></article></div>
@@ -394,31 +322,31 @@ a \alpha x = a 0 = 0
 </h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-78"><article class="example example-like"><div class="para" id="p-470">How many of the eight maps...</div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-78" id="solution-78"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-78"><div class="solution solution-like">
-<div class="para" id="p-471">I'm going to start by sketching out the eight possible maps <span class="process-math">\(p: Y \longrightarrow X\text{:}\)</span>
+<div class="para" id="p-471">I’m going to start by sketching out the eight possible maps <span class="process-math">\(p: Y \longrightarrow X\text{:}\)</span>
 </div> <figure class="figure figure-like" id="fig-article3-ex23-1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex23-1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.17<span class="period">.</span></span><span class="space"> </span>Grid of possible maps <span class="process-math">\(p: Y \longrightarrow X\)</span></figcaption></figure> <div class="para" id="p-472">In order for <span class="process-math">\(p\)</span> to be an <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-map, it needs to satisfy <span class="process-math">\(p \circ \beta = \alpha \circ p\text{.}\)</span>  Let's go through those maps again, but this time produce tables of those values for each of <span class="process-math">\(\{0,y,\bar{y}\}\)</span>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.17<span class="period">.</span></span><span class="space"> </span>Grid of possible maps <span class="process-math">\(p: Y \longrightarrow X\)</span></figcaption></figure> <div class="para" id="p-472">In order for <span class="process-math">\(p\)</span> to be an <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-map, it needs to satisfy <span class="process-math">\(p \circ \beta = \alpha \circ p\text{.}\)</span>  Let’s go through those maps again, but this time produce tables of those values for each of <span class="process-math">\(\{0,y,\bar{y}\}\)</span>
 </div> <figure class="figure figure-like" id="fig-article3-ex23-2"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex23-2.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.18<span class="period">.</span></span><span class="space"> </span>Grid of possible maps <span class="process-math">\(p: Y \longrightarrow X\)</span></figcaption></figure> <div class="para" id="p-473">It appears that there are precisely two possible <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-maps. The one that sends everything to 0 and the one that sends everything to 0 but <span class="process-math">\(\bar{y}\)</span> which it instead sends to <span class="process-math">\(x\text{.}\)</span>  These two maps make sense when considering the behavior of the endomap <span class="process-math">\(\alpha\)</span> which always returns 0.</div>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-79"><a href="" data-knowl="" class="id-ref example-knowl original has-image" data-refid="hk-example-79"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.19</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 24:.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-79"><article class="example example-like"><div class="para" id="p-474">...in the 'looser' category <span class="process-math">\(\mathcal{S}^{\downarrow_{\small\!\!\bullet}^{\small\!\!\bullet}}\text{.}\)</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-79"><article class="example example-like"><div class="para" id="p-474">...in the ’looser’ category <span class="process-math">\(\mathcal{S}^{\downarrow_{\small\!\!\bullet}^{\small\!\!\bullet}}\text{.}\)</span>
 </div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-79" id="solution-79"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-79"><div class="solution solution-like">
-<div class="para" id="p-475">Let's diagram the insertion <span class="process-math">\(J\)</span> for our present maps:</div> <figure class="figure figure-like" id="fig-article3-ex24-1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex24-1.svg" role="img" class="contained"></div>
+<div class="para" id="p-475">Let’s diagram the insertion <span class="process-math">\(J\)</span> for our present maps:</div> <figure class="figure figure-like" id="fig-article3-ex24-1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex24-1.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.20<span class="period">.</span></span><span class="space"> </span>Commutative square of maps for <span class="process-math">\(p\)</span></figcaption></figure> <div class="para" id="p-476">Suppose <span class="process-math">\(p\)</span> is a retraction for <span class="process-math">\(a\)</span> in <span class="process-math">\(\mathcal{S}^{\downarrow_{\small\!\!\bullet}^{\small\!\!\bullet}}\)</span> such that <span class="process-math">\(p \circ a = 1_X\text{.}\)</span>  We saw in Exercise 21 that there are precisely two possible maps <span class="process-math">\(p\)</span> could be. We know <span class="process-math">\(p y = x\)</span> and <span class="process-math">\(p 0 = 0\text{.}\)</span>  The only question was if <span class="process-math">\(p \bar{y} = x\)</span> or <span class="process-math">\(p \bar{y} = 0\text{.}\)</span>
 </div> <div class="para" id="p-477">However, for <span class="process-math">\(p\)</span> to be a member of this category, it needs to satisfy the equation <span class="process-math">\(p \circ \beta = \alpha \circ p\)</span> on the following commutative square:</div> <figure class="figure figure-like" id="fig-article3-ex24-2"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex24-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.21<span class="period">.</span></span><span class="space"> </span>Commutative square of maps for <span class="process-math">\(p\)</span></figcaption></figure> <div class="para" id="p-478">In Exercise 23, our exhaustive search of maps <span class="process-math">\(Y \longrightarrow X\)</span> revealed only two maps for which <span class="process-math">\(p \circ \beta = \alpha \circ p\text{.}\)</span> However, neither of those maps match up with the only two possible retractions for <span class="process-math">\(p\text{.}\)</span>  We're forced to conclude that can't exist a map meeting these conditions.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.21<span class="period">.</span></span><span class="space"> </span>Commutative square of maps for <span class="process-math">\(p\)</span></figcaption></figure> <div class="para" id="p-478">In Exercise 23, our exhaustive search of maps <span class="process-math">\(Y \longrightarrow X\)</span> revealed only two maps for which <span class="process-math">\(p \circ \beta = \alpha \circ p\text{.}\)</span> However, neither of those maps match up with the only two possible retractions for <span class="process-math">\(p\text{.}\)</span>  We’re forced to conclude that can’t exist a map meeting these conditions.</div>
 </div></div>
 </div></article></div>
 <div class="para" id="p-479">I think this is a good stopping point for the week. Despite being in the middle of "Retractions and injectivity", I want to be able to take my time with Exercise 25. Page breaks are breaks too!</div></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="article3-p2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="article3-p4.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="article3-p2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="article3-p4.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
-<div id="ptx-page-footer">
+<div id="ptx-page-footer" class="ptx-page-footer">
 <a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
 </div>
 </body>
