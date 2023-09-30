@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="article3-p5">
+    <title>Article 3: Examples of Categories, Part 5</title>
+    <p>
+      Alright, last problem of the Article. 
+    </p>
+ <example>
+      <title>Exercise 30:</title>
+      <statement>
+        <p>
+          If <m>S, s, t</m> is a given bipointed object...
+        </p>
+      </statement>
+      <solution> 
+        <p>
+          There's a lot to unpack here.  Let's start with the "bipointed object" in a category <m>\mathcal{C}</m>:
+        </p>
+        <figure xml:id="fig-article3-30-1">
+          <caption>Definition of bipointed object. </caption>
+              <image width="50%" xml:id="img-article3-ex30-1">
+                      <latex-image>
+          \begin{tikzpicture}[scale=.6]
+          
+          \node (EQ0) at (-1, 4) {$\mathbf{1}$};
+          \node (EQ1) at (1, 4) {$S$};
+          \path[-{Stealth},font=\scriptsize,>=angle 90];
+
+          \coordinate (D) at (-2,0);
+          \coordinate (X) at (2,2);
+          \coordinate (Y) at (2,-2);
+          \draw[fill=black] (D) circle (0.15em);
+          \draw[fill=black] (X) circle (0.15em);
+          \draw[fill=black] (Y) circle (0.15em);
+          \draw (-3,-1) rectangle (-1,1);
+          \draw (1,-3) rectangle (3,3);
+
+          % add links
+          \path[-{Stealth},font=\scriptsize,>=angle 90]
+           (X) edge (Y)
+           (D) edge node[above]{$s$} (X)
+           (D) edge node[below]{$t$} (Y)
+           ($(EQ0.east)+(0,.1)$) edge node[above]{$s$} ($(EQ1.west)+(0,.1)$)
+           ($(EQ0.east)-(0,.1)$) edge node[below]{$t$} ($(EQ1.west)-(0,.1)$);
+ 
+          \end{tikzpicture}
+          </latex-image>
+          </image>
+          </figure> 
+          <p>
+            Our goal is to demonstrate that "the graph of '<m>X</m> fields' on <m>S</m> is 
+            actually a <em>reflexive</em> graph".  Before I get there, I think I want to
+            try to break down the "tempature field" situation to get my bearings.
+          </p>
+          <p>
+            My conventual notion of a "tempature field" would be like a map
+             <m>f: S \longrightarrow T</m> from some 3D-space such as 
+            <m>S = \mathbb{R}^3</m> describing the position to a 1D-line such as 
+            <m>T = \mathbb{R}_{\geq 0}</m> describing the temperature at each point
+            in Kelvins.  Or at least that's the basic idea that I'm trying to generalize.
+            Maybe my space is the 2D image of a camera and my temperature line is an
+            interval of temperatures it can detect. 
+          </p>
+          <p>
+            I think this notion of a "heat map" produced by a digital camera
+            is my best lead to go on.  Years of programming have taught me to think
+            of this as "an array of bytes".  My input space is confined by the height
+            and width of my image and my output space is limited by the precision of
+            the image.  Let's consider a <em>super</em> simple camera that only samples 
+            a 4x4 region and has only a 4 temperature resolution.
+          </p>
+          <figure xml:id="fig-article3-30-2">
+            <caption>Trivial thermal camera as map
+                 <m>f: \mathbb{Z}_4 \times \mathbb{Z}_4 \longrightarrow \mathbb{Z}_4 </m></caption>
+                <image width="50%" xml:id="img-article3-ex30-2">
+                        <latex-image>
+            \begin{tikzpicture}[scale=.4]
+
+            \draw (0,0) rectangle (5,5);
+            \draw (7,0) rectangle (9,5);
+
+            \foreach \x in {1,...,4}{
+                \foreach \y in {1,...,4} {
+                    \pgfmathsetmacro{\i}{\x*\y}
+                    \pgfmathsetmacro{\t}{mod(\i,4)+1}
+                    \draw[fill=black] (\x,\y) circle (0.2em);
+                    \draw[-{Stealth}] (\x,\y) -- (8,\t);
+                }
+                \draw[fill=black] (8,\x) circle (0.2em);
+            }
+            
+
+            \end{tikzpicture}
+            </latex-image>
+            </image>
+            </figure> 
+        <p>
+            The key feature that strikes me about this image is that 
+            despite this map being non-invertable we still
+            must have a 1-1 correspondance between points in <m>S</m>
+            with the "arrows" of the map.  If we were able to "step out"
+            of the map and look at it from a higher dimensional space
+            we could think about the map as a collection of points
+            <m>\mathbf{1} \longrightarrow \mathbb{Z}_4 \times \mathbb{Z}_4 \times \mathbb{Z}_4</m> 
+            with 3 component properties defined by some maps
+            <m>s_x, s_y, t</m> which describe the position <m>s_x,s_y</m> and
+            temperature <m>t</m>.
+        </p>
+        <p>
+            It's incredible unlikely that our temperature <m>t</m> alone is going
+            to have an inverse map because neighboring points are likely to have
+            similar temperatures.  However, if we have two objects <m>x_1,x_2 \in X</m>
+            which match for the whole map-triple <m>(s_x,x_y,t)</m> <mdash/> such
+            that <m>s_x x_1 = s_x x_2</m>, <m>s_y x_1 = s_y x_2</m>, and
+            <m>t x_1 = t x_2</m> <mdash/> that would necessarily imply that 
+            they're the same object <m>x_1 = x_2</m>.  
+        </p>
+        <p>
+            By looking at my "camera" in the higher dimensional space 
+            <m>S \times T</m> I can think of it as an "endomap".  There's 
+            only one detail which needs to be worked out, and that's the 
+            fact that my original map had 16 arrows to go with each of the
+            <m>4 \times 4 = 16</m> "dots", we've now added in the 4 additional
+            dots from our temperature space <m>T</m>.  For us to have a 
+            well-defined endmap, these dots would need to have arrows also.
+            It seems natural that I'd want these new arrows to "loop".
+            
+        </p>
+        <figure xml:id="fig-article3-30-3">
+            <caption>Trivial thermal camera as endomap</caption>
+                <image width="85%" xml:id="img-article3-ex30-3">
+                        <latex-image>
+            \begin{tikzpicture}[scale=.5]
+
+            \draw (4.5,2.5) circle [x radius=6, y radius=3.5];
+
+
+            \foreach \x in {1,...,4}{
+                \foreach \y in {1,...,4} {
+                    \pgfmathsetmacro{\i}{\x*\y}
+                    \pgfmathsetmacro{\t}{mod(\i,4)+1}
+                    \draw[fill=black] (\x,\y) circle (0.2em);
+                    \draw[-{Stealth}] (\x,\y) -- (8,\t);
+                }
+                \draw[fill=black] (8,\x) circle (0.2em);
+                \path[-{Stealth},font=\scriptsize,>=angle 90]
+                 (8,\x) edge [->,>={Stealth},out=45, in=315, loop] node[right]{?} (8,\x);
+            }
+            
+
+            \end{tikzpicture}
+            </latex-image>
+            </image>
+            </figure> 
+          <p>
+            Maybe it's not so much a question of if these arrows
+            "should" loop because the properties of our category
+            imply they "must" loop.  The fact that any 
+            <m>f: X \longrightarrow Y</m> must preserve source 
+            and target for our bipointed object can be expressed
+            as the equations <m>s_Y \circ f = f \circ s_X</m> 
+            and <m>t_Y \circ f = f \circ t_X</m> as per the 
+            the following commutative diagram.
+          </p>
+          <figure xml:id="fig-article3-ex30-4">
+            <caption>Commutative diagram of source and target preservation</caption>
+            <image width="80%" xml:id="img-article3-ex30-4">
+              <latex-image>
+                \begin{tikzpicture}[scale=4]
+                  \node (XA) at (0,1) {$X$};
+                  \node (XB) at (0,0) {$S$};
+                  \node (YA) at (1,1) {$Y$};
+                  \node (YB) at (1,0) {$S$};
+                  \path[-{Stealth}]
+                    (XA) edge node[above]{$f_A$} (YA)
+                    (XA.south west) edge node[left]{$s_X$} (XB.north west)
+                    (XA.south east) edge node[right]{$t_X$} (XB.north east)
+                    
+                    (YA.south west) edge node[left]{$s_Y$} (YB.north west)
+                    (YA.south east) edge node[right]{$t_Y$} (YB.north east)
+                    
+                    (XB) edge node[below]{$f_D$} (YB)
+                  ;
+                \end{tikzpicture}
+              </latex-image>
+              
+            </image>
+          </figure>
+          <p>
+              Our "bipointed object" contains 3 arrows, which I'll call 
+              <m>a_0,a_1,a_2</m>, and 3 dots, which I'll call <m>d_0,d_1,d_2</m>.
+              Let's further specify that sources of our arrows are given by
+              <m>s a_0 = s a_1 = d_0</m> and <m>s a_2 = d_1</m>, while the 
+              destinations are <m>t a_0 = d_1</m> and <m>t a_1 = t a_2 = d_2</m>.
+              
+            </p>
+            <figure xml:id="fig-article3-30-5">
+              <caption>Labeled bipointed object</caption>
+                  <image width="50%" xml:id="img-article3-ex30-5">
+                          <latex-image>
+              \begin{tikzpicture}[scale=.6]
+              
+   
+              \coordinate (D) at (-2,0);
+              \node (DN) at (-2.5,0) {$d_0$};
+              \coordinate (X) at (2,2);
+              \node (XN) at (2.5,2) {$d_1$};
+              \coordinate (Y) at (2,-2);
+              \node (YN) at (2.5,-2) {$d_2$};
+              \draw[fill=black] (D) circle (0.15em);
+              \draw[fill=black] (X) circle (0.15em);
+              \draw[fill=black] (Y) circle (0.15em);
+              \draw (-3,-1) rectangle (-1,1);
+              \draw (1,-3) rectangle (3,3);
+    
+              % add links
+              \path[-{Stealth},font=\scriptsize,>=angle 90]
+               (X) edge node[right]{$a_2$} (Y)
+               (D) edge node[above]{$a_0$} (X)
+               (D) edge node[below]{$a_1$} (Y)
+               (X) edge[dashed] ($0.5*(Y)+0.5*(D)$)
+               (Y) edge[dashed] ($0.5*(D)+0.5*(X)$)
+               (D) edge[dashed] ($0.5*(Y)+0.5*(X)$);
+     
+              \end{tikzpicture}
+              </latex-image>
+              </image>
+              </figure> 
+              <p>
+                What strikes me as special about our bipointed object here is that it
+                provides a one-to-one correspondence between "dots" and "arrows".
+                We know we can't have a retraction from <m>\mathbf{1}</m>
+                to <m>S</m> because there's no retraction from a 2-point space to a 1-point space, but
+                we can start building a common section.  
+                Let's call this map <m>i:S \longrightarrow \mathbf{1}</m> and define it such that
+                <m>i d_1 = i d_2 = d_0</m>.  The existence of this 
+                common section establishes that we have a <em>reflexive graph</em>.
+                In Exercise 16, we proved that in a reflexive graph <m>f_D</m>
+                is both determined by <m>f_A</m> and implies that there's an arrow 
+                forming a "self-loop" at each point.
+              </p>
+              <p>
+                Conceptually this makes sense for finite sets.  If I know I
+                have at least one arrow at each point, then I should be able 
+                to follow them.  If I have some set of arrows <m>A</m> and some 
+                set of dots <m>D</m> describing a map <m>f</m>, then there
+                can't be more dots in the image of <m>f</m> than there were 
+                arrows in the source space.  
+              </p>
+              <p>
+                There's precisely one possible endomap on the space <m>\mathbf{1}</m>
+                and that's the identity map.  In order for some 
+                <m>f: \mathbf{1} \longrightarrow S</m> to preserve the structure 
+                of this endomap, we'd necessarily need to have <m>t' f_A = s' f_A</m>.
+                As a result of our category's structure preservation, it follows
+                that <m>f_D \circ t = f_D \circ s</m> which our  result in Exercise 25
+                showed to imply that <m>f_A</m> maps every arrow in <m>X</m> to a
+                loop in <m>Y</m>.
+              </p>
+              <p>
+                At this point I feel like I'm starting to talk myself in circles,
+                so I'll take that a clue to move on to the next Session and 
+                hope that it helps clear up some of the details.  I feel like I 
+                can at least see how the the preceeding Exercises were leading up 
+                to this problem, which gives me a bit of encouragement moving 
+                forward. 
+              </p>
+   </solution>
+    </example>
+  </section>
