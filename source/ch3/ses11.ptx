@@ -1,0 +1,1070 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session11">
+    <title>Session 11: Ascending to categories of richer structures</title>
+
+    <p>
+        I've finally reached the point marked by my old bookmark!
+        I can kind of see why I got stuck here before and I'm 
+        defininately finding it convenient to have all my solutions
+        to the previous exercises nicely organized.  I find myself 
+        referring back to earlier problems to use as steps increasingly
+        often.
+    </p>
+    <p>
+        In particular, I found myself seeing a lot of connections 
+        between this Sesssion and Sessions 9 and 10.  I think I'm 
+        still a little uncertain about how to use the 
+        split idempotent result and it's relation to the 
+        fixed point theorem.   While I made it through the 
+        section, I get this sneaking suspicion that I'm overlooking
+        a more obvious solution to Exercise 8.
+    </p>
+    <p>
+        I also had this idea about "counting arrows in and out" that
+        seemed extremely helpful this week but also very informal.  I 
+        wonder if there's a way to formalize that approach a little 
+        better to determine whether or not graphs are isomorphic. 
+    </p>
+
+    <example>
+        <title>Exercise 1:</title>
+        <statement>
+            <p>
+                How many maps...
+            </p>
+        </statement>
+        <solution>
+
+            <p>
+                Let's start by replicating our diagram. 
+            </p>
+            <figure xml:id="fig-session11-ex1">
+                <caption>Provided diagram for Session 11 Exercise 1</caption>
+                <image xml:id="img-session11-ex1" width="80%">
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \coordinate (C0) at (0,0);
+                            \coordinate (C1) at (7,0);
+        
+                            \node (FT) at (-3,0) {from};
+        
+                            \node (TT) at (2,0) {to};
+                            \node (XT) at (3,0) {$X^{\circlearrowright \alpha}$};
+        
+                            \draw (C0) circle (1.5cm);
+                            \draw (C1) circle [x radius=3cm,y radius=2cm];
+                            
+                            \node (P0) at (90:1cm) {$\bullet$};
+                            \node (P1) at (210:1cm) {$\bullet$};
+                            \node (P2) at (330:1cm) {$\bullet$};
+                            
+                            \path[-{Stealth},font=\scriptsize,>=angle 90]
+                             (P2) edge[bend left] (P1)
+                             (P1) edge[bend left] (P0)
+                             (P0) edge[bend left] (P2);
+        
+                            \node (Q0) at ($(C1)+(-2.1,.7)$) {$\bullet$};
+                            \node (Q1) at ($(C1)+(-1.1,1.2)$) {$\bullet$};
+                            \node (Q2) at ($(C1)+(.4,1.7)$) {$\bullet$};
+                            \node (Q3) at ($(C1)+(-.5,.6)$) {$\bullet$};
+                            
+                            \coordinate (C2) at ($(C1) + (-.2,-1)$);
+        
+                            \node (Q4) at ($(C2) + (70:.8)$) {$\bullet$};
+                            \node (Q5) at ($(C2) + (190:.8)$) {$\bullet$};
+                            \node (Q6) at ($(C2) + (310:.8)$) {$\bullet$};
+        
+                            \node (Q7) at ($(C1) + (1,.4)$) {$\bullet$};
+                            \node (Q8) at ($(C1) + (1.4,-1.4)$) {$\bullet$};
+        
+                            \path[-{Stealth},font=\scriptsize,>=angle 90]
+                             (Q0) edge[->,>={Stealth},out=220, in=310, loop] (Q0)
+                             (Q1) edge[bend right] (Q0)
+                             (Q2) edge[bend right] (Q1)
+                             (Q3) edge[bend right] (Q1)
+                             (Q4) edge[bend right] (Q5)
+                             (Q5) edge[bend right] (Q6)
+                             (Q6) edge[bend right] (Q4)
+                             (Q7) edge[bend right] (Q4)
+                             (Q8) edge[bend left] (Q6);
+        
+                        \end{tikzpicture}
+                    </latex-image>         
+                </image>
+            </figure>
+            <p>
+                It's clear from the diagram that the loop of 3 points in the source on could be matched up
+                with a similar loop of 3 in the destination.
+            </p>
+            <figure xml:id="fig-session11-ex1-2">
+                <caption>Matched up loops shown in dashed arrows</caption>
+                <image xml:id="img-session11-ex1-2" width="80%">
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \coordinate (C0) at (0,0);
+                            \coordinate (C1) at (7,0);
+        
+                            \node (FT) at (-3,0) {from};
+        
+                            \node (TT) at (2,0) {to};
+                            \node (XT) at (3,0) {$X^{\circlearrowright \alpha}$};
+        
+                            \draw (C0) circle (1.5cm);
+                            \draw (C1) circle [x radius=3cm,y radius=2cm];
+                            
+                            \node (P0) at (90:1cm) {$\bullet$};
+                            \node (P1) at (210:1cm) {$\bullet$};
+                            \node (P2) at (330:1cm) {$\bullet$};
+                            
+                            \path[-{Stealth},font=\scriptsize,>=angle 90]
+                             (P2) edge[dashed,bend left] (P1)
+                             (P1) edge[dashed,bend left] (P0)
+                             (P0) edge[dashed,bend left] (P2);
+        
+                            \node (Q0) at ($(C1)+(-2.1,.7)$) {$\bullet$};
+                            \node (Q1) at ($(C1)+(-1.1,1.2)$) {$\bullet$};
+                            \node (Q2) at ($(C1)+(.4,1.7)$) {$\bullet$};
+                            \node (Q3) at ($(C1)+(-.5,.6)$) {$\bullet$};
+                            
+                            \coordinate (C2) at ($(C1) + (-.2,-1)$);
+        
+                            \node (Q4) at ($(C2) + (70:.8)$) {$\bullet$};
+                            \node (Q5) at ($(C2) + (190:.8)$) {$\bullet$};
+                            \node (Q6) at ($(C2) + (310:.8)$) {$\bullet$};
+        
+                            \node (Q7) at ($(C1) + (1,.4)$) {$\bullet$};
+                            \node (Q8) at ($(C1) + (1.4,-1.4)$) {$\bullet$};
+        
+                            \path[-{Stealth},font=\scriptsize,>=angle 90]
+                             (Q0) edge[->,>={Stealth},out=220, in=310, loop] (Q0)
+                             (Q1) edge[bend right] (Q0)
+                             (Q2) edge[bend right] (Q1)
+                             (Q3) edge[bend right] (Q1)
+                             (Q4) edge[dashed,bend right] (Q5)
+                             (Q5) edge[dashed,bend right] (Q6)
+                             (Q6) edge[dashed,bend right] (Q4)
+                             (Q7) edge[bend right] (Q4)
+                             (Q8) edge[bend left] (Q6);
+        
+                        \end{tikzpicture}
+                    </latex-image>         
+                </image>
+            </figure>
+            <p>
+                If we include any of the points outside the loop or attempt to 
+                alter the order the resulting map would fail to preserve the 
+                structure of our endomap.  That means there are a total of
+                3 possible maps, each being a permutation of the loop.
+            </p>
+                </solution>
+    </example>
+
+    <example>
+        <title>
+            Exercise 2:
+        </title>
+        <statement>
+            <p>
+                     Find an isomorphism...   
+            </p>
+        </statement>
+        <solution>
+            <p>
+                I think there's a typo in the diagram here and it should really 
+                say <m>Y^{\circlearrowright \beta}</m> instead of <m>X^{\circlearrowright \beta}</m> 
+                as so:
+            </p>
+            <figure xml:id="fig-session11-ex2-1">
+                <caption> Given diagram for Session 11 Exercise 2</caption>
+            <image xml:id="img-session11-ex2-1" width="80%">
+                <latex-image>
+                    \begin{tikzpicture}
+                        \coordinate (C0) at (0,0);
+                        \coordinate (C1) at (5.5,0);
+         
+                        \node (FT) at (-3.5,0) {from};
+                        \node (XT) at (-2.5,0) {$X^{\circlearrowright \alpha} =$};
+        
+                        \node (TT) at (2,0) {to};
+                        \node (YT) at (3,0) {$Y^{\circlearrowright \beta} =$};
+        
+                        \draw (C0) circle (1.5cm);
+                        \draw (C1) circle (1.5cm);
+                        
+                        \node (P0) at (90:1cm) {$a$};
+                        \node (P1) at (210:1cm) {$b$};
+                        \node (P2) at (330:1cm) {$c$};
+                        
+                        \path[-{Stealth},font=\scriptsize,>=angle 90]
+                         (P2) edge[bend left] (P1)
+                         (P1) edge[bend left] (P0)
+                         (P0) edge[bend left] (P2);
+        
+                        \node (Q0) at ($(C1)+(P0)$) {$p$};
+                        \node (Q1) at ($(C1)+(P1)$) {$q$};
+                        \node (Q2) at ($(C1)+(P2)$) {$r$};
+        
+                        \path[-{Stealth},font=\scriptsize,>=angle 90]
+                         (Q0) edge[bend right] (Q1)
+                         (Q1) edge[bend right] (Q2)
+                         (Q2) edge[bend right] (Q0);
+        
+                    \end{tikzpicture}
+                </latex-image>         
+            </image>
+        </figure>
+            <p>
+                As in Exercise 1, I think we have exactly 3 isomorphisms here.
+                If we choose a point of origin <m>\mathbf{1} \xrightarrow{x} X</m>
+                (say <m>a</m>) and a target point <m>\mathbf{1} \xrightarrow{y} Y</m>
+                (say <m>p</m>) then the remaining assignments are determined by our endomaps.
+                Once we assign some <m>x</m> to some <m>y</m>, we're forced to map 
+                <m>\alpha x</m> to <m>\beta y</m> and 
+                <m>\alpha^2 x</m> to <m>\beta^2 y</m>. 
+            </p>
+            <p> 
+                Since we're mapping each point 
+                in <m>X</m> to a unique point in <m>Y</m> our map is "1-1". Since every value
+                in <m>Y</m> is covered by some input in <m>Y</m> our map is "onto".  Being both,
+                it would be an isomorphism.  All that remains it to show it 
+                preserves the structure of <m>f \alpha = \beta f</m>.
+            </p>
+            <p>
+                Knowing that <m>f</m> is invertable, we can apply <m>f^{-1}</m>
+                to the left and right of <m>f \alpha = \beta f</m>.  This gives 
+                us <m>f^{-1} f \alpha f^{-1} = f^{-1} \beta f f^{-1}</m> which can
+                be simplified to <m>\alpha f^{-1} = f^{-1} \beta</m> which demonstrates
+                that <m>f^{-1}</m> is a valid <m>\mathcal{S}^{\circlearrowright}</m>-map.
+        
+            </p>
+                </solution>
+    </example>
+
+    <example>
+        <title>Exercise 3:</title>
+ 
+        <statement>
+            <p>
+                Prove that there is no isomorphism...
+            </p>
+        
+        </statement>
+        <solution>
+            <p>
+                We're given the following structures of domain and codomain:
+            </p>
+            <figure xml:id="fig-session11-ex3-1">
+                <caption> Given diagram for Session 11 Exercise 3</caption>
+            <image xml:id="img-session11-ex3-1" width="80%">
+                <latex-image>
+                    \begin{tikzpicture}
+                        \coordinate (C0) at (0,0);
+                        \coordinate (C1) at (5.5,0);
+         
+                        \node (FT) at (-3.5,0) {from};
+                        \node (XT) at (-2.5,0) {$X^{\circlearrowright \alpha} =$};
+        
+                        \node (TT) at (2,0) {to};
+                        \node (YT) at (3,0) {$Y^{\circlearrowright \beta} =$};
+        
+                        \draw (C0) circle (1.5cm);
+                        \draw (C1) circle (1.5cm);
+                        
+                        \coordinate (r0) at (130:.5cm);
+                        \coordinate (r1) at (250:.5cm);
+                        \coordinate (r2) at (10:.5cm);
+                        \node (P0) at ($(.5,-.5)+(r0)$) {$\bullet$};
+                        \node (P1) at ($(.5,-.5)+(r1)$) {$\bullet$};
+                        \node (P2) at ($(.5,-.5)+(r2)$) {$\bullet$};
+                        \node (P3) at (-.8,.8) {$\bullet$};
+                        
+                        \path[-{Stealth},font=\scriptsize,>=angle 90]
+                         (P2) edge[bend left] (P1)
+                         (P1) edge[bend left] (P0)
+                         (P0) edge[bend left] (P2)
+                         (P3) edge (P0);
+        
+        
+        
+                        \node (Q0) at ($(C1)+(0,1)$) {$\bullet$};
+                        \node (Q1) at ($(C1)+(-1,0)$) {$\bullet$};
+                        \node (Q2) at ($(C1)+(0,-1)$) {$\bullet$};
+                        \node (Q3) at ($(C1)+(1,0)$) {$\bullet$};
+        
+                        \path[-{Stealth},font=\scriptsize,>=angle 90]
+                         (Q0) edge[bend right] (Q1)
+                         (Q1) edge[bend right] (Q2)
+                         (Q2) edge[bend right] (Q3)
+                         (Q3) edge[bend right] (Q0)
+                         ;
+        
+                    \end{tikzpicture}
+                </latex-image>         
+            </image>
+        </figure>
+            <p>
+                Suppose we did have some isomorphism 
+                <m>X^{\circlearrowright \alpha} \xrightarrow{f} Y^{\circlearrowright \beta}</m>
+                preserving the relation <m>f \alpha = \beta f</m>.
+                We provided in the previous exercise that the inverse 
+                must also preserve structure, namely that <m>f^{-1}</m>
+                satisfies <m> f^{-1} \beta = \alpha f^{-1}</m>.  I felt
+                it was helpful to view the relations as an external
+                diagram:
+            </p>
+        
+        <figure width="%" xml:id="fig-session11-ex3-2">
+            <caption>External diagram of endomaps in Session 11 Exercise 3</caption>
+            <image xml:id="img-session11-ex3-2" width="80%">
+                <latex-image>
+                    \begin{tikzpicture}[scale=2]
+                    \node (X1) at (-1,1) {$X$};
+                    \node (Y1) at (1,1) {$Y$};
+                    \node (X2) at (-1,-1) {$X$};
+                    \node (Y2) at (1,-1) {$Y$};
+                    \path[-{Stealth},font=\scriptsize,>=angle 90]
+                        (X1) edge[bend left] node[above]{$f$} (Y1)
+                        (Y1) edge[bend left] node[below]{$f^{-1}$} (X1)
+                        (X2) edge[bend left] node[above]{$f$} (Y2)
+                        (Y2) edge[bend left] node[below]{$f^{-1}$} (X2)
+                        (X1) edge node[left]{$\alpha$} (X2)
+                        (Y1) edge node[right]{$\beta$} (Y2)
+                        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+            <p>
+                If our isomorphism <m>f</m> existed, the structure preserving equations
+                provide alternative representations of the endomaps <m>\alpha</m> and
+                <m>\beta</m>.  Apply <m>f^{-1}</m> to both sides of <m>f \alpha = \beta f</m>
+                from both sides.  On the left we get <m>f^{-1} f \alpha = \alpha = f^{-1} \beta f</m>
+                and the right we get <m>f \alpha f^{-1} = \beta f f^{-1} = \beta</m>.
+                However, there's a problem with this.  The map <m>\alpha</m> is idempotent with
+                <m>\alpha^4 = \alpha \neq 1_X</m> while the map <m>\beta</m> is an automorphism
+                with <m>\beta^4 = 1_Y</m>.   
+            </p>
+            <p>
+                Since we can express <m>\alpha</m> in terms of <m>\beta</m> using 
+                <m>f^{-1} \beta f</m>, then we can also express <m>\alpha^4</m> as 
+                <m>(f^{-1} \beta f)(f^{-1} \beta f)(f^{-1} \beta f)(f^{-1} \beta f)</m>.
+                The associative property allows us to regroup these terms as 
+                <m>f^{-1} \beta (f f^{-1}) \beta (f f^{-1}) \beta (f f^{-1}) \beta f</m>.
+                Using the identity property this simplifies to <m>\alpha^4 = f^{-1} \beta^4 f</m>, 
+                but since <m>\beta^4 = 1_Y</m> we can further simplify to 
+                <m>f^{-1} 1_Y f = f^{-1} f = 1_X</m>.  However, this is a contradiction
+                to our observation eariler that <m>\alpha^4 = \alpha \neq 1_X</m>.  It follows 
+                that our assumption about the existence of <m>f^{-1}</m> is false and
+                no such map exists.
+            </p>
+            <p>
+                I think the key here is that an isomorphism between endomaps must preserve
+                the number of paths into and out of each point.  Consider the following labeled
+                diagram with the number of arrows <em>in</em> and <em>out</em> at each point:
+            </p>
+        
+                 <figure xml:id="fig-session11-ex3-3">
+                <caption>Labeled version of diagram for Session 11 Exercise 3</caption>
+            <image xml:id="img-session11-ex3-3" width="80%">
+                <latex-image>
+                    \begin{tikzpicture}[scale=1.5]
+                        \coordinate (C0) at (0,0);
+                        \coordinate (C1) at (5.5,0);
+         
+                        \node (FT) at (-3.5,0) {from};
+                        \node (XT) at (-2.5,0) {$X^{\circlearrowright \alpha} =$};
+        
+                        \node (TT) at (2,0) {to};
+                        \node (YT) at (3,0) {$Y^{\circlearrowright \beta} =$};
+        
+                        \draw (C0) circle (1.5cm);
+                        \draw (C1) circle (1.5cm);
+                        
+                        \coordinate (r0) at (130:.5cm);
+                        \coordinate (r1) at (250:.5cm);
+                        \coordinate (r2) at (10:.5cm);
+                        \node (P0) at ($(.5,-.5)+(r0)$) {$a_1$};
+                        \node (P1) at ($(.5,-.5)+(r1)$) {$a_2$};
+                        \node (P2) at ($(.5,-.5)+(r2)$) {$a_3$};
+                        \node (P3) at (-.8,.8) {$a_4$};
+        
+                        \node[red] (LP0) at ($(P0)+(.3,.3)$) {\small 2i,1o};
+                        \node[red] (LP1) at ($(P1)+(-.3,-.3)$) {\small 1i,1o};
+                        \node[red] (LP2) at ($(P2)+(.3,-.3)$) {\small 1i,1o};
+                        \node[red] (LP3) at ($(P3)+(.3,.3)$) {\small 0i,1o};
+        
+                        \path[-{Stealth},font=\scriptsize,>=angle 90]
+                         (P2) edge[bend left] (P1)
+                         (P1) edge[bend left] (P0)
+                         (P0) edge[bend left] (P2)
+                         (P3) edge (P0);
+        
+        
+        
+                        \node (Q0) at ($(C1)+(0,1)$) {$b_1$};
+                        \node (Q1) at ($(C1)+(-1,0)$) {$b_2$};
+                        \node (Q2) at ($(C1)+(0,-1)$) {$b_3$};
+                        \node (Q3) at ($(C1)+(1,0)$) {$b_4$};
+        
+                        \node[red] (LQ0) at ($(Q0)+(0,-.3)$) {\small 1i,1o};
+                        \node[red] (LQ1) at ($(Q1)+(.3,0)$) {\small 1i,1o};
+                        \node[red] (LQ2) at ($(Q2)+(0,.3)$) {\small 1i,1o};
+                        \node[red] (LQ3) at ($(Q3)+(-.3,0)$) {\small 1i,1o};
+        
+                        \path[-{Stealth},font=\scriptsize,>=angle 90]
+                         (Q0) edge[bend right] (Q1)
+                         (Q1) edge[bend right] (Q2)
+                         (Q2) edge[bend right] (Q3)
+                         (Q3) edge[bend right] (Q0)
+                         ;
+        
+                    \end{tikzpicture}
+                </latex-image>         
+            </image>
+        </figure>
+            <p>
+                Note that <m>\beta</m> is invertable so it needs to have precisely 
+                one arrow in and one arrow at each point.  The map <m>\alpha</m>
+                is clearly not invertable.  There is no arrow leading into
+                <m>a_4</m> so it's not "onto" and the two leading into <m>a_1</m> 
+                implies it's also not one-to-one. Consider the table of values:
+            </p>
+            <table>
+                <title>Table of values for <m>f \alpha</m> and <m>\beta f</m></title>
+                <tabular>
+                    <row>
+                  <cell><m>x \in X</m></cell>
+                  <cell><m>\alpha x</m></cell>
+                  <cell><m>f \alpha x</m></cell>
+                  <cell><m>f x</m></cell>
+                  <cell><m>\beta f x</m></cell>
+                    </row>
+                <row>
+                    <cell><m>a_1</m></cell>
+                    <cell><m>a_3</m></cell>
+                    <cell><m>b_{?3}</m></cell>
+                    <cell><m>b_{?1}</m></cell>
+                    <cell><m>b_{?2}</m></cell>
+                        </row>
+                <row>
+                    <cell><m>a_2</m></cell>
+                    <cell><m>a_1</m></cell>
+                    <cell><m>\boxed{b_{?1}}</m></cell>
+                    <cell><m>b_{?2}</m></cell>
+                    <cell><m>\boxed{b_{?3}}</m></cell>
+                        </row>
+                <row>
+                    <cell><m>a_3</m></cell>
+                    <cell><m>a_2</m></cell>
+                    <cell><m>b_{?2}</m></cell>
+                    <cell><m>b_{?3}</m></cell>
+                    <cell><m>b_{?4}</m></cell>
+                        </row>
+                <row>
+                    <cell><m>a_4</m></cell>
+                    <cell><m>a_1</m></cell>
+                    <cell><m>\boxed{b_{?1}}</m></cell>
+                    <cell><m>b_{?4}</m></cell>
+                    <cell><m>\boxed{b_{?1}}</m></cell>
+                        </row>
+                </tabular>
+            </table>
+            <p>
+                Note that our <m>b_?</m> might vary depending on how we choose our map
+                <m>f</m>, but there are 4 distict values in the column for <m>\beta f</m>
+                and only 3 distinct values in the column for <m>f \alpha</m>.  Even if 
+                <m>f</m> were allowed to be non-invertable, there will 
+                never be any map <m>f</m> that could possibly makes those two columns equal.
+        
+            </p>
+        </solution>
+    </example>
+    <example>
+        <title>Exercise 4:</title>
+        
+        
+        <statement>
+            <p>
+              ... Show <m>f^{-1}</m> is automatically a map 
+              in <m>\mathcal{S}^{\circlearrowright}  </m>.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                I think I actually used this as part of my solution to Exercise 2. We're
+                given <m>A^{\circlearrowright \alpha} \xrightarrow{f} B^{\circlearrowright \beta}</m>
+                in <m>\mathcal{S}^{\circlearrowright}</m> and know that "as sets" <m>\exists f^{-1}: B \rightarrow A</m>.
+                We can take the structure preserving property of <m>f</m> to establish
+                <m>f \alpha = \beta f</m>, then apply <m>f^{-1}</m> before and after to get 
+                <m>f^{-1} f \alpha f^{-1} = f^{-1} \beta f f^{-1}</m>.  Use the identity property
+                to get <m>\alpha f^{-1} = f^{-1} \beta</m> which establishes 
+                <m>B^{\circlearrowright \beta} \xrightarrow{f^{-1}} A^{\circlearrowright \alpha}</m>
+                as a valid <m>\mathcal{S}^{\circlearrowright}</m>-map.
+            </p>
+        </solution>
+    </example>
+
+    <example>
+        <title>Exercise 5:</title>
+        
+        <statement>
+            <p>
+                ... Is <m>\mathbb{Z}^{\circlearrowright \alpha}</m>
+                ismorphic to <m>\mathbb{Z}^{\circlearrowright \beta}</m>?...
+            </p>
+        </statement>
+        <solution>
+
+            <p>
+                We're given <m>\alpha(n) = n + 2</m> in <m>\mathbb{Z}^{\circlearrowright \alpha}</m> and 
+                <m>\beta(n) = n + 3</m> in <m>\mathbb{Z}^{\circlearrowright \beta}</m>.  We 
+                want to find out if there's an isomorphism 
+                <m>\mathbb{Z}^{\circlearrowright \alpha} \xrightarrow{f} \mathbb{Z}^{\circlearrowright \beta}</m>.        
+            </p>
+            <p>
+                In order for this to preserve structure, we'd need <m>f \alpha = \beta f</m>.  This is equivalent
+                to saying that <m>\forall n \in \mathbb{Z}: f(\alpha(n)) = \beta(f(n))</m>. Expanding 
+                our definitions of <m>\alpha, \beta</m> gives us <m>f(n) + 2 = f(n + 3)</m>.  
+            </p>
+            <p>
+                I'm going to claim the map <m>f(n) = \frac{2}{3} n</m> has this desired property.  Making this
+                substitution to both sides of our previous experession gives us 
+                <m>f(n) + 2 = \frac{2}{3} n + 2</m> and <m>f(n + 3) = \frac{2}{3}(n+3) = \frac{2}{3} n + \frac{2}{3} \times 3 = \frac{2}{3} n + 2</m>.
+                Since both sides are equivalent, this <m>f</m> preserves structure.  
+            </p>
+            <p>
+                To establish that <m>f</m> is invertable, we can define <m>f^{-1}(n) = \frac{3}{2} n</m>.  Since 
+                <m>(f \circ f^{-1})(n) = \frac{2}{3} \times \frac{3}{2} \times n = n</m> and 
+                <m>(f^{-1} \circ f)(n) = \frac{3}{2} \times \frac{2}{3} \times n = n</m> it follows that 
+                this is a valid inverse for <m>f</m>. As in the previous 
+                exercise, it follows that applying <m>f^{-1}</m> on the left and right of <m>f \alpha = \beta f</m>
+                gives us <m>\alpha f^{-1} = f^{-1} \beta</m> which establishes structure preservation for <m>f^{-1}</m>.
+        
+            </p>
+            <p>
+                Having shown that the inverse exists and preserves structure I think we're done here.
+            </p>
+                </solution>
+    </example>
+    <example>
+        <title>
+            Exercise 6:
+        </title>
+        <statement>
+            <p>
+                Each of the following graphs is isomorphic...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                I think there's an obvious solution that matches the top row with the bottom row
+                from left to right.  To verify this, I'm going to label the "in" and "out" counts 
+                at each point like I did in Exercise 3:
+            </p>
+            <figure width="90%" xml:id="fig-session11-ex-6">
+                <caption>Labeled version of diagram for Session 11 Exercise 6</caption>
+                <image xml:id="img-session11-ex-6">
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \coordinate (G0) at (0,4);
+                            \coordinate (G1) at (5,4);
+                            \coordinate (G2) at (10,4);
+                            \coordinate (G3) at (0,0);
+                            \coordinate (G4) at (5,0);
+                            \coordinate (G5) at (10,0);
+                            \draw (G0) circle [x radius=2, y radius=1];
+                            \draw (G1) circle [x radius=2, y radius=1];
+                            \draw (G2) circle [x radius=2, y radius=1];
+                            \draw (G3) circle [x radius=2, y radius=1];
+                            \draw (G4) circle [x radius=2, y radius=1];
+                            \draw (G5) circle [x radius=2, y radius=1];
+                            
+        
+                            \node (AP0) at ($(G0) + (-1,0)$) {$\bullet$};
+                            \node (AP1) at ($(G0) + (0,0)$) {$\bullet$};
+                            \node (AP2) at ($(G0) + (1,0)$) {$\bullet$};
+                            
+                            \node (BP0) at ($(G1) + (-1,0)$) {$\bullet$};
+                            \node (BP1) at ($(G1) + (0,0)$) {$\bullet$};
+                            \node (BP2) at ($(G1) + (1,0)$) {$\bullet$};
+                            
+                            \node (CP0) at ($(G2) + (-1,0)$) {$\bullet$};
+                            \node (CP1) at ($(G2) + (0,0)$) {$\bullet$};
+                            \node (CP2) at ($(G2) + (1,0)$) {$\bullet$};
+        
+                            \node (DP0) at ($(G3) + (-1,0)$) {$\bullet$};
+                            \node (DP1) at ($(G3) + (0,0)$) {$\bullet$};
+                            \node (DP2) at ($(G3) + (1,0)$) {$\bullet$};
+        
+                            \node (EP0) at ($(G4) + (-1,0)$) {$\bullet$};
+                            \node (EP1) at ($(G4) + (0,0)$) {$\bullet$};
+                            \node (EP2) at ($(G4) + (1,0)$) {$\bullet$};
+        
+                            \node (FP0) at ($(G5) + (-1,0)$) {$\bullet$};
+                            \node (FP1) at ($(G5) + (-.30,.65)$) {$\bullet$};
+                            \node (FP2) at ($(G5) + (1,-0.5)$) {$\bullet$};
+        
+        
+        
+        
+                            \node[red] (AT0) at ($(AP0)-(0,.5)$) {\small 0i,1o};
+                            \node[red] (AT1) at ($(AP1)-(0,.5)$) {\small 2i,1o};
+                            \node[red] (AT2) at ($(AP2)-(0,.5)$) {\small 1i,1o};
+                            \node[red] (BT0) at ($(BP0)-(0,.5)$) {\small 1i,1o};
+                            \node[red] (BT1) at ($(BP1)-(0,.5)$) {\small 1i,2o};
+                            \node[red] (BT2) at ($(BP2)-(0,.5)$) {\small 1i,0o};
+                            \node[red] (CT0) at ($(CP0)-(0,.5)$) {\small 0i,3o};
+                            \node[red] (CT1) at ($(CP1)-(0,.5)$) {\small 2i,0o};
+                            \node[red] (CT2) at ($(CP2)-(0,.5)$) {\small 1i,0o};
+        
+        
+                            \node[red] (DT0) at ($(DP0)+(0,.5)$) {\small 0i,1o};
+                            \node[red] (DT1) at ($(DP1)+(0,.5)$) {\small 2i,1o};
+                            \node[red] (DT2) at ($(DP2)+(0,.5)$) {\small 1i,1o};
+                            \node[red] (ET0) at ($(EP0)+(0,.5)$) {\small 1i,2o};
+                            \node[red] (ET1) at ($(EP1)+(0,.5)$) {\small 1i,0o};
+                            \node[red] (ET2) at ($(EP2)+(0,.5)$) {\small 1i,1o};
+                            \node[red] (FT0) at ($(FP0)+(0,.5)$) {\small 0i,3o};
+                            \node[red] (FT1) at ($(FP1)+(0,.5)$) {\small 2i,0o};
+                            \node[red] (FT2) at ($(FP2)+(0,.5)$) {\small 1i,0o};
+        
+                            \path[-{Stealth},font=\scriptsize,>=angle 90]
+                            (AP0) edge (AP1)
+                            (AP1) edge[bend left] (AP2)
+                            (AP2) edge[bend left] (AP1)
+                            (DP0) edge (DP1)
+                            (DP1) edge[bend right] (DP2)
+                            (DP2) edge[bend right] (DP1)
+                            (BP0) edge[bend left] (BP1)
+                            (BP1) edge[bend left] (BP0)
+                            (BP1) edge (BP2)
+                            (EP0) edge[bend left] (EP2)
+                            (EP2) edge[bend left] (EP0)
+                            (EP0) edge (EP1)
+                            (CP0) edge (CP1)
+                            (CP0) edge[bend left] (CP2)
+                            (CP0) edge[bend right] (CP2)
+                            (FP0) edge (FP1)
+                            (FP0) edge[bend left] (FP2)
+                            (FP0) edge[bend right] (FP2)
+                            (AT0) edge[stealth-stealth, red] (DT0)
+                            (AT1) edge[stealth-stealth, red] (DT1)
+                            (AT2) edge[stealth-stealth, red] (DT2)
+                            (BT0) edge[stealth-stealth, red] (ET2)
+                            (BT1) edge[stealth-stealth, red] (ET0)
+                            (BT2) edge[stealth-stealth, red] (ET1)
+                            (CT0) edge[stealth-stealth, red] (FT0)
+                            (CT1) edge[stealth-stealth, red] (FT1)
+                            (CT2) edge[stealth-stealth, red] (FT2)
+                            ;
+                          
+                        \node (L0) at ($(G0) + (-2,1.5)$) {(a)};
+                        \node (L1) at ($(G1) + (-2,1.5)$) {(b)};
+                        \node (L2) at ($(G2) + (-2,1.5)$) {(c)};
+                        \node (L3) at ($(G3) + (-2,1.5)$) {(d)};
+                        \node (L4) at ($(G4) + (-2,1.5)$) {(e)};
+                        \node (L5) at ($(G5) + (-2,1.5)$) {(f)};
+        
+                        \end{tikzpicture}
+                    </latex-image>
+                    
+                </image>
+            </figure>
+            <p>
+                It's pretty clear that this is the only possible pairing of points that 
+                keeps the number of arrows in and out the same.  Thus, our graph pairs are 
+                (a) with (d), (b) with (e) and (c) with (f). 
+            </p>
+        </solution>
+    </example>
+
+
+    <example>
+        <title>
+            Exercise 7:
+        </title>
+        <statement>
+            <p>
+                If these two graphs are isomorphic...
+            </p>
+        </statement>
+        <solution>
+
+            <p>
+                My strategy of labeling counts of arrows in and out seems to be working well 
+                so far, so I'll apply it here also:
+            </p>
+            <figure width="90%" xml:id="fig-session11-ex-7">
+                <caption>Labeled diagram for Session 11 Exercise 7</caption>
+                <image xml:id="img-session11-ex7">
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \coordinate (C0) at (0,0);
+                            \coordinate (C1) at (5,0);
+                            \draw (C0) circle (2cm);
+                            \draw (C1) circle (2cm);
+                            \node (A0) at ($(C0)+(0,1)$) {$a_0$};
+                            \node (A1) at ($(C0)+(1,0)$) {$a_1$};
+                            \node (A2) at ($(C0)+(0,-1)$) {$a_2$};
+                            \node (A3) at ($(C0)+(-1,0)$) {$a_3$};
+                            \node (A4) at (C0) {$a_4$};
+                            \draw (C1) circle (2cm);
+                            \node (B0) at ($(C1)+(0,1)$) {$b_0$};
+                            \node (B1) at ($(C1)+(1,0)$) {$b_1$};
+                            \node (B2) at ($(C1)+(0,-1)$) {$b_2$};
+                            \node (B3) at ($(C1)+(-1,0)$) {$b_3$};
+                            \node (B4) at (C1) {$b_4$};
+             
+                            \path[-{Stealth},font=\scriptsize,>=angle 90]
+                                (A0) edge[bend left] (A1)
+                                (A1) edge[bend left] (A2)
+                                (A2) edge[bend left] (A3)
+                                (A3) edge[bend left] (A0)
+                                (A2) edge (A4)
+                                (A4) edge (A0)
+                                (B0) edge[bend left] (B1)
+                                (B0) edge[bend right] (B3)
+                                (B1) edge[bend left] (B2)
+                                (B3) edge[bend right] (B2)
+                                (B2) edge (B4)
+                                (B4) edge (B0)
+                            ;
+        
+                            \node[red] (TA0) at ($(A0)+(0.2,.3)$) {\scriptsize 2i,1o};
+                            \node[red] (TA1) at ($(A1)+(.3,0.2)$) {\scriptsize 1i,1o};
+                            \node[red] (TA2) at ($(A2)+(-0.2,-.3)$) {\scriptsize 1i,2o};
+                            \node[red] (TA3) at ($(A3)+(-.3,-0.2)$) {\scriptsize 1i,1o};
+                            \node[red] (TA4) at ($(A4)+(.3,.2)$) {\scriptsize 1i,1o};
+                            
+                            \node[red] (TB0) at ($(B0)+(0.2,.3)$) {\scriptsize 1i,2o};
+                            \node[red] (TB1) at ($(B1)+(.3,0.2)$) {\scriptsize 1i,1o};
+                            \node[red] (TB2) at ($(B2)+(-0.2,-.3)$) {\scriptsize 2i,1o};
+                            \node[red] (TB3) at ($(B3)+(-.3,-0.2)$) {\scriptsize 1i,1o};
+                            \node[red] (TB4) at ($(B4)+(.3,.2)$) {\scriptsize 1i,1o};
+                        
+        
+                            \path[-{Stealth},font=\scriptsize,>=angle 90]
+                                (TA0) edge[red] (TB2)
+                                (TA2) edge[red] (TB0)
+                            ;
+        
+                            \node (L0) at ($(C0)+(0,2.5)$) {A};
+                            \node (L1) at ($(C1)+(0,2.5)$) {B};
+        
+                        \end{tikzpicture}
+                    </latex-image>
+                    
+                </image>
+            </figure>
+            <p>
+                Labeling my counts in this way makes it clear that this diagram
+                has been flipped vertically and shuffled arround a bit. 
+                Any isomorphism <m>f: A \rightarrow B</m> will need to map 
+                <m>a_0</m> to <m>b_2</m> and <m>a_2</m> to <m>b_0</m> to preserve 
+                the in/out arrow counts at each point.
+            </p>
+            <p>
+                The remaining 3 points all have 1 arrow in and 1 arrow out.
+                However, the left diagram has 2 paths leading up and 1 leading 
+                down while the right diagram has 2 paths leading down and 1 leading 
+                up.  Knowing that we've flipped the diagram vertically, we'd need 
+                to match the path down in the left diagram with the path up it the 
+                right diagram <mdash/> pairing point <m>a_1</m> with <m>b_4</m>.  
+                The remaining two points from each figure can be matched up either
+                way without altering the structure.
+            </p>
+            <p>
+                It follows that there are precisely 2 isomorphisms <m>f_1,f_2</m> 
+                from <m>A</m> to <m>B</m>.  Both maps necessirly have 
+                <m>f_n a_0 = b_2</m>, <m>f_n a_2 = b_0</m>, and <m>f_n a_1 = b_4</m>.
+                Where they differ is how they handle <m>a_3</m> and <m>a_4</m>: 
+                <m>f_1 a_3 = b_1</m> and <m>f_1 a_4 = b_3</m> while 
+                <m>f_2 a_3 = b_3</m> and <m>f_2 a_4 = b_1</m>. 
+            </p>
+        </solution>
+    </example>
+    <example>
+        
+    <title>
+        Exercise 8:
+    </title>
+        <statement>
+            <p>
+                (Impossible journeys) ...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                We're given any graph <m>G</m> with two dots
+                <m>b, e</m>, and the graph <m>J</m> as diagrammed below:
+            </p>
+            <figure xml:id="fig-session11-ex8">
+                <caption>Graph <m>J</m> for Session 11 Exercise 8</caption>
+                <image width="60%" xml:id="img-session11-ex8">
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \node (A0) at (0,0) {$\bullet$};
+                            \node (A1) at (0,-.3) {0};
+                            \node (B0) at (2,0) {$\bullet$};
+                            \node (B1) at (2,-.3) {1};
+                            \path[-{Stealth},font=\scriptsize,>=angle 90]
+                                 (A0) edge [->,>={Stealth},out=225, in=135, loop] (A0)
+                                (B0) edge [->,>={Stealth},out=45, in=315, loop] (B0)
+                                (A0) edge (B0)
+                                ;
+                        \end{tikzpicture}
+                    </latex-image>
+                    
+                </image>
+                
+            </figure>
+            <p>
+                For (a), we're given a map of graphs <m>G \xrightarrow{f} J</m> 
+                with <m>fb = 0</m> and <m>fe = 1</m>.  We want to show that there
+                is no path in G that begins at <m>b</m> and ends at <m>e</m>. 
+            </p>
+            <p>  
+                Since <m>f</m> produces both points in <m>J</m> it must be surjective,
+                having a section <m>J \xrightarrow{s} G</m> such that <m>f s = 1_J</m>.  This map <m>s</m>
+                is determined by <m>s0 = b</m> and <m>s1 = e</m>.  We can then use this 
+                map to build an endomap <m>G \xrightarrow{\alpha} G</m> by composing <m>f</m>
+                and <m>s</m> in the reverse order: <m>\alpha = s f</m>.  Note that
+                <m>\alpha b = s f b = s 0 = b</m> and <m>\alpha e = s f e = s 1 = e</m>
+                so <m>\alpha</m> has at least two fixed points.  Further note that
+                <m>\alpha</m> is idempotent since <m>\alpha^2 = s f s f = s 1_J f = 
+                s f = \alpha</m>.
+            </p>
+            <p>
+                Suppose there was such a path from <m>b</m> to <m>e</m> in <m>G</m>.
+                We could think of this path as another "endomap" on some subset
+                of the dots <m>P \subset G</m> on our graph forming our "path".  
+                We can identify some <m>P \xrightarrow{\beta} P</m>
+                with the propery that each application of map takes us one step along 
+                that path from <m>b</m> to <m>e</m> until we arrive and stay there.  
+                In otherwords, we have a sequence of points <m>b \rightarrow \beta b
+                \rightarrow \beta^2 b \rightarrow ... \rightarrow \beta^n b = e</m>
+                where <m>n</m> is the number of nodes we traverse.
+                We can also use this to define a reverse path
+                by swapping the source and target of each arrow to produce an
+                inverse map <m>\beta^{-1}</m> that traverses these points in the 
+                opposite order: <m>e \rightarrow \beta^{-1} e \rightarrow
+                \beta^{-2} e \rightarrow ... \rightarrow \beta^{-n} e = b</m>.
+                However, note that the arrows of <m>\beta^{-1}</m> might not 
+                necessarily exist in the original graph <m>G</m>.
+            </p>
+            <p>
+                Consider what happens when we apply <m>\alpha</m> to these points
+                in the path.  For <m>f</m> to preserve structure, we need to have
+                <m>f \alpha = \beta f</m>.  But since <m>\alpha = s f</m>, we have 
+                <m>f \alpha = f s f = 1_J f = f</m> which implies <m>\beta = 1_J</m>
+                for all points in our path.  In otherwords, any point accessible from
+                <m>b</m> must get mapped to <m>0</m>.
+            </p>
+            <p>
+                I imagine this process to be something like "coloring the graph". 
+                We can start at point <m>b</m> and paint it "blue", then follow each
+                arrow leading out of <m>b</m> and paint those points "blue" as well.
+                At the same time, we can start at point <m>e</m> and paint it "red" 
+                but this time we take the arrows with a target of <m>e</m> and paint 
+                the point at the source "red".  If we repeating the process as many
+                times as we're able we'll eventually get a "purple" point or arrow
+                if the paths do in fact connect.  
+            </p>
+            <p>
+                To get a feel for this, let's try it with the example graph on the
+                same page:
+            </p>
+            <figure xml:id="fig-session11-ex8-2">
+                <caption>Sample graph to illustrate path coloring</caption>
+                <image width="95%" xml:id="img-session11-ex8-2">
+                    <latex-image>
+                        \begin{tikzpicture}[scale=2]
+                        \node[blue] (G0) at (1,3.4) {$b$};
+                        \node[blue] (G1) at (2,4) {$\bullet$};
+                        \node[blue] (G2) at (3,4.1) {$\bullet$};
+                        \node[blue] (G3) at (3.5,4.2) {$\bullet$};
+                        \node[blue] (G4) at (4,3.5) {$\bullet$};
+                        \node[blue] (G5) at (4.5,3.8) {$\bullet$};
+                        \node[blue] (G6) at (5,3) {$\bullet$};
+                        \node[blue] (G7) at (4.4,2.5) {$\bullet$};
+                        \node[blue] (G8) at (3.4,1.5) {$\bullet$};
+                        \node[blue] (G9) at (3,2.8) {$\bullet$};
+                        \node[blue] (G10) at (2.5,2.5) {$\bullet$};
+                        \node[blue] (G11) at (2.0,1) {$\bullet$};
+                        \node[blue] (G12) at (0,1.5) {$\bullet$};
+                        \node[blue] (G13) at (1,2) {$\bullet$};
+                        \node[blue] (G14) at (1.7,2.9) {$\bullet$};
+                        
+                        \path[-{Stealth},font=\scriptsize,>=angle 90,blue]
+                            (G0) edge[bend right] (G1)
+                            (G1) edge[bend right] (G0)
+                            (G1) edge (G2)
+                            (G2) edge[bend right] (G3)
+                            (G3) edge[bend right] (G2)
+                            (G3) edge (G4)
+                            (G4) edge[bend right] (G5)
+                            (G5) edge[bend right] (G4)
+                            (G5) edge (G6)
+                            (G6) edge (G7)
+                            (G7) edge (G8)
+                            (G8) edge (G9)
+                            (G9) edge (G10)
+                            (G10) edge[bend left] (G11)
+                            (G11) edge[bend left] (G12)
+                            (G12) edge (G13)
+                            (G13) edge (G14)
+                            (G0) edge (G14)
+                            (G14) edge (G1)
+                            (G13) edge (G11)
+                            ;
+        
+                        \node[red] (G15) at (5,1) {$e$};
+                        \node[red] (G16) at (4,1.3) {$\bullet$};
+                        \node[red] (G17) at (5,2) {$\bullet$};
+                        \node[red] (G18) at (4.5,3.2) {$\bullet$};
+                        \node[red] (G19) at (3.7,2.7) {$\bullet$};
+                        \node[red] (G20) at (2.9,2) {$\bullet$};
+                        \node[red] (G21) at (2.7,1.4) {$\bullet$};
+                        \node[red] (G22) at (1.9,1.5) {$\bullet$};6
+                        \node[red] (G23) at (.8,1.2) {$\bullet$};
+                        \node[red] (G24) at (.2,2.1) {$\bullet$};
+                        \node[red] (G25) at (.2,2.6) {$\bullet$};
+                        \node[red] (G26) at (.7,2.6) {$\bullet$};
+                        \node[red] (G27) at (1.8,2.3) {$\bullet$};
+                        \node[red] (G28) at (2.4,3.2) {$\bullet$};
+                        \node[red] (G29) at (2.9,3.4) {$\bullet$};
+        
+                        \path[-{Stealth},font=\scriptsize,>=angle 90,red]
+                            (G16) edge (G15)
+                            (G16) edge[bend right] (G17)
+                            (G17) edge[bend right] (G16)
+                            (G18) edge (G17)
+                            (G19) edge (G18)
+                            (G19) edge[bend left] (G20)
+                            (G20) edge[bend left] (G19)
+                            (G21) edge (G20)
+                            (G22) edge (G21)
+                            (G23) edge (G22)
+                            (G24) edge[bend left] (G23)
+                            (G23) edge[bend left] (G24)
+                            (G25) edge (G24)
+                            (G26) edge[bend left] (G25)
+                            (G25) edge[bend left] (G26)
+                            (G27) edge (G26)
+                            (G22) edge[bend left] (G27)
+                            (G27) edge[bend left] (G22)
+                            (G27) edge[bend left] (G28)
+                            (G28) edge[bend left] (G27)
+                            (G29) edge (G28)
+                            (G29) edge[bend left] (G19)
+                            (G19) edge[bend left] (G29)
+        
+                        ;
+        
+        
+                        \path[-{Stealth},font=\scriptsize,>=angle 90,dashed]
+                            (G18) edge (G5)
+                            (G18) edge (G7)
+                            (G19) edge (G4)
+                            (G26) edge (G0)
+                            (G27) edge (G10)
+                            (G28) edge (G10)
+                            (G28) edge (G1)
+                            (G28) edge (G2) 
+                            (G29) edge (G3) 
+                            (G15) edge (G17)
+                            (G16) edge (G8)
+                            (G24) edge[bend right] (G12)
+                            (G20) edge (G10)
+                            (G21) edge (G8)
+        
+                        ;
+        
+                        \end{tikzpicture}
+                    </latex-image>
+                    
+                </image>
+            </figure>
+            <p>
+                Coloring the figure like this is a lot of work, but having done so
+                makes it clear that there is no possible path between <m>b</m> and 
+                <m>e</m> in this diagram.  The dashed arrows show edges that were neither
+                transversed forward from <m>b</m> nor backwards from <m>e</m>. Both of these
+                paths formed closed loops.  We're unable to connect the two loops
+                without an arrow with a red source and blue destination.
+            </p>
+            <p>
+                Consider the commutative diagram of our endomap <m>\beta</m> on
+                the subset of points forming our path <m>P</m>.  Since <m>f</m>
+                must preserve structure, we want <m>f \beta = \gamma J</m> for any
+                endomap <m>J \xrightarrow{\gamma} J</m>.
+            </p>
+            <figure xml:id="fig-session11-ex8-3">
+                <caption>Commutative diagram of endomaps determined by <m>f</m></caption>
+                <image width="65%" xml:id="img-session11-ex8-3">
+                    <latex-image>
+                        \begin{tikzpicture}[scale=2]
+                            \node (A) at (0,1) {$P^{\circlearrowright \beta}$};
+                            \node (B) at (1,1) {$J^{\circlearrowright \gamma}$};
+                            \node (C) at (0,0) {$P^{\circlearrowright \beta}$};
+                            \node (D) at (1,0) {$J^{\circlearrowright \gamma}$};
+                            
+                            \path[-{Stealth},font=\scriptsize,>=angle 90]
+                                (A) edge node[above] {$f_A$} (B)
+                                (C) edge node[below] {$f_D$} (D)
+                                (A) edge node[left] {$\beta$} (C)
+                                (B) edge node[right] {$\gamma$} (D);
+        
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                In this situation, there are only two possible endomaps <m>\gamma</m>
+                that can exist using the arrows and dots from <m>J</m>.  Our map
+                <m>\gamma</m> can either be the identity map <m>1_J</m> or the standard
+                idempotented with <m>\gamma j = 0</m> for any <m>j \in K</m>.
+                Knowing that <m>f \beta = \gamma f</m>, consider what happens in each
+                situation.  If <m>\gamma = 1_J</m> then <m>f \beta = 1_J f = f</m> implies 
+                <m>\beta = 1_P</m>  which contradicts our assumption that 
+                <m>\beta^n b = e \neq b</m>.   If <m>\forall j \in J: \gamma j = 0</m>, 
+                then <m>f \beta = \gamma f</m> implies <m>f \beta p = 0</m> for all 
+                <m>p \in P</m> which contradicts <m>f e = 1</m>.  
+            </p>
+            <p>
+                I see a lot of similarity here with the Brouwer's Theorems indroduced
+                earlier.  Essentially, by thinking of the path as an endomap we need 
+                to have a "fixed point" or we can't have a "retraction at the boundary".
+            </p>
+            <p>
+                For (b) we need to prove the converse.  Suppose we have some path
+                from <m>b</m> to <m>e</m> in <m>P \subset G</m>.  If we think of 
+                that path as an endomap <m>\beta: P \rightarrow P</m> as described 
+                above, then that endomap must have a fixed point <m>p</m> *somewhere*.  
+                That point obviously can't be <m>b</m> because <m>\beta b = b</m> 
+                contradicts our notion of a path.  Likewise, it couldn't fix any
+                <m>\beta^n b</m> along the path either, so the only reasonable fixed
+                point would be <m>e</m>.  As before, 
+                <m>P^{\circlearrowright \beta} \xrightarrow{f} J^{\circlearrowright \gamma}</m>
+                would need to preserve the structure of both possible endomaps on <m>J</m>.
+                If <m>\gamma = 1_J</m> then <m>f \beta = \gamma f = f</m> implies
+                <m>\beta = 1_P</m> which contradicts <m>\beta b \neq b</m>.  If
+                <m>\forall j \in J: \gamma j = 0</m> , then that contradicts our
+                condition that <m>f \beta = \gamma f</m> since <m>f \beta e = f e = 1</m>
+                but <m>\gamma f e = \gamma 1 = 0</m>. 
+            </p>
+            <p>
+                In other words, the existence of an intermediate point in this path
+                prevents us from having a retraction at the boundary because we know 
+                there's we can't possibly have retraction to a map from a 3-point 
+                space to a two point space.  It follows that the endomap describing
+                our path must have a fixed point, but we can't have a fixed point
+                in the path or we'll never reach our destination.
+            </p>
+        </solution>
+    </example>
+
+
+  
+</section>
