@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para">We’re given the following structures of domain and codomain:</div> <figure class="figure figure-like"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-session11-ex3-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.6.7<span class="period">.</span></span><span class="space"> </span>Given diagram for Session 11 Exercise 3</figcaption></figure> <div class="para">Suppose we did have some isomorphism <span class="process-math">\(X^{\circlearrowright \alpha} \xrightarrow{f} Y^{\circlearrowright \beta}\)</span> preserving the relation <span class="process-math">\(f \alpha = \beta f\text{.}\)</span> We provided in the previous exercise that the inverse must also preserve structure, namely that <span class="process-math">\(f^{-1}\)</span> satisfies <span class="process-math">\(f^{-1} \beta = \alpha f^{-1}\text{.}\)</span>  I felt it was helpful to view the relations as an external diagram:</div> <figure class="figure figure-like"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-session11-ex3-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.6.8<span class="period">.</span></span><span class="space"> </span>External diagram of endomaps in Session 11 Exercise 3</figcaption></figure> <div class="para">If our isomorphism <span class="process-math">\(f\)</span> existed, the structure preserving equations provide alternative representations of the endomaps <span class="process-math">\(\alpha\)</span> and <span class="process-math">\(\beta\text{.}\)</span>  Apply <span class="process-math">\(f^{-1}\)</span> to both sides of <span class="process-math">\(f \alpha = \beta f\)</span> from both sides.  On the left we get <span class="process-math">\(f^{-1} f \alpha = \alpha = f^{-1} \beta f\)</span> and the right we get <span class="process-math">\(f \alpha f^{-1} = \beta f f^{-1} = \beta\text{.}\)</span> However, there’s a problem with this.  The map <span class="process-math">\(\alpha\)</span> is idempotent with <span class="process-math">\(\alpha^4 = \alpha \neq 1_X\)</span> while the map <span class="process-math">\(\beta\)</span> is an automorphism with <span class="process-math">\(\beta^4 = 1_Y\text{.}\)</span>
+</div> <div class="para">Since we can express <span class="process-math">\(\alpha\)</span> in terms of <span class="process-math">\(\beta\)</span> using <span class="process-math">\(f^{-1} \beta f\text{,}\)</span> then we can also express <span class="process-math">\(\alpha^4\)</span> as <span class="process-math">\((f^{-1} \beta f)(f^{-1} \beta f)(f^{-1} \beta f)(f^{-1} \beta f)\text{.}\)</span> The associative property allows us to regroup these terms as <span class="process-math">\(f^{-1} \beta (f f^{-1}) \beta (f f^{-1}) \beta (f f^{-1}) \beta f\text{.}\)</span> Using the identity property this simplifies to <span class="process-math">\(\alpha^4 = f^{-1} \beta^4 f\text{,}\)</span> but since <span class="process-math">\(\beta^4 = 1_Y\)</span> we can further simplify to <span class="process-math">\(f^{-1} 1_Y f = f^{-1} f = 1_X\text{.}\)</span>  However, this is a contradiction to our observation eariler that <span class="process-math">\(\alpha^4 = \alpha \neq 1_X\text{.}\)</span>  It follows that our assumption about the existence of <span class="process-math">\(f^{-1}\)</span> is false and no such map exists.</div> <div class="para">I think the key here is that an isomorphism between endomaps must preserve the number of paths into and out of each point.  Consider the following labeled diagram with the number of arrows <em class="emphasis">in</em> and <em class="emphasis">out</em> at each point:</div> <figure class="figure figure-like"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-session11-ex3-3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.6.9<span class="period">.</span></span><span class="space"> </span>Labeled version of diagram for Session 11 Exercise 3</figcaption></figure> <div class="para">Note that <span class="process-math">\(\beta\)</span> is invertable so it needs to have precisely one arrow in and one arrow at each point.  The map <span class="process-math">\(\alpha\)</span> is clearly not invertable.  There is no arrow leading into <span class="process-math">\(a_4\)</span> so it’s not "onto" and the two leading into <span class="process-math">\(a_1\)</span> implies it’s also not one-to-one. Consider the table of values:</div> <figure class="table table-like"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">4.6.10<span class="period">.</span></span><span class="space"> </span>Table of values for <span class="process-math">\(f \alpha\)</span> and <span class="process-math">\(\beta f\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(x \in X\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\alpha x\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f \alpha x\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f x\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\beta f x\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a_1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a_3\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(b_{?3}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(b_{?1}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(b_{?2}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a_2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a_1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\boxed{b_{?1}}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(b_{?2}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\boxed{b_{?3}}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a_3\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a_2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(b_{?2}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(b_{?3}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(b_{?4}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a_4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(a_1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\boxed{b_{?1}}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(b_{?4}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\boxed{b_{?1}}\)</span></td>
+</tr>
+</table></div></figure> <div class="para">Note that our <span class="process-math">\(b_?\)</span> might vary depending on how we choose our map <span class="process-math">\(f\text{,}\)</span> but there are 4 distict values in the column for <span class="process-math">\(\beta f\)</span> and only 3 distinct values in the column for <span class="process-math">\(f \alpha\text{.}\)</span>  Even if <span class="process-math">\(f\)</span> were allowed to be non-invertable, there will never be any map <span class="process-math">\(f\)</span> that could possibly makes those two columns equal.</div>
+</div></body>
+</html>

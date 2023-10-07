@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">4.6.12.1</span><span class="period">.</span>
+</h3>
+<div class="para">We’re given <span class="process-math">\(\alpha(n) = n + 2\)</span> in <span class="process-math">\(\mathbb{Z}^{\circlearrowright \alpha}\)</span> and <span class="process-math">\(\beta(n) = n + 3\)</span> in <span class="process-math">\(\mathbb{Z}^{\circlearrowright \beta}\text{.}\)</span>  We want to find out if there’s an isomorphism <span class="process-math">\(\mathbb{Z}^{\circlearrowright \alpha} \xrightarrow{f} \mathbb{Z}^{\circlearrowright \beta}\text{.}\)</span>
+</div> <div class="para">In order for this to preserve structure, we’d need <span class="process-math">\(f \alpha = \beta f\text{.}\)</span>  This is equivalent to saying that <span class="process-math">\(\forall n \in \mathbb{Z}: f(\alpha(n)) = \beta(f(n))\text{.}\)</span> Expanding our definitions of <span class="process-math">\(\alpha, \beta\)</span> gives us <span class="process-math">\(f(n) + 2 = f(n + 3)\text{.}\)</span>
+</div> <div class="para">I’m going to claim the map <span class="process-math">\(f(n) = \frac{2}{3} n\)</span> has this desired property.  Making this substitution to both sides of our previous experession gives us <span class="process-math">\(f(n) + 2 = \frac{2}{3} n + 2\)</span> and <span class="process-math">\(f(n + 3) = \frac{2}{3}(n+3) = \frac{2}{3} n + \frac{2}{3} \times 3 = \frac{2}{3} n + 2\text{.}\)</span> Since both sides are equivalent, this <span class="process-math">\(f\)</span> preserves structure.</div> <div class="para">To establish that <span class="process-math">\(f\)</span> is invertable, we can define <span class="process-math">\(f^{-1}(n) = \frac{3}{2} n\text{.}\)</span>  Since <span class="process-math">\((f \circ f^{-1})(n) = \frac{2}{3} \times \frac{3}{2} \times n = n\)</span> and <span class="process-math">\((f^{-1} \circ f)(n) = \frac{3}{2} \times \frac{2}{3} \times n = n\)</span> it follows that this is a valid inverse for <span class="process-math">\(f\text{.}\)</span> As in the previous exercise, it follows that applying <span class="process-math">\(f^{-1}\)</span> on the left and right of <span class="process-math">\(f \alpha = \beta f\)</span> gives us <span class="process-math">\(\alpha f^{-1} = f^{-1} \beta\)</span> which establishes structure preservation for <span class="process-math">\(f^{-1}\text{.}\)</span>
+</div> <div class="para">Having shown that the inverse exists and preserves structure I think we’re done here.</div>
+</div>
+<span class="incontext"><a href="session11.html#solution-90" class="internal">in-context</a></span>
+</body>
+</html>
