@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Session 12: Categories of Diagrams</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="L&amp;S Cat Theory">
+<meta property="book:author" content="Ryan Ruff">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.31/pretext_search.js"></script><link href="https://pretextbook.org/css/0.81/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.31</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.31/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.31/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.31/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.81/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">L&amp;S Cat Theory:</span> <span class="subtitle">Attempted solutions to "Conceptual Mathematics" by Lawvere and Schanuel</span></a></h1>
+<p class="byline">Ryan Ruff</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="session11.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="part3.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="about.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is this?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session1.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Session 1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part1.html" class="internal"><span class="codenumber">2</span> <span class="title">Part 1: The Category of Sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Article 1: Sets, maps, composition</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-session2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Session 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-session3.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Session 3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part2.html" class="internal"><span class="codenumber">3</span> <span class="title">Part 2: The Algebra of Composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Article 2: Isomorphisms, Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2-p2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Article 2: Isomorphisms, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2-p3.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Article 2: Isomorphisms, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session4.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Session 4: Division of maps: Isomorphisms</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session5.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Session 5: Division of maps: Sections and retractions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session6.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Session 6: Two general aspects or uses of maps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session7.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Session 7: Isomorphisms and coordinates</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session8.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Session 8: Pictures of a map</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session9.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Session 9: Retracts and idempotents</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quiz1.html" class="internal"><span class="codenumber">3.10</span> <span class="title">Quiz</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quiz2.html" class="internal"><span class="codenumber">3.11</span> <span class="title">Summary/Quiz on Opposed Maps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="test1.html" class="internal"><span class="codenumber">3.12</span> <span class="title">Test 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session10.html" class="internal"><span class="codenumber">3.13</span> <span class="title">Brouwer’s theorems</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="part3.html" class="internal"><span class="codenumber">4</span> <span class="title">Part 3: Categories of Structured Sets</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Article 3: Examples of Categories, Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Article 3: Examples of Categories, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p3.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Article 3: Examples of Categories, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p4.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Article 3: Examples of Categories, Part 4</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p5.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Article 3: Examples of Categories, Part 5</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session11.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Session 11: Ascending to categories of richer structures</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="session12.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Session 12: Categories of Diagrams</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="session12"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.7</span><span class="space"> </span><span class="title">Session 12: Categories of Diagrams</span>
+</h2>
+<div class="para" id="p-578">I thought that the Session following my bookmark was going to be difficult, but this was actually a relatively easy reading this week.  I’m enjoying the sessions written in this style where the association between the abstract representations and the practical uses are laid out in an imaginary classroom.  It makes me feel like I’m a part of collective effort to understand this.</div>
+<article class="example example-like" id="example-94"><a href="" data-knowl="" class="id-ref example-knowl original has-image" data-refid="hk-example-94"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.7.1</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 1:.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-94"><article class="example example-like"><div class="para" id="p-579">Suppose that <span class="process-math">\(x' = \alpha^3(x)\text{...}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-94" id="solution-94"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-94"><div class="solution solution-like">
+<div class="para" id="p-580">We’re given that <span class="process-math">\(X^{\circlearrowright \alpha} 
+\xrightarrow{f}
+Y^{\circlearrowright \beta}\)</span> is a map in <span class="process-math">\(\mathcal{S}^{\circlearrowright}\text{,}\)</span> which tells us that <span class="process-math">\(f \alpha = \beta f\text{.}\)</span> If we know that we have some <span class="process-math">\(x' = \alpha^3(x)\text{,}\)</span> we could sketch the external diagram as follows:</div> <figure class="figure figure-like" id="fig-session12-ex1"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/img-session12-ex1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.7.2<span class="period">.</span></span><span class="space"> </span>Commutative diagram of <span class="process-math">\(\alpha^3\)</span> over <span class="process-math">\(f\)</span></figcaption></figure> <div class="para" id="p-581">Knowing that <span class="process-math">\(x' = \alpha^{3}(x)\)</span> and <span class="process-math">\(y' = \beta^{3}(y)\)</span> for some <span class="process-math">\(f(x) = y\text{,}\)</span> we can establish that <span class="process-math">\(f(x') = y'\)</span> through the associative property:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y' = \beta^3(y) = \beta \beta \beta f x
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= \beta \beta f \alpha x
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= \beta f \alpha \alpha x
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= f \alpha \alpha \alpha x
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= f(\alpha^3(x)) = f(x')
+\end{equation*}
+</div>
+<div class="para" id="p-582">Thus, <span class="process-math">\(y' = f(x')\text{.}\)</span>
+</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-95"><a href="" data-knowl="" class="id-ref example-knowl original has-image" data-refid="hk-example-95"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.7.3</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 2:.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-95"><article class="example example-like"><div class="para" id="p-583">’With age comes stability’...</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-95" id="solution-95"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-95"><div class="solution solution-like">
+<div class="para" id="p-584">Rather than just replicating the entire diagram here, I’ll just focus on the relevant "clusters". Let’s start with the set of points connected to <span class="process-math">\(y\text{.}\)</span> The pre-periodic behavior will be dashed  while the periodic behavior solid black.  Grey will denote paths not taken.</div> <figure class="figure figure-like" id="fig-session12-ex2-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-session12-ex2-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.7.4<span class="period">.</span></span><span class="space"> </span>Observed behavior of <span class="process-math">\(y\)</span></figcaption></figure> <div class="para" id="p-585">This endomap takes one step after <span class="process-math">\(y\)</span> then becomes periodic with a cycle length of 3 steps.</div> <div class="para" id="p-586">Next, let’s isolate <span class="process-math">\(z\text{.}\)</span>
+</div> <figure class="figure figure-like" id="fig-session12-ex2-2"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-session12-ex2-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.7.5<span class="period">.</span></span><span class="space"> </span>Observed behavior of <span class="process-math">\(z\)</span></figcaption></figure> <div class="para" id="p-587">Beginning at point <span class="process-math">\(z\text{,}\)</span> we take 3 steps before reaching a fixed point.</div> <div class="para" id="p-588">Finally, let’s sketch the hypthotical enodmap of a light switch that could only be lit four times.</div> <div class="para" id="p-589">I’m going to suggest that the first state be called <span class="process-math">\(\text{off}_0\text{.}\)</span> The first time we flip the switch, we’d get <span class="process-math">\(\text{on}_0\text{.}\)</span> Then we alternate between "off" and "on", until we have a set of 4 "on" states: <span class="process-math">\(\{\text{on}_0,\text{on}_1,\text{on}_2,\text{on}_3 \}\text{.}\)</span> Following that final on, we reach a terminal state that is perpetually "off". Putting the whole thing together might look something like this:</div> <figure class="figure figure-like" id="fig-session12-ex2-3"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/img-session12-ex2-3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.7.6<span class="period">.</span></span><span class="space"> </span>Observed behavior of <span class="process-math">\(z\)</span></figcaption></figure> <div class="para" id="p-590">The only thing that strikes me as being tricky about this was that my "off" and "on" states had to be different for each time the light was switched.  Even though looking at the light buld you’d only see whether the light was on or off, there needs to be an internal state to the light bulb that tracks how many times it’s been used.</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-96"><a href="" data-knowl="" class="id-ref example-knowl original has-image has-tabular" data-refid="hk-example-96"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.7.7</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 3:.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-96"><article class="example example-like"><div class="para" id="p-591">...Suppose <span class="process-math">\(\mathbf{P} = {}^{m \circlearrowleft} \mathrm{P}^{\circlearrowright f}\text{...}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image has-tabular" data-refid="hk-solution-96" id="solution-96"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-96"><div class="solution solution-like">
+<div class="para" id="p-592">In part (a) our task is to "[s]how that ’gender’ is a map in the category <span class="process-math">\(\mathcal{S}^{\circlearrowleft \circlearrowright}\)</span> from <span class="process-math">\(\mathbf{P}\)</span> to the object [defined as <span class="process-math">\(\mathbf{G}\)</span> below]":</div> <figure class="figure figure-like" id="fig-session12-ex3-1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-session12-ex3-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.7.8<span class="period">.</span></span><span class="space"> </span>Object <span class="process-math">\(\mathbf{G}\)</span> for Session 12 Exercise 3</figcaption></figure> <div class="para" id="p-593">Here the maps <span class="process-math">\(f\)</span> and <span class="process-math">\(m\)</span> are meant to represent "father" and "mother" relationships.  Obviously "real gender" is more complex than this, but we’ll roll with it.</div> <div class="para" id="p-594">We’ll start by identifying our checklist for the category:</div> <ul class="disc">
+<li id="li-45"><div class="para" id="p-595">A category has <em class="emphasis">objects</em>.</div></li>
+<li id="li-46"><div class="para" id="p-596">A category has <em class="emphasis">maps</em>.</div></li>
+<li id="li-47"><div class="para" id="p-597">For each map, there is one object representing the <em class="emphasis">domain</em> and one object representing the <em class="emphasis">codomain</em>.</div></li>
+<li id="li-48"><div class="para" id="p-598">For any pair of maps <span class="process-math">\(A \xrightarrow{f} B \xrightarrow{g} C\)</span> we can form a composite map <span class="process-math">\(g \circ f\text{.}\)</span>
+</div></li>
+<li id="li-49"><div class="para" id="p-599">The category upholds the <em class="emphasis">identity laws</em>.  If <span class="process-math">\(A \xrightarrow{f} B\text{,}\)</span> then <span class="process-math">\(1_B \circ f = f\)</span> and <span class="process-math">\(f \circ 1_A = f\text{.}\)</span>
+</div></li>
+<li id="li-50"><div class="para" id="p-600">The category upholds the <em class="emphasis">associative law</em>: if <span class="process-math">\(A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h} D\)</span> then <span class="process-math">\((h \circ g) \circ f = h \circ (g \circ f)\text{.}\)</span>
+</div></li>
+</ul> <div class="para" id="p-601">Well, we have some objects.  These include the people and properties we’re looking at.  We also have some maps that relate our people and and properties with each other.  We’re particularly concerned with a ’gender’ map I’ll call <span class="process-math">\(\mathbf{P} \xrightarrow{\gamma} \mathbf{G}\)</span> which takes a person and returns a gender.</div> <div class="para" id="p-602">We also have objects representing the domain and codomain of our map <span class="process-math">\(g\text{.}\)</span> The domain <span class="process-math">\(\mathbf{P}\)</span> is the set of all people and the codomain is the set of genders <span class="process-math">\(\mathbf{P}\text{.}\)</span>  We’ll also have two identity maps <span class="process-math">\(1_\mathbf{P}\)</span> and <span class="process-math">\(1_\mathbf{G}\)</span> which can satisfy <span class="process-math">\(1_\mathbf{G} \circ g = g = g \circ 1_\mathbf{P}\text{.}\)</span>
+</div> <div class="para" id="p-603">For us to define a composition of maps, let’s first identify the structures we want to preserve.  Our "people space" came equipped with two endomaps <span class="process-math">\(\mathbf{P} \xrightarrow{m} \mathbf{P}\)</span> and <span class="process-math">\(\mathbf{P} \xrightarrow{f} \mathbf{P}\)</span> that take a person and return the person’s "mother" or "father" respectively.</div> <div class="para" id="p-604">This object <span class="process-math">\(\mathbf{G}\)</span> does something interesting here by defining it’s own version of those endomaps <span class="process-math">\(f, m\text{.}\)</span> These maps operate on <em class="emphasis">genders</em> rather than <em class="emphasis">people</em>, but defining them this way allows us to preserve the structure. Perhaps it might be clearer if denote them separately.  Let’s call <span class="process-math">\(f_P, m_P\)</span> the endomaps on people and <span class="process-math">\(f_G, m_G\)</span> the endomaps on genders.  We could compose maps to form the following commutative diagram:</div> <figure class="figure figure-like" id="fig-session12-ex3-2"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-session12-ex3-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.7.9<span class="period">.</span></span><span class="space"> </span>Commutative diagram for <span class="process-math">\(g\)</span></figcaption></figure> <div class="para" id="p-605">In order to maintain our structure, we’d want to have both <span class="process-math">\(m_G g = g m_P\)</span> and <span class="process-math">\(f_G g = g f_P\text{.}\)</span>  Fortunately, <span class="process-math">\(m_G\)</span> and <span class="process-math">\(f_G\)</span> are basically constants in <span class="process-math">\(\mathbf{G}\text{.}\)</span> For any given person <span class="process-math">\(p \in \mathbf{P}\)</span> (in this model), we could potentially have <span class="process-math">\(g p = \text{female}\)</span> or <span class="process-math">\(g p = \text{male}\text{,}\)</span> but if we compose with our endomaps <span class="process-math">\(m, f\)</span> we get fixed points. For any person <span class="process-math">\(p\text{,}\)</span> we can expect that their mother is female (both <span class="process-math">\(g m_P p = \text{female}\)</span> and <span class="process-math">\(m_G g p = \text{female}\)</span>) and father is male (both <span class="process-math">\(g f_P p = \text{male}\)</span> and <span class="process-math">\(f_G g p = \text{male}\)</span>).</div> <div class="para" id="p-606">I’m thinking that central idea of part (a) is to define a map <span class="process-math">\(g\)</span> in <span class="process-math">\(\mathcal{S}^{\circlearrowleft \circlearrowright}\)</span> as a map <span class="process-math">\({}^{m \circlearrowleft} \mathrm{A}^{\circlearrowright f}
+\xrightarrow{g} {}^{m' \circlearrowleft} \mathrm{B}^{\circlearrowright f'}\)</span> satisfying the pair of equations <span class="process-math">\(m' g = g m\)</span> and <span class="process-math">\(f' g = g f\text{.}\)</span>
+</div> <div class="para" id="p-607">Given some other map <span class="process-math">\(h\)</span> in <span class="process-math">\(\mathcal{S}^{\circlearrowleft \circlearrowright}\text{,}\)</span> with <span class="process-math">\({}^{m' \circlearrowleft} \mathrm{B}^{\circlearrowright f'}
+\xrightarrow{h} {}^{m'' \circlearrowleft} \mathrm{C}^{\circlearrowright f'''}\)</span> we’d need to show that our composition <span class="process-math">\(h \circ g\)</span> is also a valid <span class="process-math">\(\mathcal{S}^{\circlearrowleft \circlearrowright}\)</span>-map. This should follow directly from the associative property and our structure preserving equations:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(h \circ g) m = h g m = h m' g = m'' h g = m'' \circ (h \circ g)
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(h \circ g) f = h g f = h f' g = f'' h g = f'' \circ (h \circ g)
+\end{equation*}
+</div>
+<div class="para" id="p-608">The last thing we need to verify is the associative property.  Given a third map <span class="process-math">\(i\)</span> in  <span class="process-math">\(\mathcal{S}^{\circlearrowleft \circlearrowright}\text{,}\)</span> with <span class="process-math">\({}^{m'' \circlearrowleft} \mathrm{C}^{\circlearrowright f''}
+\xrightarrow{i} {}^{m''' \circlearrowleft} \mathrm{D}^{\circlearrowright f'''}\text{,}\)</span> we want to show <span class="process-math">\((i \circ h) \circ g = i \circ (h \circ g)\text{.}\)</span> I’m pretty sure we get this for free as being objects in the category of sets.</div> <div class="para" id="p-609">For part (b), we expand our structure with a "clan" object defined as follows:</div> <figure class="figure figure-like" id="fig-session12-ex3-3"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/img-session12-ex3-3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.7.10<span class="period">.</span></span><span class="space"> </span>Object <span class="process-math">\(\mathbf{C}\)</span> for Session 12 Exercise 3</figcaption></figure> <div class="para" id="p-610">Like before, we’d want our structure to be preserved.  Given a map <span class="process-math">\({}^{m \circlearrowleft} \mathbf{P}^{\circlearrowright f} 
+\xrightarrow{c}
+{}^{m' \circlearrowleft} \mathbf{C}^{\circlearrowright f'}\text{,}\)</span> we’d want to enforce the conditions that <span class="process-math">\(c \circ m = m' \circ c\)</span> and <span class="process-math">\(c \circ f = f' \circ c\text{.}\)</span>
+</div> <div class="para" id="p-611">Since "a child’s clan is the same as that of [their] mother", it follows that for any person <span class="process-math">\(p\)</span> we’d have <span class="process-math">\(c p = c m p\text{.}\)</span>  As a result, our condition that <span class="process-math">\(c \circ m = m' \circ c\)</span> is satisfied by making <span class="process-math">\(m' = 1_C\text{.}\)</span>
+</div> <div class="para" id="p-612">Since "[m]arriages with clans are forbidden", it follows that for any person <span class="process-math">\(p\)</span> we’d have <span class="process-math">\(c f p \neq c m p\text{.}\)</span>  However, we already know <span class="process-math">\(c m p = c p\)</span> so it follows that <span class="process-math">\(c f p \neq c p\text{.}\)</span> Since there’s only two elements in <span class="process-math">\(\mathbf{C}\)</span> it follows that <span class="process-math">\(f'\)</span> needs the <em class="emphasis">antipodal</em> map so that <span class="process-math">\(c \circ f = f' \circ c \neq c\text{.}\)</span>
+</div> <div class="para" id="p-613">In the last part (c), we attempt to combine "gender" and "clan" to make a cartesian product: <span class="process-math">\(\mathbf{G} \times \mathbf{C}\text{.}\)</span>  Essentially, there are four possible combinations of clan and gender: he-wolf, she-wolf, he-bear, and she-bear.  We’ll examine each in turn.</div> <div class="para" id="p-614">For a "he-wolf", his mother needs to be a "she-wolf" and father a "he-bear". For a "she-wolf", her mother needs to be a "she-wolf and father a "he-bear". For a "he-bear", his mother needs to be a "she-bear" and father a "he-wolf". For a "she-bear", her mother needs to be a "she-bear" and father a "he-wolf".</div> <div class="para" id="p-615">Since we assign a "mother arrow" and a "father arrow" for each point, we can draw an endomap diagram representing the relations:</div> <figure class="figure figure-like" id="fig-session12-ex3-4"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/img-session12-ex3-4.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.7.11<span class="period">.</span></span><span class="space"> </span>Endomaps <span class="process-math">\(m\)</span> and <span class="process-math">\(f\)</span> on <span class="process-math">\(\mathbf{G} \times \mathbf{C}\)</span></figcaption></figure> <div class="para" id="p-616">To verify that this is a valid <span class="process-math">\(\mathcal{S}^{\circlearrowleft \circlearrowright}\)</span>-map, we’ll examine if the structure preservation properties hold.</div> <figure class="table table-like" id="table-13"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">4.7.12<span class="period">.</span></span><span class="space"> </span>Break down of gender-clan compositions</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((g \times c) p\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((g \times c) m p\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((g \times c) f p\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(m' (g \times c) p\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f' (g \times c) p\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">he-wolf</td>
+<td class="l m b0 r0 l0 t0 lines">she-wolf</td>
+<td class="l m b0 r0 l0 t0 lines">he-bear</td>
+<td class="l m b0 r0 l0 t0 lines">she-wolf</td>
+<td class="l m b0 r0 l0 t0 lines">he-bear</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">she-wolf</td>
+<td class="l m b0 r0 l0 t0 lines">she-wolf</td>
+<td class="l m b0 r0 l0 t0 lines">he-bear</td>
+<td class="l m b0 r0 l0 t0 lines">she-wolf</td>
+<td class="l m b0 r0 l0 t0 lines">he-bear</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">he-bear</td>
+<td class="l m b0 r0 l0 t0 lines">she-bear</td>
+<td class="l m b0 r0 l0 t0 lines">he-wolf</td>
+<td class="l m b0 r0 l0 t0 lines">she-bear</td>
+<td class="l m b0 r0 l0 t0 lines">he-wolf</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">she-bear</td>
+<td class="l m b0 r0 l0 t0 lines">she-bear</td>
+<td class="l m b0 r0 l0 t0 lines">he-wolf</td>
+<td class="l m b0 r0 l0 t0 lines">she-bear</td>
+<td class="l m b0 r0 l0 t0 lines">he-wolf</td>
+</tr>
+</table></div></figure> <div class="para" id="p-617">I’m not sure if there’s much else I need to do here since we inherent the rest of our needed properties from <span class="process-math">\(\mathcal{S}\text{.}\)</span>
+</div>
+</div></div>
+</div></article></div></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="session11.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
