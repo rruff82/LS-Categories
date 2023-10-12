@@ -1,0 +1,569 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session12">
+    <title>Session 12: Categories of Diagrams</title>
+
+    <p>
+        I thought that the Session following my bookmark was going
+        to be difficult, but this was actually a relatively easy 
+        reading this week.  I'm enjoying the sessions written in 
+        this style where the association between the abstract 
+        representations and the practical uses are laid out in 
+        an imaginary classroom.  It makes me feel like I'm a
+        part of collective effort to understand this.
+    </p>
+    <example>
+        <title>Exercise 1:</title>
+        <statement>
+            <p>
+                Suppose that <m>x' = \alpha^3(x)</m>...
+            </p>
+        </statement>
+        <solution>
+
+            <p> We're given that
+                <m>X^{\circlearrowright \alpha} 
+                        \xrightarrow{f}
+                 Y^{\circlearrowright \beta}</m> is a map in
+                 <m>\mathcal{S}^{\circlearrowright}</m>, which 
+                 tells us that <m>f \alpha = \beta f</m>. 
+                 If we know that we have some <m>x' = \alpha^3(x)</m>,
+                 we could sketch the external diagram as follows:
+            </p>
+            <figure xml:id="fig-session12-ex1">
+                <caption>Commutative diagram of <m>\alpha^3</m> over <m>f</m></caption>
+                <image width="70%" xml:id="img-session12-ex1">
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \node (X0) at (0,3) {$X$};
+                            \node (X1) at (0,2) {$X$};
+                            \node (X2) at (0,1) {$X$};
+                            \node (X3) at (0,0) {$X$};
+                            \node (Y0) at (1,3) {$Y$};
+                            \node (Y1) at (1,2) {$Y$};
+                            \node (Y2) at (1,1) {$Y$};
+                            \node (Y3) at (1,0) {$Y$};
+                            \path[-{Stealth},font=\scriptsize,>=angle 90]
+                                (X0) edge node[left] {$\alpha$} (X1)
+                                (X1) edge node[left] {$\alpha$} (X2)
+                                (X2) edge node[left] {$\alpha$} (X3)
+                                (X0.west) edge[bend right] node[left] {$\alpha^3$} (X3.west)
+                                (Y0) edge node[right] {$\beta$} (Y1)
+                                (Y1) edge node[right] {$\beta$} (Y2)
+                                (Y2) edge node[right] {$\beta$} (Y3)
+                                (Y0.east) edge[bend left] node[right] {$\beta^3$} (Y3.east)
+                                (X0) edge node[above] {$f$} (Y0)
+                                (X1) edge node[above] {$f$} (Y1)
+                                (X2) edge node[above] {$f$} (Y2)
+                                (X3) edge node[above] {$f$} (Y3);
+                        \end{tikzpicture}
+                    </latex-image>
+            
+                </image>
+            </figure>
+            <p>
+                Knowing that <m>x' = \alpha^{3}(x)</m> and <m>y' = \beta^{3}(y)</m>
+                for some <m>f(x) = y</m>, we can establish that <m>f(x') = y'</m>
+                through the associative property:
+            </p>   
+            <me>y' = \beta^3(y) = \beta \beta \beta f x</me>
+            <me>= \beta \beta f \alpha x</me>
+            <me>= \beta f \alpha \alpha x</me>
+            <me>= f \alpha \alpha \alpha x</me>
+            <me>= f(\alpha^3(x)) = f(x')</me>
+            <p>
+                Thus, <m>y' = f(x')</m>.  
+            </p>
+        </solution>
+    </example>
+    <example>
+        <title>Exercise 2:</title>
+        <statement>
+            <p>
+                'With age comes stability'...
+            </p>
+        </statement>
+        <solution>
+
+            <p>
+                Rather than just replicating the entire diagram here,
+                I'll just focus on the relevant "clusters". Let's start with
+                the set of points connected to <m>y</m>. The pre-periodic behavior
+                will be dashed  while the periodic behavior solid black.  Grey will 
+                denote paths not taken.
+            </p>
+            <figure xml:id="fig-session12-ex2-1">
+                <caption>Observed behavior of <m>y</m></caption>
+                <image width="50%" xml:id="img-session12-ex2-1">
+                    <latex-image>
+                        \begin{tikzpicture}[scale=2]
+                            \node (Y0) at (60:2cm) {$y$};
+                            \node (Y1) at (20:1cm) {$\bullet$};
+                            \node (Y2) at (140:1cm) {$\bullet$};
+                            \node (Y3) at (260:1cm) {$\bullet$};
+                            \node (Y4) at (100:2cm) {$\bullet$};
+                            \node (Y5) at (110:3) {$\bullet$};
+                            
+                            \path[-{Stealth},font=\scriptsize,>=angle 90]
+                                (Y0) edge[dashed] (Y1)
+                                (Y1) edge[bend right] (Y2)
+                                (Y2) edge[bend right] (Y3)
+                                (Y3) edge[bend right] (Y1)
+                                (Y5) edge[gray] (Y4)
+                                (Y4) edge[gray] (Y2)
+        
+                                ;
+        
+                        \end{tikzpicture}
+                    </latex-image>
+            
+                </image>
+            </figure>
+            <p>
+                This endomap takes one step after <m>y</m> then becomes
+                periodic with a cycle length of 3 steps.
+            </p>
+            <p>
+                Next, let's isolate <m>z</m>.
+            </p>
+            <figure xml:id="fig-session12-ex2-2">
+                <caption>Observed behavior of <m>z</m></caption>
+                <image width="60%" xml:id="img-session12-ex2-2">
+                    <latex-image>
+                        \begin{tikzpicture}[scale=2]
+                            \node (Z0) at (0,0) {$z$};
+                            \node (Z1) at (-.2,1) {$\bullet$};
+                            \node (Z2) at (1,.8) {$\bullet$};
+                            \node (Z3) at (2,2) {$\bullet$};
+                            \node (Z4) at (2.8,2.9) {$\bullet$};
+                            \node (Z5) at (3.6,3.7) {$\bullet$};
+                            \node (Z6) at (4.6,2.7) {$\bullet$};
+                            \node (Z7) at (1.4,-.1) {$\bullet$};
+                            
+                            \path[-{Stealth},font=\scriptsize,>=angle 90]
+                                (Z0) edge[dashed] (Z2)
+                                (Z1) edge[gray] (Z2)
+                                (Z7) edge[gray] (Z2)
+                                (Z2) edge[dashed] (Z3)
+                                (Z3) edge[dashed] (Z4)
+                                (Z4) edge[dashed] (Z5)
+                                (Z6) edge[gray] (Z5)
+                                (Z5) edge[->,>={Stealth},loop above] (Z5)
+        
+                                ;
+        
+                        \end{tikzpicture}
+                    </latex-image>
+            
+                </image>
+            </figure>
+            <p>
+                Beginning at point <m>z</m>, we take 3 steps before reaching a fixed point.
+            </p>
+            <p>
+                Finally, let's sketch the hypthotical enodmap of a light switch
+                that could only be lit four times.
+            </p>
+            <p>
+                I'm going to suggest that the first state be called <m>\text{off}_0</m>.
+                The first time we flip the switch, we'd get <m>\text{on}_0</m>. 
+                Then we alternate between "off" and "on", until we have a set of 4 
+                "on" states: <m>\{\text{on}_0,\text{on}_1,\text{on}_2,\text{on}_3 \}</m>.
+                Following that final on, we reach a terminal state that is perpetually "off".
+                Putting the whole thing together might look something like this:
+            </p>
+        
+            <figure xml:id="fig-session12-ex2-3">
+                <caption>Observed behavior of <m>z</m></caption>
+                <image xml:id="img-session12-ex2-3">
+                    <latex-image>
+                        \begin{tikzpicture}[scale=2]
+                            \node (Z0) at (0,1) {$\text{off}_0$};
+                            \node (Z1) at (0,0) {$\text{on}_0$};
+                           
+                            \node (Z2) at (1,1) {$\text{off}_1$};
+                            \node (Z3) at (1,0) {$\text{on}_1$};
+        
+                            \node (Z4) at (2,1) {$\text{off}_2$};
+                            \node (Z5) at (2,0) {$\text{on}_2$};
+                            \node (Z6) at (3,1) {$\text{off}_3$};
+                            \node (Z7) at (3,0) {$\text{on}_3$};
+        
+                            \node (Z8) at (4,1) {$\text{off}_4$};
+        
+                            \path[-{Stealth},font=\scriptsize,>=angle 90]
+                                (Z0) edge[dashed] (Z1)
+                                (Z1) edge[dashed] (Z2)
+                                (Z2) edge[dashed] (Z3)
+                                (Z3) edge[dashed] (Z4)
+                                (Z4) edge[dashed] (Z5)
+                                (Z5) edge[dashed] (Z6)
+                                (Z6) edge[dashed] (Z7)
+                                (Z7) edge[dashed] (Z8)
+                                (Z8) edge[->,>={Stealth},loop right] (Z8)
+        
+                                ;
+        
+                        \end{tikzpicture}
+                    </latex-image>
+            
+                </image>
+            </figure>
+            <p>
+                The only thing that strikes me as being tricky about this
+                was that my "off" and "on" states had to be different for 
+                each time the light was switched.  Even though looking at the 
+                light buld you'd only see whether the light was on or off, there
+                needs to be an internal state to the light bulb that tracks how
+                many times it's been used.  
+            </p>
+        </solution>
+    </example>
+    <example>
+        <title>Exercise 3:</title>
+        <statement>
+            <p>
+                ...Suppose <m>\mathbf{P} = {}^{m \circlearrowleft} \mathrm{P}^{\circlearrowright f}</m>...
+           </p>
+        </statement>
+        <solution>
+            <p>
+                In part (a) our task is to "[s]how that 'gender' is a map in 
+                the category <m>\mathcal{S}^{\circlearrowleft \circlearrowright}</m>
+                from <m>\mathbf{P}</m> to the object [defined as <m>\mathbf{G}</m> below]":
+        
+            </p>
+            <figure xml:id="fig-session12-ex3-1">
+                <caption>Object <m>\mathbf{G}</m> for Session 12 Exercise 3</caption>
+                <image width="80%" xml:id="img-session12-ex3-1">
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \node (EQ) at (0,0) {$\mathbf{G}=$};
+                            \node (FN) at (1,0) {female};
+                            \node (MN) at (3,0) {male};
+        
+                            \node (MM) at (1.4,0.65) {$m$};
+                            \node (FM) at (2.6,-0.65) {$f$};
+                            
+        
+                            \draw (2,0) circle [x radius=1.6,y radius=.5];
+                            \path[-{Stealth},font=\scriptsize,>=angle 90]
+              
+                            (FN) edge[->,>={Stealth},loop,out=70, in=110,looseness=8] (FN)
+                            (MN) edge[->,>={Stealth},loop,out=250, in=290,looseness=8] (MN)
+                            (MN) edge[bend right] (FN)
+                            (FN) edge[bend right] (MN)
+                            ;
+                        \end{tikzpicture}
+                    </latex-image>
+                    
+                </image>
+                
+            </figure>
+            <p>
+                Here the maps <m>f</m> and <m>m</m> are meant to represent
+                "father" and "mother" relationships.  Obviously "real gender"
+                is more complex than this, but we'll roll with it.
+            </p>
+            <p>
+                We'll start by identifying our checklist for the category:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        A category has <em>objects</em>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A category has <em>maps</em>. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        For each map, there is one object representing 
+                        the <em>domain</em> and one object representing 
+                        the <em>codomain</em>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        For any pair of maps <m>A \xrightarrow{f} B \xrightarrow{g} C</m>
+                        we can form a composite map <m>g \circ f</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        The category upholds the <em>identity laws</em>.  If 
+                        <m>A \xrightarrow{f} B</m>, then <m>1_B \circ f = f</m>
+                        and <m>f \circ 1_A = f</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        The category upholds the <em>associative law</em>:
+                        if <m>A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h} D</m>
+                        then <m>(h \circ g) \circ f = h \circ (g \circ f)</m>.
+                    </p>
+                </li>    
+            </ul>
+            <p>
+                Well, we have some objects.  These include the people and properties 
+                we're looking at.  We also have some maps that relate our people and 
+                and properties with each other.  We're particularly concerned 
+                with a 'gender' map I'll call <m>\mathbf{P} \xrightarrow{\gamma} \mathbf{G}</m>
+                which takes a person and returns a gender.
+            </p>
+            <p>
+                We also have objects representing the domain and codomain
+                of our map <m>g</m>. The domain <m>\mathbf{P}</m> is
+                the set of all people and the codomain is the set of genders
+                <m>\mathbf{P}</m>.  We'll also have two identity maps
+                <m>1_\mathbf{P}</m> and <m>1_\mathbf{G}</m> which can 
+                satisfy <m>1_\mathbf{G} \circ g = g = g \circ 1_\mathbf{P}</m>. 
+            </p>
+            <p>
+                For us to define a composition of maps, let's first identify
+                the structures we want to preserve.  Our "people space" came
+                equipped with two endomaps <m>\mathbf{P} \xrightarrow{m} \mathbf{P}</m> and
+                <m>\mathbf{P} \xrightarrow{f} \mathbf{P}</m> that take a person and return the
+                person's "mother" or "father" respectively. 
+            </p>
+            <p>
+                This object <m>\mathbf{G}</m> does something interesting here
+                by defining it's own version of those endomaps <m>f, m</m>. 
+                These maps operate on <em>genders</em> rather than <em>people</em>,
+                but defining them this way allows us to preserve the structure.
+                Perhaps it might be clearer if denote them separately.  Let's call
+                <m>f_P, m_P</m> the endomaps on people and <m>f_G, m_G</m>
+                the endomaps on genders.  We could compose maps to form the 
+                following commutative diagram:
+            </p>
+            <figure xml:id="fig-session12-ex3-2">
+                <caption>Commutative diagram for <m>g</m></caption>
+                <image width="50%" xml:id="img-session12-ex3-2">
+        
+                    <latex-image>
+                        \begin{tikzpicture}[scale=2]
+                            
+                    \node (A) at (0,1) {$\mathbf{P}$};
+                    \node (B) at (1,1) {$\mathbf{G}$};
+                    \node (C) at (0,0) {$\mathbf{P}$};
+                    \node (D) at (1,0) {$\mathbf{G}$};
+        
+                    \path[-{Stealth},font=\scriptsize,>=angle 90]
+                        (A) edge node[above] {$g$} (B)
+                        (C) edge node[above] {$g$} (D)
+                        ($(A.south)-(.1,0)$) edge node[left] {$m_P$} ($(C.north)-(.1,0)$)
+                        ($(A.south)+(.1,0)$) edge node[right] {$f_P$} ($(C.north)+(.1,0)$)
+                        ($(B.south)-(.1,0)$) edge node[left] {$m_G$} ($(D.north)-(.1,0)$)
+                        ($(B.south)+(.1,0)$) edge node[right] {$f_G$} ($(D.north)+(.1,0)$)
+                    ;
+                     
+                        \end{tikzpicture}
+                    </latex-image>
+        
+                </image>
+                
+            </figure>
+            <p>
+                In order to maintain our structure, we'd want to have both
+                <m>m_G g = g m_P</m> and <m>f_G g = g f_P</m>.  Fortunately,
+                <m>m_G</m> and <m>f_G</m> are basically constants in <m>\mathbf{G}</m>.
+                For any given person <m>p \in \mathbf{P}</m> (in this model), we could 
+                potentially have <m>g p = \text{female}</m> or <m>g p = \text{male}</m>, but
+                if we compose with our endomaps <m>m, f</m> we get fixed points.
+                For any person <m>p</m>, we can expect that their mother is female (both 
+                <m>g m_P p = \text{female}</m> and <m>m_G g p = \text{female}</m>) 
+                and father is male (both <m>g f_P p = \text{male}</m> and
+                <m>f_G g p = \text{male}</m>). 
+            </p>
+            <p>
+                I'm thinking that central idea of part (a) is to define a map <m>g</m> in
+                <m>\mathcal{S}^{\circlearrowleft \circlearrowright}</m>
+                as a map <m>{}^{m \circlearrowleft} \mathrm{A}^{\circlearrowright f}
+                \xrightarrow{g} {}^{m' \circlearrowleft} \mathrm{B}^{\circlearrowright f'}</m>          
+                satisfying the pair of equations <m>m' g = g m</m> and <m>f' g = g f</m>.  
+            </p>
+            <p>
+                Given some other map <m>h</m> in <m>\mathcal{S}^{\circlearrowleft \circlearrowright}</m>,
+                with <m>{}^{m' \circlearrowleft} \mathrm{B}^{\circlearrowright f'}
+                 \xrightarrow{h} {}^{m'' \circlearrowleft} \mathrm{C}^{\circlearrowright f'''}</m>
+                 we'd need to show that our composition <m>h \circ g</m> is also a
+                 valid <m>\mathcal{S}^{\circlearrowleft \circlearrowright}</m>-map.
+                 This should follow directly from the associative property and our structure
+                 preserving equations:
+            </p>
+            <me>(h \circ g) m = h g m = h m' g = m'' h g = m'' \circ (h \circ g)</me>
+            <me>(h \circ g) f = h g f = h f' g = f'' h g = f'' \circ (h \circ g)</me>
+            <p>
+                The last thing we need to verify is the associative property.  Given 
+                a third map <m>i</m> in  <m>\mathcal{S}^{\circlearrowleft \circlearrowright}</m>,
+                with <m>{}^{m'' \circlearrowleft} \mathrm{C}^{\circlearrowright f''}
+                 \xrightarrow{i} {}^{m''' \circlearrowleft} \mathrm{D}^{\circlearrowright f'''}</m>,
+                 we want to show <m>(i \circ h) \circ g = i \circ (h \circ g)</m>. I'm
+                 pretty sure we get this for free as being objects in the category of sets.   
+            </p>
+            <p>
+                For part (b), we expand our structure with a "clan" object defined as follows:
+            </p>
+            <figure  xml:id="fig-session12-ex3-3">
+                <caption>Object <m>\mathbf{C}</m> for Session 12 Exercise 3</caption>
+                <image width="60%" xml:id="img-session12-ex3-3">
+                    <latex-image>
+                        \begin{tikzpicture}
+                        \node (EQ) at (0,0) {$\mathbf{C}=$};
+                        \node (FN) at (1,0) {wolf};
+                        \node (MN) at (3,0) {bear};
+        
+                        \node (MM) at (2,-.65) {$m$};
+                        \node (FM) at (2,1.2) {$f$};
+                        
+        
+                        \draw (2,0) circle [x radius=1.6,y radius=.5];
+                        \path[-{Stealth},font=\scriptsize,>=angle 90]
+          
+                        (FN) edge[->,>={Stealth},loop,out=250, in=290,looseness=8] (FN)
+                        (MN) edge[->,>={Stealth},loop,out=250, in=290,looseness=8] (MN)
+                        ($(MN.north)-(.1,0)$) edge[bend right=60] ($(FN.north)+(.1,0)$)
+                        ($(FN.north)-(.1,0)$) edge[bend left=70] ($(MN.north)+(.1,0)$)
+                        ;             
+                        \end{tikzpicture}
+                    </latex-image>
+                    
+                </image>
+                
+            </figure>
+            <p>
+                Like before, we'd want our structure to be preserved.  Given a map
+                <m>
+                    {}^{m \circlearrowleft} \mathbf{P}^{\circlearrowright f} 
+                    \xrightarrow{c}
+                     {}^{m' \circlearrowleft} \mathbf{C}^{\circlearrowright f'}</m>,
+                we'd want to enforce the conditions that 
+                <m>c \circ m = m' \circ c</m> and <m>c \circ f = f' \circ c</m>.
+            </p>
+            <p>
+                Since "a child's clan is the same as that of [their] mother", it follows
+                that for any person <m>p</m> we'd have <m>c p = c m p</m>.  As a result, 
+                our condition that <m>c \circ m = m' \circ c</m> is satisfied by making
+                <m>m' = 1_C</m>.
+            </p>
+            <p>
+                Since "[m]arriages with clans are forbidden", it follows that for any
+                person <m>p</m> we'd have <m>c f p \neq c m p</m>.  However, we already 
+                know <m>c m p = c p</m> so it follows that <m>c f p \neq c p</m>. Since 
+                there's only two elements in <m>\mathbf{C}</m> it follows that <m>f'</m> 
+                needs the <em>antipodal</em> map so that 
+                <m>c \circ f = f' \circ c \neq c</m>.
+            </p>
+            <p>
+                In the last part (c), we attempt to combine "gender" and "clan" to make a 
+                cartesian product: <m>\mathbf{G} \times \mathbf{C}</m>.  Essentially,
+                there are four possible combinations of clan and gender: he-wolf, she-wolf,
+                he-bear, and she-bear.  We'll examine each in turn.
+            </p>
+            <p>
+                For a "he-wolf", his mother needs to be a "she-wolf" and father a "he-bear".
+                For a "she-wolf", her mother needs to be a "she-wolf and father a "he-bear".
+                For a "he-bear", his mother needs to be a "she-bear" and father a "he-wolf".
+                For a "she-bear", her mother needs to be a "she-bear" and father a "he-wolf".
+            </p>
+            <p>
+                Since we assign a "mother arrow" and a "father arrow" for each point, we can 
+                draw an endomap diagram representing the relations:
+            </p>
+            <figure xml:id="fig-session12-ex3-4">
+                <caption>
+                    Endomaps <m>m</m> and <m>f</m> on <m>\mathbf{G} \times \mathbf{C}</m>
+                </caption>
+                <image width="75%" xml:id="img-session12-ex3-4">
+                    <latex-image>
+                        \begin{tikzpicture}
+                        \node (EQ) at (-2,0) {$\mathbf{G} \times \mathbf{C}=$};
+                        \node (HW) at (1,1) {he-wolf};
+                        \node (HB) at (3,1) {he-bear};
+        
+                        \node (SW) at (1,-1) {she-wolf};
+                        \node (SB) at (3,-1) {she-bear};
+        
+                        \node[red] (MT) at (2,-1.25) {$m$};
+                        \node[blue] (FT) at (2,.4) {$f$};
+        
+                        \draw (2,0) circle (2.5cm);
+        
+                        \path[-{Stealth},font=\scriptsize,>=angle 90]
+                            (HW) edge[red] (SW)
+                            (HW) edge[blue,bend right] (HB)
+                            (SW) edge[red,->,>={Stealth},loop,out=250, in=290,looseness=8] (SW)
+                            (SW) edge[blue] (HB)
+                            (HB) edge[red] (SB)
+                            (HB) edge[blue,bend right] (HW)
+                            (SB) edge[red,->,>={Stealth},loop,out=250, in=290,looseness=8] (SB)
+                            (SB) edge[blue] (HW)
+                        ;
+        
+                            
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                To verify that this is a valid <m>\mathcal{S}^{\circlearrowleft \circlearrowright}</m>-map,
+                we'll examine if the structure preservation properties hold.
+            </p>
+            <table>
+                <title>Break down of gender-clan compositions</title>
+                <tabular>
+                    <row>
+                  <cell><m>(g \times c) p</m></cell>
+                  <cell><m>(g \times c) m p</m></cell>
+                  <cell><m>(g \times c) f p</m></cell>
+                  <cell><m>m' (g \times c) p</m></cell>
+                   <cell><m>f' (g \times c) p</m></cell>
+                    </row>
+        
+                    <row>
+                        <cell>he-wolf</cell>
+                        <cell>she-wolf</cell>
+                        <cell>he-bear</cell>
+                        <cell>she-wolf</cell>
+                        <cell>he-bear</cell>
+                          </row>
+        
+        
+                <row>
+                <cell>she-wolf</cell>
+                <cell>she-wolf</cell>
+                <cell>he-bear</cell>
+                <cell>she-wolf</cell>
+                <cell>he-bear</cell>
+                    </row>       
+        
+                    
+                    <row>
+                        <cell>he-bear</cell>
+                        <cell>she-bear</cell>
+                        <cell>he-wolf</cell>
+                        <cell>she-bear</cell>
+                        <cell>he-wolf</cell>
+                          </row>   
+                    <row>
+                    <cell>she-bear</cell>   
+                    <cell>she-bear</cell>
+                    <cell>he-wolf</cell>
+                    <cell>she-bear</cell>
+                    <cell>he-wolf</cell>
+                        </row>           
+                          
+                </tabular>
+            </table>
+            <p>
+                I'm not sure if there's much else I need to do here since we inherent
+                the rest of our needed properties from <m>\mathcal{S}</m>.
+            </p>
+        </solution>
+    </example>
+
+  
+</section>
