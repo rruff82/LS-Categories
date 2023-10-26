@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session14">
+    <title>Session 14: Maps preserve positive properties</title>
+    <p>
+        The authors include some of these solutions in the reading, but
+        I'm going to try to work them all out on my own.  <em>Just because.</em>
+
+    </p>
+    <example>
+        <title>Exercise 1:</title>
+        <statement>
+            <p>
+                Let <m>x_1</m> and <m>x_2</m> be two points of <m>X</m>...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Given that <m>y_1 = f(x_1)</m> and <m>y_2 = f(x_2)</m>, we can
+                apply <m>\beta</m> on the left of both sides to get 
+                <m>\beta(y_1) = (\beta \circ f)(x_1)</m> and 
+                <m>\beta(y_2) = (\beta \circ f)(x_2)</m>.
+                Since the structure preservation property enforces
+                <m>f \circ \alpha = \beta \circ f</m>, we can subsitute
+                <m>f \circ \alpha</m> into our expressions to get
+                <m>\beta(y_1) = (f \circ \alpha)(x_1) = f(\alpha x_1)</m> and 
+                <m>\beta(y_2) = (f \circ \alpha)(x_2) = f(\alpha x_2)</m>.
+                If <m>\alpha x_1 = \alpha x_2</m>, it follows directly that
+                <m>\beta(y_1) = \beta(y_2)</m>.
+            </p>
+        </solution>
+    </example>
+    <example>
+        <title>Exercise 2:</title>
+        <statement>
+            <p>
+                If instead we know that <m>x_2 = \alpha^5(x_1)</m>...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Like before, if can apply <m>\beta^5</m> on the left of
+                <m>y_1 = f(x_1)</m> and <m>y_2 = f(x_2)</m> to get
+                <m>\beta^5(y_1) = (\beta^5 \circ f)(x_1)</m> and 
+                <m>\beta^5(y_2) = (\beta^5 \circ f)(x_2)</m>.  We can expand
+                the whole thing out and apply a repeated subsitution using 
+                <m>f \circ \alpha = \beta \circ f</m>.
+            </p>
+            <me>\beta^5 \circ f = \beta \circ \beta \circ
+                    \beta \circ \beta \circ \beta \circ f</me>
+            <me> = \beta \circ \beta \circ
+                        \beta \circ \beta \circ f \circ \alpha</me>
+            <me> = \beta \circ \beta \circ
+                \beta \circ f \circ \alpha \circ \alpha</me>
+            <me> = \beta \circ \beta \circ
+                f \circ \alpha \circ \alpha \circ \alpha</me>
+            <me> = \beta \circ f \circ
+                \alpha \circ \alpha \circ \alpha \circ \alpha</me>
+            <me> = f \circ \alpha \circ
+                \alpha \circ \alpha \circ \alpha \circ \alpha
+                = f \circ \alpha^5 
+            </me>
+            <p>
+                Thus <m>\beta^5(y_1) = (\beta^5 \circ f)(x_1) = 
+                    (f \circ \alpha^5)(x_1) = f(\alpha^5 x_1)</m>
+                and <m>\beta^5(y_2) = (\beta^5 \circ f)(x_2) = 
+                    (f \circ \alpha^5)(x_2) = f(\alpha^5 x_2)</m>. 
+                If <m>\alpha^5 x_1 = \alpha^5 x_2</m>, then 
+                <m>\beta^5(y_1) = f(\alpha^5 x_1) = f(\alpha^5 x_2) = \beta^5(y_2)</m>.
+            </p>
+        </solution>
+
+    </example>
+    <example>
+        <title>Exercise 3:</title>
+
+        <statement>
+            <p>
+                If <m>\alpha(x) = x</m>...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Knowing <m>y = f(x)</m>, just apply <m>\beta</m> on the left of both sides to get
+                <m>\beta y = \beta f(x) = (\beta f)(x) = (f \alpha)(x)= f(\alpha x) = f(x) = y</m>.
+                It follows that <m>\beta y = y</m> is also a 'fixed point'.
+            </p>
+        </solution>
+    </example>
+    <example>
+        <title>Exercise 4:</title>
+        <statement>
+            <p>
+                
+                Give an example in which...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Since we're given a "hint" let's use it.  Consider 
+                <m>X^{\circlearrowright \alpha} = \boxed{ x_1 \rightarrow x_2 \circlearrowright}</m>
+                and <m>Y^{\circlearrowright \beta} = \boxed{ y \circlearrowright}</m>.  Our only possible
+                map <m> X^{\circlearrowright \alpha} \xrightarrow{f} Y^{\circlearrowright \beta}</m> has the 
+                following diagram:
+            </p>
+
+            <figure xml:id="fig-ses14-ex4">
+                <caption>Only possible map <m> X^{\circlearrowright \alpha} \xrightarrow{f} Y^{\circlearrowright \beta}</m></caption>
+                <image width="75%" xml:id="img-ses14-ex4">
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \node (x1) at (-0.5,0) {$x_1$};
+                            \node (x2) at (1,0) {$x_2$};
+                            \draw (-1,-1) rectangle (2,1);
+                            \node (y) at (5,0) {$y$};
+                            \node (f) at (3,0) {$f$};
+                            \draw (4,-1) rectangle (6,1);
+
+                            \path[-{Stealth},font=\scriptsize,>=angle 90]
+                                (x1) edge[bend right] (y)
+                                (x2) edge[bend left] (y)
+                                (x1) edge (x2)
+                                (x2) edge[->,>={Stealth},out=0, in=310, loop] (x2)
+                                (y) edge[->,>={Stealth},out=0, in=310, loop] (y);
+                        \end{tikzpicture}
+                    </latex-image>
+                    
+                </image>
+            </figure>
+            <p>
+                Here the point <m>x_1</m> has the desired properties.  Since <m>\alpha x_1 = x_2</m>, 
+                <m>x_1</m> is <em>not</em> a fixed point in <m>X</m>.  However, <m>f x_1 = y</m> and 
+                <m>\beta y = y</m> is a fixed point of <m>Y</m>.  These fixed points are a "one-way"
+                relationship.  Since <m>x_2</m> is fixed in <m>X</m> then <m>f x_2</m> must be fixed in <m>Y</m>, 
+                but just because <m>f x_1</m> is fixed in <m>Y</m> doesn't mean <m>x_1</m> is fixed in <m>X</m>.
+            </p>
+        </solution>
+    </example>
+    <example> 
+        <title>Exercise 5:</title>
+        <statement>
+            <p>
+                Show that if <m>\alpha^4(x) = x</m>...
+            </p>
+        </statement>
+        <solution>
+
+    <p>
+        Based on what we've seen so far, I'm thinking that these
+        properties might be satisfied by the following map 
+        <m>X^{\circlearrowright \alpha} \xrightarrow{f} Y^{\circlearrowright \beta}</m>:
+    </p>
+    <figure xml:id="fig-ses14-ex5">
+        <caption>Map from a 4-cycle to a 2-cycle</caption>
+        <image width="80%" xml:id="img-ses14-ex5">
+            <latex-image>
+                \begin{tikzpicture}
+                \node (x1) at (45:1) {$x_1$};
+                \node (x2) at (315:1) {$x_2$};
+                \node (x3) at (225:1) {$x_3$};
+                \node (x4) at (135:1) {$x_4$};
+
+                \draw (0,0) circle (1.5cm);
+
+                \node (y1) at (5,1) {$y_1$};
+                \node (y2) at (5,-1) {$y_2$};
+                \node (f) at (3,0) {$f$};
+                \draw (5,0) circle (1.5cm);
+
+                \path[-{Stealth},font=\scriptsize,>=angle 90]
+                (x1) edge[bend left] (x2)
+                (x2) edge[bend left] (x3)
+                (x3) edge[bend left] (x4)
+                (x4) edge[bend left] (x1)
+                (y1) edge[bend left] (y2)
+                (y2) edge[bend left] (y1)
+                (x1) edge (y1)
+                (x3) edge (y1)
+                (x2) edge (y2)
+                (x4) edge (y2)
+                
+                ;
+                \end{tikzpicture}
+            </latex-image>
+            
+        </image>
+    </figure>
+
+    <p>
+        Essentially, I'm taking the 4-cycle and splitting it in half.  Perhaps
+        the best way to illustrate that we get the desired properties is with a
+        table:
+    </p>
+    <table>
+        <title>Validation table for Session 14 Exercise 5</title>
+        <tabular>
+            <row>
+          <cell><m>\mathbf{1} \xrightarrow{x} X</m></cell>
+          <cell><m>\alpha x</m></cell>
+          <cell><m>f x</m></cell>
+          <cell><m>f \alpha x</m></cell>
+          <cell><m>\beta f x</m></cell>
+          
+            </row>
+            <row>
+                <cell><m>x_1</m></cell>
+                <cell><m>x_2</m></cell>
+                <cell><m>y_1</m></cell>
+                <cell><m>y_2</m></cell>
+                <cell><m>y_2</m></cell>
+            </row>
+            <row>
+                <cell><m>x_2</m></cell>
+                <cell><m>x_3</m></cell>
+                <cell><m>y_2</m></cell>
+                <cell><m>y_1</m></cell>
+                <cell><m>y_1</m></cell>
+            </row>
+            <row>
+                <cell><m>x_3</m></cell>
+                <cell><m>x_4</m></cell>
+                <cell><m>y_1</m></cell>
+                <cell><m>y_2</m></cell>
+                <cell><m>y_2</m></cell>
+            </row>
+            <row>
+                <cell><m>x_4</m></cell>
+                <cell><m>x_1</m></cell>
+                <cell><m>y_2</m></cell>
+                <cell><m>y_1</m></cell>
+                <cell><m>y_1</m></cell>
+            </row>
+        </tabular>
+    </table>
+    <p>
+        Since the last columns are equal, we know this is a valid 
+        <m>\mathcal{S}^{\circlearrowright}</m>-map.  For each point in
+        <m>X</m>, <m>\alpha^4(x) = x</m>.  For each point in <m>Y</m>, 
+        <m>\beta^2 y = y</m>.  However, <m>\alpha^2 x_1 = x_3 \neq x_1</m>
+        implies that <m>\alpha^2 \neq 1_X</m>. 
+    </p>
+    <p>
+        I can imagine that this leads into some <em>divisibility rules</em>
+        for cycles.  I was only able to shrink the cycle here because
+        4 is evenly divisible by 2. If two cycles are relatively prime in lengths, the only
+        cycle we'd be able to map them to (and still preserve our structure) is a "fixed point".
+    </p>
+
+        </solution>
+    </example>
+</section>
