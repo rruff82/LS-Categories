@@ -15,6 +15,61 @@
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.10.6</span><span class="period">.</span><span class="space"> </span><span class="title">Problem 2*.</span>
 </h3>
 <div class="para">...use the given maps <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> to devise a map <span class="process-math">\(q'\)</span> satisfying both...</div>
-<div class="solutions"><a href="" class="solution-knowl original" data-knowl="./knowl/solution-46-hidden.html" title="Solution 3.10.6.1"><span class="type">Solution</span><span class="period">.</span></a></div></article><span class="incontext"><a href="quiz1.html#example-46" class="internal">in-context</a></span>
+<div class="solutions"><details class="solution solution-like"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para">My gut instict tells me <span class="process-math">\(q' = q \circ p \circ q\)</span> because that’s the simpliest map I can construct that will have the requisite domain and codomain. Let’s check to see if it has the desired properties.</div> <div class="para">First, we’ll look at (a) by seeing if <span class="process-math">\(p \circ q' \circ p = p\text{.}\)</span>  Using only the associative property, we can simplify the left hand side as follows:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p \circ q' \circ p = p \circ (q \circ p \circ q) \circ p
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= p \circ q \circ p \circ q \circ p
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= (p \circ q \circ p) \circ q \circ p
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= p \circ q \circ p = p
+\end{equation*}
+</div>
+<div class="para">That confirms property (a).  We can use a similar method to demonstrate property (b): <span class="process-math">\(q' \circ p \circ q' = q'\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+q' \circ p \circ q' = (q \circ p \circ q) \circ p \circ (q \circ p \circ q)
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= q \circ p \circ q \circ p \circ q \circ p \circ q
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= q \circ (p \circ q \circ p) \circ q \circ p \circ q
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= q \circ p \circ q \circ p \circ q
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= q \circ (p \circ q \circ p) \circ q
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= q \circ p \circ q = q'
+\end{equation*}
+</div>
+<div class="para">Thus, our choice of <span class="process-math">\(q'\)</span> has both of the required properties.</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="quiz1.html#example-46">in-context</a></span>
 </body>
 </html>

@@ -16,6 +16,33 @@
 </h3>
 <div class="para">If <span class="process-math">\(X^{\circlearrowright \alpha}\)</span> is any object of <span class="process-math">\(\mathcal{S}^{\circlearrowright}\text{...}\)</span>
 </div>
-<div class="solutions"><a href="" class="solution-knowl original" data-knowl="./knowl/solution-83-hidden.html" title="Solution 4.4.6.1"><span class="type">Solution</span><span class="period">.</span></a></div></article><span class="incontext"><a href="article3-p4.html#example-83" class="internal">in-context</a></span>
+<div class="solutions"><details class="solution solution-like"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para">Given that we have an injective map <span class="process-math">\(X^{\circlearrowright \alpha} \xrightarrow{f} Y^{\circlearrowright \beta}\text{,}\)</span> it must also have some retraction <span class="process-math">\(Y \xrightarrow{r_f} X\)</span> such that <span class="process-math">\(r_f \circ f = 1_X\text{.}\)</span>  We’re also given that <span class="process-math">\(\beta\)</span> is an automorphism, which guarantees it has an inverse <span class="process-math">\(\beta^{-1}\text{.}\)</span>
+</div> <div class="para">We want to prove that <span class="process-math">\(\alpha\)</span> itself must be injective.  It suffices to show there exists a retraction <span class="process-math">\(r_\alpha \circ \alpha = 1_X\text{.}\)</span> I’m going to claim that the map <span class="process-math">\(r_\alpha = r_f \circ \beta^{-1} \circ f\)</span> should have this desired property.</div> <div class="para">We can use this definition to expand the expression <span class="process-math">\(r_\alpha \circ \alpha\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r_\alpha \circ \alpha = r_f \circ \beta^{-1} \circ f \circ \alpha
+\end{equation*}
+</div>
+<div class="para">As a <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-map, we know <span class="process-math">\(f \circ \alpha = \beta \circ f\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r_\alpha \circ \alpha = r_f \circ \beta^{-1} \circ \beta \circ f
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= r_f \circ 1_Y \circ f
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= r_f \circ f = 1_X
+\end{equation*}
+</div>
+<div class="para">And there we have it!</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="article3-p4.html#example-83">in-context</a></span>
 </body>
 </html>

@@ -1108,6 +1108,60 @@ var ptx_lunr_docs = [
   "body": " Session 13: Monoids  I finally learned what a monoid is! I feel like a whole new collection of math memes just opened up for me. As an added bonus, there were no exercises this week! Rather than coming up with something of my own to do, I'm planning to use this opportunity to just reflect on the definitions for a week. There seemed to be some close parallels betweeen this session and Peano's axioms, but I think I'm just going to wait to see how the authors decide to develop things further.  "
 },
 {
+  "id": "session14",
+  "level": "1",
+  "url": "session14.html",
+  "type": "Section",
+  "number": "4.9",
+  "title": "Session 14: Maps preserve positive properties",
+  "body": " Session 14: Maps preserve positive properties  The authors include some of these solutions in the reading, but I'm going to try to work them all out on my own. Just because.    Exercise 1:   Let and be two points of ...    Given that and , we can apply on the left of both sides to get and . Since the structure preservation property enforces , we can subsitute into our expressions to get and . If , it follows directly that .     Exercise 2:   If instead we know that ...    Like before, if can apply on the left of and to get and . We can expand the whole thing out and apply a repeated subsitution using .        Thus and . If , then .     Exercise 3:   If ...    Knowing , just apply on the left of both sides to get . It follows that is also a 'fixed point'.     Exercise 4:   Give an example in which...    Since we're given a \"hint\" let's use it. Consider and . Our only possible map has the following diagram:   Only possible map      Here the point has the desired properties. Since , is not a fixed point in . However, and is a fixed point of . These fixed points are a \"one-way\" relationship. Since is fixed in then must be fixed in , but just because is fixed in doesn't mean is fixed in .     Exercise 5:   Show that if ...    Based on what we've seen so far, I'm thinking that these properties might be satisfied by the following map :   Map from a 4-cycle to a 2-cycle      Essentially, I'm taking the 4-cycle and splitting it in half. Perhaps the best way to illustrate that we get the desired properties is with a table:   Validation table for Session 14 Exercise 5                                        Since the last columns are equal, we know this is a valid -map. For each point in , . For each point in , . However, implies that .  I can imagine that this leads into some divisibility rules for cycles. I was only able to shrink the cycle here because 4 is evenly divisible by 2. If two cycles are relatively prime in lengths, the only cycle we'd be able to map them to (and still preserve our structure) is a \"fixed point\".    "
+},
+{
+  "id": "example-97",
+  "level": "2",
+  "url": "session14.html#example-97",
+  "type": "Example",
+  "number": "4.9.1",
+  "title": "Exercise 1:.",
+  "body": " Exercise 1:   Let and be two points of ...    Given that and , we can apply on the left of both sides to get and . Since the structure preservation property enforces , we can subsitute into our expressions to get and . If , it follows directly that .   "
+},
+{
+  "id": "example-98",
+  "level": "2",
+  "url": "session14.html#example-98",
+  "type": "Example",
+  "number": "4.9.2",
+  "title": "Exercise 2:.",
+  "body": " Exercise 2:   If instead we know that ...    Like before, if can apply on the left of and to get and . We can expand the whole thing out and apply a repeated subsitution using .        Thus and . If , then .   "
+},
+{
+  "id": "example-99",
+  "level": "2",
+  "url": "session14.html#example-99",
+  "type": "Example",
+  "number": "4.9.3",
+  "title": "Exercise 3:.",
+  "body": " Exercise 3:   If ...    Knowing , just apply on the left of both sides to get . It follows that is also a 'fixed point'.   "
+},
+{
+  "id": "example-100",
+  "level": "2",
+  "url": "session14.html#example-100",
+  "type": "Example",
+  "number": "4.9.4",
+  "title": "Exercise 4:.",
+  "body": " Exercise 4:   Give an example in which...    Since we're given a \"hint\" let's use it. Consider and . Our only possible map has the following diagram:   Only possible map      Here the point has the desired properties. Since , is not a fixed point in . However, and is a fixed point of . These fixed points are a \"one-way\" relationship. Since is fixed in then must be fixed in , but just because is fixed in doesn't mean is fixed in .   "
+},
+{
+  "id": "example-101",
+  "level": "2",
+  "url": "session14.html#example-101",
+  "type": "Example",
+  "number": "4.9.6",
+  "title": "Exercise 5:.",
+  "body": " Exercise 5:   Show that if ...    Based on what we've seen so far, I'm thinking that these properties might be satisfied by the following map :   Map from a 4-cycle to a 2-cycle      Essentially, I'm taking the 4-cycle and splitting it in half. Perhaps the best way to illustrate that we get the desired properties is with a table:   Validation table for Session 14 Exercise 5                                        Since the last columns are equal, we know this is a valid -map. For each point in , . For each point in , . However, implies that .  I can imagine that this leads into some divisibility rules for cycles. I was only able to shrink the cycle here because 4 is evenly divisible by 2. If two cycles are relatively prime in lengths, the only cycle we'd be able to map them to (and still preserve our structure) is a \"fixed point\".   "
+},
+{
   "id": "colophon-2",
   "level": "1",
   "url": "colophon-2.html",
