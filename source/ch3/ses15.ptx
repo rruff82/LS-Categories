@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session15">
+    <title>Session 15: Objectification of Properties</title>
+    <p>
+        This week was an interesting development.  Up until this
+        point we've only been using numbers as a playground for exploring
+        ideas.  Now that monoids have allowed us to build a formalization
+        of natural numbers in the category of endomaps, we've opened
+        up a whole new means of analyzing maps.  
+    </p>
+    <p>
+        My prediction about cycle lenths and divisibility was spot on.
+        It was nice to have confirmation that I'm on the right track. 
+        I also found the definition of <m>\Omega</m> was rather intriguing. 
+        I can see this having applications to things like "floating point"
+        numbers where treating infinity as a number has advantages. In fact, 
+        a lot of idea from throughout the text seem to be coming together. 
+        <em>Slowly</em>.
+    </p>
+    <example>
+      <title>Exercise 1:</title>
+      
+      
+      <statement>
+        <p>
+          ...both period 5 and period 7...
+      </p>
+      </statement>
+      <solution>
+
+        <p>
+          Suppose we have some element <m>x_0 \in X^{\circlearrowright \alpha}</m> 
+          with <m>\alpha^ 5 x_0 = x_0 = \alpha^7 x_0</m>.  Our associative property
+          implies <m>\alpha^7 x_0 = \alpha ^2 \circ \alpha^5 x_0 = \alpha^2 x_0</m>.
+          However,  <m>\alpha^7 x_0</m> is just <m>x_0</m> so it follows that
+          <m>\alpha^2 x_0 = x_0</m>.   And if that's the case, then we can
+          also represent <m>\alpha^6 x_0</m> as either 
+          <m>\alpha^2 \circ \alpha^2 \circ \alpha^2 x_0 = x_0</m> or
+          <m>\alpha \circ \alpha^5 x_0 = \alpha x_0</m>. 
+      </p>
+      <p> 
+          In the former case, <m>\alpha^2 = 1_X</m> implies 
+          <m>\alpha^6 x_0 = \alpha^2 \circ \alpha^2 \circ \alpha^2 x_0 = x_0</m>.
+          In the latter, <m>\alpha^5 = 1_X</m> implies 
+          <m>\alpha^6 x_0 = \alpha \circ \alpha^5 x_0 = \alpha x_0</m>.
+          Since both are equivalent to <m>\alpha^6 x_0</m>, we have 
+          established that <m>\alpha x_0 = x_0</m> which proves <m>x_0</m> is a fixed point.
+      </p>
+  
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 2:</title>
+      
+      
+      <statement>
+        <p>
+                ...all maps from <m>\mathbb{N}^{\circlearrowright \alpha}</m> to
+          <m>C_4</m>...  
+        </p>
+      </statement>
+      <solution>
+        <p>
+          In order to preserve structure, the arrows need to flow in the same direction.
+          Any map <m>\mathbb{N}^{\circlearrowright \sigma} \rightarrow C_4</m> that preserve the 
+          structure of the loop.  That is, whatever point we decide to send
+          <m>0</m> to in the cycle determines where we need to send <m>1,2,3</m>.  Once 
+          we hit <m>4</m> we need to loop back to <m>0</m>.
+      </p>
+      <p>
+          These 4 possible permutations are diagrammed below:
+      </p>
+      <figure xml:id="fig-session15-ex2">
+          <caption>All maps from <m>\mathbb{N}^{\circlearrowright \alpha}</m> to
+              <m>C_4</m></caption>
+          <image width="80%" xml:id="img-session15-ex2"> 
+          <latex-image>
+  \begin{tikzpicture}[scale=.8]
+  \foreach \x in {0,1}
+  \foreach \y in {0,1}
+  {
+  
+  \pgfmathsetmacro{\i}{2*\y + \x}
+  
+  
+  \node (g) at (10*\x-10,-10*\y) {};
+  
+  \node (X0) at ($(g) + (-2.5,2)$) {$0$};
+  \node (X1) at ($(X0) + (1,0)$) {$1$};
+  \node (X2) at ($(X0) + (2,0)$) {$2$};
+  \node (X3) at ($(X0) + (3,0)$) {$3$};
+  \node (X4) at ($(X0) + (4,0)$) {$4$};
+  \node (X5) at ($(X0) + (5,0)$) {$...$};
+  \draw ($(X0) - (1,1)$) rectangle ($(X5) + (1,1)$);
+  
+  \node (YC) at ($(g) - (0,2)$) {};
+  
+  
+  \node (Y0) at ($(YC) + (360:1cm)$) {$\bullet$};
+  \node (Y1) at ($(YC) + (270:1cm)$) {$\bullet$};
+  \node (Y2) at ($(YC) + (180:1cm)$) {$\bullet$};
+  \node (Y3) at ($(YC) + (90:1cm)$) {$\bullet$};
+  \draw (YC) circle (1.5cm);
+  
+  \path[-{Stealth},font=\scriptsize,>=angle 90] 
+  (X0) edge (X1)
+  (X1) edge (X2)
+  (X2) edge (X3)
+  (X3) edge (X4)
+  (X4) edge (X5)
+  (Y0) edge (Y1)
+  (Y1) edge (Y2)
+  (Y2) edge (Y3)
+  (Y3) edge (Y0)
+  ;
+  
+  
+  
+  \pgfmathsetmacro{\aa}{-90*\i+360}
+  \pgfmathsetmacro{\ad}{mod(\aa+90,360)}
+  \pgfmathsetmacro{\ac}{mod(\ad+90,360)}
+  \pgfmathsetmacro{\ab}{mod(\ac+90,360)}
+  
+  \path[-{Stealth},font=\scriptsize,>=angle 90,red] 
+  (X0) edge ($(YC)+(\aa:1cm)$)
+  (X1) edge ($(YC)+(\ab:1cm)$)
+  (X2) edge ($(YC)+(\ac:1cm)$)
+  (X3) edge ($(YC)+(\ad:1cm)$)
+  (X4) edge ($(YC)+(\aa:1cm)$);
+  
+  
+  
+  }
+  
+  \end{tikzpicture}
+  
+          </latex-image>
+          </image>
+        </figure>
+        </solution>
+    </example>
+    <example>
+      <title>Exercise 3:</title>
+      
+
+      <statement>
+        <p>
+          ...<em>evaluation at</em> 0 and <em>iteration</em>...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          I'm not exactly what this exercise is asking, so let's start by 
+          laying out the context.
+        </p>
+        <figure xml:id="fig-session15-ex3-1">
+          <caption>Iteration and evaluation defined</caption>
+          <image width="80%" xml:id="img-session15-ex3-1"> 
+          <latex-image>
+  \begin{tikzpicture}[scale=.5]
+  
+  \draw (-1,-2) rectangle (3,2);
+  \node (A) at (1,1) {Maps in $\mathcal{S}^{\circlearrowright}$};
+  \node (B) at (1,-1) {$\mathbb{N}^{\circlearrowright \sigma} \rightarrow Y^{\circlearrowright \beta}$};
+  
+  \draw (8,-2) rectangle (12,2);
+  \node (C) at (10,1) {Maps in $\mathcal{S}$};
+  \node (D) at (10,-1) {$\mathbf{1} \rightarrow Y$};
+  
+  \path[-{Stealth},font=\scriptsize,>=angle 90] 
+    ($(A)+(2.5,0)$) edge node[above] {evaluation at 0} ($(C)-(2.5,0)$)
+    ($(D)-(2.5,0)$) edge node[below] {iteration} ($(B)+(2.5,0)$)
+    ;
+  
+  \end{tikzpicture}
+  
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          We're told that "'Iteration' assigns to each
+          <m>y</m> in <m>Y</m> the map <m>f</m> given by
+          <m>f(n) = \beta^n(y)</m>".
+        </p>
+        <p>
+          I think my confusion here is stemming from a little uncertainty about
+          the domain and codomain of <m>f</m>.  The diagram
+          I recreated above suggests that <m>f</m> is a map
+          <m>\mathbb{N}^{\circlearrowright \sigma} \rightarrow Y^{\circlearrowright \beta}</m>, but part 
+          of me thinks I should treat <m>f</m> as an abitrary map
+          <m>X^{\circlearrowright \alpha} \rightarrow Y^{\circlearrowright \beta}</m> in the context
+          of a broader category of <m>\mathcal{S}^\circlearrowright</m>.
+          Part of me is wondering if our definition of <m>\mathbb{N}^{\circlearrowright \sigma}</m>
+          as a <em>monoid</em> circumvents this question entirely by defining 
+          <m>0</m> as an element of <m>X</m> with the desired property in <m>\mathbb{N}^{\circlearrowright \sigma}</m>:
+          a point that is the origin of an arrow but not a target.
+        </p>
+        <p>
+          In some of the earlier Sessions, I found it helpful to
+          think about the "image" produced by a given map.
+          Once we have a point <m>y \in Y^{\circlearrowright \beta}</m> 
+          we can ask whether or not <m>\beta y = y</m> produces a fixed 
+          point. This is a <em>binary</em> question for which the 
+          answer either needs to be "true" or "false".  Let's call this 
+          space <m>\mathbf{2} = \{0,1\}</m> with the conventions <m>0 = \text{false}</m> if 
+          <m>\beta y = y</m> and <m>1 = \text{true}</m> if <m>\beta y \neq y</m>. Let's define this map as 
+          <m>Y^{\circlearrowright \beta} \xrightarrow{g} \mathbf{2}^{\circlearrowright \gamma}</m>.
+       </p>
+       <p>
+          Obviously such map exists between sets, but the real question is whether 
+          or not <m>\gamma</m> <em>preserves structure</em> within our category.  There are precisely
+          4 possible endomaps <m>\gamma</m> on <m>\mathbf{2}</m> we could possibly have: 
+          an identity map, an antipodal map, and two idempotents 
+          resulting in <m>0, 1</m> respectively.  This allows us to ask further questions,
+          like if <m>\gamma</m> is has a <em>retraction</em>.  Of the four possible endomaps
+          on <m>\mathbf{2}</m>, only the identity map and the antipodal map would even qualify 
+          because we know there's no possible retraction from <m>\mathbf{2} \rightarrow \mathbf{1}</m>. 
+       </p>
+       <p>
+          This is all still really fuzzy and I feel like I'm missing something, so I think I'm going
+          to let this information stew for another week and come back to it..
+       </p>
+      </solution>
+    </example>
+    
+ 
+</section>
