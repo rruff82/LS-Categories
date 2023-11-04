@@ -1162,6 +1162,42 @@ var ptx_lunr_docs = [
   "body": " Exercise 5:   Show that if ...    Based on what we've seen so far, I'm thinking that these properties might be satisfied by the following map :   Map from a 4-cycle to a 2-cycle      Essentially, I'm taking the 4-cycle and splitting it in half. Perhaps the best way to illustrate that we get the desired properties is with a table:   Validation table for Session 14 Exercise 5                                        Since the last columns are equal, we know this is a valid -map. For each point in , . For each point in , . However, implies that .  I can imagine that this leads into some divisibility rules for cycles. I was only able to shrink the cycle here because 4 is evenly divisible by 2. If two cycles are relatively prime in lengths, the only cycle we'd be able to map them to (and still preserve our structure) is a \"fixed point\".   "
 },
 {
+  "id": "session15",
+  "level": "1",
+  "url": "session15.html",
+  "type": "Section",
+  "number": "4.10",
+  "title": "Session 15: Objectification of Properties",
+  "body": " Session 15: Objectification of Properties  This week was an interesting development. Up until this point we've only been using numbers as a playground for exploring ideas. Now that monoids have allowed us to build a formalization of natural numbers in the category of endomaps, we've opened up a whole new means of analyzing maps.  My prediction about cycle lenths and divisibility was spot on. It was nice to have confirmation that I'm on the right track. I also found the definition of was rather intriguing. I can see this having applications to things like \"floating point\" numbers where treating infinity as a number has advantages. In fact, a lot of idea from throughout the text seem to be coming together. Slowly .   Exercise 1:   ...both period 5 and period 7...    Suppose we have some element with . Our associative property implies . However, is just so it follows that . And if that's the case, then we can also represent as either or .  In the former case, implies . In the latter, implies . Since both are equivalent to , we have established that which proves is a fixed point.     Exercise 2:   ...all maps from to ...    In order to preserve structure, the arrows need to flow in the same direction. Any map that preserve the structure of the loop. That is, whatever point we decide to send to in the cycle determines where we need to send . Once we hit we need to loop back to .  These 4 possible permutations are diagrammed below:   All maps from to         Exercise 3:   ... evaluation at 0 and iteration ...    I'm not exactly what this exercise is asking, so let's start by laying out the context.   Iteration and evaluation defined      We're told that \"'Iteration' assigns to each in the map given by \".  I think my confusion here is stemming from a little uncertainty about the domain and codomain of . The diagram I recreated above suggests that is a map , but part of me thinks I should treat as an abitrary map in the context of a broader category of . Part of me is wondering if our definition of as a monoid circumvents this question entirely by defining as an element of with the desired property in : a point that is the origin of an arrow but not a target.  In some of the earlier Sessions, I found it helpful to think about the \"image\" produced by a given map. Once we have a point we can ask whether or not produces a fixed point. This is a binary question for which the answer either needs to be \"true\" or \"false\". Let's call this space with the conventions if and if . Let's define this map as .  Obviously such map exists between sets, but the real question is whether or not  preserves structure within our category. There are precisely 4 possible endomaps on we could possibly have: an identity map, an antipodal map, and two idempotents resulting in respectively. This allows us to ask further questions, like if is has a retraction . Of the four possible endomaps on , only the identity map and the antipodal map would even qualify because we know there's no possible retraction from .  This is all still really fuzzy and I feel like I'm missing something, so I think I'm going to let this information stew for another week and come back to it..    "
+},
+{
+  "id": "example-102",
+  "level": "2",
+  "url": "session15.html#example-102",
+  "type": "Example",
+  "number": "4.10.1",
+  "title": "Exercise 1:.",
+  "body": " Exercise 1:   ...both period 5 and period 7...    Suppose we have some element with . Our associative property implies . However, is just so it follows that . And if that's the case, then we can also represent as either or .  In the former case, implies . In the latter, implies . Since both are equivalent to , we have established that which proves is a fixed point.   "
+},
+{
+  "id": "example-103",
+  "level": "2",
+  "url": "session15.html#example-103",
+  "type": "Example",
+  "number": "4.10.2",
+  "title": "Exercise 2:.",
+  "body": " Exercise 2:   ...all maps from to ...    In order to preserve structure, the arrows need to flow in the same direction. Any map that preserve the structure of the loop. That is, whatever point we decide to send to in the cycle determines where we need to send . Once we hit we need to loop back to .  These 4 possible permutations are diagrammed below:   All maps from to       "
+},
+{
+  "id": "example-104",
+  "level": "2",
+  "url": "session15.html#example-104",
+  "type": "Example",
+  "number": "4.10.4",
+  "title": "Exercise 3:.",
+  "body": " Exercise 3:   ... evaluation at 0 and iteration ...    I'm not exactly what this exercise is asking, so let's start by laying out the context.   Iteration and evaluation defined      We're told that \"'Iteration' assigns to each in the map given by \".  I think my confusion here is stemming from a little uncertainty about the domain and codomain of . The diagram I recreated above suggests that is a map , but part of me thinks I should treat as an abitrary map in the context of a broader category of . Part of me is wondering if our definition of as a monoid circumvents this question entirely by defining as an element of with the desired property in : a point that is the origin of an arrow but not a target.  In some of the earlier Sessions, I found it helpful to think about the \"image\" produced by a given map. Once we have a point we can ask whether or not produces a fixed point. This is a binary question for which the answer either needs to be \"true\" or \"false\". Let's call this space with the conventions if and if . Let's define this map as .  Obviously such map exists between sets, but the real question is whether or not  preserves structure within our category. There are precisely 4 possible endomaps on we could possibly have: an identity map, an antipodal map, and two idempotents resulting in respectively. This allows us to ask further questions, like if is has a retraction . Of the four possible endomaps on , only the identity map and the antipodal map would even qualify because we know there's no possible retraction from .  This is all still really fuzzy and I feel like I'm missing something, so I think I'm going to let this information stew for another week and come back to it..   "
+},
+{
   "id": "colophon-2",
   "level": "1",
   "url": "colophon-2.html",
