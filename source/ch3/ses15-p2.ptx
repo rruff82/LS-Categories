@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session15-p2">
+    <title>Session 15: Objectification of Properties, Part 2</title>
+    <p>
+      Okay, I spent a lot more time on Exercise 3 over the past week,
+      but I think I'm starting to understand a little better.  If 
+      I manage to make it through this problem this week, I'll take 
+      that as a win!
+    </p>
+    <example>
+        <title>Exercise 3: (continued)</title>
+        
+        
+        <statement>
+            <p>
+                ...<em>evaluation at</em> 0 and <em>iteration</em>...
+            </p>
+        </statement>
+        <solution>
+
+
+    <p>
+      I want to start this time by stepping back and look and assign
+      some new names to the entities from the diagram I recreated last
+      time.
+    </p>
+    <figure xml:id="fig-session15-ex3-2">
+      <caption>Naming objects in "Iteration and evaluation defined"</caption>
+      <image width="80%" xml:id="img-session15-ex3-2"> 
+      <latex-image>
+\begin{tikzpicture}[scale=.5]
+
+\draw (-1,-2) rectangle (3,2);
+\node (A) at (1,1) {Maps in $\mathcal{S}^{\circlearrowright}$};
+\node (B) at (1,-1) {$\mathbb{N}^{\circlearrowright \sigma} \rightarrow Y^{\circlearrowright \beta}$};
+
+\draw (8,-2) rectangle (12,2);
+\node (C) at (10,1) {Maps in $\mathcal{S}$};
+\node (D) at (10,-1) {$\mathbf{1} \rightarrow Y$};
+
+\node (AS) at (1,2.5) {A};
+\node (AS) at (10,2.5) {B};
+
+\path[-{Stealth},font=\scriptsize,>=angle 90] 
+($(A)+(2.5,0)$) edge node[above] {evaluation at 0 $= g$} ($(C)-(2.5,0)$)
+($(D)-(2.5,0)$) edge node[below] {iteration $= h$} ($(B)+(2.5,0)$)
+;
+
+\end{tikzpicture}
+
+      </latex-image>
+      </image>
+    </figure>
+    <p>
+        My reasoning here is that labeling my objects like this 
+        will make it a little more clear on what exactly it would
+        mean for our maps to be inverses.  Given the naming used
+        above, I'd need to prove <m>h \circ g = 1_A</m> and 
+        <m>g \circ h = 1_B</m>.  What makes this tricky is that 
+        the objects in <m>A</m> are <m>\mathcal{S}^{\circlearrowright}</m>-maps
+        that preserve the structure from
+        <m>\boxed{\mathbb{N}^{\circlearrowright \sigma} \rightarrow Y^{\circlearrowright \beta}}</m>      
+        and the objects in <m>B</m> are maps in <m>\mathcal{S}</m>
+        from <m>\mathbf{1} \rightarrow Y</m> that don't necessarily 
+        preserve any structure. 
+    </p>
+    <p>
+        Perhaps what I should be doing is thinking of the maps
+        <m>\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{f} Y^{\circlearrowright \beta}</m>
+        as a collection of arrows.  Each arrow needs to have a source point
+        <m>n</m> in <m>\mathbb{N}</m> and a target point <m>y</m> in
+        <m>Y</m>.  For <m>f</m> to preserve structure, we'd need to
+        have <m>(f \circ \sigma)(n)= (\beta \circ f)(n)</m> for every
+        <m>n</m> in <m>\mathbb{N}</m>.  
+    </p>
+    <p>
+        Our map <m>g</m>, basically takes advantage of the fact that any map in
+        <m>\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{f} Y^{\circlearrowright \beta}</m>
+        must be defined over the whole domain.  This means that there must be an 
+        arrow originating at the point <m>0</m> pointing to some target point 
+        <m>y = f 0</m> in <m>Y</m>.  We can then define <m>g: A \rightarrow B</m> such that
+        for any <m>f \in A</m> we can define <m>g(f)</m> to be the map in 
+        <m>\mathbf{1} \rightarrow Y</m> which maps the only element in <m>\mathbf{1}</m>
+        to the point <m>f 0</m> in <m>Y</m>. 
+    </p>
+    <p>
+        In contrast, our map <m>h</m> takes a map <m>\mathbf{1} \xrightarrow{y} Y</m> and uses it 
+        to produce a map in <m>\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{f} Y^{\circlearrowright \beta}</m>.
+        It does this by applying <m>\beta</m> to <m>y</m> zero or more times, such that
+        <m>f(n) = \beta^n(y)</m> for any <m>n \in \mathbb{N}</m>. 
+        In the case where <m>n = 0</m>, the map <m>\beta</m> is never applied at all.  It follows that for 
+        any <m>1 \xrightarrow{y} Y</m> in <m>B</m>, we're guaranteed to have
+        <m>(g \circ h)(y) = g(h(y)) = g(f) = f 0 = \beta^0 y = y</m>. 
+    </p>
+    <p> 
+        These two maps both produce maps, but handle structure differently.  The map <m>g</m>
+        takes a map which preserves the structure and uses it to produce a map which might 
+        not.  The map <m>h</m> takes a map which may not preserve structure and produces
+        one that does.  The identity <m>(g \circ h)(y) = y</m> basically establishes that
+        <m>g \circ h = 1_B</m> in <m>\mathcal{S}</m>, but I think we still need to establish
+        that the map <m>h y</m> is valid in <m>\mathcal{S}^{\circlearrowright}</m>.
+    </p>   
+    <p>
+        For any given <m>y</m>, the map <m>f = h \circ y</m> needs to satisfy 
+        <m>(f \circ \sigma)(n) = (\beta \circ f)(n)</m> for every
+        <m>n \in \mathbb{N}</m>.  
+        At <m>n = 0</m>, <m>(f \circ \sigma)(0) = f \sigma 0 = f 1</m> and <m>(\beta \circ f)(0) = \beta f 0 = \beta y = f 1</m>.
+        Since <m>(f \circ \sigma)(n) = (\beta \circ f)(n)</m> holds true for <m>n = 0</m>,
+        we can use induction to establish that they must be the same for every 
+        'successor'. 
+    </p>
+    <p> 
+        Since each <m>n</m> can be represented as <m>n = \sigma^n 0</m>,
+        we can use that to make a subsitution. 
+        If follows that <m>(f \circ \sigma)(n) = (f \circ \sigma)(\sigma^n 0) = f \sigma \sigma^n 0 = f \sigma^{n+1} 0</m>
+        and <m>(\beta \circ f)(n) = (\beta \circ f)(\sigma^n 0) = \beta f \sigma^n 0</m>.
+        It also follows that <m>(f \circ \sigma)(n+1) = f \sigma^{n+2} 0</m>
+        and <m>(\beta \circ f)(n+1) = \beta f \sigma^{n+1} 0</m>.  Since we know 
+        that <m>f \sigma^{n+1} 0 = \beta f \sigma^n 0</m>, we can combine these
+        two results to establish that
+        <m>(\beta \circ f)(n+1) =  \beta f \sigma^{n+1} 0  = f \sigma \sigma^{n+1} 0 = f \sigma^{n+2} 0  = (f \circ \sigma)(n+1)</m>.
+        Having established that <m>(f \circ \sigma)(0) = (\beta \circ f)(0)</m> and 
+        <m>(f \circ \sigma)(n) = (\beta \circ f)(n) \implies (f \circ \sigma)(n+1) = (\beta \circ f)(n+1)</m>,
+        <m>f \circ \sigma = \beta \circ f</m> follows by induction.
+    </p>
+    <p>
+        Next, let's compose these maps in the reverse order to produce 
+        the map <m>h \circ g: A \rightarrow A</m>.  Suppose we have some
+        <m>\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{f} Y^{\circlearrowright \beta}</m>
+        in <m>A</m>.   It follows from our definitions that that        
+        <m>(h \circ g)(f) = h(g(f)) = h(f 0) = h(y) = f</m> which would imply that 
+        <m>h \circ g = 1_A</m>.  Having now established that both <m>h \circ g = 1_A</m>
+        and <m>g \circ h = 1_B</m>, it's safe to refer to these two maps 
+        as inverses.  
+    </p>
+    <p>
+        Q.E.D.
+    </p>
+         </solution>
+    </example>
+</section>
