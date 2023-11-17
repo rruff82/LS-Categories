@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session15-p3">
+    <title>Session 15: Objectification of Properties, Part 3</title>
+    <p>
+        I made some more progess on Session 15 this week, but there's still 
+        much more work to be done.  In some ways, my progress through the
+        text seems to parallel the algorithm for finding a presentation of
+        <m>X^{\circlearrowright \alpha}</m>.  Each section of the text is 
+        kind of like a 'generator' element.  The only way for me to find
+        out how many parts Session 15 will take is for me to keep working 
+        on it until it reaches a stable point.
+    </p>
+    <example>
+        <title>Exercise 4:</title>
+        
+        
+        <statement>
+            <p>
+                ...<m>\alpha</m> is itself a map of dynamical systems...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                We've defined the category of <m>\mathcal{S}^{\circlearrowright}</m>
+                based on the quality of structure preservation such that 
+                for an arbitrary map
+                <m>X^{\circlearrowright \alpha} \xrightarrow{f} Y^{\circlearrowright \beta}</m>
+                we enforce the condition that <m>f \alpha = \beta f</m>.  For 
+                this exercise, we're essentially considering the special 
+                case where <m>f = \alpha = \beta</m> and <m>Y = X</m>. 
+            </p>
+            <p>
+                We know that <m>\alpha</m> is an <em>endomap</em> on <m>X</m>,
+                so we know <m>\alpha: X \rightarrow X</m> is a valid map
+                in <m>\mathcal{S}</m>.  To prove that we have a well defined map
+                <m>X^{\circlearrowright \alpha} \xrightarrow{\alpha} X^{\circlearrowright \alpha}</m>
+                we'll need to show our structure preservation property still holds. 
+                 If we substitute <m>f = \alpha = \beta</m> into
+                <m>f \alpha = \beta f</m>, we get <m>\alpha \alpha = \alpha \alpha</m>
+                which is obviously true.
+            </p>
+            <p>
+                It really feels like this is stating the obvious, but 
+                perhaps we never explicitly proved that <m>\mathcal{S}^{\circlearrowright}</m>-maps
+                must satisfy this "reflexive property".
+            </p>
+        </solution>
+    </example>
+
+    <example>
+        <title>Exercise 5:</title>
+        
+        
+        <statement>
+            <p>
+                ..if <m>\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{f} Y^{\circlearrowright \sigma}</m>
+                corresponds to <m>y</m>...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                I'm assuming we're using the same set-up as Exercise 3 here.
+                Given <m>\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{f} Y^{\circlearrowright \sigma}</m>,
+                we know <m>f \sigma = \beta f</m>. In particular, this must be true
+                for <m>0</m>, establishing that 
+                <m>f \sigma 0 = f 1 = \beta f 0 = \beta y</m>.  We then used induction to
+                establish that <m>f(n) = \beta^n y</m> for all <m>n \in \mathbb{N}</m>.
+            </p>
+            <p>
+                In Exercise 4, we proved that for any <m>X^{\circlearrowright \alpha}</m>,
+                the map <m>\alpha</m> is itself a well defined map 
+                <m>X^{\circlearrowright \alpha} \xrightarrow{\alpha} X^{\circlearrowright \alpha}</m>.
+                It follows that <m>\mathbb{N}^{\circlearrowright \sigma}</m> defines a map
+                <m>\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{\sigma} \mathbb{N}^{\circlearrowright \sigma}</m>.
+                Since compositions of <m>\mathcal{S}^{\circlearrowright}</m>-maps produce <m>\mathcal{S}^{\circlearrowright}</m>-maps,
+                our composition <m>f \circ \sigma</m> should be well defined map
+                <m>\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{f \circ \sigma} Y^{\circlearrowright \beta}</m>
+                such that <m>(f \circ \sigma) \circ \sigma = \beta \circ (f \circ \sigma)</m>.
+            </p>
+            <p>
+                When they say "<m>\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{f} Y^{\circlearrowright \sigma}</m>
+                corresponds to <m>y</m>", we mean that we can evaluate <m>f</m> at 0 to get <m>y</m>
+                or iterate from <m>y</m> to get <m>f</m> using <m>f(n) = \beta^n y</m>.  For
+                <m>f \circ \sigma</m>, we can easily evaluate <m>(f \circ \sigma)(0)</m> to 
+                establish <m>f \sigma 0 = \beta f 0 = \beta y</m>.  However, we still need to show that 
+                <m>(f \circ \sigma)(n) = \beta^n (\beta y)</m>.
+            </p>
+            <p>
+                As in Exercise 3, I think we can do this through induction.  We've already
+                established that <m>(f \circ \sigma)(0) = \beta^0(\beta y)</m>, so we know
+                that <m>(f \circ \sigma)(n) = \beta^n(\beta y)</m> for <m>n = 0</m>.
+                Consider the case of <m>\sigma n = n + 1</m>. Given <m>(f \circ \sigma)(n) = \beta^n(\beta y)</m>,
+                we can rewrite <m>(f \circ \sigma)(n+1)</m> as 
+                <m>(f \circ \sigma)(\sigma n)</m>.  Subsitute <m>f \circ \sigma = \beta \circ f</m>
+                to get <m>(\beta \circ f)(\sigma n)</m> which can be rewritten as <m>\beta( (f \circ \sigma)(n))</m>
+                by the associative property.  This means that <m>(f \circ \sigma)(n) = \beta^n(\beta y)</m> implies 
+                <m>(f \circ \sigma)(n+1) = \beta( (f \circ \sigma)(n)) = \beta(\beta^n(\beta y)) = \beta^{n+1}(\beta y)</m>.
+            </p>
+            <p>
+                Having established that both <m>(f \circ \sigma)(0) = \beta^0(\beta y)</m> and
+                <m>(f \circ \sigma)(n) = \beta^n (\beta y) \implies (f \circ \sigma)(n+1) = \beta^{n+1}(\beta y)</m>, 
+                we can use induction to establish that <m>(f \circ \sigma)(n) = \beta^n (\beta y)</m>
+                for the entire domain of <m>\mathbb{N}</m>.
+            </p>
+        </solution>
+    </example>
+    <example>
+        <title>Exercise 6:</title>
+ 
+        <statement>
+            <p>
+                ...gender map <m>X^{\circlearrowright m} \xrightarrow{g} B</m>
+            </p>
+        </statement>
+        <solution>
+            <p>
+                We're provided the following diagram for <m>B</m>:
+            </p>
+            
+    <figure xml:id="fig-session15-ex6-1">
+        <caption>Definition of <m>B</m></caption>
+        <image width="50%" xml:id="img-session15-ex6-1">
+
+            <latex-image>
+                \begin{tikzpicture}
+                    \node (A) at (0,0) {$B =$};
+                    \node (B) at (2,1) {$\bullet$};
+                    \node (BT) at (3,1) {$male$};
+                    \node (C) at (2,-1) {$\bullet$};
+                    \node (CT) at (3,-1) {$female$};
+                    \draw (1,-2) rectangle (4,2);
+                    \path[-{Stealth},font=\scriptsize,>=angle 90]
+                        (B) edge (C)
+                        (C) edge[->,>={Stealth},out=220, in=310, loop] (C)
+                        ;
+                    
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+    </figure>
+    <p>
+        Here the set <m>X</m> is the set of people, the operator <m>m</m> is a map
+        that returns the mother of specified person, and <m>B</m> is the gender 
+        binary map specified above.  In order to show <m>g</m> is an 
+        <m>\mathcal{S}^{\circlearrowright}</m>, we need to establish that 
+        it is both a valid map in <m>\mathcal{S}</m>
+        and upholds the structure of the endomap <m>m</m>. 
+    </p>
+    <p>
+        First of all, let's address the reality that this is toy model of gender.
+        In this exercise we're <em>implicitly assuming</em> <m>g</m> is a
+        valid <m>\mathcal{S}</m>-map.  We're excluding the existence of 
+        non-binary people in this way.  We're also assuming that we have 
+        a <em>mother</em>-map, <m>m x</m>, that's defined for all <m>x</m>.
+        This model breaks if we "clone" a male, effectively excluding 
+        <em>Stormtroopers</em> from our set of people.
+    </p>
+    <p>
+        There's also some ambiguity because we haven't yet named the endomap 
+        on <m>B</m> yet. I think the reason is because the endomap on <m>B</m> 
+        is induced by the maps <m>m</m> and <m>g</m>. For clarity's sake,
+        let's define <m>\bar{m}: B \rightarrow  B</m> to be the corresponding 
+        endomap in the "gender-binary space".  This map <m>\bar{m}</m> is based 
+        on an assumption that the answer to "what gender is your mother?" will 
+        always "female". 
+    </p>
+    <p>
+        Under those contraints on <m>X</m>, showing <m>g</m> is an valid
+        <m>\mathcal{S}^{\circlearrowright}</m>-map basically comes down 
+        to establishing the relation <m>g m = \bar{m} g</m>.  Perhaps this
+        is most easily shown in a table.  
+    </p>
+    <table>
+        <title>Table of values for gender map</title>
+        <tabular>
+            <row>
+          <cell><m>x</m></cell>
+          <cell><m>g x</m></cell>
+          <cell><m>m x</m></cell>
+          <cell><m>g m x</m></cell>
+          <cell><m>\bar{m} g x</m></cell>
+            </row>
+
+        <row>
+          <cell>"son"</cell>
+          <cell>male</cell>
+          <cell>"mother"</cell>
+          <cell>female</cell>
+          <cell>female</cell>
+        </row>
+        <row>
+            <cell>"daughter"</cell>
+            <cell>female</cell>
+            <cell>"mother"</cell>
+            <cell>female</cell>
+            <cell>female</cell>
+          </row>
+
+        </tabular>
+    </table>
+    <p>
+        Essentially, both <m>g m</m> and <m>\bar{m} g</m> are constant maps.
+        We know <m>g m = \bar{m} g</m> because we've defined them both so
+        that they both always return "female".  In order for us to have 
+        an "<em>objectification in the subjective</em> of gender", all we 
+        have to do is to start excluding the people that don't fit our model!
+    </p>
+    <p>
+        I guess the lesson here is that if you ask a "yes/no" question
+        you have to get a "yes/no" response.  In this case, our standard 
+        idempontent map on <m>B</m> enables us to ask something 
+        to the effect of "is this a yes/no question?" which is forced to
+        converge to the value "yes". 
+    </p>
+        </solution>
+    </example>
+
+
+
+</section>
