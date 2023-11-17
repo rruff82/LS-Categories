@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Session 15: Objectification of Properties, Part 3</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="L&amp;S Cat Theory">
+<meta property="book:author" content="Ryan Ruff">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.32/pretext_search.js"></script><link href="https://pretextbook.org/css/0.82/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.32</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.32/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.32/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.32/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.82/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.82/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">L&amp;S Cat Theory:</span> <span class="subtitle">Attempted solutions to "Conceptual Mathematics" by Lawvere and Schanuel</span></a></h1>
+<p class="byline">Ryan Ruff</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="session15-p2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="part3.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="about.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is this?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session1.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Session 1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part1.html" class="internal"><span class="codenumber">2</span> <span class="title">Part 1: The Category of Sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Article 1: Sets, maps, composition</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-session2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Session 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-session3.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Session 3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part2.html" class="internal"><span class="codenumber">3</span> <span class="title">Part 2: The Algebra of Composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Article 2: Isomorphisms, Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2-p2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Article 2: Isomorphisms, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2-p3.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Article 2: Isomorphisms, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session4.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Session 4: Division of maps: Isomorphisms</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session5.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Session 5: Division of maps: Sections and retractions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session6.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Session 6: Two general aspects or uses of maps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session7.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Session 7: Isomorphisms and coordinates</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session8.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Session 8: Pictures of a map</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session9.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Session 9: Retracts and idempotents</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quiz1.html" class="internal"><span class="codenumber">3.10</span> <span class="title">Quiz</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quiz2.html" class="internal"><span class="codenumber">3.11</span> <span class="title">Summary/Quiz on Opposed Maps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="test1.html" class="internal"><span class="codenumber">3.12</span> <span class="title">Test 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session10.html" class="internal"><span class="codenumber">3.13</span> <span class="title">Brouwer’s theorems</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="part3.html" class="internal"><span class="codenumber">4</span> <span class="title">Part 3: Categories of Structured Sets</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Article 3: Examples of Categories, Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Article 3: Examples of Categories, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p3.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Article 3: Examples of Categories, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p4.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Article 3: Examples of Categories, Part 4</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p5.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Article 3: Examples of Categories, Part 5</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session11.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Session 11: Ascending to categories of richer structures</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session12.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Session 12: Categories of Diagrams</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session13.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Session 13: Monoids</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session14.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Session 14: Maps preserve positive properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Session 15: Objectification of Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p2.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Session 15: Objectification of Properties, Part 2</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="session15-p3.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Session 15: Objectification of Properties, Part 3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="session15-p3"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.12</span><span class="space"> </span><span class="title">Session 15: Objectification of Properties, Part 3</span>
+</h2>
+<div class="para" id="p-662">I made some more progess on Session 15 this week, but there’s still much more work to be done.  In some ways, my progress through the text seems to parallel the algorithm for finding a presentation of <span class="process-math">\(X^{\circlearrowright \alpha}\text{.}\)</span>  Each section of the text is kind of like a ’generator’ element.  The only way for me to find out how many parts Session 15 will take is for me to keep working on it until it reaches a stable point.</div>
+<details id="example-106" class="example example-like"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.12.1</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 4:.</span>
+</h3></summary><article class="example example-like"><div class="para" id="p-663">...<span class="process-math">\(\alpha\)</span> is itself a map of dynamical systems...</div>
+<div class="solutions"><details id="solution-106" class="solution solution-like"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="p-664">We’ve defined the category of <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span> based on the quality of structure preservation such that for an arbitrary map <span class="process-math">\(X^{\circlearrowright \alpha} \xrightarrow{f} Y^{\circlearrowright \beta}\)</span> we enforce the condition that <span class="process-math">\(f \alpha = \beta f\text{.}\)</span>  For this exercise, we’re essentially considering the special case where <span class="process-math">\(f = \alpha = \beta\)</span> and <span class="process-math">\(Y = X\text{.}\)</span>
+</div> <div class="para" id="p-665">We know that <span class="process-math">\(\alpha\)</span> is an <em class="emphasis">endomap</em> on <span class="process-math">\(X\text{,}\)</span> so we know <span class="process-math">\(\alpha: X \rightarrow X\)</span> is a valid map in <span class="process-math">\(\mathcal{S}\text{.}\)</span>  To prove that we have a well defined map <span class="process-math">\(X^{\circlearrowright \alpha} \xrightarrow{\alpha} X^{\circlearrowright \alpha}\)</span> we’ll need to show our structure preservation property still holds. If we substitute <span class="process-math">\(f = \alpha = \beta\)</span> into <span class="process-math">\(f \alpha = \beta f\text{,}\)</span> we get <span class="process-math">\(\alpha \alpha = \alpha \alpha\)</span> which is obviously true.</div> <div class="para" id="p-666">It really feels like this is stating the obvious, but perhaps we never explicitly proved that <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-maps must satisfy this "reflexive property".</div>
+</div></details></div></article></details><details id="example-107" class="example example-like"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.12.2</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 5:.</span>
+</h3></summary><article class="example example-like"><div class="para" id="p-667">..if <span class="process-math">\(\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{f} Y^{\circlearrowright \sigma}\)</span> corresponds to <span class="process-math">\(y\text{...}\)</span>
+</div>
+<div class="solutions"><details id="solution-107" class="solution solution-like"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="p-668">I’m assuming we’re using the same set-up as Exercise 3 here. Given <span class="process-math">\(\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{f} Y^{\circlearrowright \sigma}\text{,}\)</span> we know <span class="process-math">\(f \sigma = \beta f\text{.}\)</span> In particular, this must be true for <span class="process-math">\(0\text{,}\)</span> establishing that <span class="process-math">\(f \sigma 0 = f 1 = \beta f 0 = \beta y\text{.}\)</span>  We then used induction to establish that <span class="process-math">\(f(n) = \beta^n y\)</span> for all <span class="process-math">\(n \in \mathbb{N}\text{.}\)</span>
+</div> <div class="para" id="p-669">In Exercise 4, we proved that for any <span class="process-math">\(X^{\circlearrowright \alpha}\text{,}\)</span> the map <span class="process-math">\(\alpha\)</span> is itself a well defined map <span class="process-math">\(X^{\circlearrowright \alpha} \xrightarrow{\alpha} X^{\circlearrowright \alpha}\text{.}\)</span> It follows that <span class="process-math">\(\mathbb{N}^{\circlearrowright \sigma}\)</span> defines a map <span class="process-math">\(\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{\sigma} \mathbb{N}^{\circlearrowright \sigma}\text{.}\)</span> Since compositions of <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-maps produce <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-maps, our composition <span class="process-math">\(f \circ \sigma\)</span> should be well defined map <span class="process-math">\(\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{f \circ \sigma} Y^{\circlearrowright \beta}\)</span> such that <span class="process-math">\((f \circ \sigma) \circ \sigma = \beta \circ (f \circ \sigma)\text{.}\)</span>
+</div> <div class="para" id="p-670">When they say "<span class="process-math">\(\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{f} Y^{\circlearrowright \sigma}\)</span> corresponds to <span class="process-math">\(y\)</span>", we mean that we can evaluate <span class="process-math">\(f\)</span> at 0 to get <span class="process-math">\(y\)</span> or iterate from <span class="process-math">\(y\)</span> to get <span class="process-math">\(f\)</span> using <span class="process-math">\(f(n) = \beta^n y\text{.}\)</span>  For <span class="process-math">\(f \circ \sigma\text{,}\)</span> we can easily evaluate <span class="process-math">\((f \circ \sigma)(0)\)</span> to establish <span class="process-math">\(f \sigma 0 = \beta f 0 = \beta y\text{.}\)</span>  However, we still need to show that <span class="process-math">\((f \circ \sigma)(n) = \beta^n (\beta y)\text{.}\)</span>
+</div> <div class="para" id="p-671">As in Exercise 3, I think we can do this through induction.  We’ve already established that <span class="process-math">\((f \circ \sigma)(0) = \beta^0(\beta y)\text{,}\)</span> so we know that <span class="process-math">\((f \circ \sigma)(n) = \beta^n(\beta y)\)</span> for <span class="process-math">\(n = 0\text{.}\)</span> Consider the case of <span class="process-math">\(\sigma n = n + 1\text{.}\)</span> Given <span class="process-math">\((f \circ \sigma)(n) = \beta^n(\beta y)\text{,}\)</span> we can rewrite <span class="process-math">\((f \circ \sigma)(n+1)\)</span> as <span class="process-math">\((f \circ \sigma)(\sigma n)\text{.}\)</span>  Subsitute <span class="process-math">\(f \circ \sigma = \beta \circ f\)</span> to get <span class="process-math">\((\beta \circ f)(\sigma n)\)</span> which can be rewritten as <span class="process-math">\(\beta( (f \circ \sigma)(n))\)</span> by the associative property.  This means that <span class="process-math">\((f \circ \sigma)(n) = \beta^n(\beta y)\)</span> implies <span class="process-math">\((f \circ \sigma)(n+1) = \beta( (f \circ \sigma)(n)) = \beta(\beta^n(\beta y)) = \beta^{n+1}(\beta y)\text{.}\)</span>
+</div> <div class="para" id="p-672">Having established that both <span class="process-math">\((f \circ \sigma)(0) = \beta^0(\beta y)\)</span> and <span class="process-math">\((f \circ \sigma)(n) = \beta^n (\beta y) \implies (f \circ \sigma)(n+1) = \beta^{n+1}(\beta y)\text{,}\)</span> we can use induction to establish that <span class="process-math">\((f \circ \sigma)(n) = \beta^n (\beta y)\)</span> for the entire domain of <span class="process-math">\(\mathbb{N}\text{.}\)</span>
+</div>
+</div></details></div></article></details><details id="example-108" class="example example-like"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.12.3</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 6:.</span>
+</h3></summary><article class="example example-like"><div class="para" id="p-673">...gender map <span class="process-math">\(X^{\circlearrowright m} \xrightarrow{g} B\)</span>
+</div>
+<div class="solutions"><details id="solution-108" class="solution solution-like"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="p-674">We’re provided the following diagram for <span class="process-math">\(B\text{:}\)</span>
+</div> <figure class="figure figure-like" id="fig-session15-ex6-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-session15-ex6-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.12.4<span class="period">.</span></span><span class="space"> </span>Definition of <span class="process-math">\(B\)</span></figcaption></figure> <div class="para" id="p-675">Here the set <span class="process-math">\(X\)</span> is the set of people, the operator <span class="process-math">\(m\)</span> is a map that returns the mother of specified person, and <span class="process-math">\(B\)</span> is the gender binary map specified above.  In order to show <span class="process-math">\(g\)</span> is an <span class="process-math">\(\mathcal{S}^{\circlearrowright}\text{,}\)</span> we need to establish that it is both a valid map in <span class="process-math">\(\mathcal{S}\)</span> and upholds the structure of the endomap <span class="process-math">\(m\text{.}\)</span>
+</div> <div class="para" id="p-676">First of all, let’s address the reality that this is toy model of gender. In this exercise we’re <em class="emphasis">implicitly assuming</em> <span class="process-math">\(g\)</span> is a valid <span class="process-math">\(\mathcal{S}\)</span>-map.  We’re excluding the existence of non-binary people in this way.  We’re also assuming that we have a <em class="emphasis">mother</em>-map, <span class="process-math">\(m x\text{,}\)</span> that’s defined for all <span class="process-math">\(x\text{.}\)</span> This model breaks if we "clone" a male, effectively excluding <em class="emphasis">Stormtroopers</em> from our set of people.</div> <div class="para" id="p-677">There’s also some ambiguity because we haven’t yet named the endomap on <span class="process-math">\(B\)</span> yet. I think the reason is because the endomap on <span class="process-math">\(B\)</span> is induced by the maps <span class="process-math">\(m\)</span> and <span class="process-math">\(g\text{.}\)</span> For clarity’s sake, let’s define <span class="process-math">\(\bar{m}: B \rightarrow  B\)</span> to be the corresponding endomap in the "gender-binary space".  This map <span class="process-math">\(\bar{m}\)</span> is based on an assumption that the answer to "what gender is your mother?" will always "female".</div> <div class="para" id="p-678">Under those contraints on <span class="process-math">\(X\text{,}\)</span> showing <span class="process-math">\(g\)</span> is an valid <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span>-map basically comes down to establishing the relation <span class="process-math">\(g m = \bar{m} g\text{.}\)</span>  Perhaps this is most easily shown in a table.</div> <figure class="table table-like" id="table-15"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">4.12.5<span class="period">.</span></span><span class="space"> </span>Table of values for gender map</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(x\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(g x\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(m x\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(g m x\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\bar{m} g x\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">"son"</td>
+<td class="l m b0 r0 l0 t0 lines">male</td>
+<td class="l m b0 r0 l0 t0 lines">"mother"</td>
+<td class="l m b0 r0 l0 t0 lines">female</td>
+<td class="l m b0 r0 l0 t0 lines">female</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">"daughter"</td>
+<td class="l m b0 r0 l0 t0 lines">female</td>
+<td class="l m b0 r0 l0 t0 lines">"mother"</td>
+<td class="l m b0 r0 l0 t0 lines">female</td>
+<td class="l m b0 r0 l0 t0 lines">female</td>
+</tr>
+</table></div></figure> <div class="para" id="p-679">Essentially, both <span class="process-math">\(g m\)</span> and <span class="process-math">\(\bar{m} g\)</span> are constant maps. We know <span class="process-math">\(g m = \bar{m} g\)</span> because we’ve defined them both so that they both always return "female".  In order for us to have an "<em class="emphasis">objectification in the subjective</em> of gender", all we have to do is to start excluding the people that don’t fit our model!</div> <div class="para" id="p-680">I guess the lesson here is that if you ask a "yes/no" question you have to get a "yes/no" response.  In this case, our standard idempontent map on <span class="process-math">\(B\)</span> enables us to ask something to the effect of "is this a yes/no question?" which is forced to converge to the value "yes".</div>
+</div></details></div></article></details></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="session15-p2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
