@@ -1,0 +1,343 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session15-p4">
+    <title>Session 15: Objectification of Properties, Part 4</title>
+    <p>
+        So... here's the deal.  This week has been completely devoted to
+        a single exercise.  I might not even have a satisfactory solution by the
+        end of this, but that's okay.  Learning math is sometimes messy like this.
+        Sometimes all you can do is just lay out the information you know and
+        start asking questions, so that's what you do.  
+    </p>
+    <example>
+        <title>Exercise 7:</title>
+        <statement>
+            <p>
+                <p>
+                    ...  <m>X^{\circlearrowright \alpha}</m> above to <m>Y^{\circlearrowright \beta}</m> above... 
+                </p>
+            
+                <p>
+                    Before we begin, I want to preface this with an additional spoiler.  I got really stuck 
+                    at 12/14 maps.  If you're stuck there also, I'd encourage you to take a break from it.
+                    I know I needed it. 
+                </p>
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Let's begin with some diagrams of our endomaps:
+            </p>
+            <figure xml:id="fig-session15-ex7-1">
+                <title>Definitions of <m>X^{\circlearrowright \alpha}</m> and <m>Y^{\circlearrowright \beta}</m></title>
+                <image width="90%" xml:id="img-session15-ex7-1">
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \coordinate (XC) at (-4,0);
+                            \node (X1) at ($(XC)+(-1.25,1.75)$) {$a$};
+                            \node (X2) at ($(XC)+(-0.25,.75)$) {$b$};
+                            \node (X3) at ($(XC)+(0.5,0)$) {$c$};
+                            \node (X4) at ($(XC)+(2,1)$) {$d$};
+                            \node (X5) at ($(XC)+(-2.5,1)$) {$\alpha a$};
+                            \node (X6) at ($(XC)+(-1.5,0)$) {$\alpha^2 a$};
+                            \node (X7) at ($(XC)+(-0.5,-1.5)$) {$\alpha^3 a$};
+                            \node (X8) at ($(XC)+(-2.5,-1)$) {$\alpha^4 a$};
+                            \node (X9) at ($(XC)+(2,-1)$) {$\alpha d$};
+                            \node (XL) at ($(XC)+(0,3.5)$) {$X^{\circlearrowright \alpha}$};
+                            \draw (XC) circle [x radius=3.5,y radius=2.5];   
+                            \path[-{stealth}]
+                                (X1) edge (X5)
+                                (X5) edge (X6)
+                                (X6) edge (X7)
+                                (X7) edge (X8)
+                                (X8) edge (X6)
+                                (X2) edge (X6)
+                                (X3) edge (X7)
+                                (X4) edge[bend right] (X9)
+                                (X9) edge[bend right] (X4)
+                                ;
+                            
+                                \coordinate (YC) at (4,0);
+                                \node (Y1) at ($(YC)+(-1.75,1.5)$) {$p$};
+                                \node (Y2) at ($(YC)+(-0.25,1.75)$) {$q$};
+                                \node (Y3) at ($(YC)+(1.75,0)$) {$z$};
+                                \node (Y4) at ($(YC)+(1,2)$) {$m$};
+                                \node (Y5) at ($(YC)+(-1.5,0.75)$) {$r$};
+                                \node (Y6) at ($(YC)+(-1.5,0)$) {$t$};
+                                \node (Y7) at ($(YC)+(-0.5,-1)$) {$v$};
+                                \node (Y8) at ($(YC)+(-1.5,-1.5)$) {$u$};
+        
+                                \node (Y9) at ($(YC)+(-2.5,-.75)$) {$s$};
+                                \node (Y10) at ($(YC)+(1.5,-.75)$) {$y$};
+                                \node (Y11) at ($(YC)+(1,-1.5)$) {$w$};
+                                \node (Y12) at ($(YC)+(0.75,-.5)$) {$x$};
+                                \node (Y13) at ($(YC)+(2,1.5)$) {$l$};
+                                \node (YL) at ($(YC)+(0,3.5)$) {$Y^{\circlearrowright \beta}$};
+                                \draw (YC) circle [x radius=3.5,y radius=2.5];   
+                                \path[-{stealth}]
+                                    (Y1) edge (Y5)
+                                    (Y2) edge (Y5)
+                                  
+                                    (Y5) edge (Y6)
+                                    (Y6) edge (Y7)
+                                    (Y7) edge (Y8)
+                                    (Y8) edge (Y9)
+                                    (Y9) edge (Y6)
+                                    (Y3) edge (Y10)
+                                    (Y10) edge (Y11)
+                                    (Y11) edge (Y12)
+                                    (Y12) edge (Y10)
+                                    (Y4) edge[bend right] (Y13)
+                                    (Y13) edge[bend right] (Y4)
+                                    ;
+                                
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                I'm going to try to adhere to the text as closely as I can for now.
+                Thus, <m>X^{\circlearrowright \alpha}</m> has been labeled using it's 
+                presentation already with the generators given as <m>\{a,b,c,d\}</m>.
+                Our presention includes following 4 relations:
+            </p>
+            <ol>
+                <li>
+                    <p>
+                        <m>\alpha^5 a = \alpha^2 a</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\alpha^2 a = \alpha b</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\alpha^3 a = \alpha c</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\alpha^2 d = d</m>
+                    </p>
+                </li>
+            </ol>
+            <p>
+                We're looking for maps <m>f</m> for which these generators
+                from <m>X</m> get assigned to points in <m>Y</m> such that
+                <m>(f \circ \alpha)(x) = (\beta \circ f)(x)</m> for every 
+                <m>x \in X</m>.   For now, we're not sure what assignments 
+                will make that happen so we'll just call these mystery points
+                <m>f(a) = \bar{a}</m>, <m>f(b) = \bar{b}</m>, <m>f(c) = \bar{c}</m>, 
+                and <m>f(d) = \bar{d}</m>.  Since we established that
+                <m>f \alpha^n = \beta^n f</m> for all <m>n \in \mathbb{N}</m>,
+                we can match each of our relations on <m>X</m> with a corresponding
+                relation on <m>Y</m>:
+            </p>
+            <ol>
+                <li>
+                    <p>
+                        <m>\beta^5 \bar{a} = \beta^2 \bar{a}</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\beta^2 \bar{a} = \beta \bar{b}</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\beta^3 \bar{a} = \beta \bar{c}</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\beta^2 \bar{d} = \bar{d}</m>
+                    </p>
+                </li>
+            </ol>
+            <p>
+                Beginning with the generator <m>\bar{a}</m>, we're going 
+                to look for a list potential points in <m>Y</m> that satisfy 
+                our first relation: <m>\beta^5 \bar{a} = \beta^2 \bar{a}</m>.
+                The textbook helps us out by pointing out that <m>w,x,y,z</m>
+                meet this condition but <m>l,m,p,q,r,s,t,u,v</m> do not. Thus,
+                we can make four possible assignments for <m>a</m>: 
+                <m>\{\bar{a} \rightarrow w, \bar{a} \rightarrow x, 
+                    \bar{a} \rightarrow y, \bar{a} \rightarrow z\}</m>. 
+            </p>
+            <p>
+                If we assign <m>\bar{a} \rightarrow w</m>, we can apply the operator 
+                <m>\beta</m> until we form a loop.  If we do so, we find
+                that <m>\beta \bar{a} = \beta w = x</m>, 
+                <m>\beta^2 \bar{a} = \beta x = y</m>, and 
+                <m>\beta^3 \bar{a} = \beta y = w</m>. Our second relation implies
+                that <m>\beta^2 \bar{a} = \beta \bar{b}</m>, but we already know 
+                <m>\beta^2 \bar{a} = y</m> so that means that whatever we choose 
+                for <m>\bar{b}</m> must satisfy <m>\beta \bar{b} = y</m>.  In the 
+                diagram, the only arrows leading into point <m>y</m> are the arrows
+                originating at <m>x, z</m>.   Thus our only valid assignments for 
+                <m>\bar{b}</m>, given <m>\bar{a} \rightarrow w</m>, are <m>\bar{b} \rightarrow x</m> and 
+                <m>\bar{b} \rightarrow z</m>.
+            </p>
+            <p>
+                Given these two choices of <m>\bar{b}</m>, we can start to narrow 
+                down our choices of <m>\bar{c}</m> as well.  If we assume that 
+                <m>\beta^3 \bar{a} = w = \beta \bar{c}</m> implies that 
+                <m>\bar{c}</m> must have an arrow leading to point <m>w</m>.  
+                Presicely one point has that property, namely <m>y</m>.  
+            </p>
+            <p>
+                Our final relation specifies that <m>m>\beta^2 \bar{d} = \bar{d}</m>,
+                and there's only one 2-cycle in <m>Y</m> that could satisfy this.  
+                This means that <m>\bar{d}</m> needs to be either <m>l</m> or 
+                <m>m</m>.  Having exhausted all possibilities for maps such 
+                that <m>\bar{a} \rightarrow w</m>, we're currently sitting
+                on a list of 4 maps: 
+                    <m>[\bar{a} \rightarrow w, \bar{b} \rightarrow x, 
+                        \bar{c} \rightarrow y, \bar{d} \rightarrow l]</m>,
+                    <m>[\bar{a} \rightarrow w, \bar{b} \rightarrow z, 
+                        \bar{c} \rightarrow y, \bar{d} \rightarrow l]</m>,
+                    <m>[\bar{a} \rightarrow w, \bar{b} \rightarrow x, 
+                        \bar{c} \rightarrow y, \bar{d} \rightarrow m]</m>,
+                    <m>[\bar{a} \rightarrow w, \bar{b} \rightarrow z, 
+                        \bar{c} \rightarrow y, \bar{d} \rightarrow m]</m>,        
+            </p>
+            <p>
+                Moving on, our next possible assignment is <m>\bar{a} \rightarrow x</m>. 
+                Iterating from there gives us the following: 
+                <m>\beta \bar{a} = \beta x = y</m>, 
+                <m>\beta^2 \bar{a} = \beta y = w</m>, and 
+                <m>\beta^3 \bar{a} = \beta w = x</m>.
+            </p>
+            <p> 
+                As before, our second relation limits our choice of <m>\bar{b}</m>.
+                Knowing <m>\beta^2 \bar{a} = w = \beta \bar{b}</m> tell us 
+                that there must be an arrow from <m>\bar{b}</m> to <m>w</m>,
+                and the only arrow with a target of <m>w</m> is the one originating
+                at point <m>y</m>.  Thus, <m>\bar{a} = w \implies \bar{b} = y</m>.
+            </p>
+            <p>
+                Testing our third relation places limits on <m>\bar{c}</m>.  Since
+                <m>\beta^3 \bar{a} = x = \beta \bar{c}</m>, the needs to be an
+                arrow from point <m>\bar{c}</m> to <m>x</m> and this is uniquely
+                satisfied by point <m>w</m>.  
+            </p>
+            <p>
+                Our choices for <m>\bar{d}</m> are still independent of our choices for
+                <m>\bar{a},\bar{b},\bar{c}</m>, specifically <m>\bar{d} = \{l,m\}</m>.
+                This gives us two new maps, 
+                <m>[\bar{a} \rightarrow x, \bar{b} \rightarrow y, 
+                    \bar{c} \rightarrow w, \bar{d} \rightarrow l]</m> and
+                    <m>[\bar{a} \rightarrow x, \bar{b} \rightarrow y, 
+                        \bar{c} \rightarrow w, \bar{d} \rightarrow m]</m>,
+                bringing our running total of maps to 6.
+            </p>
+            <p>
+                Our third option for <m>\bar{a}</m> is <m>y</m>.  If we assign
+                <m>\bar{a} \rightarrow y</m>, it follows that
+                <m>\beta \bar{a} = \beta y = w</m>, 
+                <m>\beta^2 \bar{a} = \beta w = x</m>, and 
+                <m>\beta^3 \bar{a} = \beta x = y</m>.  Since 
+                <m>\beta^2 \bar{a} = x = \beta \bar{b}</m>, it follows that
+                <m>\bar{b}</m> must be <m>w</m> because there's only one arrow
+                leading into <m>x</m>.  With our third relation telling us
+                <m>\beta^3 \bar{a} = y = \beta \bar{c}</m>, that tells us
+                that our choice of <m>\bar{c}</m> must have an arrow leading
+                to <m>y</m>.  Two such points satisfy this, namely <m>x,z</m>. 
+                For each of those choices of <m>\bar{c}</m>, there are still
+                two independent choices for <m>\bar{d}</m>. This gives us
+                a total of 4 maps with <m>\bar{a} \rightarrow y</m> bringing our 
+                running total to 10.  Specifically,  our new maps are
+                <m>[\bar{a} \rightarrow y, \bar{b} \rightarrow w, 
+                    \bar{c} \rightarrow x, \bar{d} \rightarrow l]</m>,
+                <m>[\bar{a} \rightarrow y, \bar{b} \rightarrow w, 
+                    \bar{c} \rightarrow z, \bar{d} \rightarrow l]</m>,
+                <m>[\bar{a} \rightarrow y, \bar{b} \rightarrow w, 
+                    \bar{c} \rightarrow x, \bar{d} \rightarrow m]</m>,
+                    and
+                <m>[\bar{a} \rightarrow y, \bar{b} \rightarrow w, 
+                    \bar{c} \rightarrow x, \bar{d} \rightarrow m]</m>.
+            </p>
+            <p>
+                Our final choice for <m>\bar{a}</m> is <m>z</m>.  Going through
+                our algorithm again, we start be iterating to get
+                <m>\beta \bar{a} = \beta z = y</m>, 
+                <m>\beta^2 \bar{a} = \beta y = w</m>, and 
+                <m>\beta^3 \bar{a} = \beta w = x</m>.  Our <m>\bar{b}</m> 
+                must satisfy <m>\beta^2 \bar{a} = w = \beta \bar{b}</m>,
+                so the only choice is <m>\bar{b} \rightarrow y</m>. Our 
+                <m>\bar{c}</m> must satisfy 
+                <m>\beta^3 \bar{a} = x = \beta \bar{c}</m>, so the only choice 
+                is <m>\bar{c} \rightarrow w</m>.  Once again, our choice of 
+                <m>\bar{d}</m> is still independent with two options of <m>m,l</m>.
+                These two maps,
+                <m>[\bar{a} \rightarrow z, \bar{b} \rightarrow y, 
+                    \bar{c} \rightarrow w, \bar{d} \rightarrow l]</m> and
+                    <m>[\bar{a} \rightarrow z, \bar{b} \rightarrow y, 
+                        \bar{c} \rightarrow w, \bar{d} \rightarrow m]</m>,
+                bring our running total to 12.
+            </p>
+            <p>
+                And.... this is where I got stuck. I mean, <em>really</em> stuck.
+            </p>
+            <p>
+                After going through this algorithm 3 times and getting the same
+                12 maps, I decided to double check my work using Python.  Both my 
+                implementation of the described algorithm and my exhaustive search
+                both only found the same 12 maps seen here.
+            </p>
+        
+            <p>
+                Once I kind of a way of quickly testing arbitrary maps for
+                structure preservation, I was able to speed up my testing of 
+                different hypotheses about where my missing two maps could be.
+                After several hours of unsuccessfully scouring the Internets for answers, 
+                I decided it was time for a break and cracked open a beer.
+            </p>
+            <p>
+                Yeah, I know that's not what you'd expect the solution to 
+                a math problem to be.  But that's precisely what <em>I</em>
+                needed at the time.
+            </p>
+            <p>
+                That beer was to my hand what the pillow was to Alphonse in 
+                Last week's <em>#Caturday</em> post:
+            </p>
+            <figure  xml:id="fig-alphonse-idempotent">
+                <image source="images/alphonse-idempotent.png" width="90%">
+                    <description>A demonstration of parallels between the "standard idempotent" illustrated by photos of a cushion with and without a cat.  </description>
+                </image>
+                
+            </figure>
+
+            <p>
+                I think that I was so wrapped up in my own version of the 
+                problem. I wasn't actually reading <em>what  
+                the authors said</em>.  The text does not state
+                there are 14 maps, it was just "heavily implied". 
+            </p>
+            <p>
+                This question is starting to feel self-referential in a 
+                way I hadn't been expecting. My current line of thinking
+                is authors' use of the pronoun "I" instead of "we" here is 
+                done with intention, and that my two missing maps are somehow 
+                related to the way the "null map" and the "identity map" were
+                handled in the bookkeeping rules of the broader category.
+            </p>
+            <p>
+                I think I'm 
+                going to let this stew for while to see if I
+                can come up with a better solution that answers this and 
+                Exercise 9 simultaneously.  
+            </p>
+            <p>
+                Stay tuned.
+            </p>
+        </solution>
+    </example>
+
+
+   
+</section>
