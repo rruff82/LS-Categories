@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Session 15: Objectification of Properties, Part 5</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="L&amp;S Cat Theory">
+<meta property="book:author" content="Ryan Ruff">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">L&amp;S Cat Theory:</span> <span class="subtitle">Attempted solutions to "Conceptual Mathematics" by Lawvere and Schanuel</span></a></h1>
+<p class="byline">Ryan Ruff</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="session15-p4.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="part3.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="about.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is this?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session1.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Session 1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part1.html" class="internal"><span class="codenumber">2</span> <span class="title">Part 1: The Category of Sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Article 1: Sets, maps, composition</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-session2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Session 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-session3.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Session 3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part2.html" class="internal"><span class="codenumber">3</span> <span class="title">Part 2: The Algebra of Composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Article 2: Isomorphisms, Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2-p2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Article 2: Isomorphisms, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2-p3.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Article 2: Isomorphisms, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session4.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Session 4: Division of maps: Isomorphisms</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session5.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Session 5: Division of maps: Sections and retractions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session6.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Session 6: Two general aspects or uses of maps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session7.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Session 7: Isomorphisms and coordinates</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session8.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Session 8: Pictures of a map</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session9.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Session 9: Retracts and idempotents</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quiz1.html" class="internal"><span class="codenumber">3.10</span> <span class="title">Quiz</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quiz2.html" class="internal"><span class="codenumber">3.11</span> <span class="title">Summary/Quiz on Opposed Maps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="test1.html" class="internal"><span class="codenumber">3.12</span> <span class="title">Test 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session10.html" class="internal"><span class="codenumber">3.13</span> <span class="title">Brouwer’s theorems</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="part3.html" class="internal"><span class="codenumber">4</span> <span class="title">Part 3: Categories of Structured Sets</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Article 3: Examples of Categories, Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Article 3: Examples of Categories, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p3.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Article 3: Examples of Categories, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p4.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Article 3: Examples of Categories, Part 4</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p5.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Article 3: Examples of Categories, Part 5</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session11.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Session 11: Ascending to categories of richer structures</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session12.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Session 12: Categories of Diagrams</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session13.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Session 13: Monoids</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session14.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Session 14: Maps preserve positive properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Session 15: Objectification of Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p2.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Session 15: Objectification of Properties, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p3.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Session 15: Objectification of Properties, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p4.html" class="internal"><span class="codenumber">4.13</span> <span class="title">Session 15: Objectification of Properties, Part 4</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="session15-p5.html" class="internal"><span class="codenumber">4.14</span> <span class="title">Session 15: Objectification of Properties, Part 5</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="session15-p5"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.14</span><span class="space"> </span><span class="title">Session 15: Objectification of Properties, Part 5</span>
+</h2>
+<div class="para" id="session15-p5-2">Last week I stopped partway through Exercise 7 because I was struggling to find all the last 2 maps, but I had "an idea" about where to find them.  This week the plan is work on verifying that hypothesis by using Python.  I’m going to begin with Exercise 8 to get a better feel for how these "presentations" work.</div>
+<div class="para" id="session15-p5-3">This is going to get some what code-heavy, so see <a class="external" href="https://github.com/rruff82/LS-Categories/blob/main/assets/notebooks/ls-ses15-ex7-before.ipynb?raw=true" target="_blank">this Jupyter notebook</a><a class="xref" id="session15-p5-3-2" href="" data-knowl="./knowl/fn/session15-p5-3-2.html" title="Footnote 4.14.1"><sup> 1 </sup></a> if you want to follow along.</div>
+<details id="session15-p5-4" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.14.1</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 8:.</span>
+</h3></summary><article class="example example-like"><div class="para" id="session15-p5-4-2-1">Draw some simple dynamical systems...</div>
+<div class="solutions"><details id="session15-p5-4-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="session15-p5-4-3-1">Rather than manually finding these presentations, I’m going to build a Python script that does it for me. I leveraged some common libraries, includeing <a class="external" href="https://networkx.org" target="_blank">NetworkX</a><a class="xref" id="session15-p5-4-3-1-2" href="" data-knowl="./knowl/fn/session15-p5-4-3-1-2.html" title="Footnote 4.14.2"><sup> 2 </sup></a> for the "digraph" object, <a class="external" href="https://numpy.org" target="_blank">NumPy</a><a class="xref" id="session15-p5-4-3-1-4" href="" data-knowl="./knowl/fn/session15-p5-4-3-1-4.html" title="Footnote 4.14.3"><sup> 3 </sup></a> for linear algebra. I used <a class="external" href="https://matplotlib.org" target="_blank">Matplotlib</a><a class="xref" id="session15-p5-4-3-1-6" href="" data-knowl="./knowl/fn/session15-p5-4-3-1-6.html" title="Footnote 4.14.4"><sup> 4 </sup></a> for visuals during development, but I’ll map to <span class="latex-logo">L<span class="A">a</span>T<span class="E">e</span>X</span> for this document.   Our endomap <span class="process-math">\(\alpha\)</span> might be defined as follows:</div>
+<pre class="code-block tex2jax_ignore">import numpy as np
+import networkx as nx
+import matplotlib.pyplot as plt
+
+x_nodes = ["X"+str(i) for i in range(9)]
+x_edges = [
+    (x_nodes[0],x_nodes[4]),
+    (x_nodes[1],x_nodes[5]),
+    (x_nodes[2],x_nodes[6]),
+    (x_nodes[3],x_nodes[8]),
+    (x_nodes[4],x_nodes[5]),
+    (x_nodes[5],x_nodes[6]),
+    (x_nodes[6],x_nodes[7]),
+    (x_nodes[7],x_nodes[5]),
+    (x_nodes[8],x_nodes[3])
+]
+XG = nx.DiGraph()
+XG.add_nodes_from(x_nodes)
+XG.add_edges_from(x_edges)
+</pre>
+<div class="para" id="session15-p5-4-3-3">Since this directed graph represents an endomap, each node should have precisely one "successor". We can use this property to implent our endomap as a function on the graph:</div>
+<pre class="code-block tex2jax_ignore">def follow_endomap(G,n):
+    return list(G.successors(n))[0]
+</pre>
+<div class="para" id="session15-p5-4-3-5">We can then use the algorithm described in the text to produce a "presentation" from a given endomap. I tried</div>
+<pre class="code-block tex2jax_ignore">def make_presentation(G):
+    G_nodes = list(G.nodes())
+    ones_G = np.full((len(G_nodes),),1)
+    GA =  nx.adjacency_matrix(G)
+    G_arrows_in =  np.matmul(ones_G,GA.toarray())
+    G_arrows_by_node = sorted(zip(range(len(G_nodes)),G_arrows_in), key=lambda x: x[1])
+    G_presentation = {}
+    G_relations = {}
+    for k,v in G_arrows_by_node:
+      print(f"Checking node {k} with {v} arrows in")
+      if v == 0:
+        print(f"Adding root generator {G_nodes[k]}")
+        G_presentation[G_nodes[k]] = (G_nodes[k],v)
+        next_node = follow_endomap(G,G_nodes[k])
+        steps = 1
+        while not next_node in G_presentation:
+          print(f"Adding follow up node {next_node}: {steps} from {G_nodes[k]}")
+          G_presentation[next_node] = (G_nodes[k],steps)
+          next_node = follow_endomap(G,next_node)
+          steps += 1
+        print(f"next node {next_node} already has presentation")
+        G_relations[G_nodes[k]] = ((G_nodes[k],steps),G_presentation[next_node])
+      elif v == 1:
+        print(f"Only 1 way into node {k}")
+        if G_nodes[k] in G_presentation:
+          print("already has a presentation")
+        else:
+          print("Found potential loop")
+          G_presentation[G_nodes[k]] = (G_nodes[k],0)
+          next_node = follow_endomap(G,G_nodes[k])
+          steps = 1
+          while not next_node in G_presentation:
+            print(f"Adding follow up node {next_node}: {steps} from {G_nodes[k]}")
+            G_presentation[next_node] = (G_nodes[k],steps)
+            next_node = follow_endomap(G,next_node)
+            steps += 1
+          print(f"next node {next_node} already has presentation")
+          G_relations[G_nodes[k]] = ((G_nodes[k],steps),G_presentation[next_node])
+      else:
+        print(f"More than 1 way in")
+  
+    return {
+        "generators":list(G_relations.keys()),
+        "relations":list(G_relations.values())
+    }
+endomap_alpha = make_presentation(XG)
+print(endomap_alpha)
+</pre>
+<div class="para" id="session15-p5-4-3-7">This code produced the following output:</div>
+<pre class="code-block tex2jax_ignore">Checking node 0 with 0 arrows in
+Adding root generator X0
+Adding follow up node X4: 1 from X0
+Adding follow up node X5: 2 from X0
+Adding follow up node X6: 3 from X0
+Adding follow up node X7: 4 from X0
+next node X5 already has presentation
+Checking node 1 with 0 arrows in
+Adding root generator X1
+next node X5 already has presentation
+Checking node 2 with 0 arrows in
+Adding root generator X2
+next node X6 already has presentation
+Checking node 3 with 1 arrows in
+Only 1 way into node 3
+Found potential loop
+Adding follow up node X8: 1 from X3
+next node X3 already has presentation
+Checking node 4 with 1 arrows in
+Only 1 way into node 4
+already has a presentation
+Checking node 7 with 1 arrows in
+Only 1 way into node 7
+already has a presentation
+Checking node 8 with 1 arrows in
+Only 1 way into node 8
+already has a presentation
+Checking node 6 with 2 arrows in
+More than 1 way in
+Checking node 5 with 3 arrows in
+More than 1 way in
+{
+    'generators': ['X0', 'X1', 'X2', 'X3'], 
+    'relations': [
+        (('X0', 5), ('X0', 2)), 
+        (('X1', 1), ('X0', 2)), 
+        (('X2', 1), ('X0', 3)), 
+        (('X3', 2), ('X3', 0))
+    ]
+}
+</pre>
+<div class="para" id="session15-p5-4-3-9">This matches up with our expected presentation for <span class="process-math">\(X^{\circlearrowright \alpha}\)</span> with the substitions <span class="process-math">\(a = X_1\text{,}\)</span> <span class="process-math">\(b = X_2\text{,}\)</span> <span class="process-math">\(c = X_3\text{,}\)</span> and <span class="process-math">\(d = X_4\text{.}\)</span>  The relations are expressed as a ordered pair based on the number of "presses" from a specified generator.  This the equation <span class="process-math">\(\alpha^5 a = \alpha^2 a\)</span> becomes <code class="code-inline tex2jax_ignore">(('X0', 5), ('X0', 2))</code>, <span class="process-math">\(\alpha b = \alpha^2 a\)</span> becomes <code class="code-inline tex2jax_ignore">(('X1', 1), ('X0', 2))</code>, <span class="process-math">\(\alpha c = \alpha^3 a\)</span> becomes <code class="code-inline tex2jax_ignore">(('X2', 1), ('X0', 3))</code>, and <span class="process-math">\(\alpha^2 d = d\)</span> becomes <code class="code-inline tex2jax_ignore">(('X3', 2), ('X3', 0))</code>.</div> <div class="para" id="session15-p5-4-3-10">We can use a similar process to find a presentation for <span class="process-math">\(Y^{\circlearrowright \beta}\)</span> as well with the following code.</div>
+<pre class="code-block tex2jax_ignore">y_nodes = ["Y"+y for y in ["p", "q", "r", "s", "t", "v", "u", "m", "l", "w", "x", "y", "z"]]
+
+y_edges = [
+    (y_nodes[0],y_nodes[2]),
+    (y_nodes[1],y_nodes[2]),
+    (y_nodes[2],y_nodes[4]),
+    (y_nodes[3],y_nodes[4]),
+    (y_nodes[4],y_nodes[5]),
+    (y_nodes[5],y_nodes[6]),
+    (y_nodes[6],y_nodes[3]),
+    (y_nodes[7],y_nodes[8]),
+    (y_nodes[8],y_nodes[7]),
+    (y_nodes[9],y_nodes[10]),
+    (y_nodes[10],y_nodes[11]),
+    (y_nodes[11],y_nodes[9]),
+    (y_nodes[12],y_nodes[11])
+]
+YG = nx.DiGraph()
+YG.add_nodes_from(y_nodes)
+YG.add_edges_from(y_edges)
+
+endomap_beta = make_presentation(YG)
+print(endomap_beta)
+</pre>
+<div class="para" id="session15-p5-4-3-12">The output of the above code is the following presentation:</div>
+<pre class="code-block tex2jax_ignore">{
+    'generators': ['p', 'q', 'z', 'm'], 
+    'relations': [
+        (('p', 6), ('p', 2)), 
+        (('q', 1), ('p', 1)), 
+        (('z', 4), ('z', 1)), 
+        (('m', 2), ('m', 0))
+    ]
+}
+</pre>
+<div class="para" id="session15-p5-4-3-14">Using the notation in the text, our corresponding relations would be <span class="process-math">\(\beta^6 p = \beta^2 p\text{,}\)</span> <span class="process-math">\(\beta q = \beta p\text{,}\)</span> <span class="process-math">\(\beta^4 z = \beta z\text{,}\)</span> and <span class="process-math">\(\beta^2 m = m\text{.}\)</span>
+</div> <div class="para" id="session15-p5-4-3-15">It seems like this method would be characterized as <em class="emphasis">depth first search</em> for the presentation. Depending on what order the nodes of the nodes used to express the maps, the above algorithm may produce a different result.</div> <div class="para" id="session15-p5-4-3-16">For example, suppose we defined X with the nodes in reverse:</div>
+<pre class="code-block tex2jax_ignore">XG2 = nx.DiGraph()
+x2_nodes = [x_nodes[-1-i] for i in range(len(x_nodes))]
+print(x2_nodes)
+XG2.add_nodes_from(x2_nodes)
+XG2.add_edges_from(x_edges)
+endomap_alpha_prime = make_presentation(XG2)
+print(endomap_alpha_prime)
+</pre>
+<div class="para" id="session15-p5-4-3-18">We get the following output:</div>
+<pre class="code-block tex2jax_ignore">['X8', 'X7', 'X6', 'X5', 'X4', 'X3', 'X2', 'X1', 'X0']
+Checking node 6 with 0 arrows in
+Adding root generator X2
+Adding follow up node X6: 1 from X2
+Adding follow up node X7: 2 from X2
+Adding follow up node X5: 3 from X2
+next node X6 already has presentation
+Checking node 7 with 0 arrows in
+Adding root generator X1
+next node X5 already has presentation
+Checking node 8 with 0 arrows in
+Adding root generator X0
+Adding follow up node X4: 1 from X0
+next node X5 already has presentation
+Checking node 0 with 1 arrows in
+Only 1 way into node 0
+Found potential loop
+Adding follow up node X3: 1 from X8
+next node X8 already has presentation
+Checking node 1 with 1 arrows in
+Only 1 way into node 1
+already has a presentation
+Checking node 4 with 1 arrows in
+Only 1 way into node 4
+already has a presentation
+Checking node 5 with 1 arrows in
+Only 1 way into node 5
+already has a presentation
+Checking node 2 with 2 arrows in
+More than 1 way in
+Checking node 3 with 3 arrows in
+More than 1 way in
+{
+    'generators': ['X2', 'X1', 'X0', 'X8'], 
+    'relations': [
+        (('X2', 4), ('X2', 1)),
+        (('X1', 1), ('X2', 3)),
+        (('X0', 2), ('X2', 3)),
+        (('X8', 2), ('X8', 0))
+    ]
+}
+</pre>
+<div class="para" id="session15-p5-4-3-20">This is an "equivalent presentation" for <span class="process-math">\(X^{\circlearrowright \alpha}\text{.}\)</span>  We have the same generators still, but they’re listed in different order and our relations are slightly different. The equivalent expressions are <span class="process-math">\(\alpha^4 c = \alpha^1 c\text{,}\)</span> <span class="process-math">\(\alpha b = \alpha^3 c\text{,}\)</span> <span class="process-math">\(\alpha^2 a = \alpha^3 c\text{,}\)</span> and <span class="process-math">\(\alpha^2 d = d\text{.}\)</span>
+</div> <div class="para" id="session15-p5-4-3-21">I’m thinking that my task for Exercise 9 will be a little easier if I can standardize my relations and generators in a unified manner that makes these "equivalent presentations" easier to identify.  I’m wondering if using a "breadth first search" instead of a "depth first search" might allow me to more readily identify the cylces of each length.</div>
+</div></details></div></article></details><details id="session15-p5-5" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.14.2</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 7 (Part 2):.</span>
+</h3></summary><article class="example example-like"><div class="para" id="session15-p5-5-2-1">Given my code above, let’s review where I got stuck last week and what I <em class="emphasis">think</em> my roadblock is.  As mentioned in Exercise 8 above, part of that difficulty was matching up the cycles of matching lengths.</div>
+<div class="solutions"><details id="session15-p5-5-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="session15-p5-5-3-1">My code from my previous attempt tried to follow my pen-and-paper process as closely as possible. The relevant Python code was as follows:</div>
+<pre class="code-block tex2jax_ignore">def get_cycles(endomap):
+    cycles_by_length = {}
+    cycles_by_generator = {}
+    for k,v in enumerate(endomap["relations"]):
+        if v[0][0] == v[1][0]:
+        cl = abs(v[0][1] - v[1][1])
+        mins = min(v[0][1],v[1][1])
+        print(f"{v[0][0]} leads to cycle of length {cl} after {mins} steps")
+        if not cl in cycles_by_length:
+            cycles_by_length[cl] = {
+                "primary_generators":[k],
+                "secondary_generators":[]
+            }
+        else:
+            cycles_by_length[cl]['primary_generators'].append(k)
+        cycles_by_generator[v[0][0]] = cl
+        else:
+        cl = cycles_by_generator[v[1][0]]
+        cycles_by_length[cl]['secondary_generators'].append(k)
+        cycles_by_generator[v[0][0]] = cl
+        return {
+            "cycles_by_length":cycles_by_length, 
+            "cycles_by_generator":cycles_by_generator
+        }
+
+def iterate_endomap(endomap, start, steps):
+    out_val = start
+    for i in range(steps):
+        out_val = follow_endomap(endomap,out_val)
+    return out_val
+
+def make_assignments(gen,poss_vals):
+    output = []
+    for v in poss_vals:
+      output.append({gen:v})
+    return output
+
+def join_assignments(ass1,ass2):
+    if len(ass1) == 0:
+      return ass2
+    if len(ass2)&lt;len(ass1):
+      return join_assignments(ass2,ass1)
+    output = []
+    for a1 in ass1:
+      for a2 in ass2:
+        new_a1 = a1.copy()
+        for k,v in zip(a2.keys(),a2.values()):
+          new_a1[k] = v
+        output.append(new_a1)
+    return output
+
+def find_predecessors(endomap,target,steps=1):
+    preds = list(endomap.predecessors(target))
+    if steps &gt; 1 and len(preds) &gt; 0:
+      r_preds = []
+      for t in preds:
+        r_preds.extend(find_predecessors(endomap,t,steps-1))
+      return r_preds
+    else:
+      return preds
+
+assignments = []
+
+for idx,rel in enumerate(endomap_alpha['relations']):
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+x_gen = rel[0][0]
+print(f'Attempting to match relation on: {x_gen}')
+cl = alpha_cycles['cycles_by_generator'][x_gen]
+print(f'Cycle Length: {cl}')
+y_cycles = alpha_cycles['cycles_by_length'][cl]
+poss_y_gen = y_cycles['primary_generators']+y_cycles['secondary_generators']
+print(f"Possible Generators: {poss_y_gen}")
+
+    
+print(f"Attempting to satisfy: {rel}")
+rel_lhs = iterate_endomap(XG,rel[0][0],rel[0][1])
+rel_rhs = iterate_endomap(XG,rel[1][0],rel[1][1])
+print(f"In X: {rel_lhs} = {rel_rhs}")
+    
+for gen in poss_y_gen:
+    print(f"Testing generator: {gen}")
+    if rel[0][0]==rel[1][0]:
+    print("Trying to match up a loop")
+    seen_in_Y = set([])
+    eligible_subs = {}
+    cur_y = endomap_beta['generators'][gen]
+    y_steps = 0
+    found_pairs = []
+    while not cur_y in seen_in_Y:
+        lhs = iterate_endomap(YG,cur_y,rel[0][1])
+        rhs = iterate_endomap(YG,cur_y,rel[1][1])
+        if lhs == rhs:
+        print(f"Potential match at {cur_y}! {y_steps} from {gen}")
+        found_pairs.append(cur_y)
+        seen_in_Y.add(cur_y)
+        y_steps += 1
+        cur_y = iterate_endomap(YG,cur_y,1)
+
+    print(f"Potential matches for {x_gen}: {found_pairs}")
+    new_assignments = make_assignments(x_gen,found_pairs)
+    print(f"New assignments: {new_assignments}")
+    assignments = join_assignments(assignments,new_assignments)
+    print(f"Joined assignments: {assignments}")
+    else:
+    print("Trying to match up a chain")
+    new_assignments = []
+    print(f"Existing Assignments: {assignments}")
+    for ass in assignments:
+        print(f"* Checking {ass}")
+        if rel[1][0] in ass.keys():
+        print(f"\t Found assignment from {rel[1][0]} to {ass[rel[1][0]]}")
+        y_target = ass[rel[1][0]]
+
+        x_lhs = iterate_endomap(XG,rel[0][0],rel[0][1])
+        print(f"\tIn X: {rel[0][1]} steps from {rel[0][0]} is {x_lhs}")
+        x_rhs = iterate_endomap(XG,rel[1][0],rel[1][1])
+        print(f"\tIn X: {rel[1][1]} steps from {rel[1][0]} is {x_rhs}")
+
+
+        y_rhs = iterate_endomap(YG,y_target,rel[1][1])
+        print(f"\tIn Y: {rel[1][1]} steps from {y_target} is {y_rhs}")
+
+        print(f"\tThis means {rel[0][0]} needs to map to {y_rhs} after {rel[0][1]} steps")
+        poss_vals = find_predecessors(YG,y_rhs,rel[0][1])
+        print(f"\tPossible Predecessors: {poss_vals}")
+
+        for v in poss_vals:
+            new_ass = ass.copy()
+            new_ass[rel[0][0]] = v
+            print(f"\tAdding new assignment: {new_ass}")
+            new_assignments.append(new_ass)
+    print("Done checking old assignments")
+    print(f"New assignments({len(new_assignments)}): {new_assignments}")
+
+    assignments = new_assignments
+
+print(f"Pre-dupe removal: {len(assignments)}")
+    
+remove_dupes = set([str(x) for x in assignments])    
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print(f"Final assignment count: {len(remove_dupes)}")
+print(remove_dupes)
+</pre>
+<div class="para" id="session15-p5-5-3-3">The relevant output of which gives me:</div>
+<pre class="code-block tex2jax_ignore">Final assignment count: 12
+{
+    "{'X3': 'Ym', 'X0': 'Yw', 'X1': 'Yx', 'X2': 'Yy'}",
+    "{'X3': 'Yl', 'X0': 'Yy', 'X1': 'Yw', 'X2': 'Yx'}", 
+    "{'X3': 'Yl', 'X0': 'Yw', 'X1': 'Yz', 'X2': 'Yy'}", 
+    "{'X3': 'Ym', 'X0': 'Yy', 'X1': 'Yw', 'X2': 'Yz'}", 
+    "{'X3': 'Ym', 'X0': 'Yx', 'X1': 'Yy', 'X2': 'Yw'}", 
+    "{'X3': 'Yl', 'X0': 'Yy', 'X1': 'Yw', 'X2': 'Yz'}", 
+    "{'X3': 'Ym', 'X0': 'Yy', 'X1': 'Yw', 'X2': 'Yx'}", 
+    "{'X3': 'Ym', 'X0': 'Yw', 'X1': 'Yz', 'X2': 'Yy'}", 
+    "{'X3': 'Yl', 'X0': 'Yw', 'X1': 'Yx', 'X2': 'Yy'}", 
+    "{'X3': 'Ym', 'X0': 'Yz', 'X1': 'Yy', 'X2': 'Yw'}", 
+    "{'X3': 'Yl', 'X0': 'Yz', 'X1': 'Yy', 'X2': 'Yw'}", 
+    "{'X3': 'Yl', 'X0': 'Yx', 'X1': 'Yy', 'X2': 'Yw'}"
+}
+</pre>
+<div class="para" id="session15-p5-5-3-5">These are precisely the 12 maps I came up with by hand. Not satisfied, I took this one step further with a more exhaustive search on a smaller "subgraph" of <span class="process-math">\(X\text{.}\)</span> Specifically, between the cluster of points around my 3-cycle in <span class="process-math">\(X\)</span> to the respective 3-cycle in <span class="process-math">\(Y\text{.}\)</span>
+</div>
+<pre class="code-block tex2jax_ignore">sm_x_nodes = ["a", "b", "c", "α a", "α^2 a", "α^3 a", "α^4 a"]
+sm_x_edges = [
+    (sm_x_nodes[0],sm_x_nodes[3]),
+    (sm_x_nodes[1],sm_x_nodes[4]),
+    (sm_x_nodes[2],sm_x_nodes[5]),
+    (sm_x_nodes[3],sm_x_nodes[4]),
+    (sm_x_nodes[4],sm_x_nodes[5]),
+    (sm_x_nodes[5],sm_x_nodes[6]),
+    (sm_x_nodes[6],sm_x_nodes[4])
+    
+]
+sm_XG = nx.DiGraph()
+sm_XG.add_nodes_from(sm_x_nodes)
+sm_XG.add_edges_from(sm_x_edges)
+
+sm_y_nodes = ["w","x","y","z"]
+sm_y_edges = [
+    (sm_y_nodes[0],sm_y_nodes[1]),
+    (sm_y_nodes[1],sm_y_nodes[2]),
+    (sm_y_nodes[2],sm_y_nodes[0]),
+    (sm_y_nodes[3],sm_y_nodes[2])
+]
+sm_YG = nx.DiGraph()
+sm_YG.add_nodes_from(sm_y_nodes)
+sm_YG.add_edges_from(sm_y_edges)
+
+sm_X_alpha = make_presentation(sm_XG)
+sm_Y_beta = make_presentation(sm_YG)
+
+print(sm_X_alpha)
+print("~~~~~~~~~~~~~~~~~~~")
+print(sm_Y_beta)
+</pre>
+<div class="para" id="session15-p5-5-3-7">This gives me the following (expected) presentations:</div>
+<pre class="code-block tex2jax_ignore">{'generators': ['a', 'b', 'c'], 'relations': [(('a', 5), ('a', 2)), (('b', 1), ('a', 2)), (('c', 1), ('a', 3))]}
+~~~~~~~~~~~~~~~~~~~
+{'generators': ['z'], 'relations': [(('z', 4), ('z', 1))]}
+</pre>
+<div class="para" id="session15-p5-5-3-9">Given that this aligned with my expectation, I tried to generate <em class="emphasis">ALL</em> maps in <span class="process-math">\(\mathcal{S}\text{.}\)</span>  I know that since I’m mapping from a 7 element set to a 4 element set there are <span class="process-math">\(4^7 = 16384\)</span> possible maps all together.  I can then methodically test each map to see if they "preserve structure".</div>
+<pre class="code-block tex2jax_ignore">def make_all_maps(xs,ys):
+    x_size = len(xs)
+    y_size = len(ys)
+    total = y_size**x_size
+    print(total)
+    all_assignments = []
+    for x in xs:
+        new_maps = []
+        for y in ys:
+            new_maps.append({x:y})
+        all_assignments = join_assignments(all_assignments,new_maps) 
+    return all_assignments
+sm_maps = make_all_maps(sm_x_nodes,sm_y_nodes)
+
+def preserves_structure(f,x_graph,y_graph):
+    for k,v in zip(f.keys(),f.values()):
+        #print(f"f({k}) = {v}")
+        alpha_x = follow_endomap(x_graph,k)
+        f_alpha_x = f[alpha_x]
+        #print(f"alpha({k}) = {alpha_x}")
+        #print(f"f({alpha_x}) = {f_alpha_x}")
+        beta_y = follow_endomap(y_graph,v)
+        #print(f"beta({v}) = {beta_y}")
+        if beta_y != f_alpha_x:
+              #print("fails to preserve structure")
+              return False
+    return True
+
+sm_evaluations = list(filter(lambda x: preserves_structure(x,sm_XG,sm_YG),sm_maps))
+
+print(len(sm_evaluations))
+print(sm_evaluations)
+</pre>
+<div class="para" id="session15-p5-5-3-11">Since each of these 6 maps could have either <span class="process-math">\(\bar{d} \rightarrow m\)</span> and <span class="process-math">\(\bar{d} \rightarrow l\)</span> as options, this essentially confirms the 12 maps I saw earlier.</div> <div class="para" id="session15-p5-5-3-12">Where this problem became interesting was when I stopped to consider the question: "how could I possibly get 7 maps?". After testing out some variations I came across the following graph which finally "worked".</div>
+<pre class="code-block tex2jax_ignore">sm_z_nodes = ["X"+str(i) for i in range(8)]
+sm_z_edges = [
+    (sm_z_nodes[0],sm_z_nodes[3]),
+    (sm_z_nodes[1],sm_z_nodes[4]),
+    (sm_z_nodes[2],sm_z_nodes[5]),
+    (sm_z_nodes[3],sm_z_nodes[4]),
+    (sm_z_nodes[4],sm_z_nodes[5]),
+    (sm_z_nodes[5],sm_z_nodes[6]),
+    (sm_z_nodes[6],sm_z_nodes[4]),
+    (sm_z_nodes[7],sm_z_nodes[0])
+    
+]
+sm_ZG = nx.DiGraph()
+sm_ZG.add_nodes_from(sm_z_nodes)
+sm_ZG.add_edges_from(sm_z_edges)
+
+# make my latex easier
+print("\n".join(["("+e[0]+") edge ("+e[1]+")" for e in sm_z_edges]))
+
+nx.draw(sm_ZG, with_labels=True, font_weight='bold')
+
+my_missing_maps = make_all_maps(sm_z_nodes,sm_y_nodes)
+missing_map_evaluations = list(filter(lambda x: preserves_structure(x,sm_ZG,sm_YG),my_missing_maps))
+
+print(len(missing_map_evaluations))
+print(missing_map_evaluations)
+</pre>
+<figure class="figure figure-like" id="fig-session15-ex7-p2-1"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="generated/latex-image/img-session15-ex7-p2-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.14.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure> <div class="para" id="session15-p5-5-3-15">Once run, this gave me the following 7 structure preserving maps:</div>
+<pre class="code-block tex2jax_ignore">[
+    {'X8': 'w', 'X7': 'y', 'X6': 'x', 'X5': 'w', 'X4': 'y', 'X3': 'w', 'X1': 'x', 'X2': 'y'}, 
+    {'X8': 'x', 'X7': 'w', 'X6': 'y', 'X5': 'x', 'X4': 'w', 'X3': 'x', 'X1': 'y', 'X2': 'w'}, 
+    {'X8': 'x', 'X7': 'w', 'X6': 'y', 'X5': 'x', 'X4': 'w', 'X3': 'z', 'X1': 'y', 'X2': 'w'},
+    {'X8': 'y', 'X7': 'x', 'X6': 'w', 'X5': 'y', 'X4': 'x', 'X3': 'y', 'X1': 'w', 'X2': 'x'}, 
+    {'X8': 'y', 'X7': 'x', 'X6': 'w', 'X5': 'y', 'X4': 'x', 'X3': 'y', 'X1': 'w', 'X2': 'z'}, 
+    {'X8': 'z', 'X7': 'w', 'X6': 'y', 'X5': 'x', 'X4': 'w', 'X3': 'x', 'X1': 'y', 'X2': 'w'}, 
+    {'X8': 'z', 'X7': 'w', 'X6': 'y', 'X5': 'x', 'X4': 'w', 'X3': 'z', 'X1': 'y', 'X2': 'w'}
+]
+</pre>
+<div class="para" id="session15-p5-5-3-17">This got me wondering if I had an object "0" with the property needed in the above map and that’s when I got really excited by this idea of the objects "0" and "1" being defined as maps.</div> <div class="para" id="session15-p5-5-3-18">The first time I started asking "is the text wrong" was way back in <a href="article1.html" class="internal" title="Section 2.1: Article 1: Sets, maps, composition">Article 1 2.1</a> when we first started counting maps. The discrepancy had to do with the way I was allowing things to be "undecided" in my model of a map in a way that the authors had explicitly not. Essentially, I had left <span class="process-math">\(0^0\)</span> as "undefined" while the authors had defined <span class="process-math">\(0^0 = 1\text{,}\)</span> so there was an <em class="emphasis">off-by-one</em> error in how I was counting my maps.</div> <div class="para" id="session15-p5-5-3-19">I think I’m implicitly doing the something similar again here. I feel like this mystery point <span class="process-math">\(0\)</span> in my map comes from the fact that I have a map that assigns <span class="process-math">\(0\)</span> to my generators. You can see this in my code where I use the adjacency matrix of my graph to count the incoming arrows at each node to find potential generators.  From there, I had to go through a great deal of messy code to pull a generator out of the loop by iterating through points with exactly one arrow in.  I’ve started to wonder if I should be thinking of "0" as a map from the "empty set" to "my generators" and treat my cycle of two more like a single element.</div> <div class="para" id="session15-p5-5-3-20">I’ve also started thinking about using <span class="process-math">\(\mathbb{N}\)</span> as an intermediary step between <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\text{.}\)</span>
+</div> <figure class="figure figure-like" id="fig-session15-ex7-p2-2"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="generated/latex-image/img-session15-ex7-p2-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.14.4<span class="period">.</span></span><span class="space"> </span></figcaption></figure> <div class="para" id="session15-p5-5-3-22">Part of my reasoning is that it seems like there are certain "natural maps" based on the structure of the endomap.  Once such map is the "number of incoming arrows map", as established by the product of my "ones vector" with the "adjacency matrix".  This is an "objective value" that can be assigned to each node.</div> <figure class="figure figure-like" id="fig-session15-ex7-p2-3"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="generated/latex-image/img-session15-ex7-p2-3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.14.5<span class="period">.</span></span><span class="space"> </span></figcaption></figure> <div class="para" id="session15-p5-5-3-24">Then there’s a second "natural map" that assigns a value to each node based on "the number of steps to stabilize". That is, for any given point <span class="process-math">\(x \in X\text{,}\)</span> how many times can we apply <span class="process-math">\(\alpha\)</span> until we see a point that we’ve seen before.</div> <figure class="figure figure-like" id="fig-session15-ex7-p2-4"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="generated/latex-image/img-session15-ex7-p2-4.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.14.6<span class="period">.</span></span><span class="space"> </span></figcaption></figure> <div class="para" id="session15-p5-5-3-26">It seems like these two graphs labelings are somehow connected with the presentation of <span class="process-math">\(X^{\circlearrowright \alpha}\)</span> in a way I can’t quite articulate yet.</div> <div class="para" id="session15-p5-5-3-27">There’s one last idea I want to get out my head for the week, and it’s this idea that one of my 12 maps is "special".  Namely, I think the map that assigns <span class="process-math">\(\bar{a} \rightarrow z\)</span> has a different interpretation that the others do not. Specifically, I think this map has an "isomorphism" with a subset of <span class="process-math">\(X\)</span> that would describe as "the image of <span class="process-math">\(X\)</span> under <span class="process-math">\(\alpha\)</span>". Where does it say that the points in <span class="process-math">\(Y\)</span> can’t also be points in <span class="process-math">\(X\text{?}\)</span>  Maybe that’s the missing binary question that produces my two missing maps.</div> <figure class="figure figure-like" id="fig-session15-ex7-p2-5"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="generated/latex-image/img-session15-ex7-p2-5.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.14.7<span class="period">.</span></span><span class="space"> </span></figcaption></figure> <div class="para" id="session15-p5-5-3-29">Once I apply <span class="process-math">\(\alpha\)</span> to the points in <span class="process-math">\(X\text{,}\)</span> each one of the "tails on the loop" shortens by 1.  If I apply <span class="process-math">\(\alpha\)</span> a second time, the tails disappear entirely.  Maybe I should be taking exponents of my adjacency matrix instead of trying to breat things apart into cycles.</div>
+</div></details></div></article></details><div class="para" id="session15-p5-6">I’m going to stop there for the week.  Having to manually format the output of my Juypter notebooks is exhausting. If I’m going to continue solving questions with code it might be worthwhile to automate the process.</div></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="session15-p4.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
