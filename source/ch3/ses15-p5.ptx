@@ -1,0 +1,925 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session15-p5">
+    <title>Session 15: Objectification of Properties, Part 5</title>
+    <p>
+        Last week I stopped partway through Exercise 7 because
+        I was struggling to find all the last 2 maps, but I had 
+        "an idea" about where to find them.  This week the 
+        plan is work on verifying that hypothesis by using
+        Python.  I'm going to begin with Exercise 8 to get a 
+        better feel for how these "presentations" work.
+    </p>
+    <p>
+        This is going to get some what code-heavy, so see
+        <url href="https://github.com/rruff82/LS-Categories/blob/main/assets/notebooks/ls-ses15-ex7-before.ipynb?raw=true">
+
+        this Jupyter notebook</url>
+        if you want to follow along.
+    </p>
+    <example>
+        <title>Exercise 8:</title>
+        <statement>
+            <p>
+                Draw some simple dynamical systems...
+            </p>
+        </statement>
+        <solution>
+
+            <p>
+                Rather than manually finding these presentations,
+                I'm going to build a Python script that does it for 
+                me. I leveraged some common libraries, includeing
+                <url href="https://networkx.org" visual="networkx.org">NetworkX</url> 
+                for the "digraph" object, <url href="https://numpy.org" visual="numpy.org">NumPy</url> 
+                for linear algebra. I used <url href="https://matplotlib.org" visual="matplotlib.org">Matplotlib</url>
+                for visuals during development, but I'll map to <latex /> for this 
+                document.   Our endomap <m>\alpha</m> might 
+                be defined as follows:
+             </p>
+             <pre>
+        import numpy as np
+        import networkx as nx
+        import matplotlib.pyplot as plt
+        
+        x_nodes = ["X"+str(i) for i in range(9)]
+        x_edges = [
+            (x_nodes[0],x_nodes[4]),
+            (x_nodes[1],x_nodes[5]),
+            (x_nodes[2],x_nodes[6]),
+            (x_nodes[3],x_nodes[8]),
+            (x_nodes[4],x_nodes[5]),
+            (x_nodes[5],x_nodes[6]),
+            (x_nodes[6],x_nodes[7]),
+            (x_nodes[7],x_nodes[5]),
+            (x_nodes[8],x_nodes[3])
+        ]
+        XG = nx.DiGraph()
+        XG.add_nodes_from(x_nodes)
+        XG.add_edges_from(x_edges)
+             </pre>
+             <p>
+                Since this directed graph represents an endomap,
+                each node should have precisely one "successor".
+                We can use this property to implent our endomap
+                as a function on the graph:
+             </p>
+             <pre>
+        def follow_endomap(G,n):
+            return list(G.successors(n))[0]
+             </pre>
+             <p>
+                We can then use the algorithm described in the 
+                text to produce a "presentation" from a given endomap.
+                I tried 
+             </p>
+        <pre>
+        def make_presentation(G):
+            G_nodes = list(G.nodes())
+            ones_G = np.full((len(G_nodes),),1)
+            GA =  nx.adjacency_matrix(G)
+            G_arrows_in =  np.matmul(ones_G,GA.toarray())
+            G_arrows_by_node = sorted(zip(range(len(G_nodes)),G_arrows_in), key=lambda x: x[1])
+            G_presentation = {}
+            G_relations = {}
+            for k,v in G_arrows_by_node:
+              print(f"Checking node {k} with {v} arrows in")
+              if v == 0:
+                print(f"Adding root generator {G_nodes[k]}")
+                G_presentation[G_nodes[k]] = (G_nodes[k],v)
+                next_node = follow_endomap(G,G_nodes[k])
+                steps = 1
+                while not next_node in G_presentation:
+                  print(f"Adding follow up node {next_node}: {steps} from {G_nodes[k]}")
+                  G_presentation[next_node] = (G_nodes[k],steps)
+                  next_node = follow_endomap(G,next_node)
+                  steps += 1
+                print(f"next node {next_node} already has presentation")
+                G_relations[G_nodes[k]] = ((G_nodes[k],steps),G_presentation[next_node])
+              elif v == 1:
+                print(f"Only 1 way into node {k}")
+                if G_nodes[k] in G_presentation:
+                  print("already has a presentation")
+                else:
+                  print("Found potential loop")
+                  G_presentation[G_nodes[k]] = (G_nodes[k],0)
+                  next_node = follow_endomap(G,G_nodes[k])
+                  steps = 1
+                  while not next_node in G_presentation:
+                    print(f"Adding follow up node {next_node}: {steps} from {G_nodes[k]}")
+                    G_presentation[next_node] = (G_nodes[k],steps)
+                    next_node = follow_endomap(G,next_node)
+                    steps += 1
+                  print(f"next node {next_node} already has presentation")
+                  G_relations[G_nodes[k]] = ((G_nodes[k],steps),G_presentation[next_node])
+              else:
+                print(f"More than 1 way in")
+          
+            return {
+                "generators":list(G_relations.keys()),
+                "relations":list(G_relations.values())
+            }
+        endomap_alpha = make_presentation(XG)
+        print(endomap_alpha)      
+        </pre>
+            <p>
+                This code produced the following output:
+            </p>
+        <pre>
+        Checking node 0 with 0 arrows in
+        Adding root generator X0
+        Adding follow up node X4: 1 from X0
+        Adding follow up node X5: 2 from X0
+        Adding follow up node X6: 3 from X0
+        Adding follow up node X7: 4 from X0
+        next node X5 already has presentation
+        Checking node 1 with 0 arrows in
+        Adding root generator X1
+        next node X5 already has presentation
+        Checking node 2 with 0 arrows in
+        Adding root generator X2
+        next node X6 already has presentation
+        Checking node 3 with 1 arrows in
+        Only 1 way into node 3
+        Found potential loop
+        Adding follow up node X8: 1 from X3
+        next node X3 already has presentation
+        Checking node 4 with 1 arrows in
+        Only 1 way into node 4
+        already has a presentation
+        Checking node 7 with 1 arrows in
+        Only 1 way into node 7
+        already has a presentation
+        Checking node 8 with 1 arrows in
+        Only 1 way into node 8
+        already has a presentation
+        Checking node 6 with 2 arrows in
+        More than 1 way in
+        Checking node 5 with 3 arrows in
+        More than 1 way in
+        {
+            'generators': ['X0', 'X1', 'X2', 'X3'], 
+            'relations': [
+                (('X0', 5), ('X0', 2)), 
+                (('X1', 1), ('X0', 2)), 
+                (('X2', 1), ('X0', 3)), 
+                (('X3', 2), ('X3', 0))
+            ]
+        }
+        </pre>
+        <p>
+            This matches up with our expected presentation for 
+            <m>X^{\circlearrowright \alpha}</m> with the substitions
+            <m>a = X_1</m>, <m>b = X_2</m>, <m>c = X_3</m>, and 
+            <m>d = X_4</m>.  The relations are expressed as a ordered
+            pair based on the number of "presses" from a specified 
+            generator.  This the equation <m>\alpha^5 a = \alpha^2 a</m>
+            becomes <c>(('X0', 5), ('X0', 2))</c>, <m>\alpha b = \alpha^2 a</m>
+            becomes <c>(('X1', 1), ('X0', 2))</c>, <m>\alpha c = \alpha^3 a</m>
+            becomes <c>(('X2', 1), ('X0', 3))</c>, and <m>\alpha^2 d = d</m>
+            becomes <c>(('X3', 2), ('X3', 0))</c>.
+            
+        </p>
+        
+        <p>
+            We can use a similar process to find a presentation for 
+            <m>Y^{\circlearrowright \beta}</m> as well with the following 
+            code.
+        </p>
+        <pre>
+        y_nodes = ["Y"+y for y in ["p", "q", "r", "s", "t", "v", "u", "m", "l", "w", "x", "y", "z"]]
+        
+        y_edges = [
+            (y_nodes[0],y_nodes[2]),
+            (y_nodes[1],y_nodes[2]),
+            (y_nodes[2],y_nodes[4]),
+            (y_nodes[3],y_nodes[4]),
+            (y_nodes[4],y_nodes[5]),
+            (y_nodes[5],y_nodes[6]),
+            (y_nodes[6],y_nodes[3]),
+            (y_nodes[7],y_nodes[8]),
+            (y_nodes[8],y_nodes[7]),
+            (y_nodes[9],y_nodes[10]),
+            (y_nodes[10],y_nodes[11]),
+            (y_nodes[11],y_nodes[9]),
+            (y_nodes[12],y_nodes[11])
+        ]
+        YG = nx.DiGraph()
+        YG.add_nodes_from(y_nodes)
+        YG.add_edges_from(y_edges)
+        
+        endomap_beta = make_presentation(YG)
+        print(endomap_beta)
+        </pre>
+            <p>
+                The output of the above code is the following 
+                presentation:
+            </p>
+        <pre>
+        {
+            'generators': ['p', 'q', 'z', 'm'], 
+            'relations': [
+                (('p', 6), ('p', 2)), 
+                (('q', 1), ('p', 1)), 
+                (('z', 4), ('z', 1)), 
+                (('m', 2), ('m', 0))
+            ]
+        }
+        </pre>
+        <p>
+            Using the notation in the text, our corresponding relations 
+            would be <m>\beta^6 p = \beta^2 p</m>, <m>\beta q = \beta p</m>,
+            <m>\beta^4 z = \beta z</m>, and <m>\beta^2 m = m</m>.
+        </p>
+        <p>
+            It seems like this method would be characterized as 
+            <em>depth first search</em> for the presentation. Depending
+            on what order the nodes of the nodes used to express
+            the maps, the above algorithm may produce a different result.
+        </p>
+        <p>
+            For example, suppose we defined X with the nodes in reverse:
+        </p>
+        <pre>
+        XG2 = nx.DiGraph()
+        x2_nodes = [x_nodes[-1-i] for i in range(len(x_nodes))]
+        print(x2_nodes)
+        XG2.add_nodes_from(x2_nodes)
+        XG2.add_edges_from(x_edges)
+        endomap_alpha_prime = make_presentation(XG2)
+        print(endomap_alpha_prime)
+        </pre>
+        <p>
+            We get the following output:
+        </p>
+        <pre>
+        ['X8', 'X7', 'X6', 'X5', 'X4', 'X3', 'X2', 'X1', 'X0']
+        Checking node 6 with 0 arrows in
+        Adding root generator X2
+        Adding follow up node X6: 1 from X2
+        Adding follow up node X7: 2 from X2
+        Adding follow up node X5: 3 from X2
+        next node X6 already has presentation
+        Checking node 7 with 0 arrows in
+        Adding root generator X1
+        next node X5 already has presentation
+        Checking node 8 with 0 arrows in
+        Adding root generator X0
+        Adding follow up node X4: 1 from X0
+        next node X5 already has presentation
+        Checking node 0 with 1 arrows in
+        Only 1 way into node 0
+        Found potential loop
+        Adding follow up node X3: 1 from X8
+        next node X8 already has presentation
+        Checking node 1 with 1 arrows in
+        Only 1 way into node 1
+        already has a presentation
+        Checking node 4 with 1 arrows in
+        Only 1 way into node 4
+        already has a presentation
+        Checking node 5 with 1 arrows in
+        Only 1 way into node 5
+        already has a presentation
+        Checking node 2 with 2 arrows in
+        More than 1 way in
+        Checking node 3 with 3 arrows in
+        More than 1 way in
+        {
+            'generators': ['X2', 'X1', 'X0', 'X8'], 
+            'relations': [
+                (('X2', 4), ('X2', 1)),
+                (('X1', 1), ('X2', 3)),
+                (('X0', 2), ('X2', 3)),
+                (('X8', 2), ('X8', 0))
+            ]
+        }   
+        </pre>
+        <p>
+            This is an "equivalent presentation" for
+             <m>X^{\circlearrowright \alpha}</m>.  We
+             have the same generators still, but they're 
+             listed in different order and 
+             our relations are slightly different.
+             The equivalent expressions are 
+             <m>\alpha^4 c = \alpha^1 c</m>,
+             <m>\alpha b = \alpha^3 c</m>,
+             <m>\alpha^2 a = \alpha^3 c</m>,
+             and <m>\alpha^2 d = d</m>.
+        </p>
+        <p>
+            I'm thinking that my task for Exercise 9
+            will be a little easier if I can standardize
+            my relations and generators in a unified manner
+            that makes these "equivalent presentations"
+            easier to identify.  I'm wondering if using a 
+            "breadth first search" instead of a 
+            "depth first search" might allow me to more
+            readily identify the cylces of each length.
+        </p>
+        
+                </solution>
+    </example>
+<example>
+    <title>Exercise 7 (Part 2):</title>
+    
+    <statement>
+        <p>
+            Given my code above, let's review where I got stuck
+            last week
+            and what I <em>think</em> my roadblock is.  As mentioned
+            in Exercise 8 above, part of that difficulty was 
+            matching up the cycles of matching lengths.
+        </p>
+    </statement>
+    <solution>
+
+        <p>
+            My code from my previous attempt tried to follow 
+            my pen-and-paper process as closely as possible. 
+            The relevant Python code was as follows:
+        </p>
+        <pre>
+        
+        def get_cycles(endomap):
+            cycles_by_length = {}
+            cycles_by_generator = {}
+            for k,v in enumerate(endomap["relations"]):
+                if v[0][0] == v[1][0]:
+                cl = abs(v[0][1] - v[1][1])
+                mins = min(v[0][1],v[1][1])
+                print(f"{v[0][0]} leads to cycle of length {cl} after {mins} steps")
+                if not cl in cycles_by_length:
+                    cycles_by_length[cl] = {
+                        "primary_generators":[k],
+                        "secondary_generators":[]
+                    }
+                else:
+                    cycles_by_length[cl]['primary_generators'].append(k)
+                cycles_by_generator[v[0][0]] = cl
+                else:
+                cl = cycles_by_generator[v[1][0]]
+                cycles_by_length[cl]['secondary_generators'].append(k)
+                cycles_by_generator[v[0][0]] = cl
+                return {
+                    "cycles_by_length":cycles_by_length, 
+                    "cycles_by_generator":cycles_by_generator
+                }
+        
+        def iterate_endomap(endomap, start, steps):
+            out_val = start
+            for i in range(steps):
+                out_val = follow_endomap(endomap,out_val)
+            return out_val
+        
+        def make_assignments(gen,poss_vals):
+            output = []
+            for v in poss_vals:
+              output.append({gen:v})
+            return output
+        
+        def join_assignments(ass1,ass2):
+            if len(ass1) == 0:
+              return ass2
+            if len(ass2)&lt;len(ass1):
+              return join_assignments(ass2,ass1)
+            output = []
+            for a1 in ass1:
+              for a2 in ass2:
+                new_a1 = a1.copy()
+                for k,v in zip(a2.keys(),a2.values()):
+                  new_a1[k] = v
+                output.append(new_a1)
+            return output
+        
+        def find_predecessors(endomap,target,steps=1):
+            preds = list(endomap.predecessors(target))
+            if steps > 1 and len(preds) > 0:
+              r_preds = []
+              for t in preds:
+                r_preds.extend(find_predecessors(endomap,t,steps-1))
+              return r_preds
+            else:
+              return preds
+        
+        assignments = []
+        
+        for idx,rel in enumerate(endomap_alpha['relations']):
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        x_gen = rel[0][0]
+        print(f'Attempting to match relation on: {x_gen}')
+        cl = alpha_cycles['cycles_by_generator'][x_gen]
+        print(f'Cycle Length: {cl}')
+        y_cycles = alpha_cycles['cycles_by_length'][cl]
+        poss_y_gen = y_cycles['primary_generators']+y_cycles['secondary_generators']
+        print(f"Possible Generators: {poss_y_gen}")
+        
+            
+        print(f"Attempting to satisfy: {rel}")
+        rel_lhs = iterate_endomap(XG,rel[0][0],rel[0][1])
+        rel_rhs = iterate_endomap(XG,rel[1][0],rel[1][1])
+        print(f"In X: {rel_lhs} = {rel_rhs}")
+            
+        for gen in poss_y_gen:
+            print(f"Testing generator: {gen}")
+            if rel[0][0]==rel[1][0]:
+            print("Trying to match up a loop")
+            seen_in_Y = set([])
+            eligible_subs = {}
+            cur_y = endomap_beta['generators'][gen]
+            y_steps = 0
+            found_pairs = []
+            while not cur_y in seen_in_Y:
+                lhs = iterate_endomap(YG,cur_y,rel[0][1])
+                rhs = iterate_endomap(YG,cur_y,rel[1][1])
+                if lhs == rhs:
+                print(f"Potential match at {cur_y}! {y_steps} from {gen}")
+                found_pairs.append(cur_y)
+                seen_in_Y.add(cur_y)
+                y_steps += 1
+                cur_y = iterate_endomap(YG,cur_y,1)
+        
+            print(f"Potential matches for {x_gen}: {found_pairs}")
+            new_assignments = make_assignments(x_gen,found_pairs)
+            print(f"New assignments: {new_assignments}")
+            assignments = join_assignments(assignments,new_assignments)
+            print(f"Joined assignments: {assignments}")
+            else:
+            print("Trying to match up a chain")
+            new_assignments = []
+            print(f"Existing Assignments: {assignments}")
+            for ass in assignments:
+                print(f"* Checking {ass}")
+                if rel[1][0] in ass.keys():
+                print(f"\t Found assignment from {rel[1][0]} to {ass[rel[1][0]]}")
+                y_target = ass[rel[1][0]]
+        
+                x_lhs = iterate_endomap(XG,rel[0][0],rel[0][1])
+                print(f"\tIn X: {rel[0][1]} steps from {rel[0][0]} is {x_lhs}")
+                x_rhs = iterate_endomap(XG,rel[1][0],rel[1][1])
+                print(f"\tIn X: {rel[1][1]} steps from {rel[1][0]} is {x_rhs}")
+        
+        
+                y_rhs = iterate_endomap(YG,y_target,rel[1][1])
+                print(f"\tIn Y: {rel[1][1]} steps from {y_target} is {y_rhs}")
+        
+                print(f"\tThis means {rel[0][0]} needs to map to {y_rhs} after {rel[0][1]} steps")
+                poss_vals = find_predecessors(YG,y_rhs,rel[0][1])
+                print(f"\tPossible Predecessors: {poss_vals}")
+        
+                for v in poss_vals:
+                    new_ass = ass.copy()
+                    new_ass[rel[0][0]] = v
+                    print(f"\tAdding new assignment: {new_ass}")
+                    new_assignments.append(new_ass)
+            print("Done checking old assignments")
+            print(f"New assignments({len(new_assignments)}): {new_assignments}")
+        
+            assignments = new_assignments
+        
+        print(f"Pre-dupe removal: {len(assignments)}")
+            
+        remove_dupes = set([str(x) for x in assignments])    
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print(f"Final assignment count: {len(remove_dupes)}")
+        print(remove_dupes)
+        </pre>
+        
+        <p>
+            The relevant output of which gives me:
+        </p>
+        <pre>
+        Final assignment count: 12
+        {
+            "{'X3': 'Ym', 'X0': 'Yw', 'X1': 'Yx', 'X2': 'Yy'}",
+            "{'X3': 'Yl', 'X0': 'Yy', 'X1': 'Yw', 'X2': 'Yx'}", 
+            "{'X3': 'Yl', 'X0': 'Yw', 'X1': 'Yz', 'X2': 'Yy'}", 
+            "{'X3': 'Ym', 'X0': 'Yy', 'X1': 'Yw', 'X2': 'Yz'}", 
+            "{'X3': 'Ym', 'X0': 'Yx', 'X1': 'Yy', 'X2': 'Yw'}", 
+            "{'X3': 'Yl', 'X0': 'Yy', 'X1': 'Yw', 'X2': 'Yz'}", 
+            "{'X3': 'Ym', 'X0': 'Yy', 'X1': 'Yw', 'X2': 'Yx'}", 
+            "{'X3': 'Ym', 'X0': 'Yw', 'X1': 'Yz', 'X2': 'Yy'}", 
+            "{'X3': 'Yl', 'X0': 'Yw', 'X1': 'Yx', 'X2': 'Yy'}", 
+            "{'X3': 'Ym', 'X0': 'Yz', 'X1': 'Yy', 'X2': 'Yw'}", 
+            "{'X3': 'Yl', 'X0': 'Yz', 'X1': 'Yy', 'X2': 'Yw'}", 
+            "{'X3': 'Yl', 'X0': 'Yx', 'X1': 'Yy', 'X2': 'Yw'}"
+        }
+        </pre>
+        <p>
+            These are precisely the 12 maps I came up with by hand.
+            Not satisfied, I took this one step further with 
+            a more exhaustive search on a smaller "subgraph" of <m>X</m>.
+            Specifically, between the cluster of points around 
+            my 3-cycle in <m>X</m> to the respective 3-cycle in <m>Y</m>.
+        </p>
+        <pre>
+        sm_x_nodes = ["a", "b", "c", "α a", "α^2 a", "α^3 a", "α^4 a"]
+        sm_x_edges = [
+            (sm_x_nodes[0],sm_x_nodes[3]),
+            (sm_x_nodes[1],sm_x_nodes[4]),
+            (sm_x_nodes[2],sm_x_nodes[5]),
+            (sm_x_nodes[3],sm_x_nodes[4]),
+            (sm_x_nodes[4],sm_x_nodes[5]),
+            (sm_x_nodes[5],sm_x_nodes[6]),
+            (sm_x_nodes[6],sm_x_nodes[4])
+            
+        ]
+        sm_XG = nx.DiGraph()
+        sm_XG.add_nodes_from(sm_x_nodes)
+        sm_XG.add_edges_from(sm_x_edges)
+        
+        sm_y_nodes = ["w","x","y","z"]
+        sm_y_edges = [
+            (sm_y_nodes[0],sm_y_nodes[1]),
+            (sm_y_nodes[1],sm_y_nodes[2]),
+            (sm_y_nodes[2],sm_y_nodes[0]),
+            (sm_y_nodes[3],sm_y_nodes[2])
+        ]
+        sm_YG = nx.DiGraph()
+        sm_YG.add_nodes_from(sm_y_nodes)
+        sm_YG.add_edges_from(sm_y_edges)
+        
+        sm_X_alpha = make_presentation(sm_XG)
+        sm_Y_beta = make_presentation(sm_YG)
+        
+        print(sm_X_alpha)
+        print("~~~~~~~~~~~~~~~~~~~")
+        print(sm_Y_beta)
+        </pre>
+        <p>
+            This gives me the following (expected) presentations:
+        </p>
+        <pre>
+        {'generators': ['a', 'b', 'c'], 'relations': [(('a', 5), ('a', 2)), (('b', 1), ('a', 2)), (('c', 1), ('a', 3))]}
+        ~~~~~~~~~~~~~~~~~~~
+        {'generators': ['z'], 'relations': [(('z', 4), ('z', 1))]}  
+        </pre>
+        <p>
+            Given that this aligned with my expectation, I tried to generate
+            <em>ALL</em> maps in <m>\mathcal{S}</m>.  I know that since
+            I'm mapping from a 7 element set to a 4 element set there are 
+            <m>4^7 = 16384</m> possible maps all together.  I can then 
+            methodically test each map to see if they "preserve structure".
+        </p>
+        
+        <pre>
+        def make_all_maps(xs,ys):
+            x_size = len(xs)
+            y_size = len(ys)
+            total = y_size**x_size
+            print(total)
+            all_assignments = []
+            for x in xs:
+                new_maps = []
+                for y in ys:
+                    new_maps.append({x:y})
+                all_assignments = join_assignments(all_assignments,new_maps) 
+            return all_assignments
+        sm_maps = make_all_maps(sm_x_nodes,sm_y_nodes)
+        
+        def preserves_structure(f,x_graph,y_graph):
+            for k,v in zip(f.keys(),f.values()):
+                #print(f"f({k}) = {v}")
+                alpha_x = follow_endomap(x_graph,k)
+                f_alpha_x = f[alpha_x]
+                #print(f"alpha({k}) = {alpha_x}")
+                #print(f"f({alpha_x}) = {f_alpha_x}")
+                beta_y = follow_endomap(y_graph,v)
+                #print(f"beta({v}) = {beta_y}")
+                if beta_y != f_alpha_x:
+                      #print("fails to preserve structure")
+                      return False
+            return True
+        
+        sm_evaluations = list(filter(lambda x: preserves_structure(x,sm_XG,sm_YG),sm_maps))
+        
+        print(len(sm_evaluations))
+        print(sm_evaluations)
+        </pre>
+        
+        <p>
+            Since each of these 6 maps could have either <m>\bar{d} \rightarrow m</m>
+            and <m>\bar{d} \rightarrow l</m> as options, this 
+            essentially confirms the 12 maps I saw earlier.
+        </p>
+        <p>
+            Where this problem became interesting was when I stopped to 
+            consider the question: "how could I possibly get 7 maps?".
+            After testing out some variations I came across the following
+            graph which finally "worked".
+        </p>
+        <pre>
+        sm_z_nodes = ["X"+str(i) for i in range(8)]
+        sm_z_edges = [
+            (sm_z_nodes[0],sm_z_nodes[3]),
+            (sm_z_nodes[1],sm_z_nodes[4]),
+            (sm_z_nodes[2],sm_z_nodes[5]),
+            (sm_z_nodes[3],sm_z_nodes[4]),
+            (sm_z_nodes[4],sm_z_nodes[5]),
+            (sm_z_nodes[5],sm_z_nodes[6]),
+            (sm_z_nodes[6],sm_z_nodes[4]),
+            (sm_z_nodes[7],sm_z_nodes[0])
+            
+        ]
+        sm_ZG = nx.DiGraph()
+        sm_ZG.add_nodes_from(sm_z_nodes)
+        sm_ZG.add_edges_from(sm_z_edges)
+        
+        # make my latex easier
+        print("\n".join(["("+e[0]+") edge ("+e[1]+")" for e in sm_z_edges]))
+        
+        nx.draw(sm_ZG, with_labels=True, font_weight='bold')
+        
+        my_missing_maps = make_all_maps(sm_z_nodes,sm_y_nodes)
+        missing_map_evaluations = list(filter(lambda x: preserves_structure(x,sm_ZG,sm_YG),my_missing_maps))
+        
+        print(len(missing_map_evaluations))
+        print(missing_map_evaluations)
+        
+        </pre>
+        <figure xml:id="fig-session15-ex7-p2-1">
+            <title>My map <m>Z^{\circlearrowright \alpha}</m></title>
+            <image width="90%" xml:id="img-session15-ex7-p2-1">
+                <latex-image>
+                    \begin{tikzpicture}
+                        \coordinate (XC) at (0,0);
+                        \node (X1) at ($(XC)+(-1.25,1.75)$) {$a$};
+                        \node (X2) at ($(XC)+(-0.25,.75)$) {$b$};
+                        \node (X3) at ($(XC)+(0.5,0)$) {$c$};
+        
+                        \node (X4) at ($(XC)+(-2.5,1)$) {$\alpha a$};
+                        \node (X5) at ($(XC)+(-1.5,0)$) {$\alpha^2 a$};
+                        \node (X6) at ($(XC)+(-0.5,-1.5)$) {$\alpha^3 a$};
+                        \node (X7) at ($(XC)+(-2.5,-1)$) {$\alpha^4 a$};
+                        \node (X8) at ($(XC)+(2,1)$) {$0$};
+        
+                        \draw (XC) circle [x radius=3.5,y radius=2.5];   
+                        \path[-{stealth}]
+                        (X1) edge (X4)
+                        (X2) edge (X5)
+                        (X3) edge (X6)
+                        (X4) edge (X5)
+                        (X5) edge (X6)
+                        (X6) edge (X7)
+                        (X7) edge (X5)
+                        (X8) edge (X1)
+        
+                            ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+              
+        <p>
+            Once run, this gave me the following 7 structure preserving maps:
+        </p>
+        <pre>
+        [
+            {'X8': 'w', 'X7': 'y', 'X6': 'x', 'X5': 'w', 'X4': 'y', 'X3': 'w', 'X1': 'x', 'X2': 'y'}, 
+            {'X8': 'x', 'X7': 'w', 'X6': 'y', 'X5': 'x', 'X4': 'w', 'X3': 'x', 'X1': 'y', 'X2': 'w'}, 
+            {'X8': 'x', 'X7': 'w', 'X6': 'y', 'X5': 'x', 'X4': 'w', 'X3': 'z', 'X1': 'y', 'X2': 'w'},
+            {'X8': 'y', 'X7': 'x', 'X6': 'w', 'X5': 'y', 'X4': 'x', 'X3': 'y', 'X1': 'w', 'X2': 'x'}, 
+            {'X8': 'y', 'X7': 'x', 'X6': 'w', 'X5': 'y', 'X4': 'x', 'X3': 'y', 'X1': 'w', 'X2': 'z'}, 
+            {'X8': 'z', 'X7': 'w', 'X6': 'y', 'X5': 'x', 'X4': 'w', 'X3': 'x', 'X1': 'y', 'X2': 'w'}, 
+            {'X8': 'z', 'X7': 'w', 'X6': 'y', 'X5': 'x', 'X4': 'w', 'X3': 'z', 'X1': 'y', 'X2': 'w'}
+        ]
+        </pre>
+        <p>
+            This got me wondering if I had an object "0" with the property 
+            needed in the above map and that's when I got really excited 
+            by this idea of the objects "0" and "1" being defined as maps.
+        </p>
+        <p>
+            The first time I started asking "is the text wrong" was way 
+            back in <xref ref="article1">Article 1</xref> when we first 
+            started counting maps. The discrepancy 
+            had to do with the way I was allowing things to be "undecided"
+            in my model of a map in a way that the authors had explicitly 
+            not. Essentially, I had left <m>0^0</m> as "undefined" while
+            the authors had defined <m>0^0 = 1</m>, so there was an
+            <em>off-by-one</em> error in how I was counting my maps. 
+        </p>
+        <p>
+            I think I'm implicitly doing the something similar again here.
+            I feel like this mystery point <m>0</m> in my map comes from the 
+            fact that I have a map that assigns <m>0</m> to my generators.
+            You can see this in my code where I use the adjacency matrix
+            of my graph to count the incoming arrows at each node to find 
+            potential generators.  From there, I had to go through a great deal
+            of messy code to pull a generator out of the loop by 
+            iterating through points with exactly one arrow in.  I've 
+            started to wonder if I should be thinking of "0" as a map
+            from the "empty set" to "my generators" and treat my cycle of 
+            two more like a single element.
+        </p>
+        <p>
+            I've also started thinking about using <m>\mathbb{N}</m>
+            as an intermediary step between <m>X</m> and <m>Y</m>.
+        </p>
+        
+        <figure xml:id="fig-session15-ex7-p2-2">
+            <title>My map <m>Z^{\circlearrowright \alpha}</m></title>
+            <image width="90%" xml:id="img-session15-ex7-p2-2">
+                <latex-image>
+                    \begin{tikzpicture}
+                        \node (X) at (0,1) {$X$};
+                        \node (Y) at (2,1) {$Y$};
+                        \node (N) at (1,0) {$\mathbb{N}$};
+                        \path[-{stealth}]
+                        (X) edge node[above]{$f$} (Y)
+                        (X) edge node[above]{$g$} (N)
+                        (N) edge node[above]{$h$} (Y)
+                            ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+              
+        <p>
+            Part of my reasoning is that it seems like there 
+            are certain "natural maps" based on the structure
+            of the endomap.  Once such map is the 
+            "number of incoming arrows map", as established by
+            the product of my "ones vector" with the "adjacency 
+            matrix".  This is an "objective value" that can be 
+            assigned to each node.
+        </p>
+        
+        
+        <figure xml:id="fig-session15-ex7-p2-3">
+            <title>Incoming arrow counts on <m>X^{\circlearrowright \alpha}</m></title>
+            <image width="90%" xml:id="img-session15-ex7-p2-3">
+                <latex-image>
+                    \begin{tikzpicture}
+                    \coordinate (XC) at (0,0);
+                    \node (X1) at ($(XC)+(-1.25,1.75)$) {$0$};
+                    \node (X2) at ($(XC)+(-0.25,.75)$) {$0$};
+                    \node (X3) at ($(XC)+(0.5,0)$) {$0$};
+                    \node (X4) at ($(XC)+(2,1)$) {$1$};
+                    \node (X5) at ($(XC)+(-2.5,1)$) {$1$};
+                    \node (X6) at ($(XC)+(-1.5,0)$) {$3$};
+                    \node (X7) at ($(XC)+(-0.5,-1.5)$) {$2$};
+                    \node (X8) at ($(XC)+(-2.5,-1)$) {$1$};
+                    \node (X9) at ($(XC)+(2,-1)$) {$1$};
+                    \node (XL) at ($(XC)+(0,3.5)$) {Incoming Arrow Counts on $X^{\circlearrowright \alpha}$};
+                    \draw (XC) circle [x radius=3.5,y radius=2.5];   
+                    \path[-{stealth}]
+                        (X1) edge (X5)
+                        (X5) edge (X6)
+                        (X6) edge (X7)
+                        (X7) edge (X8)
+                        (X8) edge (X6)
+                        (X2) edge (X6)
+                        (X3) edge (X7)
+                        (X4) edge[bend right] (X9)
+                        (X9) edge[bend right] (X4)
+                        ;
+                    
+                  
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+        <p>
+            Then there's a second "natural map" that assigns a value 
+            to each node based on "the number of steps to stabilize".
+            That is, for any given point <m>x \in X</m>, how many times 
+            can we apply <m>\alpha</m> until we see a point that we've
+            seen before.  
+        </p>
+        
+        <figure xml:id="fig-session15-ex7-p2-4">
+            <title>Steps to stabilize on <m>X^{\circlearrowright \alpha}</m></title>
+            <image width="90%" xml:id="img-session15-ex7-p2-4">
+                <latex-image>
+                    \begin{tikzpicture}
+                    \coordinate (XC) at (0,0);
+                    \node (X1) at ($(XC)+(-1.25,1.75)$) {$5$};
+                    \node (X2) at ($(XC)+(-0.25,.75)$) {$4$};
+                    \node (X3) at ($(XC)+(0.5,0)$) {$4$};
+                    \node (X4) at ($(XC)+(2,1)$) {$2$};
+                    \node (X5) at ($(XC)+(-2.5,1)$) {$4$};
+                    \node (X6) at ($(XC)+(-1.5,0)$) {$3$};
+                    \node (X7) at ($(XC)+(-0.5,-1.5)$) {$3$};
+                    \node (X8) at ($(XC)+(-2.5,-1)$) {$3$};
+                    \node (X9) at ($(XC)+(2,-1)$) {$2$};
+                    \node (XL) at ($(XC)+(0,3.5)$) {Steps to Stabilize on $X^{\circlearrowright \alpha}$};
+                    \draw (XC) circle [x radius=3.5,y radius=2.5];   
+                    \path[-{stealth}]
+                        (X1) edge (X5)
+                        (X5) edge (X6)
+                        (X6) edge (X7)
+                        (X7) edge (X8)
+                        (X8) edge (X6)
+                        (X2) edge (X6)
+                        (X3) edge (X7)
+                        (X4) edge[bend right] (X9)
+                        (X9) edge[bend right] (X4)
+                        ;
+                    
+                  
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+        <p>
+            It seems like these two graphs labelings are somehow 
+            connected with the presentation of <m>X^{\circlearrowright \alpha}</m>
+            in a way I can't quite articulate yet.  
+        </p>
+        
+        <p>
+            There's one last idea I want to get out my head for the week,
+            and it's this idea that one of my 12 maps is "special".  Namely,
+            I think the map that assigns <m>\bar{a} \rightarrow z</m> has a
+            different interpretation that the others do not. Specifically,
+            I think this map has an "isomorphism" with a subset of <m>X</m>
+            that would describe as "the image of <m>X</m> under <m>\alpha</m>". 
+            Where does it say that the points in <m>Y</m> can't also be points
+            in <m>X</m>?  Maybe that's the missing binary question that
+            produces my two missing maps.
+        </p>
+        <figure xml:id="fig-session15-ex7-p2-5">
+            <title>Definitions of <m>X^{\circlearrowright \alpha}</m> and <m>Im(X)^{\circlearrowright \alpha}</m></title>
+            <image width="90%" xml:id="img-session15-ex7-p2-5">
+                <latex-image>
+                    \begin{tikzpicture}
+                        \coordinate (XC) at (-4,0);
+                        \node (X1) at ($(XC)+(-1.25,1.75)$) {$a$};
+                        \node (X2) at ($(XC)+(-0.25,.75)$) {$b$};
+                        \node (X3) at ($(XC)+(0.5,0)$) {$c$};
+                        \node (X4) at ($(XC)+(2,1)$) {$d$};
+                        \node (X5) at ($(XC)+(-2.5,1)$) {$\alpha a$};
+                        \node (X6) at ($(XC)+(-1.5,0)$) {$\alpha^2 a$};
+                        \node (X7) at ($(XC)+(-0.5,-1.5)$) {$\alpha^3 a$};
+                        \node (X8) at ($(XC)+(-2.5,-1)$) {$\alpha^4 a$};
+                        \node (X9) at ($(XC)+(2,-1)$) {$\alpha d$};
+                        \node (XL) at ($(XC)+(0,3.5)$) {$X^{\circlearrowright \alpha}$};
+                        \draw (XC) circle [x radius=3.5,y radius=2.5];   
+                        \path[-{stealth}]
+                            (X1) edge (X5)
+                            (X5) edge (X6)
+                            (X6) edge (X7)
+                            (X7) edge (X8)
+                            (X8) edge (X6)
+                            (X2) edge (X6)
+                            (X3) edge (X7)
+                            (X4) edge[bend right] (X9)
+                            (X9) edge[bend right] (X4)
+                            ;
+                        
+                            \coordinate (YC) at (4,0);
+           
+                            \node (Y4) at ($(YC)+(2,1)$) {$d$};
+                            \node (Y5) at ($(YC)+(-2.5,1)$) {$\alpha a$};
+                            \node (Y6) at ($(YC)+(-1.5,0)$) {$\alpha^2 a$};
+                            \node (Y7) at ($(YC)+(-0.5,-1.5)$) {$\alpha^3 a$};
+                            \node (Y8) at ($(YC)+(-2.5,-1)$) {$\alpha^4 a$};
+                            \node (Y9) at ($(YC)+(2,-1)$) {$\alpha d$};
+                            \node (YL) at ($(YC)+(0,3.5)$) {$Im(x)^{\circlearrowright \alpha}$};
+                            \draw (YC) circle [x radius=3.5,y radius=2.5];   
+                            \path[-{stealth}]
+                            (Y5) edge (Y6)
+                            (Y6) edge (Y7)
+                            (Y7) edge (Y8)
+                            (Y8) edge (Y6)
+                            (Y4) edge[bend right] (Y9)
+                            (Y9) edge[bend right] (Y4)
+                                ;
+                            
+                            
+                            \path[-{stealth},red]
+                                (X1) edge[bend left] (Y5)
+                                (X5) edge[bend right]  (Y6)
+                                (X6) edge[bend right]  (Y7)
+                                (X7) edge[bend right]  (Y8)
+                                (X8) edge[bend right]  (Y6)
+                                (X2) edge[bend left] (Y6)
+                                (X3) edge[bend left] (Y7)
+                                (X4) edge[bend left] (Y9)
+                                (X9) edge[bend right] (Y4)
+                                    ;
+                                
+        
+        
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        </figure>
+        <p>
+            Once I apply <m>\alpha</m> to the points in <m>X</m>, each one
+            of the "tails on the loop" shortens by 1.  If I apply <m>\alpha</m>
+            a second time, the tails disappear entirely.  Maybe I should 
+            be taking exponents of my adjacency matrix instead of trying 
+            to breat things apart into cycles.
+        </p>
+    </solution>
+</example>
+<p>
+    I'm going to stop there for the week.  Having to manually 
+    format the output of my Juypter notebooks is exhausting.
+    If I'm going to continue solving questions with code it 
+    might be worthwhile to automate the process.
+</p>
+
+</section>
