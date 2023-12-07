@@ -12,7 +12,7 @@
     </p>
     <p>
         This is going to get some what code-heavy, so see
-        <url href="https://github.com/rruff82/LS-Categories/blob/main/assets/notebooks/ls-ses15-ex7-before.ipynb?raw=true">
+        <url href="https://github.com/rruff82/LS-Categories/blob/main/assets/notebooks/ls-ses15-ex7-before.ipynb">
 
         this Jupyter notebook</url>
         if you want to follow along.
@@ -911,7 +911,7 @@
             of the "tails on the loop" shortens by 1.  If I apply <m>\alpha</m>
             a second time, the tails disappear entirely.  Maybe I should 
             be taking exponents of my adjacency matrix instead of trying 
-            to breat things apart into cycles.
+            to break things apart into cycles.
         </p>
     </solution>
 </example>
