@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session15-p6">
+    <title>Session 15: Objectification of Properties, Part 6</title>
+
+    <p>
+        It's been another long week of staring into Jupyter notebooks
+        for hours on end and I still feel like I'm being haunted by those
+        two missing maps. 
+    </p>
+    <p>
+        Having given Exercises 7-9 a good share of time already,
+        it might be time for me to consider moving on and coming
+        back to them later.  The hint on Exercise 11 suggests
+        there will be more on presentations in Session 22.
+    </p>
+
+    <example>
+        <title>Exercise 9:</title>
+        
+        
+        <statement>
+            <p>
+                ...One can even program a computer....
+            </p>
+        </statement>
+        <solution> 
+            <p>
+                In all honesty, I don't think this solution is quite there yet,
+                but my code from this week can be found in 
+                <url href="https://github.com/rruff82/LS-Categories/blob/main/assets/notebooks/ls-ses15-ex9-before.ipynb">
+                this Jupyter notebook</url>.
+            </p>
+            <p>
+                Since I still can't seem to find these missing two maps,
+                there's definitely something I'm missing here.  However,
+                what I did manage to accomplish was to restore the original
+                graph structures from the presentations.  I also got some much
+                needed practice with Python's generators in process.
+            </p>
+            <p>
+                My essential idea was that I could simplify my presentations
+                by ordering the <em>(generator,iteration)</em> pairs in my
+                relations by a single natural number.  This was based 
+                in part by the proof that the rational numbers are countable.
+            </p>
+            <p>
+                My idea was that I could form a table with the generators
+                as the columns and powers of the endomap as my rows. By 
+                traversing the table along the diagonals, I could ensure
+                that I'm producing each possible relation in a well-defined
+                order.
+            </p>
+            <figure xml:id="fig-session15-ex9-1">
+                <title>Traversing generators along diagonals</title>
+                <image width="90%" xml:id="img-session15-ex9-1">
+                    <latex-image>
+                        \begin{tikzpicture}
+                        \node (NH) at (-1,1) {$\mathbb{N} = $};
+                        \node (N0) at (0,1) {$0$};
+                        \node (N1) at (1,1) {$1$};
+                        \node (N2) at (2,1) {$2$};
+                        \node (N3) at (3,1) {$3$};
+                        \node (N4) at (4,1) {$4$};
+                        \node (N5) at (5,1) {$5$};
+
+                        \node (N6) at (6,1) {...};
+
+                        \node (TH) at (-1,0) {$\alpha^0$};
+                        \node (T0) at (0,0) {$a$};
+                        \node (T1) at (1,0) {$b$};
+                        \node (T2) at (2,0) {$c$};
+                        \node (T3) at (3,0) {$d$};
+                        \node (T4) at (4,0) {$\alpha a$};
+                        
+                        \node (T5) at (5,0) {...};
+
+                        \node (A1TH) at (-1,-1) {$\alpha^1$};
+                        \node (A1T0) at (0,-1) {$\alpha a$};
+                        \node (A1T1) at (1,-1) {$\alpha b$};
+                        \node (A1T2) at (2,-1) {$\alpha c$};
+                        \node (A1T3) at (3,-1) {$\alpha d$};
+                        \node (A1T4) at (4,-1) {$\alpha^2 a$};
+                        \node (A1T5) at (5,-1) {...};
+
+                        \node (A2TH) at (-1,-2) {$\alpha^2$};
+                        \node (A2T0) at (0,-2) {$\alpha^2 a$};
+                        \node (A2T1) at (1,-2) {$\alpha^2 b$};
+                        \node (A2T2) at (2,-2) {$\alpha^2 c$};
+                        \node (A2T3) at (3,-2) {$\alpha^2 d$};
+                        \node (A2T4) at (4,-2) {$\alpha^3 a$};
+                        \node (A2T5) at (5,-2) {...};
+
+                        \path[-{stealth},red]
+                            (T0) edge (N0)
+                            (A1T0) edge[bend right] (N1)
+                            (T1) edge[bend right] (N2)
+                            (A2T0) edge[bend right] (N3)
+                            (A1T1) edge[bend right] (N4)
+                            (T2) edge[bend right] (N5)
+                            ;
+                        \path[-{stealth},blue]
+                            (T0) edge (A1T0)
+                            (A1T0) edge (T1)
+                            (T1) edge (A2T0)
+                            (A2T0) edge (A1T1)
+                            (A1T1) edge (T2)
+                            ;
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                With a fixed ordering for these elements, the 
+                relation <m>\alpha^2 a = \alpha b</m> could be rewritten
+                as pairs <m>\alpha^2 a = (0,2)</m> 
+                ("2nd" iteration of generator "0") and 
+                <m>\alpha b = (1,1)</m> ("1st iteration" of generator "1"),
+                These pairs can be turned into indexes in <m>\mathbb{N}</m> by using the "zig-zag"
+                pattern illustrated above.  The pair <m>(0,2)</m> gets mapped
+                to <m>n = 3</m> and the pair <m>(1,1)</m> gets mapped to <m>n = 4</m>.
+            </p>
+            <p>
+                This was important because it allowed me to ensure that 
+                each of my relations was described in such a way
+                that the higher index was always mapped to a lower index.
+                For example, the above relation <m>\alpha^2 a = \alpha b</m>
+                became a simple Python dictionary entry <c>{4:3}</c>.
+                Without this I was trying to link points to other points that
+                hadn't yet been indexed.
+            </p>
+            <p>
+                With this in place, I had enough information to reconstruct
+                <em>equivalent</em> definitions of <m>X^{\circlearrowright \alpha}</m>
+                and <m>Y^{\circlearrowright \beta}</m> given only the presentations
+                I produced last week.  My map counts are still off by the same
+                two maps I couldn't find in Exercise 7, but the fact that I can 
+                reconstruct my maps in this way means any method that would work
+                on the original maps could be still be applied given the presentation.
+            </p>
+            <p>
+                Obviously the point of the Exercise was that we don't 
+                need to reconstruct the maps in this way, but at least
+                this feels like some kind of progress.  It allows me to
+                break up the larger endomaps into smaller sub-presentations,
+                develop a "cluster" endomap from the sub-presentation,
+                and then compare these "clusters" for compatibility. Even if I don't 
+                have a full list of maps quite yet, I at least have an algorithm that 
+                is consistent with my earlier results.
+            </p>
+
+        </solution>
+    </example>
+
+</section>
