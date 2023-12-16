@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="session15-p7">
+    <title>Session 15: Objectification of Properties, Part 7</title>
+    <p>
+        I think I'm at a point where it's time to move forward, so
+        I'm going to try to wrap up this Session as best I can. 
+    </p>
+    <example>
+        <title>Exercise 10:</title>
+        
+        
+        <statement>
+            <p>
+                Find a presentation...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                To begin, I labeled the set of points with no incoming points as 
+                my generators:
+             </p>
+             
+             <figure xml:id="fig-session15-ex10-1">
+                 <title>Given diagram with generators</title>
+                 <image width="90%" xml:id="img-session15-ex10-1">
+                     <latex-image>
+                         \begin{tikzpicture}
+                         \coordinate (XC) at (0,0);
+                         \node (X1) at ($(XC)+(-2.25,1)$) {$a$};
+                         \node (X2) at ($(XC)+(-2.5,0)$) {$b$};
+                         \node (X3) at ($(XC)+(-1.5,0)$) {$\bullet$};
+                         \node (X4) at ($(XC)+(-1.5,-1.5)$) {$c$}; 
+                         \node (X5) at ($(XC)+(-0.5,0)$) {$\bullet$};
+                         \node (X6) at ($(XC)+(0.5,0)$) {$\bullet$};
+                         \node (X7) at ($(XC)+(1.5,0)$) {$\bullet$};
+                         \node (X8) at ($(XC)+(2.5,0)$) {$\bullet$...};
+                         \node (X9) at ($(XC)+(-1,-0.75)$) {$\bullet$};
+         
+                         \draw (XC) circle [x radius=3.5,y radius=2.5];   
+                         \path[-{stealth}]
+                             (X1) edge (X3)
+                             (X2) edge (X3)
+                             (X3) edge (X5)
+                             (X4) edge (X9)
+                             (X5) edge (X6)
+                             (X6) edge (X7)
+                             (X7) edge (X8)
+                             (X9) edge (X5)
+                             ;
+                         
+                       
+                         \end{tikzpicture}
+                     </latex-image>
+                 </image>
+             </figure>
+             <p>
+                 Next, I start labeling nodes by following each generator
+                 until I reach a point with more than one incoming arrow.
+                 This identifies two relations for the presentation. 
+             </p>
+             <figure xml:id="fig-session15-ex10-2">
+                 <title>Given diagram with generators</title>
+                 <image width="90%" xml:id="img-session15-ex10-2">
+                     <latex-image>
+                         \begin{tikzpicture}
+                         \coordinate (XC) at (0,0);
+                         \node (X1) at ($(XC)+(-2.25,1.5)$) {$a$};
+                         \node (X2) at ($(XC)+(-2.5,0)$) {$b$};
+                         \node (X3) at ($(XC)+(-1.5,.75)$) {$\alpha a = \alpha b$};
+                         \node (X4) at ($(XC)+(-1.5,-1.5)$) {$c$}; 
+                         \node (X5) at ($(XC)+(-0.5,0)$) {$\alpha^2 c = \alpha^2 a$};
+                         \node (X6) at ($(XC)+(0.8,-0.4)$) {$\bullet$};
+                         \node (X7) at ($(XC)+(1.6,-0.8)$) {$\bullet$};
+                         \node (X8) at ($(XC)+(2.4,-1.2)$) {$\bullet$...};
+                         \node (X9) at ($(XC)+(-1,-0.75)$) {$\alpha c$};
+         
+                         \draw (XC) circle [x radius=3.5,y radius=2.5];   
+                         \path[-{stealth}]
+                             (X1) edge (X3)
+                             (X2) edge (X3)
+                             (X3) edge (X5)
+                             (X4) edge (X9)
+                             (X5) edge (X6)
+                             (X6) edge (X7)
+                             (X7) edge (X8)
+                             (X9) edge (X5)
+                             ;
+                         
+                       
+                         \end{tikzpicture}
+                     </latex-image>
+                 </image>
+             </figure>
+             <p>
+                 So my presentation for this endomap is given by the set of 
+                 generators <m>\{a,b,c\}</m> with the relations 
+                 <m>\alpha a = \alpha b</m> and <m>\alpha^2 a = \alpha^2 c</m>. 
+             </p>
+             <p>
+                 The interesting thing I notice about this is that knowing that
+                 no generator appears twice in any relation.  This property seems to imply that
+                 the resulting graph is "infinite".  It's also interesting that
+                 every point in this graph from <m>\alpha^2</m> on is the same 
+                 distance from each of the three generators. 
+             </p>
+                 </solution>
+    </example>
+    <example>
+        <title>Exercise 11:</title>
+        <statement>
+            <p>
+                Think about presentations...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                With so much to think about, where do I begin? 
+            </p>
+            <p>
+                I think one of the big ideas that's been floating in my
+                head is that I can represent any finite endomap as a
+                directed graph and I can construct an adjacency matrix
+                that simulates the behavior of the map.  If I take
+                an "eigendecomposition" of the adjacency matrix, it seems
+                like the "eigenvalues" tell me what kinds of "loops" I have.
+            </p>
+            <p>
+                If I calculate the eigenvalues for the <m>X^{\circlearrowright \alpha}</m>
+                used in this session using <c>np.linalg.eig</c>, I get the following list of <m>\lambda</m>s: 
+                four copies of <m>0</m>, two copies of <m>1</m>, one instance of <m>-1</m> and a pair of complex
+                conjugates <m>-0.5 \pm 0.8660254i</m>.  
+            </p>
+            <p>
+                What strikes me as curious about this is that the
+                numbers <m>-0.5 \pm 0.8660254i</m> are what I would describe
+                as "third roots of unity".  The number defined by
+                <m>\lambda = \frac{-1+i\sqrt{3}}{2} \approx -0.5 + 0.8660254i</m> 
+                has a special property that 
+                <m>\lambda^2 = \frac{-1-i\sqrt{3}}{2} \approx -0.5 - 0.8660254i</m>
+                and <m>\lambda^3 = 1</m>. Thus, my 3-cycle in the graph 
+                corresponds directly to set of 3 eigenvalues: 
+                <m>\{\frac{-1+i\sqrt{3}}{2},\frac{-1-i\sqrt{3}}{2},1\}</m>.  
+            </p>
+            <p>
+                Likewise, <m>-1</m> is a "second root of unity" since 
+                <m>(-1)^2 = 1</m>.  If my cycle of 2 is corresponds with 
+                the set <m>\{-1,1\}</m>, the only unaccounted for eigenvalues 
+                left are the 4 copies of <m>0</m>.  It seems natural that the 
+                four <m>0</m> values would correspond to the four generators.
+            </p>
+            <p>
+                It seems this is too big of a coincidence to be true by
+                accident.  It makes me wonder if there is some kind of 
+                connection here between the eigenvectors of the adjacency
+                matrix and the relations in its presentation.  
+            </p>
+          
+        </solution>
+    </example>
+    <example>
+        <title>Exercise 12:</title>
+        <statement>
+            <p>
+                A non-autonomous dynamical system...
+            </p>
+        </statement>
+        <solution>
+
+            <p>
+                Suppose we have two different sequences <m>u_1, u_2</m> 
+                with the properties that <m>u_1(n+1) = r(n,u_1(n))</m>, 
+                <m>u_2(n+1) = r(n,u_2(n))</m>, and <m>u_1(0) = u_2(0) = s_0</m>.  
+                In order to have <m>u_1 \neq u_2</m> there would need
+                to exist some <m>n \in \mathbb{N}</m> such that
+                <m>u_1(n) \neq u_2(n)</m>
+            </p>
+            <p>
+                Consider what happens when we evaluate <m>u_1(1)</m>
+                and <m>u_2(1)</m>.  Applying our definitions gives us
+                <m>u_1(1) = r(0,u_1(0)) = r(0,s_0)</m> and 
+                <m>u_2(1) = r(0,u_2(0)) = r(0,s_0)</m>.  Since 
+                both expressions are equivalent to <m>r(0,s_0)</m>,
+                it follows that <m>u_1(1) = u_2(1)</m>.
+            </p>
+            <p>
+                Having established that <m>u_1(0) = u_2(0) \implies u_1(1) = u_2(1)</m>,
+                consider the case where <m>u_1(n) = u_2(n)</m>.  
+                It follows from our definitions that 
+                <m>u_1(n+1) = r(n,u_1(n)) = r(n,u_2(n)) = u_1(n+1)</m>.
+                Since <m>u_1(n) = u_2(n) \implies u_1(n+1) = u_2(n+1)</m>,
+                it follows from induction that <m>u_1(n) = u_2(n)</m> 
+                for all <m>n \in \mathbb{N}</m> and contradicts our assumption
+                that they were two different maps. 
+            </p>
+        
+
+        </solution>
+    </example>
+
+    <example>
+        <title>Exercise 7-9 Follow Up</title>
+        <statement>
+            <p>
+                About my "missing maps"
+            </p>
+        </statement>
+        <solution>
+            <p>
+                I'm still not sure I have a satisfactory answer
+                to this, but I'm starting think it's more closely
+                related to the way we defined "parity" on maps
+                using the existence of a fixed point.
+            </p>
+            <p>
+                As I was exploring the graphs using the adjacency matrix
+                representation, I found it helpful to use a <c>zeroes_vec</c>
+                of the form <m>v_0 = &lt;0,0,...,0&gt;</m>
+                and <c>ones_vec</c> of the form of the form 
+                <m>v_1 = &lt;1,1,...,1&gt;</m>
+                to assist in ascertaining the properties
+                of the endomap.  What was interesting about these was how 
+                it allowed me to easily formulate questions about the behavior 
+                of all the points in the map at once.
+            </p>
+            <p>
+                One of the interesting things I noticed was that 
+                if <m>A</m> was my adjacency matrix, multiplying 
+                by <m>v_0</m> was "commutative" but my multiplying
+                by <m>v_1</m> was not. More specifically, I found 
+                <m>A v_0 = v_0</m> and 
+                <m>v_0^{\intercal} A = v_0^{\intercal}</m>, which suggests
+                that <m>v_0</m> is essentially a "fixed point"
+                when applied on either side.
+                In contrast, <m>v_1</m> only has this property when 
+                multiplied on the right.  I found that <m>A v_1 = v_1</m>,
+                because each point has exactly one arrow out, but 
+                <m>v_1^{\intercal} A \neq v_1^{\intercal}</m> because
+                some points had more than one arrow leading in.  
+            </p>
+            <p>
+                What's interesting about this is that <m>v_0</m>
+                is kind of acting like an idempotent here.  Whether
+                we multiple on the left or right, we still get 
+                <m>v_0</m> back again.  In contrast, <m>v_1</m>
+                is fixed on one side but not the other.  
+                This got me thinking about somehow using 
+                <m>v_1</m> as a proxy for the "universal 
+                quantifier" (<m>\forall x \in X)</m> and 
+                <m>v_0</m> as a proxy for the "existential
+                quantifier" (<m>\exists x \in X)</m>. 
+            </p>
+            <p>
+                Once I discovered which dimensions are different in
+                <m>v_1^{\intercal} A \neq v_1^{\intercal}</m>, those 
+                were the points that I added to my set of generators.
+                One of the tricky parts was that this doesn't give a 
+                generator for the cycle of 2.  In order to give that
+                point a identifier, I'd need to evaluate the expression
+                <m>v_1^{\intercal} A^2</m>.  I'll go out on a limb here
+                and suggest that I'd need to examine higher powers of
+                <m>A</m> to find generators for larger cycles if they
+                didn't already get identified by a "tail".
+            </p>
+            <p>
+                In essence, I'm thinking that since we can assign 
+                a map from points of <m>X</m> to <m>\{0,1\}</m>
+                that classifies points into "fixed" or "not fixed"
+                under the operator <m>\alpha^n</m> for every
+                <m>n \in \mathbb{N}</m>.  As long as I enumerate along
+                the "zig zag" pattern, I can check this property for 
+                every element of <m>X</m> to every power of <m>\alpha</m>.
+            </p>
+            <p>
+                Part of being in a category means we need to have an
+                identity map <m>1_X</m> on <m>X</m>.  The structure preservation 
+                property of <m>\mathcal{S}^{\circlearrowright}</m> 
+                asserts that <m>\alpha 1_X = 1_X \alpha</m>.  With that
+                in mind, what if I define <m>f = \alpha</m>?  It would follow
+                that <m>Y^{\circlearrowright \beta}</m> would really be
+                the "image" of <m>X^{\circlearrowright \alpha}</m>. 
+                If that map counts as a new map, there's also the symmetry
+                of the two cycle that could be used to produce another map
+                where the roles of points in the two-cycle have been reversed.
+            </p>
+            <p>
+                Anything I seem to come up with to explain those missing 
+                two maps makes this feel like a "trick question" somehow.
+                Perhaps the answers I'm looking for will be illuminated
+                in a later chapter.
+            </p>
+        </solution>
+    </example>
+    <p>
+        And with that, we'll call this session "complete".
+    </p>
+</section>
