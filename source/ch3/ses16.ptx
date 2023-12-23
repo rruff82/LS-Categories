@@ -1,0 +1,559 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session16">
+    <title>Session 16: Idempotents, involutions, and graphs</title>
+    <p>
+        It was nice having an organized record of my previous work in 
+        Article III to look back on as I went through this section.  
+        I think most of the answers described here are "close enough"
+        to what I came up with on my own.  
+    </p>
+    <p>
+        Despite there being only one exercise in this session, there's 
+        a considerable amount to unpack here.  I'm not quite sure how 
+        all of this fits together yet, so we'll just have to wait and 
+        see.
+    </p>
+    <example>
+        <title>Exercise 1:</title>
+        <statement>
+            <p>
+                For a given object <m>G</m>...
+            </p>
+        </statement>
+        <solution>
+
+            <p>
+                Before we get too into this, let's start by 
+                examining the examples we're asked to consider.
+                Having already solved Session 12 Exercise 3 and
+                Article III Exercise 17, let's review what we 
+                learned from each.
+            </p>
+            <p>
+                Both of these questions deal with a "gender" construct,
+                but it's defined a little differently in each.
+            </p>
+            <figure xml:id="fig-session16-ex1-1">
+                <caption>Comparing "gender" structures between Session 12 Exercise 3 and Article 3 Exercise 17</caption>
+                    <image width="80%" xml:id="img-session16-ex1-1">
+                            <latex-image>
+                \begin{tikzpicture}
+                
+                % begin maps for A3Ex17
+                \node (H1) at (7,3) {Article 3 Exercise 17};
+                \node (M) at (7,1) {$M$};
+                \node (F) at (7,-1) {$F$};
+                
+                \path[-{Stealth},font=\scriptsize,>=angle 90]
+                    (M) edge [->,>={Stealth},out=45, in=135, loop] node[above]{$\phi$} (M)   
+                    (F) edge [->,>={Stealth},out=225, in=315, loop] node[below]{$\mu$} (F)              
+                    ($(M.south)-(.2,0)$) edge node[left]{$\mu'$} ($(F.north)-(.2,0)$)
+                    ($(F.north)+(.2,0)$) edge node[right]{$\phi'$} ($(M.south)+(.2,0)$);
+        
+        
+                % begin maps for Ses12Ex3
+                \node (H0) at (2,3) {Session 12 Exercise 3};
+                \node (EQ) at (0,0) {$\mathbf{G}=$};
+                \node (FN) at (1,0) {female};
+                \node (MN) at (3,0) {male};
+        
+                \node (MM) at (1.4,0.65) {$m$};
+                \node (FM) at (2.6,-0.65) {$f$};
+                
+        
+                \draw (2,0) circle [x radius=1.6,y radius=.5];
+                \path[-{Stealth},font=\scriptsize,>=angle 90]
+        
+                (FN) edge[->,>={Stealth},loop,out=70, in=110,looseness=8] (FN)
+                (MN) edge[->,>={Stealth},loop,out=250, in=290,looseness=8] (MN)
+                (MN) edge[bend right] (FN)
+                (FN) edge[bend right] (MN)
+                ;
+                      
+        
+        
+                \end{tikzpicture}
+                            </latex-image>
+                            </image>
+                            </figure>
+            <p>
+                In Session 12 Exercise 3, we defined gender as a map <m>g</m> from the set of people,
+                <m>P</m>, to a set of genders, <m>G</m>. In this situation,
+                we essentially get a pair of "mother maps" and "father maps"
+                depending on whether they operate in "people space" (<m>m_P,f_P</m>)
+                or "gender space" (<m>m_G,f_G</m>). 
+            </p>
+        
+            <p> 
+                In Article 3 Exercise 17, we don't 
+                actually describe a set of genders directly, we just subdivide people into
+                sets of males, <m>M</m>, and females, <m>F</m>, and a 
+                set of maps between combinations of those two sets.
+                In this situation, we have pairs of mother and father maps
+                again, but this time these are all effectively in "people space"
+                and are differentiated by domain and codomain.  
+            </p>
+            <p>
+                My previously created external diagrams for these exercises
+                are reproduced below.
+            </p>
+            <figure xml:id="fig-session16-ex1-2">
+                <caption>Comparing commutative diagrams between Session 12 Exercise 3 and Article 3 Exercise 17</caption>
+                    <image width="80%" xml:id="img-session16-ex1-2">
+                            <latex-image>
+                \begin{tikzpicture}
+                
+                % begin commutative diagram for A3Ex17
+                \node (H1) at (9,6) {Article 3 Exercise 17};
+                \node (M1) at (7,4) {$M_0$};
+                \node (F1) at (7,0) {$F_0$};
+                \path[-{Stealth},font=\scriptsize,>=angle 90]
+                    (M1) edge [->,>={Stealth},out=180, in=90, loop] node[left]{$\phi_0$} (M1)   
+                    (F1) edge [->,>={Stealth},out=180, in=270, loop] node[left]{$\mu_0$} (F1)              
+                    ($(M1.south)-(.2,0)$) edge node[left]{$\mu_0'$} ($(F1.north)-(.2,0)$)
+                    ($(F1.north)+(.2,0)$) edge node[right]{$\phi_0'$} ($(M1.south)+(.2,0)$);
+        
+                \node (M2) at (11,4) {$M_1$};
+                \node (F2) at (11,0) {$F_1$};
+        
+                \path[-{Stealth},font=\scriptsize,>=angle 90]
+                        (M2) edge [->,>={Stealth},out=0, in=90, loop] node[right]{$\phi_1$} (M2)   
+                        (F2) edge [->,>={Stealth},out=0, in=270, loop] node[right]{$\mu_1$} (F2)              
+                        ($(M2.south)-(.2,0)$) edge node[left]{$\mu_1'$} ($(F2.north)-(.2,0)$)
+                        ($(F2.north)+(.2,0)$) edge node[right]{$\phi_1'$} ($(M2.south)+(.2,0)$);
+        
+                \path[-{Stealth},font=\scriptsize,>=angle 90]
+                        (M1) edge node[above]{$f_M$} (M2)
+                        (F1) edge node[above]{$f_F$} (F2);
+        
+        
+                % begin commutative diagram for Ses12Ex3   
+                \node (H0) at (2,6) {Session 12 Exercise 3};
+        
+                \node (A) at (0,4) {$\mathbf{P}$};
+                \node (B) at (4,4) {$\mathbf{G}$};
+                \node (C) at (0,0) {$\mathbf{P}$};
+                \node (D) at (4,0) {$\mathbf{G}$};
+        
+                \path[-{Stealth},font=\scriptsize,>=angle 90]
+                    (A) edge node[above] {$g$} (B)
+                    (C) edge node[above] {$g$} (D)
+                    ($(A.south)-(.1,0)$) edge node[left] {$m_P$} ($(C.north)-(.1,0)$)
+                    ($(A.south)+(.1,0)$) edge node[right] {$f_P$} ($(C.north)+(.1,0)$)
+                    ($(B.south)-(.1,0)$) edge node[left] {$m_G$} ($(D.north)-(.1,0)$)
+                    ($(B.south)+(.1,0)$) edge node[right] {$f_G$} ($(D.north)+(.1,0)$)
+                ;
+                 
+        
+                \end{tikzpicture}
+                            </latex-image>
+                            </image>
+                            </figure>
+            <p>
+                So how are these representations connected?
+            </p>
+            <p>
+                My first observation is that <m>P = M \cup F</m>.  
+                In this universe where everyone is either male or female,
+                we can think of the "set of all people" <m>P</m>
+                as a union the "set of all males" <m>M</m> with the 
+                "set of all females".  We're also assuming implicitly
+                that no one belongs to more than one gender so we also know
+                <m>M \cap F = \emptyset</m>.
+            </p>
+            <p>
+                Effectively, the map <m>g: P \rightarrow G</m> provides 
+                a "sorting" of the set of people into these two groups.
+                For every <m>p \in P</m>, <m>g p = \text{male} \iff p \in M</m>
+                and <m>g p = \text{female} \iff p \in F</m>.
+            </p>
+            <p>
+                In Session 12 Exercise 3, we needed two relations to
+                preserve structure.  We needed <m>g \circ m_P = m_G \circ g</m>
+                to assert "the gender of my mother is the gender of my mother's mother"
+                and <m>g \circ f_P = m_G \circ g</m> to assert 
+                "the gender of my father is the gender of my father's father".
+            </p>
+            <p>
+                In Article 3 Exercise 17, we needed a total of 4 relations
+                to preserve structure between these "gender-like" structures:
+                <m>f_M \circ \phi_0 = \phi_1 \circ f_M</m>,
+                <m>f_F \circ \mu_0 = \mu_1 \circ f_F</m>,
+                <m>f_F \circ \mu_0' = \mu_1' \circ f_M</m>, and
+                <m>f_M \circ \phi_0' = \phi_1' \circ f_F</m>.  However,
+                some of these maps are essentially the same if we define them
+                over <m>P</m> instead of <m>M</m> and <m>F</m> using a generalized
+                "father map" <m>\phi_P: P \rightarrow P</m> and "mother map" <m>\mu_P: P \rightarrow P</m>.
+            </p>
+            <p> 
+                Specifically, for any <m>p \in P</m> we can define <m>\phi(p)</m>
+                such that <m>\phi_P(p) = \phi_0(p)</m> for <m>p</m> such that <m>g p = \text{male}</m>
+                and <m>\phi_P(p) = \phi_0'(p)</m> for <m>p</m> such that <m>g p = \text{female}</m>.
+                Likewise, we can define <m>\mu_P(p)</m> such that 
+                <m>\mu_P(p) = \mu_0(p)</m> for <m>p</m> such that <m>g p = \text{female}</m>
+                and <m>\mu_P(p) = \mu_0'(p)</m> for  <m>p</m> such that <m>g p = \text{male}</m>.
+            </p>
+            <p>
+                Furthermore, the distinction between the pairs 
+                <m>\phi_0,\phi_1</m> and <m>\mu_0,\mu_1</m> is basically  
+                an illusion because <m>M_0</m> and <m>M_1</m> are
+                both really just <m>M</m> and <m>F_0,F_1</m> are really
+                <m>F</m>.  The only reason we needed this distinction
+                to begin with was to enforce the condition that "no 
+                person is their own parent".  Equivalently,
+                <m>\forall p \in P: \phi p \neq p</m> and 
+                <m>\forall p \in P: \mu p \neq p</m>. These are both
+                <em>maps with no fixed point</em>.
+            </p>
+            <p>
+                My hunch is that the authors are trying to reinforce the 
+                idea that the existence of fixed points provides a form 
+                of parity on maps in a way that behaves similarly to
+                this gender object.  Let's return to the commutative 
+                diagram we were given at the start of the exercise:
+            </p>
+            <figure xml:id="fig-session16-ex1-3">
+                <caption>Commutative Triangle in Session 16 Exercise 1</caption>
+                    <image width="80%" xml:id="img-session16-ex1-3">
+                            <latex-image>
+                                \begin{tikzpicture}
+                                \node (X) at (0,1) {$X$};
+                                \node (Y) at (2,1) {$X'$};
+                                \node (G) at (1,0) {$G$};
+                                \path[-{Stealth},font=\scriptsize,>=angle 90]
+                                  (X) edge node[above]{$f$} (Y)
+                                  (X) edge node[left]{$s$} (G)
+                                  (Y) edge node[right]{$s'$} (G)
+                                  ;
+                                \end{tikzpicture}
+                            </latex-image>
+                    </image>
+            </figure>
+            <p>
+                I think this is actually close to one of the ideas
+                I was playing around with in Session 15 where I was 
+                using a non-structure preserving map from <m>X \rightarrow \mathbb{N}</m>
+                as an itermediate step to finding the structure preserving
+                maps from <m>X^{\circlearrowright \alpha} \rightarrow \mathbb{N}^{\circlearrowright \sigma}</m>.  
+            </p>
+            <p>
+                In this diagram, it looks like <m>f</m> is really an
+                <em>endomap</em> on <m>X</m> with <m>X'</m> denoting the 
+                "image" of <m>X</m> under the map <m>f</m>. This basically
+                allows us to frame a question about whether or not the 
+                the structure of <m>X^{\circlearrowright f}</m> is preserved
+                by the map <m>s: X \rightarrow G</m>.
+            </p>
+            <p>
+                For each pairing of an element <m>x \in X</m> and map <m>f: X \rightarrow X</m>,
+                we can "ask" if <m>f x = x</m>. For example, assign <m>s_f x = 0</m> if <m>f x = x</m>
+                and <m>s_f x = 1</m> if <m>f x \neq x</m>. In the same way 
+                that we split <m>P = M \cup F</m>, we could then split
+                <m>X</m> into the union of <m>X_{f,0} \cup X_{f,1}</m> 
+                where <m>x \in X_{f,0} \iff s_f x = 0</m> and 
+                <m>x \in X_{f,1} \iff s x = 1</m>.   
+            </p>
+            <p>
+                I think this brings me to the point in Session 15 where
+                I was confused about how to handle the "null map" and "identity map".
+                For the "identity map", every point is fixed so 
+                <m>s_{1_X} x = 1</m> for every <m>x \in X</m>.  In contrast,
+                the "null map" doesn't have <em>any</em> points so
+                how could it possibly have a fixed point? It seems reasonable
+                to assume <m>s_{\emptyset} = 0</m>.  At the same time,
+                the fact that the "null map" returns the empty set after being
+                given the empty set also makes <m>s_{\emptyset} = 1</m> seem
+                reasonable as well <mdash/> but that's if and only if we 
+                treat the empty set as a object itself.
+            </p>
+            <p>
+                Let's take another step back to that commutative diagram.
+                We essentially have two paths we could follow to get from
+                <m>X</m> to <m>G</m>.  We can either apply <m>s</m> alone 
+                or through the composition <m>s' \circ f</m>.  This allows 
+                use to ask the question: does <m>s = s' \circ f</m>? 
+            
+            </p>
+            <p>
+                 If the answer
+                is "yes" then <m>\forall x \in X: s(x) = (s' \circ f)(x)</m>.
+                If the answer is "no" then we must have some counterexample.
+                Namely, <m>\exists x \in X: s(x) \neq (s' \circ f)(x)</m>.
+                However, we've defined <m>s</m> in such a way that either
+                <m>s(x) = 0</m> or <m>s(x) = 1</m>.  Since there's only two
+                choices, that means that <m>(s' \circ f)(x) = (\alpha \circ s)(x)</m>
+                where <m>\alpha</m> is our "antipodal map" given by 
+                <m>\alpha 0 = 1</m> and <m>\alpha 1 = 0</m>.  Since 
+                <m>s</m> and <m>s'</m> are essentially the same map, these 
+                two situtations are equivalent to the relations <m>s \circ f = s</m>
+                and <m>s \circ f = \alpha \circ s</m>.
+            </p>
+            <p>
+                What happens if we know <m>s \circ f = f \circ s</m>?
+                The relation <m>s \circ f = s = f \circ s</m> would seem
+                to imply <m>f = 1_X</m>.  The other relation  
+                gives us <m>s \circ f = \alpha \circ s = f \circ s</m>.
+                Given that <m>\alpha^2 = 1_X</m>, it would follow that 
+                <m>\alpha \circ s \circ f = \alpha \circ \alpha \circ s = s = \alpha \circ f \circ s</m>.
+                This basically guarantees that either <m>s \circ f = s = f \circ s</m>
+                or <m>\alpha \circ s \circ f = s = \alpha \circ f \circ s</m>.
+            </p>
+            <p>
+                I'm not really sure where I'm going with this anymore, but I'm 
+                reminded of two diagrams I drew while exploring Session 15.  It 
+                seemed that there were two "natural" maps from 
+                <m>X^{\circlearrowright \alpha} \rightarrow \mathbb{N}</m>
+                while I'll present side-by-side for comparison:
+            </p>
+        
+            <figure xml:id="fig-session16-4">
+                <title>"Incoming arrows" vs "Steps to stabilize" on <m>X^{\circlearrowright \alpha}</m></title>
+                <image width="90%" xml:id="img-session16-4">
+                    <latex-image>
+                        \begin{tikzpicture}
+                        \coordinate (XC) at (0,0);
+                        \node (X1) at ($(XC)+(-1.25,1.75)$) {$0$};
+                        \node (X2) at ($(XC)+(-0.25,.75)$) {$0$};
+                        \node (X3) at ($(XC)+(0.5,0)$) {$0$};
+                        \node (X4) at ($(XC)+(2,1)$) {$1$};
+                        \node (X5) at ($(XC)+(-2.5,1)$) {$1$};
+                        \node (X6) at ($(XC)+(-1.5,0)$) {$3$};
+                        \node (X7) at ($(XC)+(-0.5,-1.5)$) {$2$};
+                        \node (X8) at ($(XC)+(-2.5,-1)$) {$1$};
+                        \node (X9) at ($(XC)+(2,-1)$) {$1$};
+                        \node (XL) at ($(XC)+(0,3.5)$) {Incoming Arrow Counts on $X^{\circlearrowright \alpha}$};
+                        \draw (XC) circle [x radius=3.5,y radius=2.5];   
+                        \path[-{stealth}]
+                            (X1) edge (X5)
+                            (X5) edge (X6)
+                            (X6) edge (X7)
+                            (X7) edge (X8)
+                            (X8) edge (X6)
+                            (X2) edge (X6)
+                            (X3) edge (X7)
+                            (X4) edge[bend right] (X9)
+                            (X9) edge[bend right] (X4)
+                            ;
+                        
+        
+                        \coordinate (XC) at (8,0);
+                        \node (X1) at ($(XC)+(-1.25,1.75)$) {$5$};
+                        \node (X2) at ($(XC)+(-0.25,.75)$) {$4$};
+                        \node (X3) at ($(XC)+(0.5,0)$) {$4$};
+                        \node (X4) at ($(XC)+(2,1)$) {$2$};
+                        \node (X5) at ($(XC)+(-2.5,1)$) {$4$};
+                        \node (X6) at ($(XC)+(-1.5,0)$) {$3$};
+                        \node (X7) at ($(XC)+(-0.5,-1.5)$) {$3$};
+                        \node (X8) at ($(XC)+(-2.5,-1)$) {$3$};
+                        \node (X9) at ($(XC)+(2,-1)$) {$2$};
+                        \node (XL) at ($(XC)+(0,3.5)$) {Steps to Stabilize on $X^{\circlearrowright \alpha}$};
+                        \draw (XC) circle [x radius=3.5,y radius=2.5];   
+                        \path[-{stealth}]
+                            (X1) edge (X5)
+                            (X5) edge (X6)
+                            (X6) edge (X7)
+                            (X7) edge (X8)
+                            (X8) edge (X6)
+                            (X2) edge (X6)
+                            (X3) edge (X7)
+                            (X4) edge[bend right] (X9)
+                            (X9) edge[bend right] (X4)
+                            ;
+                        
+        
+                      
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                I'm beginning to wonder if one of the things I was missing here
+                was that the object <m>\mathbb{N}^{\circlearrowright \sigma}</m> is 
+                effectively the "antipodal map" of the object defined as 
+                <m>\Omega</m> with the structure <m>\boxed{\circlearrowright 0 \leftarrow 1
+                    \leftarrow 2 \leftarrow 3 \leftarrow ... \infty \circlearrowright}</m>. 
+            </p>
+            <p>
+                The reason this seems relevant now is that when I iterate the 
+                map by applying <m>\alpha</m> a second time, the numbers in both 
+                of these diagrams either "shrink" or "stabilize" <mdash/>
+                like they do the object <m>\Omega</m>.  If I define
+                <m>X' = \text{Image}_\alpha(X)</m>, then these natural maps become
+                the following:
+            </p>
+            <figure xml:id="fig-session16-5">
+                <title>"Incoming arrows" vs "Steps to stabilize" after applying <m>\alpha</m></title>
+                <image width="90%" xml:id="img-session16-5">
+                    <latex-image>
+                        \begin{tikzpicture}
+                        \coordinate (XC) at (0,0);
+                        \node (X4) at ($(XC)+(2,1)$) {$1$};
+                        \node (X5) at ($(XC)+(-2.5,1)$) {$0$};
+                        \node (X6) at ($(XC)+(-1.5,0)$) {$2$};
+                        \node (X7) at ($(XC)+(-0.5,-1.5)$) {$1$};
+                        \node (X8) at ($(XC)+(-2.5,-1)$) {$1$};
+                        \node (X9) at ($(XC)+(2,-1)$) {$1$};
+                        \node (XL) at ($(XC)+(0,3.5)$) {Incoming Arrow Counts on $X'^{\circlearrowright \alpha}$};
+                        \draw (XC) circle [x radius=3.5,y radius=2.5];   
+                        \path[-{stealth}]
+        
+                            (X5) edge (X6)
+                            (X6) edge (X7)
+                            (X7) edge (X8)
+                            (X8) edge (X6)
+                            (X4) edge[bend right] (X9)
+                            (X9) edge[bend right] (X4)
+                            ;
+                        
+        
+                        \coordinate (XC) at (8,0);
+        
+                        \node (X4) at ($(XC)+(2,1)$) {$2$};
+                        \node (X5) at ($(XC)+(-2.5,1)$) {$4$};
+                        \node (X6) at ($(XC)+(-1.5,0)$) {$3$};
+                        \node (X7) at ($(XC)+(-0.5,-1.5)$) {$3$};
+                        \node (X8) at ($(XC)+(-2.5,-1)$) {$3$};
+                        \node (X9) at ($(XC)+(2,-1)$) {$2$};
+                        \node (XL) at ($(XC)+(0,3.5)$) {Steps to Stabilize on $X'^{\circlearrowright \alpha}$};
+                        \draw (XC) circle [x radius=3.5,y radius=2.5];   
+                        \path[-{stealth}]
+        
+                            (X5) edge (X6)
+                            (X6) edge (X7)
+                            (X7) edge (X8)
+                            (X8) edge (X6)
+                            (X4) edge[bend right] (X9)
+                            (X9) edge[bend right] (X4)
+                            ;
+                        
+        
+                      
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                In fact, after an additional application of
+                <m>\alpha</m> both of these graphs stabilize 
+                completely into a pair of cycles:
+            </p>
+        
+            <figure xml:id="fig-session16-6">
+                <title>"Incoming arrows" vs "Steps to stabilize" after applying <m>\alpha^2</m></title>
+                <image width="90%" xml:id="img-session16-6">
+                    <latex-image>
+                        \begin{tikzpicture}
+                        \coordinate (XC) at (0,0);
+                        \node (X4) at ($(XC)+(2,1)$) {$1$};
+                        \node (X6) at ($(XC)+(-1.5,0)$) {$1$};
+                        \node (X7) at ($(XC)+(-0.5,-1.5)$) {$1$};
+                        \node (X8) at ($(XC)+(-2.5,-1)$) {$1$};
+                        \node (X9) at ($(XC)+(2,-1)$) {$1$};
+                        \node (XL) at ($(XC)+(0,3.5)$) {Incoming Arrow Counts on $X''^{\circlearrowright \alpha}$};
+                        \draw (XC) circle [x radius=3.5,y radius=2.5];   
+                        \path[-{stealth}]
+        
+                            (X6) edge (X7)
+                            (X7) edge (X8)
+                            (X8) edge (X6)
+                            (X4) edge[bend right] (X9)
+                            (X9) edge[bend right] (X4)
+                            ;
+                        
+        
+                        \coordinate (XC) at (8,0);
+        
+                        \node (X4) at ($(XC)+(2,1)$) {$2$};
+                        \node (X6) at ($(XC)+(-1.5,0)$) {$3$};
+                        \node (X7) at ($(XC)+(-0.5,-1.5)$) {$3$};
+                        \node (X8) at ($(XC)+(-2.5,-1)$) {$3$};
+                        \node (X9) at ($(XC)+(2,-1)$) {$2$};
+                        \node (XL) at ($(XC)+(0,3.5)$) {Steps to Stabilize on $X''^{\circlearrowright \alpha}$};
+                        \draw (XC) circle [x radius=3.5,y radius=2.5];   
+                        \path[-{stealth}]
+        
+                            (X6) edge (X7)
+                            (X7) edge (X8)
+                            (X8) edge (X6)
+                            (X4) edge[bend right] (X9)
+                            (X9) edge[bend right] (X4)
+                            ;
+                        
+        
+                      
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                Basically, this splitting of "people into genders" is 
+                analagous to the splitting of "endomaps into clusters".  
+                Maybe that means that my missing maps in Session 15
+                are somehow related to the two possible "common sections"
+                that assign <m>0</m> to the possible generators. Namely, the map 
+                which assigns <m>\{a,b,c,d\} \rightarrow 0</m> and the map 
+                which assigns <m>\{a,b,c,\alpha d\} \rightarrow 0</m>.
+            </p>
+            <p>
+                In an effort to wrap this up, what exactly is this category <m>\mathcal{C}/G</m>?
+            </p>
+            <p>
+                Well, we know <m>G</m> is an object in the category <m>\mathcal{C}</m>. 
+                The objects of <m>\mathcal{C}/G</m> are described as "objects of 
+                <m>\mathcal{C}</m> equipped with a given <m>\mathcal{C}</m>-sorting
+                <m>X \xrightarrow{s} G</m>", but what does that mean? 
+            </p>
+            <p>
+                I'm thinking that if every object of <m>\mathcal{C}</m>
+                is some arbitrary graph <m>G_0, G_1, ..., G_n</m>, we can
+                think of the objects in <m>\mathcal{C}/G</m> as being an
+                "ordered pairs" <m>&lt; G_i, s_i&gt;</m> such that
+                <m>s_i \circ G_i = G</m>.  Since one of our objects <m>G_i</m>
+                must be the same as <m>G</m>, the existence of a corresponding
+                object in <m>\mathcal{C}/G</m> is guaranteed by the identity 
+                map in <m>\mathcal{C}</m> since <m>1_\mathcal{C} \circ G = G</m>. 
+                Maybe it would make sense to define this ensured element as
+                <m>&lt; G_0, s &gt; = &lt; G, 1_\mathcal{C}&gt;</m> where <m>s</m>
+                is a "common section" formed by merging the individual sections 
+                over all the possible domains <m>G_i</m>.  
+            </p>
+            <p>
+                If those are our objects of <m>\mathcal{C}/G</m>, what about our
+                maps? We're told they are "commutative triangles in <m>\mathcal{C}</m>".
+                I'm thinking this means a map <m>f</m> in <m>\mathcal{C}/G</m>
+                would need to "preserve structure" by satisfying the relation
+                <m>s G_i = s f G_i</m> for every 
+                <m>&lt; G_i, s &gt;</m> pair in <m>\mathcal{C}/G</m>.
+            </p>
+            <p>
+                In order to confirm that this <m>\mathcal{C}/G</m> is a valid category,
+                we still need to verify the identity and associative laws.
+                Our identity map needs to take an object in <m>\mathcal{C}/G</m>
+                and return the same object. It seems like we should get that 
+                naturally from our identity map on <m>\mathcal{C}</m>, leaving
+                us with only the associative property to worry about.
+            </p>
+            <p>
+                Suppose <m>f_0,f_1</m> are both maps in <m>\mathcal{C}/G</m>. 
+                If <m>s(G_i) = (s \circ f_1)(G_i)</m> and <m>s(G_i) = (s \circ f_2)(G_i)</m>
+                for every <m>&lt; G_i, s &gt;</m> pair in <m>\mathcal{C}/G</m>,
+                then consider the composition of <m>f_1 \circ f_0</m>.
+            </p><p>
+                For any <m>G_i</m>, the expression <m>(s \circ (f_1 \circ f_0))(G_i)</m>
+                could be rewritten as <m>((s \circ f_1) \circ f_0)(G_i)</m> using 
+                the associative law from <m>\mathcal{C}</m>.  Since 
+                we know <m>s \circ f_1 = s</m> and <m>s \circ f_0 = s</m>, we can
+                substiute the former to get <m>(s \circ f_0)(G_i)</m> and then subsitute
+                the latter to get <m>s(G_i)</m>. It follows that 
+                <m>(s \circ (f_1 \circ f_0))(G_i) = s(G_i)</m> for all <m>G_i</m>,
+                which establishes that <m>s \circ (f_1 \circ f_0) = s</m> and confirms
+                that the composition of maps preserves the desired structure.
+            </p>
+            <p>
+                I have a feeling that a far simpler proof of this probably exists,
+                but we'll call that a wrap for this week.
+            </p>
+                </solution>
+    </example>
+</section>

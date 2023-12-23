@@ -5945,7 +5945,7 @@ extra level of assurance that these functions will behave as expected.
                   <m>\boxed{M_0^{\circlearrowright \phi_0}} \xrightarrow{f_M} \boxed{M_1^{\circlearrowright \phi_1}}</m> 
                   means that I'd want <m>f_M \circ \phi_0 = \phi_1 f_M</m> and 
                   <m>\boxed{F_0^{\circlearrowright \mu_0}} \xrightarrow{f_F} \boxed{M_1^{\circlearrowright \mu_1}}</m> 
-                  means that I'd want <m>f_M \circ \mu_0 = \mu_1 f_F</m>. 
+                  means that I'd want <m>f_F \circ \mu_0 = \mu_1 f_F</m>. 
                 </p>
                 <p>
                   With the remaining four maps, <m>\mu_n',\phi_n'</m>, we can form
@@ -6863,7 +6863,7 @@ extra level of assurance that these functions will behave as expected.
       <xi:include href="ch3/ses15-p5.ptx" />
       <xi:include href="ch3/ses15-p6.ptx" />
       <xi:include href="ch3/ses15-p7.ptx" />
-      
+      <xi:include href="ch3/ses16.ptx" />
     </chapter>
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
