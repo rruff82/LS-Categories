@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Session 17: Some uses of graphs</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="L&amp;S Cat Theory">
+<meta property="book:author" content="Ryan Ruff">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">L&amp;S Cat Theory:</span> <span class="subtitle">Attempted solutions to "Conceptual Mathematics" by Lawvere and Schanuel</span></a></h1>
+<p class="byline">Ryan Ruff</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="session16.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="part3.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="about.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is this?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session1.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Session 1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part1.html" class="internal"><span class="codenumber">2</span> <span class="title">Part 1: The Category of Sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Article 1: Sets, maps, composition</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-session2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Session 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-session3.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Session 3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part2.html" class="internal"><span class="codenumber">3</span> <span class="title">Part 2: The Algebra of Composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Article 2: Isomorphisms, Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2-p2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Article 2: Isomorphisms, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2-p3.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Article 2: Isomorphisms, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session4.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Session 4: Division of maps: Isomorphisms</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session5.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Session 5: Division of maps: Sections and retractions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session6.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Session 6: Two general aspects or uses of maps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session7.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Session 7: Isomorphisms and coordinates</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session8.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Session 8: Pictures of a map</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session9.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Session 9: Retracts and idempotents</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quiz1.html" class="internal"><span class="codenumber">3.10</span> <span class="title">Quiz</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quiz2.html" class="internal"><span class="codenumber">3.11</span> <span class="title">Summary/Quiz on Opposed Maps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="test1.html" class="internal"><span class="codenumber">3.12</span> <span class="title">Test 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session10.html" class="internal"><span class="codenumber">3.13</span> <span class="title">Brouwer’s theorems</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="part3.html" class="internal"><span class="codenumber">4</span> <span class="title">Part 3: Categories of Structured Sets</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Article 3: Examples of Categories, Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Article 3: Examples of Categories, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p3.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Article 3: Examples of Categories, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p4.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Article 3: Examples of Categories, Part 4</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p5.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Article 3: Examples of Categories, Part 5</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session11.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Session 11: Ascending to categories of richer structures</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session12.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Session 12: Categories of Diagrams</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session13.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Session 13: Monoids</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session14.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Session 14: Maps preserve positive properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Session 15: Objectification of Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p2.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Session 15: Objectification of Properties, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p3.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Session 15: Objectification of Properties, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p4.html" class="internal"><span class="codenumber">4.13</span> <span class="title">Session 15: Objectification of Properties, Part 4</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p5.html" class="internal"><span class="codenumber">4.14</span> <span class="title">Session 15: Objectification of Properties, Part 5</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p6.html" class="internal"><span class="codenumber">4.15</span> <span class="title">Session 15: Objectification of Properties, Part 6</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p7.html" class="internal"><span class="codenumber">4.16</span> <span class="title">Session 15: Objectification of Properties, Part 7</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session16.html" class="internal"><span class="codenumber">4.17</span> <span class="title">Session 16: Idempotents, involutions, and graphs</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="session17.html" class="internal"><span class="codenumber">4.18</span> <span class="title">Session 17: Some uses of graphs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="session17"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.18</span><span class="space"> </span><span class="title">Session 17: Some uses of graphs</span>
+</h2>
+<div class="para" id="session17-2">This week’s reading started with the discussion of a simple game, so I kind of started this week by <a class="external" href="https://rruff82.github.io/LS-Ses17-PegGame" target="_blank">implementing it in Javascript using React</a><a class="xref" id="session17-2-2" href="" data-knowl="./knowl/fn/session17-2-2.html" title="Footnote 4.18.1"><sup> 1 </sup></a>. If you want to see how it works, the source code is <a class="external" href="https://github.com/rruff82/LS-Ses17-PegGame" target="_blank">available here</a><a class="xref" id="session17-2-4" href="" data-knowl="./knowl/fn/session17-2-4.html" title="Footnote 4.18.2"><sup> 2 </sup></a>. Looking back over my code, it’s kind of funny how obvious it is that my Javascript was derived from a Python implementation.</div>
+<div class="para" id="session17-3">Maybe I’ll come back to this later and see if I can "solve the game" also, but for now I’ll just settle for solving the exercises to see how they might be related to that task.</div>
+<details id="session17-4" class="problem example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Problem</span><span class="space"> </span><span class="codenumber">4.18.1</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 1:.</span>
+</h3></summary><article class="problem example-like"><div class="para" id="session17-4-2-1">...have a terminal object?</div>
+<div class="solutions"><details id="session17-4-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="session17-4-3-1">Our given diagrams are reconstructed below:</div> <figure class="figure figure-like" id="fig-session17-ex1-1"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="generated/latex-image/img-session17-ex1-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.18.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure> <div class="para" id="session17-4-3-3">One part of this problem that’s a little unclear at the moment is how exactly we’re defining "terminal object". Given the context, I’m guessing it means that there is a path from every point in the graph to the terminal object.</div> <div class="para" id="session17-4-3-4">The other part that’s confusing is how we’re handling self-loops. Since every "point" in the graph can be thought of as a self-loop, it makes sense to treat each point as a having a path of length 0.  Even though <span class="process-math">\(a_0\)</span> has an explicit map to itself and <span class="process-math">\(b_0\)</span> does not, I’m thinking we still need to treat both of them as "terminal objects" in order to properly identify paths of length 0.</div> <div class="para" id="session17-4-3-5">If I treat <span class="process-math">\(a_0\)</span> as terminal object in (a) and treat <span class="process-math">\(b_0\)</span> as a terminal object in (b), then it would make sense to identify <span class="process-math">\(c_3\)</span> as a terminal point in (c) even though the loop at this point is not explicitly shown. There’s a path of length 0 from <span class="process-math">\(c_3\)</span> to itself, paths of length 1 from <span class="process-math">\(c_2\)</span> or <span class="process-math">\(c_4\text{,}\)</span> and paths of length 2 from <span class="process-math">\(c_0\)</span> or <span class="process-math">\(c_1\text{.}\)</span>
+</div> <div class="para" id="session17-4-3-6">In graph (d), I’m thinking it makes the most sense to identify both <span class="process-math">\(d_0\)</span> and <span class="process-math">\(d_1\)</span> as terminal points. My reasoning is that the existence of a path of length 0 from <span class="process-math">\(d_0\)</span> to itself and path of length 1 from <span class="process-math">\(d_1\)</span> means that <span class="process-math">\(d_0\)</span> is terminal, while <span class="process-math">\(d_1\)</span> likewise has a 0 length path to itself and a path of length 1 from <span class="process-math">\(d_0\text{.}\)</span>  The fact that we can follow the loop to potentially make longer paths is irrelevant.</div> <div class="para" id="session17-4-3-7">In (e), it seems that <span class="process-math">\(e_1\)</span> would be the lone terminal object.  We have two paths of length 1 from <span class="process-math">\(e_0\)</span> to <span class="process-math">\(e_1\)</span> and an implicit path of length 0 from <span class="process-math">\(e_1\)</span> to itself.  There is no path that starts at <span class="process-math">\(e_1\)</span> and ends at <span class="process-math">\(e_0\)</span> so that would disqualify <span class="process-math">\(e_0\)</span> as a terminal point.</div> <div class="para" id="session17-4-3-8">In (f), my definition of terminal object would imply that no such element exists here.  There is no path from <span class="process-math">\(f_0, f_1\)</span> to <span class="process-math">\(f_2\)</span> or vice versa.  This seems very similar to the situation we saw in the last exercise of Session 11.</div>
+</div></details></div></article></details><details id="session17-5" class="problem example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Problem</span><span class="space"> </span><span class="codenumber">4.18.3</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 2:.</span>
+</h3></summary><article class="problem example-like"><div class="para" id="session17-5-2-1">Show that a diagram of shape <span class="process-math">\(\boxed{\bullet \mathrel{\substack{
+\textstyle\longrightarrow \\[-0.6ex]
+\textstyle\longleftarrow}} \bullet }\)</span> commutes...</div>
+<div class="solutions"><details id="session17-5-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="session17-5-3-1">Let’s start by naming the objects in the diagram as if they were maps: <span class="process-math">\(A \mathrel{\substack{s \\[-0.6ex]
+\textstyle\longrightarrow \\[-0.6ex]
+\textstyle\longleftarrow \\[-0.6ex]
+r}} B\text{.}\)</span> These two maps are inverses if and only if <span class="process-math">\(r \circ s = 1_A\)</span> and <span class="process-math">\(s \circ r = 1_B\text{.}\)</span>
+</div> <div class="para" id="session17-5-3-2">So what does it mean for the shape <span class="process-math">\(\boxed{\bullet \mathrel{\substack{
+\textstyle\longrightarrow \\[-0.6ex]
+\textstyle\longleftarrow}} \bullet }\)</span> to commute? I’m thinking that it means we need to enforce <span class="process-math">\(s = s \circ r \circ s\)</span> and <span class="process-math">\(r = r \circ s \circ r\text{.}\)</span>  This seemed most clear if I expanded my maps into the following external diagrams:</div> <figure class="figure figure-like" id="fig-session17-ex2-1"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="generated/latex-image/img-session17-ex2-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.18.4<span class="period">.</span></span><span class="space"> </span></figcaption></figure> <div class="para" id="session17-5-3-4">In these situations, we can follow the arrow directly from the top left to top right or we can travel "down and around". Saying it "commutes" means we’ll get the same result no matter which path we take.</div> <div class="para" id="session17-5-3-5">Given that we have maps satisfying <span class="process-math">\(s = s \circ r \circ s\)</span> and <span class="process-math">\(r = r \circ s \circ r\text{,}\)</span> can we use that information to establish <span class="process-math">\(r \circ s = 1_A\)</span> and <span class="process-math">\(s \circ r = 1_B\text{?}\)</span> It’s clear that we can apply <span class="process-math">\(s\)</span> on the left to show <span class="process-math">\(r \circ s = 1_A \implies s \circ r \circ s = s\)</span> and apply <span class="process-math">\(r\)</span> on the left to show <span class="process-math">\(s \circ r = 1_B \implies r \circ s \circ r = r\)</span> but the converse isn’t so straight forward.</div> <div class="para" id="session17-5-3-6">Suppose <span class="process-math">\(r \circ s \neq 1_A\text{.}\)</span>  We’d need to have some elements <span class="process-math">\(a_1,a_2 \in A\)</span> with the property that <span class="process-math">\(a_2 = (r \circ s)(a_1) \neq a_1\text{.}\)</span>  Apply <span class="process-math">\(s\)</span> of the left of both sides to get <span class="process-math">\(s(a_2) = (s \circ r \circ s)(a_1) \neq s(a_1)\text{.}\)</span> Since our definition of "commute" establishes <span class="process-math">\((s \circ r \circ s)(a_1) = s(a_1)\)</span> we get a contradiction <span class="process-math">\(s(a_2) = s(a_1) \neq s(a_1)\text{.}\)</span>  It follows that <span class="process-math">\(r \circ s = 1_A\text{,}\)</span> and we can use an analogous argument to show <span class="process-math">\(s \circ r = 1_B\text{.}\)</span>
+</div>
+</div></details></div></article></details><details id="session17-6" class="problem example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Problem</span><span class="space"> </span><span class="codenumber">4.18.5</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 3:.</span>
+</h3></summary><article class="problem example-like"><div class="para" id="session17-6-2-1">In the diagram...</div>
+<div class="solutions"><details id="session17-6-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para logical" id="session17-6-3-1">
+<div class="para">Let’s assume we’re given nothing more than the three equations: <span class="process-math">\(jf = mi\text{,}\)</span> <span class="process-math">\(kg = nj\text{,}\)</span> <span class="process-math">\(lh = pk\text{.}\)</span> If follows from the associative property that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+pnmi = pn(mi) = pn(jf) = pnjf
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+pnjf = p(nj)f = p(kg)f = pkgf
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+pkgf = (pk)gf = (lh)gf = lhgf\text{.}
+\end{equation*}
+</div>
+<div class="para">Thus, <span class="process-math">\(pnmi = lhgf\text{.}\)</span>
+</div>
+</div> <div class="para" id="session17-6-3-2">This seems almost too easy, but I’ll take it.</div>
+</div></details></div></article></details><details id="session17-7" class="problem example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Problem</span><span class="space"> </span><span class="codenumber">4.18.6</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 4:.</span>
+</h3></summary><article class="problem example-like"><div class="para" id="session17-7-2-1">For each of these diagrams...</div>
+<div class="solutions"><details id="session17-7-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="session17-7-3-1">I think we’ll actually need the diagrams for these:</div> <figure class="figure figure-like" id="fig-session17-ex4-1"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="generated/latex-image/img-session17-ex4-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.18.7<span class="period">.</span></span><span class="space"> </span></figcaption></figure> <div class="para" id="session17-7-3-3">In (a), it looks like we have two paths from <span class="process-math">\(A\)</span> to <span class="process-math">\(A\)</span> and two paths from <span class="process-math">\(B\)</span> to <span class="process-math">\(B\text{.}\)</span>  To make the paths from <span class="process-math">\(A\)</span> to <span class="process-math">\(A\)</span> commute we’d need <span class="process-math">\(g \circ f = h \circ f\text{.}\)</span> To make the paths from <span class="process-math">\(B\)</span> to <span class="process-math">\(B\)</span> commute we’d need <span class="process-math">\(f \circ g = f \circ h\text{.}\)</span>
+</div> <div class="para" id="session17-7-3-4">In (b), we have a cycle of 3 which means we can start and end at any of <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\)</span> and <span class="process-math">\(C\text{.}\)</span>  It shouldn’t matter how many times we loop around, so any subsequent loop should be the original. Therefore, the cycle for <span class="process-math">\(A\)</span> corresponds with the relation <span class="process-math">\(h \circ g \circ f = (h \circ g \circ f) \circ (h \circ g \circ f)\text{,}\)</span> the cycle for <span class="process-math">\(B\)</span> corresponds with <span class="process-math">\(f \circ h \circ g = (f \circ h \circ g) \circ (f \circ h \circ g)\text{,}\)</span> and the cycle for <span class="process-math">\(C\)</span> corresponds with <span class="process-math">\(g \circ f \circ h = (g \circ f \circ h) \circ (g \circ f \circ h)\text{.}\)</span>
+</div> <div class="para" id="session17-7-3-5">Are these equations the "minimal" ones?  I’m not sure yet. Part of me originally wanted to make the cycle to be equal to the identity map, but my experiences with sturcture preserving maps in Session 15 lead me to believe that’s not true.  Obviously, something like <span class="process-math">\(h \circ g \circ f = 1_A\)</span> would imply that <span class="process-math">\((h \circ g \circ f) \circ (h \circ g \circ f) = h \circ g \circ f\text{,}\)</span> but there’s no assurance that we don’t lose points from <span class="process-math">\(A\)</span> when we first apply <span class="process-math">\(f\text{.}\)</span>
+</div> <div class="para logical" id="session17-7-3-6">
+<div class="para">In (c), I’m thinking that the additional map between <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> gives us an additional path for each of the 3-cycles.  Namely:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+j \circ h \circ f = j \circ h \circ g = (j \circ h \circ f) \circ (j \circ h \circ f) = (j \circ h \circ g) \circ (j \circ h \circ g)
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f \circ j \circ h = g \circ j \circ h = (f \circ j \circ h) \circ (f \circ j \circ h) = (g \circ j \circ h) \circ (g \circ j \circ h)
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+h \circ f \circ j = h \circ g \circ j = (h \circ f \circ j) \circ (h \circ f \circ j) = (h \circ g \circ j ) \circ (h \circ g \circ j )
+\end{equation*}
+</div>
+<div class="para">Furthermore, the explicit self-loop at <span class="process-math">\(C\)</span> seems to imply that <span class="process-math">\(j \circ i = j\)</span> and <span class="process-math">\(i \circ h = h\)</span> because we can freely choose to take or not take <span class="process-math">\(i\)</span> at our discretion.</div>
+</div> <div class="para" id="session17-7-3-7">So how do I know I covered them all?  I’m thinking we could come up with a way to enumerate all possible paths of a given length, and then use the relations to simplify any path longer than the minimal one.</div> <div class="para" id="session17-7-3-8">Let’s start by considering the case in (a).  We have precisely two paths of length 0, corresponding to the points <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> respectively. We have three paths of length 1, one starting at <span class="process-math">\(A\)</span> and two starting at <span class="process-math">\(B\text{,}\)</span> which directly correspond to our three maps <span class="process-math">\(f, g, h\text{.}\)</span> Once we step up to paths of length 2, our relations reduce the four possible sequences down to two equivalence classes. Any longer path would need to be formed by a composition of these building blocks. Specifically, for <span class="process-math">\(k \in \mathbb{N}\text{,}\)</span> any path of lenth <span class="process-math">\(2k\)</span> will reduce to <span class="process-math">\((g \circ f)^n = (h \circ f)^n = g \circ f = h \circ f\)</span> if it starts and ends at <span class="process-math">\(A\)</span> or <span class="process-math">\((f \circ g)^n = (f \circ h)^n = f \circ g = f \circ h\)</span> if it starts and ends at <span class="process-math">\(B\text{.}\)</span> For a path of length <span class="process-math">\(2k+1\text{,}\)</span> the start and end be different points but we can still simplify the path by taking out the loops of 2.  It doesn’t matter how many times it loops because both loops are idempotent.</div> <div class="para" id="session17-7-3-9">I think the case in (b) follows quite similarly.  We’ve got 3 paths of length 0 corresponding to <span class="process-math">\(A,B,C\text{,}\)</span> three paths of length 1 corresponding to <span class="process-math">\(f,g,h\text{,}\)</span> three paths of length 2 corresponding to the compositions <span class="process-math">\(f \circ g, g \circ h, h \circ f\text{,}\)</span> and three paths of length 3 corresponding to the 3 relations. Since every length can be expressed as <span class="process-math">\(3*n+m\)</span> for some <span class="process-math">\(n \in \mathbb{N}\)</span> and <span class="process-math">\(m \in \{0,1,2\}\text{,}\)</span> every path can be thought of as having one of the 3-cycles in our relations repeated <span class="process-math">\(n\)</span> times followed by a path of length 1 or 2.</div> <div class="para" id="session17-7-3-10">It’s not quite as clear how this works in (c) because the self loop at <span class="process-math">\(C\)</span> means we have potentially have cycles of almost any length. This means we’re going to have to take extra care to keep track of the domain and codomain relative to how we approached (a).  We still have 3 paths of length 0 that start and end at <span class="process-math">\(A,B,C\)</span> and 5 paths of length 1 for each map <span class="process-math">\(f,g,h,i,j\text{.}\)</span>  Where this gets weird is when we look at paths of length two. In addition to having two pairs of equivalent two-step paths (<span class="process-math">\(f \circ j = g \circ j\)</span> and <span class="process-math">\(h \circ f = h \circ g\)</span>) we also have a two-step path <span class="process-math">\(j \circ i\)</span> which is equal to the one step path <span class="process-math">\(j\)</span> and likewise for <span class="process-math">\(i \circ h = h\text{.}\)</span>
+</div> <div class="para" id="session17-7-3-11">I’m thinking this map <span class="process-math">\(i\)</span> is kind of like a pit-stop in a car race.  If we subtract out all the time we spend in pit-stops, what time remains is the time we spend on the track. If take the length of a path, subtract the number of times we apply <span class="process-math">\(i\text{,}\)</span> what remains would be the number of steps we spend looping around our 3-cycle.  Each time we loop we have two choices of path, but our relations enforce the fact that repeated loops are equivalent. I’m thinking that there are 4 unique 4 step paths from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\text{,}\)</span> namely <span class="process-math">\(f \circ j \circ h \circ f\text{,}\)</span> <span class="process-math">\(f \circ j \circ h \circ g\text{,}\)</span> <span class="process-math">\(g \circ j \circ h \circ f\text{,}\)</span> and <span class="process-math">\(g \circ j \circ h \circ g\text{.}\)</span>  Any path containing more than 4 steps must be some composition of the smaller paths we’ve already established.</div> <div class="para" id="session17-7-3-12">Coming back to the question of "minimal equations", perhaps <em class="emphasis">something</em> can be done to simplify these cycles for (c).  If I include the relations <span class="process-math">\(f \circ j = h \circ j\)</span> and <span class="process-math">\(h \circ f = h \circ g\text{,}\)</span> then maybe I don’t need as many equations to path out all the 3-cycles. For example, knowing <span class="process-math">\(h \circ f = h \circ g\)</span> and <span class="process-math">\(j \circ h \circ f = (j \circ h \circ f) \circ (j \circ h \circ f)\)</span> would automatically imply <span class="process-math">\(j \circ h \circ g = (j \circ h \circ g) \circ (j \circ h \circ g)\text{.}\)</span>
+</div>
+</div></details></div></article></details></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="session16.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
