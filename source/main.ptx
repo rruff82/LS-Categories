@@ -6864,6 +6864,7 @@ extra level of assurance that these functions will behave as expected.
       <xi:include href="ch3/ses15-p6.ptx" />
       <xi:include href="ch3/ses15-p7.ptx" />
       <xi:include href="ch3/ses16.ptx" />
+      <xi:include href="ch3/ses17.ptx" />
     </chapter>
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>

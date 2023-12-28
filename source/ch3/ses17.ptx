@@ -1,0 +1,433 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session17">
+    <title>Session 17: Some uses of graphs</title>
+    <p>
+        This week's reading started with the discussion of a
+        simple game, so I kind of started this week by 
+        <url href="https://rruff82.github.io/LS-Ses17-PegGame">
+        implementing it in Javascript using React</url>. 
+        If you want to see how it works, the source code is 
+        <url href="https://github.com/rruff82/LS-Ses17-PegGame">
+        available here</url>. Looking back over my code, it's kind of funny 
+        how obvious it is that my Javascript was derived from a Python
+        implementation.
+    </p>
+    <p>
+        Maybe I'll come back to this later and see if I can 
+        "solve the game" also, but for now I'll just settle for
+        solving the exercises to see how they might be related to that task.
+    </p>
+    <problem>
+            <title>
+                Exercise 1:
+            </title>
+        <statement>
+    <p>
+        ...have a terminal object?
+    </p>
+        </statement>
+        <solution>
+            <p>
+                Our given diagrams are reconstructed below:
+            </p>
+            <figure width="9%" xml:id="fig-session17-ex1-1">
+                <title>Diagrams for Sesssion 17 Exercise 1</title>
+                <image width="90%" xml:id="img-session17-ex1-1">
+                    <latex-image>
+                        \begin{tikzpicture}[scale=2]
+                            \node (A) at (0,2) {(a)};
+                            \node (B) at (2,2) {(b)};
+                            \node (C) at (4,2) {(c)};
+                            \node (D) at (0,0) {(d)};
+                            \node (E) at (2,0) {(e)};
+                            \node (F) at (4,0) {(f)};
+        
+                            \draw (1,2) circle [x radius=.6, y radius=.6];
+                            \draw (3,2) circle [x radius=.6, y radius=.6];
+                            \draw (5,2) circle [x radius=.8, y radius=.8];
+                            \draw (1,0) circle [x radius=.6, y radius=.6];
+                            \draw (3,0) circle [x radius=.6, y radius=.6];
+                            \draw (5,0) circle [x radius=.8, y radius=.6];
+                            
+                            \node (A0) at ($(A)+(1,0)$) {$a_0$};
+                            \node (B0) at ($(B)+(1,0)$) {$b_0$};
+                            \node (C0) at ($(C)+(.5,.3)$) {$c_0$};
+                            \node (C1) at ($(C)+(.5,-.3)$) {$c_1$};
+                            \node (C2) at ($(C)+(.8,0)$) {$c_2$};
+                            \node (C3) at ($(C)+(1.2,0)$) {$c_3$};
+                            \node (C4) at ($(C)+(1.6,0)$) {$c_4$};
+        
+                            \node (D0) at ($(D)+(.75,0)$) {$d_0$};
+                            \node (D1) at ($(D)+(1.25,0)$) {$d_1$};
+                            
+                            \node (E0) at ($(E)+(.75,0)$) {$e_0$};
+                            \node (E1) at ($(E)+(1.25,0)$) {$e_1$};
+                            
+                            \node (F0) at ($(F)+(.5,0)$) {$f_0$};
+                            \node (F1) at ($(F)+(1,0)$) {$f_1$};
+                            \node (F2) at ($(F)+(1.5,0)$) {$f_2$};
+                            
+        
+                            \path[-{stealth},font=\scriptsize,>=angle 90] 
+                                (A0) edge[->,>={Stealth},out=315, in=225, loop] (A0)
+                                (C0) edge (C2)
+                                (C1) edge (C2)
+                                (C2) edge (C3)
+                                (C4) edge (C3)
+                                (D0) edge[bend right] (D1)
+                                (D1) edge[bend right] (D0)
+                                (E0) edge[bend right] (E1)
+                                (E0) edge[bend left] (E1)
+                                (F1) edge (F0)
+                                ;
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                One part of this problem that's a little unclear at the 
+                moment is how exactly we're defining "terminal object".  
+                Given the context, I'm guessing it means that there is a 
+                path from every point in the graph to the terminal object.
+            </p>
+            <p>
+                The other part that's confusing is how we're handling self-loops.
+                Since every "point" in the graph can be thought of as a 
+                self-loop, it makes sense to treat each point as a having a
+                path of length 0.  Even though <m>a_0</m> has
+                an explicit map to itself and <m>b_0</m> does not, I'm thinking
+                we still need to treat both of them as "terminal objects" in
+                order to properly identify paths of length 0.
+            </p>
+            <p>
+                If I treat <m>a_0</m> as terminal object in (a) and treat
+                <m>b_0</m> as a terminal object in (b), then it would make 
+                sense to identify <m>c_3</m> as a terminal point in (c)
+                even though the loop at this point is not explicitly shown.
+                There's a path of length 0 from <m>c_3</m> to itself,
+                paths of length 1 from <m>c_2</m> or <m>c_4</m>, and 
+                paths of length 2 from <m>c_0</m> or <m>c_1</m>. 
+            </p>
+            <p>
+                In graph (d), I'm thinking it makes the most sense to 
+                identify both <m>d_0</m> and <m>d_1</m> as terminal points.
+                My reasoning is that the existence of a path of length 0
+                from <m>d_0</m> to itself and path of length 1 from
+                <m>d_1</m> means that <m>d_0</m> is terminal, while 
+                <m>d_1</m> likewise has a 0 length path to itself and a 
+                path of length 1 from <m>d_0</m>.  The fact that we
+                can follow the loop to potentially make longer paths is
+                irrelevant.
+            </p>
+            <p>
+                In (e), it seems that <m>e_1</m> would be the lone
+                terminal object.  We have two paths of length 1 from
+                <m>e_0</m> to <m>e_1</m> and an implicit path of length
+                0 from <m>e_1</m> to itself.  There is no path that
+                starts at <m>e_1</m> and ends at <m>e_0</m> so that
+                would disqualify <m>e_0</m> as a terminal point.
+            </p>
+            <p>
+                In (f), my definition of terminal object would imply 
+                that no such element exists here.  There is no path from
+                <m>f_0, f_1</m> to <m>f_2</m> or vice versa.  This seems 
+                very similar to the situation we saw in the last exercise
+                of Session 11. 
+            </p>
+        
+        </solution>
+    </problem>
+
+    <problem>
+        <title>Exercise 2:</title>
+        
+        
+        <statement>
+            <p>Show that a diagram of shape <m>\boxed{\bullet \mathrel{\substack{
+                \textstyle\longrightarrow \\[-0.6ex]
+                \textstyle\longleftarrow}} \bullet }</m> commutes...</p>
+        
+        </statement>
+        <solution>
+   
+            <p>
+                Let's start by naming the objects in the diagram as 
+                if they were maps: <m>A \mathrel{\substack{s \\[-0.6ex]
+                    \textstyle\longrightarrow \\[-0.6ex]
+                    \textstyle\longleftarrow \\[-0.6ex]
+                     r}} B</m>. These two maps are inverses if and only
+                     if <m>r \circ s = 1_A</m> and <m>s \circ r = 1_B</m>.
+            </p>
+            <p>
+                So what does it mean for the shape <m>\boxed{\bullet \mathrel{\substack{
+                    \textstyle\longrightarrow \\[-0.6ex]
+                    \textstyle\longleftarrow}} \bullet }</m> to commute? 
+                I'm thinking that it means we need to enforce <m>s = s \circ r \circ s</m> and 
+                <m>r = r \circ s \circ r</m>.  This seemed most clear if I 
+                expanded my maps into the following external diagrams:
+            </p>
+            <figure width="9%" xml:id="fig-session17-ex2-1">
+                <title>Diagrams for Sesssion 17 Exercise 1</title>
+                <image width="90%" xml:id="img-session17-ex2-1">
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \node (A0) at (0,1) {$A$};
+                            \node (B1) at (1,1) {$B$};
+                            \node (B0) at (0,0) {$B$};
+                            \node (A1) at (1,0) {$A$};
+                            
+                            \node (B2) at (3,1) {$B$};
+                            \node (A2) at (4,1) {$A$};
+                            \node (B3) at (4,0) {$B$};
+                            \node (A3) at (3,0) {$A$};
+        
+                            \path[-{stealth},font=\scriptsize,>=angle 90] 
+                                (A0) edge node[above] {$s$} (B1)
+                                (A0) edge node[left] {$s$} (B0)
+                                (B0) edge node[above] {$r$} (A1)
+                                (A1) edge node[right] {$s$} (B1)
+        
+                                (B2) edge node[above] {$r$} (A2)
+                                (B2) edge node[left] {$r$} (A3)
+                                (A3) edge node[above] {$s$} (B3)
+                                (B3) edge node[right] {$r$} (A2)
+                                ;
+        
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                In these situations, we can follow the arrow directly from
+                the top left to top right or we can travel "down and around".  
+                Saying it "commutes" means we'll get the same result no matter 
+                which path we take.
+            </p>
+            <p>
+                Given that we have maps satisfying 
+                <m>s = s \circ r \circ s</m> and 
+                <m>r = r \circ s \circ r</m>, can we use that information
+                to establish <m>r \circ s = 1_A</m> and <m>s \circ r = 1_B</m>?
+                It's clear that we can apply <m>s</m> on the left
+                to show <m>r \circ s = 1_A \implies s \circ r \circ s = s</m>
+                and apply <m>r</m> on the left to show 
+                <m>s \circ r = 1_B \implies r \circ s \circ r = r</m>
+                but the converse isn't so straight forward.
+            </p>
+            <p>
+                Suppose <m>r \circ s \neq 1_A</m>.  We'd need to have 
+                some elements <m>a_1,a_2 \in A</m> with the property that
+                <m>a_2 = (r \circ s)(a_1) \neq a_1</m>.  Apply <m>s</m> of the 
+                left of both sides to get 
+                <m>s(a_2) = (s \circ r \circ s)(a_1) \neq s(a_1)</m>. 
+                Since our definition of "commute" establishes
+                <m>(s \circ r \circ s)(a_1) = s(a_1)</m> we get a contradiction
+                <m>s(a_2) = s(a_1) \neq s(a_1)</m>.  It follows that 
+                <m>r \circ s = 1_A</m>, and we can use an analogous argument to show 
+                <m>s \circ r = 1_B</m>.  
+            </p>
+        
+        </solution>
+    </problem>
+
+    <problem>
+        <title>Exercise 3:</title>
+   
+        <statement>
+            <p>
+                In the diagram...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Let's assume we're given nothing more than 
+                the three equations:
+                <m>jf = mi</m>, <m>kg = nj</m>, <m>lh = pk</m>.
+                If follows from the associative property that
+                 <me>pnmi = pn(mi) = pn(jf) = pnjf</me>
+                 <me>pnjf = p(nj)f = p(kg)f = pkgf</me>
+                 <me>pkgf = (pk)gf = (lh)gf = lhgf</me>.  
+                 Thus, <m>pnmi = lhgf</m>.
+            </p>
+            <p>
+                This seems almost too easy, but I'll take it.
+            </p>
+        </solution>
+    </problem>
+    <problem>
+        <title>Exercise 4:</title>
+        <statement>
+            <p>
+                For each of these diagrams...
+            </p>
+        </statement>
+        <solution>
+
+            <p>
+                I think we'll actually need the diagrams for these:
+            </p>
+        
+            
+            <figure width="9%" xml:id="fig-session17-ex4-1">
+                <title>Diagrams for Sesssion 17 Exercise 1</title>
+                <image width="90%" xml:id="img-session17-ex4-1">
+                    <latex-image>
+                        \begin{tikzpicture}[scale=2]
+                            \node (A) at (0,2) {(a)};
+                            \node (B) at (2,2) {(b)};
+                            \node (C) at (4,2) {(c)};
+                
+                            \node (A0) at ($(A)+(.5,0)$) {$A$};
+                            \node (A1) at ($(A)+(1.5,0)$) {$B$};
+                                                
+                            \node (B0) at ($(B)+(.5,0)$) {$A$};
+                            \node (B1) at ($(B)+(1.5,0)$) {$B$};
+                            \node (B2) at ($(B)+(1,-.68)$) {$C$};
+                            
+                            
+                            \node (C0) at ($(C)+(.5,0)$) {$A$};
+                            \node (C1) at ($(C)+(1.5,0)$) {$B$};
+                            \node (C2) at ($(C)+(1,-.68)$) {$C$};
+        
+                            \path[-{stealth},font=\scriptsize,>=angle 90] 
+                                (A0) edge[bend left] node[above]{$f$} (A1)
+                                (A1) edge[bend left] node[below]{$h$} (A0)
+                                (A1) edge node[below]{$g$} (A0)
+        
+                                
+                                (B0) edge node[above]{$f$} (B1)
+                                (B1) edge node[right]{$g$} (B2)
+                                (B2) edge node[left]{$h$} (B0)
+        
+                                (C0) edge[bend left] node[above]{$f$} (C1)
+                                (C0) edge node[above]{$g$} (C1)
+                               
+                                (C2) edge node[left]{$j$} (C0)
+                                (C2) edge node[right]{$h$} (C1)
+                                (C2) edge[->,>={Stealth},out=315, in=225, loop] node[below] {$i$} (C2)
+                               
+                                ;
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                In (a), it looks like we have two paths from <m>A</m> to <m>A</m>
+                and two paths from <m>B</m> to <m>B</m>.  To make the paths from <m>A</m>
+                to <m>A</m> commute we'd need <m>g \circ f = h \circ f</m>. To make
+                the paths from <m>B</m> to <m>B</m> commute we'd need 
+                <m>f \circ g = f \circ h</m>.
+            </p>
+            <p>
+                In (b), we have a cycle of 3 which means we can start and end
+                at any of <m>A</m>, <m>B</m> and <m>C</m>.  It shouldn't matter 
+                how many times we loop around, so any subsequent loop should be the 
+                original. Therefore, the cycle for 
+                <m>A</m> corresponds with the relation 
+                <m>h \circ g \circ f = (h \circ g \circ f) \circ (h \circ g \circ f)</m>,
+                the cycle for <m>B</m> corresponds with 
+                <m>f \circ h \circ g = (f \circ h \circ g) \circ (f \circ h \circ g)</m>,
+                and the cycle for <m>C</m> corresponds with 
+                <m>g \circ f \circ h = (g \circ f \circ h) \circ (g \circ f \circ h)</m>.
+            </p>
+            <p>
+                Are these equations the "minimal" ones?  I'm not sure yet.
+                Part of me originally wanted to make the cycle
+                to be equal to the identity map, but my experiences with sturcture preserving maps in 
+                Session 15 lead me to believe that's not true.  Obviously,
+                something like <m>h \circ g \circ f = 1_A</m> would imply that
+                <m>(h \circ g \circ f) \circ (h \circ g \circ f) = h \circ g \circ f</m>,
+                but there's no assurance that we don't lose points from <m>A</m> when 
+                we first apply <m>f</m>.
+            </p>
+            <p>
+                In (c), I'm thinking that the additional map between
+                <m>A</m> and <m>B</m> gives us an additional path for
+                each of the 3-cycles.  Namely: 
+                <me>j \circ h \circ f = j \circ h \circ g = (j \circ h \circ f) \circ (j \circ h \circ f) = (j \circ h \circ g) \circ (j \circ h \circ g)</me>
+                <me>f \circ j \circ h = g \circ j \circ h = (f \circ j \circ h) \circ (f \circ j \circ h) = (g \circ j \circ h) \circ (g \circ j \circ h)</me>
+                <me>h \circ f \circ j = h \circ g \circ j = (h \circ f \circ j) \circ (h \circ f \circ j) = (h \circ g \circ j ) \circ (h \circ g \circ j )</me>
+                Furthermore, the explicit self-loop at <m>C</m> seems to imply that <m>j \circ i = j</m>
+                and <m>i \circ h = h</m>
+                because we can freely choose to take or not take <m>i</m> at our discretion.
+            </p>
+         
+            <p>
+                So how do I know I covered them all?  I'm thinking we could
+                come up with a way to enumerate all possible paths of a given length,
+                and then use the relations to simplify any path longer than the
+                minimal one.
+            </p>
+            <p>
+                Let's start by considering the case in (a).  We have precisely two paths of 
+                length 0, corresponding to the points <m>A</m> and <m>B</m> respectively.
+                We have three paths of length 1, one starting at <m>A</m> and two starting at
+                <m>B</m>, which directly correspond to our three maps <m>f, g, h</m>.  
+                Once we step up to paths of length 2, our relations reduce the 
+                four possible sequences down to two equivalence classes. Any longer 
+                path would need to be formed by a composition of these building blocks. 
+                Specifically, for <m>k \in \mathbb{N}</m>, any path of lenth <m>2k</m> 
+                will reduce to <m>(g \circ f)^n = (h \circ f)^n = g \circ f = h \circ f</m>
+                if it starts and ends at <m>A</m> or 
+                <m>(f \circ g)^n = (f \circ h)^n = f \circ g = f \circ h</m> 
+                if it starts and ends at <m>B</m>.
+                For a path of length <m>2k+1</m>, the start and end be different points but we
+                can still simplify the path by taking out the loops of 2.  It doesn't matter
+                how many times it loops because both loops are idempotent.
+            </p>
+            <p>
+                I think the case in (b) follows quite similarly.  We've got 3 paths of length 0
+                corresponding to <m>A,B,C</m>, three paths of length 1 corresponding to
+                <m>f,g,h</m>, three paths of length 2 corresponding to the compositions
+                <m>f \circ g, g \circ h, h \circ f</m>, and three paths of length 3
+                corresponding to the 3 relations. Since every length 
+                can be expressed as <m>3*n+m</m> for some <m>n \in \mathbb{N}</m>
+                and <m>m \in \{0,1,2\}</m>, every path can be thought of as having 
+                one of the 3-cycles in our relations repeated <m>n</m> times followed
+                by a path of length 1 or 2.
+            </p>
+            <p>
+                It's not quite as clear how this works in (c) because the 
+                self loop at <m>C</m> means we have potentially have cycles
+                of almost any length. This means we're going to have to take
+                extra care to keep track of the domain and codomain relative to
+                how we approached (a).  We still have 3 paths of length 0 that 
+                start and end at <m>A,B,C</m> and 5 paths of length 1 for each map
+                <m>f,g,h,i,j</m>.  Where this gets weird is when we look at paths of
+                length two. In addition to having two pairs of equivalent two-step
+                paths (<m>f \circ j = g \circ j</m> and <m>h \circ f = h \circ g</m>)
+                we also have a two-step path <m>j \circ i</m> which is equal to 
+                the one step path <m>j</m> and likewise for <m>i \circ h = h</m>. 
+            </p>
+            <p>
+                I'm thinking this map <m>i</m> is kind of like a pit-stop
+                in a car race.  If we subtract out all the time we spend in
+                pit-stops, what time remains is the time we spend on the track.
+                If take the length of a path, subtract the number of times we apply <m>i</m>,
+                what remains would be the number of steps we spend looping around
+                our 3-cycle.  Each time we loop we have two choices of path,
+                but our relations enforce the fact that repeated loops are equivalent.
+                I'm thinking that there are 4 unique 4 step paths from <m>A</m>
+                to <m>B</m>, namely <m>f \circ j \circ h \circ f</m>,  
+                <m>f \circ j \circ h \circ g</m>, <m>g \circ j \circ h \circ f</m>, and 
+                <m>g \circ j \circ h \circ g</m>.  Any path containing more than 4 steps
+                must be some composition of the smaller paths we've already established.
+            </p>
+            <p>
+                Coming back to the question of "minimal equations", perhaps <em>something</em>
+                can be done to simplify these cycles for (c).  If I include the 
+                relations <m>f \circ j = h \circ j</m> and <m>h \circ f = h \circ g</m>,
+                then maybe I don't need as many equations to path out all the 3-cycles.
+                For example, knowing <m>h \circ f = h \circ g</m> and 
+                <m>j \circ h \circ f = (j \circ h \circ f) \circ (j \circ h \circ f)</m>
+                would automatically imply 
+                <m>j \circ h \circ g = (j \circ h \circ g) \circ (j \circ h \circ g)</m>.
+            </p>
+        
+        </solution>
+    </problem>
+ 
+
+
+</section>
