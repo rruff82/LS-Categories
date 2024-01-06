@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session18">
+    <title>Session 18: Review of Test 2</title>
+    <p>
+        Happy New Year! 
+    </p>
+    <p>
+        I worked Test 2 out on paper first, but I simply 
+        couldn't resist the looking at the review.  I 
+        think I'm going to keep that separate for now,
+        but have an idea of what I want to do with it.
+        Stay tuned.
+    </p>
+    <p>
+        I am, however, going to do a self-reflection on Test 2 
+        in a problem block below.  I always told my students
+        how it's an important part of the learning process,
+        so it's only fair I practice it myself.
+    </p>
+    <problem>
+        <title>Test 2, Problem (1)</title>
+        <statement>
+            <p>
+           ...fixed point...
+            </p>
+   
+        </statement>
+        <solution>
+            <p>
+                I think my solution is "close enough" to Danilo's,
+                but I did leave out the parentheses where I thought
+                they were obvious.  A picky professor might ding me
+                on that I suppose. 
+            </p>
+            <p>
+                To include or not to include? It's hard to write 
+                math not knowing who the target audience 
+                is sometimes.   Assuming the associative property
+                implies that the parentheses don't matter, but
+                putting the explicit parentheses in makes the
+                substitution a little clearer. 
+
+            </p>
+        </solution>
+
+    </problem>
+    <problem>
+        <title>Test 2, Problem (3)</title>
+        <statement>
+            <p>
+                Find an example...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                I think I made the same "mistake" as Katie did 
+                here and should have explicitly tested every point.
+                Calling out that everyone's diagram looked the same
+                was a nice touch too.  
+            </p>
+            <p>
+                The natural sequence of diagrams here was very 
+                interesting, and reminds me of some of the diagram
+                sequences I drew in Session 16 <mdash/> 
+                only backwards. 
+            </p>
+        </solution>
+    </problem>
+    <problem>
+        <title>Test 2, Problem (2)</title>
+        
+        <statement>
+            <p>
+                Find all maps...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                On the bright side, I found the correct number of
+                of maps and I know at 3 out of my 4 maps are correct.
+                Had I not spent a whole month on Session 15, I probably
+                wouldn't have found the fourth, so it's nice to have 
+                some validation that I'm on the right track.  
+            </p>
+            <p>
+                Had this been an actual test, I probably would
+                have tripped up on this one and run out of time.
+                I worked through a page and a half before I realized
+                I had confused "irreflexive graphs" with 
+                "reflexive graphs".  Furthermore, my approach of 
+                proving that <m>s' f_A = f_D s</m> and <m>t' f_A = f_D t</m>
+                through "giant tables" isn't a very test-friendly strategy.                
+            </p>
+        </solution>
+    </problem>
+</section>
