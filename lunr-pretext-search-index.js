@@ -1423,6 +1423,42 @@ var ptx_lunr_docs = [
   "body": " Exercise 4:   For each of these diagrams...    I think we'll actually need the diagrams for these:   Diagrams for Sesssion 17 Exercise 1      In (a), it looks like we have two paths from to and two paths from to . To make the paths from to commute we'd need . To make the paths from to commute we'd need .  In (b), we have a cycle of 3 which means we can start and end at any of , and . It shouldn't matter how many times we loop around, so any subsequent loop should be the original. Therefore, the cycle for corresponds with the relation , the cycle for corresponds with , and the cycle for corresponds with .  Are these equations the \"minimal\" ones? I'm not sure yet. Part of me originally wanted to make the cycle to be equal to the identity map, but my experiences with sturcture preserving maps in Session 15 lead me to believe that's not true. Obviously, something like would imply that , but there's no assurance that we don't lose points from when we first apply .  In (c), I'm thinking that the additional map between and gives us an additional path for each of the 3-cycles. Namely:   Furthermore, the explicit self-loop at seems to imply that and because we can freely choose to take or not take at our discretion.  So how do I know I covered them all? I'm thinking we could come up with a way to enumerate all possible paths of a given length, and then use the relations to simplify any path longer than the minimal one.  Let's start by considering the case in (a). We have precisely two paths of length 0, corresponding to the points and respectively. We have three paths of length 1, one starting at and two starting at , which directly correspond to our three maps . Once we step up to paths of length 2, our relations reduce the four possible sequences down to two equivalence classes. Any longer path would need to be formed by a composition of these building blocks. Specifically, for , any path of lenth will reduce to if it starts and ends at or if it starts and ends at . For a path of length , the start and end be different points but we can still simplify the path by taking out the loops of 2. It doesn't matter how many times it loops because both loops are idempotent.  I think the case in (b) follows quite similarly. We've got 3 paths of length 0 corresponding to , three paths of length 1 corresponding to , three paths of length 2 corresponding to the compositions , and three paths of length 3 corresponding to the 3 relations. Since every length can be expressed as for some and , every path can be thought of as having one of the 3-cycles in our relations repeated times followed by a path of length 1 or 2.  It's not quite as clear how this works in (c) because the self loop at means we have potentially have cycles of almost any length. This means we're going to have to take extra care to keep track of the domain and codomain relative to how we approached (a). We still have 3 paths of length 0 that start and end at and 5 paths of length 1 for each map . Where this gets weird is when we look at paths of length two. In addition to having two pairs of equivalent two-step paths ( and ) we also have a two-step path which is equal to the one step path and likewise for .  I'm thinking this map is kind of like a pit-stop in a car race. If we subtract out all the time we spend in pit-stops, what time remains is the time we spend on the track. If take the length of a path, subtract the number of times we apply , what remains would be the number of steps we spend looping around our 3-cycle. Each time we loop we have two choices of path, but our relations enforce the fact that repeated loops are equivalent. I'm thinking that there are 4 unique 4 step paths from to , namely , , , and . Any path containing more than 4 steps must be some composition of the smaller paths we've already established.  Coming back to the question of \"minimal equations\", perhaps something can be done to simplify these cycles for (c). If I include the relations and , then maybe I don't need as many equations to path out all the 3-cycles. For example, knowing and would automatically imply .   "
 },
 {
+  "id": "session18",
+  "level": "1",
+  "url": "session18.html",
+  "type": "Section",
+  "number": "4.19",
+  "title": "Session 18: Review of Test 2",
+  "body": " Session 18: Review of Test 2  Happy New Year!  I worked Test 2 out on paper first, but I simply couldn't resist the looking at the review. I think I'm going to keep that separate for now, but have an idea of what I want to do with it. Stay tuned.  I am, however, going to do a self-reflection on Test 2 in a problem block below. I always told my students how it's an important part of the learning process, so it's only fair I practice it myself.   Test 2, Problem (1)   ...fixed point...    I think my solution is \"close enough\" to Danilo's, but I did leave out the parentheses where I thought they were obvious. A picky professor might ding me on that I suppose.  To include or not to include? It's hard to write math not knowing who the target audience is sometimes. Assuming the associative property implies that the parentheses don't matter, but putting the explicit parentheses in makes the substitution a little clearer.     Test 2, Problem (3)   Find an example...    I think I made the same \"mistake\" as Katie did here and should have explicitly tested every point. Calling out that everyone's diagram looked the same was a nice touch too.  The natural sequence of diagrams here was very interesting, and reminds me of some of the diagram sequences I drew in Session 16 only backwards.     Test 2, Problem (2)   Find all maps...    On the bright side, I found the correct number of of maps and I know at 3 out of my 4 maps are correct. Had I not spent a whole month on Session 15, I probably wouldn't have found the fourth, so it's nice to have some validation that I'm on the right track.  Had this been an actual test, I probably would have tripped up on this one and run out of time. I worked through a page and a half before I realized I had confused \"irreflexive graphs\" with \"reflexive graphs\". Furthermore, my approach of proving that and through \"giant tables\" isn't a very test-friendly strategy.    "
+},
+{
+  "id": "session18-5",
+  "level": "2",
+  "url": "session18.html#session18-5",
+  "type": "Problem",
+  "number": "4.19.1",
+  "title": "Test 2, Problem (1).",
+  "body": " Test 2, Problem (1)   ...fixed point...    I think my solution is \"close enough\" to Danilo's, but I did leave out the parentheses where I thought they were obvious. A picky professor might ding me on that I suppose.  To include or not to include? It's hard to write math not knowing who the target audience is sometimes. Assuming the associative property implies that the parentheses don't matter, but putting the explicit parentheses in makes the substitution a little clearer.   "
+},
+{
+  "id": "session18-6",
+  "level": "2",
+  "url": "session18.html#session18-6",
+  "type": "Problem",
+  "number": "4.19.2",
+  "title": "Test 2, Problem (3).",
+  "body": " Test 2, Problem (3)   Find an example...    I think I made the same \"mistake\" as Katie did here and should have explicitly tested every point. Calling out that everyone's diagram looked the same was a nice touch too.  The natural sequence of diagrams here was very interesting, and reminds me of some of the diagram sequences I drew in Session 16 only backwards.   "
+},
+{
+  "id": "session18-7",
+  "level": "2",
+  "url": "session18.html#session18-7",
+  "type": "Problem",
+  "number": "4.19.3",
+  "title": "Test 2, Problem (2).",
+  "body": " Test 2, Problem (2)   Find all maps...    On the bright side, I found the correct number of of maps and I know at 3 out of my 4 maps are correct. Had I not spent a whole month on Session 15, I probably wouldn't have found the fourth, so it's nice to have some validation that I'm on the right track.  Had this been an actual test, I probably would have tripped up on this one and run out of time. I worked through a page and a half before I realized I had confused \"irreflexive graphs\" with \"reflexive graphs\". Furthermore, my approach of proving that and through \"giant tables\" isn't a very test-friendly strategy.   "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
