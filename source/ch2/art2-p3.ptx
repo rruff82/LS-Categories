@@ -1,0 +1,446 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="article2-p3">
+    <title>Article 2: Isomorphisms, Part 3</title>
+    <p>
+      As I wrap up Article 2, I keep thinking back to the last expression in Exercise 4 and wonder
+      if there's a better way of articulating what I saw.  I'm starting to see more of the connection with the
+      injective (one-to-one) and surjective (onto) properties I typically associate with isomorphisms are  
+      effectively guaranteed by the definitions of retraction and section.   
+    </p>
+    <p>
+      I also find the symbol choice of <m>T</m> in this part of Article 2 somewhat curious.  The programmer 
+      in me wants to associate <m>T</m> with a "type" or "template", while the mathematician in me is 
+      quietly screaming "TOPOLOGY!".  I suppose I'll have to keep going to find out who's right-er.
+    </p>
+    <example>
+      <title>Exercise 6</title>
+      <statement>
+        <p>
+          If the map <m>A \xrightarrow{f} B</m> has a retraction, ...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Essentially the argument is the same as the preceeding proof with minor substitutions.
+          We're given that <m>A \xrightarrow{f} B</m> has a retraction, so we have some <m>r</m>
+          with the property <m>r \circ f = 1_A</m>.
+        </p>
+        <figure xml:id="fig-article2-ex6-1">
+          <caption>Possible compositions given <m>f</m> has a retraction.</caption>
+          <image width="80%" xml:id="img-article2-ex6-1"> 
+          <latex-image>
+\begin{tikzpicture}[scale=1.75]
+
+\node (A) at (0,0) {$A$};
+\node (B) at (1,1.73) {$B$};
+\node (T) at (2,0) {$T$};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90] 
+(A) edge[bend left] node[above left]{$f$} (B)
+(B) edge[bend left] node[below right]{$r$} (A)
+(A) edge node[below]{$g$} (T)
+(B) edge[dashed] node[above right]{$t?$} (T);
+\end{tikzpicture}
+
+          </latex-image>
+          </image>
+        </figure>
+       <p>
+        This external diagram implies that we can define a map <m>B \xrightarrow{t} T</m> by
+        using the composition <m>t = g \circ r</m>.  All that remains is to verify that it
+        satistfies the required equation:
+      </p>
+      <me>
+        t \circ f = g \circ r \circ f = g \circ 1_A = g
+      </me>
+      <p>
+        And that completes the proof.  
+      </p>
+      </solution>
+    </example>
+    <example>
+     <title>Exercise 7</title>
+      <statement>
+        <p>
+          Suppose the map <m>A \xrightarrow{f} B</m> has a section, ...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let's get our bearings straight with a diagram.  We know <m>f</m> has 
+          a section <m>s</m> satisfying <m>f \circ s = 1_B</m>. We also have
+          a set <m>T</m> with a pair of maps <m>B \xrightarrow{t_1} T</m> and
+          <m>B \xrightarrow{t_2} T</m>.
+        </p>  
+        <figure xml:id="fig-article2-ex7-1">
+          <caption>External diagram of given information in Article 2 Exercise 7.</caption>
+          <image width="80%" xml:id="img-article2-ex7-1"> 
+          <latex-image>
+\begin{tikzpicture}[scale=1.75]
+
+\node (A) at (0,0) {$A$};
+\node (B) at (1,1.73) {$B$};
+\node (T) at (2,0) {$T$};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90] 
+(A) edge[bend left] node[above left]{$f$} (B)
+(B) edge[bend left] node[below right]{$s$} (A)
+(B.south east) edge node[below left]{$t_2$} ($(T.north west)+(0.5mm,0)$)
+(B.east) edge node[above right]{$t_1$} (T.north)
+(A) edge[dashed] (T);
+\end{tikzpicture}
+
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+        Now lets further assume that <m>t_1 \neq t_2</m>, so that we have some <m>b \in B</m>
+        such that <m>t_1(b) \neq t_2(b)</m>.  Consider the point defined by <m>s(b)=x</m>.
+        If <m>t_1 \circ f = t_2 \circ f</m>, then it must also hold true that
+        <m>(t_1 \circ f)(x) = (t_2 \circ f)(x)</m> for all <m>x</m>.  If we expand this,
+        we get the following:
+      </p>
+      <me>
+        (t_1 \circ f)(x) = (t_2 \circ f)(x)
+      </me>
+      <me>
+        (t_1 \circ f)(s(b)) = (t_2 \circ f)(s(b))
+      </me>
+      <me>
+        (t_1 \circ f \circ s)(b) = (t_2 \circ f \circ s)(b)
+      </me>
+      <me>
+        (t_1 \circ 1_B)(b) = (t_2 \circ 1_B)(b)
+      </me>
+      <me>
+        t_1(b) = t_2(b)
+      </me>
+      <p>
+        This contradicts our earlier assumption that <m>t_1 \neq t_2</m> and completes the proof.
+        It's a little easier to see what's going on if we rearrange the diagram some:
+      </p>
+       <figure xml:id="fig-article2-ex7-2">
+          <caption>Diagram of compositions induced by assumptions of Article 2 Exercise 7.</caption>
+          <image width="80%" xml:id="img-article2-ex7-2"> 
+          <latex-image>
+
+
+\begin{tikzpicture}[scale=1.75]
+
+
+\node (B1) at (0,0) {$B$};
+\node (A) at (1,0) {$A$};
+\node (B2) at (2,0) {$B$};
+\node (T) at (3,0) {$T$};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90] 
+($(B2.south east)+(0,1mm)$) edge node[below]{$t_2$} ($(T.south west)+(0,1mm)$)
+($(B2.north east)-(0,1mm)$) edge node[above]{$t_1$} ($(T.north west)-(0,1mm)$)
+(B1) edge node[above]{$s$} (A)
+(A) edge node[above]{$f$} (B2)
+(B1) edge[bend right] node[below]{$1_B$} (B2)
+(A.north) edge[bend left] (T.north);
+\end{tikzpicture}
+
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          As long as <m>t_1 \circ f = t_2 \circ f</m>, then <m>t_1 \circ f \circ s = t_2 \circ f \circ s</m>.
+          Since we've defined <m>s</m> as a section of <m>f</m>, it means that <m>f \circ s = 1_B</m>.  
+          Therefore, <m>t_1 \circ f \circ s = t_2 \circ f \circ s</m> holds if and only if <m>t_1 = t_2</m>. 
+        </p>
+      </solution>
+    </example>
+    <example>
+     <title>Exercise 8</title>
+      <statement>
+        <p>
+          ...the composite of two maps, each having sections, ...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Suppose we have composable maps <m>A \xrightarrow{f_1} B</m> and <m>B \xrightarrow{f_2} C</m> 
+          with respective sections <m>B \xrightarrow{s_1} A</m> and <m>C \xrightarrow{s_2} B</m>. By
+          definition, <m>f_1 \circ s_1 = 1_B</m> and <m>f_2 \circ s_2 = 1_C</m>.
+        </p>
+        <p>
+          Based on this information, the composition <m>A \xrightarrow{f_2 \circ f_1} C</m> has a section 
+          determined by the reversed composition of the sections <m>C \xrightarrow{s_1 \circ s_2} A</m>.  All 
+          we need to do is to show that <m>(f_2 \circ f_1) \circ (s_1 \circ s_2) = 1_C</m>.
+        </p>
+        <me>(f_2 \circ f_1) \circ (s_1 \circ s_2)</me>
+        <me>= f_2 \circ (f_1 \circ s_1) \circ s_2</me>
+        <me>= f_2 \circ 1_B \circ s_2</me>
+        <me>= f_2 \circ s_2</me>
+        <me>= 1_C</me>
+        <p>
+          It's easy to see why this order reversal is necessary by examining a diagram:
+        </p>
+<figure xml:id="fig-article2-ex8-1">
+          <caption>External diagram of given information in Article 2 Exercise 8.</caption>
+          <image width="80%" xml:id="img-article2-ex8-1"> 
+          <latex-image>
+\begin{tikzpicture}[scale=1.75]
+
+\node (A) at (0,0) {$A$};
+\node (B) at (2,0) {$B$};
+\node (C) at (4,0) {$C$};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A.east) edge node[above]{$f_1$} (B.west)
+(B.east) edge node[above]{$f_2$} (C.west)
+(B.south west) edge[bend left] node[below]{$s_1$} (A.south east)
+(C.south west) edge[bend left] node[below]{$s_2$} (B.south east)
+(A.north) edge[bend left] node[above]{$f_2 \circ f_1$} (C.north)
+(C.south) edge[bend left] node[below]{$s_1 \circ s_2$} (A.south);
+\end{tikzpicture}
+
+          </latex-image>
+          </image>
+        </figure>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 9</title>
+      <statement>
+        <p>
+          Suppose <m>r</m> is a retraction of <m>f</m>...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Knowing that <m>r</m> is a retraction of <m>f</m> tells us that <m>r \circ f = 1_A</m>. 
+          If we define the map <m>e = f \circ r</m>, we can prove that <m>e \circ e = e</m> through
+          the use of the associative property.
+        </p>
+        <me>e \circ e = (f \circ r) \circ (f \circ r)</me>
+        <me>= f \circ (r \circ f) \circ r</me>
+        <me>= f \circ 1_A \circ r</me>
+        <me>= f \circ r = e</me>
+        <p>
+          That completes the proof that <m>e</m> is idempotent.
+        </p>
+        <p>
+          If we further assume that <m>f</m> is an isomorphism, then we have some
+          inverse function <m>f^{-1}</m> such that <m>f^{-1} \circ f = 1_A</m> and
+          <m>f \circ f^{-1} = 1_B</m>. Since this inverse is unique, it follows that
+          <m>r = f^{-1}</m>.  Consequently, <m>e = f \circ r = f \circ f^{-1} = 1_B</m>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 10</title>
+      <statement>
+        <p>
+          If <m>A \xrightarrow{f} B \xrightarrow{g} C</m> are both isomorphisms...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          I think this one is a little easier to see with a diagram.
+        </p>
+        <figure xml:id="fig-article2-ex10-1">
+          <caption>External diagram of given information in Article 2 Exercise 10.</caption>
+          <image width="80%" xml:id="img-article2-ex10-1"> 
+          <latex-image>
+\begin{tikzpicture}[scale=1.75]
+
+\node (A) at (0,0) {$A$};
+\node (B) at (2,0) {$B$};
+\node (C) at (4,0) {$C$};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+($(A.north east)-(0,1mm)$) edge node[above]{$f$} ($(B.north west)-(0,1mm)$)
+($(B.north east)-(0,1mm)$) edge node[above]{$g$} ($(C.north west)-(0,1mm)$)
+($(B.south west)+(0,1mm)$) edge node[below]{$f^{-1}$} ($(A.south east)+(0,1mm)$)
+($(C.south west)+(0,1mm)$) edge node[below]{$g^{-1}$} ($(B.south east)+(0,1mm)$)
+(A.north) edge[bend left] node[above]{$g \circ f$} (C.north)
+(C.south) edge[bend left] node[below]{$f^{-1} \circ g^{-1}$} (A.south);
+\end{tikzpicture}
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          Basically, to go backward to <m>C</m> from <m>A</m>, the order of
+          inverses needs to also be reversed. We can prove this algebraically
+          also. 
+        </p>
+        <p>
+          Since <m>f</m> is an isomorphism, it follows that 
+          <m>f^{-1} \circ f = 1_A</m> and <m>f \circ f^{-1} = 1_B</m>. Likewise,
+          <m>g</m> being an isomorphism implies <m>g^{-1} \circ g = 1_B</m> and
+          <m>g \circ g^{-1} = 1_C</m>.  The composition <m>f^{-1} \circ g^{-1}</m>
+          can be shown to sasify the conditions for being the inverse of <m>g \circ f</m>.
+        </p>
+        <p>
+          First, we must demonstrate that <m>(f^{-1} \circ g^{-1}) \circ (g \circ f) = 1_A</m>:
+        </p>
+        <me>(f^{-1} \circ g^{-1}) \circ (g \circ f)=f^{-1}) \circ (g^{-1} \circ g) \circ f</me>
+        <me>= f^{-1} \circ 1_B \circ f</me>
+        <me>= f^{-1} \circ f = 1_A</me>
+        <p>
+          Second, we must demonstrate that <m>(g \circ f) \circ (f^{-1} \circ g^{-1}) = 1_C</m>:
+        </p>
+        <me>(g \circ f) \circ (f^{-1} \circ g^{-1}) = g \circ (f \circ f^{-1}) \circ g^{-1}</me>
+        <me>= g \circ 1_B \circ g^{-1}</me>
+        <me>= g \circ g^{-1} = 1_C</me>
+        <p>
+          This complete our proof that <m>(g \circ f)^{-1} = f^{-1} \circ g^{-1}</m>
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 11</title>
+      <statement>
+        <p>
+          If <m>A = \set{\text{Fatima},\text{Omer},\text{Alysia}}</m>...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Any <m>f</m> that maps each element in <m>A</m> to a unique element in <m>B</m>
+          should do the trick here.
+        </p>
+        <figure xml:id="fig-article2-ex11-1"> 
+<caption>Hypothetical <m>f</m> for Article 2 Exercise 11</caption>
+          <image width="80%" xml:id="img-article2-ex11-1"> 
+        <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1.2cm);
+\node (A) at (0,3.5) {$A$};
+\node (A1) at (0,2.7) {Fatima};
+\node (A2) at (0,2) {Omer};
+\node (A3) at (0,1.3) {Alysia};
+
+
+
+% begin second set
+\node (B) at (4,3.5) {$B$};
+\draw (4,2) circle (1.2cm);
+\node (B1) at (4,2.7) {coffee};
+\node (B2) at (4,2) {tea};
+\node (B3) at (4,1.3) {cocoa};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A1) edge (B1)
+(A2) edge (B2)
+(A3) edge (B3);
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+        </figure>
+        <p>
+          This <m>f</m> has a unique inverse <m>f^{-1}</m> that reverses each of these arrows:
+        </p>
+        <figure xml:id="fig-article2-ex11-2"> 
+<caption>Corresponding <m>f^{-1}</m> for Article 2 Exercise 11</caption>
+          <image width="80%" xml:id="img-article2-ex11-2"> 
+        <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1.2cm);
+\node (A) at (0,3.5) {$A$};
+\node (A1) at (0,2.7) {Fatima};
+\node (A2) at (0,2) {Omer};
+\node (A3) at (0,1.3) {Alysia};
+
+
+
+% begin second set
+\node (B) at (4,3.5) {$B$};
+\draw (4,2) circle (1.2cm);
+\node (B1) at (4,2.7) {coffee};
+\node (B2) at (4,2) {tea};
+\node (B3) at (4,1.3) {cocoa};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(B1) edge (A1)
+(B2) edge (A2)
+(B3) edge (A3);
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+        </figure>
+        <p>
+          If we have <m>C = \set{true,false}</m>, we'd be unable to define an isomorphism from <m>A \longrightarrow C</m>
+          because we don't have enough points to match them up one by one.  One of those points in <m>C</m> will have two arrows
+          leading in and cause us to lose information about where we came from in the process:
+        </p>
+
+        <figure xml:id="fig-article2-ex11-3"> 
+<caption>Illustration of invertability problem with <m>A \longrightarrow C</m></caption>
+          <image width="80%" xml:id="img-article2-ex11-3"> 
+        <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1.2cm);
+\node (A) at (0,3.5) {$A$};
+\node (A1) at (0,2.7) {Fatima};
+\node (A2) at (0,2) {Omer};
+\node (A3) at (0,1.3) {Alysia};
+
+
+
+% begin second set
+\node (B) at (4,3.5) {$B$};
+\draw (4,2) circle (1.2cm);
+\node (B1) at (4,2.5) {true};
+\node (B2) at (4,1.5) {false};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A1) edge (B1)
+(A2) edge (B2)
+(A3) edge[dashed] (B1)
+(A3) edge[dashed] (B2);
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+        </figure>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 12</title>
+      <statement>
+        <p>
+          How many isomorphisms are there...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Essentially, the number of isomorphisms is a permutation problem.  If 
+          we decide on a fixed order of elements in <m>A</m>, each choice uses up
+          the respective point in <m>B</m> that it gets matched to.  Therefore, we 
+          have 3 choices for Fatima, 2 choices for Omer, and 1 choice for Alysia, or 
+          <m>3! = 3 \times 2 \times 1 = 6</m> possible choices all together.
+        </p>
+        <p>
+          The number of automorphisms should be the same, namely 6.  It doesn't matter if we're 
+          assigning Fatima to <m>\set{Fatima,Omer,Alysia}</m> or <m>\set{coffee,tea,cocoa}</m>,
+          it's precisely the same number of choices.
+        </p>
+        <p>
+          The number 27 in this context is the total number of possible maps from a set of 3 
+          elements to another set of 3 elements: <m>3^3 = 27</m>.  This is the formula we arrived
+          at after Article 1.  Clearly "the number of invertable maps" should  be less than "the
+          total number of maps" because not every map will be invertable.
+        </p>
+      </solution>
+    </example>
+  </section>

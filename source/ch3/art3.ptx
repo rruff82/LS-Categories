@@ -1,0 +1,281 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="article3">
+    <title>Article 3: Examples of Categories, Part 1</title>
+    <p>
+      I think this is about where I started getting lost the first time through this text, but I feel like I'm coming 
+      into it with a better foundation this time around.  There's also 30 exercises over the course of Article 3, so
+      I already anticipate a need to break it up into parts.  I want to make sure I take my time here and really 
+      understand what's going on.
+    </p>
+    <example>
+      <title>Exercise 1:</title>
+      <statement>
+        <p>
+          Show that if both <m>f</m> as above and also...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Our basic idea here is that <m>f</m> "respects the structure" of our category
+          <m>\mathcal{S}^{\circlearrowright}</m>.  That is:
+        </p>
+        <me>\boxed{X^{\circlearrowright \alpha}} \overset{f}{\longrightarrow} \boxed{Y^{\circlearrowright \beta}}</me>
+        <p>
+          Satisifies <m>\boxed{f \circ \alpha = \beta \circ f}</m> for all endomaps <m>\alpha</m> and <m>\beta</m>.                
+        </p>
+        <p>
+          Now suppose we have another map <m>g</m> with
+        </p>
+        <me>\boxed{Y^{\circlearrowright \beta}} \overset{g}{\longrightarrow} \boxed{Z^{\circlearrowright \gamma}}</me>
+        <me>\boxed{g \circ \beta = \gamma \circ g}</me> 
+        <p> 
+          We can then compose these maps to produce a composition <m>g \circ f</m>:
+        </p>
+        <me>\boxed{X^{\circlearrowright \alpha}} \overset{g \circ f}{\longrightarrow} \boxed{Z^{\circlearrowright \gamma}}</me>
+        <p>
+          This map should preserve structure also if we can prove that <m>(g \circ f) \circ \alpha = \gamma (g \circ f)</m>.  
+          This should be fairly straight forward to show using the associative property and our previous assumptions:
+        </p>
+        <me>(g \circ f) \circ \alpha = g \circ f \circ \alpha</me>
+        <me> = g \circ (f \circ \alpha) = g \circ (\beta \circ f)</me>
+        <me> = (g \circ \beta) \circ f = (\gamma \circ g) \circ f</me>
+        <me> = \gamma \circ (g \circ f)</me>
+        <p>
+          And that completes the exercise.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 2:</title>
+      <statement>
+        <p>
+          What can you prove...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Recall that an endomap <m>e: A \longrightarrow A</m> is "idempotent" if 
+          <m>e \circ e = e</m>. If <m>r</m> is a "retraction" for <m>e</m>, that 
+          implies <m>r \circ e = 1_A</m>.            
+        </p>
+        <p>
+          Watch what happens when if we apply <m>e</m> on the right of both sides
+          to <m>r \circ e = 1_A</m>:  
+        </p>
+        <me>r \circ e \circ e = 1_A \circ e</me>
+        <me>\implies r \circ e = e</me>
+        <me>\implies 1_A = e</me>
+        <p>
+          Essentially, a retraction preserves the fixed point proprerty.  Since
+          <m>e</m> fixes every point it touches and this retraction can restore
+          each value afterwards, that can only happen if <m>e = 1_A</m>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 3:</title>
+      <statement>
+        <p>
+          A finite set <m>A</m> has an even number of elements iff...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          I'm not really sure what the question is, so I'm assuming this is a
+          "prove it" problem.  I think this is essentially the approach I tried to 
+          take with Brouwer's theorems lasts. 
+        </p>
+        <p>
+          If we define as set <m>A</m> being "even" iff there is an involution with no
+          fixed points.  This is like the "antipodal map" I explored earlier that pairs 
+          up each point in a space with it's "opposite".  When we're working with an
+          antipodal map on the interval, we either we have a point in the middle that 
+          maps to itself or we "jump" over it.  The fixed point property becomes a proxy
+          for whether or not the map is continuous because we forced the interval to be "odd".
+          The only problem with using this idea here is that the interval had a natural order to
+          it while the set <m>A</m> may not, so our involution isn't necessarily unique.
+        </p>
+        <p>
+          Maybe it might help to think of taking a map <m>f</m> applying and taking an "image" 
+          of it for every <m>\mathbf{1} \xrightarrow{x} A \xrightarrow{f} \text{Image}_f(A)</m>.  
+          Either we find some point <m>f x = x</m> or we don't, but we can use this to classify 
+          each point as "fixed" or "not".  Essentially this process defines map <m>g: A \longrightarrow\{0,1\}</m> 
+          that returns <m>1</m> if a point is fixed by <m>f</m> or <m>0</m> if it doesn't.  However, since <m>f</m> is known 
+          to be an involution with <m>f \circ f = 1_A</m> then there needs to be at least as many points in
+          <m>\text{Image}_f(A)</m> as there are in <m>A</m> which ensures that <m>\text{Image}_f(A) = A</m>.  
+        </p>
+        <p>
+          Framing the problem like this allows us to ask if there exists a section of <m>A</m> which permits 
+          a retraction on <m>g</m>.  More specifically, we're looking for a map <m>s: \{0,1\} \longrightarrow A</m>
+          with <m>g \circ s = 1_{\{0,1\}}</m>. If <m>f = 1_A</m> then <m>\forall x \in A: g x = 1 </m>, and 
+          consequently <m>s(0)</m> would be undefined.  If <m>f</m> has no fixed points then 
+          <m>\forall x \in A: g x = 0</m>, and consequently <m>s(1)</m> would be undefined.  In order for
+          this map <m>s</m> to exist, <m>f</m> must have at least one fixed point and one non-fixed
+          point.  That is, for some <m>s(1) = x \in A</m> we have <m>f x = x </m> and some <m>s(0) = y \in A</m>
+          such that <m>f y \neq y</m> with <m>g x = 1</m> and <m>g y = 0</m>. 
+        </p>
+        <p>
+          The problem with this is that such a map can't exist without <m>A</m> having at least three points: 
+          <m>x</m>, <m>y</m>, <m>f y</m>.  It's impossible for a composition of the any form 
+          <m>\{x,y,fy\} \longrightarrow \{0,1\} \longrightarrow \{x,y,fy\}</m> to ever produce an identity map.
+          If a retraction for <m>g</m> existed it would need to be the same as the section, so clearly the 
+          fixed point property on <m>f</m> means that no map is a retraction from <m>A</m> to <m>\{0,1\}</m>. 
+        </p>
+        <p>
+          I feel like I'm starting to talk in circles now, so I'll just add that I think there's some parallels
+          to be made with the "split idempotent" exercise from Session 9.  
+        </p>
+        <p>
+          If all points in <m>f</m> are fixed, that implies a splitting of <m>f</m> by <m>\mathbf{1}</m>.
+          If no points in <m>f</m> are fixed, that also implies a splitting of <m>f</m> by <m>\mathbf{1}</m>.
+          If <m>f</m> has both fixed and non-fixed points, that implies a splitting of <m>f</m> by
+          <m>\{0,1\}</m>.  Since there is no isomorphism between <m>\mathbf{1}</m> and <m>\{0,1\}</m>, we use 
+          the result of Session 9 Exercise 3 to infer that <m>f</m> can't be split by both of them simultaneously.  If 
+          our <m>f</m> has both fixed and non-fixed points, the set of fixed points would preserve an isomorphism
+          with <m>\mathbf{1}</m> <mdash/> meaning that the point fixed by <m>f</m> would necessarily be unique.  
+          Likewise, each non-fixed point <m>y</m> needs to exists as part of a pair with some <m>f y</m> to 
+          preserve the isomorphism between <m>\{0,1\}</m> and <m>\{y,fy\}</m>.  
+        </p>
+        <p>
+          I'm not sure if I'm using this concept of "splitting <m>f</m> by <m>\{0,1\}</m>" correctly here, 
+          but it seems like it might be a reasonable analogy of "division by two" for generic maps.
+        </p>            
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 4:</title>
+      <statement>
+        <p>
+          If <m>\alpha(x) = -x</m> is considered as an endomap of <m>\mathbb{Z}</m>...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          This <m>\alpha</m> would be characterized as an "involution" since <m>-(-x)=x</m>
+          implies <m>\alpha \circ \alpha = 1_\mathbb{Z}</m>.  It has a fixed point at <m>0</m>
+          since <m>-0 = 0</m>.  It's not idempotent since <m>\alpha \circ \alpha \neq \alpha</m>
+          for any <m>x \lt 0</m>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 5:</title>
+      <statement>
+        <p>
+          ..if instead <m>\alpha(x) = |x|</m>...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          This <m>\alpha</m> would be characterized as an "idempotent" since <m>||x|| = |x|</m>
+          implies <m>\alpha \circ \alpha = \alpha</m>.  It has an infinite number of fixed points,
+          since <m>\forall x \in \mathbb{Z}</m> such that <m>x \geq 0</m> we have <m>\alpha(x) = x</m>.
+          It is not an involution since <m>\alpha \circ \alpha(x) \neq x</m> for any <m>x \lt 0</m>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 6:</title>
+      <statement>
+        <p>
+          ...defined by the formula <m>\alpha(x) = x+3</m>...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The previous page defines "automorphism" as an "endomap which is also an isomorphism",
+          so I'm going to have to say "yes".  We can define the inverse by <m>\alpha^{-1}(x) = x - 3</m>.  
+          It follows that <m>\alpha \circ \alpha^{-1}(x) = \alpha(x - 3) = (x - 3) + 3 = x</m> and
+          <m>\alpha^{-1} \circ \alpha(x) = \alpha^{-1}(x + 3) = (x + 3) - 3 = x</m>, satisfying 
+          the definition for an isomorphism.  This map is neither idempotent nor an involution,
+          and has no fixed points.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 7:</title>
+      <statement>
+        <p>
+          ...<m>\alpha(x) = 5x</m>...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Conceptually, we can loosely define an inverse by <m>\alpha^{-1}(x) = \lfloor x/5 \rfloor</m>.  
+          However, this will not meet the definition for an automorphism.  It mights the criteria 
+          for a "section" since <m>\alpha^{-1}(x) \circ \alpha = \lfloor (5x)/5 \rfloor = x</m>, but it's not a 
+          "retraction" since <m>\alpha \circ \alpha^{-1}(1) = 5 \lfloor x/5 \rfloor \neq x</m> for any <m>x</m>
+          which is not a multiple of 5. This map is neither idempotent nor an involution, but does have fixed point
+          at 0.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 9:</title>
+      <statement>
+        <p>
+          In <m>\mathcal{S}</m>, consider the endomap <m>\alpha</m>...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We're given an internal diagram for <m>\alpha</m>, and I took the liberty of naming our 
+          three points <m>\{x,y,z\}</m> as follows:
+        </p>
+        <figure xml:id="fig-article3-ex9-1">
+          <caption>Internal diagram of our map <m>\alpha</m></caption>
+              <image width="50%" xml:id="img-article3-ex9-1">
+                      <latex-image>
+          \begin{tikzpicture}[scale=1]
+          
+          % begin first set
+          \draw (0,0) rectangle (2,3);
+          \coordinate (A1) at (1,2.5);
+          \coordinate (A2) at (1,1.5);
+          \coordinate (A3) at (1,0.5);
+          
+          
+          \draw[fill=black] (A1) circle (0.15em) node[right]{$x$};
+          \draw[fill=black] (A2) circle (0.15em) node[right]{$y$};
+          \draw[fill=black] (A3) circle (0.15em) node[right]{$z$};
+          
+          \path[-{Stealth},font=\scriptsize,>=angle 90]
+          (A1) edge (A2)
+          (A2) edge[bend right] (A3)
+          (A3) edge[bend right] (A2);
+          \end{tikzpicture}
+                      </latex-image>
+                      </image>
+                      </figure> 
+          <p>
+            Clearly the above diagram of <m>\alpha</m> is fully described by the relations
+            <m>\alpha(x)=y</m>, <m>\alpha(y)=z</m>, and <m>\alpha(z)=y</m>.
+          </p>
+          <p>
+            In order to demonstrate that <m>\alpha^3=\alpha</m>, we just need to show it holds 
+            for all three points: that <m>\alpha^3(x) = \alpha(x)</m>, <m>\alpha^3(y) = \alpha(y)</m>, 
+            and <m>\alpha^3(z) = \alpha(z)</m>.  Let's verify these one at a time:
+          </p>            
+          <me>\alpha^3(x) = \alpha^2(y) = \alpha(z) = y = \alpha(x)</me>
+          <me>\alpha^3(y) = \alpha^2(z) = \alpha(y) = z = \alpha(y)</me>
+          <me>\alpha^3(z) = \alpha^2(y) = \alpha(z) = y = \alpha(z)</me>
+          <p>
+            Having established that <m>\alpha^3=\alpha</m> holds for all three values, let's next address
+            idempotency by checking if <m>\alpha^2=\alpha</m>.  It's pretty clear that this fails for <m>x</m>.
+            <m>\alpha^2(x) = \alpha(y) = z</m> but <m>\alpha(x) = y</m>, so <m>\alpha^2(x) \neq \alpha(x)</m>.
+          </p>
+          <p>
+            Finally, we need to check whether or not <m>\alpha</m> is an involution.  Since an involution
+            would imply <m>\alpha \circ \alpha = 1_A</m>, the case of <m>\alpha^2(x) = z \neq x</m> serves
+            as a counter-example to this expression.               
+          </p>
+      </solution>
+    </example>
+    <p>
+      Seeing that we move on to a new category after this exercise, I think this might be a good place to
+      stop for the week.  With the extra time, I managed to write a 
+      <url href="https://suburbanlion.com/blog/2023/08/31/find-me-in-the-fediverse/">
+        blog post about joining the Fediverse
+      </url>.  Maybe my stream of cat pics will encourage others to have fun with cat theory.
+    </p>
+  </section>

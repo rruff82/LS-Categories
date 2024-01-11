@@ -1,0 +1,406 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="article3-p4">
+    <title>Article 3: Examples of Categories, Part 4</title>
+    <p>
+      The end of the Article 3 is within sight!  I'm starting to feel a little 
+      bit better about my solution to Exercise 14 earlier and I'm glad I explored
+      some small permutations in advance of Exercise 26.  Let's see if we can 
+      formalize a notion of <em>loops</em> to wrap up this Article.
+    </p>
+    <example>
+      <title>Exercise 25:</title>
+      <statement>
+        <p>
+          Show that for any two graphs...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Given a <m>\mathcal{S}^{\downarrow^{\bullet}_{\bullet} \downarrow}</m>-map
+          between two graphs, we want to show <m>f_D \circ s = f_D \circ t</m> can only 
+          be true when <m>f_A</m> maps every arrow in <m>X</m> to a <em>loop</em> in
+          <m>Y</m>.  Our external diagram is reproduced below:
+        </p>
+        <figure xml:id="fig-article3-ex25-1">
+          <caption>Definition of <m>\mathcal{S}^{\downarrow^{\!\bullet}_{\!\bullet} \!\downarrow}</m>-map
+            </caption>
+              <image width="80%" xml:id="img-article3-ex25-1">
+                      <latex-image>
+          \begin{tikzpicture}[scale=0.5]
+          
+
+          \node (X) at (-2,4) {$X$};
+          \node (P) at (-2,0) {$P$};
+
+
+          \node (Y) at (2,4) {$Y$};
+          \node (Q) at (2,0) {$Q$};
+
+
+          % add links
+          \path[-{Stealth},font=\scriptsize,>=angle 90]
+          (X) edge node[above]{$f_A$} (Y)
+          (P) edge node[below]{$f_D$} (Q)
+          (X.south west) edge node[left]{$s$} (P.north west)
+          (X.south east) edge node[right]{$t$} (P.north east)
+          (Y.south west) edge node[left]{$s'$} (Q.north west)
+          (Y.south east) edge node[right]{$t'$} (Q.north east);
+   
+          \end{tikzpicture}
+                      </latex-image>
+                      </image>
+                      </figure> 
+          <p>
+            Thinking back to Exercises 9, the looping behavior of
+            our endomap <m>\alpha</m> was based on the property that
+            <m>\alpha^3 = \alpha</m>. I'm going to suggest that we 
+            can define an <em>n-loop</em> by the existence of endomap
+            such that <m>\alpha^{n+1} = \alpha</m> over some subspace
+            with that many elements. Then each <em>1-loop</em> would be a 
+            <em>fixed point</em> for the endomap and a <em>2-loop</em> 
+            would be an <em>antipodal</em> endomap on two points.    
+          </p>
+          <p>
+            So what would these loops look like here? An n-loop in <m>Y</m> 
+            would need to be some sequence of <m>\{y_1, y_2, ..., y_n\}</m> 
+            where <m>s y_n = t y_{n-1}</m>.  
+          </p>
+          <p>
+            I think the key to is that the equation <m>f_D \circ s = f_D \circ t</m>
+            is essentially identifying a fixed point where both the source and target
+            of an arrow from <m>X</m> wind up at the same point in <m>Q</m> after the
+            transformation. Our category enforces that <m>f_D \circ s = s' \circ f_A</m>
+            and <m>f_D \circ t = t' \circ f_A</m>, so it follows that this equation is 
+            equivalent to the expression <m>s' \circ f_A = t' \circ f_A</m>. 
+            In other words, any <m>x \in X</m> for which <m>(f_D \circ s)(x) = (f_D \circ t)(x)</m>
+            would directly correspond with a loop <m>y = f_A x \in Y</m> such that <m>s' y = t' y</m>.
+          </p>
+          <p>
+            Clearly, any self-loop in <m>X</m> must get matched up with a self-loop in <m>Y</m>.  
+            If for any <m>\mathbf{1} \xrightarrow{x} X</m> we have <m>s x = t x</m>, it follows 
+            naturally that both <m>(f_D \circ s)(x) = (f_D \circ t)(x)</m> and 
+            <m>(s' \circ f_A)(x) = (t' \circ f_A)(x)</m>.  
+          </p>
+          <p>
+            Suppose we have some arrow in <m>X</m> satisfying <m>(f_D \circ s)(x) = (f_D \circ t)(x)</m> 
+            but for which <m>s(x) \neq t(x)</m>.  This needs to map to an arrow <m>y = f_A(x)</m> which
+            would need to satisfy the condition that <m>(s' \circ f_A)(x) = (t' \circ f_A)(x)</m>.  It 
+            follows that <m>s' y = t' y</m> which forms another self-loop.  So whether or not we start with
+            a self-loop in <m>X</m>, we must wind up with one in <m>Y</m>.
+          </p>
+          <p>
+            This result seems almost too simple. I was expecting to need to work with loops of varying
+            lengths, but it turns out the 1-loops were the only ones I needed.  I may need to come back
+            to this later.
+          </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 26:</title>
+      <statement>
+        <p>
+          There is an 'inclusion' map...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          I'm thinking that the map <m>\mathbb{Z}^{\circlearrowright 5 \times ()}</m> is the 
+          same as the one we used in Exercise 7.  Previously we showed that "multiplying by 5"
+          was not an invertable operation on the integers because the reverse operation of
+          "dividing by 5" is not defined on the same domain.  Now it looks like we're planning 
+          to sidestep that issue by inserting our map in <m>\mathbb{Q}</m> instead.
+        </p>
+        <p>
+          Let's consider a trivial insertion of <m>\mathbb{Z} \xrightarrow{f} \mathbb{Q}</m>
+          where we simply define <m>f(x) = x</m>. I guess more specifically, we assign each
+          integer <m>\mathbf{1} \xrightarrow{z} \mathbb{Z}</m> to the rational number
+          <m>\frac{z}{1} \in \mathbb{Q}</m>.  In order for this to be a valid 
+          <m>\mathcal{S}^{\circlearrowright}</m>-map, then we'd need 
+          <m>\boxed{\mathbb{Z}^{\circlearrowright 5 \times ()}} 
+              \xrightarrow{f} 
+            \boxed{\mathbb{Q}^{\circlearrowright 5 \times ()}}</m> to satisfy the 
+            equation <m>f \circ (5 \times ()) = (5 \times ()) \circ f</m>.  This follows
+            directly from commutative property of multiplication: 
+           <m>x \times 5 = 5 \times x</m>. 
+        </p>
+        <p>
+          Since we've already established that we're working with an endomap on <m>\mathbb{Q}</m>,
+          to show that <m>\mathbb{Q}^{\circlearrowright 5 \times ()}</m> is an "automorphism"
+          we just need to show it has an inverse.  The inverse function would be given by the 
+          map <m>\frac{1}{5} \times ()</m>.  For any <m>q \in \mathbb{Q}</m>, we have 
+          <m>\frac{1}{5} \times 5 \times q = q = 5 \times \frac{1}{5} \times q</m>.  It follows that 
+          since <m>\mathbb{Q}^{\circlearrowright 5 \times ()}</m> is both an endomap and invertable, 
+          it meets the definition of an automorphism.
+        </p>
+        <p>
+          All that's left is to prove our map <m>f</m> is <em>injective</em>.  For any pair 
+          <m>\mathbf{1} \xrightarrow{z_1} \mathbb{Z}</m> and <m>\mathbf{1} \xrightarrow{z_2} \mathbb{Z}</m>
+          such that <m>f z_1 = f z_2</m>, our choice of <m>f</m> implies this statement 
+          is equivalent to <m>\frac{z_1}{1} = z_1 = z_2 = \frac{z_2}{1}</m>.  
+        </p>
+        <p>
+          Another way to think of this would be that <m>f</m> is injective when it has a 
+          <em>retraction</em>.  In this case, the map <m>\mathbb{Q} \xrightarrow{r} \mathbb{Z}</m>
+          given by <m>r(x) = \lfloor x \rfloor</m> meets this condition.  For any
+          <m>z \in \mathbb{Z}</m>, <m>r f z = r \frac{z}{1} = \lfloor \frac{z}{1} \rfloor = z</m>
+          so <m>r \circ f = 1_{\mathbb{Z}}</m>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 27</title>
+      <statement>
+        <p>
+          Consider our standard idempotent...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Given the standard idempotent
+        </p>
+        <figure xml:id="fig-article3-ex27-1">
+          <caption>Definition of standard idempotent
+            </caption>
+              <image width="35%" xml:id="img-article3-ex27-1">
+                      <latex-image>
+                        \begin{tikzpicture}[scale=.8]
+                        
+                        % begin maps
+                        
+                        \node (X) at (-.5,0) {$X^{\circlearrowright \alpha}=$};
+                        \draw (1,-2) rectangle (2,2);
+                        \coordinate (X0) at (1.5,-1);
+                        \coordinate (X1) at (1.5,1);
+          
+          
+                        \draw[fill=black] (X1) circle (0.15em);
+                        \draw[fill=black] (X0) circle (0.15em);
+          
+          
+                        \path[-{Stealth},font=\scriptsize,>=angle 90]
+                         (X0) edge [->,>={Stealth},out=315, in=225, loop]  (X0)  
+                         (X1) edge (X0);
+          
+          
+                        \end{tikzpicture}
+                      </latex-image>
+                      </image>
+                      </figure> 
+        <p>
+          and an automorphism <m>Y^{\circlearrowright \beta}</m>, we want to show any 
+          <m>\mathcal{S}^{\circlearrowright}</m>-map 
+          <m>X^{\circlearrowright \alpha} \xrightarrow{f} Y^{\circlearrowright \beta}</m>
+          must be non-injective.  Our "hint" is that the map must send both elements
+          of <m>X</m> to the same fixed point in <m>Y</m>.
+        </p>
+        <p>
+          It follows from the definition of <m>\mathcal{S}^{\circlearrowright}</m>-map
+          that <m>f \circ \alpha = \beta \circ f</m>.  However, <m>\beta</m> is given
+          as an <em>automorphism</em> which means it must have some inverse map 
+          <m>Y \xrightarrow{\beta^{-1}} Y</m> such that 
+          <m>\beta \circ \beta^{-1} = \beta^{-1} \circ \beta = 1_Y</m>. 
+          Apply this map <m>\beta^{-1}</m> to the left sides of our earlier expression 
+          to get <m>\beta^{-1} \circ f \circ \alpha = f</m>. 
+        </p>
+        <p>
+          Since there's literally only two elements in <m>X</m>, let's call them 
+          <m>\{x_0,x_1\}</m> and denote the behavior of <m>\alpha</m> by <m>\alpha x = x_0</m>
+          for <m>x \in X</m>.  It follows from <m>\beta^{-1} \circ f \circ \alpha = f</m>
+          that <m>f x_0 = \beta^{-1} f \alpha x_0 = \beta^{-1} f x_0</m> is a "fixed point" in
+          <m>Y</m> since <m>f x_0 = \beta^{-1} f x_0 \implies \beta f x_0 = f x_0</m>.  It 
+          also follows that <m>f x_1 = \beta^{-1} f \alpha 1 = \beta^{-1} f x_0</m> returns the
+          same fixed point.  Having shown that <m>f x_0 = f x_1</m> for some <m>x_0 \neq x_1</m>,
+          we've demonstrated that <m>f</m> is non-injective.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 28:</title>
+      <statement>
+        <p>
+          If <m>X^{\circlearrowright \alpha}</m> is any object of
+           <m>\mathcal{S}^{\circlearrowright}</m>...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Given that we have an injective map 
+          <m>X^{\circlearrowright \alpha} \xrightarrow{f} Y^{\circlearrowright \beta}</m>,
+          it must also have some retraction <m>Y \xrightarrow{r_f} X</m> such 
+          that <m>r_f \circ f = 1_X</m>.  We're also given that <m>\beta</m> is an 
+          automorphism, which guarantees it has an inverse <m>\beta^{-1}</m>. 
+        </p>
+        <p>
+          We want to prove that <m>\alpha</m> itself must be injective.  It suffices
+          to show there exists a retraction <m>r_\alpha \circ \alpha = 1_X</m>.
+          I'm going to claim that the map <m>r_\alpha = r_f \circ \beta^{-1} \circ f</m>
+          should have this desired property.  
+        </p>
+        <p>
+          We can use this definition to expand the expression <m>r_\alpha \circ \alpha</m>:
+        </p> 
+        <me>r_\alpha \circ \alpha = r_f \circ \beta^{-1} \circ f \circ \alpha</me>
+        <p>
+          As a <m>\mathcal{S}^{\circlearrowright}</m>-map, we know <m>f \circ \alpha = \beta \circ f</m>:
+        </p>
+        <me>r_\alpha \circ \alpha = r_f \circ \beta^{-1} \circ \beta \circ f</me>
+        <me> = r_f \circ 1_Y \circ f</me>
+        <me> = r_f \circ f = 1_X</me>
+        <p>
+          And there we have it!
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 29:</title>
+      <statement>Every map <m>X \xrightarrow{f} Y</m> in <m>\mathcal{X}</m>...</statement>
+      <solution>
+        <p>
+          There's an awful lot to unpack here so lets start with a <em>category</em>.  
+          We know we have some sets of objects <m>x \in X</m> or <m>y \in Y</m> and maps
+          <m>X \xrightarrow{f} Y</m> which obey the identity and associative properties
+          over the domain and codomain.
+        </p>
+        <p>
+          Over the course of the article, we've seen that there's a natural insertion
+          of this map into the category <m>\mathcal{S}^{\downarrow^{\bullet}_{\bullet} \downarrow}</m>.
+          For each pair of object <m>x \in X</m> and <m>y \in Y</m> such that <m>f x = y</m>,
+          we can think of the map <m>f</m> as a collection of "arrows" with a <em>source</em>
+          at <m>x</m> which we indicate <m>s x = x</m> and a <em>target</em> object at
+          <m>y</m> which we indicate <m>t x = y</m>.
+        </p>
+        <p>
+          From what I gather, our <m>\mathcal{A}</m> supplements this insertion with
+          an arbitrary number of additional properties <m>A = \{a_1, a_2, ..., a_n\}</m>.
+          Each individual property <m>a_n \in A</m> gets a corresponding map 
+          <m>\alpha_n</m>  that returns the value of the property
+          with that name.  For any property map <m>\alpha</m>,
+          we can either access this property <em>before</em> we apply the map <m>f</m>
+          or <em>after</em>. This provides  natural defintion of preserving the structure
+           of each property so that <m>\alpha f = f \alpha</m> as follows:
+        </p>
+        <figure xml:id="fig-article3-ex29-1">
+          <caption>Definition of structure preservation in <m>\mathcal{A}</m>.
+            </caption>
+              <image width="80%" xml:id="img-article3-ex29-1">
+                      <latex-image>
+          \begin{tikzpicture}[scale=0.5]
+          
+          \node (EQ) at (-7, 2) {$\alpha_Y f_A = f_B \alpha_B$};
+
+          \node (X) at (-2,4) {$X(A)$};
+          \node (P) at (-2,0) {$X(B)$};
+
+
+          \node (Y) at (2,4) {$Y(A)$};
+          \node (Q) at (2,0) {$Y(B)$};
+
+
+          % add links
+          \path[-{Stealth},font=\scriptsize,>=angle 90]
+          (X) edge node[above]{$f_A$} (Y)
+          (P) edge node[below]{$f_B$} (Q)
+          (X) edge node[left]{$\alpha_X$} (P)
+          (Y) edge node[right]{$\alpha_Y$} (Q);
+
+          \end{tikzpicture}
+                      </latex-image>
+                      </image>
+                      </figure> 
+            <p>
+              Our <m>\mathcal{A}</m>-figures must satisfy these conditions
+              for <em>every</em> property. If that's the case, then we can
+              embed our <m>\mathcal{S}^{\downarrow^{\bullet}_{\bullet} \downarrow}</m>-map
+              representation of <m>f</m> by treating our maps <m>s</m> and <m>t</m>
+              as "just another property" in an <m>\mathcal{A}</m>-figure.
+              Perhaps this might be diagrammed as follows:
+            </p>
+            <figure xml:id="fig-article3-ex29-2">
+              <caption>Insertion of <m>\mathcal{S}^{\downarrow^{\bullet}_{\bullet} \downarrow}</m>-map into <m>\mathcal{A}</m>.
+                </caption>
+                  <image width="80%" xml:id="img-article3-ex29-2">
+                          <latex-image>
+              \begin{tikzpicture}[scale=1]
+              
+
+
+              \node (X) at (-4,4) {$X(A)$};
+              \node (P) at (-4,0) {$X(B)$};
+
+
+              \node (Y) at (4,4) {$Y(A)$};
+              \node (Q) at (4,0) {$Y(B)$};
+              
+              \coordinate (STEP) at (0.6,0);
+
+              \coordinate (LT0) at (-6,3);
+              \coordinate (LT1) at ($(LT0)+(STEP)$);
+              \coordinate (LT2) at ($(LT1)+(STEP)$);
+              \coordinate (LT3) at ($(LT2)+(STEP)$);
+              \coordinate (LT4) at ($(LT3)+(STEP)$);
+              \coordinate (LT5) at ($(LT4)+(STEP)$);
+
+              \coordinate (LB0) at (-6,1);
+              \coordinate (LB1) at ($(LB0)+(STEP)$);
+              \coordinate (LB2) at ($(LB1)+(STEP)$);
+              \coordinate (LB3) at ($(LB2)+(STEP)$);
+              \coordinate (LB4) at ($(LB3)+(STEP)$);
+              \coordinate (LB5) at ($(LB4)+(STEP)$);
+              
+              \coordinate (RT0) at (2,3);
+              \coordinate (RT1) at ($(RT0)+(STEP)$);
+              \coordinate (RT2) at ($(RT1)+(STEP)$);
+              \coordinate (RT3) at ($(RT2)+(STEP)$);
+              \coordinate (RT4) at ($(RT3)+(STEP)$);
+              \coordinate (RT5) at ($(RT4)+(STEP)$);
+
+              \coordinate (RB0) at (2,1);
+              \coordinate (RB1) at ($(RB0)+(STEP)$);
+              \coordinate (RB2) at ($(RB1)+(STEP)$);
+              \coordinate (RB3) at ($(RB2)+(STEP)$);
+              \coordinate (RB4) at ($(RB3)+(STEP)$);
+              \coordinate (RB5) at ($(RB4)+(STEP)$);
+    
+              % add links
+              \path[-{Stealth},font=\scriptsize,>=angle 90]
+              (X) edge node[above]{$f_A$} (Y)
+              (P) edge node[below]{$f_B$} (Q)
+              (LT0) edge node[left]{$s$} (LB0)
+              (LT1) edge node[left]{$t$} (LB1)
+              (LT2) edge node[right]{$\alpha_0$} (LB2)
+              (LT3) edge node[right]{$\alpha_1$} (LB3)
+              (LT4) edge[dashed] (LB4)
+              (LT5) edge node[right]{$a_n$} (LB5)
+
+              (RT0) edge node[left]{$s^\ast$} (RB0)
+              (RT1) edge node[left]{$t^\ast$} (RB1)
+              (RT2) edge node[right]{$\alpha_0^\ast$} (RB2)
+              (RT3) edge node[right]{$\alpha_1^\ast$} (RB3)
+              (RT4) edge[dashed] (RB4)
+              (RT5) edge node[right]{$a_n^\ast$} (RB5);
+ 
+              \end{tikzpicture}
+                          </latex-image>
+                          </image>
+                          </figure> 
+            <p>
+              The <m>\mathcal{A}</m>-structure would preserves the the source
+              and targets of our map <m>f</m>.  Essentially, each map 
+              <m>f: X \longrightarrow Y</m> can be expressed as an 
+              <m>\mathcal{A}</m>-structure with two components if we 
+              let <m>\alpha_0</m> be our "source" map and <m>\alpha_1</m>
+              be our "target" map.  
+          </p>
+          <p>
+            I'm not entirely sure, but I think the existence of such 
+            an embedding would reasonably demonstrate this notion 
+            of "giving rise to a map in the category".  
+          </p>
+      </solution>
+    </example> 
+    <p>
+      I know there's only one problem left here, but it's already 
+      Caturday and I want to give it the time it deserves.  Until next time!
+    </p>
+  </section>

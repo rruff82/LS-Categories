@@ -1,0 +1,710 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="article1">
+    <title>Article 1: Sets, maps, composition</title>
+    <p>
+      This is technically my second time through this content and 
+I think I made some errors in my original solutions to exercises
+2-5.  Rather than ignore my mistakes, I've made the decision to
+recreate them here and explain why I think I was wrong afterward. 
+I hope this method will give more insight into my thought process. 
+To prevent accidental spoilers, this will be treated as a 
+"Hidden Exercise 10".
+    </p>
+    <example>
+      <title>Exercise 1:</title>
+      <statement>
+        <p>
+          "...understand how we got diagrams..."
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Okay let's start by recreating diagram (i).
+        </p>
+
+        <figure xml:id="fig-article1-associative-i">
+          <caption>The original associative law diagram (i) from L&amp;S Article 1.</caption>
+          <image width="80%" xml:id="img-article1-associative-i"> 
+        <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1cm);
+\node (A) at (0,3.5) {$A$};
+\coordinate (A1) at (0,2.7);
+\draw[fill=black] (A1) circle (0.15em);
+\coordinate (A2) at (0,2);
+\draw[fill=black] (A2) circle (0.15em);
+\coordinate (A3) at (0,1.3);
+\draw[fill=black] (A3) circle (0.15em);
+
+
+% begin second set
+\node (B) at (4,3.5) {$B$};
+\draw (4,2) circle (1cm);
+\coordinate (B1) at (4,2.7);
+\draw[fill=black] (B1) circle (0.15em);
+\coordinate (B2) at (3.4,2);
+\draw[fill=black] (B2) circle (0.15em);
+\coordinate (B3) at (4.5,1.8);
+\draw[fill=black] (B3) circle (0.15em);
+\coordinate (B4) at (4,1.3);
+\draw[fill=black] (B4) circle (0.15em);
+
+
+% begin third set
+\node (C) at (8,3.5) {$C$};
+\draw (8,2) circle (1cm);
+\coordinate (C1) at (8,2.7);
+\draw[fill=black] (C1) circle (0.15em);
+\coordinate (C2) at (7.3,2.2);
+\draw[fill=black] (C2) circle (0.15em);
+\coordinate (C3) at (8.3,2);
+\draw[fill=black] (C3) circle (0.15em);
+\coordinate (C4) at (7.6,1.5);
+\draw[fill=black] (C4) circle (0.15em);
+\coordinate (C5) at (8.2,1.3);
+\draw[fill=black] (C5) circle (0.15em);
+
+% begin fourth set
+\draw (12,2) circle (1cm);
+\node (D) at (12,3.5) {$D$};
+\coordinate (D1) at (11.7,2.7);
+\draw[fill=black] (D1) circle (0.15em);
+\coordinate (D2) at (12.3,2.7);
+\draw[fill=black] (D2) circle (0.15em);
+\coordinate (D3) at (11.7,2);
+\draw[fill=black] (D3) circle (0.15em);
+\coordinate (D4) at (12.3,2);
+\draw[fill=black] (D4) circle (0.15em);
+\coordinate (D5) at (11.7,1.3);
+\draw[fill=black] (D5) circle (0.15em);
+\coordinate (D6) at (12.3,1.3);
+\draw[fill=black] (D6) circle (0.15em);
+
+
+% begin first map
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A1) edge node[above]{$f$} (B1)
+(A2) edge (B2)
+(A3) edge (B3);
+
+% begin second map
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(B1) edge node[above]{$g$} (C2)
+(B2) edge (C2)
+(B3) edge (C4)
+(B4) edge (C5);
+
+% begin third map
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(C1) edge node[above]{$h$} (D1)
+(C2) edge (D1)
+(C3) edge (D3)
+(C4) edge (D3)
+(C5) edge (D5);
+
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+        </figure>
+
+        <p>
+          For diagram (iv), we drop set C and connect B directly to D.
+        </p>
+                    <figure xml:id="fig-article1-associative-iv">
+          <caption>Completed associative law diagram (iv) from L&amp;S Article 1.</caption>
+          <image width="80%" xml:id="img-article1-associative-iv"> 
+        <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1cm);
+\node (A) at (0,3.5) {$A$};
+\coordinate (A1) at (0,2.7);
+\draw[fill=black] (A1) circle (0.15em);
+\coordinate (A2) at (0,2);
+\draw[fill=black] (A2) circle (0.15em);
+\coordinate (A3) at (0,1.3);
+\draw[fill=black] (A3) circle (0.15em);
+
+
+% begin second set
+\node (B) at (4,3.5) {$B$};
+\draw (4,2) circle (1cm);
+\coordinate (B1) at (4,2.7);
+\draw[fill=black] (B1) circle (0.15em);
+\coordinate (B2) at (3.4,2);
+\draw[fill=black] (B2) circle (0.15em);
+\coordinate (B3) at (4.5,1.8);
+\draw[fill=black] (B3) circle (0.15em);
+\coordinate (B4) at (4,1.3);
+\draw[fill=black] (B4) circle (0.15em);
+
+
+% begin fourth set
+\draw (12,2) circle (1cm);
+\node (D) at (12,3.5) {$D$};
+\coordinate (D1) at (11.7,2.7);
+\draw[fill=black] (D1) circle (0.15em);
+\coordinate (D2) at (12.3,2.7);
+\draw[fill=black] (D2) circle (0.15em);
+\coordinate (D3) at (11.7,2);
+\draw[fill=black] (D3) circle (0.15em);
+\coordinate (D4) at (12.3,2);
+\draw[fill=black] (D4) circle (0.15em);
+\coordinate (D5) at (11.7,1.3);
+\draw[fill=black] (D5) circle (0.15em);
+\coordinate (D6) at (12.3,1.3);
+\draw[fill=black] (D6) circle (0.15em);
+
+
+% begin first map
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A1) edge node[above]{$f$} (B1)
+(A2) edge (B2)
+(A3) edge (B3);
+
+% begin second map
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(B1) edge node[above]{$h \circ g$} (D1)
+(B2) edge (D1)
+(B3) edge (D3)
+(B4) edge (D5);
+
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+        </figure>
+
+
+        <p>
+          To get from here to diagram (v), we drop set B and connect A directly to D.
+        </p>
+                    <figure xml:id="fig-article1-associative-v">
+          <caption>Completed associative law diagram (v) from L&amp;S Article 1.</caption>
+          <image width="80%" xml:id="img-article1-associative-v"> 
+        <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1cm);
+\node (A) at (0,3.5) {$A$};
+\coordinate (A1) at (0,2.7);
+\draw[fill=black] (A1) circle (0.15em);
+\coordinate (A2) at (0,2);
+\draw[fill=black] (A2) circle (0.15em);
+\coordinate (A3) at (0,1.3);
+\draw[fill=black] (A3) circle (0.15em);
+
+% begin fourth set
+\draw (12,2) circle (1cm);
+\node (D) at (12,3.5) {$D$};
+\coordinate (D1) at (11.7,2.7);
+\draw[fill=black] (D1) circle (0.15em);
+\coordinate (D2) at (12.3,2.7);
+\draw[fill=black] (D2) circle (0.15em);
+\coordinate (D3) at (11.7,2);
+\draw[fill=black] (D3) circle (0.15em);
+\coordinate (D4) at (12.3,2);
+\draw[fill=black] (D4) circle (0.15em);
+\coordinate (D5) at (11.7,1.3);
+\draw[fill=black] (D5) circle (0.15em);
+\coordinate (D6) at (12.3,1.3);
+\draw[fill=black] (D6) circle (0.15em);
+
+
+% begin first map
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A1) edge node[above]{$(h \circ g) \circ f$} (D1)
+(A2) edge (D1)
+(A3) edge (D3);
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+        </figure>
+      <p>
+        As expected, this diagram is an exact match of diagram (iii).
+      </p>
+
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 2</title>
+      <statement>
+        <p>
+          How many different maps <m>f</m> are there with domain <m>A</m> and codomain <m>B</m>?...    
+        </p>
+      </statement>
+      <solution>
+        <p>
+          So I approached this like I would an algebraic function like 
+<m>f(x)=\frac{x^2-1}{x+2}</m>, but instead of feeding in a number
+I'm feeding in John (<m>J</m>), Mary (<m>M</m>) or Sam (<m>S</m>) 
+and getting out a breakfast order at a diner that only serves 
+eggs (<m>e</m>) or coffee (<m>c</m>) and has a 1 item limit per order.
+        </p>
+        <p>
+          I know that the number of outcomes is going to be the same
+for each person, so it made sense to focus on one person at
+a time.  I imagined John's breakfast order, <m>f(J)</m>, as
+having 3 possible outcomes.
+        </p>
+        <ol>
+<li>John orders eggs: <m>f(J)=e</m></li>
+<li>John orders coffee: <m>f(J)=c</m></li>
+<li>John fails to place an order at all: <m>f(J)</m> is undefined</li>
+</ol>
+        <p>
+          Likewise, Mary and Sam have the same 3 possible outcomes: {eggs,coffee,undefined}.
+Since these events are independent of each other, the total number of possible 
+outcomes is <m>3 \cdot 3 \cdot 3 = 27</m>  maps in total.
+        </p>
+      </solution>
+
+    </example>
+
+
+
+    <example>
+      <title>Exercise 3</title>
+      <statement>
+        <p>
+          Same, but for maps <m>A \overset{f}{\longrightarrow} B</m>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          I thought of this function like the "favorite person" map example from the
+reading.  Using John as an example, I imagined 4 possible character roles 
+in a hypothetical Hollywood love triangle:
+        </p>
+<ol>
+<li>John is in love with Mary. <m>f(J)=M</m></li>
+<li>John is in love with Sam.  <m>f(J)=S</m></li>
+<li>John is a narcissist, in love with himself: <m>f(J)=J</m></li>
+<li>John is a psychopath, incapable of love: <m>f(J)</m> is undefined</li>
+</ol>
+      <p>
+        Given an analogous set of 4 outcomes for Mary and Sam, the total number of 
+possible plot outcomes is <m>4 \cdot 4 \cdot 4 = 64</m>.
+      </p>
+
+      </solution>
+    </example>
+   <example>
+      <title>Exercise 4</title>
+      <statement>
+        <p>
+          Same, but for maps <m>B \overset{f}{\longrightarrow} A</m>
+        </p>
+      </statement>
+      <solution>
+        <p>
+        I imagined this one as a "mystery breakfast order".  I'm the a waiter in 
+a diner delivering one order of eggs and one order of coffee to a table where 
+John, Mary, and Sam are seated.  The map <m>f</m> tells me who ordered a given
+dish.  Like before, I'll consider one example at a time.  There are 4 possible
+outcomes for the source of the eggs:  
+        </p>
+        <ol>
+<li>John ordered the eggs: <m>f(e)=J</m></li>
+<li>Mary ordered the eggs: <m>f(e)=M</m></li>
+<li>Sam ordered the eggs: <m>f(e)=S</m></li>
+<li>Nobody ordered eggs: <m>f(e)</m> is undefined</li>
+</ol>	
+      <p>
+        Since there must likewise be 4 sources for the coffee, the total number of 
+possible outcomes is <m>4 \cdot 4 = 16</m>.
+      </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 5</title>
+      <statement>
+        <p>
+          Same, but for maps <m>B \overset{f}{\longrightarrow} B</m>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          At this point I had observed a pattern and attempted to generalize. Following
+my reasoning from exercises 2-4, I notice all my answers fit a pattern: 
+        </p>
+        <me>
+(\text{number of maps}) = (1+(\text{size of codomain}))^\text{size of domain}
+        </me>
+        <p>
+          In exercise 5, the size of the domain and codmain would each be 2.  Evaluating
+the expression above gives us <m>(1+2)^2=9</m> possible maps.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 6</title>
+      <statement>
+        <p>
+         How many maps <m>A \overset{f}{\longrightarrow} A</m> satisfy <m>f \circ f = f</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          This is where I started to notice some problems with my previous reasoning.
+In order for me to talk about the properties of <m>f \circ f</m>, it didn't
+make sense for <m>f</m> to be "undefined" for an element in my domain.  If
+I didn't get something "out", I wouldn't be able to feed it back in.  So
+instead of considering all <m>4^3=64</m> possible "love triangles" I identified earlier,
+I could narrow my search down to a more limited set of <m>3^3=27</m> maps by 
+excluding the "psychopaths" from my romance movies because they make it 
+impossible to produce a sequel (more on that idea later).  
+        </p>
+        <p>
+          This narrowed my search, but 27 is still too many for me too sort out by hand so
+I started looking for ways to break it down further. I knew I could satisfy the
+<m>f \circ f = f</m> constraint with the identity map because clearly
+<m>1_A \circ 1_A = 1_A</m>.  I also know I could satisfy 
+<m>f \circ f = f</m> with a "constant function" such as the following: 
+        </p>
+        <p>
+          Furthermore, there would need to be a total of 3 such "constant functions" 
+because you'd need one for each of the 3 possible destinations.  At that point
+it seemed clear I was still missing some. If I could construct a function 
+<m>f</m> with 1 arrow to each point and also a function <m>f</m> with 3 arrows
+to a single point, it seemed reasonable to assume there'd be a class of maps
+with 2 arrows leading to a single point.  
+        </p>
+        <p>
+          Let's consider the case where that point with two arrows leading in to 
+be "John".  One of the arrows leading to John has to be from himself for
+<m>f \circ f (J) = f(J)</m> to be true, but the other arrow could originate at
+either Mary or Sam.  Given these two possible maps exist for each person, we'd have
+<m>3 \cdot 2 = 6</m> maps of this type.
+        </p>
+        <p>
+          Putting everything together, some patterns seem to emerge when I listed these 
+out in a table using binomials. 
+        </p>
+        <table>
+<tabular>
+<row>
+    <cell>number of fixed points</cell>
+    <cell>number of maps</cell>
+    <cell>as binomial</cell>
+</row>
+<row>
+    <cell>1</cell>
+    <cell>3</cell>
+    <cell><m>\binom{3}{1}</m></cell>
+</row>
+<row>
+    <cell>2</cell>
+    <cell>6</cell>
+    <cell><m>\binom{3}{2}</m></cell>
+</row>
+<row>
+    <cell>3</cell>
+    <cell>1</cell>
+    <cell><m>\binom{3}{3}</m></cell>
+</row>
+</tabular>
+</table>
+        <p>
+          Adding up all of these up gives us total of <m>3+6+1=10</m> possible maps.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 7</title>
+      <statement>
+        <p>
+         How many maps <m>B \overset{g}{\longrightarrow} B</m> satisfy <m>g \circ g = g</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          This was made even easier by the pattern I noticed in the previous example.
+Given that there are only two elements in the domain, there are 
+<m>\binom{2}{1}=2</m> maps with 1 fixed point and <m>\binom{2}{2}=1</m> map
+with 2 fixed points (namely, <m>1_A</m>) for total of <m>2+1=3</m>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 8</title>
+      <statement>
+        <p>
+         ...<m>A \overset{f}{\longrightarrow} B \overset{g}{\longrightarrow} A</m> for which <m>g \circ f = 1_A</m>?...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          None? B has fewer choices in it than A, so when f maps from A to B it must 
+destroy at least one of them.  The map g would not be able to produce 3 outputs
+from only 2 inputs, so there's no possible way for the composition to cover
+all elements of A.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 9</title>
+      <statement>
+        <p>
+         ...<m>B \overset{h}{\longrightarrow} A \overset{k}{\longrightarrow} B</m> for which <m>k \circ h = 1_B</m>?...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          I started here by considering a blank diagram that would fit the composition,
+and start filling it in one point at a time.
+        </p>
+<figure xml:id="fig-article1-ex9-1">
+          <caption>Empty diagram for <m>B \overset{h}{\longrightarrow} A \overset{k}{\longrightarrow} B</m></caption>
+          <image width="80%" xml:id="img-article1-ex9-1"> 
+        <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1cm);
+\node (A) at (0,3.5) {$A$};
+\coordinate (A1) at (0,2.5);
+\draw[fill=black] (A1) circle (0.15em);
+\coordinate (A2) at (0,1.5);
+\draw[fill=black] (A2) circle (0.15em);
+
+
+
+% begin second set
+\node (B) at (4,3.5) {$B$};
+\draw (4,2) circle (1cm);
+\coordinate (B1) at (4,2.7);
+\draw[fill=black] (B1) circle (0.15em);
+\coordinate (B2) at (4,2);
+\draw[fill=black] (B2) circle (0.15em);
+\coordinate (B3) at (4,1.3);
+\draw[fill=black] (B3) circle (0.15em);
+
+
+% begin third set
+\draw (8,2) circle (1cm);
+\node (C) at (8,3.5) {$A$};
+\coordinate (C1) at (8,2.5);
+\draw[fill=black] (C1) circle (0.15em);
+\coordinate (C2) at (8,1.5);
+\draw[fill=black] (C2) circle (0.15em);
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+        </figure>
+        <p>
+Since I know each point has to end up back where it started, the only real 
+"choice" is which of the 3 middle points the path goes through. 
+        </p>
+<figure xml:id="fig-article1-ex9-2">
+          <caption>Diagram of potential paths for first point in <m>B \overset{h}{\longrightarrow} A \overset{k}{\longrightarrow} B</m></caption>
+          <image width="80%" xml:id="img-article1-ex9-2"> 
+        <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1cm);
+\node (A) at (0,3.5) {$A$};
+\coordinate (A1) at (0,2.5);
+\draw[fill=black] (A1) circle (0.15em);
+\coordinate (A2) at (0,1.5);
+\draw[fill=black] (A2) circle (0.15em);
+
+
+
+% begin second set
+\node (B) at (4,3.5) {$B$};
+\draw (4,2) circle (1cm);
+\coordinate (B1) at (4,2.7);
+\draw[fill=black] (B1) circle (0.15em);
+\coordinate (B2) at (4,2);
+\draw[fill=black] (B2) circle (0.15em);
+\coordinate (B3) at (4,1.3);
+\draw[fill=black] (B3) circle (0.15em);
+
+
+% begin third set
+\draw (8,2) circle (1cm);
+\node (C) at (8,3.5) {$A$};
+\coordinate (C1) at (8,2.5);
+\draw[fill=black] (C1) circle (0.15em);
+\coordinate (C2) at (8,1.5);
+\draw[fill=black] (C2) circle (0.15em);
+
+
+
+% begin first map
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A1) edge[dashed] (B1)
+(A1) edge[dashed] (B2)
+(A1) edge[dashed] (B3)
+(B1) edge[dashed] (C1)
+(B2) edge[dashed] (C1)
+(B3) edge[dashed] (C1);
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+        </figure>
+        <p>
+Once I fix the first path, the next point only has two possible intermediary 
+points that it can go through.
+        </p>
+        <figure xml:id="fig-article1-ex9-3">
+          <caption>Diagram of potential paths for second point in <m>B \overset{h}{\longrightarrow} A \overset{k}{\longrightarrow} B</m></caption>
+          <image width="80%" xml:id="img-article1-ex9-3"> 
+        <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1cm);
+\node (A) at (0,3.5) {$A$};
+\coordinate (A1) at (0,2.5);
+\draw[fill=black] (A1) circle (0.15em);
+\coordinate (A2) at (0,1.5);
+\draw[fill=black] (A2) circle (0.15em);
+
+
+
+% begin second set
+\node (B) at (4,3.5) {$B$};
+\draw (4,2) circle (1cm);
+\coordinate (B1) at (4,2.7);
+\draw[fill=black] (B1) circle (0.15em);
+\coordinate (B2) at (4,2);
+\draw[fill=black] (B2) circle (0.15em);
+\coordinate (B3) at (4,1.3);
+\draw[fill=black] (B3) circle (0.15em);
+
+
+% begin third set
+\draw (8,2) circle (1cm);
+\node (C) at (8,3.5) {$A$};
+\coordinate (C1) at (8,2.5);
+\draw[fill=black] (C1) circle (0.15em);
+\coordinate (C2) at (8,1.5);
+\draw[fill=black] (C2) circle (0.15em);
+
+
+
+% begin first map
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A1) edge (B1)
+(B1) edge (C1)
+(A2) edge[dashed] (B2)
+(B2) edge[dashed] (C2)
+(A2) edge[dashed] (B3)
+(B3) edge[dashed] (C2);
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+        </figure>
+      
+        <p>
+Given that there were 3 choices for the first path and 2 choices for the second, 
+there's a total of <m>3 \cdot 2 = 6</m> paths altogether.
+        </p>
+        <p>
+This also makes sense as the binomial <m>\binom{3}{2}</m>, because we have
+3 possible intermediary points and we need to choose 2 of them.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 10</title>
+      <statement>
+        <p>
+         [hidden]
+        </p>
+      </statement>
+      <solution>
+        <p>
+          What first clued me in that my answers to exercises 2-5 might be wrong was 
+the hint about "BOOKKEEPING rules" at the very end of the section. Looking
+back, it's seem like my programming background may have clouded my 
+understanding of "map".  
+        </p>
+        <p>
+          I was thinking about a "map" like I would a "function" in a program.  In this
+analogy I had interpreted "domain" as my "input type" and "codomain" as 
+"output type".  The flaw in this reasoning is that I was allowing "functions"
+to "error", which is not true under the definitions of "map" and "domain" that
+were presented.  If the map <m>f(J)</m> produced something "undefined", it 
+would be inaccurate to include <m>J</m> in the domain of <m>f</m> to begin with.
+        </p>
+        <p>
+      This means that the generalized formula I came up with earlier is "off by 1", 
+and the corrected formula should be as follows:    
+        </p>
+                    <me>
+(\text{number of maps}) = (\text{size of codomain})^\text{size of domain}
+        </me>
+        <p>
+          Under these revised definitions, the answers to excercises 2-5 should be as follows:
+        </p>
+        <table>
+<tabular>
+<row>
+    <cell>Excercise</cell>
+    <cell>Size of domain</cell>
+    <cell>Size of codomain</cell>
+    <cell>Expression</cell>
+    <cell>Result</cell>
+</row>
+<row>
+    <cell>2</cell>
+    <cell>3</cell>
+    <cell>2</cell>
+    <cell>2^3</cell>
+    <cell>8</cell>
+</row>
+<row>
+    <cell>3</cell>
+    <cell>3</cell>
+    <cell>3</cell>
+    <cell>3^3</cell>
+    <cell>27</cell>
+</row>
+<row>
+    <cell>4</cell>
+    <cell>2</cell>
+    <cell>3</cell>
+    <cell>3^2</cell>
+    <cell>9</cell>
+</row>
+ <row>
+    <cell>5</cell>
+    <cell>2</cell>
+    <cell>2</cell>
+    <cell>2^2</cell>
+    <cell>4</cell>
+</row>
+</tabular>
+</table>
+      <p>
+        I can see why these definitions simplify the process of talking about
+"bookkeeping" for the number maps. It's much easier to count the maps 
+if we limit ourselves to the ones that are well-formed to start with.  
+I'm left wondering if there's a situation where having an "undefined"
+output token like I used might be a useful construct, but the costs seem 
+to far outweigh the benefits. 
+      </p>
+      <p>
+        I can also see some programming parallels here between the "switch" statement
+in C-like languages and the "match" statement in Rust.  The Rust compiler
+goes an extra step to verify that every possible outcome has been handled
+before even attempting to complile the code you give it.  This provides an
+extra level of assurance that these functions will behave as expected.
+      </p>
+      </solution>
+    </example>
+  
+  </section>

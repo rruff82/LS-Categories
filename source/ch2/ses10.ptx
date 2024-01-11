@@ -1,0 +1,604 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session10">
+    <title>Session 10: Brouwer's theorems</title>
+    <p>
+      It felt like there was a lot of new information introduce here for the session that concludes "Part II". 
+      This reminds me of my undergraduate research study where I had my first crash course in topology.
+      In fact, flipping back to the start of book reveals the following warning: "Exceptionally, Session 10 is 
+      intended to give the reader a taste of more sophisticated applications; mastery of it is not essential
+      for the rest of the book."
+    </p>
+    <p>
+      As I was reading this week, I also felt reminded of Problem 1* from the Quiz.  This idea that we can 
+      compare the size of infinite sets like <m>\mathbb{R}</m> and <m>\mathbb{Z}</m> using the language of
+      retractions seems analagous to the formalation of Brouwer's theorems.  I'm expecting the proofs in this
+      section to follow a similar format, even though this notion of a "continuous maps" seems a little informal
+      at the moment.
+    </p>
+    <example>
+      <title>Exercise 1:</title>
+      <statement>
+        <p>
+          Let <m>j: C \longrightarrow D</m> be, as before, the inclusion of the circle into the disk...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We're given that we have two continuous maps <m>D \mathrel{\substack{f \\[-0.6ex]
+            \textstyle\longrightarrow \\[-0.6ex]
+            \textstyle\longrightarrow \\[-0.6ex]
+             g}} D</m> and that <m>g \circ j = j</m>.  We want to show that there's some point
+             <m>x \in D</m> such that <m>f(x) = g(x)</m> We're also told to use the <em>retraction
+              theorem</em>, and the revelevant one states that "there is no continuous map which is
+              a retraction for j". 
+        </p>
+        <p>
+          Let's suppose for a second that the opposite were true: <m>f(x) \neq g(x)</m> for every
+          <m>x \in D</m>.  Since these two points are different, we can construct an arrow using
+          one of them as the "tail" and one as the "head".  We can define a map <m>r: D \longrightarrow C</m>
+          that follows this arrow until it reaches the boundary point on the circle like so:
+        </p>
+        <figure xml:id="fig-session10-ex1-1">
+          <caption>Construction diagram for our map <m>r</m></caption>
+              <image width="80%" xml:id="img-session10-ex1-1">
+                      <latex-image>
+          \begin{tikzpicture}[scale=1]
+          
+          % begin first set
+          \draw (0,0) circle (2cm);
+          \coordinate (A1) at (1,1.2);
+          \coordinate (A2) at (-.5,0.6);
+          \coordinate (A3) at (-2,0);
+          
+          \draw[fill=black] (A1) circle (0.15em) node[above left] {$f(x)$};
+          \draw[fill=black] (A2) circle (0.15em) node[above left] {$g(x)$};
+          \draw[fill=black] (A3) circle (0.15em) node[left] {$r(x)$};
+
+          \draw[-{Stealth}] (A1) -- (A2);
+          \draw[dashed] (A2) -- (A3);
+          
+          
+
+          \end{tikzpicture}
+                      </latex-image>
+                      </image>
+                      </figure>
+        <p>
+          Since we're guaranteed to have <m>r(x) \in C</m>, let's see what happens when we compose
+          <m>j</m> with it. If we could prove <m>r \circ j = 1_C</m>, we'd have a 
+          contradiction and be done, but it's not clear that's the case quite yet. I think the 
+          key to this lies in the fact that <m>g \circ j = j</m>.  In the text, they proved the
+          special case where <m>g = 1_D</m>.  This is a slightly more relaxation condition 
+          to show that <m>g</m> doesn't need to be the identity everywhere <mdash/> it just needs
+          to be the identity on the edge of the disk where it meets the circle. 
+        </p>
+        <p>
+          I'm thinking of like taking a sample <m>b</m> from the embedding of <m>C</m> rather than
+          from <m>D</m> at large.  The text used the notation <m>\mathbf{1} \xrightarrow{b} C</m> to show this
+          operation. Once we've chosen that <m>b</m>, we can apply the map <m>j</m> to aquire our point
+          <m>x</m> on the edge of the disk. 
+        </p>
+        <p>
+          Since <m>C \subset D</m>, the rule that <m>f(x) \neq g(x)</m> still applies, but if we force 
+          <m>g</m> to be the "head" of the arrow then we'll have an arrow whose "head" lies on the boundary,
+          which also happens to be the same point we originated from.       
+        </p>
+        <figure xml:id="fig-session10-ex1-2">
+          <caption>Construction diagram for our map <m>r</m></caption>
+              <image width="80%" xml:id="img-session10-ex1-2">
+                      <latex-image>
+          \begin{tikzpicture}[scale=1]
+          
+          % begin first set
+          \draw (0,0) circle (2cm);
+          \coordinate (A1) at (1,1.2);
+          \coordinate (A2) at (-2,0);
+          
+          \draw[fill=black] (A1) circle (0.15em) node[above left] {$f(x)$};
+          \draw[fill=black] (A2) circle (0.15em) node[left] {$x$};
+
+          \draw[-{Stealth}] (A1) -- (A2);
+          \end{tikzpicture}
+                      </latex-image>
+                      </image>
+                      </figure> 
+        <p>
+          Being able to follow the points back to their origins like this 
+          essentially gives us a retraction for <m>j</m>.  However, we already
+          know such retraction can't exist! This means that our assumption that
+          <m>\forall x \in D: f(x) \neq g(x)</m> is false, which is logically
+          equivalent to the assertion that <m>\exists x \in D: f(x) = g(x)</m>.  QED.   
+        </p>
+        <p>
+          I must admint, this all feels a little "hand wavy" still.  I'm not really sure how
+          much of Euclidean geometry I'm projecting onto the situation.  I think this
+          is also a good spot to point out the "antipodal" map that we'd get by swapping
+          the head and tail of our arrow between <m>f(x)</m> and <m>g(x)</m>:
+        </p> 
+        <figure xml:id="fig-session10-ex1-3">
+          <caption>Construction diagram for our antipodal map <m>a</m></caption>
+              <image width="80%" xml:id="img-session10-ex1-3">
+                      <latex-image>
+          \begin{tikzpicture}[scale=1]
+          
+          % begin first set
+          \draw (0,0) circle (2cm);
+          \coordinate (A1) at (1,1.2);
+          \coordinate (A2) at (-.5,0.6);
+          \coordinate (A3) at (1.448,1.379);
+          \coordinate (A4) at (-2,0);
+          
+          
+          \draw[fill=black] (A1) circle (0.15em) node[above left] {$f(x)$};
+          \draw[fill=black] (A2) circle (0.15em) node[above left] {$g(x)$};
+          \draw[fill=black] (A3) circle (0.15em) node[above right] {$a(x)$};
+          \draw[fill=black] (A4) circle (0.15em) node[left] {$r(x)$};
+          \draw[{Stealth}-{Stealth}] (A2) -- (A1);
+          \draw[dashed] (A1) -- (A3);
+          \draw[dashed] (A2) -- (A4);
+          
+
+          \end{tikzpicture}
+                      </latex-image>
+                      </image>
+                      </figure>
+          <p>
+            I'd expect this map to have some fun properties. The one situation
+            where we'd have an endomap on the circle with no fixed points is the
+            one that maps each point to the one opposite it, but this needs a fixed
+            point for us to reflect over.  I think this is going to be important later.
+          </p>               
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 2:</title>
+      <statement>
+        <p>
+          Suppose <m>A</m> is a 'retract' of <m>X</m>...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let's sort through our givens here.  We know we have <m>A \mathrel{\substack{s \\[-0.6ex]
+            \textstyle\longrightarrow \\[-0.6ex]
+            \textstyle\longleftarrow \\[-0.6ex]
+             r}} X</m> with <m>r \circ s = 1_A</m>.  We also know that <m>X</m> has a fixed point 
+             property: for every endomap <m>X \xrightarrow{f} X</m> there exists some <m>T \xrightarrow{x} X</m>
+             with <m>f x = x</m>.  We want to show that <m>A</m> has the same property for maps from <m>T</m>.
+        </p>
+        <p>
+          Let's start by having a look at the class of endomaps <m>A \xrightarrow{g} A</m>. Each map <m>g</m> 
+          must have some corresponding map <m>f</m> given by <m>f = s \circ g \circ r</m>.  We can apply <m>r</m>
+          on the left and <m>s</m> on the right to get an equivalent expresson for <m>g</m> in terms of <m>f</m>:
+        </p>
+        <me>f = s \circ g \circ r</me>
+        <me>\implies r \circ f \circ s = r \circ s \circ g \circ r \circ s</me>
+        <me>\implies r \circ f \circ s = 1_A \circ g \circ 1_A</me>
+        <me>\implies r \circ f \circ s = g</me>
+        <p>
+          Since this map  <m>f</m> has some fixed point <m>x</m> such that <m>f x = x</m>,
+          there must be some corresponding point in <m>A</m> given by <m>y = s x</m> that has 
+          this property for <m>g</m>. It should then follow that <m>y = s x</m> is a fixed point of <m>g</m>
+          satisfying.   
+        </p>
+        <me>g (y) = g \circ s (x)</me>
+        <me> = (s \circ f \circ r) \circ s (x)</me>
+        <me> = s \circ f \circ r \circ s (x)</me>
+        <me> = s \circ f \circ (r \circ s) (x)</me>
+        <me> = s \circ f \circ 1_A (x)</me>
+        <me> = s \circ f (x)</me>
+        <me> = s \circ x = y</me>
+        <p>
+          Having proven that <m>g y = y</m>, we've established our fixed point property and I think we're done.  
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 3:</title>
+      <statement>
+        <p>
+          Use the result of the preceeding exercise, ...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let's recap the last exercise:  Given "A is a retract of X" (<m>\exists A \mathrel{\substack{s \\[-0.6ex]
+            \textstyle\longrightarrow \\[-0.6ex]
+            \textstyle\longleftarrow \\[-0.6ex]
+             r}} X \text{such that} r \circ s = 1_A</m>) and "X has the fixed point property for maps from T" (
+              <m>\forall X \xrightarrow{f} X: \exists T \xrightarrow{x} X</m> such that <m>f(x) = x</m>),
+          it follows that "A also has the fixed point property" (
+            <m>\forall A \xrightarrow{g} A: \exists T \xrightarrow{y} A</m> such that<m>g(y) = y</m>).
+        </p>
+        <p>
+          In the case of theorem (1), we can assume the premise "Let <m>I</m> be a line segment including its endpoints
+          (<m>I</m> for Interval) and suppose <m>f: I \longrightarrow I</m> is a continuous endomap.  Then <m>f</m> must 
+          have a fixed point: a point <m>x</m> in <m>I</m> for which <m>f(x) = x</m>." 
+        </p>
+        <p>
+          We're attempting to show that this is sufficient to imply the corresponding retraction theorem:
+          "Consider the inclusion map <m>j: E \longrightarrow I</m> of the two-point set <m>E</m> as 
+          boundary of the interval <m>I</m>.  There is no continuous map which is a retraction for j."
+        </p>
+
+        <p>
+          Since <m>E</m> is a two-point set, perhaps we can use the fact that there are only four possible 
+          endomaps that can exist in that space. These are illustrated below:
+        </p>
+        <figure xml:id="fig-session10-ex3-1">
+          <caption>Possible endomaps on two point space</caption>
+              <image width="80%" xml:id="img-session10-ex3-1">
+                      <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,0) circle (1cm);
+\coordinate (A1) at (0,.5);
+\coordinate (A2) at (0,-.5);
+\draw[fill=black] (A1) circle (0.15em);
+\draw[fill=black] (A2) circle (0.15em);
+        
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A2) edge [bend right] (A1)
+(A1) edge [bend right] (A2);
+
+% begin second set
+\draw (3,0) circle (1cm);
+\coordinate (B1) at (3,.5);
+\coordinate (B2) at (3,-.5);
+\draw[fill=black] (B1) circle (0.15em);
+\draw[fill=black] (B2) circle (0.15em);
+        
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(B1) edge [->,>={Stealth},out=45, in=135, loop] (B1)
+(B2) edge [->,>={Stealth},out=315, in=225, loop] (B2);
+
+% begin third set
+\draw (0,-3) circle (1cm);
+\coordinate (C1) at (0,-2.5);
+\coordinate (C2) at (0,-3.5);
+\draw[fill=black] (C1) circle (0.15em);
+\draw[fill=black] (C2) circle (0.15em);
+        
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(C2) edge [->,>={Stealth},out=315, in=225, loop] (C2)
+(C1) edge (C2);
+
+% begin fourth set
+\draw (3,-3) circle (1cm);
+\coordinate (D1) at (3,-2.5);
+\coordinate (D2) at (3,-3.5);
+\draw[fill=black] (D1) circle (0.15em);
+\draw[fill=black] (D2) circle (0.15em);
+        
+\path[-{Stealth},>={Stealth},font=\scriptsize,>=angle 90]
+(D1) edge [->,>={Stealth},out=45, in=135, loop] (D1)
+(D2) edge (D1);
+
+\end{tikzpicture}
+                      </latex-image>
+                      </image>
+                      </figure>
+          <p>
+            Of these four maps, precisely one has the property of "having no fixed point".  This <em>antipodal</em>
+            map sends each of the points in <m>E</m> to the "opposite" point.  For the sake of convenience, let's
+            can name these points <m>E = {0, 1}</m>.  The antipodal map <m>E \xrightarrow{a} E</m> is equivalent
+            to the operation <m>a(x) = 1 - x</m>, with the other maps being given by <m>1_A</m>, 
+            <m>\mathbf{1} \rightarrow \{0\}</m>, <m>\mathbf{1} \rightarrow \{1\}</m>. This is the unique endomap 
+            on <m>A</m> satisfying <m>a \circ a = 1_A</m>. 
+          </p>
+          <p>
+            I'm thinking the easiest way to approach this is to assume we have some map <m>I \xrightarrow{f} I</m>
+            that acts like our "antipodal" map sending each point to it's mirror on the other half of the interval.    
+            For us to have any notion of continuity on this interval, we'd need to be able to take an arbitrarily small
+            step to one side of each endpoint so we should be able to take the opposite step from the other.  In other
+            words, for any <m>\epsilon > 0</m>, we can pair <m>0+\epsilon</m> with <m>1-\epsilon</m>. Using the interval 
+            <m>[0,1]</m> and <m>a(x) = 1 - x</m> as this operation, it's easy to see that <m>a</m> produces a fixed point
+            in the middle at <m>x=0.5</m> where it's equidistantant from the endpoints <m>\{0,1\}</m>. 
+          </p>
+
+          <p>
+            If any map on this interval was going to "have no fixed point", it would have needed to be an antipodal map. 
+            In order for any map <m>r: I \longrightarrow E</m> to possibly satisfy <m>r \circ j = 1_E</m>, it needs to
+            divide the points into two sections. Our map either needs to map "0.5" to itself or to leave it undefined
+            altogther. If we have arrows going from 0 to 1 and arrows from 1 to 0, at some point along the way the "heads"
+            of our arrows need to go past the "tails" coming from the opposite direction. 
+          </p>
+          <p>
+            Perhaps this makes more sense if I step back a bit and state something "obvious": <em>There is no retraction
+            from <m>E</m> to <m>\mathbf{1}</m>.</em> <m>E</m> has two points while <m>\mathbf{1}</m> has one.  <m>E</m> 
+            <em>might</em> have a section, in which case we have one of the two bottom diagrams in the possible endomaps
+            figure above.  This would be our map that takes the fixed point and sends it to itself. We can go from <m>1 
+            \longrightarrow E \longrightarrow 1</m>, but we make <m>1_E</m> by going from <m>E \longrightarrow 1 
+            \longrightarrow E</m> because there simply aren't enough points to work with.
+           </p>
+           <p>
+            It sounds like a variation of the intermediate value theorem. If there's a path of arrows leading from 0 to 1,
+            then we should be able to reverse it and follow the arrows from 1 to 0.  When we do, either there needs to be some
+            fixed point that connects the heads from one path to the tails from the other or we don't have a continuous path 
+            <mdash/>we jump!
+           </p>
+           <p>
+            In summary:
+           </p>
+           <ol>
+            <li>
+              <p>
+                The only endomap on <m>E</m> with no fixed point is the antipodal map. 
+              </p>
+            </li>
+            <li>
+              <p>
+                The only endomap on <m>I</m> that could potentially not have a fixed point would be the antipodal map.
+              </p>
+            </li>
+            <li>
+              <p>
+                The antipodal map on <m>I</m> has a fixed point.
+              </p>    
+            </li>
+            <li>
+              <p>
+                There is no endomap on <m>I</m> without fixed point.
+              </p>
+            </li>
+            <li>
+              <p>
+                Any retract preserves fixed points.
+              </p>
+            </li>
+            <li>
+              <p>
+                There is no retract from <m>E</m> to <m>I</m>
+              </p>
+            </li>
+           </ol>
+           <p>
+              If it sounds like I'm unsure at this point, that's because I am. Maybe attempting the 
+              second theorem will provide more insight.
+           </p>
+           <p>
+              For (2) we're given that any continuous endomap on the closed disk, <m>D</m> must 
+              have a fixed point.  We want to prove that there is no continuous map which is 
+              a retraction for the inclusion map <m>j : C \longrightarrow D</m> of the circle into 
+              the disk.
+           </p>
+           <p>
+              I think we can develop a similar definition of an "antipodal map" on the circle by
+              reflecting across the center of the disk.  This map <m>C \xrightarrow{a} C</m> is 
+              a unique endomap on <m>C</m>. It has no fixed points for the circle <mdash/> <m>\forall x 
+              \in C: a(x) \neq x</m> <mdash/>  and acts as it's own inverse <mdash/>  <m>a \circ a = 1_C</m>.  We can
+              extend this map to the disk, but it fails to provide an inverse for the point at the 
+              center which we reflected over.  Our antipodal map is the only possible section of the 
+              disk's boundary, but it fails to be a retraction due to this "missing" point in the middle.
+           </p>
+           <p>
+              A similar line of reasoning should hold true for the sphere.  The antipodal map reflects
+              each point on the sphere across the center to the opposite side.  It's the only possible 
+              section that doesn't fix any points on the sphere, but then any corresponding retraction on
+              the ball would be missing the center or have a fixed point there.
+           </p>
+           <p>
+              After all that, I'm still a little uncertain about this.  I'm not convinced my proof is
+              correct, but I also won't find out one way or the other unless I keep moving. So, on we go.
+           </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 4:</title>
+      <statement>
+        <p>
+          Express the restrictions given above on my travel and yours...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Story time! I'm chilling in Buffalo on a Friday morning when I get a call from
+          a friend and decide to take a road trip to Rochester to vist them. So at noon,
+          I jump in the car and start heading there, but I remember I left my wallet! I bust
+          a U and go back home to look for it.  By the time I find it, my tummy is growling.
+          I head over my favorite taqueria for a bite.  It's a little out of my way, but the
+          salsa is to die for.  I finally get on the road again, but now everyone is getting 
+          out of work so I hit some nasty traffic on the way.  After crawling along a snail's
+          pace for a few hours I'm starting to get tired and need to use the restroom.  I make
+          a quick detour to a little cafe I just passed.  By the time I'm back on the road again,
+          traffic has cleared up and it's a straight shot to Rochester at 5:00pm. My trip might look
+          something like this:
+        </p>
+        <figure xml:id="fig-session10-ex4-1">
+          <caption>Sample map corresponding to "my" story</caption>
+          <image width="80%" xml:id="img-session10-ex4-1"> 
+          <latex-image>
+
+\begin{tikzpicture}
+\begin{axis}[xmin = -2, xmax = 7,
+ymin = -35, ymax = 100]
+    \addplot[domain = -2:7,black,samples=100,thick] {
+      min(5,(x > 0)*(2*x)+(x > 0.25)*(-4*(x-0.25))+(x > 0.5)*(2*(x-0.5))+
+      (x > 0.8)*(-2.6*(x-0.8))+(x > 1)*(2.6*(x-1))+(x > 2)*(4*(x-2)*(x-2))+
+      (x > 2.5)*(-8*(x-2.5)*(x-2.5))+(x > 3)*(4*(x-3)*(x-3))+(x>3.2)*(-8*(x-3.2)*(x-3.2))+
+      (x > 3.3)*(16*(x-3.3)*(x-3.3))+(x > 3.4)*(-8*(x-3.4)*(x-3.4))+(x > 4)*((x-4)*3.68))*15
+    };
+
+    \legend{
+$m$
+}
+\end{axis}
+\end{tikzpicture}
+
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          Okay, maybe I got carried away, but this is "my" story.  It has a beginning, in Buffalo
+          at noon and it has an end, in Rochester at 5:00pm.  In the figure above, the horizontal
+          axis is the time in hours since my departure, and the vertical axis in the distance in 
+          miles along the road.  Note that in my story, I double back for tacos, which is why 
+          there's a section in the map with negative distance.  "Your" story might be a little
+          different, but what I do know is that you were "somewhere on the road between Buffalo 
+          and Rochester" for the entire duration.  For now, let's suppose you just drive back a
+          forth along some stretch of road in the middle like so:
+        </p>
+        <figure xml:id="fig-session10-ex4-2">
+          <caption>Sample map corresponding to "your" story</caption>
+          <image width="80%" xml:id="img-session10-ex4-2"> 
+          <latex-image>
+
+\begin{tikzpicture}
+\begin{axis}[xmin = -2, xmax = 7,
+ymin = -35, ymax = 100]
+    \addplot[domain = -2:7,black,samples=100,thick] {
+      min(5,(x > 0)*(2*x)+(x > 0.25)*(-4*(x-0.25))+(x > 0.5)*(2*(x-0.5))+
+      (x > 0.8)*(-2.6*(x-0.8))+(x > 1)*(2.6*(x-1))+(x > 2)*(4*(x-2)*(x-2))+
+      (x > 2.5)*(-8*(x-2.5)*(x-2.5))+(x > 3)*(4*(x-3)*(x-3))+(x>3.2)*(-8*(x-3.2)*(x-3.2))+
+      (x > 3.3)*(16*(x-3.3)*(x-3.3))+(x > 3.4)*(-8*(x-3.4)*(x-3.4))+(x > 4)*((x-4)*3.68))*15
+    };
+    \addplot[domain = -2:7,red,samples=100,thick,smooth] {
+      sin(150*x)*15+25
+    };
+    \legend{
+$m$,
+$y$
+}
+\end{axis}
+\end{tikzpicture}
+
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          It should be obvious in this case that our paths have to cross, but we're
+          trying to generalize these maps as much as possible.  For now, let's start 
+          giving some of these objects proper names.
+        </p>
+        <p>
+          Let <m>E_t = \{t_0,t_1\}</m> be our start time and end time for "endpoints" of 
+          the trip in "time".  Let <m>E_p = \{p_0,p_1\}</m> be Buffalo and Rochester, our
+          "endpoints" on the "road".  Since both time and space are continuous, these
+          endpoints can be included in the respective intervals <m>I_t</m> and <m>I_p</m>.
+          Let's call the inclusion map on the "time"-line to be <m>j_t : E_t \longrightarrow I_t</m>
+          and the inclusion map on the "position"-line to be <m>j_p : E_p \longrightarrow I_p</m>. 
+          Note that Brouwer's 1st Theorem says there can't exist any retractions for either of 
+          these maps.
+        </p>
+        <p>
+          My position at any given time is a map <m>m: I_t \longrightarrow I_p</m> that needs to
+          satisfy certain conditions.  I know <m>m(t_0)=p_0</m> and <m>m(t_1)=p_1</m>: that at the start of my 
+          trip I'm in Buffalo and at the end I'm in Rochester.  Note that since our endpoints are included:
+          <m>m j_t = j_p</m>.  
+        </p>
+        <p>
+          The premise of this thought experiment is based around the idea that if "you" also have a map 
+          <m>y: I_t \longrightarrow I_p</m> we must necessarily meet somewhere in that "space-time".  We're 
+          using some kind of "freeway distance", where my 'location' sticks to the exit I took off it when 
+          I needed to make a stop.  
+        </p>
+        <p>
+          Maybe "you" lived your entire life in Buffalo such that your <m>y t = p_0 \forall t \in I_t</m>,
+          our meeting place would be at the start of of my trip or some time prior! In the other extreme, 
+          maybe you've lived your entire life in Rochester and your <m>y t = p_1 \forall t \in I_t</m>. In this
+          case, "you meeting me" is contigent on "me deciding to make the trip" and we "meet" at 5:00pm.  It's 
+          also possible you've never been to either Buffalo nor Rochester but live some place along the way, or 
+          maybe have been to one but not the other.  In any of these cases, we can can map your position to some
+          sub-interval of <m>I_p</m> for the entire time period <m>I_t</m>.
+        </p>
+        <p>
+          What I'm going to argue is that if you have such a map and we <em>never meet</em> we can construct a
+          continuous retraction from <m>r: I \longrightarrow E</m> with no fixed point.  Since Brouwer's theorem
+          establishes that such a retraction can't exist, there must be some <m>\mathbf(1) \xrightarrow(x) I_t</m> 
+          with the property <m>m x = y x</m>.
+        </p>
+        <p>
+          First, let's rule out the "easy maps".  Suppose I hadn't doubled back at all and moved steadily from 
+          Buffalo to Rochester so that my path is invertable <mdash/> I have a unique position for every time.
+          We'd be able to use your map construct endomap on <m>I_t</m> through the composition given by 
+          <m>I_t \xrightarrow{y} I_p \xrightarrow{m^{-1}} I_t</m>.  Our fixed point theorem says any continuous
+          endomap has a fixed point, so there's some <m>x</m> with <m>(m^(-1) \circ y) x = x</m>.  Apply <m>m</m>
+          on the left side to get <m>m \circ (m^(-1) \circ y) x = y x = m x</m>.   We meet at time <m>x</m> and
+          position <m>y x = m x</m>.
+        </p>
+        <p>
+          What if your map is invertable?  Well, then we could use it to construct an endomap on <m>I_p</m>.  
+          We compose <m>I_p \xrightarrow{y^{-1}} I_t \xrightarrow{m} I_p</m>.  This implies there's some fixed
+          point <m>\mathbf{1} \xrightarrow{x} I_p</m> with <m>(m \circ y^{-1}) x = x</m>.  Note that our spaces 
+          are different, so here we meet at time <m>y^{-1} x</m> and position <m>x</m>.
+        </p>
+        <p>
+          There is however, one map that might have the property <m>m x = y x \forall t \in I_t</m>.  Imagine
+          my "evil twin".  This twin starts in the opposite city and takes the opposite that I do along the way.
+          If <m>any</m> map is going to avoid coming into contact with me at every step in my journey, it would
+          have to be him.  He takes every step I do, but in the opposite direction!  This is the composition of 
+          my map with the "antipodal map" on <m>I_t</m><mdash/> it takes every moment in my journey in reverse. 
+          If my map is continuous, so is my evil twin.  If there's a sequence of arrows, we can reverse them.  
+        </p>
+        <p>
+          We've already established that my journey is not invertable, so it stands to reason that 
+          my evil twin would also have that property. But check this out, even me and my evil twin
+          need to meet!
+        </p>
+        <figure xml:id="fig-session10-ex4-3">
+          <caption>My "evil twin" map</caption>
+          <image width="80%" xml:id="img-session10-ex4-3"> 
+          <latex-image>
+
+\begin{tikzpicture}
+\begin{axis}[xmin = -2, xmax = 7,
+ymin = -35, ymax = 100]
+    \addplot[domain = -2:7,black,samples=100,thick] {
+      min(5,(x > 0)*(2*x)+(x > 0.25)*(-4*(x-0.25))+(x > 0.5)*(2*(x-0.5))+
+      (x > 0.8)*(-2.6*(x-0.8))+(x > 1)*(2.6*(x-1))+(x > 2)*(4*(x-2)*(x-2))+
+      (x > 2.5)*(-8*(x-2.5)*(x-2.5))+(x > 3)*(4*(x-3)*(x-3))+(x>3.2)*(-8*(x-3.2)*(x-3.2))+
+      (x > 3.3)*(16*(x-3.3)*(x-3.3))+(x > 3.4)*(-8*(x-3.4)*(x-3.4))+(x > 4)*((x-4)*3.68))*15
+    };
+    \addplot[domain = -2:7,red,samples=100,thick,smooth] {
+      75-min(5,(x > 0)*(2*x)+(x > 0.25)*(-4*(x-0.25))+(x > 0.5)*(2*(x-0.5))+
+      (x > 0.8)*(-2.6*(x-0.8))+(x > 1)*(2.6*(x-1))+(x > 2)*(4*(x-2)*(x-2))+
+      (x > 2.5)*(-8*(x-2.5)*(x-2.5))+(x > 3)*(4*(x-3)*(x-3))+(x>3.2)*(-8*(x-3.2)*(x-3.2))+
+      (x > 3.3)*(16*(x-3.3)*(x-3.3))+(x > 3.4)*(-8*(x-3.4)*(x-3.4))+(x > 4)*((x-4)*3.68))*15
+    };
+    \legend{
+$m$,
+$y$
+}
+\end{axis}
+\end{tikzpicture}
+          </latex-image></image></figure>
+          <p>
+            The composition of the antipodal map <m>a_t</m> on <m>I_t</m> followed my <m>m</m> must be 
+            the same as <m>m</m> followed by the antipodal map <m>a_p</m> on <m>I_p</m>.  My trip needs
+            to be reversable, but we've already shown that it can't be.  The fixed point theorem says 
+            me and my evil twin have to either meet or jump over each other <mdash/> the map can't be 
+            continuous without the meet-up!
+          </p>
+          <p>
+            I'm thinking that we can use the meeting place of myself and my evil twin as an approximation
+            for the midpoint of my journey.  Your map needs to have some evil twin midpoint also. If we 
+            alternate "halfway points", we should be able to do something of a binary search to home in on 
+            each other's location in terms of whether we're closer in the front or back half of our respective
+            trips.  Essentially, we'd have an analogue for the <em>mean value theorem</em>.
+          </p>
+          <p>
+            I think this is about as close as I'm going to get for "an answer" to (a) and (b) for the week. 
+            I'm not really sure how I would generalize it further for (c) and (d).  I feel like right now 
+            there's a glaring weak spot in my argument by even assuming <m>y: I_t \longrightarrow I_p</m>
+            is well-defined for the entire space.  What if "you" were born or died sometime during my trip?  
+            Would I still necessarily "meet" you?
+          </p>
+          <p>
+            The thing that I'm left curious is about the connection between Brouwer's theorems and my notions about 
+            simplices. I'm used to this idea of going from a point <m>S_0</m>, to a line segment <m>S_1</m>, to a triangle
+            <m>S_2</m>, to a tetrahedra <m>S_3</m>, and then generalizing to higher dimensional spaces <m>S_n</m>
+            from there.  There seems like an obvious parallel to Brouwer's first theorem that says we can't have a 
+            retraction from <m>S_1</m> to <m>S_0</m>, or from any <m>S_n</m> to <m>S_m</m> with <m>m \leq n</m> for that
+            matter.  
+          </p>
+      </solution>
+    </example>
+    <p>
+      Having "attempted" all of the exercises in the session, I think I'll stop here.  I feel like I could easily spend
+      another week on this session, but since the authors explicitly state it's not important I'll take them for
+      their word.  They obviously have spent a lot more time on it than I have.  I didn't even have time to proofread 
+      myself this week!
+    </p>
+  </section>

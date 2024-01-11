@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session1">
+    <title>Session 1</title>
+    <p>
+      Since L&amp;S start Session 1 prior to "Part 1", I figured I should do the same.  I'm presuming the reader has access to
+      the source material and hope that my abbreviated reproduction of the prompts this way is "fair use".  After all, calling them "exercises"
+      implies they're meant for me to work out, no?
+    </p>
+    <example>
+      <title>Exercise 1:</title>
+      <statement>
+        <p>
+          "...other examples of combining two objects to get a third..."
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Since I was already thinking about cats in the context of category theory, my first thought was perhaps
+          <m>BEHAVIOR=NATURE \times NURTURE</m> might satisfy the pattern here.  The way my cats seem to behave is
+          based in part on certain natural instincts to hunt and hide, but they have been brought up in an environment 
+          where those tendencies manifest as behaviors that we classify as cute and playful. On closer inspection, 
+          however, I became a little less confident in this when I tried to identify the "maps".  
+        </p>
+        <p>
+          The diagrams in session 1 had the following structure:
+        </p>
+        <figure xml:id="fig-session1-cd">
+          <caption>A typical diagram of the examples considered in L&amp;S "Session 1"</caption>
+          <image width="20%" xml:id="img-session1-cd">
+        
+        <latex-image>
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,1) {$A$};
+\node (B) at (1,1) {$B$};
+\node (C) at (0,0) {$C$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$\phi$} (B)
+(A) edge node[right]{$\theta$} (C);
+\end{tikzpicture}
+        </latex-image>
+          </image>
+        
+        </figure>
+        <p>
+        It didn't really make sense to me to think of "behavior" as A in this diagram and nature/nuture as B/C because 
+        I could think of many situations where a single behavior might make sense in different environments. It seems 
+        more natural to think of behavior as function of environment rather than the environment as a function of the
+        behavior. I feel like the qualities I identified might more accurately be arranged like so:
+        </p>
+        <figure xml:id="fig-session1-alt">
+          <caption>Alternate explanation structure of behavior (A), nature (B), and nurture (C)</caption>
+          <image width="20%" xml:id="img-session1-alt">
+        
+        <latex-image>
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (1,0) {$A$};
+\node (B) at (1,1) {$B$};
+\node (C) at (0,0) {$C$};
+\path[->,font=\scriptsize,>=angle 90]
+(B) edge node[right]{$\phi$} (A)
+(C) edge node[above]{$\theta$} (A);
+\end{tikzpicture}
+        </latex-image>
+          </image>
+        
+        </figure>
+        
+        <p>
+          I think some of this unease comes from the complexity associated with behavior.  I think on some level I'm confusing 
+          a "behavioral genotype" with a "behavioral phenotype".  Being a cat creates a behavior profile of the actions they
+          might engage in, but the environment selects for which actions are allowed to manifest. 
+        </p>
+        <p>
+          Let's define <m>A</m> as "the set of animals".  We can consider "instincts" as a map <m>\phi</m> that maps each animal to its
+          "natural behavior profile" in set B.  We can also consider "selection" as a map <m>\theta</m> that maps each animal to an 
+          "environmental reward profile" in set C.  Under these definitions, it seems reasonable to think of the composite 
+          map <m>\phi \circ \theta</m> (or <m>\theta \circ \phi</m>) producing an "observed behavior profile" in set D. 
+        </p>
+
+        <figure xml:id="fig-session1-full">
+          <caption>Full diagram of behavior expression as maps.</caption>
+          <image width="20%" xml:id="img-session1-full">
+        
+        <latex-image>
+\begin{tikzpicture}[scale=1.5]
+\node (A) at (0,1) {$A$};
+\node (B) at (1,1) {$B$};
+\node (C) at (0,0) {$C$};
+\node (D) at (1,0) {$D$};
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge node[above]{$\phi$} (B)
+(A) edge node[right]{$\theta$} (C)
+(B) edge node[right]{$\theta$} (D)
+(C) edge node[above]{$\phi$} (D);
+\end{tikzpicture}
+        </latex-image>
+          </image>
+        
+        </figure>
+
+        <p>
+          As an example of these maps in action, consider the case of my cats "playing with toys".  Given that they are cats, 
+          I know that they have certain hunting related instincts as a result.  However, I also restrict their environment
+          so that they have stuffed toys instead of live prey.  What we percieve as "playing" is really a proxy for murderous
+          insticts with no where else to go created by the combination of their instincts and the environment.  
+        </p>
+
+        <p>
+          I think I can see how this additional structure helped to clarify what had started as an vague idea.  It makes a lot
+          more sense to think of mapping from a specific cat to a behavior profile, than trying to map from a cat's behavior 
+          profile to a specific environment.
+        </p>
+
+      </solution>
+    </example>
+
+    <example>
+      <title>Exercise 2:</title>
+      <statement>
+        <p>
+          "...describe an experiment for deciding whether two nearby points are at the same level..."
+        </p>
+      </statement>
+      <solution>
+        <p>
+          I feel there's an obvious answer to this question: a level. By using a bit of water in a clear container, you could 
+          convievably build a rudamentary level by comparing the slant of the water against a marked line.  The only tricky part
+          is designing it so you could align it with the points you want to compare, but the basic idea is that if the points are
+          level then the water wouldn't tilt. The authors' use of the word "level" in the prompt makes me think they were heavily
+          leading the reader towards something like this.  A level makes it easy to hang pictures expressly because it removes the 
+          need to measure up from the floor.
+        </p>
+      </solution>
+    </example>
+  </section>

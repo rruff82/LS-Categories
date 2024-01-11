@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="article2">
+    <title>Article 2: Isomorphisms, Part 1</title>
+    <p>
+      Time to undo things!  I think I'm coming into this section with a decent grasp of what an
+      isomorphism is already, but this idea that there are two inverses instead of just one still
+      feels a little weird to me.  I find myself reminding myself that this something I already do, 
+      but now I'm just being more specific with my language.  
+    </p>
+    <p>
+      If teaching has taught me anything, it's that people sometimes have very different ideas about
+      what is meant by seemingly simple phrases like "the opposite of two".  It's often too easy to fall 
+      into a trap in assuming that since I'm thinking of two as a position on the number line and the 
+      opposite of that is defined relative to the origin, but "negative two" is really only one possible
+      answer.  If the question "what's the oppositve of two?" had beem asked in the kitchen instead of
+      a math class, there's a case to be made that "one half" is actually the more appropriate response.
+      The opposite of doubling a recipe is halving one.  There might even be situations where it may
+      be helpful to think of "opposite" as both the reciprocal and negation, as you would with slopes
+      of perpendicular lines. 
+    </p>
+    <p>
+      For now, I think I need to be paying attention to the domains and codomains of the maps because
+      that's where I was getting tripped up earlier.   
+    </p>
+    <example>
+      <title>Exercise 1</title>
+      <statement>
+        <p>
+          Show that...is an isomorphism.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          For the reflexive property (R), we can note that <m>A \xrightarrow{1_A} A</m> acts as it's own
+          inverse.  Since it leaves every object in place, applying it a second time would also do nothing 
+          so <m>1_A \circ 1_A = 1_A</m>.  If we define <m>f = 1_A</m> and <m>g = 1_A</m>, then the statements
+          <m>f \circ g = 1_A</m> and <m>g \circ f = 1_A</m> hold true and <m>1_A</m> is an isomorphism.
+        </p>
+        <p>
+          For the symmetric property (S), we're given that <m>A \xrightarrow{f} B</m> is an isomorphism with 
+          inverse <m>B \xrightarrow{g} A</m>.  By the definition of inverse, we know <m>g \circ f = 1_A</m> and 
+          <m>f \circ g = 1_B</m>.  These are precisely the two statements that define <m>B \xrightarrow{g} A</m>
+          as the inverse of <m>A \xrightarrow{f} B</m>, just with the order reversed.  By including both possible
+          composition orders in the definition, it guarantees that <m>f</m> is the inverse of <m>g</m> if and only if
+          <m>g</m> is the inverse of <m>f</m>.
+        </p>
+        <p>
+          For the transitive property, we're given that <m>A \xrightarrow{f} B</m> and <m>B \xrightarrow{k} C</m>
+          are both isomorphisms.  Let <m>B \xrightarrow{f^{-1}} A</m> be the inverse of <m>f</m> such that 
+          <m>f^{-1} \circ f = 1_A</m> and <m>f \circ f^{-1} = 1_B</m>, and let <m>C \xrightarrow{k^{-1}} B</m> be the inverse of <m>k</m> such that 
+          <m>k^{-1} \circ k = 1_B</m> and <m>k \circ k^{-1} = 1_C</m>.  Consider the composition <m>C \xrightarrow{f^{-1} \circ k^{-1}} A</m>:
+        </p>
+        <ol>
+          <li>
+            Consider <m>(f^{-1} \circ k^{-1}) \circ (k \circ f)</m>.  By the associative property, we have
+            <m>(f^{-1} \circ k^{-1}) \circ (k \circ f) = f^{-1} \circ (k^{-1} \circ k) \circ f</m>. Since <m>k^{-1} \circ k=1_B</m>, it follows that <m>f^{-1} \circ (k^{-1} \circ k) \circ f = f^{-1} \circ 1_B \circ f = f^{-1} \circ f = 1_A</m>.
+          </li>  
+          <li>
+            Consider <m>(k \circ f) \circ (f^{-1} \circ k^{-1})</m>.  By the associative property, we have
+            <m>(k \circ f) \circ (f^{-1} \circ k^{-1}) = k \circ (f \circ f^{-1}) \circ k^{-1} </m>.  Since 
+            <m>f \circ f^{-1} = 1_B</m>, it follows that <m>k \circ (f \circ f^{-1}) \circ k^{-1} = k \circ 1_B \circ k^{-1} = k \circ k^{-1} = 1_C</m>
+          </li>
+          <li>
+            Given <m>(f^{-1} \circ k^{-1}) \circ (k \circ f) = 1_A</m> and <m>(k \circ f) \circ (f^{-1} \circ k^{-1}) = 1_C</m>, we can then
+            conclude that <m>A \xrightarrow{k \circ f} C</m> is an isomorphism with an inverse of <m>C \xrightarrow{f^{-1} \circ k^{-1}} A</m>.
+          </li>
+        </ol>
+      </solution>       
+    </example>
+    <example>
+      <title>Exercise 2</title>
+      <statement>
+        <p>
+          Suppose <m>B \xrightarrow{g} A</m> and <m>B \xrightarrow{k} A</m> are <em>both</em> inverses...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          By definition, <m>B \xrightarrow{g} A</m> being an inverse implies <m>g \circ f = 1_A</m> and 
+          <m>f \circ g = 1_B</m>.  Likewise, <m>B \xrightarrow{k} A</m> being an inverse implies <m>k \circ f = 1_A</m> and 
+          <m>f \circ k = 1_B</m>.
+        </p>
+        <p>
+          Suppose that <m>g \neq k</m>. There would need to exist some <m>y \in B</m> with <m>g(y) \neq k(y)</m>.  Denote these
+          values <m>x_1 = g(y)</m> and <m>x_2 = k(y)</m> for some <m>x_1,x_2 \in A</m> with <m>x_1 \neq x_2</m>.  
+        </p>
+        <p>
+          Consider the point: <m>(k \circ f)(x_1)</m>. Since <m>k \circ f = 1_A</m>, we must have 
+          <m>(k \circ f)(x_1) = 1_A(x_1) = x_1</m>.  However, since <m>x_1 = g(y)</m> we can also
+          write this as <m>(k \circ f)(x_1)=(k \circ f)(g(y))</m>.  By the associative property,
+          <m>(k \circ f)(g(y))=k(f(g(y))) = k((f \circ g)(y)) = k(1_B(y)) = k(y) = x_2</m>.  Having
+          shown that <m>(k \circ f)(x_1)=x_1</m> and <m>(k \circ f)(x_1)=x_2</m>, this contradicts
+          our earlier assumption that <m>x_1 \neq x_2</m> and completes our proof that <m>g=k</m> by
+          contradiction.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 3</title>
+      <statement>
+        <p>
+          If <m>f</m> has an inverse, then <m>f</m> satistfies the two cancellation laws...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Part (a) is given in the text, so lets focus on (b).  If <m>h \circ f = k \circ f</m>, it follows
+          that <m>(h \circ f) \circ f^{-1} = (k \circ f) \circ f^{-1}</m>.
+        </p>
+        <p>
+          By the associative property, <m>(h \circ f) \circ f^{-1} = h \circ (f \circ f^{-1})</m> and <m>f \circ f^{-1} = 1_B</m>.  Thus,
+          <m>(h \circ f) \circ f^{-1} = h \circ 1_B = h</m>.  By similar reasoning, <m>(k \circ f) \circ f^{-1} = k \circ (f \circ f^{-1}) = k \circ 1_B = k</m>.  
+        </p>
+        <p>
+          It follows that <m>(h \circ f) \circ f^{-1} = (k \circ f) \circ f^{-1}</m> if and only if <m>h = k</m> which completes our proof.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 4</title>
+      <statement>
+        <p>
+          For each of the five maps above, decide whether it is invertable...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let's break it down one map at time.
+        </p>
+        <ol>
+          <li>
+            <m>\mathbb{R} \xrightarrow{f} \mathbb{R}</m> with <m>f(x)=3x+7</m> has a well-defined inverse of <m>f^{-1}(x) = (x-7)/3</m>. 
+          </li>
+          <li>
+            <m>\mathbb{R}_{\geq 0} \xrightarrow{g} \mathbb{R}_{\geq 0}</m> with <m>g(x)=x^2</m> has a well-defined inverse of
+             <m>g^{-1}(x) = \sqrt{x}</m>. 
+          </li>
+          <li>
+            <m>\mathbb{R} \xrightarrow{h} \mathbb{R}</m> with <m>h(x)=x^2</m> does <em>not</em> have a well-defined inverse.  We 
+            can't ever recover the negative values after squaring them.
+          </li>
+          <li>
+            <m>\mathbb{R} \xrightarrow{k} \mathbb{R}_{\geq 0}</m> with <m>k(x)=x^2</m> also does <em>not</em> have a well-defined 
+            inverse.  Limiting the codomain to the produced outputs doesn't change the fact that we're losing sign information through the map.
+          </li>
+          <li>
+            <m>\mathbb{R}_{\geq 0} \xrightarrow{l} \mathbb{R}_{\geq 0}</m> with <m>l(x)=\frac{1}{x+1}</m> feels like a trick question.  
+            For most  intents and purposes, we <em>should</em> have <m>l^{-1}(x)=\frac{1}{x}-1</m> but the domain and codomain don't 
+            look right here.  Specifically, we have a problem where <m>l^{-1}(0)</m> is undefined and another problem where 
+            <m>l^{-1}(x) &lt; 0</m> for <m>x &gt; 1</m>. Based on these observations, I'd have to conclude that <m>l</m> is not invertable.
+          </li>
+        </ol>
+        <p>
+          Having still not entirely convinced myself these are correct, I thought it might be helpful to look at the graphs.
+          I started with the first pair to make sure its what I expected.
+        </p>
+        <figure xml:id="fig-article2-ex4-1">
+          <caption>Comparison of graphs for Article II, Exercise 4.1</caption>
+          <image width="80%" xml:id="img-article2-ex4-1"> 
+          <latex-image>
+
+\begin{tikzpicture}
+\begin{axis}[xmin = -5, xmax = 5,
+ymin = -5, ymax = 5]
+    \addplot[domain = -5:5,blue,thick] {3*x+7};
+    \addplot[domain = -5:5,red,thick] {(x-7)/3};
+    \addplot[domain = -5:5,black,dashed,thin] {x};
+    \legend{
+$f$, 
+$f^{-1}$,
+$1_\mathbb{R}$
+}
+\end{axis}
+\end{tikzpicture}
+
+          </latex-image>
+          </image>
+        </figure>
+
+        <p>
+          One of the way's I think of my inverse function is as "a reflection over the line <m>x=y</m>".  This
+          works nicely for a visual confirmation because I can tell that this relationship will hold for the 
+          rest of the lines.  My confidence in <m>\mathbb{R} \xrightarrow{f} \mathbb{R}</m> being invertible is 
+          very high.
+        </p>
+        <p>
+          Now let's take a look at the relation between <m>x^2</m> and <m>\sqrt{x}</m>:
+        </p>
+        <figure xml:id="fig-article2-ex4-2">
+          <caption>Comparison of graphs for Article II, Exercise 4.2-4.4</caption>
+          <image width="80%" xml:id="img-article2-ex4-2"> 
+          <latex-image>
+
+\begin{tikzpicture}
+\begin{axis}[xmin = -5, xmax = 5,
+ymin = -5, ymax = 5]
+    \addplot[domain = -5:5,blue,samples=100,thick,smooth] {x*x};
+    \addplot[domain = 0:5,red,samples=50,thick,smooth] {sqrt(x)};
+    \addplot[domain = -5:5,black,dashed,thin] {x};
+    \legend{
+$x^2$, 
+$\sqrt{x}$,
+$1_\mathbb{R}$
+}
+\end{axis}
+\end{tikzpicture}
+
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          Notice how the inverse function only replicates half of the parabola when reflected over
+          the diagonal. My justification for thinking that (2) is an isomorphism but (3) and (4) are 
+          not is that every point in the domain needs to have an inverse that these can be 
+          matched up with a point in the codomain (both "onto" and "one-to-one").  By including negative  
+          numbers in our domain, we're essentially allowing un-invertable points to be passed in.
+        </p>
+        <p>
+          Now let's take a look at the final functions:
+        </p>
+                    <figure xml:id="fig-article2-ex4-3">
+          <caption>Comparison of graphs for Article II, Exercise 4.5</caption>
+          <image width="80%" xml:id="img-article2-ex4-3"> 
+          <latex-image>
+
+\begin{tikzpicture}
+\begin{axis}[xmin = -5, xmax = 5,
+ymin = -5, ymax = 5]
+    \addplot[domain = -5:5, restrict y to domain=-10:10, blue,samples=100,thick,smooth] {1/(x+1)};
+    \addplot[domain = -5:5, restrict y to domain=-10:10, red,samples=100,thick,smooth] {1/x-1};
+    \addplot[domain = -5:5, restrict y to domain=-10:10, black, dashed,thin] {x};
+    \legend{
+$\frac{1}{x+1}$, 
+$\frac{1}{x}-1$,
+$1_\mathbb{R}$
+}
+\end{axis}
+\end{tikzpicture}
+
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          On the surface, this looks like precisely the function we're looking for.  It looks
+          like a pretty good "mirror image".  The problem comes when consider the domain and 
+          codomain.  The map <m>\mathbb{R}_{\geq 0} \xrightarrow{l} \mathbb{R}_{\geq 0}</m>
+          is only valid for positive values, so let's crop and zoom in our previous graph.
+        </p>
+        <figure xml:id="fig-article2-ex4-4">
+          <caption>Cropped and zoomed graph for Article II, Exercise 4.5</caption>
+          <image width="80%" xml:id="img-article2-ex4-4"> 
+          <latex-image>
+
+\begin{tikzpicture}
+\begin{axis}[xmin = 0, xmax = 2,
+ymin = 0, ymax = 2]
+    \addplot[domain = 0:2, restrict y to domain=0:2, blue,samples=100,thick,smooth] {1/(x+1)};
+    \addplot[domain = 0:2, restrict y to domain=-0:2, red,samples=100,thick,smooth] {1/x-1};
+    \addplot[domain = 0:2, black, dashed,thin] {x};
+    \legend{
+$\frac{1}{x+1}$, 
+$\frac{1}{x}-1$,
+$1_\mathbb{R}$
+}
+\end{axis}
+\end{tikzpicture}
+
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          Notice how the graph of <m>\frac{1}{x}-1</m> seemingly has an asymptote at <m>x=0</m>
+          and gets "cut-off" when it hits the x-axis.  For us to consider this as an inverse map, 
+          the domain of the inverse should match the codomain of the map and vice versa.  Even 
+          though these maps meet my reflection criteria, the fact that <m>\mathbb{R}_{\geq 0} \xrightarrow{l^{-1}} \mathbb{R}_{\geq 0}</m> is 
+          undefined for <m>x = 0</m> and <m>x &gt; 1</m> when domain and codomain are supposed to 
+          both be <m>\mathbb{R}_{\geq 0}</m> disqualifies it from being considered an inverse to 
+          the map <m>\mathbb{R}_{\geq 0} \xrightarrow{l} \mathbb{R}_{\geq 0}</m>. 
+        </p>
+        <p>
+          Perhaps what I should really be doing is looking at the compositions.  We can express
+          <m>l \circ l^{-1}</m> as <m>\frac{1}{(\frac{1}{x}-1)+1}</m> or we can express <m>l^{-1} \circ l</m> 
+          as <m>\frac{1}{(\frac{1}{x+1})}-1</m>.  These expressions both simplify to just <m>x</m>, but 
+          the holes left in the map when we divide by zero at <m>x=0</m> or <m>x=-1</m> don't just disappear.
+        </p>
+      </solution>
+    </example>
+    <p>
+      While I'm in the process of undo-ing things, I need to work on undo-ing my tendancy to rush things like this.  I
+      need to remind myself that learing this stuff isn't a race. I'm going to use the subdivisions in Article II to break 
+      this up into smaller sections so I can give it more time to sink in.  
+    </p>
+  </section>

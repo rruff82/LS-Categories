@@ -1,0 +1,776 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="article3-p2">
+    <title>Article 3: Examples of Categories, Part 2</title>
+    <p>
+      It's really interesting to the use of formalized abstraction here.  We looked at 
+      some simple examples in <m>\mathcal{S}^{\circlearrowright}</m> and now we're 
+      embedding that in this broader category of directed graphs
+       <m>\mathcal{S}^{\downarrow^{\bullet}_{\bullet} \downarrow}</m>
+      in a way that preserves the properties we used.  It feels like we're "stepping out
+      of the box" in a very deliberate fashion so what we can take what we know "outside"
+      and apply it to solve problems "inside".
+    </p>
+    <example>
+      <title>Exercise 10:</title>
+      <statement>
+        <p>
+          Complete the specification...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Okay my first step here is to reproduce our diagram:
+        </p>
+        <figure xml:id="fig-article3-ex10-1">
+          <caption>Directed graph for Article 3 Exercise 10</caption>
+              <image width="50%" xml:id="img-article3-ex10-1">
+                      <latex-image>
+          \begin{tikzpicture}[scale=1]
+          
+
+          \draw (-2.5,-1.5) rectangle (2.5,1.5);
+          \node (Pk) at (-1.8,0) {$k$};
+          \node (Pm) at (-0.2,.75) {$m$};
+          \node (Pn) at (1.85,.80) {$n$};
+          \node (Pp) at (0.1,-.65) {$p$};
+          \node (Pq) at (1.8,-.80) {$q$};
+          \node (Pr) at (-1,-.85) {$r$};
+
+     
+          
+          \path[-{Stealth},font=\scriptsize,>=angle 90]
+          (Pk) edge[bend left] node[above]{$a$} (Pm)
+          (Pm) edge [->,>={Stealth},out=90, in=0, loop] node[right]{$b$} (Pm)
+          (Pk) edge node[below]{$c$} (Pm)
+          (Pp) edge[bend left] node[above]{$d$} (Pq)
+          (Pm) edge node[right]{$e$} (Pr);
+          \end{tikzpicture}
+                      </latex-image>
+                      </image>
+                      </figure> 
+          <p>
+            While creating the diagram, there's some obvious structural patterns.
+            In order to draw this, I started by placing the six points in 
+            <m>P = \{k,m,n,p,q,r\}</m>.  The other objects are the arrows, namely
+            <m>X = \{a,b,c,d,e\}</m>. Our maps <m>X \xrightarrow{s} P</m> and
+            <m>X \xrightarrow{t} P</m> represent the source and target of 
+            each arrow.  For me, it seemed natural to structure this information
+            into a table:
+          </p>      
+          <table>
+            <tabular>
+              <row>
+              <cell><m>1 \xrightarrow{x} X</m></cell>
+              <cell><m>s(x)</m></cell>
+              <cell><m>t(x)</m></cell>
+            </row>
+            <row>
+              <cell><m>a</m></cell>
+              <cell><m>k</m></cell>
+              <cell><m>m</m></cell>
+            </row>
+            <row>
+              <cell><m>b</m></cell>
+              <cell><m>m</m></cell>
+              <cell><m>m</m></cell>
+            </row>
+            <row>
+              <cell><m>c</m></cell>
+              <cell><m>k</m></cell>
+              <cell><m>m</m></cell>
+            </row>
+            <row>
+              <cell><m>d</m></cell>
+              <cell><m>p</m></cell>
+              <cell><m>q</m></cell>
+            </row>
+            <row>
+              <cell><m>e</m></cell>
+              <cell><m>m</m></cell>
+              <cell><m>r</m></cell>
+            </row>
+            </tabular>
+          </table>  
+          <p>
+            Based on this table, the questions become fairly straight forward.
+            The input <m>b \in X</m> has the same output points for <m>s</m> and <m>t</m>,
+            specifically <m>s(b) = t(b) = m</m>.  There is no element <m>x \in X</m> with
+            <m>t(x) = k</m>.
+          </p>
+          <p>
+            I'm thinking these sub-questions are important because they show that these arrow
+            maps have neither "retraction" nor "sections". Unless we're very specific about
+            the qualities of our maps, our source and target maps will likely be non-invertable. 
+            I find arrows <m>a</m> and <m>c</m> particularly interesting because they are <em>two
+            different arrows</em> with the same source <m>s(a) = s(c) = k</m> and same target
+            <m>t(a) = t(c) = m</m>. I feel like I'm fighting a natural tendancy to assume that 
+            "having the same source and target" makes them "the same arrow" but that equivalency
+            may not necessarily hold true in a broader category.
+          </p>                             
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 11:</title>
+      <statement>
+        <p>
+          If <m>f</m> as above and...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let's begin with a recap of what we know about <m>f</m>:
+        </p>
+        <figure xml:id="fig-article3-ex11-1">
+          <caption>Definition of <m>f</m> for Article 3 Exercise 11</caption>
+              <image width="50%" xml:id="img-article3-ex11-1">
+                      <latex-image>
+          \begin{tikzpicture}[scale=1]
+          
+
+          \draw (-2.75,-1.5) rectangle (-1.25,1.5);
+          \draw (1.25,-1.5) rectangle (2.75,1.5);
+          \node (Y) at (-2,1) {$X$};
+          \node (Q) at (-2,-1) {$P$};
+          \node (Z) at (2,1) {$Y$};
+          \node (R) at (2,-1) {$Q$};
+          
+          \coordinate (G1) at (-1.2,0);
+          \coordinate (G2) at (1.2,0);
+          
+          \path[-{Stealth},font=\scriptsize,>=angle 90]
+            (Y.south west) edge node[left]{$s$} (Q.north west)
+            (Y.south east) edge node[right]{$t$} (Q.north east)
+            (Z.south west) edge node[left]{$s'$} (R.north west)
+            (Z.south east) edge node[right]{$t'$} (R.north east)
+            (G1) edge node[above]{$f$} (G2);
+          \end{tikzpicture}
+                      </latex-image>
+                      </image>
+                      </figure>   
+            <p>
+              We're told that <m>f</m> "preserves source and target relations",
+              which is defined by having a pair of maps <m>X \xrightarrow{f_A} Y</m> and
+              <m>P \xrightarrow{f_D} Q</m> satisfying <m>f_D s = s' f_A</m> and 
+              <m>f_D t = t' f_A</m>.
+            </p> 
+            <p>
+              Consider another map <m>g</m> with the same property:
+            </p>
+            <figure xml:id="fig-article3-ex11-2">
+              <caption>Definition of <m>g</m> for Article 3 Exercise 11</caption>
+                  <image width="50%" xml:id="img-article3-ex11-2">
+                          <latex-image>
+              \begin{tikzpicture}[scale=1]
+              
+
+              \draw (-2.75,-1.5) rectangle (-1.25,1.5);
+              \draw (1.25,-1.5) rectangle (2.75,1.5);
+              \node (Y) at (-2,1) {$Y$};
+              \node (Q) at (-2,-1) {$Q$};
+              \node (Z) at (2,1) {$Z$};
+              \node (R) at (2,-1) {$R$};
+              
+              \coordinate (G1) at (-1.2,0);
+              \coordinate (G2) at (1.2,0);
+              
+              \path[-{Stealth},font=\scriptsize,>=angle 90]
+                (Y.south west) edge node[left]{$s'$} (Q.north west)
+                (Y.south east) edge node[right]{$t'$} (Q.north east)
+                (Z.south west) edge node[left]{$s''$} (R.north west)
+                (Z.south east) edge node[right]{$t''$} (R.north east)
+                (G1) edge node[above]{$g$} (G2);
+              \end{tikzpicture}
+                          </latex-image>
+                          </image>
+                          </figure>   
+              <p>
+                In order to preserve source and target relations, there would
+                need to exist <m>Y \xrightarrow{g_A} Z</m> and <m>Q \xrightarrow{g_D} R</m>
+                with <m>g_D s' = s'' g_A</m> and <m>g_D t' = t''' g_A</m>.
+              </p>                              
+              <p>
+                We can form a composition of maps <m>g_D \circ f_D</m> and <m>g_A \circ f_A</m> 
+                as shown below:
+              </p>
+              <figure xml:id="fig-article3-ex11-3">
+                <caption>Composition diagram for Article 3 Exercise 11</caption>
+                    <image width="50%" xml:id="img-article3-ex11-3">
+                            <latex-image>
+                \begin{tikzpicture}[scale=1]
+                
+                \node (X) at (-2,1) {$X$};
+                \node (P) at (-2,-1) {$P$};
+                \node (Y) at (0,1) {$Y$};
+                \node (Q) at (0,-1) {$Q$};
+                \node (Z) at (2,1) {$Z$};
+                \node (R) at (2,-1) {$R$};
+
+                
+                \path[-{Stealth},font=\scriptsize,>=angle 90]
+                  (X.south west) edge node[left]{$s$} (P.north west)
+                  (X.south east) edge node[right]{$t$} (P.north east)
+                  (Y.south west) edge node[left]{$s'$} (Q.north west)
+                  (Y.south east) edge node[right]{$t'$} (Q.north east)
+                  (Z.south west) edge node[left]{$s''$} (R.north west)
+                  (Z.south east) edge node[right]{$t''$} (R.north east)
+                  (X) edge node[above]{$f_A$} (Y)
+                  (Y) edge node[above]{$g_A$} (Z)
+                  (X.north) edge[bend left] node[above]{$g_A \circ f_A$} (Z.north)
+                  (P) edge node[below]{$f_D$} (Q)
+                  (Q) edge node[below]{$g_D$} (R)
+                  (P.south) edge[bend right] node[below]{$g_D \circ f_D$} (R.south);
+                \end{tikzpicture}
+                            </latex-image>
+                            </image>
+                            </figure>  
+                <p>
+                  In order to show that the composition preserves source and target relations,
+                  we'd need to demonstrate that both <m>(g_D \circ f_D) s = s'' (g_A \circ f_A)</m>
+                  and <m>(g_D \circ f_D) t = t'' (g_A \circ f_A)</m>. 
+                </p>
+                <p>
+                  By the associative property, <m>(g_D \circ f_D) s = g_D \circ (f_D \circ s)</m>.
+                  Using the substition <m>f_D \circ s = s' f_D</m> gives us <m>g_D \circ s' \circ f_A</m>,
+                  and allows us to the perform a subsitution using <m>g_D \circ s' = s'' g_A</m> to 
+                  show <m>g_D \circ s' \circ f_A = s'' \circ g_A \circ f_A</m>. 
+                  It follows that <m>(g_D \circ f_D) s = s'' (g_A \circ f_A)</m>.
+                </p>
+                <p>
+                  We can apply a similar process on <m>(g_D \circ f_D) t</m>. The
+                  associative property gives us <m>g_D \circ (f_D \circ t)</m>, which allows
+                  us to use the substition <m>f_D \circ t = t' f_D</m> to get <m>g_D \circ t' \circ f_A</m>.
+                  Next we use our property that <m>g_D \circ t' = t'' g_A</m> to perform another
+                  subsitution resulting in <m>g_D \circ t' \circ f_A = t'' \circ g_A \circ f_A</m>. 
+                  It follows that <m>(g_D \circ f_D) t = t'' (g_A \circ f_A)</m>.
+                </p>
+                <p>
+                  Having established the source and target preservation properties, we can
+                  conclude that <m>g \circ f </m> is an well defined 
+                  <m>\mathcal{S}^{\downarrow^{\bullet}_{\bullet} \downarrow}</m>-map:
+                </p>
+                <figure xml:id="fig-article3-ex11-4">
+                  <caption>Definition of <m>g \circ f</m> for Article 3 Exercise 11</caption>
+                      <image width="50%" xml:id="img-article3-ex11-4">
+                              <latex-image>
+                  \begin{tikzpicture}[scale=1]
+                  
+    
+                  \draw (-2.75,-1.5) rectangle (-1.25,1.5);
+                  \draw (1.25,-1.5) rectangle (2.75,1.5);
+                  \node (Y) at (-2,1) {$X$};
+                  \node (Q) at (-2,-1) {$P$};
+                  \node (Z) at (2,1) {$Z$};
+                  \node (R) at (2,-1) {$R$};
+                  
+                  \coordinate (G1) at (-1.2,0);
+                  \coordinate (G2) at (1.2,0);
+                  
+                  \path[-{Stealth},font=\scriptsize,>=angle 90]
+                    (Y.south west) edge node[left]{$s$} (Q.north west)
+                    (Y.south east) edge node[right]{$t$} (Q.north east)
+                    (Z.south west) edge node[left]{$s''$} (R.north west)
+                    (Z.south east) edge node[right]{$t''$} (R.north east)
+                    (G1) edge node[above]{$g \circ f$} (G2);
+                  \end{tikzpicture}
+                              </latex-image>
+                              </image>
+                              </figure>  
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 12:</title>
+      <statement>
+        <p>
+          If we denote the result of the above process by <m>I(f)</m>...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We want to show that <m>I(g \circ f) = I(g) \circ I(f)</m>.  Or, "the composition 
+          of embeddings is the same as the embedding of the composition".
+        </p>
+        <p>
+          Our embedding of <m>I(f)</m> can be illustrated by the following diagram:
+        </p>
+        <figure xml:id="fig-article3-ex12-1">
+          <caption>Diagram of <m>I(f)</m> for Article 3 Exercise 12</caption>
+              <image width="50%" xml:id="img-article3-ex12-1">
+                      <latex-image>
+          \begin{tikzpicture}[scale=1]
+          
+          \node (X) at (-2,1) {$X$};
+          \node (P) at (-2,-1) {$X$};
+          \node (Y) at (0,1) {$Y$};
+          \node (Q) at (0,-1) {$Y$};
+          
+          \path[-{Stealth},font=\scriptsize,>=angle 90]
+            (X.south west) edge node[left]{$1_X$} (P.north west)
+            (X.south east) edge node[right]{$\alpha$} (P.north east)
+            (Y.south west) edge node[left]{$1_Y$} (Q.north west)
+            (Y.south east) edge node[right]{$\beta$} (Q.north east)
+            (X) edge node[above]{$f$} (Y)
+            (P) edge node[below]{$f$} (Q);
+          \end{tikzpicture}
+                      </latex-image>
+                      </image>
+                      </figure>  
+        <p>
+          In order to preserve structure, the <m>\mathcal{S}^{\downarrow^{\bullet}_{\bullet} \downarrow}</m>-map
+          is required to preserve the relations <m>f \circ 1_X = 1_Y \circ f</m> and 
+          <m>f \circ \alpha = \beta \circ f</m>.  The former is a trivial result of the 
+          identity map, while the later is a property <m>f</m> inherits from being an object
+          in <m>\mathcal{S}^{\circlearrowright}</m>.
+        </p>
+
+        <p>
+          Similarly, our embedding of <m>I(g)</m> can be illustrated as follows:
+        </p>
+        <figure xml:id="fig-article3-ex12-2">
+          <caption>Diagram of <m>I(g)</m> for Article 3 Exercise 12</caption>
+              <image width="50%" xml:id="img-article3-ex12-2">
+                      <latex-image>
+          \begin{tikzpicture}[scale=1]
+          
+          \node (X) at (-2,1) {$Y$};
+          \node (P) at (-2,-1) {$Y$};
+          \node (Y) at (0,1) {$Z$};
+          \node (Q) at (0,-1) {$Z$};
+          
+          \path[-{Stealth},font=\scriptsize,>=angle 90]
+            (X.south west) edge node[left]{$1_Y$} (P.north west)
+            (X.south east) edge node[right]{$\beta$} (P.north east)
+            (Y.south west) edge node[left]{$1_Z$} (Q.north west)
+            (Y.south east) edge node[right]{$\gamma$} (Q.north east)
+            (X) edge node[above]{$g$} (Y)
+            (P) edge node[below]{$g$} (Q);
+          \end{tikzpicture}
+                      </latex-image>
+                      </image>
+                      </figure>  
+          <p>
+            Like before, this <m>\boxed{Y^{\circlearrowright \beta}} \xrightarrow{g} \boxed{Z^{\circlearrowright \gamma}}</m>
+            preserves the properties <m>g \circ 1_Y = 1_Z \circ g</m> and 
+            <m>g \circ \beta = \gamma \circ g</m>.
+          </p>     
+          <p>
+            The embedding of our composition also should have similar structure:
+          </p>
+          <figure xml:id="fig-article3-ex12-3">
+            <caption>Diagram of <m>I(g)</m> for Article 3 Exercise 12</caption>
+                <image width="50%" xml:id="img-article3-ex12-3">
+                        <latex-image>
+            \begin{tikzpicture}[scale=1]
+            
+            \node (X) at (-2,1) {$X$};
+            \node (P) at (-2,-1) {$X$};
+            \node (Y) at (0,1) {$Z$};
+            \node (Q) at (0,-1) {$Z$};
+            
+            \path[-{Stealth},font=\scriptsize,>=angle 90]
+              (X.south west) edge node[left]{$1_X$} (P.north west)
+              (X.south east) edge node[right]{$\alpha$} (P.north east)
+              (Y.south west) edge node[left]{$1_Z$} (Q.north west)
+              (Y.south east) edge node[right]{$\gamma$} (Q.north east)
+              (X) edge node[above]{$g \circ f$} (Y)
+              (P) edge node[below]{$g \circ f$} (Q);
+            \end{tikzpicture}
+                        </latex-image>
+                        </image>
+                        </figure> 
+          <p>
+            This needs to satisfy <m>g \circ f \circ 1_X = 1_Z \circ g \circ f</m> and
+            <m>g \circ f \circ \alpha = \gamma \circ g \circ f</m>.  The former is again
+            a trivial result of the identity map.  The latter is implied by the fact that since
+            <m>\boxed{X^{\circlearrowright \alpha}} \xrightarrow{f} \boxed{Y^{\circlearrowright \beta}}</m>
+            and <m>\boxed{Y^{\circlearrowright \beta}} \xrightarrow{g} \boxed{Z^{\circlearrowright \gamma}}</m>
+            are both objects in <m>\mathcal{S}^{\circlearrowright}</m> that 
+            we must also have <m>g \circ f \in \mathcal{S}^{\circlearrowright}</m>.  
+            This <m>\boxed{X^{\circlearrowright \alpha}} \xrightarrow{g \circ f} \boxed{Z^{\circlearrowright \gamma}}</m>
+            establishes the relation <m>g \circ f \circ \alpha = \gamma \circ g \circ f</m>.
+          </p>
+        <p>
+          Finally, let's compose these embeddings together and verify everything still holds:
+         
+        </p>
+        <figure xml:id="fig-article3-ex12-4">
+          <caption>Composition diagram of <m>I(g) \circ I(f)</m> for Article 3 Exercise 12</caption>
+              <image width="50%" xml:id="img-article3-ex12-4">
+                      <latex-image>
+          \begin{tikzpicture}[scale=1]
+          
+          \node (X) at (-2,1) {$X$};
+          \node (P) at (-2,-1) {$X$};
+          \node (Y) at (0,1) {$Y$};
+          \node (Q) at (0,-1) {$Y$};
+          \node (Z) at (2,1) {$Z$};
+          \node (R) at (2,-1) {$Z$};
+
+          
+          \path[-{Stealth},font=\scriptsize,>=angle 90]
+            (X.south west) edge node[left]{$1_X$} (P.north west)
+            (X.south east) edge node[right]{$\alpha$} (P.north east)
+            (Y.south west) edge node[left]{$1_Y$} (Q.north west)
+            (Y.south east) edge node[right]{$\beta$} (Q.north east)
+            (Z.south west) edge node[left]{$1_Z$} (R.north west)
+            (Z.south east) edge node[right]{$\gamma$} (R.north east)
+            (X) edge node[above]{$f$} (Y)
+            (Y) edge node[above]{$g$} (Z)
+            (X.north) edge[bend left] node[above]{$g \circ f$} (Z.north)
+            (P) edge node[below]{$f$} (Q)
+            (Q) edge node[below]{$g$} (R)
+            (P.south) edge[bend right] node[below]{$g \circ f$} (R.south);
+          \end{tikzpicture}
+                      </latex-image>
+                      </image>
+                      </figure>  
+            <p>
+              It's easy to see how the embedding illustrations above are composed together
+              together to produce an embedding of the compositions.  The identity
+              property ensures that
+              <m>g \circ f \circ 1_X = g \circ 1_Y \circ f = 1_Z \circ g \circ f</m>.
+              The structure inherited from the endomaps ensures that 
+              <m>g \circ f \circ \alpha = g \circ \beta \circ f = \gamma g \circ f</m>.
+            </p>
+            <p>
+             Having shown that these properties are preserved, I think we've sufficiently 
+             demonstrated that <m>I(g \circ f) = I(g) \circ I(f)</m>.
+            </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 13:</title>
+      <statement>
+        <p>
+          (Fullness) Show that...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We're given an <m>\mathcal{S}^{\downarrow^{\bullet}_{\bullet} \downarrow}</m>-morphism
+          that comes via the insertion <m>I</m> that we used previously:
+        </p>
+        <xref ref="fig-article3-ex12-1"/>
+        <p>
+          The source preservation property of <m>f</m> implies that <m>f_D \circ 1_X = 1_Y \circ f_A</m>, but 
+          since <m>1_X</m> and <m>1_Y</m> are identity maps we can just say <m>f_D = f_A = f</m>.  Since
+          the target preservation property says <m>f_D \circ \alpha = \beta \circ f_A</m>, we can substitute
+          <m>f</m> to get <m>f \circ \alpha = \beta \circ f</m>.  This property establishes that <m>f</m> 
+          exists and is a valid <m>\mathcal{S}^{\circlearrowright}</m>-morphism: 
+          <m>\boxed{X^{\circlearrowright \alpha}} \xrightarrow{f} \boxed{Y^{\circlearrowright \beta}}</m>
+          .
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 14:</title>
+      <statement>
+        <p>
+          Give an example of <m>\mathcal{S}</m> of two endomaps...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          To be honest, I wasn't quite sure how to start this one at first so I just 
+          started exploring small endomaps. I explored too many to review them all,
+          but in the process I learned some things.
+        </p>
+        <p>
+          I think I had conceptually confused <m>f_D</m> and <m>f_A</m> at 
+          first. I was under the impression that <m>f_A</m> "produced an arrow" 
+          and <m>f_D</m> "produced a dot", but a closer reading of the book stated
+          that <m>f_A</m> "operates on arrows" and <m>f_D</m> "operates on dots".  
+          Eventually I made a mental shift to the Spanish <m>antes</m> (before) and
+          <m>despues</m> (after) because it helped me remember the relationship with
+          the endomaps.
+        </p>
+        <p>
+         I found tables to be a nice way of organizing all the information about
+         my "arrows" and "dots".  Having my information organized reminded me
+         of Exercise 10.  Looking back over my notes, I had noticed earlier that
+         the diagram included a pair of two different arrows with the same source
+         and destination.  I took this as a hint.
+        </p>
+        <p>
+          I  also found myself repeatedly going back to the map in Example 9 as
+          a reference.  There was something about the way the endomap 
+          removes an element that seemed like it might be important.  I 
+          labeled the arrows in addition to the points to help keep track
+          of what I was working with:
+        </p>
+        <figure xml:id="fig-article3-ex14-1">
+          <caption>Internal diagram of map <m>\alpha</m> from Exercise 9</caption>
+              <image width="50%" xml:id="img-article3-ex14-1">
+                      <latex-image>
+          \begin{tikzpicture}[scale=1]
+          
+          % begin first set
+          \draw (0,0) rectangle (2,3);
+          \coordinate (A1) at (1,2.5);
+          \coordinate (A2) at (1,1.5);
+          \coordinate (A3) at (1,0.5);
+          
+          
+          \draw[fill=black] (A1) circle (0.15em) node[right]{$0$};
+          \draw[fill=black] (A2) circle (0.15em) node[right]{$1$};
+          \draw[fill=black] (A3) circle (0.15em) node[right]{$2$};
+          
+          \path[-{Stealth},font=\scriptsize,>=angle 90]
+          (A1) edge node[left]{$a_0$} (A2)
+          (A2) edge[bend right] node[left]{$a_1$} (A3)
+          (A3) edge[bend right] node[right]{$a_2$} (A2);
+          \end{tikzpicture}
+                      </latex-image>
+                      </image>
+                      </figure> 
+        <p>
+          I had a hunch that <m>\alpha^3=\alpha</m> might help establish
+          that <m>f_D \circ \alpha = \beta \circ f_A</m>.  My idea revolved
+          around the idea that if I could somehow make <m>f_D</m>, <m>f_A</m>,
+          and <m>\beta</m> by composing <m>\alpha</m> with itself multiple times
+          that I could set up a situation where they balance out.
+        </p>
+        <p>
+          I think I also was confused about the inclusion <m>J</m> and 
+          the property that the "source and target structures are the same
+          map".  I wasn't sure if I needed to enforce this restriction on
+          that all arrows in my endomaps were loops or not.  I started to
+          wonder how much of this ambiguity was intentional, and if looser
+          of a definition of "loop" might be in order.
+        </p>
+        <p>
+          A flash of insight came as I was trying to pick out a cat photo
+          for the week and see Alphonse nuzzling Konshu:
+        </p>
+        <figure xml:id="fig-nuzzle-konshu">
+          <caption>Alphonse nuzzles a statuette of Konshu.</caption>
+          <image source="images/al-konshu-nuzzle.png" width="80%">
+            <description>
+              A brown tabby lays in a blue cat bed and nuzzles a small figure
+              depicting the Egyptian deity Konshu.
+            </description>
+          </image>
+        </figure>
+           <p>
+              I started to think about <em>Moon Knight</em> and the relation between
+              the depiction of Konshu in the comic books versus the mythological depiction
+              of the same character.  I wondered how my mental model of Konshu might vary
+              depending on which version I encountered first.  To appease my "fussy professor",
+              I'm going to define my set <m>X</m> to be the set of "Konshu Models" 
+              <m>\{\text{Comic Konshu},\text{Myth Konshu},\text{My Konshu}\}</m> and endomap 
+              <m>\alpha</m> to be the "influences" acting on those models.
+           </p>
+           <figure xml:id="fig-article3-ex14-2">
+            <caption>Defining <m>X</m> and <m>\alpha</m> on "Konshu models"</caption>
+                <image width="50%" xml:id="img-article3-ex14-2">
+                        <latex-image>
+            \begin{tikzpicture}[scale=1]
+            
+            % begin first set
+            \draw (1,1.5) circle (2.5cm);
+            \coordinate (A1) at (0.25,2.5);
+            \coordinate (A2) at (0.25,1.5);
+            \coordinate (A3) at (0.25,0.5);
+            
+            
+            \draw[fill=black] (A1) circle (0.15em) node[right]{My Konshu};
+            \draw[fill=black] (A2) circle (0.15em) node[right]{Myth Konshu};
+            \draw[fill=black] (A3) circle (0.15em) node[right]{Comic Konshu};
+            
+            \path[-{Stealth},font=\scriptsize,>=angle 90]
+            (A1) edge [->,>={Stealth},out=90, in=180, loop]  (A1)
+            (A2) edge[bend right] (A3)
+            (A3) edge[bend right] (A2);
+            \end{tikzpicture}
+                        </latex-image>
+                        </image>
+                        </figure> 
+           <p>  
+              I reasoned that the <em>Moon Knight</em> from the comics used 
+              the mythology around Konshu to develop the character, but as
+              more people read the comic they start to project qualities from
+              the comic character back to the deity.  Whether those projections
+              align with the mythology will impact the design of later comics, 
+              forming a sort of feedback loop.  Prior to seeing the Netflix show,
+              my model of Konshu isn't really impacted by either <mdash/> I'm just
+              off in my own little world.  
+           </p>
+           <p>
+              Now let's denote <m>f</m> to be a map describing how my metal model
+              might change after exposure to new ideas. Maybe seeing the Netflix 
+              show prompts me to read a bunch of comics or mythology.  In either
+              case, it forms a feedback loop between my model of the comic Konshu
+              and my model of the myth Konshu. Let's call this our set <m>Y</m>
+              and endomap <m>\beta</m>:
+           </p>
+           <figure xml:id="fig-article3-ex14-3">
+            <caption>Defining <m>Y</m> and <m>\beta</m> on mental models.</caption>
+                <image width="50%" xml:id="img-article3-ex14-3">
+                        <latex-image>
+                          \begin{tikzpicture}[scale=1]
+            
+                          % begin first set
+                          \draw (1,1.5) circle (2.5cm);
+           
+                          \coordinate (A2) at (0.2,2);
+                          \coordinate (A3) at (0.2,1);
+                          
+                          
+               
+                          \draw[fill=black] (A2) circle (0.15em) node[right]{My Myth Konshu};
+                          \draw[fill=black] (A3) circle (0.15em) node[right]{My Comic Konshu};
+                          
+                          \path[-{Stealth},font=\scriptsize,>=angle 90]
+                          (A2) edge[bend right] (A3)
+                          (A3) edge[bend right] (A2);
+                          \end{tikzpicture}
+                        </latex-image>
+                        </image>
+                        </figure> 
+           <p>
+              Now let's consider or maps <m>f_A</m> and <m>f_D</m>.  Let's
+              say that <m>f_A</m> is the case where I learn about Konshu mythos
+              before watching the Netflix show and <m>f_D</m> to be the 
+              case where I'm exposed to the mythology after.  For the sake of
+              convenience, I'm going to relabel the points in the <m>X</m> as
+              <m>\{a,b,c\}</m> and the points in <m>Y</m> as <m>\{0,1\}</m>:
+           </p>
+           <figure xml:id="fig-article3-ex14-4">
+            <caption>Defining <m>f_A</m> and <m>f_D</m> on "Konshu models"</caption>
+                <image width="80%" xml:id="img-article3-ex14-4">
+                        <latex-image>
+            \begin{tikzpicture}[scale=1]
+            
+            % begin first set
+            \draw (1,1.5) circle (2.25cm);
+            \coordinate (A1) at (1,2.5);
+            \coordinate (A2) at (1,1.5);
+            \coordinate (A3) at (1,0.5);
+            
+            
+            \draw[fill=black] (A1) circle (0.15em) node[right]{$a$};
+            \draw[fill=black] (A2) circle (0.15em) node[right]{$b$};
+            \draw[fill=black] (A3) circle (0.15em) node[right]{$c$};
+            
+            \path[-{Stealth},font=\scriptsize,>=angle 90]
+            (A1) edge [->,>={Stealth},out=90, in=180, loop]  (A1)
+            (A2) edge[bend right] (A3)
+            (A3) edge[bend right] (A2);
+
+
+            % begin 2nd set
+            \draw (7,1.5) circle (2.25cm);
+            \coordinate (B1) at (7,2);
+            \coordinate (B2) at (7,1);
+            
+            \draw[fill=black] (B1) circle (0.15em) node[right]{$0$};
+            \draw[fill=black] (B2) circle (0.15em) node[right]{$1$};
+            
+            \path[-{Stealth},font=\scriptsize,>=angle 90]
+            (B1) edge[bend right] (B2)
+            (B2) edge[bend right] (B1);
+            
+            % begin 3rd set
+            \draw (1,-5.5) circle (2.25cm);
+            \coordinate (C1) at (1,-4.5);
+            \coordinate (C2) at (1,-5.5);
+            \coordinate (C3) at (1,-6.5);
+            
+            
+            \draw[fill=black] (C1) circle (0.15em) node[right]{$a$};
+            \draw[fill=black] (C2) circle (0.15em) node[right]{$b$};
+            \draw[fill=black] (C3) circle (0.15em) node[right]{$c$};
+            
+            \path[-{Stealth},font=\scriptsize,>=angle 90]
+            (C1) edge [->,>={Stealth},out=90, in=180, loop]  (C1)
+            (C2) edge[bend right] (C3)
+            (C3) edge[bend right] (C2);
+
+
+            % begin 4th set
+            \draw (7,-5.5) circle (2.25cm);
+            \coordinate (D1) at (7,-5);
+            \coordinate (D2) at (7,-6);
+            
+            \draw[fill=black] (D1) circle (0.15em) node[right]{$0$};
+            \draw[fill=black] (D2) circle (0.15em) node[right]{$1$};
+            
+            \path[-{Stealth},font=\scriptsize,>=angle 90]
+            (D1) edge[bend right] (D2)
+            (D2) edge[bend right] (D1);
+
+            % define maps
+            \node (fA) at (4,3) {$f_A$};
+            \node (fD) at (4,-4) {$f_D$};
+
+            \path[-{Stealth},font=\scriptsize,>=angle 90,ultra thick]
+            ($(A1)+(0.5,0)$) edge ($(B1)-(0.5,0)$)
+            ($(A2)+(0.5,0)$) edge ($(B1)-(0.5,0)$)
+            ($(A3)+(0.5,0)$) edge ($(B2)-(0.5,0)$)
+            ($(C1)+(0.5,0)$) edge ($(D2)-(0.5,0)$)
+            ($(C2)+(0.5,0)$) edge ($(D1)-(0.5,0)$)
+            ($(C3)+(0.5,0)$) edge ($(D2)-(0.5,0)$);
+
+            \end{tikzpicture}
+                        </latex-image>
+                        </image>
+                        </figure> 
+              <p>
+                Since <m>f_A(a) = 0</m> and <m>f_D(a) = 1</m>, clearly <m>f_D \neq f_A</m>.
+                However, we can also show that <m>f_D \circ \alpha = \beta \circ f_A</m>
+                by evaluting them over the entire codomain:
+              </p>
+           <table>
+            <title>Exploring outputs of compositions</title>
+            <tabular>
+              <row>
+                 <cell><m>1 \xrightarrow{x} X</m></cell>
+                 <cell><m>\alpha(x)</m></cell>
+                 <cell><m>f_A(x)</m></cell>
+                 <cell><m>f_D(x)</m></cell>
+                 <cell><m>(f_D \circ \alpha)(x)</m></cell>
+                 <cell><m>(beta \circ f_A)(x)</m></cell>                    
+              </row>
+              <row>
+                <cell><m>a</m></cell>
+                <cell><m>a</m></cell>
+                <cell><m>0</m></cell>
+                <cell><m>1</m></cell>     
+                <cell><m>f_D(a) = 1</m></cell>  
+                <cell><m>\beta(0) = 1</m></cell>                          
+             </row>
+
+           <row>
+            <cell><m>b</m></cell>
+            <cell><m>c</m></cell>
+            <cell><m>0</m></cell>
+            <cell><m>0</m></cell>     
+            <cell><m>f_D(c) = 1</m></cell>  
+            <cell><m>\beta(0) = 1</m></cell>                          
+         </row>
+         <row>
+          <cell><m>c</m></cell>
+          <cell><m>b</m></cell>
+          <cell><m>1</m></cell>
+          <cell><m>1</m></cell>     
+          <cell><m>f_D(b) = 0</m></cell>  
+          <cell><m>\beta(1) = 0</m></cell>   
+         </row>                       
+            </tabular>
+           </table> 
+           <p>
+             In the table above, notice that the columns for <m>\beta \circ f_A</m> and 
+             <m>f_D \circ \alpha</m> are equivalent for all three points.  Thus, 
+             we have <m>f_D \circ \alpha = \beta \circ f_A</m> with <m>f_A \neq f_D</m>.
+           </p>
+           <p>
+             I'm thinking that the moral of the story here is these endomaps contain
+             more than self-loops, but our insertion <m>J</m> fails to enforce that 
+             condition.  If the endomap contains only self loops it has an insertion
+             that makes a commutative diagram, but just because we have a commutative
+             diagram like this doesn't mean it came from that insertion.  
+           </p>
+           
+      </solution>
+    </example>
+  </section>

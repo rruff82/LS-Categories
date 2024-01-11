@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="quiz2">
+    <title>Summary/Quiz on Opposed Maps</title>
+    <p>
+      After reading over the <em>How to solve the quiz problems</em> section, I think I was
+      mostly on track.  A "fussy professor" might have taken issue with me, but since I worked
+      through these last two sections on crowded 8-hour flights I deserve to cut myself a little
+      slack.  
+    </p>
+    <p>
+      The authors included one more "quiz" before the "test" and I think I'm about ready for it.
+      It seemed like the answers to this quiz were meant as more of a study-guide than anything 
+      else.  
+    </p>
+    <example>
+      <title>Problem 1</title>
+      <statement>
+        <p>
+          Given two maps...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          I went with <em>always</em> and <em>endomap</em>.  As long as the domain and
+          codomain of the maps match up, there's no reason why we shouldn't be able to
+          compose them. Once we do compose them, the resulting maps have the property
+          that the codomain and domain are the same: <m>A \xrightarrow{g \circ f} A</m>
+          and <m>B \xrightarrow{f \circ g} B</m>.  This definition was repeated just a few
+          pages prior.
+        </p>
+      </solution>
+
+    </example>
+    <example>
+      <title>Problem 2</title>
+      <statement>
+        <p>
+          If we know that <m>g</m>...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          I went with <em><m>1_A</m></em>, <em>endomap</em>, <em>idempotent</em>, and
+          <em><m>(g \circ f) \circ (g \circ f) = g \circ f</m></em>.
+          I don't know how many times I referred back to Article II for the definitions
+          of retraction and section on page 49 but I think it's finally starting to sink in. 
+          The notion that "only <em>endomaps</em> have a chance to be <em>idempotent</em>"
+          was emphasized in the quiz solution to 2(a). 
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Problem 3</title>
+      <statement>
+        <p>
+          If we even know that <m>f</m>...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          I went with <em><m>1_B</m></em> and <em><m>g</m></em>.  One of the 
+          big results from Article II Exercise 2 was that if an inverse map exists
+          then it must be unique.  Stating that <m>f</m> is an <em>isomorphism</em>
+          is equivalent to saying that the section and retraction are uniquely defined
+          by the inverse <m>f^{-1}</m>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Problem 4</title>
+      <statement>
+        <p>
+          Going back to 0...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          I chose <em>could be different from</em> in both cases.  In the "Composition
+          of opposed maps" on the previous page they use the maps <m>g = mother</m>
+          and <m>f = father</m> as an example.  With those definitions, <m>f \circ g \circ f(me)</m>
+          would be "the father of my paternal grandmother" which is clearly a different person
+          than "my father" <m>f(me)</m> so <m>f \circ g \circ f \neq f</m>.  Likewise, the
+          map <m>f \circ g</m> would be like a relation of "maternal grandfather".  Clearly
+          the "maternal grandfather of my maternal grandfather" described by <m>f \circ g \circ f \circ g(me)</m>
+          would be a different person than "my maternal grandfather" <m>f \circ g(me)</m>. 
+          Since we only need one counter-example to prove maps different, <em>QED</em>.
+        </p>
+      </solution>
+    </example>
+  </section>
+  

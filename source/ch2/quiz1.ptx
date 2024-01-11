@@ -1,0 +1,345 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="quiz1">
+    <title>Quiz</title>
+    <p>
+      Since the following section is entitled "How to solve the quiz problems", I'm interpreting
+      that as a sign that answering these problems publicly like this is acceptable use.  My time
+      as a teacher has taught me that the primary distinction betweeen formatitve and summative
+      assessments lies in how you use them, and this quiz seems to be treated like the former.  The
+      goal is to provide students with a self-check on important concepts before the first "test".
+    </p>
+    <p>
+      As I'm still trying to force myself to slow down, my plan for time being is to take the
+      quiz this week and self-grade my own work next week before attempting the "test" the week after.
+      I feel as though posting test solutions online would be poor form, so I think I'm going to
+      put my test solutions in a separate PretextBook that can be shared on a per person basis to
+      anyone that's willing to help determine the correctness of my work.  We'll see how that goes in
+      the future, but for now we focus on the problems at hand.
+    </p>
+    <example>
+      <title>Problem 1</title>
+      <statement>
+        <p>
+          Give an example of two explicit sets...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          I know this may be a little regressive of me, but I found it easier to think of this problems
+          in terms of "onto" and "one-to-one".  Since I'm looking for a map that "has a section but not
+          a retraction", that effectively means the map is "one-to-one but not onto".  My insticts about
+          functions tell me that this occurs when my "output space" is bigger than my "input space".
+        </p>
+        <p>
+          Consider the sets <m>A = \set{a}</m> and <m>B = \set{b,c}</m>, and define <m>A \xrightarrow{f} B</m>
+          by the following internal diagram:
+        </p>
+        <figure xml:id="fig-quiz1-p1-1">
+<caption>Internal diagram of our potential map <m>f</m></caption>
+          <image width="80%" xml:id="img-quiz1-p1-1">
+        <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1.2cm);
+\node (A) at (0,3.5) {$A$};
+\node (A1) at (0,2) {$a$};
+% begin second set
+\node (B) at (4,3.5) {$B$};
+\draw (4,2) circle (1.2cm);
+\node (B1) at (4,2.5) {$b$};
+\node (B2) at (4,1.5) {$c$};
+
+\node (f) at (2,3.5) {$f$};
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A1) edge (B1);
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+        </figure>
+        <p>
+            To demonstrate that this map has the required properties, let's start by identifying the
+            retraction <m>B \xrightarrow{r} A</m>:
+        </p>
+        <figure xml:id="fig-quiz1-p1-2">
+<caption>Internal diagram of retraction to our potential map <m>f</m></caption>
+          <image width="80%" xml:id="img-quiz1-p1-2">
+        <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1.2cm);
+\node (A) at (0,3.5) {$A$};
+\node (A1) at (0,2) {$a$};
+% begin second set
+\node (B) at (4,3.5) {$B$};
+\draw (4,2) circle (1.2cm);
+\node (B1) at (4,2.5) {$b$};
+\node (B2) at (4,1.5) {$c$};
+
+\node (f) at (2,3.5) {$r$};
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(B1) edge (A1)
+(B2) edge (A1);
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+        </figure>
+        <p>
+          Proving this is a retraction requires that we show <m>r \circ f = 1_A</m>.  Fortunately
+          this proof is trivial since there's only one element in <m>A</m> for us to test. Since
+          <m>a</m> is the only possible input, the fact that <m>(r \circ f)(a) = r(f(a)) = r(b) = a</m>
+          is sufficient to satisfy the condition <m>r \circ f = 1_A</m>.  Thus, <m>r</m> is a
+          retraction of <m>f</m>.
+        </p>
+        <p>
+          Note that this map <m>r</m> does not function as a section because <m>(f \circ r) \neq 1_B</m>.
+          This can be easily observed by applying the composition <m>f \circ r</m> to point <m>c</m>:
+          <m>(f \circ r)(c) = f(r(c)) = f(a) = b \neq c</m>.  In order for a map to be a section of <m>f</m>,
+          it needs to send point <m>c</m> to something other than <m>b</m>, but there isn't anywhere else for
+          it to go!
+        </p>
+
+        <figure xml:id="fig-quiz1-p1-3">
+<caption>Internal diagram demonstrating the lack of section for our potential map <m>f</m></caption>
+          <image width="80%" xml:id="img-quiz1-p1-3">
+        <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1.2cm);
+\node (A) at (0,3.5) {$A$};
+\node (A1) at (0,2) {$a$};
+% begin second set
+\node (B) at (4,3.5) {$B$};
+\draw (4,2) circle (1.2cm);
+\node (B1) at (4,2.5) {$b$};
+\node (B2) at (4,1.5) {$c$};
+
+\node (C) at (2,0) {?};
+
+\node (f) at (2,3.5) {$s$};
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(B1) edge (A1)
+(B2) edge (C);
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+        </figure>
+        <p>
+          Since we lose an element when mapping from <m>B \longrightarrow A</m>, there's no way to
+          reconstruct it afterwards. It follows that <m>f</m> cannot possibly have a section <m>s</m>
+          satisfying <m>f \circ s = 1_B</m>. This completes the proof that <m>f</m> satistfies the
+          desired properties.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Problem 2</title>
+      <statement>
+        <p>
+          If <m>C \mathrel{\substack{p \\[-0.6ex]
+            \textstyle\longrightarrow \\[-0.6ex]
+            \textstyle\longleftarrow \\[-0.6ex]
+             q}} D</m> satisfy <m>p \circ q \circ p = p</m>...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Recall that a map <m>e</m> is "idempotent" if <m>e \circ e = e</m>. Thus, we'll take the maps
+          defined in (a) and (b) and see how they might be simplified after being applied twice.
+        </p>
+        <p>
+          Let's start with (a): <m>p \circ q</m>.  Composing this map with itself gives us
+          <m>(p \circ q) \circ (p \circ q)</m>, which can be simplified using the associative property:
+        </p>
+        <me>(p \circ q) \circ (p \circ q) = p \circ q \circ p \circ q</me>
+        <me> = (p \circ q \circ p) \circ q</me>
+        <me> = p \circ q</me>
+        <p>
+          Having demonstrated that <m>(p \circ q) \circ (p \circ q) = (p \circ q)</m>, we can safely
+          conlude that the map in part (a) is idempotent.
+        </p>
+        <p>
+          We can apply the same strategy in (b) with the expression <m>q \circ p</m>:
+        </p>
+        <me>(q \circ p) \circ (q \circ p) = q \circ p \circ q \circ p</me>
+        <me>= q \circ (p \circ q \circ p)</me>
+        <me> = q \circ p</me>
+        <p>
+          Since <m>(q \circ p) \circ (q \circ p) = q \circ p</m>, we can conclude that the map in (b)
+          is idempotent as well.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Problem 2*</title>
+      <statement>
+        <p>
+          ...use the given maps <m>p</m> and <m>q</m> to devise a map <m>q'</m> satisfying both...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          My gut instict tells me <m>q' = q \circ p \circ q</m> because that's the simpliest map I can
+          construct that will have the requisite domain and codomain. Let's check to see if it has the
+          desired properties.
+        </p>
+        <p>
+          First, we'll look at (a) by seeing if <m>p \circ q' \circ p = p</m>.  Using only the associative
+          property, we can simplify the left hand side as follows:
+        </p>
+        <me>p \circ q' \circ p = p \circ (q \circ p \circ q) \circ p</me>
+        <me>= p \circ q \circ p \circ q \circ p</me>
+        <me>= (p \circ q \circ p) \circ q \circ p</me>
+        <me>= p \circ q \circ p = p</me>
+        <p>
+          That confirms property (a).  We can use a similar method to demonstrate property (b):
+          <m>q' \circ p \circ q' = q'</m>.
+        </p>
+        <me>q' \circ p \circ q' = (q \circ p \circ q) \circ p \circ (q \circ p \circ q)</me>
+        <me> = q \circ p \circ q \circ p \circ q \circ p \circ q</me>
+        <me> = q \circ (p \circ q \circ p) \circ q \circ p \circ q</me>
+        <me> = q \circ p \circ q \circ p \circ q</me>
+        <me> = q \circ (p \circ q \circ p) \circ q</me>
+        <me> = q \circ p \circ q = q'</me>
+        <p>
+          Thus, our choice of <m>q'</m> has both of the required properties.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Problem 1*</title>
+      <statement>
+        <p>
+          Same as Problem 1 at top of page, except...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Upon reading this problem, it sounded very similar to one of the situations in the "zoo"
+          from Session 4.  Specifically, I was thinking of the map in Exercise 3 Item (c) where
+          <m>\mathbb{R} \xrightarrow{f} \mathbb{R}_{\geq 0}</m> is given by <m>f(x) = x^2</m>.
+          On closer inspection, my notes from that section indicate that this <m>f</m> had
+          a section but no retraction -- which is the reverse of what I'm looking for here. I played
+          around with item (a) from the zoo for a bit, but I wasn't quite happy with how the
+          domains and codomains weren't aligning.  This got me thinking about a clue at the end of
+          Session 9.  Specifically, the authors mention "Georg Cantor" by name.
+        </p>
+        <p>
+          With the realization that I could use infinite sets of varying sizes, I decided that I could
+          combine this notion with the ideas behind the set sizes in Problem 1 by making a map from a
+          "countably infinite set" to an "uncountably infinite set".  In this situation, I could theoretically
+          use Cantor's diagonalization argument to prove the non-existance of my section.
+        </p>
+        <p>
+          I decided to use a "binary representation" map <m>\mathbb{Z}^+ \xrightarrow{f} (0,1)</m> that
+          takes each positive integer and turns it into a binary representation of a real number
+          between 0 and 1 by prepending "0." to the reversed binary representation of the integer.  Like so:
+        </p>
+        <table>
+<tabular>
+<row>
+<cell>x in base 10</cell>
+<cell>x in base 2</cell>
+<cell>f(x) in base 2</cell>
+</row>
+<row>
+<cell>1</cell>
+<cell>1</cell>
+<cell>0.1</cell>
+</row>
+<row>
+<cell>2</cell>
+<cell>10</cell>
+<cell>0.01</cell>
+</row>
+<row>
+<cell>3</cell>
+<cell>11</cell>
+<cell>0.11</cell>
+</row>
+<row>
+<cell>4</cell>
+<cell>100</cell>
+<cell>0.001</cell>
+</row>
+<row>
+<cell>...</cell>
+<cell>...</cell>
+<cell>...</cell>
+</row>
+</tabular>
+</table>
+      <p>
+        We can construct a map <m>(0,1) \xrightarrow{g} \mathbb{Z}^+</m> that iterates along the digits of
+        the input and sums up the product of that digit with the respective powers of 2.  For example,
+        <m>g(0.01001)</m> could be evaluated as follows:
+      </p>
+      <me>g(0.01001) = 0 \times 2^0 + 1 \times 2^1 +  0 \times 2^2 + 0 \times 2^3 + 1 \times 2^4</me>
+      <me>= 2^1 + 2^4 + 2^6 = 2 + 16 + 64 = 82</me>
+      <p>
+        Assuming we started with some positive integer and applied <m>f</m> to it, it would be in the
+        table above and this map <m>g</m> will return the number we started with.  Thus we have a well
+        defined retraction becaues <m>g \circ f = 1_{\mathbb{Z}^+}</m>.  However, Cantor's diagonal argument
+        suggest that there still exists at least one real number in the interval (0,1) for which there is no
+        inverse.  Consider the real number constructed by taking a single "bit" from each line of the table
+        following the diagonal and flipping it while adding trailing zeroes to the right as needed:
+      </p>
+      <table>
+<tabular>
+<row>
+<cell>x in base 10</cell>
+<cell>x in base 2</cell>
+<cell>f(x) in base 2</cell>
+<cell>"flipped" bit</cell>
+</row>
+<row>
+<cell>1</cell>
+<cell>1</cell>
+<cell>0.<alert>1</alert></cell>
+<cell>0</cell>
+</row>
+<row>
+<cell>2</cell>
+<cell>10</cell>
+<cell>0.0<alert>1</alert></cell>
+<cell>0</cell>
+</row>
+<row>
+<cell>3</cell>
+<cell>11</cell>
+<cell>0.11<alert><em>0</em></alert></cell>
+<cell>1</cell>
+</row>
+<row>
+<cell>4</cell>
+<cell>100</cell>
+<cell>0.001<alert><em>0</em></alert></cell>
+<cell>1</cell>
+</row>
+<row>
+<cell>...</cell>
+<cell>...</cell>
+<cell>...</cell>
+</row>
+</tabular>
+</table>
+      <p>
+        By concatenating all these flipped bits together we can constuct a number <m>y \in (0,1)</m> given by the
+        binary expansion "0.0011..." as defined above. This number doesn't have a corresponding <m>x</m> value in
+        the table for <m>f</m> because it differs from every output by at least one bit.  Since <m>g(y)</m> is
+        undefined, we have <m>f \circ g \neq 1_{(0,1)}</m>.  The uniqueness of the inverses we proved in Article 2
+        implies that the section couldn't be anything other than the retraction <m>g</m>, so we must conlude that
+        <m>f</m> does not have section.
+      </p>
+      </solution>
+    </example>
+  </section>

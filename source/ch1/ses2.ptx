@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="sec-session2">
+    <title>Session 2</title>
+    <p>
+      It feels kind of silly to post solutions to a problem set that 
+      includes the answers already, but this seems like a good opportunity
+      to validate my generalization from last week.
+    </p>
+    <example>
+      <title>Problems on the number of maps from one set to another</title>
+      <statement>
+        <p>
+          How many maps...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We have answers here, so let's confirm the results of the generalization from Article 1:
+        </p>
+        <table>
+        <tabular>
+<row header="yes" bottom="minor">
+    <cell>#</cell>
+    <cell><m>||A||</m></cell>
+    <cell><m>||B||</m></cell>
+    <cell>Expression</cell>
+    <cell>Result</cell>
+<cell>Correct</cell>
+</row>
+<row>
+    <cell>1</cell>
+    <cell>4</cell>
+    <cell>1</cell>
+    <cell><m>1^4</m></cell>
+    <cell>1</cell>
+<cell>YES</cell>
+</row>
+<row>
+    <cell>2</cell>
+    <cell>1</cell>
+    <cell>4</cell>
+    <cell><m>4^1</m></cell>
+    <cell>4</cell>
+<cell>YES</cell>
+</row>
+<row>
+    <cell>3</cell>
+    <cell>0</cell>
+    <cell>4</cell>
+    <cell><m>4^0</m></cell>
+    <cell>1</cell>
+<cell>YES</cell>
+</row>
+ <row>
+    <cell>4</cell>
+    <cell>4</cell>
+    <cell>0</cell>
+    <cell><m>0^4</m></cell>
+    <cell>0</cell>
+<cell>YES</cell>
+</row>
+<row>
+    <cell>5</cell>
+    <cell>0</cell>
+    <cell>0</cell>
+    <cell><m>0^0</m></cell>
+    <cell>"it depends"</cell>
+<cell>"mostly"</cell>
+</row>
+</tabular>
+</table>
+<p>
+The generalization seems to hold up, provided we define our exponential operator
+in such a way that <m>0^0=1</m>. This is a common practice, but I've also seen
+situations where <m>0^0</m> is left undefined instead.  In this context, the answer
+of 1 to problem 5 makes more sense than than the alternative.  In programming terms,
+it seems perfectly reasonable to think of "no op" as a "function" so there should be
+an analogous "null map" that maps from nothing to nothing.
+</p>
+      </solution>
+    </example>
+  </section>
+  

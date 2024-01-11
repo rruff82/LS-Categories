@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="session4">
+    <title>Session 4: Division of maps: Isomorphisms</title>
+    <p>
+      While reading this section, I appreciated the fact that "just reverse the arrows" was the official 
+      description of isomorphisms on sets. It makes me feel like my answers to Article 2 are at least on the right
+      track.  I think my main goal for this week is to better understand what "respects the combining-rules" really means.
+    </p>
+    <example>
+      <title>Exercise 1</title>
+      <statement>
+        <p>
+          Finish checking that <m>d</m> is an isomorphism...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let's start with <m>h \circ d</m> first.  The composition is applied from right to left, which 
+          means we double first then halve.  
+        </p>
+        <me>
+          (h \circ d)(x) = h(d(x)) = 0.5(2x) = (0.5 \times 2) x = 1 \times x = x
+        </me>
+        <p>
+          Next we check <m>d \circ h</m>, where we halve first and double after:
+        </p>
+        <me>
+          (d \circ h)(x) = d(h(x)) = 2(0.5x) = (2 \times 0.5) x = 1 \times x = x
+        </me>
+        <p>
+          This proof seems kind of trivial since multiplication on <m>\mathbb{R}</m> is commutative.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 2</title>
+      <statement>
+        <p>
+          Find an isomorphism <m>(\set{odd,even},+) \overset{f}{\longrightarrow} (\set{positive,negative},\times)</m>...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let's start by organizing some data.  Perhaps a table of
+          each map will reveal some insight into the structure.
+        </p>
+<table>
+<title>Function table for <m>(\set{odd,even},+)</m></title>
+<tabular>
+<row>
+  <cell><m>+</m></cell>
+  <cell>even</cell>
+  <cell>odd</cell>
+</row>
+<row>
+  <cell>even</cell>
+  <cell>even</cell>
+  <cell>odd</cell>
+</row>
+<row>
+  <cell>odd</cell>
+  <cell>odd</cell>
+  <cell>even</cell>
+</row>
+</tabular>
+</table>
+
+<table>
+<title>Function table for <m>(\set{positive,negative},\times)</m></title>
+<tabular>
+<row>
+  <cell><m>\times</m></cell>
+  <cell>positive</cell>
+  <cell>negative</cell>
+</row>
+<row>
+  <cell>positive</cell>
+  <cell>positive</cell>
+  <cell>negative</cell>
+</row>
+<row>
+  <cell>negative</cell>
+  <cell>negative</cell>
+  <cell>positive</cell>
+</row>
+</tabular>
+</table>
+      <p>
+        These two tables mirror each other quite nicely, which suggests that ordering of options shown here
+        is probably the correct choice of <m>f</m>.  Let's go ahead and define <m>f</m> as follows:
+      </p>
+        <figure xml:id="fig-session4-ex2-1"> 
+<caption>Internal diagram of our potential isomorphism <m>f</m></caption>
+          <image width="80%" xml:id="img-session4-ex2-1"> 
+        <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1.2cm);
+\node (A) at (0,3.5) {$A$};
+\node (A1) at (0,2.5) {even};
+\node (A2) at (0,1.5) {odd};
+
+% begin second set
+\node (B) at (4,3.5) {$B$};
+\draw (4,2) circle (1.2cm);
+\node (B1) at (4,2.5) {positive};
+\node (B2) at (4,1.5) {negative};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A1) edge (B1)
+(A2) edge (B2);
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+        </figure>
+        <p>
+          In order for us to show that this <m>f</m> respects the combining rules, we need to 
+          verify that <m>f(a + b) = f(a) \times f(b)</m> for all <m>\set{a,b} \in \mathbb{Z}</m>.
+        </p>
+<table>
+<title>Combining rule validation table for <m>f</m></title>
+<tabular>
+<row>
+
+  <cell><line>For <m>a</m> even, <m>b</m> even:</line>
+    <line><m>f(a + b) = f(a) \times f(b)</m></line>
+    <line><m>f(even + even) = f(even) \times f(even)</m></line>
+    <line><m>f(even) = positive \times positive</m></line>
+    <line><m>positive = positive</m></line>
+    <line>Confirmed &#x2713;</line>
+  </cell>
+  <cell>
+    <line>For <m>a</m> odd, <m>b</m> even:</line>
+    <line><m>f(a + b) = f(a) \times f(b)</m></line>
+    <line><m>f(odd + even) = f(odd) \times f(even)</m></line>
+    <line><m>f(odd) = negative \times positive</m></line>
+    <line><m>negative = negative</m></line>
+    <line>Confirmed &#x2713;</line>
+  </cell>
+</row>
+<row>
+  <cell>
+    <line>For <m>a</m> even, <m>b</m> odd:</line>
+    <line><m>f(a + b) = f(a) \times f(b)</m></line>
+    <line><m>f(even + odd) = f(even) \times f(odd)</m></line>
+    <line><m>f(odd) = positive \times negative</m></line>
+    <line><m>negative = negative</m></line>
+    <line>Confirmed &#x2713;</line>
+  </cell>
+  <cell>
+   <line>For <m>a</m> odd, <m>b</m> odd:</line>
+    <line><m>f(a + b) = f(a) \times f(b)</m></line>
+    <line><m>f(odd + odd) = f(odd) \times f(odd)</m></line>
+    <line><m>f(even) = negative \times negative</m></line>
+    <line><m>positive = positive</m></line>
+    <line>Confirmed &#x2713;</line>
+  </cell>
+</row>
+</tabular>
+</table>
+<p>Suppose instead we had used the map <m>g</m> given by the alternative assignment:</p>
+        <figure xml:id="fig-session4-ex2-2"> 
+<caption>Internal diagram of alternative map choice <m>g</m></caption>
+          <image width="80%" xml:id="img-session4-ex2-2"> 
+        <latex-image>
+\begin{tikzpicture}[scale=1]
+
+% begin first set
+\draw (0,2) circle (1.2cm);
+\node (A) at (0,3.5) {$A$};
+\node (A1) at (0,2.5) {even};
+\node (A2) at (0,1.5) {odd};
+
+% begin second set
+\node (B) at (4,3.5) {$B$};
+\draw (4,2) circle (1.2cm);
+\node (B1) at (4,2.5) {positive};
+\node (B2) at (4,1.5) {negative};
+
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A1) edge (B2)
+(A2) edge (B1);
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+        </figure>
+<p>
+
+When <m>a</m> and <m>b</m> are both even, <m>g(a + b) = g(even + even) = g(even) = negative</m> 
+but <m>g(a) \times g(b) = negative \times negative = positive</m>. Thus, this map fails to preserve 
+the combining rule <m>g(a + b) = g(a) \times g(b)</m>.  
+</p>
+      </solution>
+    </example>
+    <example>
+      <title>Exercise 3</title>
+      <statement>
+        <p>
+          ...Unmask the imposters...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let's start with (a): 
+          <m>(\mathbb{R},+) \overset{p}{\longrightarrow} (\mathbb{R},+)</m> given by <m>p(x) = x + 1</m>.
+        </p>
+        <p>
+          While it seems like "subtract one" would be a reasonable inverse, this is not an isomorphism because 
+          it fails to respect the combining-rule <m>p(a+b)=p(a)+p(b)</m>.  Consider the case where <m>a = 1</m> 
+          and <m>b = 2</m>. We have <m>p(a)=2</m> and <m>p(b)=3</m> so <m>p(a)+p(b)=5</m>.  However, this is not 
+          the same as <m>p(a+b)</m>, which evaluates to <m>p(1+2) = p(3) = 4</m> instead.
+        </p>
+        <p>
+          The map in (b) and the map in (c) are both closely related because they share a common definition of <m>sq(x) = x^2</m>,
+          but differ in the domain and codomain.
+        </p>
+        <p>
+          Again there's an obvious inverse function of "square root", but the domains and codomains 
+          are what concern me.  Notable about (b) is that it fails to map "onto" the entire codomain, because the <m>sq</m> map 
+          never produces any negative numbers as an output.  The map in (c) resolves this by limiting the codomain to non-negative
+          values, but it still fails to "one-to-one" because both 1 and -1 produce an output of 1.  
+        </p>
+        <p>
+          The map in (d) and (e) likewise have similar definitions.
+        </p>
+        <p>
+          The map defined by the given expression <m>m x = -x</m> acts as its own inverse:
+          <m>(m \circ m) (x) = m(m(x)) = m(-x) = -(-x) = x</m>.  Where (d) and (e) differ
+          is in the "combining-rule".  If we have <m>\set{a,b} \in \mathbb{R}</m>, then a little algebra can show that
+          <m>m(a+b) = -(a+b) = (-a)+(-b) = m(a)+m(b)</m>.  This means that both the identity rules and the combining-rules are 
+          satisfied for (d), making it the only genuine isomorphism in the list. The map in (e) fails to uphold the combining rule 
+          because <m>m(a \times b) \neq m(a) \times m(b)</m>.  In the case where 
+          <m>a = 1</m> and <m>b = -1</m>, we have <m>m(a \times b) = -(1 \times (-1)) = -(-1) = 1</m> 
+          but <m>m(a) \times m(b) = -1 \times 1 = -1</m>.  
+        </p>
+        <p>
+          Finally we have the map (f), which isn't even a map with the specified domain and codomain because the cube of a
+          negative number is still negative.  Had the map been defined with the correct codomain, 
+          <m>(\mathbb{R},\times) \overset{c}{\longrightarrow} (\mathbb{R},\times)</m>, then we'd potentially be able to define
+          an inverse map by using the "cube root" function. 
+        </p>
+      </solution>
+    </example>
+    <p>
+      As I was proof reading this session, I noticed a couple small errors in the 3rd exercise.  One of these was a misread problem, 
+      but the other was a little more subtle.  In an effort to get the most out of this as a learning experience,  I thought it
+      might be valuable to talk about what I learned from my mistakes.
+    </p>
+    <example>
+      <title>Meta-Exercise</title>
+      <statement>
+        <p>
+          As I was proof reading, I noticed an error in Exercise 3 Part (e).  It was a simple case of me not reading 
+          the question as precisely as needed. I think I was so excited to show (d) was an isomorphism that I didn't 
+          give (e) the amount of skepticism it deserved.  I mistakely read the domain as <m>(\mathbb{R},+)</m> instead
+          of <m>(\mathbb{R},\times)</m> which made finding a counter-example trivial relative to the actual problem. 
+        </p>
+        <p>
+          As I was looking over my solution to fix this, I noticed something else kind of odd. My solution began with
+          "Let's go one at a time" but I had addressed some of the problems in pairs.  There's something that felt natural 
+          about approaching them this way, but it also seemed kind of ironic that I had failed to produce a isomorphism
+          between my problems and solutions in a section that was all about matching things up.
+        </p>
+        <p>
+          All of this started to get my thinking about the solutions to these problems as a map
+          <m>\set{a,b,c,d,e,f} \overset{s}{\longrightarrow} \set{isomorphism,non-isomorphism}</m>.  
+          Obviously this map is not invertable, but it made me wonder if the "Hints" to this section
+          provided sufficient information about the functions to identify each one.  Is there some
+          set of descriptions that would establish a one-to-one relationship with these problems?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The first hint tells us that only one of these maps is a "genuine isomorphism", which I concluded was (d). 
+          The last hint says that one is "not even a map", which I concluded is (f). The hint that 
+          "[s]ome... dont respect the combining rules" explains why I rejected (a) and (e).  It also seems natural
+          to ask "does it have a section?" and "does it have a retraction?".
+        </p>
+        <table>
+          <title>Table of selected map properties for Exercise 3</title>
+          <tabular>
+            <row header="yes">
+              <cell>Item</cell>
+              <cell>is a map?</cell>
+              <cell>has a section?</cell>
+              <cell>has a retraction?</cell>
+              <cell>respects combining rules?</cell>
+            </row>
+            <row>
+              <cell>(a)</cell>
+              <cell>Yes</cell>
+              <cell>Yes</cell>
+              <cell>Yes</cell>
+              <cell>No</cell>
+            </row>
+            <row>
+              <cell>(b)</cell>
+              <cell>Yes</cell>
+              <cell>No</cell>
+              <cell>No</cell>
+              <cell>N/A</cell>
+            </row>
+            <row>
+              <cell>(c)</cell>
+              <cell>Yes</cell>
+              <cell>Yes</cell>
+              <cell>No</cell>
+              <cell>N/A</cell>
+            </row>
+            <row>
+              <cell>(d)</cell>
+              <cell>Yes</cell>
+              <cell>Yes</cell>
+              <cell>Yes</cell>
+              <cell>Yes</cell>
+            </row>
+            <row>
+              <cell>(e)</cell>
+              <cell>Yes</cell>
+              <cell>Yes</cell>
+              <cell>Yes</cell>
+              <cell>No</cell>
+            </row>
+            <row>
+              <cell>(f)</cell>
+              <cell>No</cell>
+              <cell>N/A</cell>
+              <cell>N/A</cell>
+              <cell>N/A</cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          These four questions are <em>almost</em> enough to identify every problem except for distinguishing between
+          (a) and (e).  The best description of the difference is that (a) fails to preserve the combining-rules 
+          <em>in every case</em> while (e) might pass or fail the combining-rules depending on its input.  This is 
+          a very subtle difference that I probably would have overlooked had I not made the mistake that I did. 
+        </p>
+      </solution>
+    </example>
+  </section>

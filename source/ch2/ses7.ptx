@@ -1,0 +1,367 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session7">
+    <title>Session 7: Isomorphisms and coordinates</title>
+    <p>
+      It turns out that last week's lack of exercises wasn't as much of an anomaly as I thought it was.
+      After realizing that this week's session didn't have any exercises either, I scanned ahead and 
+      noticed that there are several sessions like this before eventually reaching a "Quiz" and "Test".
+      I'm not sure how I plan to handle those yet, but I think I'm going to keep with my chill pace for
+      now.  This session did include several side questions throughout that I can treat as I would the
+      exercises.
+    </p>
+    <example>
+      <title>Aside 1</title>
+      <statement>
+        <p>
+          What, approximately, is <m>coordinate(x)</m> for the point <m>x</m> in the picture?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          I took a modern approach and used technology to provide a more accurate estimation.  
+        </p>
+        <ol>
+          <li>
+            <p>
+              I began by holding the page as flat as I could while taking a photo with my phone 
+              and uploaded to the cloud.  
+            </p>
+          </li>
+          <li>
+            <p>
+              I downloaded this photo from my PC and opened it in <url href="http://gimp.org">GIMP</url>.
+            </p>
+          </li>
+          <li>
+            <p>
+              I used the cursor to identify the following coordinates in pixels:
+               <m>r = plot(-4.3) = (897,2904)</m>, <m>x = (1370,2926)</m>, <m>p = plot(0) = (1689,2937)</m>,
+               <m>q = plot(3.5) = (2453,2970)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Next I calculated the distances from <m>r</m> to <m>q</m> and from <m>p</m> to <m>x</m>.
+              Specifically, <m>||q-r|| \approx 1557.4</m> and <m>||p-x|| \approx 319.19</m>. 
+            </p>                
+          </li>
+          <li>
+            <p>
+              With this information in hand, I can set up a ratio to determine <m>x</m>. 
+              Solving <m>\frac{3.5-(-4.3)}{0-x} \approx -\frac{1557.4}{319.19}</m> results in 
+              a solution of <m>x \approx -1.5</m>.
+            </p>
+          </li>
+        </ol>
+        <p>
+          This seems like a reasonable estimate based on the diagram.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Aside 2</title>
+      <statement>
+        <p>
+          What are the choice of origin, positive direction, and unit of 'distance' involved in
+          specifying this isomorphism?...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Oooh this is a fun one! Let's presume we meet some alien species and are trying to sync up
+          our timelines.  We're going to need both space and time coordinates if we really want to do
+          this right.  One possibility is for both parties to use "the big bang" as a point of origin
+          and "the light cone" for a direction and magnitude.  This choice makes converting easy, but
+          potentially imprecise because of the sheer size of those values. 
+        </p>
+        <p>
+          A much more practical approach would be to use the meeting time and location as a point of
+          origin, use physical constants to communicate SI units, then work backwards to calculate the
+          local time for each party using a Lorentz transformation.  We'd just need to where they came 
+          from and how fast they traveled to convert their home civilization's time to their current 
+          time. 
+        </p>
+        <p>
+          I think the point that the authors were trying to communicate was that our choice of units 
+          and magnitude for "time" are very specific to our origin on planet Earth.  If we're talking 
+          about units of "years" as being "one orbit around the Sun" and the origin as a socially defined
+          "common era", then an alien race from another plant would likely have totally different system
+          of dating then us.  However, most SI units are based on physical properties of our universe.
+          Even if this species chose a different set of base units than us, we could match up measurements
+          of certain elements to develop an <em>isomorphism</em> between our two systems.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <title>Aside 3</title>
+      <statement>
+        <p>
+          ...rational explanation for the curious bracketing...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The first thing that jumps out at me about the bracket is that the sums of 
+          the adjacent ranks are constant:
+        </p>
+        <figure width="80%" xml:id="fig-session7-a3-1">
+        <caption>8 Player Bracket from L&amp;S Session 7</caption>
+        <image width="80%" xml:id="img-session7-a3-1"> 
+        <latex-image>
+        
+\begin{tikzpicture}[scale=.5]
+
+\node (A1) at (1,8) {rank 1};
+\node (A2) at (1,7) {rank 8};
+\node (A3) at (1,6) {rank 4};
+\node (A4) at (1,5) {rank 5};
+\node (A5) at (1,4) {rank 2};
+\node (A6) at (1,3) {rank 7};
+\node (A7) at (1,2) {rank 3};
+\node (A8) at (1,1) {rank 6};
+
+\node (S1) at (-3,7.5) {1+8=9};
+\node (S2) at (-3,5.5) {4+5=9};
+\node (S3) at (-3,3.5) {2+7=9};
+\node (S4) at (-3,1.5) {3+6=9};
+
+\coordinate (B1) at (5,7.5);
+\coordinate (B2) at (5,5.5);
+\coordinate (B3) at (5,3.5);
+\coordinate (B4) at (5,1.5);
+
+\draw (A1.east) -- ($(B1) + (0,0.5)$) -- ($(B1) - (0,0.5)$) -- (A2.east);
+\draw (A3.east) -- ($(B2) + (0,0.5)$) -- ($(B2) - (0,0.5)$) -- (A4.east);
+\draw (A5.east) -- ($(B3) + (0,0.5)$) -- ($(B3) - (0,0.5)$) -- (A6.east);
+\draw (A7.east) -- ($(B4) + (0,0.5)$) -- ($(B4) - (0,0.5)$) -- (A8.east);
+
+\coordinate (C1) at (8,6.5);
+\coordinate (C2) at (8,2.5);
+
+\draw (B1) -- ($(C1) + (0,1)$) -- ($(C1) - (0,1)$) -- (B2);
+\draw (B3) -- ($(C2) + (0,1)$) -- ($(C2) - (0,1)$) -- (B4);
+
+\coordinate (D) at (12,4.5);
+\draw (C1) -- ($(D) + (0,2)$) -- ($(D) - (0,2)$) -- (C2);
+
+\coordinate (E) at (15,4.5);
+\draw (D) -- (E);
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A1) edge (S1)
+(A2) edge (S1)
+(A3) edge (S2)
+(A4) edge (S2)
+(A5) edge (S3)
+(A6) edge (S3)
+(A7) edge (S4)
+(A8) edge (S4);
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+      
+      </figure>
+      <p>
+        In other words, the best player is alway paired with the worst player, the next best with the next 
+        worst, and so on until all pairs have been assigned.  However, the fun doesn't stop there.
+      </p>
+      <p>
+        The bracket also appears to balance "skill gap" between the top half and the bottom half.  The 
+        winner of the match-up with the highest rank differential goes on to face the winner of the match
+        with the lowest differential in the next round.  Those differentials sum to a constant much like 
+        the ranks did.
+      </p>
+
+        <figure width="80%" xml:id="fig-session7-a3-2">
+        <caption>8 player bracket with rank differentials</caption>
+        <image width="80%" xml:id="img-session7-a3-2"> 
+        <latex-image>
+        
+\begin{tikzpicture}[scale=.5]
+
+\node (A1) at (1,8) {rank 1};
+\node (A2) at (1,7) {rank 8};
+\node (A3) at (1,6) {rank 4};
+\node (A4) at (1,5) {rank 5};
+\node (A5) at (1,4) {rank 2};
+\node (A6) at (1,3) {rank 7};
+\node (A7) at (1,2) {rank 3};
+\node (A8) at (1,1) {rank 6};
+
+\node (S1) at (-3,7.5) {8-1=7};
+\node (S2) at (-3,5.5) {5-4=1};
+\node (S3) at (-3,3.5) {7-2=5};
+\node (S4) at (-3,1.5) {6-3=3};
+
+\node (T1) at (-6,6.5) {7+1=8};
+\node (T2) at (-6,2.5) {5+3=8};
+
+\coordinate (B1) at (5,7.5);
+\coordinate (B2) at (5,5.5);
+\coordinate (B3) at (5,3.5);
+\coordinate (B4) at (5,1.5);
+
+\draw (A1.east) -- ($(B1) + (0,0.5)$) -- ($(B1) - (0,0.5)$) -- (A2.east);
+\draw (A3.east) -- ($(B2) + (0,0.5)$) -- ($(B2) - (0,0.5)$) -- (A4.east);
+\draw (A5.east) -- ($(B3) + (0,0.5)$) -- ($(B3) - (0,0.5)$) -- (A6.east);
+\draw (A7.east) -- ($(B4) + (0,0.5)$) -- ($(B4) - (0,0.5)$) -- (A8.east);
+
+\coordinate (C1) at (8,6.5);
+\coordinate (C2) at (8,2.5);
+
+\draw (B1) -- ($(C1) + (0,1)$) -- ($(C1) - (0,1)$) -- (B2);
+\draw (B3) -- ($(C2) + (0,1)$) -- ($(C2) - (0,1)$) -- (B4);
+
+\coordinate (D) at (12,4.5);
+\draw (C1) -- ($(D) + (0,2)$) -- ($(D) - (0,2)$) -- (C2);
+
+\coordinate (E) at (15,4.5);
+\draw (D) -- (E);
+
+\path[-{Stealth},font=\scriptsize,>=angle 90]
+(A1) edge (S1)
+(A2) edge (S1)
+(A3) edge (S2)
+(A4) edge (S2)
+(A5) edge (S3)
+(A6) edge (S3)
+(A7) edge (S4)
+(A8) edge (S4)
+(S1) edge (T1)
+(S2) edge (T1)
+(S3) edge (T2)
+(S4) edge (T2);
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+      </figure>
+      <p>
+        Between those two conditions, that should be enough to determine the 4 and 16 
+        player brackets.  The four player one is easy, since it's essentially embeeded 
+        in the original.
+      </p>
+      <figure width="80%" xml:id="fig-session7-a3-3">
+        <caption>4 player bracket</caption>
+        <image width="80%" xml:id="img-session7-a3-3"> 
+        <latex-image>
+        
+\begin{tikzpicture}[scale=.5]
+
+
+\node (B1) at (5,7.5) {rank 1};
+\node (B2) at (5,5.5) {rank 4};
+\node (B3) at (5,3.5) {rank 2};
+\node (B4) at (5,1.5) {rank 3};
+
+\coordinate (C1) at (8,6.5);
+\coordinate (C2) at (8,2.5);
+
+\draw (B1) -- ($(C1) + (0,1)$) -- ($(C1) - (0,1)$) -- (B2);
+\draw (B3) -- ($(C2) + (0,1)$) -- ($(C2) - (0,1)$) -- (B4);
+
+\coordinate (D) at (12,4.5);
+\draw (C1) -- ($(D) + (0,2)$) -- ($(D) - (0,2)$) -- (C2);
+
+\coordinate (E) at (15,4.5);
+\draw (D) -- (E);
+
+
+\end{tikzpicture}
+        </latex-image>
+        </image>
+        </figure>
+        <p>
+          To make the 16 player bracket, I'm going to start by pairing off players based on rank:
+          The player in rank 1 should be paired with the player in rank 16, rank 2 with rank 15, 
+          rank 3 with rank 14, and so on until all 8 pairs have been assigned.  Since these pairings
+          go from largest score differential to smallest, we can assign the pairs to each of the "ranks" 
+          in the 8 player bracket to extend it further.
+        </p>
+        <figure width="80%" xml:id="fig-session7-a3-4">
+          <caption>16 player bracket</caption>
+          <image width="80%" xml:id="img-session7-a3-4"> 
+          <latex-image>
+          
+\begin{tikzpicture}[scale=.75]
+
+\node (Z1) at (-3,8.25) {rank 1};
+\node (Z2) at (-3,7.75) {rank 16};
+\node (Z3) at (-3,7.25) {rank 8};
+\node (Z4) at (-3,6.75) {rank 9};
+\node (Z5) at (-3,6.25) {rank 4};
+\node (Z6) at (-3,5.75) {rank 13};
+\node (Z7) at (-3,5.25) {rank 5};
+\node (Z8) at (-3,4.75) {rank 12};
+
+\node (Z9) at (-3,4.25) {rank 2};
+\node (Z10) at (-3,3.75) {rank 15};
+\node (Z11) at (-3,3.25) {rank 7};
+\node (Z12) at (-3,2.75) {rank 10};
+\node (Z13) at (-3,2.25) {rank 3};
+\node (Z14) at (-3,1.75) {rank 14};
+\node (Z15) at (-3,1.25) {rank 6};
+\node (Z16) at (-3,0.75) {rank 11};
+
+\coordinate (A1) at (1,8);
+\coordinate (A2) at (1,7);
+\coordinate (A3) at (1,6);
+\coordinate (A4) at (1,5);
+\coordinate (A5) at (1,4);
+\coordinate (A6) at (1,3);
+\coordinate (A7) at (1,2);
+\coordinate (A8) at (1,1);
+
+\coordinate (B1) at (5,7.5);
+\coordinate (B2) at (5,5.5);
+\coordinate (B3) at (5,3.5);
+\coordinate (B4) at (5,1.5);
+
+\draw (Z1.east) -- ($(A1) + (0,0.25)$) -- ($(A1) - (0,0.25)$) -- (Z2.east);
+\draw (Z3.east) -- ($(A2) + (0,0.25)$) -- ($(A2) - (0,0.25)$) -- (Z4.east);
+\draw (Z5.east) -- ($(A3) + (0,0.25)$) -- ($(A3) - (0,0.25)$) -- (Z6.east);
+\draw (Z7.east) -- ($(A4) + (0,0.25)$) -- ($(A4) - (0,0.25)$) -- (Z8.east);
+
+\draw (Z9.east) -- ($(A5) + (0,0.25)$) -- ($(A5) - (0,0.25)$) -- (Z10.east);
+\draw (Z11.east) -- ($(A6) + (0,0.25)$) -- ($(A6) - (0,0.25)$) -- (Z12.east);
+\draw (Z13.east) -- ($(A7) + (0,0.25)$) -- ($(A7) - (0,0.25)$) -- (Z14.east);
+\draw (Z15.east) -- ($(A8) + (0,0.25)$) -- ($(A8) - (0,0.25)$) -- (Z16.east);
+
+
+\draw (A1) -- ($(B1) + (0,0.5)$) -- ($(B1) - (0,0.5)$) -- (A2);
+\draw (A3) -- ($(B2) + (0,0.5)$) -- ($(B2) - (0,0.5)$) -- (A4);
+\draw (A5) -- ($(B3) + (0,0.5)$) -- ($(B3) - (0,0.5)$) -- (A6);
+\draw (A7) -- ($(B4) + (0,0.5)$) -- ($(B4) - (0,0.5)$) -- (A8);
+
+\coordinate (C1) at (8,6.5);
+\coordinate (C2) at (8,2.5);
+
+\draw (B1) -- ($(C1) + (0,1)$) -- ($(C1) - (0,1)$) -- (B2);
+\draw (B3) -- ($(C2) + (0,1)$) -- ($(C2) - (0,1)$) -- (B4);
+
+\coordinate (D) at (12,4.5);
+\draw (C1) -- ($(D) + (0,2)$) -- ($(D) - (0,2)$) -- (C2);
+
+\coordinate (E) at (15,4.5);
+\draw (D) -- (E);
+
+
+
+\end{tikzpicture}
+          </latex-image>
+          </image>
+        
+        </figure>
+        <p>
+          This works out nicely because if the top 8 players all win their match-ups in
+          the first round of the 16-player bracket, they'd wind up in a bracket that is 
+          basically identical to their placement in the 8-player bracket. Likewise, if 
+          the top four players continue to win then we end up in a situation identical to
+          the 4-player bracket. It has a nice recursively defined structure.
+        </p>
+      </solution>
+    </example>
+  </section>
+  
