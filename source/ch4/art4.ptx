@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="article4">
+    <title>Article 4: Universal Mapping Properties</title>
+    <p>
+        Yay for concrete definitions! We encountered these 
+        "terminal objects" back in Session 17 and I wasn't 
+        sure how to articulate it back then.  I do find it 
+        interesting that we're defining "terminal objects" 
+        before "initial objects".  It seems a little backwards,
+        but maybe there's a reason for it that I don't quite 
+        see yet.
+    </p>
+   <example>
+        <title>Exercise 1:</title>
+        <statement>    <p>
+            <m>\mathbf{1}</m> has one point...
+        </p></statement>
+        <solution>
+            
+
+    <p>
+        The lack of a question means we're proving the given
+        statement, so let's peice together what we've been
+        given.
+    </p>
+    <p>
+        Our <em>point</em> is defined as a <m>\mathcal{C}</m>-map
+        <m>\mathbf{1} \rightarrow X</m>, where <m>\mathbf{1}</m>
+        is a <em>terminal object</em> in <m>\mathcal{C}</m>.
+        By the definition of terminal object, there exists exactly 
+        one <m>\mathcal{C}</m>-map <m>X \rightarrow \mathbf{1}</m>
+        for each object of <m>X</m>.  To help keep these ideas separate,
+        let's call the point <m>\mathbf{1} \xrightarrow{x} X</m>
+        and the "terminal map" <m>X \xrightarrow{\bar{x}} \mathbf{1}</m>.
+    </p>
+    <p>
+        If we have some arbitrary map <m>X \xrightarrow{f} Y</m>, then
+        we should be able to compose this map with our "point map". 
+        Namely, if we have a map <m>\mathbf{1} \xrightarrow{x} X</m>
+        in our category <m>\mathcal{C}</m> then our 
+        composition <m>f \circ x</m> should also be in the category.
+        This effectively gives us a map <m>\mathbf{1} \xrightarrow{f x} Y</m>
+        since we have <m>\mathbf{1} \xrightarrow{x} X \xrightarrow{f} Y</m>.
+    </p>
+    <p>
+        So how do we prove <m>f x</m> is a point? I think we basically
+        already have done so by establishing the existance of a map
+        <m>\mathbf{1} \xrightarrow{f x} Y</m> through composition.
+        We might have to also prove that there's a corresponding map
+        <m>Y \xrightarrow{\bar{f x}} \mathbf{1}</m> too, which I think
+        we can effectively do by following the arrows backwards since 
+        each of these single element sets are isomorphic to every other
+        one by the "Uniqueness of Terminal Objects" theorem.  
+    </p>
+    <p>
+        I think we're effectively splitting the domain up into points.
+        If we have a map <m>X \xrightarrow{f} Y</m>, this terminal object
+        lets us break apart <m>X</m> into a bunch of individual points
+        <m>\mathbf{1} \xrightarrow{x_i} X</m>, and consequently allows
+        us to break up <m>f</m> into smaller maps where the domain 
+        and codomain are both single element sets.  For any map 
+        <m>f: X \rightarrow Y</m>, each point <m>x_i</m> in <m>X</m>
+        could be used to construct a map 
+        <m>f_i: \{x_i\} \rightarrow \{f x_i\}</m>. Each such "mini-map"
+        must be invertable, so there's precisely one map from
+        <m>\{f x_i\}</m> to <m>\mathbf{1}</m> and it's given by the 
+        composition <m>\bar{x_i} f_i^{-1}</m>. 
+    </p>
+        </solution>
+    </example>
+
+    <example>
+        <title>Exercise 2:</title>
+        <statement>   
+            <p>
+                In the category <m>\mathcal{S}</m> of abstract sets...
+            </p>    
+        </statement>
+        <solution>
+
+            <p>
+                I'm thinking that this is actually a special case of Exercise 1
+                where <m>Y = X</m> and <m>f = 1_X</m>.  If we have a point
+                <m>x \in X</m>, that implies the existance of a map
+                <m>1 \xrightarrow{x} X</m>.  If we compose this map with
+                the identity map, the result should also be a point 
+                in <m>X</m> since the category is closed under the composition 
+                <m>\mathbf{1} \xrightarrow{x} X \xrightarrow{1_X} X</m>.
+            </p>
+            <p>
+                Since <m>x</m> is a point of <m>X</m>, there must be a unique
+                <m>\mathcal{C}</m>-map <m>X \xrightarrow{\bar{x}} \mathbf{1}</m>.  
+                If we take this map and compose it with <m>1_X</m>, then the result 
+                should also be a <m>\mathcal{C}</m>-map.  
+            </p>
+            <p>
+                In other words, the requirement of an identity map in our category
+                ensures that these maps are unique.  Since we have a sequence of maps
+                <m>\mathbf{1} \xrightarrow{x} X \xrightarrow{\bar{x}} \mathbf{1}</m>,
+                it also should follow that the composite
+                <m>\mathbf{1} \xrightarrow{x} X \xrightarrow{1_X} X \xrightarrow{\bar{x}} \mathbf{1}</m>
+                is also in our category.  Note that <m>1_X \circ x = x</m> and 
+                <m>\bar{x} \circ 1_X  = \bar{x}</m> since we're using the identity map.
+            </p>
+            <p>
+                I suppose the part we haven't addressed yet is the uniqueness property.
+                If we had a point <m>x</m> of <m>X</m> that points to two different elements of 
+                <m>x_1,x_2</m>, then we don't have a well-defined "map" because 
+                each point of a map can only point to one value.  On the other hand, 
+                if we had two points <m>x_1, x_2 \in X</m> that both point
+                to some point <m>x \in X</m> then <m>x</m> is not really a point because the 
+                map <m>X \xrightarrow{\bar{x}} \mathbf{1}</m> needs to be unique by the
+                definition of <m>\mathbf{1}</m> as a terminal object.
+            </p>
+        </solution>
+    </example>
+    <example>
+        <title>Exercise 3:</title>
+        <statement>    <p>
+        In the category <m>\mathcal{S}^{\circlearrowright}</m> of discrete dynamical systems...
+    </p></statement>
+        <solution>
+            <p>
+                So now we don't just have a set <m>X</m> alone, but one that's
+                also equipped with an endomap <m>\alpha</m>. If this set has a
+                terminal object <m>\mathbf{1}</m>, that implies the existence 
+                of exactly one <m>\mathcal{S}^{\circlearrowright}</m>-map 
+                <m>\boxed{X^{\circlearrowright\alpha}} \xrightarrow{f_x} \boxed{\mathbf{1}^{\circlearrowright\beta}}</m>
+                for each element <m>x</m> in <m>X</m>.
+                However, since there's only one element in <m>\mathbf{1}</m>
+                the only possible endomap on <m>\mathbf{1}</m> is the 
+                identity map <m>\beta = 1_\mathbf{1}</m>. It follows from the structure preserving property of 
+                <m>\mathcal{S}^{\circlearrowright}</m> that 
+                <m>f_x \alpha = \beta f_x</m>, and substituting <m>\beta = 1_\mathbf{1}</m>
+                gives us <m>f_x \alpha = f_x</m>.
+            </p>
+            <p>
+                Effectively, this map <m>f_x</m> must be invariate with respect 
+                to the operation <m>\alpha</m>.  If <m>x</m> is a fixed point 
+                under <m>\alpha</m>, then it's obvious that <m>f_x \alpha x = f_x x</m> will hold true because 
+                <m>\alpha x = x</m>.  If <m>x</m> is not a fixed point, then <m>\alpha x \neq x</m>
+                implies that <m>\alpha x</m> is a different point in <m>X</m> and 
+                must have it's own unique map <m>f_{\alpha x}</m> such that 
+                <m>f_{\alpha x} \alpha = f_{\alpha x}</m>. 
+            </p>
+        </solution>
+    </example>
+  
+    <example>
+        <title>Exercise 4:</title>
+        <statement>    <p>
+            In the category <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>
+            of (irreflexive) graphs...
+        </p></statement>
+        <solution>
+            <p>
+                In this category, an  <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>-map
+                requires that both "source and target" must be preserved.  Namely,
+                <m>s' f_D = f_A s</m> and <m>t' f_D = f_A t</m>. If the codomain of 
+                any such a map <m>\boxed{X^{\downarrow_\bullet^\bullet \downarrow}} \xrightarrow{f} \boxed{Y^{\downarrow_\bullet^\bullet \downarrow}}</m> is a
+                one-element space <m>Y=\mathbf{1}</m>, then the only possible choice for
+                of maps for <m>s'</m> and  <m>t'</m> is <m>s' = t' = 1_\mathbf{1}</m>.
+            </p>
+            <p>
+                It follows that <m>f_A s = s' f_D = 1_\mathbf{1} f_D = f_D</m>
+                and <m>f_A t = t' f_D = 1_\mathbf{1} f_D = f_D</m>. This, in
+                turn, implies that <m>f_A s = f_A t = f_D</m> for every "point" 
+                <m>\mathbf{1} \xrightarrow{x} X</m>.  In other words, each 
+                "point" in <m>X</m> refers to a "dot" which is both the source and target of 
+                an "arrow".  Such points are effectively our "self-loops" in <m>X</m>.
+            </p>
+            <p>
+                I'm a little uncertain about this actually.  I was expecting to see
+                a loop of multiple points rather than something that looks like a
+                fixed point.
+            </p>
+        </solution>
+    </example>
+
+    <example>
+        <title>Exercise 5:</title>
+        <statement>    <p>
+            The terminal object <m>\mathbf{1}</m> in <m>\mathcal{S}</m>...
+        </p>
+    </statement>
+        <solution>
+            <p>
+                Suppose we have a pair of maps 
+                <m>X \mathrel{\substack{f \\ \longrightarrow \\ \longrightarrow \\ g}} Y</m>,
+                and each point <m>\mathbf{1} \xrightarrow{x} X</m> has the property that <m>f x = g x</m>.
+            </p>
+            <p>
+                It seems like the fact that <m>f = g</m> is self-evident to a degree.
+                Two maps are the same if the domains and codomains are the same, and they 
+                agree on the value of each possible input.  We already established that
+                <m>x</m> being a point in <m>X</m> means that <m>f x</m> and <m>g x</m>
+                are necessarily points in <m>Y</m>. 
+            </p>
+            <p>
+                So why would this fail in <m>\mathcal{S}^{\circlearrowright}</m> or
+                <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>?  I'd 
+                suspect it has something to do with the way the our dots can
+                degenerate into arrows.  Consider the following endomap:
+            </p>
+            <figure xml:id="fig-article4-ex5-1">
+                <title>A simple endomap</title>
+                <image width="50%" xml:id="article4-ex5-1">
+                    <latex-image>
+                        \begin{tikzpicture}[scale=2]
+        
+                            \node (A0) at (0,1) {$\bullet$};
+                            \node (A1) at (1,1) {$\bullet$};
+                            \node (A2) at (2,1) {$\bullet$};
+                            
+                            \path[-{stealth},font=\scriptsize,>=angle 90] 
+                                (A0) edge (A1)
+                                (A1) edge (A2)
+                                (A2) edge[loop right] (A2)
+                                ;
+        
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p> 
+                If we take each of the "points" and replace them with an 
+                "self-loop", we'd get something like this:
+            </p>
+            <figure xml:id="fig-article4-ex5-2">
+                <title>A simple endomap</title>
+                <image width="50%" xml:id="article4-ex5-2">
+                    <latex-image>
+                        \begin{tikzpicture}[scale=2]
+        
+                            \node (A0) at (0,1) {$x_0\circlearrowright$};
+                            \node (A1) at (1,1) {$x_1\circlearrowright$};
+                            \node (A2) at (2,1) {$x_2\circlearrowright$};
+                            
+                            \path[-{stealth},font=\scriptsize,>=angle 90] 
+                                (A0) edge (A1)
+                                (A1) edge (A2)
+                                (A2) edge[loop right] (A2)
+                                ;
+        
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                I think the problem here arises when we try to 
+                distinguish between the self-loop that "is" <m>x_2 \circlearrowright</m>
+                and the self-loop that connects <m>x_2 \circlearrowright</m> to itself.
+                We've defined terminal objects in such a way that there would be 
+                exactly one map from <m>X \rightarrow \mathbf{1}</m>, but here
+                we essentially have two different arrows which both have a 
+                source of <m>x_2</m> and a target of <m>x_2</m>.
+            </p>
+            <p>
+                This has got me second guessing my answers to Session 17 
+                Exercise 1.  I'm starting to wonder if I was supposed to
+                classify (b) is terminal but (a) as not, because (a) admits a 
+                loop that (b) doesn't.  
+            </p>
+        </solution>
+    </example>
+
+   
+</section>
