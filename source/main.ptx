@@ -102,6 +102,8 @@
     <chapter xml:id="part4">
       <title>Part 4: Elementary Universal Mapping Properties</title>
       <xi:include href="ch4/art4.ptx" />
+      <xi:include href="ch4/art4-p2.ptx" />
+      
     </chapter>
 
     <backmatter xml:id="backmatter">

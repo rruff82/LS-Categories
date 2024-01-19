@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="article4-p2">
+    <title>Article 4: Universal Mapping Properties, Part 2</title>
+    <p>
+        We resume this week with "separating".
+    </p>
+    <example>
+      <title>Exercise 6:</title>
+      <statement>
+        <p>
+          Show that in the category <m>\mathcal{S}^\circlearrowright</m>...
+        </p>
+      </statement>
+      <solution>
+            <p>
+        The very heavy-handed "hint" suggests that our mystery object
+        <m>N</m> is most likely related to <m>\mathbb{N}^{\circlearrowright \sigma}</m> or 
+        maybe even <m>\Omega</m>.
+    </p>
+    <p>
+         Further, I'd expect 
+        that we're going to somehow need this theorem that
+        any two graphs <m>X,Y</m> and maps 
+        <m>X \mathrel{\substack{f \\ \longrightarrow \\ \longrightarrow \\ g}} Y</m>,
+        we have the property that if <m>fx=gx</m> for all <m>A \xrightarrow{x} X</m>
+        and <m>D \xrightarrow{x} X</m> then <m>f = g</m>.
+    </p>
+    <p>
+        Consider a pair of <m>\mathcal{S}^\circlearrowright</m>-maps 
+        <m>X^{\circlearrowright \alpha} \mathrel{\substack{f \\ \longrightarrow \\ \longrightarrow \\ g}} Y^{\circlearrowright \beta}</m>.
+        By definition, these must satisfy <m>f \alpha = \beta f</m> and 
+        and <m>g \alpha = \beta g</m>.  As endomaps, <m>\alpha</m> and <m>\beta</m>
+        require that each "dot" gets assigned exactly one "arrow". Thus,
+        we can effectively use this to split up "objects" of 
+        <m>X^{\circlearrowright \alpha}</m> into the union of some 
+        "dots" <m>X_D</m> and "arrows" <m>X_A</m> with a 1-1 correspondence. 
+    </p>
+    <p>
+        In Session 15, we established an 
+        isomorphism between maps in <m>S^\circlearrowright</m> and maps
+        in <m>\mathcal{S}</m> through the process of "evaluation at 0"
+        and "iteration".  We defined "iteration" as assigning to each
+        <m>y \in Y</m> a map <m>f</m> given by <m>f(n) = \beta^n(y)</m>.
+    </p>
+    
+   
+    <figure xml:id="fig-article4-ex6-1">
+        <caption>Iteration and evaluation defined</caption>
+        <image width="80%" xml:id="article4-ex6-1"> 
+        <latex-image>
+\begin{tikzpicture}[scale=.5]
+
+\draw (-1,-2) rectangle (3,2);
+\node (A) at (1,1) {Maps in $\mathcal{S}^{\circlearrowright}$};
+\node (B) at (1,-1) {$\mathbb{N}^{\circlearrowright \sigma} \rightarrow Y^{\circlearrowright \beta}$};
+
+\draw (8,-2) rectangle (12,2);
+\node (C) at (10,1) {Maps in $\mathcal{S}$};
+\node (D) at (10,-1) {$\mathbf{1} \rightarrow Y$};
+
+\path[-{Stealth},font=\scriptsize,>=angle 90] 
+  ($(A)+(2.5,0)$) edge node[above] {evaluation at 0} ($(C)-(2.5,0)$)
+  ($(D)-(2.5,0)$) edge node[below] {iteration} ($(B)+(2.5,0)$)
+  ;
+
+\end{tikzpicture}
+
+        </latex-image>
+        </image>
+      </figure>
+      <p>
+        This is relevant because we now also know that having a 
+        "point in <m>X</m>" <m>\mathbf{1} \xrightarrow{x} X</m> 
+        and a "map" <m>X \xrightarrow{f} Y</m> necessarily gives
+        us a "point in <m>Y</m>" given by <m>\mathbf{1} \xrightarrow{fx} Y</m>.
+        Now that we have the addition of an endomap 
+        <m>X \xrightarrow{\alpha} X</m>, we can define "sequences" 
+        of points by iterating <m>\alpha</m> like so:
+      </p>
+      <me>\mathbf{1} \xrightarrow{x} X</me>
+      <me>\mathbf{1} \xrightarrow{x} X \xrightarrow{\alpha} X</me>
+      <me>\mathbf{1} \xrightarrow{x} X \xrightarrow{\alpha} X \xrightarrow{\alpha} X</me>
+      <p>
+        If this sequence goes on producing new points forever without repeating, then this element
+        is essentially the object <m>\mathbb{N}^{\circlearrowright\sigma}</m>.
+        This the pattern is finite, then there must be some element where
+        it repeats.  Instead of simply separating our space into "dots and arrows"
+        like we did in <m>\mathcal{S}</m>,
+        in <m>\mathcal{S}^\circlearrowright</m> we separate into "loops and tails".
+      </p> 
+      <p>
+        Maybe the key here is the sort of "antipodal" relationship 
+        between <m>\mathbb{N}^{\circlearrowright \sigma}</m> and 
+        <m>\Omega</m>. if we think of there existing a map from <m>0 \leftrightarrow \infty</m>
+        that swaps the operations <m>+1</m> and <m>-1</m>.
+        If I consider the "number of steps to stabilize" as a map from
+        <m>X \xrightarrow{\gamma} \mathbb{N}</m>, then a point <m>\mathbf{1} \xrightarrow{x} X</m> 
+        can be either a "tail", in which case <m>\gamma \alpha x = \gamma x - 1</m>,
+        or a "loop", in which case <m>\gamma \alpha x = \gamma x</m>.  Every "tail" (with the 
+        exception of <m>\mathbb{N}^{\circlearrowright \sigma}</m>) must have a 
+        "loop" that acts as a terminal object, and we can establish a sorting 
+        of those loops by length.
+      </p>
+      <p>
+        More specifically though, what I've been called "tails"
+        if the endomap are more like a "tree" structure.  They might
+        have multiple branches unlike the example from Session 15.
+        What matters is that we have a 1-1 correspondence between
+        these trees and the element of a fixed length cycle.  Trees 
+        are nice because we have an easily established notion of 
+        "depth" that maps to a natural number.
+      </p>
+      <p>
+        Perhaps I'm approaching this from the wrong angle.  What
+        if there exists a way to enumerate all the possible endomaps
+        <m>X^{\circlearrowright \alpha}</m>?  
+      </p>
+      <p>
+        We've already established that we can construct a presentation
+        for <m>X^{\circlearrowright \alpha}</m> by sectioning 
+        out a set of elements as "generators" combined with a
+        set of "relations" between those generators.
+      </p>
+      <p>
+        Our object <m>\mathbb{N}^{\circlearrowright \sigma}</m> 
+        was defined by a single generator, <m>0</m>, and no 
+        relations.  What would the presentation of our object 
+        <m>\Omega = \boxed{\circlearrowleft 0 \leftarrow 1
+          \leftarrow 2 \leftarrow 3 \leftarrow ... \infty \circlearrowright}</m>
+         look like?
+      </p>
+      <p>
+        Let's call this endomap(?) <m>\Omega \xrightarrow{\rho} \Omega</m>.
+        There's something close to an isomorphism between
+        <m>\mathbb{N}^{\circlearrowright \sigma}</m> 
+        and <m>\Omega^{\circlearrowright \rho}</m>.
+        For each <m>n</m> in <m>\mathbb{N}</m>,
+        we have <m>\sigma n = n+1</m> and <m>\rho n = n - 1</m>.
+        We can easily say that <m>\rho \circ \sigma = 1_\mathbb{N}</m>
+        but I'm not sure we can assert <m>\sigma \circ \rho = 1_\Omega</m>
+        The problem is that we need to preserve 
+        <m>\rho \infty = \infty</m> but 
+        <m>\sigma \infty</m> is undefined because
+        <m>\infty \notin \mathbb{N}</m>.
+      </p>
+      <p>
+        It's almost as if <m>\Omega^{\circlearrowright \rho}</m>
+        has a presentation with an infinite number of generators.
+        For each object <m>n \in \mathbb{N}</m> we can associate
+        a respective graph that approaches the behavior of 
+        <m>\Omega</m> as <m>n \rightarrow \infty</m>.
+      </p>
+      <me>\rho_1 = \boxed{\circlearrowleft 0}</me>
+      <me>\rho_2 = \boxed{\circlearrowleft 0 \leftarrow 1}</me>
+      <me>\rho_3 = \boxed{\circlearrowleft 0 \leftarrow 1 \leftarrow 2}</me>
+      <p>
+        In this context, it makes sense to think of 
+        <m>\rho_0 = \mathbb{N}^{\circlearrowright \sigma}</m>
+        and 
+        <m>\rho_\infty = \Omega^{\circlearrowright \rho}</m>
+        to "complete" the natural numbers.
+      </p>
+      <p>
+        Let's back this up for a second.  Suppose we have an 
+        arbitrary <m>X^{\circlearrowright \alpha}</m>.  We can
+        define a "section" <m>X \xrightarrow{s} \{0,1\}</m>
+        in <m>\mathcal{S}</m> by assigning <m>1</m> to every 
+        "terminal object" and <m>0</m> otherwise.  In 
+        <m>\mathcal{S}^{\circlearrowright}</m> those terminal 
+        objects are "loops".  If it's not a terminal object,
+        it either has to "go on forever" which would effectively
+        map it to <m>\mathbb{N}^{\sigma}</m> or it has to repeat
+        in a cycle of some fixed length.  Let's call <m>C_n</m>
+        the cycle of length <m>n</m> defined by the behavior 
+        of <m>\alpha_n n = (n+1) % n</m>.  If we want, we can
+        effectively treat the object <m>C_0</m> as 
+        <m>\mathbb{N}^{\circlearrowright \sigma}</m> and 
+        <m>C_\infty</m> as <m>\Omega^{\circlearrowright \rho}</m>.
+      </p>
+      <p>
+        This gives a means of locating our objects in <m>X</m>
+        by means of a cartesian product in <m>\mathbb{N} \times \mathbb{N}</m>
+        of a generator and number of steps of <m>\alpha</m>.
+        Each point in the can be represented by an ordered pair
+        <m>(n,m)</m> where <m>C_n</m> is the terminal object 
+        it converges to a cycle of <m>n</m> and <m>\rho_m</m> is a
+        <m>m</m>-step path in a tree which leads to a unique "root"
+        element in the cycle.
+      </p>
+      <p>
+        In Session 15, I started calling these different subsections 
+        of our graphs "clusters".  The idea was that there only exists
+        structure preserving maps between clusters that converge to 
+        loops of the same size. I'm not sure if I really answered 
+        this question here, but those "clusters" essentially 
+        performed the function of separating graph maps.
+      </p>
+    <p>
+      This exercise got me thinking about where I left off on Session 15,
+      so I decided to spend the rest of the week exploring the "minimal 
+      categories" that were presented there with Python.  You can find 
+      my code this week 
+      <url href="https://github.com/rruff82/LS-Categories/blob/main/assets/notebooks/ls-ses15-small-cats.ipynb">
+        here</url>.
+    </p>
+    <p>
+      I observed some of the interesting things while doing this were.  
+      First, I realized I had to keep close tabs on the domain
+      and codomain of each map.  I was representing maps 
+      as dictionaries, so sometimes two objects would have the same 
+      key and value pairs but were techincally different objects 
+      because they came from different sets.
+    </p>
+    <p>
+      The other thing I noticed was that I seemed to be able 
+      to separate out a subset of maps that could be used to 
+      form the others through composition.  It seemed that I'm
+      able to express all maps in a category from compositions of 
+      some "points", "terminators", and "loops".  Since those
+      "loops" correspond to structure preserving maps from 
+      <m>\mathbb{N}^{\circlearrowright \sigma}</m>, this would 
+      seem to support my theory that this is, in fact, the object 
+      <m>N</m> I was looking for in this exercise.
+    </p>
+    <p>
+      This exercise seems to have left me with more questions
+      than answered.  It seemed odd how my minimal categories 
+      blurred the distinctions between "sets", "points", and 
+      "maps".  I'm reminded of how, in Session 16, the authors 
+      used <m>\mathbb{Q}</m> as an extension of <m>\mathbb{Z}</m>
+      in order to utilize the inverse operation.  It seems like
+      this mirrors what I was trying to accomplish by mapping 
+      between <m>\mathbb{N}^{\circlearrowright \sigma}</m> and
+      <m>\Omega^{\circlearrowright \rho}</m>.  It's almost like
+      I need to step out from <m>\mathbb{N}</m> to <m>\mathbb{Z}</m>,
+      solve the problem there, then come back and verify that the
+      solution is something that still exists in <m>\mathbb{N}</m>.
+    </p>
+        
+      </solution>
+    </example>
+    <p>
+        Despite only making it through the one exercise,
+        I feel like I learned a lot this week by going off
+        on tangents.
+    </p>
+</section>
