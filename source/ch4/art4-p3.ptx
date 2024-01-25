@@ -1,0 +1,525 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="article4-p3">
+    <title>Article 4: Universal Mapping Properties, Part 3</title>
+    <p>
+        We pick up this week with "Initial Objects".  Now,
+        let's get started! (pun intended)
+    </p>
+    <example>
+        <title>Exercise 7:</title>
+        <statement>
+            <p>
+                If <m>S_1, S_2</m> are both initial...
+            </p>
+        </statement>
+        <solution>
+
+                
+    <p>
+        By the definition of <m>S_1, S_2</m> as initial objects,
+        for every object <m>X</m> of <m>\mathcal{C}</m> there is 
+        exactly one <m>\mathcal{C}</m>-map <m>S_1 \rightarrow X</m>
+        and one <m>\mathcal{C}</m>-map <m>S_2 \rightarrow X</m>.
+    </p>
+    <p>
+        Since <m>S_1, S_2</m> are both "initial objects"
+        in <m>\mathcal{C}</m>, they must also be "objects"
+        in <m>\mathcal{C}</m>. By setting <m>X = S_1</m>
+        or <m>X = S_2</m>, it follows that there needs to
+        be exactly one map <m>S_1 \rightarrow S_2</m> and 
+        exactly one map <m>S_2 \rightarrow S_1</m>. 
+    </p>
+    <p>
+        Now consider an arbitrary initial object <m>S</m>
+        in <m>\mathcal{C}</m>.  By the definition of 
+        initial objects, any <m>X</m> in <m>\mathcal{C}</m> must
+        have exactly one <m>\mathcal{C}</m>-map 
+        <m>S \rightarrow X</m>.  Since <m>S</m> is itself an 
+        object in <m>\mathcal{C}</m>, it follows that there is
+        precisely one map <m>S \rightarrow S</m>.  Since there 
+        must by an identity map for any domain in the category,
+        it follows that this unique map <m>S \rightarrow S</m> 
+        must necessarily be the identity map <m>1_S</m>.
+    </p>
+    <p>
+        By the same reasoning, any map <m>S_1 \rightarrow S_1</m>
+        must be the unique map <m>1_{S_1}</m> and any map 
+        <m>S_2 \rightarrow S_2</m> must be the unique map
+        <m>1_{S_2}</m>.  Since the composition 
+        <m>S_1 \rightarrow S_2 \rightarrow S_1</m> is a map
+        <m>S_1 \rightarrow S_1</m>, it follows that 
+        <m>S_1 \rightarrow S_2 \rightarrow S_1 = 1_{S_1}</m>. 
+        Similarly, the composition formed by
+        <m>S_2 \rightarrow S_1 \rightarrow S_2</m> is a map
+        <m>S_2 \rightarrow S_2</m>.  It follows that 
+        <m>S_2 \rightarrow S_1 \rightarrow S_2 = 1_{S_2}</m>.
+    </p>
+    <p>
+        Having established that both 
+        <m>S_1 \rightarrow S_2 \rightarrow S_1 = 1_{S_1}</m>
+        and <m>S_2 \rightarrow S_1 \rightarrow S_2 = 1_{S_2}</m>,
+        the maps <m>S_1 \rightarrow S_2</m> and <m>S_2 \rightarrow S_1</m>
+        are inverses of each other.  Consequently, these 
+        two maps define an isomorphism between <m>S_1</m>  
+        and <m>S_2</m>.  
+    </p>
+
+        </solution>
+    </example>
+
+    <example>
+        <title>Exercise 8:</title>
+        <statement>
+            <p>
+                In each of <m>\mathcal{S}</m>,
+                 <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>,
+                 and <m>\mathcal{S}^{\circlearrowright}</m>...
+            </p>
+        </statement>
+        <solution>
+
+            <p>
+                In each of <m>\mathcal{S}</m>,
+                 <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>,
+                 and <m>\mathcal{S}^{\circlearrowright}</m>...
+            </p>
+            <p>
+                We're given that <m>\mathbf{0}</m> is an initial object
+                and <m>X \xrightarrow{f} \mathbf{0}</m> is a map.  We're 
+                attempting to show that (a) for every 
+                <m>X \xrightarrow{g} \mathbf{0}</m> we have <m>g=f</m>
+                and that (b) <m>X</m> itself is initial.
+            </p>
+            <p>
+                By defining <m>\mathbf{0}</m> as an intial object,
+                we know that for any object <m>X</m> in the category
+                there is exactly one map <m>\mathbf{0} \xrightarrow{\phi_X} X</m>. 
+                Since <m>\mathbf{0}</m> is itself an object of the 
+                category, there is exactly one map
+                <m>\mathbf{0} \xrightarrow{\phi_\mathbf{0}} \mathbf{0}</m>. 
+                Furthermore, every domain needs an identity map, so the only possible 
+                map <m>\phi_\mathbf{0}: \mathbf{0} \rightarrow \mathbf{0}</m>
+                we could possibly have is the identity map 
+                <m>\phi_\mathbf{0} = 1_\mathbf{0}</m>.
+            </p>
+            <p>
+                Consider the compositions <m>f \circ \phi_X</m> 
+                and <m>g \circ \phi_X</m>.  In the first case,
+                we have <m>\mathbf{0} \xrightarrow{\phi_X} X \xrightarrow{f} \mathbf{0}</m>
+                defining a map <m>\mathbf{0} \rightarrow \mathbf{0}</m>.
+                Since there is precisely one such map,
+                it must be the unique identity map <m>1_\mathbf{0}</m>. 
+                Likewise, <m>\mathbf{0} \xrightarrow{\phi_X} X \xrightarrow{g} \mathbf{0}</m>
+                must also be the same map <m>1_\mathbf{0}</m>.  It follows
+                that <m>f \circ \phi_X = g \circ \phi_X = 1_\mathbf{0}</m>.   
+            </p>
+            <p>
+                If we assume <m>f \neq g</m>, then there needs to exist
+                some "point" <m>\mathbf{1} \xrightarrow{x} X</m> with
+                <m>f x \neq g x</m>.  However,
+                the property of <m>\mathbf{0}</m> being an initial object
+                in the category says that we must have exactly one map 
+                <m>\mathbf{0} \rightarrow \mathbf{1}</m>.  It follows from 
+                uniqueness of <m>\mathbf{0} \rightarrow \mathbf{1}</m> that 
+                we have a unique composition 
+                <m>\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X</m>. 
+        
+            </p>
+            <p>
+                In the category <m>\mathcal{S}</m>, the "points" of <m>X</m>
+                are maps which correspond to each element of <m>X</m> and 
+                "point to" themselves. That means that each of the compositions 
+                <m>\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{f} \mathbf{0}</m>
+                and <m>\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{g} \mathbf{0}</m>
+                are effectively a map from
+                <m>\mathbf{0} \rightarrow \mathbf{0}</m>.  Since there can only
+                be exactly one such map <m>\mathbf{0} \rightarrow \mathbf{0}</m>
+                (the identity map <m>\mathbf{1}_\mathbf{0}</m> on that single element
+                ), these compositions must be the same map.
+                By precomposing with our maps <m>f, g</m> we see that
+                <m>X \xrightarrow{f} \mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X</m>
+                and <m>X \xrightarrow{g} \mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X</m>
+                are both effectively the identity map <m>1_X</m>. This contradicts our
+                choice of <m>f \neq g</m>.  The uniqueness of a map
+                <m>\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{f} \mathbf{0}</m>
+                ensures the uniqueness of the composition
+                <m>\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{1_X} X \xrightarrow{f} \mathbf{0}</m>,
+                making <m>X</m> an initial object with the sole map <m>X \rightarrow X</m>
+                being the identity <m>1_X</m>.
+            </p>
+            <p>
+                In the category <m>\mathcal{S}^{\circlearrowright}</m>, our 
+                "points" are the elements <m>X^{\circlearrowright \alpha}</m>
+                fixed under the operation <m>\alpha</m>.  Here a point
+                is a map <m>\mathbf{1} \xrightarrow{x} X^{\circlearrowright \alpha}</m>
+                such that <m>\alpha x = x</m>.  In this situation,
+                we also know <m>f_D \alpha = \alpha' f_A</m> so the following
+                compositions should all result in "the same map":
+            </p>
+            <me>\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{f} \mathbf{0}</me>
+            <me>\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{\alpha} X_D \xrightarrow{f_D} \mathbf{0}</me>
+            <me>\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{f_A} X_A \xrightarrow{\alpha'} \mathbf{0}</me>
+            <p>
+                In the category <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>,
+                we need to preserve source and target relations. Namely, for any
+                point <m>\mathbf{1} \xrightarrow{x} X</m> 
+                we need <m>f_D s x = s' f_A x</m> amd <m>f_D t x = t' f_A x</m>.  However,
+                there's precisely one map from <m>0 \rightarrow 1</m>, so <m>s'</m>
+                and <m>t'</m> both need to evaluate to the same object.  We essentially
+                have an equivalence between the following compositions:
+            </p>
+            <me>\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{f} \mathbf{0}</me>
+            <me>\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{s} X_D \xrightarrow{f_D} \mathbf{0}</me>
+            <me>\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{t} X_D \xrightarrow{f_D} \mathbf{0}</me>
+            <me>\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{f_A} X_D \xrightarrow{s'} \mathbf{0}</me>
+            <me>\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{f_A} X_D \xrightarrow{t'} \mathbf{0}</me>
+            <p>
+                I'm a little uncertain about the rigor of these solutions.  Hopefully
+                the follow-up questions will give me more to go on.
+            </p>
+        </solution>
+    </example>
+    <example>
+        <title>Exercise 9:</title>
+        <statement>
+            <p>
+                Define the category <m>\mathbf{1}/\mathcal{S}</m> of <em>pointed sets</em>...
+            </p>
+        </statement>
+        <solution>
+  
+            <p>
+                In this category, an object is a map 
+                <m>\mathbf{1} \xrightarrow{x_0} X</m> in <m>\mathcal{S}</m> 
+                and a map from <m>\mathbf{1} \xrightarrow{x_0} X</m> to
+                <m>\mathbf{1} \xrightarrow{y_0} Y</m> is a map 
+                <m>X \xrightarrow{f} Y</m> in <m>\mathcal{S}</m>
+                for which <m>f x_0 = y_0</m>.  We're given the following
+                external diagram:
+            </p>
+            <figure xml:id="fig-article4-ex9-1">
+                <caption>Given Diagram for Article 4 Exercise 9</caption>
+                <image width="50%" xml:id="img-article4-ex9-1">
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \node (A) at (0,0) {$X$};
+                            \node (B) at (1,1.68) {$\mathbf{1}$};
+                            \node (C) at (2,0) {$Y$};
+        
+                            \path[-{stealth}] 
+                                (A) edge node[below]{$f$} (C)
+                                (B) edge node[left]{$x_0$} (A)
+                                (B) edge node[right]{$y_0$} (C);
+        
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                We're asked to show that "any terminal object is also initial"
+                and that "part (b) of the previous exercise is false".
+            </p>
+            <p>
+                Let's start by assuming we have some "terminal object" in this 
+                category.  We'll call this object <m>\mathbf{1}</m>.  
+                As a terminal object of <m>\mathcal{C}</m>, there is exactly
+                one <m>\mathcal{C}</m>-map <m>X \rightarrow \mathbf{1}</m> for
+                any object <m>X</m> of <m>\mathcal{C}</m>.
+            </p>
+            <p>
+                Our choice of <m>\mathcal{C}</m> defined an object as
+                a map <m>\mathbf{1} \xrightarrow{x_0} X</m>. Our definition
+                of a terminal object implies that there is a unique map
+                I'll call <m>\bar{x_0}</m> with the property that satisfies 
+                <m>\mathbf{1} \xrightarrow{x_0} X \xrightarrow{\bar{x_0}} \mathbf{1} = \mathbf{1}_\mathbf{1}</m>.
+            </p>
+            <p>
+                Now, what happens if we were to also have an initial object
+                <m>\mathbf{0}</m> in <m>\mathcal{C}</m>? That would imply for that
+                every object <m>X</m> of <m>\mathcal{C}</m> we have exactly one 
+                <m>\mathcal{C}</m>-map <m>\mathbf{0} \rightarrow X</m>. Since 
+                our objects of <m>\mathcal{C}</m> are limited to maps 
+                <m>\mathbf{1} \rightarrow X</m>, our object <m>\mathbf{0}</m>
+                would also need to exist as some map 
+                <m>\mathbf{1} \xrightarrow{x_0} X</m>.  Given how we've 
+                defined our terminal object, there should be exactly one map
+                <m>X \xrightarrow{\bar{x_0}} \mathbf{1}</m>.  If we compose
+                this unique map <m>\bar{x_0}</m> with the unique map 
+                <m>\mathbf{0} \rightarrow \mathbf{1}</m>, we get a unique map
+                <m>0 \rightarrow X \xrightarrow{\bar{x_0}} \mathbf{1}</m>.
+                It follows that any initial object is necessarily a terminal object.
+            </p>
+            <p>
+                That's close to what we've been asked to prove, but not quite.
+                We were asked to prove every terminal object is initial, and 
+                instead proved the converse.
+                I think we might actually need to compose with <m>x_0</m> once 
+                more to show <m>0 \rightarrow X \xrightarrow{\bar{x_0}} \mathbf{1} 
+                \xrightarrow{x_0} X</m> is the same as our unique map 
+                <m>\mathbf{0} \rightarrow X</m>.  Having both a unique map
+                <m>\mathbf{0} \rightarrow X</m> and a unique map 
+                <m>X \rightarrow \mathbf{1}</m> should be sufficient to show
+                the uniqueness of the map 
+                <m>\mathbf{0} \rightarrow X \rightarrow \mathbf{1}</m>.
+            </p>
+            <p>
+                So why does part (b) fail in this case?  If <m>X</m> were
+                itself an initial object, then there would be exactly one map
+                <m>X \rightarrow X</m>.  Since we need to have an identity
+                map <m>1_X</m> from <m>X \rightarrow X</m>, the unique map 
+                <m>0 \rightarrow X</m> would need to the same as the composition 
+                <m>0 \rightarrow X \xrightarrow{1_X} X</m>.  This is a problem 
+                because two maps can only be the same map if the domains and 
+                codomains match.  The existence of a unique map
+                <m>\mathbf{1} \xrightarrow{y_0} Y</m>, separate from our 
+                map <m>\mathbf{1} \xrightarrow{x_0} X</m>, means that the 
+                composition formed by <m>0 \rightarrow X \xrightarrow{f} Y</m>
+                would be a different map from <m>0 \rightarrow X</m>. The 
+                lack of uniqueness would disqualify <m>X</m> as an initial object.
+            </p>
+        </solution>
+    </example>
+    <example>
+        <title>Exercise 10:</title>
+        <statement>
+            <p>
+                Let <m>\mathbf{2}</m> be a fixed 2-point set...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                This time we define a category <m>\mathbf{2}/\mathcal{S}</m>
+                of <em>bipointed objects</em>, with the objects being 
+                <m>\mathcal{S}</m>-maps <m>\mathbf{2} \xrightarrow{\bar{x}} X</m> 
+                and maps being the <m>\mathcal{S}</m>-maps satistfying
+                <m>f \bar{x} = \bar{y}</m>.  We're also given the following 
+                diagram:
+            </p>
+            <figure xml:id="fig-article4-ex10-1">
+                <caption>Given Diagram for Article 4 Exercise 9</caption>
+                <image width="50%" xml:id="img-article4-ex10-1">
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \node (A) at (0,0) {$X$};
+                            \node (B) at (1,1.68) {$\mathbf{2}$};
+                            \node (C) at (2,0) {$Y$};
+        
+                            \path[-{stealth}] 
+                                (A) edge node[below]{$f$} (C)
+                                (B) edge node[left]{$\bar{x}$} (A)
+                                (B) edge node[right]{$\bar{y}$} (C);
+        
+        
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                First, we want to show that the initial object <m>\mathbf{0}</m> 
+                in <m>\mathbf{2}/\mathcal{S}</m> is actually the identity map 
+                <m>1_\mathbf{2}</m>.  In other words, we need to
+                prove that for any object <m>X</m> in 
+                <m>\mathbf{2}/\mathcal{S}</m> there is exactly one
+                map from <m>1_\mathbf{2} \rightarrow X</m>.
+            </p>
+            <p>
+                If every object in <m>\mathbf{2}/\mathcal{S}</m> is some
+                map <m>\mathbf{2} \xrightarrow{\bar{x}} X</m>,
+                then consider the composition 
+                <m>\mathbf{2} \xrightarrow{f \bar{x}} Y</m>.
+                Our category has defined our maps <m>f</m> 
+                as those maps in <m>\mathcal{S}</m> satisfying the relation
+                <m>f \bar{x} = \bar{y}</m>.  By assigning 
+                <m>f = 1_X</m> and <m>Y = X</m>, it follows that 
+                <m>1_X \bar{x} = \bar{x}</m> which is only true if it 
+                holds for every element in the domain <m>\mathbf{2}</m>.
+                If that we call the objects of <m>\mathbf{2} = \{0,1\}</m> then
+                both <m>1_X \bar{x} 0 = \bar{x} 0</m> and 
+                <m>1_X \bar{x} 1 = \bar{x} 1</m> need to hold true
+                for every <m>X</m> in <m>\mathcal{C}</m>.  
+                If <m>\mathbf{2}</m> is an object in <m>\mathcal{C}</m>,
+                that structure preservation must also apply to the map
+                <m>f = 1_\mathbf{2}</m>. The relations <m>1_\mathbf{2} 0 = 0</m>
+                and <m>1_\mathbf{2} 1 = 1</m> ensure this is a valid
+                map in <m>\mathbf{2}/\mathcal{S}</m>. 
+            </p>
+            <p>
+                Maybe what I need to be doing here is establishing an
+                isomorphism between the elements <m>0</m> and <m>1</m> 
+                with the "null map" and "identity map on objects of 
+                <m>\mathcal{C}</m>".  We know there is precisely one 
+                <m>\mathcal{C}</m>-map <m>\{\} \xrightarrow{\emptyset} \{\}</m>
+                and precisely one from <m>X \xrightarrow{1_X} X</m>. 
+                If we have a two element-set <m>\mathbf{2} = \{0,1\}</m>, 
+                then assigning <m>0 = \{\} \xrightarrow{\emptyset} \{\}</m>
+                and <m>1 = X \xrightarrow{1_X} X</m> creates an unique isomorphism
+                <m>\mathbf{2} \xrightarrow{s} \{\emptyset,1_X\} \xrightarrow{r} \mathbf{2}</m>
+                such that <m>r \circ s = 1_\mathbf{2}</m> and 
+                <m>s \circ r = 1_{\{\emptyset,1_X\}}</m>.  
+            </p>
+            <p>
+                In the category <m>\mathcal{S}</m>, a map
+                <m>X \xrightarrow{f} Y</m> exists between 
+                any sets <m>X</m> and <m>Y</m> except in the
+                case where <m>Y = \emptyset</m> and 
+                <m>X \neq \emptyset</m>. If we choose <m>X = \mathbf{2}</m>
+                and <m>Y = \emptyset</m>, then we know from the non-existence
+                of a map <m>X \xrightarrow{f} Y</m> in <m>\mathcal{S}</m> that 
+                we couln't possibly have one in <m>2/\mathcal{S}</m>.
+                In other words, we have a unique map 
+                <m>\emptyset \rightarrow \emptyset</m>, a unique map
+                <m>\emptyset \rightarrow \mathbf{1}</m>, a unique map
+                <m>\mathbf{1} \rightarrow \mathbf{1}</m>, and exactly
+                <em>zero</em> maps <m>\mathbf{1} \rightarrow \emptyset</m>.
+            </p>
+            <p>
+                If <m>Y</m> is a subset of <m>X</m>, a map is guaranteed
+                to exist.  If we know no map exists, there needs to exist at 
+                least one element in <m>y_0 = f x_0 \in Y</m> that is not in <m>X</m>.  
+                The set of those two elements <m>y_0</m> and <m>x_0</m> need to be isomorphic
+                to the set <m>\mathbf{2}</m>.
+            </p>
+            <p>
+                I think this is relevant because it provides us a way to 
+                define an "antipodal" map in <m>\mathcal{C}</m>. There is a
+                unique map <m>\mathbf{2} \xrightarrow{\alpha} \mathbf{2}</m>
+                defined by <m>\alpha 0 = 1</m> and <m>\alpha 1 = 0</m>. Composing 
+                <m>\alpha \circ s</m> swaps the roles of <m>\emptyset</m> and 
+                <m>1_X</m>. This mirrors the relationship between <m>\forall</m> and 
+                <m>\exists</m> statements under logical negation.  
+            </p>
+            <p>
+                Perhaps this provides an answer the second half of the exercise.
+                Knowing that <m>\mathbf{0} = 1_\mathbf{2}</m>, the existence of
+                the antipodal map <m>\mathbf{2} \xrightarrow{\alpha} \mathbf{2}</m>
+                provides a second map to the initial object by way of the 
+                composition <m>\alpha \circ \alpha = 1_\mathbf{2}</m>.  
+            </p>
+            <p>
+                I keep thinking back to the minimal categories I was playing with 
+                in Python last week.  In the course of my experimentation, one of 
+                the things I tried was defining my objects of my <c>BinaryCategory</c>
+                to be <c>[[0],[1,2]]</c> instead of <c>[[0],[0,1]]</c>. Doing so changes 
+                the representation of my "point" maps from <blockquote><c>{'domain': [0], 'codomain': [0], 'map': {0: 0}},
+                    {'domain': [0], 'codomain': [0, 1], 'map': {0: 0}},
+                    {'domain': [0], 'codomain': [0, 1], 'map': {0: 1}}]</c></blockquote> 
+                to <blockquote><c>{'domain': [0], 'codomain': [0], 'map': {0: 0}},
+                    {'domain': [0], 'codomain': [1, 2], 'map': {0: 1}},
+                    {'domain': [0], 'codomain': [1, 2], 'map': {0: 2}}]</c></blockquote> making it 
+                lot clearer what my 3 points "point" to.  If I add a "null map"
+                to my category, a map <m>\emptyset \xrightarrow{0} \emptyset</m> 
+                with <c>{'domain': [], 'codomain': [], 'map': {}}</c>, and a 
+                unique map <m>\emptyset \rightarrow \mathbf{1}</m>, then I can think
+                of my 3 points as being isomorphic to the maps 
+                <blockquote><c>[{'domain': [], 'codomain': [0], 'map': {}},
+                    {'domain': [], 'codomain': [1], 'map': {}},
+                    {'domain': [], 'codomain': [2], 'map': {}}]</c></blockquote> by 
+                precomposing my "points" <m>\mathbf{1} \rightarrow X</m> with that 
+                unique map <m>\emptyset \rightarrow \mathbf{1}</m>.
+            </p>
+            <p>
+                I'm not sure where I'm going with this anymore, so lets keep moving forward.
+            </p>
+        </solution>
+    </example>
+    <example>
+        <title>Exercise 11:</title>
+        <statement>
+            <p>
+                Show that in the category <m>\mathcal{S}</m>...
+            </p>
+        </statement>
+        <solution>
+
+            <p>
+                Let start by assuming we have some object <m>X</m>
+                which is <em>NOT</em> an initial object in <m>\mathcal{S}</m>.
+                That means there is either no map <m>X \rightarrow X</m> or 
+                more than one map <m>X \rightarrow X</m>. We know that we're 
+                assured to at least have an identity map <m>1_X</m>, so we can
+                rule out the first case and focus on the second. Let's call 
+                these maps <m>X \xrightarrow{e_i} X</m>, and we know we must 
+                at least two such maps <m>e_0 \neq e_1</m>. 
+            </p>
+            <p>
+                A terminal object <m>S</m> in <m>\mathcal{S}</m> would 
+                have the property that for any <m>X</m> in <m>\mathcal{S}</m>
+                there is exactly one map <m>X \rightarrow S</m>.  Clearly
+                <m>X \xrightarrow{1_X} X \rightarrow S = X \rightarrow S</m>,
+                so we can assume <m>e_0 = 1_X</m> is a terminal object. 
+                If we also have a second map <m>e_1</m> such that 
+                <m>X \xrightarrow{e_1} X \rightarrow S = X \rightarrow S</m>,
+                then we can apply <m>e_1</m> on the left again: 
+            </p>
+            <me>X \xrightarrow{e_1} X \xrightarrow{e_1} X \rightarrow S = X \xrightarrow{e_1} X \rightarrow S</me>
+            <p>
+                I think I'm starting to see where we're going with this. 
+                By asserting that <m>e_0</m> and <m>e_1</m> are different maps,
+                and knowing that <m>e_0</m> is the identity map, we know these
+                maps must satisfy <m>e_0 e_0 = e_0</m>, <m>e_1 e_0 = e_1</m>,
+                <m>e_0 e_1 = e_1</m>. But there's one more combination,
+                and the composition above suggests that <m>e_1 e_1 = e_1</m>.
+                Since we proved ealier that all terminal objects are isomorphic,
+                having two distinct maps like this allows us to create 
+                an isomorphism between the terminal object <m>S</m> and each 
+                of the maps <m>e_0, e_1</m> respectively. 
+            </p>
+            <p>
+                Having shown "<m>X</m> is not initial" implies the existence of
+                two distinct endomaps <m>e_0,e_1: X \rightarrow X</m> with
+                with isomorphisms between them and the terminal object <m>S</m>.
+                Having these isomorphisms 
+                <m>e_0 \mathrel{\substack{s_0 \\ \longrightarrow \\ \longleftarrow \\ r_0}} S</m>
+                and <m>e_1 \mathrel{\substack{s_1 \\ \longrightarrow \\ \longleftarrow \\ r_1}} S</m>
+                allows us compositions <m>e_0 \xrightarrow{r_1 s_0} e_1</m> and 
+                <m>e_1 \xrightarrow{r_0 s_1} e_0</m>  
+                I think we can make the claim that there exists at least
+                "one point" in <m>X</m> defined by this unique map 
+                <m>e_1 \rightarrow e_0</m> -- which I think is techinically just
+                the map <m>e_1</m> itself.  
+            </p>
+            <p>
+                We can say <m>e_1</m> is terminal because <m>e_1 e_1 = e_1</m>. We can 
+                say <m>e_0</m> in <m>X</m> by the identity property of <m>\mathcal{C}</m>. 
+            </p>
+            <p>
+                So why would this fail in the categories <m>\mathcal{S}^{\circlearrowright}</m> 
+                or <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>?  It probably 
+                has something to do with the structure preservation in those categories.
+            </p>
+            <p>
+                Consider the endomap on the one point set <m>\mathbf{1}^{\circlearrowright}</m>.  
+                This set technically has two distinct "objects": the point 
+                <m>\mathbf{1}</m> and the map <m>\mathbf{1} \rightarrow \mathbf{1}</m>. 
+                A "point" in <m>X^{\alpha}</m> needs to satisfy <m>\alpha x = x</m>,
+                which is not true of our map <m>e_1</m> for all objects by virtue of it
+                being necessarily distinct from the identity map. 
+            </p>
+            <p>
+                For maps in <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>,
+                they need to preserve source and target relations.  Namely,
+                preserve <m>f_D s = s' f_A</m> and <m>f_D t = t' f_A</m>. Our 
+                terminal objects here are "loops".  Maybe can embed our object
+                <m>e_1</m> by defining <m>s = 1_X</m> and <m>t = e_1</m>.  Since 
+                we've defined <m>e_1</m> such that <m>e_1 e_1 = e_1</m>, this would 
+                essentially give us <m>e_1 s = e_1 1_X = e_1</m> and 
+                <m>e_1 t = e_1 e_1 = e_1</m>.
+            </p>
+            <p>
+                I'm picturing the case in <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>
+                as needing to preserve the source and target of the endomap on one point. 
+                In order to preserve source and target of <m>\mathbf{1}^{\circlearrowright}</m>,
+                both the source and target must be the unique point <m>\mathbf{1}</m>. However,
+                this space technically has two unique objects.  As we "loop" through the point, we 
+                alternate between "dot" and "arrow".  Since there's no retraction in 
+                <m>\mathcal{S}</m> from the two point set <m>\{\text{dot},\text{arrow}\}</m> 
+                to the one point set <m>\{\text{loop}\}</m>, there couldn't possibly be an isomorphism with 
+                the unique terminal object <m>S</m>. 
+            </p>
+        </solution>
+    </example>
+
+
+ 
+</section>
