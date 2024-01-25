@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Article 4: Universal Mapping Properties, Part 3</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="L&amp;S Cat Theory">
+<meta property="book:author" content="Ryan Ruff">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">L&amp;S Cat Theory:</span> <span class="subtitle">Attempted solutions to "Conceptual Mathematics" by Lawvere and Schanuel</span></a></h1>
+<p class="byline">Ryan Ruff</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="article4-p2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="part4.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="about.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is this?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session1.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Session 1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part1.html" class="internal"><span class="codenumber">2</span> <span class="title">Part 1: The Category of Sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Article 1: Sets, maps, composition</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-session2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Session 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-session3.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Session 3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part2.html" class="internal"><span class="codenumber">3</span> <span class="title">Part 2: The Algebra of Composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Article 2: Isomorphisms, Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2-p2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Article 2: Isomorphisms, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2-p3.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Article 2: Isomorphisms, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session4.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Session 4: Division of maps: Isomorphisms</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session5.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Session 5: Division of maps: Sections and retractions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session6.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Session 6: Two general aspects or uses of maps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session7.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Session 7: Isomorphisms and coordinates</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session8.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Session 8: Pictures of a map</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session9.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Session 9: Retracts and idempotents</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quiz1.html" class="internal"><span class="codenumber">3.10</span> <span class="title">Quiz</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quiz2.html" class="internal"><span class="codenumber">3.11</span> <span class="title">Summary/Quiz on Opposed Maps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session10.html" class="internal"><span class="codenumber">3.12</span> <span class="title">Session 10: Brouwer’s theorems</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part3.html" class="internal"><span class="codenumber">4</span> <span class="title">Part 3: Categories of Structured Sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Article 3: Examples of Categories, Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Article 3: Examples of Categories, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p3.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Article 3: Examples of Categories, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p4.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Article 3: Examples of Categories, Part 4</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p5.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Article 3: Examples of Categories, Part 5</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session11.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Session 11: Ascending to categories of richer structures</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session12.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Session 12: Categories of Diagrams</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session13.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Session 13: Monoids</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session14.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Session 14: Maps preserve positive properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Session 15: Objectification of Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p2.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Session 15: Objectification of Properties, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p3.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Session 15: Objectification of Properties, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p4.html" class="internal"><span class="codenumber">4.13</span> <span class="title">Session 15: Objectification of Properties, Part 4</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p5.html" class="internal"><span class="codenumber">4.14</span> <span class="title">Session 15: Objectification of Properties, Part 5</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p6.html" class="internal"><span class="codenumber">4.15</span> <span class="title">Session 15: Objectification of Properties, Part 6</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p7.html" class="internal"><span class="codenumber">4.16</span> <span class="title">Session 15: Objectification of Properties, Part 7</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session16.html" class="internal"><span class="codenumber">4.17</span> <span class="title">Session 16: Idempotents, involutions, and graphs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session17.html" class="internal"><span class="codenumber">4.18</span> <span class="title">Session 17: Some uses of graphs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session18.html" class="internal"><span class="codenumber">4.19</span> <span class="title">Session 18: Review of Test 2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="part4.html" class="internal"><span class="codenumber">5</span> <span class="title">Part 4: Elementary Universal Mapping Properties</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article4.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Article 4: Universal Mapping Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article4-p2.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Article 4: Universal Mapping Properties, Part 2</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="article4-p3.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Article 4: Universal Mapping Properties, Part 3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="article4-p3"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">5.3</span><span class="space"> </span><span class="title">Article 4: Universal Mapping Properties, Part 3</span>
+</h2>
+<div class="para" id="article4-p3-2">We pick up this week with "Initial Objects".  Now, let’s get started! (pun intended)</div>
+<details id="article4-p3-3" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 7:.</span>
+</h3></summary><article class="example example-like"><div class="para" id="article4-p3-3-2-1">If <span class="process-math">\(S_1, S_2\)</span> are both initial...</div>
+<div class="solutions"><details id="article4-p3-3-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="article4-p3-3-3-1">By the definition of <span class="process-math">\(S_1, S_2\)</span> as initial objects, for every object <span class="process-math">\(X\)</span> of <span class="process-math">\(\mathcal{C}\)</span> there is exactly one <span class="process-math">\(\mathcal{C}\)</span>-map <span class="process-math">\(S_1 \rightarrow X\)</span> and one <span class="process-math">\(\mathcal{C}\)</span>-map <span class="process-math">\(S_2 \rightarrow X\text{.}\)</span>
+</div> <div class="para" id="article4-p3-3-3-2">Since <span class="process-math">\(S_1, S_2\)</span> are both "initial objects" in <span class="process-math">\(\mathcal{C}\text{,}\)</span> they must also be "objects" in <span class="process-math">\(\mathcal{C}\text{.}\)</span> By setting <span class="process-math">\(X = S_1\)</span> or <span class="process-math">\(X = S_2\text{,}\)</span> it follows that there needs to be exactly one map <span class="process-math">\(S_1 \rightarrow S_2\)</span> and exactly one map <span class="process-math">\(S_2 \rightarrow S_1\text{.}\)</span>
+</div> <div class="para" id="article4-p3-3-3-3">Now consider an arbitrary initial object <span class="process-math">\(S\)</span> in <span class="process-math">\(\mathcal{C}\text{.}\)</span>  By the definition of initial objects, any <span class="process-math">\(X\)</span> in <span class="process-math">\(\mathcal{C}\)</span> must have exactly one <span class="process-math">\(\mathcal{C}\)</span>-map <span class="process-math">\(S \rightarrow X\text{.}\)</span>  Since <span class="process-math">\(S\)</span> is itself an object in <span class="process-math">\(\mathcal{C}\text{,}\)</span> it follows that there is precisely one map <span class="process-math">\(S \rightarrow S\text{.}\)</span>  Since there must by an identity map for any domain in the category, it follows that this unique map <span class="process-math">\(S \rightarrow S\)</span> must necessarily be the identity map <span class="process-math">\(1_S\text{.}\)</span>
+</div> <div class="para" id="article4-p3-3-3-4">By the same reasoning, any map <span class="process-math">\(S_1 \rightarrow S_1\)</span> must be the unique map <span class="process-math">\(1_{S_1}\)</span> and any map <span class="process-math">\(S_2 \rightarrow S_2\)</span> must be the unique map <span class="process-math">\(1_{S_2}\text{.}\)</span>  Since the composition <span class="process-math">\(S_1 \rightarrow S_2 \rightarrow S_1\)</span> is a map <span class="process-math">\(S_1 \rightarrow S_1\text{,}\)</span> it follows that <span class="process-math">\(S_1 \rightarrow S_2 \rightarrow S_1 = 1_{S_1}\text{.}\)</span> Similarly, the composition formed by <span class="process-math">\(S_2 \rightarrow S_1 \rightarrow S_2\)</span> is a map <span class="process-math">\(S_2 \rightarrow S_2\text{.}\)</span>  It follows that <span class="process-math">\(S_2 \rightarrow S_1 \rightarrow S_2 = 1_{S_2}\text{.}\)</span>
+</div> <div class="para" id="article4-p3-3-3-5">Having established that both <span class="process-math">\(S_1 \rightarrow S_2 \rightarrow S_1 = 1_{S_1}\)</span> and <span class="process-math">\(S_2 \rightarrow S_1 \rightarrow S_2 = 1_{S_2}\text{,}\)</span> the maps <span class="process-math">\(S_1 \rightarrow S_2\)</span> and <span class="process-math">\(S_2 \rightarrow S_1\)</span> are inverses of each other.  Consequently, these two maps define an isomorphism between <span class="process-math">\(S_1\)</span> and <span class="process-math">\(S_2\text{.}\)</span>
+</div>
+</div></details></div></article></details><details id="article4-p3-4" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 8:.</span>
+</h3></summary><article class="example example-like"><div class="para" id="article4-p3-4-2-1">In each of <span class="process-math">\(\mathcal{S}\text{,}\)</span> <span class="process-math">\(\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}\text{,}\)</span> and <span class="process-math">\(\mathcal{S}^{\circlearrowright}\text{...}\)</span>
+</div>
+<div class="solutions"><details id="article4-p3-4-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="article4-p3-4-3-1">In each of <span class="process-math">\(\mathcal{S}\text{,}\)</span> <span class="process-math">\(\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}\text{,}\)</span> and <span class="process-math">\(\mathcal{S}^{\circlearrowright}\text{...}\)</span>
+</div> <div class="para" id="article4-p3-4-3-2">We’re given that <span class="process-math">\(\mathbf{0}\)</span> is an initial object and <span class="process-math">\(X \xrightarrow{f} \mathbf{0}\)</span> is a map.  We’re attempting to show that (a) for every <span class="process-math">\(X \xrightarrow{g} \mathbf{0}\)</span> we have <span class="process-math">\(g=f\)</span> and that (b) <span class="process-math">\(X\)</span> itself is initial.</div> <div class="para" id="article4-p3-4-3-3">By defining <span class="process-math">\(\mathbf{0}\)</span> as an intial object, we know that for any object <span class="process-math">\(X\)</span> in the category there is exactly one map <span class="process-math">\(\mathbf{0} \xrightarrow{\phi_X} X\text{.}\)</span> Since <span class="process-math">\(\mathbf{0}\)</span> is itself an object of the category, there is exactly one map <span class="process-math">\(\mathbf{0} \xrightarrow{\phi_\mathbf{0}} \mathbf{0}\text{.}\)</span> Furthermore, every domain needs an identity map, so the only possible map <span class="process-math">\(\phi_\mathbf{0}: \mathbf{0} \rightarrow \mathbf{0}\)</span> we could possibly have is the identity map <span class="process-math">\(\phi_\mathbf{0} = 1_\mathbf{0}\text{.}\)</span>
+</div> <div class="para" id="article4-p3-4-3-4">Consider the compositions <span class="process-math">\(f \circ \phi_X\)</span> and <span class="process-math">\(g \circ \phi_X\text{.}\)</span>  In the first case, we have <span class="process-math">\(\mathbf{0} \xrightarrow{\phi_X} X \xrightarrow{f} \mathbf{0}\)</span> defining a map <span class="process-math">\(\mathbf{0} \rightarrow \mathbf{0}\text{.}\)</span> Since there is precisely one such map, it must be the unique identity map <span class="process-math">\(1_\mathbf{0}\text{.}\)</span> Likewise, <span class="process-math">\(\mathbf{0} \xrightarrow{\phi_X} X \xrightarrow{g} \mathbf{0}\)</span> must also be the same map <span class="process-math">\(1_\mathbf{0}\text{.}\)</span>  It follows that <span class="process-math">\(f \circ \phi_X = g \circ \phi_X = 1_\mathbf{0}\text{.}\)</span>
+</div> <div class="para" id="article4-p3-4-3-5">If we assume <span class="process-math">\(f \neq g\text{,}\)</span> then there needs to exist some "point" <span class="process-math">\(\mathbf{1} \xrightarrow{x} X\)</span> with <span class="process-math">\(f x \neq g x\text{.}\)</span>  However, the property of <span class="process-math">\(\mathbf{0}\)</span> being an initial object in the category says that we must have exactly one map <span class="process-math">\(\mathbf{0} \rightarrow \mathbf{1}\text{.}\)</span>  It follows from uniqueness of <span class="process-math">\(\mathbf{0} \rightarrow \mathbf{1}\)</span> that we have a unique composition <span class="process-math">\(\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X\text{.}\)</span>
+</div> <div class="para" id="article4-p3-4-3-6">In the category <span class="process-math">\(\mathcal{S}\text{,}\)</span> the "points" of <span class="process-math">\(X\)</span> are maps which correspond to each element of <span class="process-math">\(X\)</span> and "point to" themselves. That means that each of the compositions <span class="process-math">\(\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{f} \mathbf{0}\)</span> and <span class="process-math">\(\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{g} \mathbf{0}\)</span> are effectively a map from <span class="process-math">\(\mathbf{0} \rightarrow \mathbf{0}\text{.}\)</span>  Since there can only be exactly one such map <span class="process-math">\(\mathbf{0} \rightarrow \mathbf{0}\)</span> (the identity map <span class="process-math">\(\mathbf{1}_\mathbf{0}\)</span> on that single element ), these compositions must be the same map. By precomposing with our maps <span class="process-math">\(f, g\)</span> we see that <span class="process-math">\(X \xrightarrow{f} \mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X\)</span> and <span class="process-math">\(X \xrightarrow{g} \mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X\)</span> are both effectively the identity map <span class="process-math">\(1_X\text{.}\)</span> This contradicts our choice of <span class="process-math">\(f \neq g\text{.}\)</span>  The uniqueness of a map <span class="process-math">\(\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{f} \mathbf{0}\)</span> ensures the uniqueness of the composition <span class="process-math">\(\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{1_X} X \xrightarrow{f} \mathbf{0}\text{,}\)</span> making <span class="process-math">\(X\)</span> an initial object with the sole map <span class="process-math">\(X \rightarrow X\)</span> being the identity <span class="process-math">\(1_X\text{.}\)</span>
+</div> <div class="para" id="article4-p3-4-3-7">In the category <span class="process-math">\(\mathcal{S}^{\circlearrowright}\text{,}\)</span> our "points" are the elements <span class="process-math">\(X^{\circlearrowright \alpha}\)</span> fixed under the operation <span class="process-math">\(\alpha\text{.}\)</span>  Here a point is a map <span class="process-math">\(\mathbf{1} \xrightarrow{x} X^{\circlearrowright \alpha}\)</span> such that <span class="process-math">\(\alpha x = x\text{.}\)</span>  In this situation, we also know <span class="process-math">\(f_D \alpha = \alpha' f_A\)</span> so the following compositions should all result in "the same map":</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{f} \mathbf{0}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{\alpha} X_D \xrightarrow{f_D} \mathbf{0}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{f_A} X_A \xrightarrow{\alpha'} \mathbf{0}
+\end{equation*}
+</div>
+<div class="para" id="article4-p3-4-3-11">In the category <span class="process-math">\(\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}\text{,}\)</span> we need to preserve source and target relations. Namely, for any point <span class="process-math">\(\mathbf{1} \xrightarrow{x} X\)</span> we need <span class="process-math">\(f_D s x = s' f_A x\)</span> amd <span class="process-math">\(f_D t x = t' f_A x\text{.}\)</span>  However, there’s precisely one map from <span class="process-math">\(0 \rightarrow 1\text{,}\)</span> so <span class="process-math">\(s'\)</span> and <span class="process-math">\(t'\)</span> both need to evaluate to the same object.  We essentially have an equivalence between the following compositions:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{f} \mathbf{0}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{s} X_D \xrightarrow{f_D} \mathbf{0}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{t} X_D \xrightarrow{f_D} \mathbf{0}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{f_A} X_D \xrightarrow{s'} \mathbf{0}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{x} X \xrightarrow{f_A} X_D \xrightarrow{t'} \mathbf{0}
+\end{equation*}
+</div>
+<div class="para" id="article4-p3-4-3-17">I’m a little uncertain about the rigor of these solutions.  Hopefully the follow-up questions will give me more to go on.</div>
+</div></details></div></article></details><details id="article4-p3-5" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 9:.</span>
+</h3></summary><article class="example example-like"><div class="para" id="article4-p3-5-2-1">Define the category <span class="process-math">\(\mathbf{1}/\mathcal{S}\)</span> of <em class="emphasis">pointed sets</em>...</div>
+<div class="solutions"><details id="article4-p3-5-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="article4-p3-5-3-1">In this category, an object is a map <span class="process-math">\(\mathbf{1} \xrightarrow{x_0} X\)</span> in <span class="process-math">\(\mathcal{S}\)</span> and a map from <span class="process-math">\(\mathbf{1} \xrightarrow{x_0} X\)</span> to <span class="process-math">\(\mathbf{1} \xrightarrow{y_0} Y\)</span> is a map <span class="process-math">\(X \xrightarrow{f} Y\)</span> in <span class="process-math">\(\mathcal{S}\)</span> for which <span class="process-math">\(f x_0 = y_0\text{.}\)</span>  We’re given the following external diagram:</div> <figure class="figure figure-like" id="fig-article4-ex9-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-article4-ex9-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.3.4<span class="period">.</span></span><span class="space"> </span>Given Diagram for Article 4 Exercise 9</figcaption></figure> <div class="para" id="article4-p3-5-3-3">We’re asked to show that "any terminal object is also initial" and that "part (b) of the previous exercise is false".</div> <div class="para" id="article4-p3-5-3-4">Let’s start by assuming we have some "terminal object" in this category.  We’ll call this object <span class="process-math">\(\mathbf{1}\text{.}\)</span> As a terminal object of <span class="process-math">\(\mathcal{C}\text{,}\)</span> there is exactly one <span class="process-math">\(\mathcal{C}\)</span>-map <span class="process-math">\(X \rightarrow \mathbf{1}\)</span> for any object <span class="process-math">\(X\)</span> of <span class="process-math">\(\mathcal{C}\text{.}\)</span>
+</div> <div class="para" id="article4-p3-5-3-5">Our choice of <span class="process-math">\(\mathcal{C}\)</span> defined an object as a map <span class="process-math">\(\mathbf{1} \xrightarrow{x_0} X\text{.}\)</span> Our definition of a terminal object implies that there is a unique map I’ll call <span class="process-math">\(\bar{x_0}\)</span> with the property that satisfies <span class="process-math">\(\mathbf{1} \xrightarrow{x_0} X \xrightarrow{\bar{x_0}} \mathbf{1} = \mathbf{1}_\mathbf{1}\text{.}\)</span>
+</div> <div class="para" id="article4-p3-5-3-6">Now, what happens if we were to also have an initial object <span class="process-math">\(\mathbf{0}\)</span> in <span class="process-math">\(\mathcal{C}\text{?}\)</span> That would imply for that every object <span class="process-math">\(X\)</span> of <span class="process-math">\(\mathcal{C}\)</span> we have exactly one <span class="process-math">\(\mathcal{C}\)</span>-map <span class="process-math">\(\mathbf{0} \rightarrow X\text{.}\)</span> Since our objects of <span class="process-math">\(\mathcal{C}\)</span> are limited to maps <span class="process-math">\(\mathbf{1} \rightarrow X\text{,}\)</span> our object <span class="process-math">\(\mathbf{0}\)</span> would also need to exist as some map <span class="process-math">\(\mathbf{1} \xrightarrow{x_0} X\text{.}\)</span>  Given how we’ve defined our terminal object, there should be exactly one map <span class="process-math">\(X \xrightarrow{\bar{x_0}} \mathbf{1}\text{.}\)</span>  If we compose this unique map <span class="process-math">\(\bar{x_0}\)</span> with the unique map <span class="process-math">\(\mathbf{0} \rightarrow \mathbf{1}\text{,}\)</span> we get a unique map <span class="process-math">\(0 \rightarrow X \xrightarrow{\bar{x_0}} \mathbf{1}\text{.}\)</span> It follows that any initial object is necessarily a terminal object.</div> <div class="para" id="article4-p3-5-3-7">That’s close to what we’ve been asked to prove, but not quite. We were asked to prove every terminal object is initial, and instead proved the converse. I think we might actually need to compose with <span class="process-math">\(x_0\)</span> once more to show <span class="process-math">\(0 \rightarrow X \xrightarrow{\bar{x_0}} \mathbf{1} 
+\xrightarrow{x_0} X\)</span> is the same as our unique map <span class="process-math">\(\mathbf{0} \rightarrow X\text{.}\)</span>  Having both a unique map <span class="process-math">\(\mathbf{0} \rightarrow X\)</span> and a unique map <span class="process-math">\(X \rightarrow \mathbf{1}\)</span> should be sufficient to show the uniqueness of the map <span class="process-math">\(\mathbf{0} \rightarrow X \rightarrow \mathbf{1}\text{.}\)</span>
+</div> <div class="para" id="article4-p3-5-3-8">So why does part (b) fail in this case?  If <span class="process-math">\(X\)</span> were itself an initial object, then there would be exactly one map <span class="process-math">\(X \rightarrow X\text{.}\)</span>  Since we need to have an identity map <span class="process-math">\(1_X\)</span> from <span class="process-math">\(X \rightarrow X\text{,}\)</span> the unique map <span class="process-math">\(0 \rightarrow X\)</span> would need to the same as the composition <span class="process-math">\(0 \rightarrow X \xrightarrow{1_X} X\text{.}\)</span>  This is a problem because two maps can only be the same map if the domains and codomains match.  The existence of a unique map <span class="process-math">\(\mathbf{1} \xrightarrow{y_0} Y\text{,}\)</span> separate from our map <span class="process-math">\(\mathbf{1} \xrightarrow{x_0} X\text{,}\)</span> means that the composition formed by <span class="process-math">\(0 \rightarrow X \xrightarrow{f} Y\)</span> would be a different map from <span class="process-math">\(0 \rightarrow X\text{.}\)</span> The lack of uniqueness would disqualify <span class="process-math">\(X\)</span> as an initial object.</div>
+</div></details></div></article></details><details id="article4-p3-6" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.5</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 10:.</span>
+</h3></summary><article class="example example-like"><div class="para" id="article4-p3-6-2-1">Let <span class="process-math">\(\mathbf{2}\)</span> be a fixed 2-point set...</div>
+<div class="solutions"><details id="article4-p3-6-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="article4-p3-6-3-1">This time we define a category <span class="process-math">\(\mathbf{2}/\mathcal{S}\)</span> of <em class="emphasis">bipointed objects</em>, with the objects being <span class="process-math">\(\mathcal{S}\)</span>-maps <span class="process-math">\(\mathbf{2} \xrightarrow{\bar{x}} X\)</span> and maps being the <span class="process-math">\(\mathcal{S}\)</span>-maps satistfying <span class="process-math">\(f \bar{x} = \bar{y}\text{.}\)</span>  We’re also given the following diagram:</div> <figure class="figure figure-like" id="fig-article4-ex10-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-article4-ex10-1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.3.6<span class="period">.</span></span><span class="space"> </span>Given Diagram for Article 4 Exercise 9</figcaption></figure> <div class="para" id="article4-p3-6-3-3">First, we want to show that the initial object <span class="process-math">\(\mathbf{0}\)</span> in <span class="process-math">\(\mathbf{2}/\mathcal{S}\)</span> is actually the identity map <span class="process-math">\(1_\mathbf{2}\text{.}\)</span>  In other words, we need to prove that for any object <span class="process-math">\(X\)</span> in <span class="process-math">\(\mathbf{2}/\mathcal{S}\)</span> there is exactly one map from <span class="process-math">\(1_\mathbf{2} \rightarrow X\text{.}\)</span>
+</div> <div class="para" id="article4-p3-6-3-4">If every object in <span class="process-math">\(\mathbf{2}/\mathcal{S}\)</span> is some map <span class="process-math">\(\mathbf{2} \xrightarrow{\bar{x}} X\text{,}\)</span> then consider the composition <span class="process-math">\(\mathbf{2} \xrightarrow{f \bar{x}} Y\text{.}\)</span> Our category has defined our maps <span class="process-math">\(f\)</span> as those maps in <span class="process-math">\(\mathcal{S}\)</span> satisfying the relation <span class="process-math">\(f \bar{x} = \bar{y}\text{.}\)</span>  By assigning <span class="process-math">\(f = 1_X\)</span> and <span class="process-math">\(Y = X\text{,}\)</span> it follows that <span class="process-math">\(1_X \bar{x} = \bar{x}\)</span> which is only true if it holds for every element in the domain <span class="process-math">\(\mathbf{2}\text{.}\)</span> If that we call the objects of <span class="process-math">\(\mathbf{2} = \{0,1\}\)</span> then both <span class="process-math">\(1_X \bar{x} 0 = \bar{x} 0\)</span> and <span class="process-math">\(1_X \bar{x} 1 = \bar{x} 1\)</span> need to hold true for every <span class="process-math">\(X\)</span> in <span class="process-math">\(\mathcal{C}\text{.}\)</span> If <span class="process-math">\(\mathbf{2}\)</span> is an object in <span class="process-math">\(\mathcal{C}\text{,}\)</span> that structure preservation must also apply to the map <span class="process-math">\(f = 1_\mathbf{2}\text{.}\)</span> The relations <span class="process-math">\(1_\mathbf{2} 0 = 0\)</span> and <span class="process-math">\(1_\mathbf{2} 1 = 1\)</span> ensure this is a valid map in <span class="process-math">\(\mathbf{2}/\mathcal{S}\text{.}\)</span>
+</div> <div class="para" id="article4-p3-6-3-5">Maybe what I need to be doing here is establishing an isomorphism between the elements <span class="process-math">\(0\)</span> and <span class="process-math">\(1\)</span> with the "null map" and "identity map on objects of <span class="process-math">\(\mathcal{C}\)</span>".  We know there is precisely one <span class="process-math">\(\mathcal{C}\)</span>-map <span class="process-math">\(\{\} \xrightarrow{\emptyset} \{\}\)</span> and precisely one from <span class="process-math">\(X \xrightarrow{1_X} X\text{.}\)</span> If we have a two element-set <span class="process-math">\(\mathbf{2} = \{0,1\}\text{,}\)</span> then assigning <span class="process-math">\(0 = \{\} \xrightarrow{\emptyset} \{\}\)</span> and <span class="process-math">\(1 = X \xrightarrow{1_X} X\)</span> creates an unique isomorphism <span class="process-math">\(\mathbf{2} \xrightarrow{s} \{\emptyset,1_X\} \xrightarrow{r} \mathbf{2}\)</span> such that <span class="process-math">\(r \circ s = 1_\mathbf{2}\)</span> and <span class="process-math">\(s \circ r = 1_{\{\emptyset,1_X\}}\text{.}\)</span>
+</div> <div class="para" id="article4-p3-6-3-6">In the category <span class="process-math">\(\mathcal{S}\text{,}\)</span> a map <span class="process-math">\(X \xrightarrow{f} Y\)</span> exists between any sets <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> except in the case where <span class="process-math">\(Y = \emptyset\)</span> and <span class="process-math">\(X \neq \emptyset\text{.}\)</span> If we choose <span class="process-math">\(X = \mathbf{2}\)</span> and <span class="process-math">\(Y = \emptyset\text{,}\)</span> then we know from the non-existence of a map <span class="process-math">\(X \xrightarrow{f} Y\)</span> in <span class="process-math">\(\mathcal{S}\)</span> that we couln’t possibly have one in <span class="process-math">\(2/\mathcal{S}\text{.}\)</span> In other words, we have a unique map <span class="process-math">\(\emptyset \rightarrow \emptyset\text{,}\)</span> a unique map <span class="process-math">\(\emptyset \rightarrow \mathbf{1}\text{,}\)</span> a unique map <span class="process-math">\(\mathbf{1} \rightarrow \mathbf{1}\text{,}\)</span> and exactly <em class="emphasis">zero</em> maps <span class="process-math">\(\mathbf{1} \rightarrow \emptyset\text{.}\)</span>
+</div> <div class="para" id="article4-p3-6-3-7">If <span class="process-math">\(Y\)</span> is a subset of <span class="process-math">\(X\text{,}\)</span> a map is guaranteed to exist.  If we know no map exists, there needs to exist at least one element in <span class="process-math">\(y_0 = f x_0 \in Y\)</span> that is not in <span class="process-math">\(X\text{.}\)</span> The set of those two elements <span class="process-math">\(y_0\)</span> and <span class="process-math">\(x_0\)</span> need to be isomorphic to the set <span class="process-math">\(\mathbf{2}\text{.}\)</span>
+</div> <div class="para" id="article4-p3-6-3-8">I think this is relevant because it provides us a way to define an "antipodal" map in <span class="process-math">\(\mathcal{C}\text{.}\)</span> There is a unique map <span class="process-math">\(\mathbf{2} \xrightarrow{\alpha} \mathbf{2}\)</span> defined by <span class="process-math">\(\alpha 0 = 1\)</span> and <span class="process-math">\(\alpha 1 = 0\text{.}\)</span> Composing <span class="process-math">\(\alpha \circ s\)</span> swaps the roles of <span class="process-math">\(\emptyset\)</span> and <span class="process-math">\(1_X\text{.}\)</span> This mirrors the relationship between <span class="process-math">\(\forall\)</span> and <span class="process-math">\(\exists\)</span> statements under logical negation.</div> <div class="para" id="article4-p3-6-3-9">Perhaps this provides an answer the second half of the exercise. Knowing that <span class="process-math">\(\mathbf{0} = 1_\mathbf{2}\text{,}\)</span> the existence of the antipodal map <span class="process-math">\(\mathbf{2} \xrightarrow{\alpha} \mathbf{2}\)</span> provides a second map to the initial object by way of the composition <span class="process-math">\(\alpha \circ \alpha = 1_\mathbf{2}\text{.}\)</span>
+</div> <div class="para" id="article4-p3-6-3-10">I keep thinking back to the minimal categories I was playing with in Python last week.  In the course of my experimentation, one of the things I tried was defining my objects of my <code class="code-inline tex2jax_ignore">BinaryCategory</code> to be <code class="code-inline tex2jax_ignore">[[0],[1,2]]</code> instead of <code class="code-inline tex2jax_ignore">[[0],[0,1]]</code>. Doing so changes the representation of my "point" maps from <blockquote class="blockquote" id="article4-p3-6-3-10-4"><code class="code-inline tex2jax_ignore">{'domain': [0], 'codomain': [0], 'map': {0: 0}},
+                    {'domain': [0], 'codomain': [0, 1], 'map': {0: 0}},
+                    {'domain': [0], 'codomain': [0, 1], 'map': {0: 1}}]</code></blockquote> to <blockquote class="blockquote" id="article4-p3-6-3-10-5"><code class="code-inline tex2jax_ignore">{'domain': [0], 'codomain': [0], 'map': {0: 0}},
+                    {'domain': [0], 'codomain': [1, 2], 'map': {0: 1}},
+                    {'domain': [0], 'codomain': [1, 2], 'map': {0: 2}}]</code></blockquote> making it lot clearer what my 3 points "point" to.  If I add a "null map" to my category, a map <span class="process-math">\(\emptyset \xrightarrow{0} \emptyset\)</span> with <code class="code-inline tex2jax_ignore">{'domain': [], 'codomain': [], 'map': {}}</code>, and a unique map <span class="process-math">\(\emptyset \rightarrow \mathbf{1}\text{,}\)</span> then I can think of my 3 points as being isomorphic to the maps <blockquote class="blockquote" id="article4-p3-6-3-10-9"><code class="code-inline tex2jax_ignore">[{'domain': [], 'codomain': [0], 'map': {}},
+                    {'domain': [], 'codomain': [1], 'map': {}},
+                    {'domain': [], 'codomain': [2], 'map': {}}]</code></blockquote> by precomposing my "points" <span class="process-math">\(\mathbf{1} \rightarrow X\)</span> with that unique map <span class="process-math">\(\emptyset \rightarrow \mathbf{1}\text{.}\)</span>
+</div> <div class="para" id="article4-p3-6-3-11">I’m not sure where I’m going with this anymore, so lets keep moving forward.</div>
+</div></details></div></article></details><details id="article4-p3-7" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.7</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 11:.</span>
+</h3></summary><article class="example example-like"><div class="para" id="article4-p3-7-2-1">Show that in the category <span class="process-math">\(\mathcal{S}\text{...}\)</span>
+</div>
+<div class="solutions"><details id="article4-p3-7-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="article4-p3-7-3-1">Let start by assuming we have some object <span class="process-math">\(X\)</span> which is <em class="emphasis">NOT</em> an initial object in <span class="process-math">\(\mathcal{S}\text{.}\)</span> That means there is either no map <span class="process-math">\(X \rightarrow X\)</span> or more than one map <span class="process-math">\(X \rightarrow X\text{.}\)</span> We know that we’re assured to at least have an identity map <span class="process-math">\(1_X\text{,}\)</span> so we can rule out the first case and focus on the second. Let’s call these maps <span class="process-math">\(X \xrightarrow{e_i} X\text{,}\)</span> and we know we must at least two such maps <span class="process-math">\(e_0 \neq e_1\text{.}\)</span>
+</div> <div class="para" id="article4-p3-7-3-2">A terminal object <span class="process-math">\(S\)</span> in <span class="process-math">\(\mathcal{S}\)</span> would have the property that for any <span class="process-math">\(X\)</span> in <span class="process-math">\(\mathcal{S}\)</span> there is exactly one map <span class="process-math">\(X \rightarrow S\text{.}\)</span>  Clearly <span class="process-math">\(X \xrightarrow{1_X} X \rightarrow S = X \rightarrow S\text{,}\)</span> so we can assume <span class="process-math">\(e_0 = 1_X\)</span> is a terminal object. If we also have a second map <span class="process-math">\(e_1\)</span> such that <span class="process-math">\(X \xrightarrow{e_1} X \rightarrow S = X \rightarrow S\text{,}\)</span> then we can apply <span class="process-math">\(e_1\)</span> on the left again:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X \xrightarrow{e_1} X \xrightarrow{e_1} X \rightarrow S = X \xrightarrow{e_1} X \rightarrow S
+\end{equation*}
+</div>
+<div class="para" id="article4-p3-7-3-4">I think I’m starting to see where we’re going with this. By asserting that <span class="process-math">\(e_0\)</span> and <span class="process-math">\(e_1\)</span> are different maps, and knowing that <span class="process-math">\(e_0\)</span> is the identity map, we know these maps must satisfy <span class="process-math">\(e_0 e_0 = e_0\text{,}\)</span> <span class="process-math">\(e_1 e_0 = e_1\text{,}\)</span> <span class="process-math">\(e_0 e_1 = e_1\text{.}\)</span> But there’s one more combination, and the composition above suggests that <span class="process-math">\(e_1 e_1 = e_1\text{.}\)</span> Since we proved ealier that all terminal objects are isomorphic, having two distinct maps like this allows us to create an isomorphism between the terminal object <span class="process-math">\(S\)</span> and each of the maps <span class="process-math">\(e_0, e_1\)</span> respectively.</div> <div class="para" id="article4-p3-7-3-5">Having shown "<span class="process-math">\(X\)</span> is not initial" implies the existence of two distinct endomaps <span class="process-math">\(e_0,e_1: X \rightarrow X\)</span> with with isomorphisms between them and the terminal object <span class="process-math">\(S\text{.}\)</span> Having these isomorphisms <span class="process-math">\(e_0 \mathrel{\substack{s_0 \\ \longrightarrow \\ \longleftarrow \\ r_0}} S\)</span> and <span class="process-math">\(e_1 \mathrel{\substack{s_1 \\ \longrightarrow \\ \longleftarrow \\ r_1}} S\)</span> allows us compositions <span class="process-math">\(e_0 \xrightarrow{r_1 s_0} e_1\)</span> and <span class="process-math">\(e_1 \xrightarrow{r_0 s_1} e_0\)</span> I think we can make the claim that there exists at least "one point" in <span class="process-math">\(X\)</span> defined by this unique map <span class="process-math">\(e_1 \rightarrow e_0\)</span> -- which I think is techinically just the map <span class="process-math">\(e_1\)</span> itself.</div> <div class="para" id="article4-p3-7-3-6">We can say <span class="process-math">\(e_1\)</span> is terminal because <span class="process-math">\(e_1 e_1 = e_1\text{.}\)</span> We can say <span class="process-math">\(e_0\)</span> in <span class="process-math">\(X\)</span> by the identity property of <span class="process-math">\(\mathcal{C}\text{.}\)</span>
+</div> <div class="para" id="article4-p3-7-3-7">So why would this fail in the categories <span class="process-math">\(\mathcal{S}^{\circlearrowright}\)</span> or <span class="process-math">\(\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}\text{?}\)</span>  It probably has something to do with the structure preservation in those categories.</div> <div class="para" id="article4-p3-7-3-8">Consider the endomap on the one point set <span class="process-math">\(\mathbf{1}^{\circlearrowright}\text{.}\)</span> This set technically has two distinct "objects": the point <span class="process-math">\(\mathbf{1}\)</span> and the map <span class="process-math">\(\mathbf{1} \rightarrow \mathbf{1}\text{.}\)</span> A "point" in <span class="process-math">\(X^{\alpha}\)</span> needs to satisfy <span class="process-math">\(\alpha x = x\text{,}\)</span> which is not true of our map <span class="process-math">\(e_1\)</span> for all objects by virtue of it being necessarily distinct from the identity map.</div> <div class="para" id="article4-p3-7-3-9">For maps in <span class="process-math">\(\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}\text{,}\)</span> they need to preserve source and target relations.  Namely, preserve <span class="process-math">\(f_D s = s' f_A\)</span> and <span class="process-math">\(f_D t = t' f_A\text{.}\)</span> Our terminal objects here are "loops".  Maybe can embed our object <span class="process-math">\(e_1\)</span> by defining <span class="process-math">\(s = 1_X\)</span> and <span class="process-math">\(t = e_1\text{.}\)</span>  Since we’ve defined <span class="process-math">\(e_1\)</span> such that <span class="process-math">\(e_1 e_1 = e_1\text{,}\)</span> this would essentially give us <span class="process-math">\(e_1 s = e_1 1_X = e_1\)</span> and <span class="process-math">\(e_1 t = e_1 e_1 = e_1\text{.}\)</span>
+</div> <div class="para" id="article4-p3-7-3-10">I’m picturing the case in <span class="process-math">\(\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}\)</span> as needing to preserve the source and target of the endomap on one point. In order to preserve source and target of <span class="process-math">\(\mathbf{1}^{\circlearrowright}\text{,}\)</span> both the source and target must be the unique point <span class="process-math">\(\mathbf{1}\text{.}\)</span> However, this space technically has two unique objects.  As we "loop" through the point, we alternate between "dot" and "arrow".  Since there’s no retraction in <span class="process-math">\(\mathcal{S}\)</span> from the two point set <span class="process-math">\(\{\text{dot},\text{arrow}\}\)</span> to the one point set <span class="process-math">\(\{\text{loop}\}\text{,}\)</span> there couldn’t possibly be an isomorphism with the unique terminal object <span class="process-math">\(S\text{.}\)</span>
+</div>
+</div></details></div></article></details></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="article4-p2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
