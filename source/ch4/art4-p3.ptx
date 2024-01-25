@@ -473,7 +473,7 @@
                 <m>e_0 \mathrel{\substack{s_0 \\ \longrightarrow \\ \longleftarrow \\ r_0}} S</m>
                 and <m>e_1 \mathrel{\substack{s_1 \\ \longrightarrow \\ \longleftarrow \\ r_1}} S</m>
                 allows us compositions <m>e_0 \xrightarrow{r_1 s_0} e_1</m> and 
-                <m>e_1 \xrightarrow{r_0 s_1} e_0</m>  
+                <m>e_1 \xrightarrow{r_0 s_1} e_0</m>.  
                 I think we can make the claim that there exists at least
                 "one point" in <m>X</m> defined by this unique map 
                 <m>e_1 \rightarrow e_0</m>, which I think is techinically just
