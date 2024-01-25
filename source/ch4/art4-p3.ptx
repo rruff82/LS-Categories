@@ -466,7 +466,7 @@
                 of the maps <m>e_0, e_1</m> respectively. 
             </p>
             <p>
-                Having shown "<m>X</m> is not initial" implies the existence of
+                We've already shown "<m>X</m> is not initial" implies the existence of
                 two distinct endomaps <m>e_0,e_1: X \rightarrow X</m> with
                 with isomorphisms between them and the terminal object <m>S</m>.
                 Having these isomorphisms 
@@ -476,7 +476,7 @@
                 <m>e_1 \xrightarrow{r_0 s_1} e_0</m>  
                 I think we can make the claim that there exists at least
                 "one point" in <m>X</m> defined by this unique map 
-                <m>e_1 \rightarrow e_0</m> -- which I think is techinically just
+                <m>e_1 \rightarrow e_0</m>, which I think is techinically just
                 the map <m>e_1</m> itself.  
             </p>
             <p>
