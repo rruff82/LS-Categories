@@ -1,0 +1,379 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="article4-p4">
+    <title>Article 4: Universal Mapping Properties, Part 4</title>
+    <p>
+        This week we pick up with defining products and start working
+        towards establishing a generalized definition of binary operations.
+        It reminds me of that "isomorphism zoo" in Session 4
+        and how we had to be very specifc about operations translate
+        from the domain to codomain.
+    </p>
+    <example>
+        <title>Exercise 12:</title>
+        <statement>
+            <p>
+                If <m>P,p_1,p_2</m> and also <m>Q,q_1,q_2</m> are both products...
+            </p>
+        </statement>
+        <solution>
+ 
+            <p>
+                Let's start by recapping the definition. The
+                maps <m>Q,q_1,q_2</m> are a <em>product</em>
+                if and only if for each object <m>X</m> and 
+                any pair of maps <m>X \xrightarrow{f_1} B_1</m>
+                and <m>X \xrightarrow{f_2} B_2</m> there is
+                exactly one map <m>X \xrightarrow{f} Q</m>
+                satisfying both <m>f_1 = q_1 f</m> and 
+                <m>f_2 = q_2 f</m>.
+        
+            </p>
+            <p>
+                If that statement is true for every object <m>X</m>,
+                it must also be true for the object <m>P</m>.  We 
+                know we have a pair of maps <m>P \xrightarrow{p_1} B_1</m>
+                and <m>P \xrightarrow{p_2} B_2</m>, so there must 
+                be a unique map <m>P \xrightarrow{f} Q</m> with
+                <m>p_1 = q_1 f</m> and <m>p_2 = q_2 f</m>.
+            </p>
+            <p>
+                Likewise, the maps <m>P,p_1,p_2</m> form a product.
+                For any object <m>X</m> with arbitrary maps 
+                <m>X \xrightarrow{f_1} B_1</m>
+                and <m>X \xrightarrow{f_2} B_2</m>, we must have
+                exactly one map <m>X \xrightarrow{g} P</m>.
+                If this is true for all objects, it must also 
+                be true for <m>Q,q_1,q_2</m>.  It follows that there is a 
+                unique map <m>Q \xrightarrow{g} P</m> with 
+                <m>q_1 = p_1 g</m> and <m>q_2 = p_2 g</m>.
+            </p>
+            <p>
+                Having established that the maps <m>P \xrightarrow{f} Q</m>
+                and <m>Q \xrightarrow{g} P</m> exist and are both unique, 
+                we must also prove they are isomorphisms.  To 
+                do so we'll need to establish <m>g \circ f = 1_P</m> and 
+                <m>f \circ g = 1_Q</m>.
+            </p>
+            <p> 
+                If the maps <m>f,g</m> are unique, then the
+                compositions of maps <m>Q \xrightarrow{f \circ g} Q</m> 
+                and <m>P \xrightarrow{g \circ f} P</m> must also be
+                unique.  Since we're guaranteed to have an identity
+                map for any given domain, it follows from uniqueness
+                that <m>f \circ g = 1_Q</m> and <m>g \circ f = 1_P</m>.
+                Thus, we've established that <m>f,g</m> are inverses of 
+                each other and consequently isomorphisms.
+            </p>
+        </solution>
+    </example>
+    <example>
+        <title>Exercise 13:</title>
+        <statement>
+            <p>
+              In a category <m>\mathcal{C}</m> with products and 
+        a terminal object...  
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Let's begin by summarizing what we know.  
+            </p>
+            <p>
+                We know this category has a terminal object.  Let's 
+                call it <m>\mathbf{1}</m>.  For any object <m>X</m>
+                in our category <m>\mathcal{C}</m>, there is exactly
+                one <m>\mathcal{C}</m>-map <m>X \rightarrow \mathbf{1}</m>.
+                Since this must also hold true for <m>\mathbf{1}</m>,
+                we can safely assume the existence of a unique map
+                <m>\mathbf{1} \xrightarrow{1_1} \mathbf{1}</m>.
+            </p>
+            <p>
+                We also know we have a product <m>B_1 \times B_2</m>
+                and projection maps <m>p_1,p_2</m>.  
+                For any object <m>X</m> in <m>\mathcal{C}</m>, and any
+                pair of maps <m>X \xrightarrow{f_1} B_1</m> and
+                <m>X \xrightarrow{f_2} B_2</m>, there exists exactly
+                one map <m>X \xrightarrow{f} B_1 \times B_2</m> 
+                with the property that <m>f_1 = p_1 f</m> and
+                <m>f_2 = p_2 f</m>.
+            </p>
+            <p>
+                Let's combine these definitions by choosing 
+                <m>X = \mathbf{1}</m>.  It follows that for
+                any pair of points <m>\mathbf{1} \xrightarrow{b_1} B_1</m>
+                and <m>\mathbf{1} \xrightarrow{b_2} B_2</m>,
+                there is exactly one map 
+                <m>\mathbf{1} \xrightarrow{g} B_1 \times B_2</m>
+                with <m>b_1 = p_1 g</m> and <m>b_2 = p_2 g</m>.
+            </p>
+            <p>
+                Given that <m>\mathbf{1}</m> is a terminal object,
+                we can pair each of the maps <m>b_1,b_2,g</m> with 
+                it's respective dual: 
+                <m>B_1 \xrightarrow{\bar{b_1}} \mathbf{1}</m>,
+                <m>B_2 \xrightarrow{\bar{b_2}} \mathbf{1}</m>,
+                and <m>B_1 \times B_2 \xrightarrow{\bar{g}} \mathbf{1}</m>.
+            </p>
+            <p>
+                Essentially, either <m>f,\bar{g}</m> are the unique inverses such that 
+                <m>\mathbf{1} \rightarrow X \xrightarrow{f} B_1 \times B_2 \xrightarrow{\bar{g}} \mathbf{1}</m>
+                or we get two competing definitions of these three unqiue compositions:
+            </p>
+            <me>\mathbf{1} \rightarrow X \rightarrow B_1 \times B_2 \rightarrow B_1 \rightarrow \mathbf{1}</me>
+            <me>\mathbf{1} \rightarrow X \rightarrow B_1 \times B_2 \rightarrow B_2 \rightarrow \mathbf{1}</me>
+            <me>\mathbf{1} \rightarrow X \rightarrow B_1 \times B_2 \rightarrow \mathbf{1}</me>
+        
+        </solution>
+    </example>
+
+    <example>
+        <title>Exercise 14:</title>
+        <statement>
+            <p>
+                Define composition of maps...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Our category <m>\mathcal{S}^A</m> has as <em>objects</em> a set <m>X</m> together
+                with any action <m>A \times X \xrightarrow{\xi} X</m> of <m>A</m>.  
+                Our <em>maps</em> from <m>X,\xi</m> to <m>Y,\eta</m> are 
+                <m>\mathcal{S}</m>-maps <m>X \xrightarrow{f} Y</m> which 
+                "respect actions of <m>A</m>" such that 
+                <m>f(\xi(a,x)) =\eta(a,f(x))</m> for all <m>a \in A,x \in X</m>.
+            </p>
+        
+            <p>
+                So lets attempt to define <em>composition</em>.  We'll 
+                need a pair of <m>\mathcal{S}^A</m>-maps.  Let's call them
+                <m>\langle X,\xi \rangle \xrightarrow{f} \langle Y,\eta \rangle</m> and 
+                <m>\langle Y,\eta \rangle \xrightarrow{g} \langle Z,\zeta \rangle</m>.
+                The action respecting nature of these maps means that for
+                 all <m>a \in A,x \in X</m> we have
+                <m>f(\xi(a,x)) =\eta(a,f(x))</m> preserved by the first map
+                and <m>g(\eta(a,x)) =\zeta(a,g(x))</m> preserved by the 
+                second map.
+            </p>
+            <p>
+                Let's define the composition 
+                <m>\langle X,\xi \rangle \xrightarrow{g \circ f}  \langle Z,\zeta \rangle</m>
+                as the composition of respective <m>\mathcal{S}</m>-maps 
+                <m>X \xrightarrow{g \circ f} Z</m>.  We'll need to
+                show that it respect actions in our category, namely 
+                that  <m>(g \circ f)(\xi(a,x)) = \zeta(a,(g \circ f)(x))</m> 
+                for all <m>a,x</m>. 
+            </p>
+            <p>
+                Let's start with <m>(g \circ f)(\xi(a,x))</m>.  
+                We can regroup the terms to form <m>g(f(\xi(a,x)))</m>.
+                Since <m>f(\xi(a,x)) = \eta(a,f(x))</m>, we can substitute 
+                to get <m>g(\eta(a,f(x)))</m>.  Since we also know 
+                <m>g(\eta(a,x)) =\zeta(a,g(x))</m>, that means that
+                <m>g(\eta(a,f(x))) = \zeta(a,g(f(x))) = \zeta(a,(g \circ f)(x))</m>.
+                This establishes that <m>g \circ f</m> is a valid <m>\mathcal{S}^A</m>-map.
+            </p>
+            <p>
+                As a category, each domain must have an <em>identity map</em>. 
+                Each set/action pair <m>X,\xi</m> must have some map
+                <m>\langle X,\xi \rangle \xrightarrow{1_{X,\xi}} \langle X,\xi \rangle</m> such that
+                <m>1_{X,\xi}(\xi(a,x)) =\xi(a,1_{X, \xi}(x))</m> for all <m>a,x</m>. 
+                I think we get this from the "product" of 
+                identity maps <m>1_{X,\xi} = 1_A \times 1_X = 1_{A \times X}</m>. 
+                This lets us rewrite the identity above as
+                <m>(1_A \times 1_X)(\xi(a,x)) = \xi(1_A(a),1_X(x))= \xi(a,x)</m>.
+            </p>
+            <p>
+                For any <m>\mathcal{S}^A</m>-map 
+                <m>\langle X,\xi \rangle \xrightarrow{f} \langle Y,\eta \rangle</m>,
+                we know <m>f(\xi(a,x)) =\eta(a,f(x))</m> for all <m>a,x</m>.
+                This should continue to hold true if we choose 
+                <m>f = 1_X, Y = X, \xi = 1_{A \times X}  </m>.
+                Thus, for all <m>a,x</m> we can assert 
+                <m>1_X(1_{A \times X} (a,x))=1_{A \times X} (a,1_X(x)) = 1_{A \times X} (a,x) = (a,x)</m>.  
+            </p>
+            <p>
+                What about our <em>associative property</em>?  I think we
+                kind of inherit this from the properties of <m>\mathcal{S}</m>.
+                Since our <m>\mathcal{S}^A</m>-maps come from <m>\mathcal{S}</m>-maps, they must uphold 
+                <m>(h \circ g) \circ f = h \circ (g \circ f)</m> independently
+                of the additional retrictions placed on them as 
+                members of <m>\mathcal{S}^A</m>.
+                We've already established that actions are respected by
+                composition, so both sides necessisarily produce <m>\mathcal{S}^A</m>-maps.
+            </p>
+        
+        </solution>
+    </example>
+    <example>
+        <title>Exercise 15:</title>
+        <statement>
+            <p>
+               Exprese these equations... 
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Okay, I was under the impression that "equations" implied the 
+                presence of "an equals sign".  I'm not even sure how to interpret 
+                this: 
+            </p>
+            <me>A \times A \times X \mathrel{\substack{\longrightarrow \\ \longrightarrow}} 
+                X, X \mathrel{\substack{\longrightarrow \\ \longrightarrow}} X</me>
+            <p>
+                The preceeding text discusses a "preferred binary operation"
+                <m>A \times A \xrightarrow{\alpha} A</m> and a "point"
+                <m>\mathbf{1} \xrightarrow{a_0} A</m>.  The 
+                action <m>\alpha</m> corresponds to map composition and
+                <m>a_0</m> acts as the identity map <m>1_X</m>.  
+                It would be described by <m>\xi</m>
+                through the equations: 
+                <m>\forall a,b,x: \xi(\alpha(a,b),x) = \xi(a,\xi(b,x)) </m>
+                and <m>\forall x: \xi(a_0,x) = x</m>.
+            </p>
+            <p>
+                This sounds a lot like how in Session 15 I was using 
+                an invertable "zig zag" map 
+                <m>\mathbb{N} \mathrel{\substack{\longrightarrow \\ \longleftarrow}} \mathbb{N} \times \mathbb{N}</m>
+                to iterate through all the possible steps of all the possible generators.
+                In fact, I'd say these so called "equations" here look 
+                very similar to the equation for our generator 
+                <m>d \in X^{\circlearrowright \alpha}</m>
+                which corresponded to an equation <m>\alpha^2 d = d</m>
+                in our presentation. 
+            </p>
+            <p>
+                When I was trying to verify my work in Python,
+                I decided on using a tuple to represent the 
+                relations.  The equation <m>\alpha^2 d = d</m>
+                became represented by a generator and iteration pair
+                <c>(('d',2),('d',0))</c>. Maybe that's what I'm
+                looking at here. Some action <m>A</m> is applied
+                twice to <m>X</m> and the result is isomorphic
+                to the sitation where the action isn't applied at
+                all. 
+            </p>
+            <p>
+                Maybe it might be helpful for me to think of 
+                those double arrows as projection maps from
+                Exercise 13.  I could potentially think of
+                <m>\mathbf{1} \longrightarrow X
+                \mathrel{\substack{\longrightarrow \\ \longrightarrow}} X
+                \longrightarrow \mathbf{1}</m> as a short hand for
+                <m>\mathbf{1} \longrightarrow X
+                    \mathrel{\substack{\longrightarrow \\ \longrightarrow}}
+                    B_1 \times B_2 \mathrel{\substack{\longrightarrow \\ \longrightarrow}}
+                    X \longrightarrow \mathbf{1}</m> 
+                Any spliting of <m>X</m> into <m>B_1 \times B_2</m>
+                would define three unique maps as follows.
+            </p>
+            <me>\mathbf{1} \rightarrow X \rightarrow B_1 \times B_2 \rightarrow B_1 \rightarrow \mathbf{1}</me>
+            <me>\mathbf{1} \rightarrow X \rightarrow B_1 \times B_2 \rightarrow B_2 \rightarrow \mathbf{1}</me>
+            <me>\mathbf{1} \rightarrow X \rightarrow B_1 \times B_2 \rightarrow \mathbf{1}</me>
+            <p>
+                The big difference between then and now is 
+                that here I'm splitting 
+                my space <m>X</m> into <m>A \times X</m>
+                instead of <m>B_1 \times B_2</m>.  The closest thing 
+                I have to "equality" is "isomorphism" and I get one of those
+                for free between any terminal objects. Maybe it might help 
+                me to think of the statement in the exercise as defining two isomorphisms:
+            </p>
+            <me>\mathbf{1} \longrightarrow  A \times A \times X \mathrel{\substack{\longrightarrow \\ \longrightarrow}} 
+                X \longrightarrow \mathbf{1}
+            </me>
+            <me>\mathbf{1} \longrightarrow X \mathrel{\substack{\longrightarrow \\ \longrightarrow}} X \longrightarrow \mathbf{1}</me>
+        
+            <p>
+                Since there must be an isomorphism between any pair of 
+                terminal objects, there must necessarily be an isomorphism 
+                <m>X \mathrel{\substack{\longrightarrow \\ \longleftarrow}} A \times A \times X</m>.
+                In fact, the very existence of an object 
+                <m>A \times A \times X
+                \mathrel{\substack{\longrightarrow \\ \longrightarrow}} 
+                X</m> implies an equation if I try
+                to enforce the associative law on those maps.
+                I can think of <m>A \times A \times X</m> as being
+                a map <m>A \times A \rightarrow A</m> followed by 
+                a map <m>A \times X \rightarrow X</m> or being
+                two evaluations of <m>A \times X \rightarrow X</m>. 
+                That essentially gives us an "equation"
+                <m>(A \times A) \times X = A \times (A \times X)</m>. 
+            </p>
+            <p>
+                The other way of expressing this equation is 
+                by way of the "preferred" maps <m>\xi,\alpha</m>.  
+                Given <m>A \times X \xrightarrow{\xi} X</m> 
+                and <m>A \times A \xrightarrow{\alpha} A</m>,
+                we can express the associative law above
+                as <m>\xi \alpha = \xi^2</m>.  At least 
+                that gives us something to work with.
+            </p>
+            <p>
+                As long as we have this preferred element 
+                <m>\mathbf{1} \xrightarrow{a_0} A</m> which
+                "acts as" <m>1_X</m>, it has a corresponding
+                map <m>\bar{a_0}</m> defined by the unique map
+                <m>X \longrightarrow \mathbf{1} \xrightarrow{a_0} A</m>. 
+                Our preferred action <m>\alpha</m> then
+                gives rise to an endomap on <m>X</m>:
+                <m> X \xrightarrow{\langle a_0,1_X \rangle} A \times X 
+                    \xrightarrow{\alpha} X</m>.
+                This seems like a perfect candidate to define as
+                the object
+                <m>X 
+                \mathrel{\substack{\longrightarrow \\ \longrightarrow}} 
+                X</m>. Better still, <m>\langle a_0,1_X \rangle</m> defines an easily constructable map
+                to <m>A \times A \times X</m> when applied twice!
+            </p>
+            <p>
+                Assuming that <m>X 
+                    \mathrel{\substack{\longrightarrow \\ \longrightarrow}} 
+                    X</m> is a uniquely defined pair of maps,
+                perhaps the pairing of this with 
+                <m>A \times A \times X 
+                    \mathrel{\substack{\longrightarrow \\ \longrightarrow}} 
+                    X</m> denotes that these maps are not "the same map", just 
+                    that there exists an isomorphism between them.  
+                Since associative property must apply to the latter, 
+                the compositions <m>\xi \alpha</m>
+                and <m>\xi^2</m> must ultimately be the same.
+            </p>
+        
+            <p>
+                A suppose we have a "point" 
+                <m>\mathbf{1} \xrightarrow{(a,b,x)} A \times A \times X</m>,
+                expressed by the triple <m>(a,b,x)</m>. 
+                With the first composition, we can apply
+                <m>A \times A \xrightarrow{\alpha} A</m> to get
+                <m>\alpha(a,b,x) = (\alpha(a,b),x)</m>, followed by
+                <m>A \times X \xrightarrow{\xi} X</m> to get
+                <m>\xi(\alpha(a,b),x)</m> or we can apply
+                <m>\xi</m> twice to get 
+                <m>\xi^2(a,b,c) = \xi(a,\xi(b,x))</m>.  
+                Knowing <m>\xi(\alpha(a,b),x) = \xi(a,\xi(b,x))</m>
+                is true for any choice of actions, it must be 
+                true for our preferred action <m>a_0</m>. 
+                Substituting <m>a = b = a_0</m> gives us
+                <m>\xi(a_0,\xi(a_0,x)) = \xi(a_0,x) = x</m>,
+                which establishes that it acts as an identity map.
+            </p>
+            <p>
+                I feel like there's a parallel between these maps
+                and role played by the functions
+                <c>(car L)</c> and <c>(cdr L)</c> in LISP. 
+                Given a list <c>L</c> of <c>'(a b x)</c>,
+                <c>car</c> returns the first element <c>a</c>
+                and <c>cdr</c> returns a list of the rest: <c>'(b,c)</c>. 
+                The operations played by <m>\xi</m> and <m>\alpha</m>
+                let us isolate arbitrary elements in a space
+                <m>A^n \times X</m>, just like how LISP would use
+                <c>(car (cdr L))</c> to access the second element 
+                <c>b</c>. 
+            </p>
+        </solution>
+    </example>
+    
+   
+
+</section>
