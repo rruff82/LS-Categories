@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Article 4: Universal Mapping Properties, Part 4</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="L&amp;S Cat Theory">
+<meta property="book:author" content="Ryan Ruff">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.33/pretext_search.js"></script><link href="https://pretextbook.org/css/0.83/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.33</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.33/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.33/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.33/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.83/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.83/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">L&amp;S Cat Theory:</span> <span class="subtitle">Attempted solutions to "Conceptual Mathematics" by Lawvere and Schanuel</span></a></h1>
+<p class="byline">Ryan Ruff</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="article4-p3.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="part4.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="about.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is this?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session1.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Session 1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part1.html" class="internal"><span class="codenumber">2</span> <span class="title">Part 1: The Category of Sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Article 1: Sets, maps, composition</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-session2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Session 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-session3.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Session 3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part2.html" class="internal"><span class="codenumber">3</span> <span class="title">Part 2: The Algebra of Composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Article 2: Isomorphisms, Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2-p2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Article 2: Isomorphisms, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2-p3.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Article 2: Isomorphisms, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session4.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Session 4: Division of maps: Isomorphisms</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session5.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Session 5: Division of maps: Sections and retractions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session6.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Session 6: Two general aspects or uses of maps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session7.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Session 7: Isomorphisms and coordinates</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session8.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Session 8: Pictures of a map</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session9.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Session 9: Retracts and idempotents</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quiz1.html" class="internal"><span class="codenumber">3.10</span> <span class="title">Quiz</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quiz2.html" class="internal"><span class="codenumber">3.11</span> <span class="title">Summary/Quiz on Opposed Maps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session10.html" class="internal"><span class="codenumber">3.12</span> <span class="title">Session 10: Brouwer’s theorems</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part3.html" class="internal"><span class="codenumber">4</span> <span class="title">Part 3: Categories of Structured Sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Article 3: Examples of Categories, Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Article 3: Examples of Categories, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p3.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Article 3: Examples of Categories, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p4.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Article 3: Examples of Categories, Part 4</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p5.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Article 3: Examples of Categories, Part 5</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session11.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Session 11: Ascending to categories of richer structures</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session12.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Session 12: Categories of Diagrams</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session13.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Session 13: Monoids</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session14.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Session 14: Maps preserve positive properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Session 15: Objectification of Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p2.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Session 15: Objectification of Properties, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p3.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Session 15: Objectification of Properties, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p4.html" class="internal"><span class="codenumber">4.13</span> <span class="title">Session 15: Objectification of Properties, Part 4</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p5.html" class="internal"><span class="codenumber">4.14</span> <span class="title">Session 15: Objectification of Properties, Part 5</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p6.html" class="internal"><span class="codenumber">4.15</span> <span class="title">Session 15: Objectification of Properties, Part 6</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p7.html" class="internal"><span class="codenumber">4.16</span> <span class="title">Session 15: Objectification of Properties, Part 7</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session16.html" class="internal"><span class="codenumber">4.17</span> <span class="title">Session 16: Idempotents, involutions, and graphs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session17.html" class="internal"><span class="codenumber">4.18</span> <span class="title">Session 17: Some uses of graphs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session18.html" class="internal"><span class="codenumber">4.19</span> <span class="title">Session 18: Review of Test 2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="part4.html" class="internal"><span class="codenumber">5</span> <span class="title">Part 4: Elementary Universal Mapping Properties</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article4.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Article 4: Universal Mapping Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article4-p2.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Article 4: Universal Mapping Properties, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article4-p3.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Article 4: Universal Mapping Properties, Part 3</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="article4-p4.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Article 4: Universal Mapping Properties, Part 4</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="article4-p4"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">5.4</span><span class="space"> </span><span class="title">Article 4: Universal Mapping Properties, Part 4</span>
+</h2>
+<div class="para" id="article4-p4-2">This week we pick up with defining products and start working towards establishing a generalized definition of binary operations. It reminds me of that "isomorphism zoo" in Session 4 and how we had to be very specifc about operations translate from the domain to codomain.</div>
+<details id="article4-p4-3" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 12:.</span>
+</h3></summary><article class="example example-like"><div class="para" id="article4-p4-3-2-1">If <span class="process-math">\(P,p_1,p_2\)</span> and also <span class="process-math">\(Q,q_1,q_2\)</span> are both products...</div>
+<div class="solutions"><details id="article4-p4-3-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="article4-p4-3-3-1">Let’s start by recapping the definition. The maps <span class="process-math">\(Q,q_1,q_2\)</span> are a <em class="emphasis">product</em> if and only if for each object <span class="process-math">\(X\)</span> and any pair of maps <span class="process-math">\(X \xrightarrow{f_1} B_1\)</span> and <span class="process-math">\(X \xrightarrow{f_2} B_2\)</span> there is exactly one map <span class="process-math">\(X \xrightarrow{f} Q\)</span> satisfying both <span class="process-math">\(f_1 = q_1 f\)</span> and <span class="process-math">\(f_2 = q_2 f\text{.}\)</span>
+</div> <div class="para" id="article4-p4-3-3-2">If that statement is true for every object <span class="process-math">\(X\text{,}\)</span> it must also be true for the object <span class="process-math">\(P\text{.}\)</span>  We know we have a pair of maps <span class="process-math">\(P \xrightarrow{p_1} B_1\)</span> and <span class="process-math">\(P \xrightarrow{p_2} B_2\text{,}\)</span> so there must be a unique map <span class="process-math">\(P \xrightarrow{f} Q\)</span> with <span class="process-math">\(p_1 = q_1 f\)</span> and <span class="process-math">\(p_2 = q_2 f\text{.}\)</span>
+</div> <div class="para" id="article4-p4-3-3-3">Likewise, the maps <span class="process-math">\(P,p_1,p_2\)</span> form a product. For any object <span class="process-math">\(X\)</span> with arbitrary maps <span class="process-math">\(X \xrightarrow{f_1} B_1\)</span> and <span class="process-math">\(X \xrightarrow{f_2} B_2\text{,}\)</span> we must have exactly one map <span class="process-math">\(X \xrightarrow{g} P\text{.}\)</span> If this is true for all objects, it must also be true for <span class="process-math">\(Q,q_1,q_2\text{.}\)</span>  It follows that there is a unique map <span class="process-math">\(Q \xrightarrow{g} P\)</span> with <span class="process-math">\(q_1 = p_1 g\)</span> and <span class="process-math">\(q_2 = p_2 g\text{.}\)</span>
+</div> <div class="para" id="article4-p4-3-3-4">Having established that the maps <span class="process-math">\(P \xrightarrow{f} Q\)</span> and <span class="process-math">\(Q \xrightarrow{g} P\)</span> exist and are both unique, we must also prove they are isomorphisms.  To do so we’ll need to establish <span class="process-math">\(g \circ f = 1_P\)</span> and <span class="process-math">\(f \circ g = 1_Q\text{.}\)</span>
+</div> <div class="para" id="article4-p4-3-3-5">If the maps <span class="process-math">\(f,g\)</span> are unique, then the compositions of maps <span class="process-math">\(Q \xrightarrow{f \circ g} Q\)</span> and <span class="process-math">\(P \xrightarrow{g \circ f} P\)</span> must also be unique.  Since we’re guaranteed to have an identity map for any given domain, it follows from uniqueness that <span class="process-math">\(f \circ g = 1_Q\)</span> and <span class="process-math">\(g \circ f = 1_P\text{.}\)</span> Thus, we’ve established that <span class="process-math">\(f,g\)</span> are inverses of each other and consequently isomorphisms.</div>
+</div></details></div></article></details><details id="article4-p4-4" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 13:.</span>
+</h3></summary><article class="example example-like"><div class="para" id="article4-p4-4-2-1">In a category <span class="process-math">\(\mathcal{C}\)</span> with products and a terminal object...</div>
+<div class="solutions"><details id="article4-p4-4-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="article4-p4-4-3-1">Let’s begin by summarizing what we know.</div> <div class="para" id="article4-p4-4-3-2">We know this category has a terminal object.  Let’s call it <span class="process-math">\(\mathbf{1}\text{.}\)</span>  For any object <span class="process-math">\(X\)</span> in our category <span class="process-math">\(\mathcal{C}\text{,}\)</span> there is exactly one <span class="process-math">\(\mathcal{C}\)</span>-map <span class="process-math">\(X \rightarrow \mathbf{1}\text{.}\)</span> Since this must also hold true for <span class="process-math">\(\mathbf{1}\text{,}\)</span> we can safely assume the existence of a unique map <span class="process-math">\(\mathbf{1} \xrightarrow{1_1} \mathbf{1}\text{.}\)</span>
+</div> <div class="para" id="article4-p4-4-3-3">We also know we have a product <span class="process-math">\(B_1 \times B_2\)</span> and projection maps <span class="process-math">\(p_1,p_2\text{.}\)</span> For any object <span class="process-math">\(X\)</span> in <span class="process-math">\(\mathcal{C}\text{,}\)</span> and any pair of maps <span class="process-math">\(X \xrightarrow{f_1} B_1\)</span> and <span class="process-math">\(X \xrightarrow{f_2} B_2\text{,}\)</span> there exists exactly one map <span class="process-math">\(X \xrightarrow{f} B_1 \times B_2\)</span> with the property that <span class="process-math">\(f_1 = p_1 f\)</span> and <span class="process-math">\(f_2 = p_2 f\text{.}\)</span>
+</div> <div class="para" id="article4-p4-4-3-4">Let’s combine these definitions by choosing <span class="process-math">\(X = \mathbf{1}\text{.}\)</span>  It follows that for any pair of points <span class="process-math">\(\mathbf{1} \xrightarrow{b_1} B_1\)</span> and <span class="process-math">\(\mathbf{1} \xrightarrow{b_2} B_2\text{,}\)</span> there is exactly one map <span class="process-math">\(\mathbf{1} \xrightarrow{g} B_1 \times B_2\)</span> with <span class="process-math">\(b_1 = p_1 g\)</span> and <span class="process-math">\(b_2 = p_2 g\text{.}\)</span>
+</div> <div class="para" id="article4-p4-4-3-5">Given that <span class="process-math">\(\mathbf{1}\)</span> is a terminal object, we can pair each of the maps <span class="process-math">\(b_1,b_2,g\)</span> with it’s respective dual: <span class="process-math">\(B_1 \xrightarrow{\bar{b_1}} \mathbf{1}\text{,}\)</span> <span class="process-math">\(B_2 \xrightarrow{\bar{b_2}} \mathbf{1}\text{,}\)</span> and <span class="process-math">\(B_1 \times B_2 \xrightarrow{\bar{g}} \mathbf{1}\text{.}\)</span>
+</div> <div class="para" id="article4-p4-4-3-6">Essentially, either <span class="process-math">\(f,\bar{g}\)</span> are the unique inverses such that <span class="process-math">\(\mathbf{1} \rightarrow X \xrightarrow{f} B_1 \times B_2 \xrightarrow{\bar{g}} \mathbf{1}\)</span> or we get two competing definitions of these three unqiue compositions:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{1} \rightarrow X \rightarrow B_1 \times B_2 \rightarrow B_1 \rightarrow \mathbf{1}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{1} \rightarrow X \rightarrow B_1 \times B_2 \rightarrow B_2 \rightarrow \mathbf{1}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{1} \rightarrow X \rightarrow B_1 \times B_2 \rightarrow \mathbf{1}
+\end{equation*}
+</div>
+</div></details></div></article></details><details id="article4-p4-5" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 14:.</span>
+</h3></summary><article class="example example-like"><div class="para" id="article4-p4-5-2-1">Define composition of maps...</div>
+<div class="solutions"><details id="article4-p4-5-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="article4-p4-5-3-1">Our category <span class="process-math">\(\mathcal{S}^A\)</span> has as <em class="emphasis">objects</em> a set <span class="process-math">\(X\)</span> together with any action <span class="process-math">\(A \times X \xrightarrow{\xi} X\)</span> of <span class="process-math">\(A\text{.}\)</span> Our <em class="emphasis">maps</em> from <span class="process-math">\(X,\xi\)</span> to <span class="process-math">\(Y,\eta\)</span> are <span class="process-math">\(\mathcal{S}\)</span>-maps <span class="process-math">\(X \xrightarrow{f} Y\)</span> which "respect actions of <span class="process-math">\(A\)</span>" such that <span class="process-math">\(f(\xi(a,x)) =\eta(a,f(x))\)</span> for all <span class="process-math">\(a \in A,x \in X\text{.}\)</span>
+</div> <div class="para" id="article4-p4-5-3-2">So lets attempt to define <em class="emphasis">composition</em>.  We’ll need a pair of <span class="process-math">\(\mathcal{S}^A\)</span>-maps.  Let’s call them <span class="process-math">\(\langle X,\xi \rangle \xrightarrow{f} \langle Y,\eta \rangle\)</span> and <span class="process-math">\(\langle Y,\eta \rangle \xrightarrow{g} \langle Z,\zeta \rangle\text{.}\)</span> The action respecting nature of these maps means that for all <span class="process-math">\(a \in A,x \in X\)</span> we have <span class="process-math">\(f(\xi(a,x)) =\eta(a,f(x))\)</span> preserved by the first map and <span class="process-math">\(g(\eta(a,x)) =\zeta(a,g(x))\)</span> preserved by the second map.</div> <div class="para" id="article4-p4-5-3-3">Let’s define the composition <span class="process-math">\(\langle X,\xi \rangle \xrightarrow{g \circ f}  \langle Z,\zeta \rangle\)</span> as the composition of respective <span class="process-math">\(\mathcal{S}\)</span>-maps <span class="process-math">\(X \xrightarrow{g \circ f} Z\text{.}\)</span>  We’ll need to show that it respect actions in our category, namely that  <span class="process-math">\((g \circ f)(\xi(a,x)) = \zeta(a,(g \circ f)(x))\)</span> for all <span class="process-math">\(a,x\text{.}\)</span>
+</div> <div class="para" id="article4-p4-5-3-4">Let’s start with <span class="process-math">\((g \circ f)(\xi(a,x))\text{.}\)</span> We can regroup the terms to form <span class="process-math">\(g(f(\xi(a,x)))\text{.}\)</span> Since <span class="process-math">\(f(\xi(a,x)) = \eta(a,f(x))\text{,}\)</span> we can substitute to get <span class="process-math">\(g(\eta(a,f(x)))\text{.}\)</span>  Since we also know <span class="process-math">\(g(\eta(a,x)) =\zeta(a,g(x))\text{,}\)</span> that means that <span class="process-math">\(g(\eta(a,f(x))) = \zeta(a,g(f(x))) = \zeta(a,(g \circ f)(x))\text{.}\)</span> This establishes that <span class="process-math">\(g \circ f\)</span> is a valid <span class="process-math">\(\mathcal{S}^A\)</span>-map.</div> <div class="para" id="article4-p4-5-3-5">As a category, each domain must have an <em class="emphasis">identity map</em>. Each set/action pair <span class="process-math">\(X,\xi\)</span> must have some map <span class="process-math">\(\langle X,\xi \rangle \xrightarrow{1_{X,\xi}} \langle X,\xi \rangle\)</span> such that <span class="process-math">\(1_{X,\xi}(\xi(a,x)) =\xi(a,1_{X, \xi}(x))\)</span> for all <span class="process-math">\(a,x\text{.}\)</span> I think we get this from the "product" of identity maps <span class="process-math">\(1_{X,\xi} = 1_A \times 1_X = 1_{A \times X}\text{.}\)</span> This lets us rewrite the identity above as <span class="process-math">\((1_A \times 1_X)(\xi(a,x)) = \xi(1_A(a),1_X(x))= \xi(a,x)\text{.}\)</span>
+</div> <div class="para" id="article4-p4-5-3-6">For any <span class="process-math">\(\mathcal{S}^A\)</span>-map <span class="process-math">\(\langle X,\xi \rangle \xrightarrow{f} \langle Y,\eta \rangle\text{,}\)</span> we know <span class="process-math">\(f(\xi(a,x)) =\eta(a,f(x))\)</span> for all <span class="process-math">\(a,x\text{.}\)</span> This should continue to hold true if we choose <span class="process-math">\(f = 1_X, Y = X, \xi = 1_{A \times X}  \text{.}\)</span> Thus, for all <span class="process-math">\(a,x\)</span> we can assert <span class="process-math">\(1_X(1_{A \times X} (a,x))=1_{A \times X} (a,1_X(x)) = 1_{A \times X} (a,x) = (a,x)\text{.}\)</span>
+</div> <div class="para" id="article4-p4-5-3-7">What about our <em class="emphasis">associative property</em>?  I think we kind of inherit this from the properties of <span class="process-math">\(\mathcal{S}\text{.}\)</span> Since our <span class="process-math">\(\mathcal{S}^A\)</span>-maps come from <span class="process-math">\(\mathcal{S}\)</span>-maps, they must uphold <span class="process-math">\((h \circ g) \circ f = h \circ (g \circ f)\)</span> independently of the additional retrictions placed on them as members of <span class="process-math">\(\mathcal{S}^A\text{.}\)</span> We’ve already established that actions are respected by composition, so both sides necessisarily produce <span class="process-math">\(\mathcal{S}^A\)</span>-maps.</div>
+</div></details></div></article></details><details id="article4-p4-6" class="example example-like born-hidden-knowl"><summary><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.4</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 15:.</span>
+</h3></summary><article class="example example-like"><div class="para" id="article4-p4-6-2-1">Exprese these equations...</div>
+<div class="solutions"><details id="article4-p4-6-3" class="solution solution-like born-hidden-knowl"><summary><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like">
+<div class="para" id="article4-p4-6-3-1">Okay, I was under the impression that "equations" implied the presence of "an equals sign".  I’m not even sure how to interpret this:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A \times A \times X \mathrel{\substack{\longrightarrow \\ \longrightarrow}} 
+X, X \mathrel{\substack{\longrightarrow \\ \longrightarrow}} X
+\end{equation*}
+</div>
+<div class="para" id="article4-p4-6-3-3">The preceeding text discusses a "preferred binary operation" <span class="process-math">\(A \times A \xrightarrow{\alpha} A\)</span> and a "point" <span class="process-math">\(\mathbf{1} \xrightarrow{a_0} A\text{.}\)</span>  The action <span class="process-math">\(\alpha\)</span> corresponds to map composition and <span class="process-math">\(a_0\)</span> acts as the identity map <span class="process-math">\(1_X\text{.}\)</span> It would be described by <span class="process-math">\(\xi\)</span> through the equations: <span class="process-math">\(\forall a,b,x: \xi(\alpha(a,b),x) = \xi(a,\xi(b,x)) \)</span> and <span class="process-math">\(\forall x: \xi(a_0,x) = x\text{.}\)</span>
+</div> <div class="para" id="article4-p4-6-3-4">This sounds a lot like how in Session 15 I was using an invertable "zig zag" map <span class="process-math">\(\mathbb{N} \mathrel{\substack{\longrightarrow \\ \longleftarrow}} \mathbb{N} \times \mathbb{N}\)</span> to iterate through all the possible steps of all the possible generators. In fact, I’d say these so called "equations" here look very similar to the equation for our generator <span class="process-math">\(d \in X^{\circlearrowright \alpha}\)</span> which corresponded to an equation <span class="process-math">\(\alpha^2 d = d\)</span> in our presentation.</div> <div class="para" id="article4-p4-6-3-5">When I was trying to verify my work in Python, I decided on using a tuple to represent the relations.  The equation <span class="process-math">\(\alpha^2 d = d\)</span> became represented by a generator and iteration pair <code class="code-inline tex2jax_ignore">(('d',2),('d',0))</code>. Maybe that’s what I’m looking at here. Some action <span class="process-math">\(A\)</span> is applied twice to <span class="process-math">\(X\)</span> and the result is isomorphic to the sitation where the action isn’t applied at all.</div> <div class="para" id="article4-p4-6-3-6">Maybe it might be helpful for me to think of those double arrows as projection maps from Exercise 13.  I could potentially think of <span class="process-math">\(\mathbf{1} \longrightarrow X
+\mathrel{\substack{\longrightarrow \\ \longrightarrow}} X
+\longrightarrow \mathbf{1}\)</span> as a short hand for <span class="process-math">\(\mathbf{1} \longrightarrow X
+\mathrel{\substack{\longrightarrow \\ \longrightarrow}}
+B_1 \times B_2 \mathrel{\substack{\longrightarrow \\ \longrightarrow}}
+X \longrightarrow \mathbf{1}\)</span> Any spliting of <span class="process-math">\(X\)</span> into <span class="process-math">\(B_1 \times B_2\)</span> would define three unique maps as follows.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{1} \rightarrow X \rightarrow B_1 \times B_2 \rightarrow B_1 \rightarrow \mathbf{1}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{1} \rightarrow X \rightarrow B_1 \times B_2 \rightarrow B_2 \rightarrow \mathbf{1}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{1} \rightarrow X \rightarrow B_1 \times B_2 \rightarrow \mathbf{1}
+\end{equation*}
+</div>
+<div class="para" id="article4-p4-6-3-10">The big difference between then and now is that here I’m splitting my space <span class="process-math">\(X\)</span> into <span class="process-math">\(A \times X\)</span> instead of <span class="process-math">\(B_1 \times B_2\text{.}\)</span>  The closest thing I have to "equality" is "isomorphism" and I get one of those for free between any terminal objects. Maybe it might help me to think of the statement in the exercise as defining two isomorphisms:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{1} \longrightarrow  A \times A \times X \mathrel{\substack{\longrightarrow \\ \longrightarrow}} 
+X \longrightarrow \mathbf{1}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{1} \longrightarrow X \mathrel{\substack{\longrightarrow \\ \longrightarrow}} X \longrightarrow \mathbf{1}
+\end{equation*}
+</div>
+<div class="para" id="article4-p4-6-3-13">Since there must be an isomorphism between any pair of terminal objects, there must necessarily be an isomorphism <span class="process-math">\(X \mathrel{\substack{\longrightarrow \\ \longleftarrow}} A \times A \times X\text{.}\)</span> In fact, the very existence of an object <span class="process-math">\(A \times A \times X
+\mathrel{\substack{\longrightarrow \\ \longrightarrow}} 
+X\)</span> implies an equation if I try to enforce the associative law on those maps. I can think of <span class="process-math">\(A \times A \times X\)</span> as being a map <span class="process-math">\(A \times A \rightarrow A\)</span> followed by a map <span class="process-math">\(A \times X \rightarrow X\)</span> or being two evaluations of <span class="process-math">\(A \times X \rightarrow X\text{.}\)</span> That essentially gives us an "equation" <span class="process-math">\((A \times A) \times X = A \times (A \times X)\text{.}\)</span>
+</div> <div class="para" id="article4-p4-6-3-14">The other way of expressing this equation is by way of the "preferred" maps <span class="process-math">\(\xi,\alpha\text{.}\)</span> Given <span class="process-math">\(A \times X \xrightarrow{\xi} X\)</span> and <span class="process-math">\(A \times A \xrightarrow{\alpha} A\text{,}\)</span> we can express the associative law above as <span class="process-math">\(\xi \alpha = \xi^2\text{.}\)</span>  At least that gives us something to work with.</div> <div class="para" id="article4-p4-6-3-15">As long as we have this preferred element <span class="process-math">\(\mathbf{1} \xrightarrow{a_0} A\)</span> which "acts as" <span class="process-math">\(1_X\text{,}\)</span> it has a corresponding map <span class="process-math">\(\bar{a_0}\)</span> defined by the unique map <span class="process-math">\(X \longrightarrow \mathbf{1} \xrightarrow{a_0} A\text{.}\)</span> Our preferred action <span class="process-math">\(\alpha\)</span> then gives rise to an endomap on <span class="process-math">\(X\text{:}\)</span> <span class="process-math">\(X \xrightarrow{\langle a_0,1_X \rangle} A \times X 
+\xrightarrow{\alpha} X\text{.}\)</span> This seems like a perfect candidate to define as the object <span class="process-math">\(X 
+\mathrel{\substack{\longrightarrow \\ \longrightarrow}} 
+X\text{.}\)</span> Better still, <span class="process-math">\(\langle a_0,1_X \rangle\)</span> defines an easily constructable map to <span class="process-math">\(A \times A \times X\)</span> when applied twice!</div> <div class="para" id="article4-p4-6-3-16">Assuming that <span class="process-math">\(X 
+\mathrel{\substack{\longrightarrow \\ \longrightarrow}} 
+X\)</span> is a uniquely defined pair of maps, perhaps the pairing of this with <span class="process-math">\(A \times A \times X 
+\mathrel{\substack{\longrightarrow \\ \longrightarrow}} 
+X\)</span> denotes that these maps are not "the same map", just that there exists an isomorphism between them. Since associative property must apply to the latter, the compositions <span class="process-math">\(\xi \alpha\)</span> and <span class="process-math">\(\xi^2\)</span> must ultimately be the same.</div> <div class="para" id="article4-p4-6-3-17">A suppose we have a "point" <span class="process-math">\(\mathbf{1} \xrightarrow{(a,b,x)} A \times A \times X\text{,}\)</span> expressed by the triple <span class="process-math">\((a,b,x)\text{.}\)</span> With the first composition, we can apply <span class="process-math">\(A \times A \xrightarrow{\alpha} A\)</span> to get <span class="process-math">\(\alpha(a,b,x) = (\alpha(a,b),x)\text{,}\)</span> followed by <span class="process-math">\(A \times X \xrightarrow{\xi} X\)</span> to get <span class="process-math">\(\xi(\alpha(a,b),x)\)</span> or we can apply <span class="process-math">\(\xi\)</span> twice to get <span class="process-math">\(\xi^2(a,b,c) = \xi(a,\xi(b,x))\text{.}\)</span> Knowing <span class="process-math">\(\xi(\alpha(a,b),x) = \xi(a,\xi(b,x))\)</span> is true for any choice of actions, it must be true for our preferred action <span class="process-math">\(a_0\text{.}\)</span> Substituting <span class="process-math">\(a = b = a_0\)</span> gives us <span class="process-math">\(\xi(a_0,\xi(a_0,x)) = \xi(a_0,x) = x\text{,}\)</span> which establishes that it acts as an identity map.</div> <div class="para" id="article4-p4-6-3-18">I feel like there’s a parallel between these maps and role played by the functions <code class="code-inline tex2jax_ignore">(car L)</code> and <code class="code-inline tex2jax_ignore">(cdr L)</code> in LISP. Given a list <code class="code-inline tex2jax_ignore">L</code> of <code class="code-inline tex2jax_ignore">'(a b x)</code>, <code class="code-inline tex2jax_ignore">car</code> returns the first element <code class="code-inline tex2jax_ignore">a</code> and <code class="code-inline tex2jax_ignore">cdr</code> returns a list of the rest: <code class="code-inline tex2jax_ignore">'(b,c)</code>. The operations played by <span class="process-math">\(\xi\)</span> and <span class="process-math">\(\alpha\)</span> let us isolate arbitrary elements in a space <span class="process-math">\(A^n \times X\text{,}\)</span> just like how LISP would use <code class="code-inline tex2jax_ignore">(car (cdr L))</code> to access the second element <code class="code-inline tex2jax_ignore">b</code>.</div>
+</div></details></div></article></details></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="article4-p3.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
