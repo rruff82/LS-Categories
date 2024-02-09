@@ -105,7 +105,7 @@
       <xi:include href="ch4/art4-p2.ptx" />
       <xi:include href="ch4/art4-p3.ptx" />
       <xi:include href="ch4/art4-p4.ptx" />
-      
+      <xi:include href="ch4/art4-p5.ptx" />
     </chapter>
 
     <backmatter xml:id="backmatter">

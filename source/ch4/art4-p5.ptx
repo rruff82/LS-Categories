@@ -1,0 +1,491 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="article4-p5">
+    <title>Article 4: Universal Mapping Properties, Part 5</title>
+    <p>
+        This week the authors introduce some notation for "families".  
+        I take some strange comfort in the fact that the set of indices
+        is allowed to be empty.  
+    </p>
+    <example>
+        <title>Exercise 16:</title>
+        <statement>
+            <p>
+                Show that... has the appropriate universal mapping property...      
+            </p>
+        </statement>
+        <solution>
+            <p>
+                So let's sketch out what we're looking at.
+            </p>
+            <figure xml:id="fig-article4-ex16-1">
+                <caption>Problem statement for Article 4 Exercise 16</caption>
+                <image xml:id="img-article4-ex16-1" width="90%">
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \node (P) at (0,5) {$P$};
+                            \node (PA) at (1.5,6) {$C_a$};
+                            \node (PB) at (1.5,4) {$C_b$};
+        
+                            \node (PT) at (-1,6) {product};
+        
+                            \node (Q) at (4,5) {$Q$};
+                            \node (QA) at (5.5,6) {$P$};
+                            \node (QB) at (5.5,4) {$C_c$};
+                            
+                            \node (QT) at (3,6) {and product};
+        
+                            \node (X) at (2,1) {$Q$};
+                            \node (XA) at (3.5,2) {$C_a$};
+                            \node (XB) at (3.5,1) {$C_b$};
+                            \node (XC) at (3.5,0) {$C_c$};
+                            
+         
+                            \node (XT) at (-1,2) {implies triple product};
+        
+        
+                            \path[-{stealth}]
+                                (P) edge node[above] {$p_a$} (PA)
+                                (P) edge node[below] {$p_b$} (PB)
+                                (Q) edge node[above] {$q$} (QA)
+                                (Q) edge node[below] {$q_ca$} (QB)
+                                (X) edge node[above] {$p_a q$} (XA)
+                                (X) edge node[above] {$p_b q$} (XB)
+                                (X) edge node[below] {$q_c$} (XC)
+                                ;
+                    
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                In order to do so, we need to establish it has the
+                "universal mapping property" with all:
+            </p>
+            <figure xml:id="fig-article4-ex16-2">
+                <caption>Universal maps for Article 4 Exercise 16</caption>
+                <image xml:id="img-article4-ex16-2" width="40%">
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \node (X) at (2,1) {$X$};
+                            \node (XA) at (3.5,2) {$C_a$};
+                            \node (XB) at (3.5,1) {$C_b$};
+                            \node (XC) at (3.5,0) {$C_c$};
+                            
+        
+                            \path[-{stealth}]
+                                (X) edge node[above] {$f_a$} (XA)
+                                (X) edge node[above] {$f_b$} (XB)
+                                (X) edge node[below] {$f_c$} (XC)
+                                ;
+                    
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                The "universal mapping property" essentially says
+                we have 3 unique isomorphisms for the terminal 
+                object <m>\mathbf{1}</m>:
+            </p>
+            <me>\mathbf{1} \rightarrow X \xrightarrow{f_a} C_a \rightarrow \mathbf{1}</me>
+            <me>\mathbf{1} \rightarrow X \xrightarrow{f_b} C_b \rightarrow \mathbf{1}</me>
+            <me>\mathbf{1} \rightarrow X \xrightarrow{f_a} C_c \rightarrow \mathbf{1}</me>
+            <p>
+                For convenience, let's steal the multi-arrow notation 
+                from the previous exercise and denote it simply as 
+                <m>X  \mathrel{\substack{\longrightarrow \\ \longrightarrow 
+                    \\ \longrightarrow}} C_a \times C_b \times C_c</m>.
+                By the definition of our products, we can also name
+                two other unique isomorphisms in this manner:
+        
+            </p>
+            <me>\mathbf{1} \rightarrow P
+                \mathrel{\substack{p_a \\ \longrightarrow \\ \longrightarrow \\ p_b}}
+                C_a \times C_b \rightarrow \mathbf{1}</me>
+            <me>\mathbf{1} \rightarrow  Q
+                 \mathrel{\substack{q \\ \longrightarrow \\ \longrightarrow \\ q_c}}
+                 P \times C_c \rightarrow \mathbf{1}</me>
+            <p>
+                I think this is similar to what we did with Exercise 15.
+                Our universal mapping property says that we have a
+                unique map <m>f = \langle f_a, f_b, f_c \rangle</m>
+                satsifying <m>X
+                \mathrel{\substack{\longrightarrow \\ \longrightarrow \\ \longrightarrow}}
+                C_a \times C_b \times C_c</m>.  
+               
+                Our products define unique maps <m>X \rightarrow P</m> 
+                and <m>X \rightarrow Q</m>, which allow us to form
+                two unique compositions:
+            </p>
+            <me>\mathbf{1} 
+                \rightarrow X \rightarrow P \mathrel{\substack{\longrightarrow
+                 \\ \longrightarrow }} C_a \times C_b \rightarrow \mathbf{1}</me>
+            <me>\mathbf{1} 
+                \rightarrow X \rightarrow Q \mathrel{\substack{\longrightarrow
+                    \\ \longrightarrow }} P \times C_c \rightarrow \mathbf{1}  </me>
+                    
+            <p>
+                We can chain these maps together to get a unique map
+                <m>Q \rightarrow P</m>:
+            </p>
+            <me>Q \mathrel{\substack{\longrightarrow
+                \\ \longrightarrow }} P \times C_c \rightarrow \mathbf{1} 
+            \rightarrow P</me>
+            <p>
+                Or a unqiue map <m>P \rightarrow Q</m>:
+            </p>
+            <me>P \mathrel{\substack{\longrightarrow
+                \\ \longrightarrow }} C_a \times C_b \rightarrow \mathbf{1} 
+            \rightarrow Q </me>
+            <p>
+                This is what we'd expect based on our "Uniqueness 
+                of Products" theore.  It states that 
+                if the maps <m>P \rightarrow C_i</m> and 
+                <m>Q \rightarrow C_i</m> both make products of the
+                same family, then there is exactly one map
+                <m>P \xrightarrow{f} Q</m> for which 
+                <m>q_i f = p_i \forall i \in I</m>
+                and that this map <m>f</m> is an isomorphism. Since our 
+                <m>I = \{a,b,c\}</m>, this gives us three equations
+                <m>q_a f = p_a</m>, <m>q_b f = p_b</m>, <m>q_c f = p_c</m>. 
+            </p>
+            <p>
+                Well, we already have a uniquely defined map
+                <m>Q \rightarrow P</m> given by <m>q</m> so we could
+                only possibly have <m>f = q^{-1}</m>.  It follows
+                that <m>q f = 1_P</m> and <m>f q = 1_Q</m>. Apply <m>q</m> 
+                on the right of the three equations above to get:     
+            </p>
+                <me>q_a f q = q_a 1_Q = q_a = p_a q</me>
+                <me>q_b f q = q_b 1_Q = q_b = p_b q</me>
+                <me>q_c f q = q_c 1_Q = q_c = p_c q = q_c f q = q_c</me>
+            <p>
+                This map <m>p_c</m> seems to come from nowhere, but is
+                simultaneously well defined by applying the composition 
+                <m>q_c q^{-1}</m>. 
+            </p>
+            <p>
+                Putting this all together now, any triple-product
+                <m>\langle f_a, f_b, f_c \rangle: X  \mathrel{\substack{\longrightarrow \\ \longrightarrow 
+                    \\ \longrightarrow}} C_a \times C_b \times C_c</m> uniquely
+                determines a triple-product <m>\langle p_a q, p_b q, q_c \rangle:
+                    Q \mathrel{\substack{\longrightarrow \\ \longrightarrow 
+                    \\ \longrightarrow}} C_a \times C_b \times C_c</m> via 
+                the isomorphisms given by:
+                    </p>
+            <me>
+                \mathbf{1} \rightarrow X \mathrel{\substack{\longrightarrow \\ \longrightarrow 
+                    \\ \longrightarrow}} C_a \times C_b \times C_c
+                \mathrel{\substack{\longrightarrow \\ \longrightarrow}}
+                (C_a \times C_b) \times C_c
+                \mathrel{\substack{\longrightarrow \\ \longrightarrow}}
+                P \times C_c \rightarrow \mathbf{1} 
+            </me>
+               <p> and </p>
+            <me>\mathbf{1} \rightarrow Q \mathrel{\substack{\longrightarrow \\ \longrightarrow 
+                    \\ \longrightarrow}} C_a \times C_b \times C_c \rightarrow \mathbf{1} 
+            </me>
+        
+            
+            <p>
+                As one last step, let's see if we can draw a more complete
+                diagram of the situation.
+            </p>
+            <figure xml:id="fig-article4-ex16-3">
+                <caption>Problem statement for Article 4 Exercise 16</caption>
+                <image xml:id="img-article4-ex16-3" width="90%">
+                    <latex-image>
+                        \begin{tikzpicture}
+        
+                            \node (X) at (1,4) {$X$};
+                            \node (P) at (6,6) {$P$};
+                            \node (Q) at (6,2) {$Q$};
+        
+                            \node (CA) at (4,6) {$C_a$};
+                            \node (CB) at (4,4) {$C_b$};
+                            \node (CC) at (4,2) {$C_c$};
+        
+        
+        
+                            \path[-{stealth}]
+                                (P) edge node[above] {$p_a$} (CA)
+                                (P) edge node[below] {$p_b$} (CB)
+                                (Q) edge node[right] {$q$} (P)
+                                (Q) edge node[below] {$q_c$} (CC)
+        
+                                (X) edge node[above] {$f_P$} (P)
+                                (X) edge node[above] {$f_Q$} (Q)
+        
+                                (X) edge node[above left] {$f_a$} (CA)
+                                (X) edge node[above] {$f_b$} (CB)
+                                (X) edge node[below left] {$f_c$} (CC)
+                                ;
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>              
+            <p>
+                The "Uniqueness of Products" essentially states that
+                we have 3 unique maps defined by the map equivalencies
+                <m>f_a = p_a f_P = p_a q f_Q</m>,
+                <m>f_b = p_b f_P = p_b q f_Q</m>,
+                and <m>f_c = q_c f_Q</m>.
+            </p>
+            <p>
+                This still feels a little more "hand-wavy" than I'd like,
+                but it makes sense that when the maps are uniquely defined
+                by the domain and codomain that there would be precisely
+                one way to compose them such that
+                <m>\mathbf{1} \rightarrow X  \mathrel{\substack{\longrightarrow \\ \longrightarrow 
+                    \\ \longrightarrow}} C_a \times C_b \times C_c 
+                    \mathrel{\substack{\longrightarrow 
+                        \\ \longrightarrow}} P \times C_c \rightarrow \mathbf{1}
+                    </m>.
+            </p>
+        </solution>
+    </example>
+    
+    <example>
+        <title>Exercise 17:</title>
+        <statement>
+            <p>
+                In <m>\mathcal{S}</m>, 
+                <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>,
+                and <m>\mathcal{S}^{\circlearrowright}</m>...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                First let's review the definition of <em>sum</em>. 
+                A pair of maps <m>B_1 \xrightarrow{j_1} S</m> and
+                <m>B_2 \xrightarrow{j_2} S</m> makes a sum
+                <m>S = B_1 + B_2</m> if for each object <m>Y</m> and 
+                each pair <m>B_1 \xrightarrow{g_1} Y, B_2 \xrightarrow{g_2} Y</m>,
+                there is exactly one map <m>S \xrightarrow{g} Y</m> for 
+                which both <m>g_1 = g j_1</m> and <m>g_2 = g j_2</m>.
+            </p>
+            <p>
+        
+                If the definition of sum holds for every object <m>Y</m>,
+                and we know we have a "point" 
+                <m>\mathbf{1} \rightarrow S \rightarrow \mathbf{1}</m>,
+                we should be able to choose <m>Y = \mathbf{1}</m> as our object.   
+                This means that we have for each pair of maps 
+                <m>B_1 \xrightarrow{g_1} \mathbf{1}</m> and 
+                <m>B_2 \xrightarrow{g_2} \mathbf{1}</m> exactly 
+                one map <m>S \xrightarrow{g} \mathbf{1}</m>
+                satisfying <m>g_1 = g j_1</m> and <m>g_2 = g j_2</m>.
+            </p>
+            <p>
+                It must continue to hold if we substitute <m>Y = S</m>
+                as well.  For any pair of maps 
+                <m>B_1 \xrightarrow{h_1} S, B_2 \xrightarrow{h_2} S</m>,
+                we must have exactly one map <m>S \xrightarrow{h} S</m>
+                such that <m>h_1 = h j_1</m> and <m>h_2 = h j_2</m>.  
+        
+                If that's true, then why not choose <m>j_1,j_2</m>    
+                as our arbitrary pair of maps?  It follows 
+                that for <m>B_1 \xrightarrow{j_1} S, B_2 \xrightarrow{j_2} S</m>,
+                there should be exactly one map <m>S \xrightarrow{j} S</m> 
+                with <m>j_1 = j j_1</m> and <m>j_2 = j j_2</m>. 
+            </p>
+            <p>
+                Two maps are only equal when they produce the 
+                same output for every possible input, so this means
+                for every map <m>\mathbf{1} \xrightarrow{b_1} B_1</m> 
+                we have <m>j_1 b_1 = j j_1 b_1</m> and for every
+                map <m>\mathbf{1} \xrightarrow{b_2} B_2</m> we have
+                <m>j_2 b_2 = j j_2 b_2</m>. Consider an arbitrary point 
+                <m>\mathbf{1} \xrightarrow{s} S</m>.  If this <m>S</m>
+                "comes from" <m>B_1</m>, there exists 
+                <m>\mathbf{1} \xrightarrow{b_1} B_1</m> such that 
+                <m>s = j_1 b_1</m>.  Apply <m>j</m> on the left to 
+                get <m>j s = j j_1 b_1 = j_1 b_1 = s</m>. If this <m>S</m>
+                "comes from" <m>B_2</m>, there exists 
+                <m>\mathbf{1} \xrightarrow{b_2} B_2</m> such that 
+                <m>s = j_2 b_2</m>. Apply <m>j</m> on the left to 
+                get <m>j s = j j_2 b_2 = j_2 b_2 = s</m>.  We find 
+                that every point coming from either <m>B_1</m> or 
+                <m>B_2</m> is "fixed" by <m>j</m>.
+            </p>
+            <p>
+                Suppose we have some special point <m>s_2</m> 
+                that "comes from both <m>B_1,B_2</m>". This point 
+                <m>\mathbf{1} \xrightarrow{s_2} S \xrightarrow{\bar{s_2}} \mathbf{1}</m>
+                would need to satisfy <m>s_2 = j_1 b_1 = j_2 b_2</m>
+                for some <m>\mathbf{1} \xrightarrow{b_1} B_1</m> and 
+                <m>\mathbf{1} \xrightarrow{b_2} B_2</m>. Applying 
+                <m>j</m> on the left of all three parts of that equation 
+                gives us <m>j s_2 = j j_1 b_1 = j_1 b_1 = s_2</m> 
+                and <m>j s_2 = j j_2 b_2 = j_2 b_2 = s_2</m>. 
+                Since these are points, we have a corresponding pair of maps
+                <m>B_1 \xrightarrow{\bar{b_1}} \mathbf{1}</m> and 
+                <m>B_2 \xrightarrow{\bar{b_2}} \mathbf{1}</m>.  By our
+                definition of sum, there should be exactly one map
+                <m>S \xrightarrow{\bar{b}} \mathbf{1}</m> with 
+                <m>\bar{b} = \bar{b_1} j_1</m> and 
+                <m>\bar{b} = \bar{b_2} j_2</m> but here
+                we have two unique maps given by the compositions
+                <m>S \xrightarrow{\bar{s_2}} \mathbf{1} \xrightarrow{b_1} B_1 
+                    \xrightarrow{j_1} S</m>  and 
+                <m>S \xrightarrow{\bar{s_2}} \mathbf{1} \xrightarrow{b_2} B_2 
+                    \xrightarrow{j_2} S</m>. 
+                This contradiction means points in <m>S</m> must come from
+                at most one of <m>B_1</m> and <m>B_2</m>.
+            </p>
+            <p>
+                Now suppose we have some special point 
+                <m>\mathbf{1} \xrightarrow{s_0} S \xrightarrow{\bar{s_0}} \mathbf{1}</m> which comes from
+                neither <m>B_1</m> nor <m>B_2</m>.  There would exist
+                no <m>\mathbf{1} \xrightarrow{b_1} B_1</m> such
+                that <m>j_1 s_0 = b_1</m> and no 
+                <m>\mathbf{1} \xrightarrow{b_2} B_2</m> such that
+                <m>j_2 s_0 = b_2</m>.  We can apply our point's
+                dual <m>\bar{s_0}</m> on the right of both sides 
+                to say those equations are equivalent to 
+                map <m>j_1 s_0 \bar{s_0} = j_1 1_S = j_1 = b_1 \bar{s_0}</m> 
+                and <m>j_2 s_0 \bar{s_0} = j_2 1_S = j_2 = b_2 \bar{s_0}</m>. 
+                However, if we substitute <m>j_1 = b_1 \bar{s_0}</m>
+                and <m>j_2 = b_2 \bar{s_0}</m> into our ealier equations
+                we see <m>j_1 s_0 = b_1 \bar{s_0} s_0 = b_1 1_\mathbf{1} = b_1</m>
+                and <m>j_2 s_0 = b_2 \bar{s_0} s_0 = b_2 1_\mathbf{1} = b_2</m>. 
+                This contradicts our choice of <m>s_0</m> and implies that 
+                all points in <m>S</m> must come from at least one
+                of <m>B_1</m> or <m>B_2</m>.
+            </p>
+            <p>
+                Having established each "point"
+                <m>\mathbf{1} \xrightarrow{s} S</m> comes from 
+                "at most one point" in <m>B_1,B_2</m> and "at least one 
+                point" in <m>B_1,B_2</m>, I think it's 
+                safe to say that each <m>s</m> comes from
+                "exactly one of" <m>B_1,B_2</m>.
+            </p>
+        
+            <p> 
+                I think this is where we get to behavior that 
+                splits between different categories.  When we're
+                in <m>S</m>, each point "points to" itself.  
+                When we move to <m>S^{\circlearrowright}</m>
+                each "point" <m>\mathbf{1} \xrightarrow{x} X^{\circlearrowright \alpha}</m>
+                is a "fixed point" of the dynamical 
+                system such that <m>\alpha x = x</m>.
+                When we move to further out to the category of
+                <m>S^{\downarrow_\bullet^\bullet \downarrow}</m> 
+                our "points" become the "loops" of a graph instead. 
+            </p>
+            <p> 
+                In the case of <m>S</m>-maps, I'm thinking that 
+                our map defined as 
+                <m>S \xrightarrow{j} S</m> above could really 
+                only possibly be the identity map <m>1_S</m>.
+                In the case of <m>S^{\circlearrowright}</m>-maps,
+                we already saw that <m>j</m> preserves 
+                the behavior of fixed points since <m>j j_i = j_i</m>. 
+                It stands to reason that in a space 
+                <m>S^{\downarrow_\bullet^\bullet \downarrow}</m> we would have 
+                <m>s' j = j s</m> and <m>t' j = j t</m>. As long as
+                each <m>j_i</m> preserves this structure also,
+                such that <m>s j_i = j_i s_i</m> and <m>t j_i = j_i t_i</m>, 
+                it would follow that <m>s' j j_i = j s j_i = j j_i s_i</m> and 
+                <m>t' j j_i = j t j_i = j j_i t_i</m>. 
+            </p>
+            <p>
+                I feel like this must have a simplier explanation that I'm 
+                overlooking.  Maybe I should be using this notion
+                of <em>initial objects</em> somehow.  We defined 
+                an object <m>S</m> "initial" if for every
+                object <m>X</m> of <m>\mathcal{C}</m> there exists 
+                exactly one <m>\mathcal{C}</m>-map 
+                <m>\mathbf{0} \rightarrow X</m>.  In particular,
+                there should be precisely one map 
+                <m>\mathbf{0} \rightarrow \mathbf{1}</m>.  Maybe 
+                precomposing our sum with some of these unique
+                maps might give me more to work with.
+            </p>
+            <figure xml:id="fig-article4-ex17-3">
+                <caption>Expanded definition of sum</caption>
+                <image xml:id="img-article4-ex17-3" width="90%">
+                    <latex-image>
+                        \begin{tikzpicture}
+        
+                            \node (X0) at (1,4) {$\mathbf{0}$};
+                            \node (X1) at (3,4) {$\mathbf{1}$};
+                            \node (B1) at (5,6) {$B_1$};
+                            \node (B2) at (5,2) {$B_2$};
+                            \node (S) at (7,4) {$S$};
+                            \node (Y) at (9,4) {$Y$};
+        
+        
+        
+                            \path[-{stealth}]
+                                (X0) edge (X1)
+        
+        
+                                (B1) edge[bend left] node[above] {$g_1$} (Y)
+                                (B2) edge[bend right] node[below] {$g_2$} (Y)
+                                
+                                (S) edge node[above] {$g$} (Y)
+                                (B1) edge node[below] {$j_1$} (S)
+                                (B2) edge node[above] {$j_2$} (S)
+                                (Y) edge[bend left] (X1)
+                                ;
+                            \path[{stealth}-{stealth}]
+                            (X1) edge node[above] {$b_1$} (B1)
+                            (X1) edge node[below] {$b_2$} (B2)
+                            (X1) edge node[above] {$s$} (S);
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>  
+            <p>
+                I'm picturing my sum <m>S</m> as a set that contains 
+                at least two unique elements: <m>j_1 b_1</m> and 
+                <m>j_2 b_2</m>.  We defined a unique composition
+                by the "path"
+                <m>\mathbf{1} \xrightarrow{s} S \xrightarrow{g} 
+                    Y \rightarrow \mathbf{1}</m>,
+                but our retractions to <m>\mathbf{1}</m> allow us
+                to "factor" through <m>\mathbf{1}</m> after we get
+                to <m>S</m> because we have a unique pair of maps
+                <m>S \rightarrow \mathbf{1} \rightarrow S = 1_S</m>.  
+                The existence of a equivalent map that doubles back
+                 without changing   
+                <m>\mathbf{1} \xrightarrow{s} 
+                    S \rightarrow \mathbf{1} \rightarrow S 
+                    \xrightarrow{g} Y \rightarrow \mathbf{1}</m>,
+                allows use to assert the uniqueness of two 
+                other maps: 
+                
+            </p>
+            <me>\mathbf{1} \xrightarrow{b_1} B_1 \xrightarrow{j_1} 
+                S \rightarrow \mathbf{1} \rightarrow B_1 
+                \xrightarrow{g_1} Y \rightarrow \mathbf{1}</me>
+            <me>\mathbf{1} \xrightarrow{b_2} B_2 \xrightarrow{j_2} 
+                    S \rightarrow \mathbf{1} \rightarrow B_2 
+                    \xrightarrow{g_2} Y \rightarrow \mathbf{1}</me>
+            <p>
+               I can imagine these as maps which 
+               goes through the points of <m>S</m> and 
+               labeling each of them as coming from 
+               <m>B_1</m> or <m>B_2</m>. Furthermore,
+               I can imagine <m>B_1</m> and <m>B_2</m>
+               behaving like "dots" and "arrows" in 
+               <m>\mathcal{S}^{\circlearrowright}</m>,
+               effectively alternating between <m>j_1</m> 
+               and <m>j_2</m> as we follow the endomap.  
+            </p>
+        </solution>
+    </example>
+   
+    <p>
+        I think I'm going to stop here and let some of this
+        sink in.  I feel like I was supposed to use this 
+        notion of "families" somehow but didn't.  It might
+        have something to do with my feud over the bookkeeping
+        rules and "maps to nothing" from way back in Article 1.
+    </p>
+   
+
+</section>
