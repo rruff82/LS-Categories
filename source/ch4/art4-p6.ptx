@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="article4-p6">
+    <title>Article 4: Universal Mapping Properties, Part 6</title>
+    <p>
+        After thinking about it some more, I'm wondering 
+        if exercise 19 might get into the "dual" notion
+        of "a sum family".   The best course of action is
+        for now is probably just to pick up right where 
+        I left off.
+    </p>
+    <example>
+        <title>Exercise 18:</title>
+        <statement>
+            <p>
+                In <m>\mathcal{S}</m>, there are many...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                The authors discussed this notion of 
+                factoriong in the context of products before.
+                Specifically, they considered an example of a system 
+                changing over time:
+            </p>
+            <me>
+                \frac{T \rightarrow B_1 \times B_2}
+                {T \rightarrow B_1, T \rightarrow B_2}
+            </me>
+            <p>
+                This notation was meant to convey the 
+                existence of a unique isomorphism between
+                the product and pairs of factors.
+            </p>
+            <p>
+                The "dual" notion of factoring for sums would
+                probably look like
+            <me>
+                \frac{T \rightarrow B_1 + B_2}
+                {T \rightarrow B_1, T \rightarrow B_2}
+            </me>
+                but what actually follows from the definition
+                of sum is something to the effect of
+            <me>
+                \frac{B_1 + B_2 \xrightarrow{j} Y}
+                {B_1 \xrightarrow{j_1} Y, B_2 \xrightarrow{j_2} Y}
+            </me>
+            </p>
+            <p>
+                So what happens if we have an arbitrary
+                map <m>X \xrightarrow{f} \mathbf{1}+\mathbf{1}</m>?
+                Maybe we can substitute <m>B_1 = B_2 = \mathbf{1}</m>
+                into our definition.  Doing so says that any pair of 
+                maps <m>\mathbf{1} \xrightarrow{j_1} \mathbf{1}+\mathbf{1}</m>
+                and <m>\mathbf{1} \xrightarrow{j_2} \mathbf{1}+\mathbf{1}</m> would 
+                imply that for any <m>Y</m> and pair of maps 
+                <m>\mathbf{1} \xrightarrow{g_1} Y,\mathbf{1} \xrightarrow{g_2} Y</m>,
+                we will have exactly one map 
+                <m>\mathbf{1}+\mathbf{1} \xrightarrow{g} Y</m>
+                with the property that <m>g_1 = g j_1</m> and <m>g_2 = g j_2</m>.
+            </p>
+            <p>
+                If that's true for all <m>Y</m>, why not try assigning
+                <m>Y = \mathbf{1} + \mathbf{1}</m>? The existence of 
+                a unique map defined by 
+                <m>\mathbf{1} + \mathbf{1} \rightarrow \mathbf{1} + \mathbf{1}</m>
+                would need to be the identity map so we can conclude
+                <m>g = 1_{\mathbf{1} + \mathbf{1}}</m>.  It follows 
+                that we'd need to have <m>g_1 = j_1</m> and <m>g_2 = j_2</m>.
+            </p>
+            <p>
+                So we start with some points <m>x</m> in <m>X</m> 
+                which are each isomorphic to
+                <m>\mathbf{1}</m>
+                <me> \mathbf{1} \xrightarrow{x} X \xrightarrow{\bar{x}} \mathbf{1}</me>
+                By mapping each <m>x</m> with <m>y = f x</m>, the corresponding
+                <m>\bar{y}</m> should uniquely satisfy
+                <me>\mathbf{1} \xrightarrow{x} X \xrightarrow{f} 
+                    \mathbf{1} + \mathbf{1} \xrightarrow{\bar{y}} \mathbf{1}</me>
+                but we actually have two such maps given by
+                <me>\mathbf{1} \xrightarrow{x} X \xrightarrow{f} 
+                    \mathbf{1} + \mathbf{1} \xrightarrow{\bar{j_1}} \mathbf{1}</me>
+               and 
+               <me>\mathbf{1} \xrightarrow{x} X \xrightarrow{f} 
+                \mathbf{1} + \mathbf{1} \xrightarrow{\bar{j_2}} \mathbf{1}</me>
+            </p>
+            <p>
+                That said, I'm still struggling to come up with a 
+                concrete example which meets this criteria.  Maybe 
+                that statement that <m>X \neq \mathbf{0},\mathbf{1}</m>
+                is supposed to be a hint. If we have a unique map 
+                <m>\mathbf{0} \rightarrow \mathbf{1}</m>
+                and a unique 
+                map <m>\mathbf{1} \rightarrow \mathbf{1}+\mathbf{1}</m>
+                the resulting composition <m>\mathbf{0} \rightarrow \mathbf{1}+\mathbf{1}</m>
+                should be unique as well.  However, while there should be 
+                a unique inverse <m>\mathbf{1} + \mathbf{1} \rightarrow \mathbf{1}</m>,
+                there can't exist a inverse satisfying <m>\mathbf{1} + \mathbf{1} \rightarrow \mathbf{0}</m>
+                because we need someplace for the map to send the points to.
+            </p>
+        </solution>
+    </example>
+    <p>
+        Given that I'm kind of stuck here, maybe it would be productive
+        to revisit Exercise 17 with some of these new ideas.
+    </p>
+    <example>
+        <title>Execise 17 (part 2):</title>
+        <statement>
+            <p>
+                Continued from <xref ref="article4-p5"/>...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Looking back over my notes, I'm wondering if 
+                I need to establish <m>B_1+B_2</m> in terms of an
+                and <em>action</em> <m>A+X \rightarrow X</m>
+                <em>binary operation</em> <m>A+A \rightarrow A</m>. 
+            </p>
+            <p>
+                The "initial object" <m>\mathbf{0}</m> and 
+                "terminal object" <m>\mathbf{1}</m> each have
+                exactly one endomap.  We have a "null map"
+                <m>\mathbf{0} \rightarrow \mathbf{0}</m> and
+                identity map <m>\mathbf{1} \rightarrow \mathbf{1}</m>.
+                In <m>\mathcal{S}</m>, we can think of <m>\mathbf{0}</m>
+                as the empty set <m>\emptyset = \{\}</m> which 
+                has the nice property that for any set <m>X</m> the
+                union <m>\emptyset \cup X</m> is identical to
+                the original set <m>X</m>. This means that 
+                for any <m>X</m> there is
+                precisely one map <m>\mathbf{0}+X \rightarrow X</m>
+                and that is the identity map <m>1_X</m>.  If that's
+                true for all objects, it should also hold true for the 
+                terminal object providing us with a unique map
+                <m>\mathbf{0}+\mathbf{1} \rightarrow \mathbf{1}</m>.
+            </p>
+            <p>
+                Let's choose <m>B_1 = \mathbf{0}</m> and <m>B_2 = \mathbf{1}</m>
+                in the definition of a sum <m>S = B_1+B_2</m>. For a
+                pair of "injection maps"
+                <m>\mathbf{0} \xrightarrow{j_1} \mathbf{0}+\mathbf{1}</m>
+                and 
+                <m>\mathbf{1} \xrightarrow{j_2} \mathbf{0}+\mathbf{1}</m>
+                to be a sum, we need to know that for each object <m>Y</m> and pair 
+                of maps <m>\mathbf{0} \xrightarrow{g_1} Y</m>
+                and <m>\mathbf{1} \xrightarrow{g_2} Y</m> there is exactly 
+                one map <m>\mathbf{0}+\mathbf{1} \xrightarrow{g} Y</m>
+                with <m>g_1 = g j_1</m> and <m>g_2 = g j_2</m>.
+                Our map <m>j_1</m> must uniquely satisfy 
+                <m>
+                    \mathbf{0} \xrightarrow{j_1} \mathbf{0}+\mathbf{1} \xrightarrow{g} Y
+                </m> and <m>j_2</m> must uniquely satisfy
+                <m>
+                    \mathbf{0} \rightarrow \mathbf{1} \xrightarrow{j_2} \mathbf{0}+\mathbf{1} \xrightarrow{g} Y
+                </m>.
+                
+                Since we effectively have <m>\mathbf{0}+\mathbf{1} = \mathbf{1}</m>,
+                we're basically naming two distinct maps depending on
+                whether or not the composition passes through <m>\mathbf{1}</m>.
+                Maybe this will be better illustrated with a diagram.
+            </p>
+            <figure xml:id="fig-article4-ex17-1">
+                <caption>Maps defined by sums of initial and terminal objects</caption>
+                
+                <image width="80%" xml:id="img-article4-ex17-1">
+                <latex-image>
+                    \begin{tikzpicture}
+        
+                        \node (X0) at (0,2) {$B_1= \mathbf{0}$};
+                        \node (X1) at (0,0) {$B_2= \mathbf{1}$};
+        
+        
+                        \node (S) at (2.5,1) {$S = B_1+B_2$};
+                        \node (Y) at (5,1) {$Y$};
+                        \node (Y1) at (7,1) {$\mathbf{1}$};
+                        
+        
+                        \path[-{stealth}]
+                            (X0) edge node[above] {$j_1$} (S)
+                            (X0) edge (X1)
+                            (X1) edge node[below] {$j_2$} (S)
+        
+                            (S) edge node[above] {$g$} (Y)
+                            (X0) edge[bend left] node[above] {$g_1$} (Y)
+                            (X1) edge[bend right] node[above] {$g_2$} (Y)
+        
+                            (Y) edge node[above] {$\bar{y}$} (Y1)
+                            (Y1) edge[bend left] node[below] {$1_\mathbf{1}$} (X1)
+                            ;
+                    \end{tikzpicture}
+                </latex-image>
+                    
+                </image>
+            </figure>
+            <p>
+                My hunch is that this allows us a method for counting things
+                in an arbitrary category.  We should have the properties
+                that <m>\mathbf{0} + \mathbf{0} = \mathbf{0}</m>, 
+                <m>\mathbf{0} + \mathbf{1} = \mathbf{1}</m>, and
+                <m>\mathbf{1} + \mathbf{0} = \mathbf{1}</m>, since for
+                any set <m>X</m> we have <m>\emptyset \cup X = X \cup \emptyset = X</m>.
+                In fact, we can make the stronger statement that 
+                <m>\mathbf{0}+X = X = X+\mathbf{0}</m> for all <m>X</m>.
+                It seems like the obvious question to consider next
+                is what <m>\mathbf{1} + \mathbf{1}</m> works out to be.
+                I'm seeing some similarity here with Peano's axioms,
+                so I wonder if there's a way to construct some kind of
+                successor function here.  If I can define 
+                <m>\mathbf{1} + \mathbf{1} = \mathbf{2}</m> here, that
+                gives me a method for constructing the natural numbers
+                <m>\mathbb{N}</m>. There must some kind of a set isomorphic to
+                <m>\mathbf{2}</m> because I already have a set of two unique 
+                maps <m>j_1,j_2</m>.
+            </p>
+            <p>
+                Once I have this binary operation
+                <m>\mathbb{N}+\mathbb{N} \xrightarrow{\alpha} \mathbb{N}</m>
+                corresponding to the usual definition of addition, how
+                could I define an action <m>\mathbb{N}+X \rightarrow X</m>?
+                I think I can do this by counting the loops through
+                <m>\mathbf{1}</m> in the diagram above.  We have a sequence
+                <m>\mathbf{0} \xrightarrow{j_1} \mathbf{0}+\mathbf{1} 
+                    \xrightarrow{g} Y</m>, which means <m>g j_1</m> must be equal to the unique 
+                    map <m>\mathbf{0} \xrightarrow{g_1} Y</m>.  We can 
+                    also use <m>j_2</m> to build an endomap on <m>Y</m> by
+                    following the sequence of maps 
+                    <m>Y \xrightarrow{\bar{y}} \mathbf{1}
+                    \xrightarrow{j_2} \mathbf{0}+\mathbf{1} 
+                    \xrightarrow{g} Y</m>.  It follows that <m>j_2 = e j_1</m>
+                since both sides must be isomorphic to a unique map 
+                <m>\mathbf{1} \xrightarrow{g_2} Y</m>.  This should let
+                us define our action <m>\mathbb{N}+X \xrightarrow{\alpha} X</m>
+                such that for <m>n \in \mathbf{N}</m> and <m>x \in X</m>
+                we'd have <m>\alpha(n,x) = e^n x</m>.
+            </p>
+        </solution>
+    </example>
+
+    <p>
+        Okay, I feel like I'm starting to talk myself in circles again
+        so I'll take that as a sign that I need to spend some more time 
+        on this later.
+    </p>
+
+
+</section>
