@@ -1,0 +1,307 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="article4-p7">
+    <title>Article 4: Universal Mapping Properties, Part 7</title>
+    <p>
+        I think reformulating Exercise 17 using actions last week
+        was productive and I have some new ideas for Exercise 18 
+        that I want to explore.
+    </p>
+    <example>
+        <title>Exercise 18 (part 2):</title>
+        <statement>
+            <p>
+                Continued from <xref ref="article4-p6"/>...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                I've been thinking a lot about the "family tree"
+                problem from <xref ref="session12"/> and am
+                wondering if combining two different "binaries"
+                might give me what I'm looking for here.  Consider 
+                the set <m>\mathbf{G} \times \mathbf{C}</m> we defined
+                in Session 12 Exercise 3:
+            </p>
+            <figure xml:id="fig-article4-ex18-GxC">
+                <caption>
+                    Endomaps <m>m</m> and <m>f</m> on <m>\mathbf{G} \times \mathbf{C}</m>
+                    as seen in solution to Session 12 Exercise 3
+                </caption>
+                <image width="75%" xml:id="img-article4-ex18-GxC">
+                    <latex-image>
+                        \begin{tikzpicture}
+                        \node (EQ) at (-2,0) {$\mathbf{G} \times \mathbf{C}=$};
+                        \node (HW) at (1,1) {he-wolf};
+                        \node (HB) at (3,1) {he-bear};
+        
+                        \node (SW) at (1,-1) {she-wolf};
+                        \node (SB) at (3,-1) {she-bear};
+        
+                        \node[red] (MT) at (2,-1.25) {$m$};
+                        \node[blue] (FT) at (2,.4) {$f$};
+        
+                        \draw (2,0) circle (2.5cm);
+        
+                        \path[-{Stealth},font=\scriptsize,>=angle 90]
+                            (HW) edge[red] (SW)
+                            (HW) edge[blue,bend right] (HB)
+                            (SW) edge[red,->,>={Stealth},loop,out=250, in=290,looseness=8] (SW)
+                            (SW) edge[blue] (HB)
+                            (HB) edge[red] (SB)
+                            (HB) edge[blue,bend right] (HW)
+                            (SB) edge[red,->,>={Stealth},loop,out=250, in=290,looseness=8] (SB)
+                            (SB) edge[blue] (HW)
+                        ;
+        
+                            
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                What if we choose some map 
+        
+                <m>\mathbf{P} \rightarrow \{\text{he-bear},\text{she-bear}\}</m>
+                as our sum <m>X \rightarrow \mathbf{1}+\mathbf{1}</m>?
+            </p>
+            <p>
+                We have a unique pair of injection maps
+                <m>\{\text{he-bear}\} \xrightarrow{j_1} \{\text{he-bear},\text{she-bear}\}</m>
+                and 
+                <m>\{\text{she-bear}\} \xrightarrow{j_2} \{\text{he-bear},\text{she-bear}\}</m>
+                
+                defined by <m>j_1 ( \text{he-bear} )= \text{he-bear}</m>
+                and <m>j_2 ( \text{she-bear} ) = \text{she-bear}</m>. 
+                For any object <m>Y</m> and maps 
+                <m>\{\text{he-bear}\} \xrightarrow{g_1} Y,
+                   \{\text{she-bear}\} \xrightarrow{g_2} Y
+                </m>, our definition of a sum
+                says there should be exactly one map
+                <m>\{\text{he-bear},\text{she-bear}\} \xrightarrow{g} Y</m>
+                for which <m>g_1 = g j_1</m> and  <m>g_2 = g j_2</m>. 
+            </p>
+            <p>
+                Let's take <m>Y</m> to be our product 
+                <m>\mathbf{G} \times \mathbf{C}</m>.  As a product,
+                we should have a unique set of three maps:
+            </p>
+            <me>
+                \mathbf{1} \rightarrow \mathbf{P} \rightarrow \mathbf{G} \rightarrow \mathbf{1}
+            </me>
+            <me>
+                \mathbf{1} \rightarrow \mathbf{P} \rightarrow \mathbf{C} \rightarrow \mathbf{1}
+            </me>
+            <me>
+                \mathbf{1} \rightarrow \mathbf{P}  \mathrel{\substack{\longrightarrow \\ \longrightarrow}} \mathbf{G} \times \mathbf{C} \rightarrow \mathbf{1}
+            </me>
+            <p>
+                By defining <m>X</m> by a sum, we also force another
+                set of three unique maps: 
+            </p>
+            <me>
+                \mathbf{0} \rightarrow \{\text{he-bear}\} \rightarrow \{\text{he-bear},\text{she-bear}\} \rightarrow \mathbf{G} \times \mathbf{C} \rightarrow \mathbf{1}
+            </me>
+            <me>
+                \mathbf{0} \rightarrow \{\text{she-bear}\} \rightarrow \{\text{he-bear},\text{she-bear}\} \rightarrow \mathbf{G} \times \mathbf{C} \rightarrow \mathbf{1}
+            </me>
+            <me>
+                \mathbf{0} \rightarrow \{\text{he-bear},\text{she-bear}\} \mathrel{\substack{\longrightarrow \\ \longrightarrow}} \mathbf{G} \times \mathbf{C} \rightarrow \mathbf{1}
+            </me>
+            <p>
+                For any person in <m>P</m>, consider the compositions 
+                <m>P \xrightarrow{f} P \xrightarrow{m} P \xrightarrow{f} P</m>
+                and <m>P \xrightarrow{m} P \xrightarrow{f} P \xrightarrow{m} P</m>. 
+            </p>
+            <p>
+               First, consider a person <m>p_1 \rightarrow \text{he-bear}</m>.
+               In the first composition, we'd have <m>f p_1 \rightarrow \text{he-wolf}</m>, <m>m f p_1 = \text{she-wolf}</m>
+               and <m>f m f p_1 \rightarrow  \text{he-bear}</m>. In the second composition,
+               we'd have <m>m p_1 \rightarrow  \text{she-wolf}</m>,
+               <m>f m p_2 \rightarrow   \text{he-bear}</m>, and 
+               <m>m f m p_2 \rightarrow   \text{{she-bear}}</m>.
+            </p>
+            <p>
+                Next, consider another person <m>p_2 \rightarrow \text{she-bear}</m>.
+                In the first composition, we'd have <m>f p_1 = \text{he-wolf}</m>, <m>m f p_1 = \text{she-wolf}</m>
+                and <m>f m f p_1 = \text{he-bear}</m>. In the second composition,
+                we'd have <m>m p_1 = \text{she-wolf}</m>,
+                <m>f m p_2 = \text{he-bear}</m>, and 
+                <m>m f m p_2 = \text{{she-bear}}</m>.
+             </p>
+             <p>
+                This gives us an isomorphism between the set of labels 
+                <m>\{\text{he-bear},\text{she-bear}\}</m> and the compositions 
+                which fix those respective points <m>\{f m f,m f m\}</m>.  Since our
+                definition of product requires the maps   
+                <m>\{\text{he-bear},\text{she-bear}\} \rightarrow \{\text{he-bear}\}</m>
+                and 
+                <m>\{\text{he-bear},\text{she-bear}\} \rightarrow \{\text{she-bear}\}</m>
+                to be unique, we'd be unable to use these factor to <m>X</m> completely
+                because we'd be excluding all of the people in the wolf clan
+                that get "stepped over" through the composition.
+             </p>
+             <p>
+                This doesn't feel like a very rigorous solution, but I
+                think as close I'm going to get for now.  Let's keep moving 
+                forward.
+             </p>
+        </solution>
+    </example>
+    <example>
+        <title>Exercise 19:</title>
+        <statement>
+            <p> 
+                Show that in a category with sums...
+             </p>
+        </statement>
+        <solution>
+            <p>
+                Okay, I see four different sums we're going to need:
+                <m>A+B</m>, <m>B+C</m>, <m>(A+B)+C</m> and <m>A+(B+C)</m>.
+                We'll start with the easy sums first.
+             </p>
+             <p>
+                For <m>A+B</m> with maps <m>A\rightarrow A+B, B\rightarrow A+B</m> to be a sum, each <m>Y</m> and pair of maps 
+                <m>A \rightarrow Y</m> and <m>B \rightarrow Y</m> 
+                should have exactly one map 
+                <m>A+B \rightarrow Y</m> such that
+                <m>A \rightarrow A+B \rightarrow Y = A \rightarrow Y</m>
+                and <m>B \rightarrow A+B \rightarrow Y = B \rightarrow Y</m>.
+             </p>
+        
+             <p>
+                For <m>B+C</m> with maps <m>B\rightarrow B+C, C\rightarrow B+C</m> to be a sum, each <m>Y</m> and pair of maps 
+                <m>B \rightarrow Y</m> and <m>C \rightarrow Y</m> 
+                should have exactly one map 
+                <m>B+C \rightarrow Y</m> such that
+                <m>B \rightarrow B+C \rightarrow Y = B \rightarrow Y</m>
+                and <m>C \rightarrow B+C \rightarrow Y = C \rightarrow Y</m>.
+             </p>
+             <p>
+                Now let's start composing our sums.
+             </p>
+             <p>
+                For <m>(A+B)+C</m> with maps <m>A+B\rightarrow (A+B)+C, C\rightarrow (A+B)+C</m>
+                 to be a sum,  each <m>Y</m> and pair of maps 
+                <m>A+B \rightarrow Y</m> and <m>C \rightarrow Y</m> 
+                should have exactly one map 
+                <m>(A+B)+C \rightarrow Y</m> such that
+                <m>A+B \rightarrow (A+B)+C \rightarrow Y = A + B \rightarrow Y</m>
+                and <m>C \rightarrow (A+B)+C \rightarrow Y = C \rightarrow Y</m>.
+             </p>
+             <p>
+                For <m>A+(B+C)</m> with maps <m>A \rightarrow A+(B+C), B+C\rightarrow A+(B+C)</m>
+                 to be a sum, each <m>Y</m> and pair of maps 
+                <m>A \rightarrow Y</m> and <m>B+C \rightarrow Y</m> 
+                should have exactly one map 
+                <m>A+(B+C) \rightarrow Y</m> such that
+                <m>A \rightarrow A+(B+C)\rightarrow Y = A \rightarrow Y</m>
+                and <m>B+C \rightarrow A+(B+C) \rightarrow Y = B+C \rightarrow Y</m>.
+             </p>
+        
+             <p>
+                Maybe here we can define a "triple sum" <m>A+B+C</m>
+                as a "family" by a unique set of 3 maps 
+                <m>A \xrightarrow{j_1} A+B+C</m>, <m>B \xrightarrow{j_2} A+B+C</m>, 
+                and <m>C \xrightarrow{j_3} A+B+C</m>.  These should have the property
+                that for any object <m>Y</m> and maps 
+                <m>A \xrightarrow{g_1} Y,B \xrightarrow{g_2} Y, C \xrightarrow{g_3} Y</m>,
+                we have exactly one map <m>A+B+C \xrightarrow{g} Y</m> with
+                <m>g_1 = g j_1</m>, <m>g_2 = g j_2</m>, and <m>g_3 = g j_3</m>.   
+             </p>
+             <p>
+                If we choose <m>Y = (A+B)+C</m>, the set of the
+                3 unique maps <m>A \xrightarrow{k_1} (A+B)+C</m>, 
+                <m>B \xrightarrow{k_2} (A+B)+C</m>, and 
+                <m>C \xrightarrow{k_3} (A+B)+C</m> should have some 
+                corresponding unique map 
+                <m>A+B+C \xrightarrow{k} (A+B)+C</m> with the property
+                that <m>k_1 = k g_1</m>, <m>k_2 = k g_2</m>, <m>i_3 = k g_3</m>.  
+             </p>
+             <p>
+                Likewise, choosing <m>Y = A+(B+C)</m> gives us unique
+                maps <m>A \xrightarrow{l_1} A+(B+C)</m>, 
+                <m>B \xrightarrow{l_2} A+(B+C)</m>, and 
+                <m>C \xrightarrow{l_3} A+(B+C)</m> corresponding 
+                to the unique map <m>A+B+C \xrightarrow{k} A+(B+C)</m>
+                satisfying <m>l_1 = l g_1</m>, <m>l_2 = l g_2</m>, <m>l_3 = l g_3</m>.
+             </p>
+             <p>
+                It seems like it would make sense to build an
+                isomorphism by pairing up each 
+                <m>j_i</m> with the respective <m>k_i,l_i</m> pair 
+                for <m>i \in I = \{1,2,3\}</m>. 
+                That's at least starting to resemble a dual
+                definition for to the "product family".  
+                Perhaps we can define a "sum family" as follows:
+             </p>
+             <definition xml:id="def-art4-ex18-sum-family">
+                <statement>
+                    <p>
+                        A sum family is a object <m>S</m> together with 
+                        maps <m>C_i \xrightarrow{s_i} S</m> (one for each <m>i</m>),
+                        having the universal property:
+                    </p>
+                    <p>
+                        Given any object <m>Y</m> and any maps 
+                        <m>C_i \xrightarrow{g_i} Y</m>, there is
+                        exactly one map <m>S \xrightarrow{g} Y</m> 
+                        such that all the triangles below commute,
+                        i.e. such that <m>g s_i = g_i</m> for each 
+                        <m>i</m> in <m>I</m>.
+                    </p>
+                    <figure xml:id="fig-article4-ex18-2">
+                        <title>Commutitive diagram of sum</title>
+                        <image width="40%" xml:id="img-article4-ex18-2">
+                        <latex-image>
+                            \begin{tikzpicture}
+                                \node (Ci) at (0,0) {$C_i$};
+                                \node (S) at (1,1.6) {$S$};
+                                \node (Y) at (2,0) {$Y$};
+                                \path[-{stealth}] 
+                                    (Ci) edge node[left] {$s_i$} (S)
+                                    (S) edge node[right] {$g$} (Y)
+                                    (Ci) edge node[below] {$g_i$} (Y)
+                                    ;
+        
+                            \end{tikzpicture}
+                        </latex-image>
+                            
+                        </image>
+                    </figure>
+                </statement>
+             </definition>
+             <p>
+                This is basically the situation I presently 
+                have with the subsitution <m>C_i = \{A,B,C\}</m>.
+                Maybe I can think of my "triple sum" as the following 
+                collection of 4 unique maps:
+        
+             <me>\mathbf{0} \xrightarrow{s_0} A+B+C \xrightarrow{j} Y \xrightarrow{\bar{s}} \mathbf{1}</me>
+             <me>\mathbf{0} \xrightarrow{a} A \xrightarrow{j_1} A+B+C \rightarrow Y \xrightarrow{\bar{a}} \mathbf{1}</me>
+             <me>\mathbf{0} \xrightarrow{b} B \xrightarrow{j_2} A+B+C \rightarrow Y \xrightarrow{\bar{b}} \mathbf{1}</me>
+             <me>\mathbf{0} \xrightarrow{c} C \xrightarrow{j_3} A+B+C \rightarrow Y \xrightarrow{\bar{c}} \mathbf{1}</me>
+        
+                and identify another unique pair of maps to use as 
+                my grouping operations as acting on the "left" or "right":
+             <me>\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{s} A+B+C \xrightarrow{\lambda} (A+B)+C \xrightarrow{\bar{\lambda}} \mathbf{1}</me>
+             <me>\mathbf{0} \rightarrow \mathbf{1} \xrightarrow{s} A+B+C \xrightarrow{\rho} A+(B+C) \xrightarrow{\bar{\rho}} \mathbf{1}</me>
+                maybe that will give me a 
+                method of forming the isomorphism I'm looking for:
+             <me>
+                (A+B)+C \xrightarrow{\bar{\lambda}} \mathbf{1} \xrightarrow{s} A+B+C \xrightarrow{\rho} A+(B+C) 
+             </me>
+             <me>
+                A+(B+C) \xrightarrow{\bar{\rho}} \mathbf{1} \xrightarrow{s} A+B+C \xrightarrow{\lambda} (A+B)+C
+            </me>  
+             </p>
+        </solution>
+    </example>
+     <p>
+        I'm not totally confident in this quite yet, but prior 
+        experiences suggest that the subsequent Sessions will help
+        clear things up. 
+     </p>
+    
+</section>
