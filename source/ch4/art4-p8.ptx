@@ -1,0 +1,601 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="article4-p8">
+    <title>Article 4: Universal Mapping Properties, Part 8</title>
+    <p>
+        There's only two exercises left, but I've never felt
+        more confused by the distributive property so we'll
+        see how far I get.
+    </p>
+    <example>
+      <title>Exercise 20:</title>
+      <statement>
+        <p>
+          The category <m>\mathbf{1}/\mathcal{S}</m> of pointed sets...
+
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We defined this category back in Exercise 9, to have
+          as <em>objects</em> maps <m>\mathbf{1} \xrightarrow{x} X</m>
+          in <m>\mathcal{S}</m>, and as <em>maps</em> tbe maps 
+          <m>X \xrightarrow{f} Y</m> in <m>\mathcal{S}</m> from
+          <m>\mathbf{1}  \xrightarrow{x_0} X</m> to 
+          <m>\mathbf{1}  \xrightarrow{y_0} Y</m> in 
+          <m>\mathcal{S}</m> satisfying <m>f x_0 = y_0</m>.
+          We showed that under these condiditions
+          <q>any terminal object is also inital</q>
+          and that <m>X</m> itself is not inital.
+      </p>
+      <p>
+          Our hint was to <q>determine the nature of sums 
+          within the category</q>, so lets do that next.
+          The best analogy I have for sum here is the 
+          <em>disjoint union of sets</em>.  Let's consider
+          the breakfast ordering scenario from way 
+          back in Article 1.  Suppose John, Mary, and Sam
+          are at a dinner that only serves a single choice
+          of either coffee or eggs.
+      </p>
+      <figure xml:id="fig-article4-ex20-1">
+          <caption>"Fantasy Diner" map from Article 1</caption>
+          <image width="80%" xml:id="img-article4-ex20-1"> 
+          <latex-image>
+  \begin{tikzpicture}[scale=1]
+  
+  \node (J) at (0,2) {John};
+  \node (M) at (0,1) {Mary};
+  \node (S) at (0,0) {Sam};
+  
+  \draw (0,1) circle [x radius=1.5, y radius=3];
+  
+  \node (C) at (5,0.33) {coffee};
+  \node (E) at (5,1.67) {eggs};
+  \draw (5,1) circle [x radius=1.5, y radius=3];
+  
+  \path[-{Stealth},font=\scriptsize,>=angle 90] 
+      (J) edge (E)
+      (M) edge (E)
+      (S) edge (C)
+  ;
+  
+  \end{tikzpicture}
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          If <m>X = \{\text{John}, \text{Mary}, \text{Sam}\}</m>
+          and <m>Y = \{\text{eggs}, \text{coffee}\}</m>,
+          then every map <m>X \xrightarrow{f} Y</m> corresponds
+          with an endomap <m>X+Y \xrightarrow{\bar{f}} X+Y</m>
+          that we can make by taking <m>X+Y</m> as the union 
+          of <m>X \cup Y</m> and mapping each point in <m>Y</m>
+          to itself.
+        </p>
+        <figure xml:id="fig-article4-ex20-2">
+          <caption>"Fantasy Diner" embedded in an endomap</caption>
+          <image width="80%" xml:id="img-article4-ex20-2"> 
+          <latex-image>
+  \begin{tikzpicture}[scale=1]
+  
+  \node (J) at (0,2) {John};
+  \node (M) at (0,1) {Mary};
+  \node (S) at (0,0) {Sam};
+  \node (C) at (3,0.33) {coffee};
+  \node (E) at (3,1.67) {eggs};
+  \draw (2,1) circle [x radius=3, y radius=3];
+  
+  
+  \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+      (J) edge (E)
+      (M) edge (E)
+      (S) edge (C)
+      (E) edge[->,>={Stealth},out=45, in=315, loop] (E)
+      (C) edge[->,>={Stealth},out=45, in=315, loop] (C)
+  ;
+  
+  \end{tikzpicture}
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          Now suppose our situation is a little bit 
+          different.  The server comes asks "What
+          does everyone want?".  Sam says "coffee" and
+          Mary says "eggs".  John, however, is a little
+          distracted and reveals his true feelings by
+          blurting out "Mary".  The server assumes that
+          John wants the same order as the only woman at
+          the table and puts in a second order of eggs 
+          for John. Effectively, our server acts as a 
+          composition of maps between what they ordered 
+          and what they get.
+        </p>
+        <figure xml:id="fig-article4-ex20-3">
+  
+        <caption>"Fantasy Diner" map with order by reference</caption>
+          <image width="80%" xml:id="img-article4-ex20-3"> 
+          <latex-image>
+  \begin{tikzpicture}[scale=1]
+  
+  \node (J) at (0,2) {John};
+  \node (M) at (0,1) {Mary};
+  \node (S) at (0,0) {Sam};
+  
+  \draw (0,1) circle [x radius=1.5, y radius=3];
+  
+  \node (C1) at (5,1) {coffee};
+  \node (E1) at (5,2) {eggs};
+  \node (M1) at (5,0) {Mary};
+  \draw (5,1) circle [x radius=1.5, y radius=3];
+  
+  \node (C2) at (10,0.33) {coffee};
+  \node (E2) at (10,1.67) {eggs};
+  \draw (10,1) circle [x radius=1.5, y radius=3];
+  
+  \path[-{Stealth},font=\scriptsize,>=angle 90] 
+      (J) edge (M1)
+      (M) edge (E1)
+      (S) edge (C1)
+      (E1) edge (E2)
+      (C1) edge (C2)
+      (M1) edge (E2)
+  ;
+  
+  \end{tikzpicture}
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          My hunch is that the treatment of <m>\text{Mary}</m>
+          as one object or two is going to present problems 
+          in <m>\mathbf{1}/\mathcal{S}</m>.  Consider what 
+          happens when we try to embed this composition as an
+          endomap.
+        </p>
+        <figure xml:id="fig-article4-ex20-4">
+          <caption>Referential order embedded in an endomap</caption>
+          <image width="80%" xml:id="img-article4-ex20-4"> 
+          <latex-image>
+  \begin{tikzpicture}[scale=1]
+  
+  \node (J) at (0,2) {John};
+  \node (M) at (2,1) {Mary};
+  \node (S) at (0,0) {Sam};
+  \node (C) at (5,0) {coffee};
+  \node (E) at (5,2) {eggs};
+  
+  \draw (3,1) circle [x radius=5, y radius=3];
+  
+  
+  \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+      (J) edge (M)
+      (M) edge (E)
+      (S) edge (C)
+      (E) edge[->,>={Stealth},out=45, in=315, loop] (E)
+      (C) edge[->,>={Stealth},out=45, in=315, loop] (C)
+      (J) edge[dashed] (E) 
+  ;
+  
+  \end{tikzpicture}
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          We should have exactly one map from 
+          <m>\{\text{John}\} \rightarrow \{\text{Eggs}\}</m>
+          but effectively have a second one that passes
+          through <m>\{\text{Mary}\}</m>.  The only way 
+          we can resolve this in <m>\mathbf{1}/\mathcal{S}</m> 
+          is to separate out two unique Mary maps 
+          <m>\mathbf{1} \rightarrow \{\text{Mary}_\text{person}\}</m>
+          and
+          <m>\mathbf{1} \rightarrow \{\text{Mary}_\text{order}\}</m>.
+        </p>
+        <p>
+          I think the key fact here is that every 
+          <m>\mathbf{1}/\mathcal{S}</m>-map is inherently
+          invertable. By the uniqueness of terminal objects,
+          each <m>\mathbf{1} \xrightarrow{x_0} X, \mathbf{1} \xrightarrow{y_0} Y</m>
+          must correspond with a unique inverse map
+          <m>X \xrightarrow{\bar{x_0}} \mathbf{1}, Y \xrightarrow{\bar{y_0}} \mathbf{1}</m>.
+          Given that <m>f x_0 = y_0</m>, precomposing with <m>\bar{x_0}</m>
+          gives us <m>f = y_0 \bar{x_0}</m>.  If we define 
+          <m>g = x_0 \bar{y_0}</m>, then it follows that
+          <m>g \circ f = 1_X</m> and <m>f \circ g = 1_Y</m>. 
+          It's easier to see this with a diagram: 
+        </p>
+        <figure xml:id="fig-article4-ex20-5">
+          <caption>Invertability of <m>\mathbf{1}/\mathcal{S}</m>-maps</caption>
+          <image width="80%" xml:id="img-article4-ex20-5"> 
+          <latex-image>
+  \begin{tikzpicture}[scale=1.5]
+  
+  \node (S) at (1,1.68) {$\mathbf{1}$};
+  \node (X) at (0,0) {$X$};
+  \node (Y) at (2,0) {$Y$};
+  
+  
+  \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+      (S) edge node[right] {$x_0$} (X)
+      (X) edge[bend left] node[left] {$\bar{x_0}$} (S)
+      (S) edge node[left] {$y_0$} (Y)
+      (Y) edge[bend right] node[right] {$\bar{y_0}$} (S)
+      (Y) edge[bend left] node[below] {$g$} (X)
+      (X) edge node[above] {$f$} (Y)
+  ;
+  
+  \end{tikzpicture}
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          The uniqueness of our maps <m>f,g</m> basically depends
+          on whether or not <m>X = Y</m>.  If <m>X = Y</m>, then
+          we must have <m>f = g = 1_X = 1_Y</m>.  If <m>X \neq Y</m>,
+          then then we know <m>g = f^{-1}</m>. 
+        </p>
+        <p>
+          I'm thinking about <m>f</m> as uniquely defining a dual map 
+          <m>X \xrightarrow{\bar{f}} \mathbf{2}</m> by the property
+          that <m>\bar{f} x_i = 1</m> if <m>f x_i = x_i</m> for every
+          <m>x_i \in X</m> 
+          and <m>\bar{f} x_i = 2</m> if there exists some 
+          <m>x_i \in X</m> for which <m>f x_i \neq x_i</m>. This
+          allows me to define an something like an injection map 
+          <m>X \xrightarrow{f_p} Y \times \mathbf{2}</m> that records
+          for each <m>\mathbf{1} \xrightarrow{y_i} Y</m> whether
+          the point we came from is the same or different.  
+        </p>
+        <p>
+          Perhaps this is setting up something similar to 
+          <em>Russell's Paradox</em>: "Does the set of all 
+          sets not containing itself contain itself?".  A 
+          set which contains itself, shouldn't, and a set 
+          which doesn't contain itself, should. Maybe we
+          can use the notion that the map
+          <m>\mathbf{1} \rightarrow \mathbf{2}</m>
+          admits a retraction but 
+          <m>\mathbf{2} \rightarrow \mathbf{1}</m>
+          does not to further show that <m>f</m> either
+          fixes all points or no points. 
+        </p>
+        <p>
+          To get a better idea of what's going on, 
+          lets draw an external diagram showing 
+          both the sum and product:
+        </p>
+        <figure xml:id="fig-article4-ex20-6">
+          <caption>Sums and product maps combined</caption>
+          <image width="80%" xml:id="img-article4-ex20-6"> 
+          <latex-image>
+  \begin{tikzpicture}[scale=1.75]
+  
+  
+  
+  \node (AX) at (0,3) {$A \times X$};
+  \node (A0) at (1,4) {$A$};
+  \node (A1) at (3,4) {$A$};
+  \node (AY) at (2,3) {$A \times Y$};
+  \node (X) at (1,2) {$X$};
+  \node (Y) at (3,2) {$Y$};
+  \node (XB) at (2,1) {$X+B$};
+  \node (YB) at (4,1) {$Y+B$};
+  \node (B0) at (1,0) {$B$};
+  \node (B1) at (3,0) {$B$};
+  
+  
+  
+  
+  
+  \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+          (AX) edge (A0)
+          (AX) edge node[above] {$1_A \times f$} (AY)
+          (AX) edge (X)
+          (X) edge (XB)
+          (XB) edge node[above] {$f+1_B$} (YB)
+          (B0) edge (XB)
+          (B0) edge (B1)
+  
+          (AY) edge (A1)
+          (AY) edge (Y)
+          (B1) edge (YB)
+          (Y) edge (YB)
+          
+          (X) edge node[above] {$f$} (Y)
+          (A0) edge node[above] {$1_A$} (A1)
+          (B0) edge node[above] {$1_B$} (B1)
+  ;
+  
+  \end{tikzpicture}
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          I'm thinking this diagram is uniquely
+          defines a map from <m>A \times X \rightarrow Y+B</m>
+          satisfying all commutative triangles. 
+          It seems reasonable to conclude that 
+          <m>A = \mathbf{1}</m> and <m>B = \mathbf{0}</m>
+          would satisfy this property, but our result from
+          Exercise 9 said that <m>\mathbf{1} \in X</m>
+          implies <m>\mathbf{1} = \mathbf{0}</m> and 
+          <m>X \neq \mathbf{0}</m>.  Maybe we can use that
+          to contradict the distributive property somehow.
+        </p>
+        <p>
+          Let's try breaking down each side of the 
+          distributive property with some diagrams.
+        </p>
+  
+        <figure xml:id="fig-article4-ex20-7">
+          <caption>Breaking down 
+              <m>(A \times B) + (A \times C)</m></caption>
+          <image width="80%" xml:id="img-article4-ex20-7"> 
+          <latex-image>
+  \begin{tikzpicture}[scale=1]
+  
+  
+  
+  \node (ABAC) at (0,2) {$(A \times B) + (A \times C)$};
+  \node (AB) at (3,3) {$A \times B$};
+  \node (AC) at (3,1) {$A \times C$};
+  
+  
+  \node (A) at (6,4) {$A$};
+  \node (B) at (6,2) {$B$};
+  \node (C) at (6,0) {$C$};
+  
+  
+  
+  \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+      (ABAC) edge (AB)
+      (ABAC) edge (AC)
+      (AB) edge (A)
+      (AB) edge (B)
+      (AC) edge (A)
+      (AC) edge (C)
+  ;
+  
+  \end{tikzpicture}
+          </latex-image>
+          </image>
+        </figure>
+        <figure xml:id="fig-article4-ex20-8">
+          <caption>Breaking down 
+              <m>A \times (B + C)</m></caption>
+          <image width="80%" xml:id="img-article4-ex20-8"> 
+          <latex-image>
+  \begin{tikzpicture}[scale=1]
+  
+  
+  
+  \node (ABC) at (0,2) {$A \times (B + C)$};
+  \node (A) at (3,3) {$A$};
+  \node (BC) at (3,1) {$B + C$};
+  
+  \node (B) at (6,2) {$B$};
+  \node (C) at (6,0) {$C$};
+  
+  \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+      (ABC) edge (A)
+      (ABC) edge (BC)
+      (BC) edge (C)
+      (BC) edge (B)
+  ;
+  
+  \end{tikzpicture}
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          Breaking this down like this doesn't quite seem right.
+          The way we've defined a sum, we <q>come from</q> those sets rather
+          than <q>go to</q> them.  My sum of 
+          <m>(A \times B) + (A \times C)</m> should probably look more like
+          this:
+        </p>
+        <figure xml:id="fig-article4-ex20-9">
+          <caption>Fixed break-down of
+              <m>(A \times B) + (A \times C)</m></caption>
+          <image width="80%" xml:id="img-article4-ex20-9"> 
+          <latex-image>
+  \begin{tikzpicture}[scale=1]
+  
+  
+  
+  \node (ABAC) at (3,2) {$(A \times B) + (A \times C)$};
+  \node (AB) at (0,3) {$A \times B$};
+  \node (AC) at (0,1) {$A \times C$};
+  \node (Y) at (6,2) {$Y$};
+  
+  
+  \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+      (AB) edge (ABAC)
+      (AC) edge (ABAC)
+      (ABAC) edge (Y)
+      (AB) edge[bend left] (Y)
+      (AC) edge[bend right] (Y)
+  ;
+  
+  \end{tikzpicture}
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          Likewise, our <m>A\times(B+C)</m> should be updated as well:
+        </p>
+  
+        <figure xml:id="fig-article4-ex20-10">
+          <caption>Fixed Break down of
+              <m>A \times (B + C)</m></caption>
+          <image width="80%" xml:id="img-article4-ex20-10"> 
+          <latex-image>
+  \begin{tikzpicture}[scale=1]
+  
+  
+  
+  \node (ABC) at (0,2) {$A \times (B + C)$};
+  \node (A) at (3,2) {$A$};
+  \node (BC) at (3,0) {$B + C$};
+  
+  \node (B) at (0,1) {$B$};
+  \node (C) at (0,0) {$C$};
+  
+  \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+      (ABC) edge (A)
+      (ABC) edge (BC)
+      (C) edge (BC)
+      (B) edge (BC)
+  ;
+  
+  \end{tikzpicture}
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          Alright, let's try to combine this idea with our 
+          universal mapping property.  Let's use the convention
+          <m>A=C_0,B=C_1,C=C_2</m> to index our objects <m>C_i</m>
+          for <m>i \in I = \{0,1,2\}</m>.  Our definition
+          of product family <m>P = A \times B \times C</m> 
+          with maps <m>X \xrightarrow{p_0} A, X \xrightarrow{p_1} B
+            X \xrightarrow{p_2} C</m>
+          implies for any maps <m> X\xrightarrow{f_0} A, 
+            X\xrightarrow{f_1} A, X\xrightarrow{f_2} C, 
+          </m>there's a unique map <m>X \rightarrow P</m>
+          such that all triangles below commute.
+        
+        </p>
+        <figure xml:id="fig-article4-ex20-11">
+          <caption>
+              Product Family <m>
+                A \times B \times C
+              </m></caption>
+          <image width="80%" xml:id="img-article4-ex20-11"> 
+          <latex-image>
+  \begin{tikzpicture}[scale=1]
+  
+  
+  \node (X) at (0,0) {$X$};
+  
+  \node (P) at (1,2) {$A \times B \times C$};
+  \node (A) at (3,1) {$A$};
+  \node (B) at (3,0) {$B$};
+  \node (C) at (3,-1) {$C$};
+  
+  
+  \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+            (X) edge node[above left] {$f$} (P)
+            (P) edge node[above right] {$p_0$} (A)
+            (P) edge node[above right] {$p_1$} (B)
+            (P) edge node[above right] {$p_2$} (C)
+            (X) edge node[above] {$f_1$} (A)
+            (X) edge node[above] {$f_2$} (B)
+            (X) edge node[above] {$f_3$} (C)
+  ;
+  
+  \end{tikzpicture}
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          Likewise, our definition of a sum family 
+          says that for <m>S = A + B + C</m> 
+          with maps <m>A \xrightarrow{j_0} Y, B \xrightarrow{j_1} Y
+            C \xrightarrow{j_2} Y</m>
+          implies for any maps <m>A\xrightarrow{g_0} Y, 
+            A \xrightarrow{g_1} Y, C \xrightarrow{g_2} Y, 
+          </m>there's a unique map <m>S \rightarrow Y</m>
+          such that all triangles below commute.
+        </p>
+  
+        <figure xml:id="fig-article4-ex20-12">
+          <caption>
+              Sum Family <m>
+                A \times B \times C
+              </m></caption>
+          <image width="80%" xml:id="img-article4-ex20-12"> 
+          <latex-image>
+  \begin{tikzpicture}[scale=1]
+  
+  
+  \node (S) at (5,-2) {$A+B+C$};
+  
+  \node (Y) at (6,1) {$Y$};
+  \node (A) at (3,1) {$A$};
+  \node (B) at (3,0) {$B$};
+  \node (C) at (3,-1) {$C$};
+  
+  
+  \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+            (S) edge node[above right] {$g$} (Y)
+            (A) edge node[below left] {$j_0$} (S)
+            (B) edge node[below left] {$j_1$} (S)
+            (C) edge node[below left] {$j_2$} (S)
+            (A) edge node[above] {$g_0$} (Y)
+            (B) edge node[above] {$g_1$} (Y)
+            (C) edge node[above] {$g_2$} (Y)
+  ;
+  
+  \end{tikzpicture}
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          Combining those two diagrams together:
+        </p>
+        <figure xml:id="fig-article4-ex20-13">
+          <caption>
+              Product and Sum Families Combined </caption>
+          <image width="80%" xml:id="img-article4-ex20-13"> 
+          <latex-image>
+  \begin{tikzpicture}[scale=1]
+  
+  
+  \node (S) at (5,-2) {$A+B+C$};
+  
+  \node (X) at (0,0) {$X$};
+  
+  \node (P) at (1,2) {$A \times B \times C$};
+  \node (Y) at (6,1) {$Y$};
+  \node (A) at (3,1) {$A$};
+  \node (B) at (3,0) {$B$};
+  \node (C) at (3,-1) {$C$};
+  
+  
+  \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+            (S) edge node[above right] {$g$} (Y)
+            (A) edge node[below left] {$j_0$} (S)
+            (B) edge node[below left] {$j_1$} (S)
+            (C) edge node[below left] {$j_2$} (S)
+            (A) edge node[above] {$g_0$} (Y)
+            (B) edge node[above] {$g_1$} (Y)
+            (C) edge node[above] {$g_2$} (Y)
+            (X) edge node[above left] {$f$} (P)
+            (P) edge node[above right] {$p_0$} (A)
+            (P) edge node[above right] {$p_1$} (B)
+            (P) edge node[above right] {$p_2$} (C)
+            (X) edge node[above] {$f_1$} (A)
+            (X) edge node[above] {$f_2$} (B)
+            (X) edge node[above] {$f_3$} (C)
+  ;
+  
+  \end{tikzpicture}
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          There for any set of <m>f_i,g_i</m>, there
+          should be exactly one pair <m>f,g</m> such
+          that everything commutes.
+        </p>
+        <p>
+          I'm not exactly sure where to take it from here,
+          so maybe I should just let it simmer for a while.
+        </p>
+      </solution>
+    </example>
+
+</section>
