@@ -1,0 +1,574 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="article4-p9">
+    <title>Article 4: Universal Mapping Properties, Part 9</title>
+    <p>
+        I think I was at least on the right track last week,
+        so let's pick up work again on the distributive property.
+    </p>
+    <example>
+        <title>Exercise 20 (part 2):</title>
+        <statement>
+            <p>
+                Continued from <xref ref="article4-p8"/>.
+            </p>
+        </statement>
+        <solution>
+          <p>
+            I've been thinking about these product and sum families,
+            and maybe the benefit of looking at indexed objects is that 
+            it allows me to gradually extend these diagrams
+            with the sums and products of objects.  Given that
+            I already have <m>C_0 = A, C_1 = B, C_2 = C</m>,
+            maybe I can let start adding combinations of these 
+            objects under the product or sum as additional objects 
+            in our category.  In particular, I'm curious about the
+            objects <m>C_3 = B+C</m>, <m>C_4 = B \times C</m> 
+            because that
+            pair shows up in both sides of the distributive property.
+            Let's try adding those to my diagram from last week. I'm
+            going to colorize the graph such that my evalations from
+            the left are in blue and right in red.
+        </p>
+    
+        <figure xml:id="fig-article4-ex20-14">
+            <caption>
+                Product and Sum Families Combined and Extended </caption>
+            <image width="80%" xml:id="img-article4-ex20-14"> 
+            <latex-image>
+    \begin{tikzpicture}[scale=1.5]
+    
+    
+    \node (S) at (8,-2) {$A+B+C$};
+    
+    \node (X) at (0,0) {$X$};
+    
+    \node (P) at (1,2) {$A \times B \times C$};
+    \node (Y) at (9,1) {$Y$};
+    
+    \node (A) at (5,1) {$A$};
+    \node (B) at (5,0) {$B$};
+    \node (C) at (5,-1) {$C$};
+    
+    \node (BtC) at (3,-3) {$B \times C$};
+    \node (AtB) at (3,-2) {$A \times B$};
+    
+    \node (BpC) at (7,2) {$B + C$};
+    \node (ApB) at (7,3) {$A + B$};
+    
+    
+    
+    \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+              (S) edge node[above right] {$g$} (Y)
+              (A) edge[red] node[below left] {$j_0$} (S)
+              (B) edge node[below left] {$j_1$} (S)
+              (C) edge[blue] node[below left] {$j_2$} (S)
+              (A) edge node[above] {$g_0$} (Y)
+              (B) edge node[above] {$g_1$} (Y)
+              (C) edge node[above] {$g_2$} (Y)
+              (X) edge node[above left] {$f$} (P)
+              (P) edge[red] node[above right] {$p_0$} (A)
+              (P) edge node[above right] {$p_1$} (B)
+              (P) edge[blue] node[above right] {$p_2$} (C)
+              (X) edge node[above] {$f_1$} (A)
+              (X) edge node[above] {$f_2$} (B)
+              (X) edge node[above] {$f_3$} (C)
+    
+              (P) edge[red, bend right] (BtC)
+              (BtC) edge[red] (B)
+              (BtC) edge[red] (C)
+    
+              (P) edge[blue, bend right] (AtB)
+              (AtB) edge[blue] (B)
+              (AtB) edge[blue] (A)
+    
+              (BpC) edge[red, bend left] (S)
+              (B) edge[red] (BpC)
+              (C) edge[red] (BpC)
+    
+              (ApB) edge[blue, bend left] (S)
+              (A) edge[blue] (ApB)
+              (B) edge[blue] (ApB)
+    
+    
+    ;
+    
+    \end{tikzpicture}
+            </latex-image>
+            </image>
+          </figure>
+          <p>
+            Essentially, we've defined "triple map" 
+            from <m>A \times B \times C</m> to 
+            <m>A + B + C</m> that corresponds uniquely
+            to our choice of <m>f</m>:
+          </p>
+          <me>X \rightarrow A \times B \times C 
+            \mathrel{\substack{\longrightarrow \\ \longrightarrow  \\ \longrightarrow}}
+            A+B+C \rightarrow Y</me>
+          <p>Since every map in this category <m>\mathbf{1}/\mathcal{S}</m> 
+            is of the form <m>\mathbf{1} \rightarrow X \rightarrow Y \rightarrow \mathbf{1}
+            </m>, we can use this to define a isomorphism from
+            <m>A+B+C \longrightarrow A \times B \times C</m>. 
+            </p>
+    
+        <me>A+B+C \rightarrow Y \rightarrow \mathbf{1} \rightarrow X \rightarrow A \times B \times C 
+             </me>
+          <p>
+            This, in turn, allows me to define some endomaps on the 
+            spaces <m>A \times B \times C</m> and <m>A+B+C</m>
+            by the following compositions:
+          </p>
+          <me>A \times B \times C 
+            \mathrel{\substack{\longrightarrow \\ \longrightarrow  \\ \longrightarrow}}
+            A+B+C \rightarrow Y \rightarrow \mathbf{1} \rightarrow X 
+            \rightarrow 
+             A \times B \times C 
+          </me>
+          <me>
+            A+B+C \rightarrow Y \rightarrow \mathbf{1} \rightarrow X 
+            \rightarrow 
+            A \times B \times C
+            \mathrel{\substack{\longrightarrow \\ \longrightarrow  \\ \longrightarrow}}
+            A+B+C
+          </me>
+          <p>
+            Let's name these <m>A \times B \times C \xrightarrow{e_P} 
+              A \times B \times C</m> and 
+              <m>A + B + C \xrightarrow{e_S} 
+                A + B + C</m>.  I'm thinking that since we constructed 
+                these by splitting an isomorphism between 
+                <m>A + B + C</m> and <m>A \times B \times C</m>, 
+                we know they at least satisfy the properties
+                <m>e_P^2 = 1_{A \times B \times C}</m> and 
+                <m>e_S^2 = 1_{A+B+C}</m>.
+                Perhaps the question to be asking here is 
+                whether or not <m>e_P,e_S</m> <em>are</em>
+                the respective identity maps or are maps with
+                no fixed point?  This allows us to define two
+                unique maps to <m>\mathbf{2}</m> based on this 
+                fixed point property. 
+          </p>
+          <p>
+              Let's continue by adding these maps to our diagram,
+              and complete it with the other possible sums and products
+              needed for our distributive property:
+          </p>
+    
+          <figure xml:id="fig-article4-ex20-15">
+            <caption>
+                Product and Sum Families Growing Even Bigger</caption>
+            <image width="80%" xml:id="img-article4-ex20-15"> 
+            <latex-image>
+    \begin{tikzpicture}[scale=1.5]
+    
+    
+    \node (S) at (8,-2) {$A+B+C$};
+    
+    \node (X) at (0,0) {$X$};
+    
+    \node (P) at (1,2) {$A \times B \times C$};
+    \node (Y) at (9,1) {$Y$};
+    
+    \node (Y1) at (10,1) {$\mathbf{1}$};
+    \node (Y2) at (10,-1) {$\mathbf{2}$};
+    \node (Y3) at (9.5,3) {$A \times (B+C)$};
+    
+    
+    
+    \node (A) at (5,1) {$A$};
+    \node (B) at (5,0) {$B$};
+    \node (C) at (5,-1) {$C$};
+    
+    \node (BtC) at (3,-3) {$B \times C$};
+    \node (AtB) at (3,-2) {$A \times B$};
+    \node (AtC) at (3,-4) {$A \times C$};
+    
+    
+    \node (BpC) at (7,2) {$B + C$};
+    \node (ApB) at (7,3) {$A + B$};
+    
+    \node (AtBpAtC) at (7,-4) {$A \times B + A \times C$};
+    
+    
+    \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+              (S) edge node[above right] {$g$} (Y)
+              (A) edge node[below left] {$j_0$} (S)
+              (B) edge node[below left] {$j_1$} (S)
+              (C) edge node[below left] {$j_2$} (S)
+              (A) edge node[above] {$g_0$} (Y)
+              (B) edge node[above] {$g_1$} (Y)
+              (C) edge node[above] {$g_2$} (Y)
+              (X) edge node[above left] {$f$} (P)
+              (P) edge node[above right] {$p_0$} (A)
+              (P) edge node[above right] {$p_1$} (B)
+              (P) edge node[above right] {$p_2$} (C)
+              (X) edge node[above] {$f_1$} (A)
+              (X) edge node[above] {$f_2$} (B)
+              (X) edge node[above] {$f_3$} (C)
+    
+              (P) edge[bend right] (BtC)
+              (BtC) edge (B)
+              (BtC) edge (C)
+    
+              (P) edge[bend right] (AtB)
+              (AtB) edge (B)
+              (AtB) edge (A)
+    
+              (BpC) edge[bend left] (S)
+              (B) edge (BpC)
+              (C) edge (BpC)
+    
+              (ApB) edge[bend left] (S)
+              (A) edge (ApB)
+              (B) edge (ApB)
+    
+              (P) edge[->,>={Stealth},out=45, in=135, loop, blue] (P)
+              (S) edge[->,>={Stealth},out=315, in=225, loop, blue] (S)
+              
+              (P) edge[bend right,red] (AtC)
+              (AtB) edge[red] (AtBpAtC)
+              (AtC) edge[red] (AtBpAtC)
+              
+              (Y) edge (Y1)
+              (P) edge[blue] (Y2)
+              (S) edge[blue] (Y2)
+              (BpC) edge[red] (Y3)
+    ;
+    
+    \end{tikzpicture}
+            </latex-image>
+            </image>
+          </figure>
+          <p>
+            Maybe I've haven't been paying enough attention 
+            to the second condition: the fact that <m>\mathbf{0} \rightarrow A \times 
+                \mathbf{0}</m> is an isomorphism.  
+            Every <m>X \xrightarrow{f} Y</m> admits an unique map
+            <m>X \mathrel{\substack{\longrightarrow  \\ \longrightarrow}}X \times Y</m> 
+            that pairs each <m>x_i</m> with the respective 
+            <m>\langle x_i,y_i \rangle</m> pair.  We also
+            saw in the last exercise that
+            can define a map <m>X \times Y \rightarrow \mathbf{2}</m>
+            based on whether <m>x_i = y_i</m> or <m>x_i \neq y_i</m>.
+            We know we have a unique <q>antipodal map</q> 
+            <m>\mathbf{2} \xrightarrow{\alpha} \mathbf{2}</m>
+            such that <m>\alpha^2 = 1_\mathbf{2}</m>.  This 
+            is important because we could use this map to swap
+            the roles of our terminal and initial object.  
+    
+          </p>
+          <p>
+            I'm thinking that the existence of this map 
+            <m>\mathbf{0} \rightarrow A \times \mathbf{0}</m>
+            is important because it gives us our monoid 
+            <m>\mathbb{N}</m> through composition with itself.
+            This gives us an isomorphism between the following
+            sequences of maps:
+             <me>\mathbf{0} \rightarrow A \times \mathbf{0}
+              \rightarrow A \times A \times \mathbf{0}
+              \rightarrow A \times A \times A \times \mathbf{0}
+              \rightarrow ...
+             </me>
+             <me>\mathbf{0} \rightarrow \mathbf{1}
+              \rightarrow \mathbf{2}
+              \rightarrow \mathbf{3}
+              \rightarrow ...
+             </me>
+             It seems we should be able to assume an 
+             isomorphism <m>A \leftrightarrow \mathbb{N}</m>
+             here without loss of generality.
+          </p>
+          <p>
+            If our distributive property is to hold for arbitrary 
+            choices of <m>A,B,C</m>, what happens if we choose 
+            <m>B = \mathbf{1}</m> and <m>C = X</m>?  Subsituting
+            into our distributive property gives us
+            <m>A \times \mathbf{1} + A \times X = A \times (X + \mathbf{1})</m>.
+            Our result from 
+            Exercise 9 says that any terminal object
+            in <m>\mathbf{1}/\mathcal{S}</m> is also initial,
+            so <m>X + \mathbf{1} = X + \mathbf{0} = X</m>. 
+          </p>
+          <p>
+            I think I'm pretty lost again, but here's my hunch as to  
+            whats happening.  Both the sum and product need to each have 
+            a unique element that functions as the identity map. 
+            This gives us unique map from <m>\mathbf{2} \rightarrow X
+             \rightarrow \mathbf{2}</m> for 
+             <m>\mathbf{2} = \{\mathbf{0},\mathbf{1}\}</m>.
+            In the same way we saw a monoid arise from
+            <m>\mathbf{0} \rightarrow A \times \mathbf{0}</m>,
+            there should also be <em>dual</em> notion of the
+            monoid based on <m>\mathbf{1} \rightarrow B+\mathbf{1}</m>,
+            and some map which swaps the behavior of these two monoids. 
+            The invertability of maps in <m>\mathbf{1}/\mathcal{S}</m> 
+            conflicts with this because we know there can't exist
+            a retraction for <m>\mathbf{2} \rightarrow \mathbf{1}</m>.
+            
+          </p>
+        </solution>
+    </example>
+
+    <example>
+      <title>Exercise 21:</title>
+      <statement>
+        <p>
+          If <m>A, D</m> denote the generic arrow and the naked dot...
+        </p>
+      </statement>
+      <solution>
+        <p>
+          So we're given that <m>A = \boxed{\bullet \rightarrow \bullet}</m>
+          and <m>D = \boxed{\bullet}</m>, and in the category 
+          <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>
+          we know that all maps must satisfy <m>s' f_A = f_D s</m>
+          and <m>t' f_A = f_D t</m> to preserve source and target.
+        </p>
+        <p>
+          Let's start by creating a <q>section</q> on <m>X</m>
+          that categorizes each element into a <q>dot</q> or
+          <q>arrow</q>. Let's call this "binary" map 
+          <m>X \xrightarrow{b} \{\text{dot},\text{arrow}\}</m>. 
+           Since <m>X = X_A + X_D</m>,
+           this gives us a unique pair of 
+          injections <m>X_A \xrightarrow{j_1} X</m> and 
+          <m>X_D \xrightarrow{j_2} X</m>. 
+        </p>
+        <p>
+          For any arrow in <m>X_A</m>, we have a unique 
+          map <m>X_A \mathrel{\substack{s \\ \longrightarrow \\ \longrightarrow \\ t}}
+          X_D \times X_D</m> that decomposes the arrow into 
+          a pair of dots. I think the catch here is that this projection
+          map <m>X_A \xrightarrow{p_A} A</m> needs to preserve structure
+          when we compose it with the map <m>X_D \xrightarrow{p_D} D</m>.
+        </p>
+        <p>
+          Let's consider an arbitrary pair of arrows <m>a_1,a_2</m> 
+          in <m>X</m>.  These arrows can share a source, share a target, 
+          share neither, or they could share both.  Each pair of arrows
+          corresponds with a minimum of one dot and a maximum of four.
+          We should then be able to take a sum of those dots as per the 
+          following diagram:
+        </p>
+        <figure xml:id="fig-article4-ex-21-1">
+          <caption>
+            Product of arrows to sum of dots</caption>
+          <image width="80%" xml:id="img-article4-ex21-1"> 
+          <latex-image>
+            \begin{tikzpicture}
+              \node (AxA) at (0,0) {$A \times A$};
+              
+              \node (A1) at (2,2) {$A_1$};
+              \node (A2) at (2,-2) {$A_2$};
+              \node (D1) at (4,3) {$D_1$};
+              \node (D2) at (4,1) {$D_2$};
+              \node (D3) at (4,-1) {$D_3$};
+              \node (D4) at (4,-3) {$D_4$};
+              \node (S) at (6,0) {$\Sigma D_i$};
+  
+              \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+                (AxA) edge (A1)
+                (AxA) edge (A2)
+                (A1) edge (D1)
+                (A1) edge (D2)
+                (A2) edge (D3)
+                (A2) edge (D4)
+                (D1) edge (S)
+                (D2) edge (S)
+                (D3) edge (S)
+                (D4) edge (S);
+  
+            \end{tikzpicture}
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+          Let's consider the relationship between the 
+          dots and arrows of a finite digraph <m>X</m>.  
+          If there are <m>|X_D| = n</m> dots in the diagram, 
+          there are a maxiumum of <m>n^2</m> possible arrows 
+          between those dots.  For each <m>x_a</m>
+          in the set of arrows <m>X_A</m>, we can assign a unique
+          index to that arrow that preserves the source and target.
+          This gives us unique pair of maps 
+          <m>X_D \rightarrow \mathbb{N}_n</m> and 
+          <m>X_A \rightarrow \mathbb{N}_n \times \mathbb{N}_n \rightarrow \mathbb{N}_{n^2}</m>.
+          Furthermore, knowing these sets are disjoint should also give us an isomorphism
+          <m>\mathbb{N}_{n}+\mathbb{N}_{n^2} \rightarrow \mathbb{N}_{n+n^2}
+          </m> preserving the separation of dots and arrows.  Since we know <m>X_D+X_A = X</m>, it follows that
+          we have a unique isomorphism <m>X \rightarrow \mathbb{N}_{n+n^2}</m> as well.
+        </p>
+        <p>
+          Next, let's look at a pair of arrows 
+          <m>\langle a_1,a_2 \rangle \in X_A \times X_A</m>.  
+          If there are <m>|X_A| = m</m> arrows in the originial 
+          diagram, then there are <m>m^2</m> possible pairs of
+          arrows.  This gives us a map 
+          <m>X_A \times X_A \rightarrow \mathbb{N}_{m^2}</m> that 
+          indexes those arrows.  
+          Given that we have at most as many arrows as are possible, 
+          it follows that <m>m \leq n^2</m> we should have a unique
+          map <m>\mathbb{N}_{m} \rightarrow \mathbb{N}_{n^2}</m>
+          which links the index of an arrow in <m>X_A</m>
+          with an indexed pair of points in <m>X_D</m>.  We can effectively
+          use this to define a map <m>\mathbb{N}_{n^2} \rightarrow \mathbf{2}</m>
+          by the property that returns <m>1</m> if there's an arrow 
+          connecting the two dots or <m>0</m> if not.  
+        </p>
+        <p>
+          So what happens when we try to inject our set of <em>dots</em>
+          into the set of <em>arrows</em>?  Each dot <m>x_d \in X_D</m> 
+          can be thought of as an arrow where the source and target are 
+          both the same point.  This gives us a map from 
+          <m>\mathbb{N}_n \rightarrow \mathbb{N}_{n^2}</m> that pairs 
+          each point with the theoretical index of an arrow pointing 
+          to itself.  We've got two cases, one where there already 
+          exists a self-loop at that point and one where this
+          arrow is a new object of its own.
+        </p>
+        <p>
+          This is starting to become a lot of information,
+          so let's see if we can organize my thoughts a bit better
+          in a diagram:
+        </p>
+        <figure xml:id="fig-article4-ex-21-2">
+          <caption>
+            Decomposition of <m>X</m> by indexing dots and arrows</caption>
+          <image width="80%" xml:id="img-article4-ex21-2"> 
+            <latex-image>
+              \begin{tikzpicture}
+  
+                \node (I0) at (-2,0) {$\mathbf{0}$};
+                \node (D0) at (-1,1) {$D$};
+                \node (A0) at (-1,-1) {$A$};
+                \node (I) at (0,0) {$\mathbf{1}$};
+                \node (X) at (2,0) {$X$};
+                \node (XA) at (1,-1) {$X_A$};
+                \node (XD) at (1,1) {$X_D$};
+  
+                \node (Nn) at (3,1) {$\mathbb{N}_n$};
+                \node (Nm) at (3,-1) {$\mathbb{N}_m$};
+                \node (Nnm) at (4,0) {$\mathbb{N}_{n}+\mathbb{N}_{m}$};
+                
+                \node (T) at (6,0) {$\mathbb{N}_{n+m}$};
+                \node (T1) at (8,0) {$\mathbf{1}$};
+  
+                \node (Nn2) at (4,2) {$\mathbb{N}_n \times \mathbb{N}_n$};
+                \node (Nm2) at (4,-2) {$\mathbb{N}_m \times \mathbb{N}_m$};
+  
+                \node (XD2) at (2,2) {$X_D \times X_D$};
+                \node (XA2) at (2,-2) {$X_A \times X_A$};
+  
+                \node (D2) at (0,2) {$D \times D$};
+                \node (A2) at (0,-2) {$A \times A$};
+  
+                \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+                (I0) edge (I)
+                (I0) edge (D0)
+                (I0) edge (A0)
+                (D0) edge (D2)
+                (A0) edge (A2)
+                (D2) edge (XD2)
+                (A2) edge (XA2)
+                (XD) edge (XD2)
+                (XA) edge (XA2)
+                (D0) edge (XD)
+                (A0) edge (XA)
+                
+                  (I) edge (X)
+                  (I) edge (XA)
+                  (I) edge (XD)
+                  (XD) edge (X)
+                  (XA) edge (X)
+                  (XD) edge (Nn)
+                  (XA) edge (Nm)
+                  (X) edge (Nnm)
+                  (Nn) edge (T)
+                  (Nm) edge (T)
+                  (Nnm) edge (T)
+                  (XA) edge[bend right] (Nn2)
+                  (Nn) edge (Nn2)
+                  (Nn2) edge[bend left] (T)
+                  (XA2) edge (Nm2)
+                  (XD2) edge (Nn2)
+  
+                  (Nm) edge (Nm2)
+                  (Nm2) edge[bend right] (T)
+                  (Nn) edge (Nnm)
+                  (Nm) edge (Nnm)
+                  (T) edge (T1)
+                  ;
+                
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </figure>
+        <p>
+          So where does that leave us?  I'm guessing that the
+          structure preservation of maps in our category gives us
+          that pair of maps from 
+          <m>D \mathrel{\substack{s \\ \longrightarrow \\ \longrightarrow \\ t }} A</m>
+          and we can use the sum in our category to find the 
+          unique map for which all triangles below commute:
+        </p>
+  
+        <figure xml:id="fig-article4-ex-21-3">
+          <caption>
+            Illustrating the sum <m>A+D</m></caption>
+          <image width="80%" xml:id="img-article4-ex21-3"> 
+            <latex-image>
+              \begin{tikzpicture}
+  
+                \node (I0) at (-3,0) {$A \times D$};
+  
+                \node (D0) at (-1,1) {$D$};
+                \node (A0) at (-1,-1) {$A$};
+                \node (S0) at (1,0) {$A+D$};
+                \node (S1) at (4,0) {$X = X_A+X_D$};
+                
+                \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+   
+                (D0.south west) edge node[left] {$s$} (A0.north west)
+                (D0.south east) edge node[right] {$t$} (A0.north east)
+                (D0) edge[bend left] (S0)
+                (A0) edge[bend right] (S0)
+                (D0) edge[bend left] (S1)
+                (A0) edge[bend right] (S1)
+                (S0) edge (S1)
+                (I0) edge[bend left] (D0)
+                (I0) edge[bend right] (A0)
+                
+                  ;
+                
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </figure>
+        <p>
+          Maybe the key to all is to section off the points in <m>X_D</m> that contain
+          corresponding self loop in <m>X_A</m> from the dots which 
+          loop, <m>D_L</m>, and dots which do
+          not ,<m>D_N</m>.  This gives us <m>X_D = D_L + D_N</m>
+          where each <m>D_L</m> is paired with an existing arrow in <m>X_A</m>.  
+          If <m>|D_L|</m> represents how many points that applies to,
+          then the remaining <m>|D_N|</m> end up creating new points.
+          Each pair of arrows <m>A \times A</m> can be thought of as
+          the sum of some arrows <m>A</m> where the source and target are different,
+          with these objects <m>D_L, D_N</m> that section off the points and loops.  
+          Could this give us the 
+          <m>A \times A \rightarrow A + D_L + D_N</m> we're looking for?
+  
+        </p>
+      </solution>
+    </example>
+      <p>
+        I'm not exactly happy with these solutions,
+        but at this point I think the best course of action
+        is to move forward.  It sounds like some of my confusion
+        will be addressed with the proof of the distributive property
+        later in the text.
+      </p>
+      
+     
+</section>
