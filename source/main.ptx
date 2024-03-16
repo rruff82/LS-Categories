@@ -110,6 +110,8 @@
       <xi:include href="ch4/art4-p7.ptx" />
       <xi:include href="ch4/art4-p8.ptx" />
       <xi:include href="ch4/art4-p9.ptx" />
+      <xi:include href="ch4/ses19.ptx" />
+      
     </chapter>
 
     <backmatter xml:id="backmatter">
