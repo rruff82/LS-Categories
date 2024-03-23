@@ -1743,8 +1743,17 @@ var ptx_lunr_docs = [
   "url": "session19.html",
   "type": "Section",
   "number": "5.10",
-  "title": "Terminal objects",
-  "body": " Terminal objects  It's actually quite refreshing to not have any exercises this week. Well, there kind of is an exercise described but it's such a trivial solution that even I'm going to leave it to the reader and give my brain a break. I think my reading this week confirms I'm on the right track, but I need to be more precise with my statements about \"precisely one map\" moving forward.  "
+  "title": "Session 19: Terminal objects",
+  "body": " Session 19: Terminal objects  It's actually quite refreshing to not have any exercises this week. Well, there kind of is an exercise described but it's such a trivial solution that even I'm going to leave it to the reader and give my brain a break. I think my reading this week confirms I'm on the right track, but I need to be more precise with my statements about \"precisely one map\" moving forward.  "
+},
+{
+  "id": "session20",
+  "level": "1",
+  "url": "session20.html",
+  "type": "Section",
+  "number": "5.11",
+  "title": "Session 20: Points of an object",
+  "body": " Session 20: Points of an object  Another week where there aren't any explicit exercises! I really like the table in this session a well used graphic organizer. It made me wonder if my approach to Session 17 Exercise 1 was correct, which then got me looking over my notes from Session 11. I'm curious to see a better definition of the free category on graphs makes an appearance later.  "
 },
 {
   "id": "backmatter-2",
