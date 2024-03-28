@@ -551,7 +551,9 @@
                 it easier to find products of arbitrary graphs.
                 Using NetworkX's <c>draw_planar</c> function
                 made it easy to see cycles at a glance.  You 
-                can find my <q>scratch paper</q> here (TODO). 
+                can find my <q>scratch paper</q> 
+                <url href="https://github.com/rruff82/LS-Categories/blob/main/assets/notebooks/ls-ses21.ipynb">
+                here</url>. 
 
             </p>
             <p>
@@ -585,8 +587,8 @@
     </example>
     <p>
         I started working on Exercise 3, as evidenced by
-        my Jupyter Notebook, but going back to the
-        gender problem from Session 12 made me angry.
+        my Jupyter Notebook for Exercise 2, but going back 
+        to the gender problem from Session 12 made me angry.
         Upon realizing that I was getting angry, I decided 
         it might be best to to call it a week here.  It's 
         difficult to be objective when you're emotionally 
