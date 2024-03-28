@@ -1,0 +1,595 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session21">
+    <title>Session 21: Products in categories</title>
+
+    <p>
+        Okay, we have formal exercises again. Time to get back to work!
+    </p>
+   <example>
+        <title>Exercise 1:</title>
+        <statement>
+            <p>
+                Is there a map in <m>\mathcal{S}^\circlearrowright</m> from
+                the <sq>day clock</sq>...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                I think reasonable place to start in this situation is with
+                the natural product that would assign to treating each hour a 
+                <m>\langle \text{shift},\text{work hour} \rangle</m> 
+                pair.  The natural way to show this as a product
+                might be the following diagram:
+            </p>
+            <figure xml:id="fig-session21-ex1-1">
+                <caption>Illustration of the product <m>\text{shift} \times \text{work hour}</m></caption>
+                <image xml:id="img-session21-ex1-1" width="80%">
+                    <latex-image>
+                        \begin{tikzpicture}
+
+
+                            \coordinate (C0) at (-2,0);
+                            \coordinate (C1) at (4,0);
+                            \coordinate (C2) at (8,3);
+                            \coordinate (C3) at (8,-3);
+             
+                            \draw (C0) circle (2cm);
+                            \draw (C1) circle (2cm);
+                            \draw (C2) circle (2cm);
+                            \draw (C3) circle (2cm);
+
+                            \foreach \k in {0,...,7}
+                            {
+                                \pgfmathsetmacro{\i} {90-45*\k};
+                                \pgfmathsetmacro{\j} {90-45*(\k+1)};
+                                \coordinate (r \k) at (\i:1.75cm);
+                                \coordinate (s \k) at (\i:1.25cm);
+                                \coordinate (t \k) at (\j:1.25cm);
+                                \node (A \k) at ($(C2)+(r \k)$) {$\k$};
+                                \path[-{stealth}] 
+                                ($(C2)+(s \k)$) edge[bend left] ($(C2)+(t \k)$);
+                            }
+
+                            \node (B 0) at ($(C3) + (90:1.75cm)$) {$n$};
+                            \node (B 1) at ($(C3) + (-30:1.75cm)$) {$d$};
+                            \node (B 2) at ($(C3) + (210:1.75cm)$) {$e$};
+
+                            \path[-{stealth}] 
+                            ($(C3) + (90:1.25cm)$) edge[bend left] ($(C3) + (-30:1.25cm)$)
+                            ($(C3) + (-30:1.25cm)$) edge[bend left] ($(C3) + (210:1.25cm)$)
+                            ($(C3) + (210:1.25cm)$) edge[bend left] ($(C3) + (90:1.25cm)$);
+
+
+                            \foreach \y [count = \x] in {
+                                n_0,n_1,n_2,n_3,n_4,n_5,n_6,n_7,
+                                d_0,d_1,d_2,d_3,d_4,d_5,d_6,d_7,
+                                e_0,e_1,e_2,e_3,e_4,e_5,e_6,e_7
+                                } 
+                            {
+                                \pgfmathsetmacro{\i} {105-15*\x};
+                                \pgfmathsetmacro{\j} {105-15*(\x+1)};
+
+                                \pgfmathsetmacro{\a} {mod(\x,8)};
+                                \pgfmathsetmacro{\b} {mod(div(\x-1,8),3)};
+                                
+
+                                \coordinate (r \x) at (\i:1.75cm);
+                                \coordinate (s \x) at (\i:1.25cm);
+                                \coordinate (t \x) at (\j:1.25cm);
+                                
+                                \node (P \x) at ($(C0)+(r \x)$) {$\pgfmathparse{int(\x-1)} \pgfmathresult$};
+                                \node (Q \x) at ($(C1)+(r \x)$) {$\y$};
+
+                                \path[-{stealth}] 
+                                ($(C0)+(s \x)$) edge ($(C0)+(t \x)$)
+                                ($(C1)+(s \x)$) edge ($(C1)+(t \x)$)
+                                (P \x) edge[red,bend left] (Q \x)
+                                (Q \x) edge[blue,dashed,bend left] ($(A \a) - (.5,0)$)
+                                (Q \x) edge[blue,dotted,bend right] ($(B \b) - (.5,0)$)
+                                
+                                ;
+                            }
+
+
+
+                         \end{tikzpicture}
+                    </latex-image>         
+                </image>
+            </figure>
+
+                    
+            <p>
+                I'm pretty sure that's the only map in <m>\mathcal{S}</m> 
+                satisfying the definition of product, but perhaps the 
+                real question here is if it preserves structure and
+                I don't think it does.  The problem is that <q>one press
+                in the day clock</q> always corresponds with 
+                <q>one press in the shift clock</q> but it 
+                does not always correspond with 
+                <q>one press in the work shift</q>.  
+            </p>
+            <p>
+                Well, the question of <q>should we increment 
+                the shift?</q> is essentially a binary value.
+                Maybe we can use that property to separate the points
+                our product into a sum? The hours <m>\{7,15,23\}</m>
+                would form one set and rest would form the other. There's
+                also a dual notion that would split <m>\{0,8,16\}</m>
+                off from the rest of the set also.  It's almost 
+                like <m>\{7,15,23\}</m> behave as terminal objects,
+                while <m>\{0,8,16\}</m> behave as initial objects
+                with respect to this shift change.
+            </p>
+            <p>
+                Maybe I should be thinking about 
+                this mystery <m>X^{\circlearrowright \alpha}</m>
+                a sum of <q>loops</q> and <q>tails</q>. 
+                Our points <m>\{7,15,23\}</m> (or <m>\{n_7,d_7,e_7\}</m>
+                in the alternate notation) would be mapped directly
+                to <m>\{n,d,e\}</m> respectively, while the digits in between
+                those values would be mapped to the respective distance 
+                along the tails.  This way we'll have some way 
+                of knowing how many presses before a shift change 
+                needs to happen.
+            </p>
+            <p>
+                After drawing out some sample products as per Exercise 2, 
+                it's clear that the product of a cycle with a tail is a cycle
+                with attached tails.  This means that in order to produce
+                the 24-cycle <m>C_{24}^\circlearrowright</m>, our mystery object
+                <m>X^{\circlearrowright \alpha}</m> 
+                would need to a cycle itself and make the only possible 
+                choice the 3-cycle <m>C_3^\circlearrowright</m>. 
+            </p>
+            <figure xml:id="fig-session21-ex1-2">
+                <caption>Is this our <m>X^{\circlearrowright alpha}</m>?</caption>
+                <image xml:id="img-session21-ex1-2" width="80%">
+                    <latex-image>
+                        \begin{tikzpicture}
+
+
+                        \coordinate (C0) at (-2,0);
+                        \coordinate (C1) at (4,0);
+                        \coordinate (C2) at (8,3);
+                        \coordinate (C3) at (8,-3);
+         
+                        \draw (C0) circle (2cm);
+                        \draw (C1) circle (2cm);
+                        \draw (C2) circle (2cm);
+                        \draw (C3) circle (2cm);
+
+                        \foreach \k in {0,...,7}
+                        {
+                            \pgfmathsetmacro{\i} {90-45*\k};
+                            \pgfmathsetmacro{\j} {90-45*(\k+1)};
+                            \coordinate (r \k) at (\i:1.75cm);
+                            \coordinate (s \k) at (\i:1.25cm);
+                            \coordinate (t \k) at (\j:1.25cm);
+                            \node (A \k) at ($(C2)+(r \k)$) {$\k$};
+                            \path[-{stealth}] 
+                            ($(C2)+(s \k)$) edge[bend left] ($(C2)+(t \k)$);
+                        }
+
+                        \node (B 0) at ($(C3) + (90:1.75cm)$) {$0$};
+                        \node (B 1) at ($(C3) + (-30:1.75cm)$) {$1$};
+                        \node (B 2) at ($(C3) + (210:1.75cm)$) {$2$};
+
+                        \path[-{stealth}] 
+                        ($(C3) + (90:1.25cm)$) edge[bend left] ($(C3) + (-30:1.25cm)$)
+                        ($(C3) + (-30:1.25cm)$) edge[bend left] ($(C3) + (210:1.25cm)$)
+                        ($(C3) + (210:1.25cm)$) edge[bend left] ($(C3) + (90:1.25cm)$);
+
+
+                        \foreach \y [count = \x] in {
+                            n_0,n_1,n_2,n_3,n_4,n_5,n_6,n_7,
+                            d_0,d_1,d_2,d_3,d_4,d_5,d_6,d_7,
+                            e_0,e_1,e_2,e_3,e_4,e_5,e_6,e_7
+                            } 
+                        {
+                            \pgfmathsetmacro{\i} {105-15*\x};
+                            \pgfmathsetmacro{\j} {105-15*(\x+1)};
+
+                            \pgfmathsetmacro{\a} {mod(\x,8)};
+                            \pgfmathsetmacro{\b} {mod(\x,3)};
+                            
+
+                            \coordinate (r \x) at (\i:1.75cm);
+                            \coordinate (s \x) at (\i:1.25cm);
+                            \coordinate (t \x) at (\j:1.25cm);
+                            
+                            \node (P \x) at ($(C0)+(r \x)$) {$\pgfmathparse{int(\x-1)} \pgfmathresult$};
+                            \node (Q \x) at ($(C1)+(r \x)$) {$\y$};
+
+                            \path[-{stealth}] 
+                            ($(C0)+(s \x)$) edge ($(C0)+(t \x)$)
+                            ($(C1)+(s \x)$) edge ($(C1)+(t \x)$)
+                            (P \x) edge[blue,dashed,bend left] (Q \x)
+                            (Q \x) edge[blue,dashed,bend left] ($(A \a) - (.5,0)$)
+                            (Q \x) edge[red,bend right] ($(B \b) - (.5,0)$)
+                            
+                            ;
+                        }
+
+
+
+                     \end{tikzpicture}
+                    </latex-image>         
+                </image>
+            </figure>
+            <p>
+                My reasoning is this.  There are 24 different
+                maps from <m>\mathbb{N}^{\circlearrowright \sigma} \rightarrow C_24</m>
+                but precisely one of them maps <m>\{0\} \rightarrow \{0\}</m>.
+                Namely, the <em>modulo</em> operation <m>f(n) = mod_{24}(n)</m>. 
+                This has the nice property enforcing <m>\{0\} \rightarrow \{0\}</m>
+                means there's a unique maps
+                <m>\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{mod_8} C_8</m> 
+                and <m>\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{mod_3} C_3</m>.
+                We can put these together to form a unique projection map
+                <m>\mathbb{N}^{\circlearrowright \sigma} \xrightarrow{p} C_8 \times C_3</m>
+                such that <m>p(n) = \langle mod_8(n), mod_3(n) \rangle</m>.
+            </p>
+            <p>
+                Essentially, I'm stepping out and using <m>\mathbb{N}</m> as a lens to 
+                look at the behavior of <m>C_{24}</m>.  This works because of the following
+                external diagram:
+            </p>
+            <figure xml:id="fig-session21-ex1-3">
+                <caption>External diagram of <m>C_8 \times C_3</m></caption>
+                <image xml:id="img-session21-ex1-3" width="80%">
+                    <latex-image>
+                    \begin{tikzpicture}
+                        \node (N) at (0,4) {$\mathbb{N}^{\circlearrowright()+1}$};
+                        \node (C24) at (0,2) {$C_{24}^{\circlearrowright \sigma}$};
+                        \node (C8) at (-2,0) {$C_8^{\circlearrowright \alpha}$};
+                        \node (P) at (0,0) {$P^{\circlearrowright \gamma}$};
+                        \node (C3) at (2,0) {$C_3^{\circlearrowright \beta}$};
+                        \path[-{stealth}]
+                            (N) edge node[right] {$mod_{24}$} (C24)
+                            (C24) edge (P)
+                            (C24) edge[bend right] node[left] {$mod_{24}$} (C8)
+                            (C24) edge[bend left] node[right] {$mod_{3}$} (C3)
+                            (P) edge (C8)
+                            (P) edge (C3);
+
+                    \end{tikzpicture}
+                    </latex-image>         
+                </image>
+            </figure>
+
+            <p>
+                In order to convince myself that these maps
+                preserve structure, I listed out all the 
+                points in a table.
+            </p>
+            <table>
+                <title>Proof that <m>C_{24} \rightarrow C_8 \times C_3</m> preserves structure</title>
+                <tabular>
+                    <row>
+                        <cell><m>n</m></cell>
+                        <cell><m>\langle p_1 n, p_2 n \rangle</m></cell>
+                        <cell><m>\gamma n</m></cell>
+                        <cell><m>p_1 \gamma n</m></cell>
+                        <cell><m>\alpha p_1 n</m></cell>
+                        <cell><m>p_2 \gamma n</m></cell>
+                        <cell><m>\beta p_2 n</m></cell> 
+                        <cell><m>\langle \alpha p_1 n, \beta p_2 n \rangle</m></cell>                         
+                    </row>
+                    <row>
+                        <cell><m>0</m></cell>
+                        <cell><m>\langle 0, 0 \rangle</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>\langle 1, 1 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>1</m></cell>
+                        <cell><m>\langle 1, 1 \rangle</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>\langle 2, 2 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>2</m></cell>
+                        <cell><m>\langle 2, 2 \rangle</m></cell>
+                        <cell><m>3</m></cell>
+                        <cell><m>3</m></cell>
+                        <cell><m>3</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>\langle 3, 0 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>3</m></cell>
+                        <cell><m>\langle 3, 0 \rangle</m></cell>
+                        <cell><m>4</m></cell>
+                        <cell><m>4</m></cell>
+                        <cell><m>4</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>\langle 4, 1 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>4</m></cell>
+                        <cell><m>\langle 4, 1 \rangle</m></cell>
+                        <cell><m>5</m></cell>
+                        <cell><m>5</m></cell>
+                        <cell><m>5</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>\langle 5, 2 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>5</m></cell>
+                        <cell><m>\langle 5, 2 \rangle</m></cell>
+                        <cell><m>6</m></cell>
+                        <cell><m>6</m></cell>
+                        <cell><m>6</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>\langle 6, 0 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>6</m></cell>
+                        <cell><m>\langle 6, 0 \rangle</m></cell>
+                        <cell><m>7</m></cell>
+                        <cell><m>7</m></cell>
+                        <cell><m>7</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>\langle 7, 1 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>7</m></cell>
+                        <cell><m>\langle 7, 1 \rangle</m></cell>
+                        <cell><m>8</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>\langle 0, 2 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>8</m></cell>
+                        <cell><m>\langle 0, 2 \rangle</m></cell>
+                        <cell><m>9</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>\langle 1, 0 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>9</m></cell>
+                        <cell><m>\langle 1, 0 \rangle</m></cell>
+                        <cell><m>10</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>\langle 2, 1 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>10</m></cell>
+                        <cell><m>\langle 2, 1 \rangle</m></cell>
+                        <cell><m>11</m></cell>
+                        <cell><m>3</m></cell>
+                        <cell><m>3</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>\langle 3, 2 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>11</m></cell>
+                        <cell><m>\langle 3, 2 \rangle</m></cell>
+                        <cell><m>12</m></cell>
+                        <cell><m>4</m></cell>
+                        <cell><m>4</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>\langle 4, 0 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>12</m></cell>
+                        <cell><m>\langle 4, 0 \rangle</m></cell>
+                        <cell><m>13</m></cell>
+                        <cell><m>5</m></cell>
+                        <cell><m>5</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>\langle 5, 1 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>13</m></cell>
+                        <cell><m>\langle 5, 1 \rangle</m></cell>
+                        <cell><m>14</m></cell>
+                        <cell><m>6</m></cell>
+                        <cell><m>6</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>\langle 6, 2 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>14</m></cell>
+                        <cell><m>\langle 6, 2 \rangle</m></cell>
+                        <cell><m>15</m></cell>
+                        <cell><m>7</m></cell>
+                        <cell><m>7</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>\langle 7, 0 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>15</m></cell>
+                        <cell><m>\langle 7, 0 \rangle</m></cell>
+                        <cell><m>16</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>\langle 0, 1 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>16</m></cell>
+                        <cell><m>\langle 0, 1 \rangle</m></cell>
+                        <cell><m>17</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>\langle 1, 2 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>17</m></cell>
+                        <cell><m>\langle 1, 2 \rangle</m></cell>
+                        <cell><m>18</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>\langle 2, 0 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>18</m></cell>
+                        <cell><m>\langle 2, 0 \rangle</m></cell>
+                        <cell><m>19</m></cell>
+                        <cell><m>3</m></cell>
+                        <cell><m>3</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>\langle 3, 1 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>19</m></cell>
+                        <cell><m>\langle 3, 1 \rangle</m></cell>
+                        <cell><m>20</m></cell>
+                        <cell><m>4</m></cell>
+                        <cell><m>4</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>\langle 4, 2 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>20</m></cell>
+                        <cell><m>\langle 4, 2 \rangle</m></cell>
+                        <cell><m>21</m></cell>
+                        <cell><m>5</m></cell>
+                        <cell><m>5</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>\langle 5, 0 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>21</m></cell>
+                        <cell><m>\langle 5, 0 \rangle</m></cell>
+                        <cell><m>22</m></cell>
+                        <cell><m>6</m></cell>
+                        <cell><m>6</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>\langle 6, 1 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>22</m></cell>
+                        <cell><m>\langle 6, 1 \rangle</m></cell>
+                        <cell><m>23</m></cell>
+                        <cell><m>7</m></cell>
+                        <cell><m>7</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>\langle 7, 2 \rangle</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>23</m></cell>
+                        <cell><m>\langle 7, 2 \rangle</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>\langle 0, 0 \rangle</m></cell>
+                    </row>
+                </tabular>
+            </table>
+            <p>
+                We've got matching columns to show the structure
+                preservation and the overall sequence iterates 
+                through every point in the product to form a 
+                cycle of 24. The first 3 rows and last row of that 
+                table seem particularly interesting.  For 
+                <m>n = 0</m> and <m>n = 1</m>, we go from
+                a <q>self-loop to self-loop</q> with 
+                <m>\langle 0, 0 \rangle \rightarrow \langle 1, 1 \rangle</m>
+                and 
+                <m>\langle 1, 1 \rangle \rightarrow \langle 2, 2 \rangle</m>.
+                However, <m>n = 3</m> maps a <q>self-loop to non-self-loop</q>
+                <m>\langle 2, 2 \rangle \rightarrow \langle 3, 0 \rangle</m>
+                while <m>n = 23</m> maps a <q>non-self-loop to self-loop</q>
+                <m>\langle 7, 2 \rangle \rightarrow \langle 0, 0 \rangle</m>.
+                It seems like this property might be useful in the future.
+            </p>
+     
+        </solution>
+    </example>
+    <example>
+        <title>Exercise 2:</title>
+        <statement>
+            <p>
+                What is the product <m>C_m \times C_n</m>...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                I actually approached this with Python to make
+                it easier to find products of arbitrary graphs.
+                Using NetworkX's <c>draw_planar</c> function
+                made it easy to see cycles at a glance.  You 
+                can find my <q>scratch paper</q> here (TODO). 
+
+            </p>
+            <p>
+                After exploring for a bit, the conjecture I came up
+                with could be stated as follows:
+            </p>
+            <theorem xml:id="thm-cycle-products">
+                <statement>
+                    <p>
+                        Given an <m>m</m>-cycle <m>C_m</m> and 
+                        an <m>n</m>-cylce <m>C_n</m>, the product
+                        <m>C_m \times C_n</m> is composed of 
+                        <m>gcd(n,m)</m> cycles of length 
+                        <m>lcm(n,m)</m> where <m>gcd</m>
+                        is the <em> greatest common divisor</em>
+                        and <m>lcm</m> is the <em>least common multiple</em>.
+                    </p>
+                </statement>
+            </theorem>
+            <p>
+                I don't know if I can prove it quite yet,
+                but it was precisely this observation that 
+                led to my solution in Exercise 1.  Assuming 
+                this holds, <m>C_{12} \times C_{8}</m> should
+                have 4 cylces of length 24. I confirmed this 
+                with NetworkX <c>simple_cycles</c> function,
+                assuming I did my graph product right of course.
+            </p>
+
+        </solution>
+    </example>
+    <p>
+        I started working on Exercise 3, as evidenced by
+        my Jupyter Notebook, but going back to the
+        gender problem from Session 12 made me angry.
+        Upon realizing that I was getting angry, I decided 
+        it might be best to to call it a week here.  It's 
+        difficult to be objective when you're emotionally 
+        invested in the outcome.  
+    </p>
+</section>

@@ -450,7 +450,7 @@
                 <m>m' = 1_C</m>.
             </p>
             <p>
-                Since "[m]arriages with clans are forbidden", it follows that for any
+                Since "[m]arriages within clans are forbidden", it follows that for any
                 person <m>p</m> we'd have <m>c f p \neq c m p</m>.  However, we already 
                 know <m>c m p = c p</m> so it follows that <m>c f p \neq c p</m>. Since 
                 there's only two elements in <m>\mathbf{C}</m> it follows that <m>f'</m> 
