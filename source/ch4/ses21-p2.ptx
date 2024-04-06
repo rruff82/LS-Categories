@@ -1,0 +1,765 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session21-p2">
+    <title>Session 21: Products in categories, Part 2</title>
+
+    <p>
+        This week is going to get a little personal.  There's 
+        a reason why I'm struggling with this exercise, and I
+        feel like that being able to articulate precisely <q>why</q>
+        it's difficult is a necessary prerequisite for me to
+        progress.  
+    </p>
+    <example>
+        <title>Reflections on <sq>gender</sq></title>
+        <statement>
+            <p>
+                What's making this so difficult?
+            </p>
+        </statement>
+        <solution>
+            <p>
+                This problem goes back to a difference in definitions
+                of <q>map</q> between myself and the authors that I first 
+                observed in Article I.  My model of <q>map</q> allowed for
+                the output of the map to be <q>null</q> while the 
+                authors' didn't.  Setting aside the merits of the 
+                authors' definition for the moment, my definition of
+                <q>gender map</q> has the advantage that it allows for people 
+                to be non-binary in the resulting model.
+            </p>
+            <figure xml:id="fig-session21-gender-1">
+                <title>My original model of a map <m>\mathbf{P} \rightarrow \mathbf{G}</m></title>
+                <image width="60%" xml:id="img-session21-gender-1">
+                <latex-image>
+                    \begin{tikzpicture}[scale=2]
+
+                        \node (J) at (0,3) {John};
+                        \node (M) at (0,2) {Mary};
+                        \node (S) at (0,1) {Sue};
+                        \node (C) at (0,0) {Chris};
+
+                        \node (B) at (4,3) {male};
+                        \node (G) at (4,1) {female};
+                        \node (N) at (4,-1) {undefined};
+                        
+                        \draw (0,1.5) circle [x radius=.5,y radius=2];
+
+                        \draw (4,1.5) circle [x radius=.5,y radius=2];
+
+                        \path[-{stealth}]
+                            (J) edge (B)
+                            (M) edge (G)
+                            (S) edge (G)
+                            (C) edge[dashed] (N);
+
+                    \end{tikzpicture}
+                </latex-image>
+                </image>
+            </figure>
+            <p>
+               
+                In contrast, L&amp;S have defined <q>map</q>
+                 in such a way that every element in the domain 
+                 must have an arrow pointing to an element in 
+                 the codomain.  This makes the bookkeeping of 
+                 maps easier because there is a one-to-one 
+                 correspondence between dots and arrows, but 
+                 it does not allow for the expression of 
+                 non-binary people in the same way as my model.
+                 Instead, a map 
+                 <m>\mathbf{P} \rightarrow \mathbf{G}</m> forces
+                 each person into one of the two genders.
+ 
+            </p>
+
+            <figure xml:id="fig-session21-gender-2">
+                <title>Map <m>\mathbf{P} \rightarrow \mathbf{G}</m> as defined in L&amp;S</title>
+                
+                <image width="60%" xml:id="img-session21-gender-2">
+                <latex-image>
+                    \begin{tikzpicture}[scale=2]
+
+                        \node (J) at (0,3) {John};
+                        \node (M) at (0,2) {Mary};
+                        \node (S) at (0,1) {Sue};
+                        \node (C) at (0,0) {Chris};
+
+                        \node (B) at (4,3) {male};
+                        \node (G) at (4,1) {female};
+                        \node (N) at (4,-1) {undefined};
+                        
+                        \draw (0,1.5) circle [x radius=.5,y radius=2];
+
+                        \draw (4,1.5) circle [x radius=.5,y radius=2];
+
+                        \path[-{stealth}]
+                            (J) edge (B)
+                            (M) edge (G)
+                            (S) edge (G)
+                            (C) edge[dotted] (B)
+                            (C) edge[dotted] (G);
+                    \end{tikzpicture}
+                </latex-image>
+                </image>
+            </figure>
+                <p>
+                    Essentially, by assuming that <q>if you're a 
+                    person then you have a gender</q> the authors
+                    have directly implied the contrapositive that 
+                    <q>if you don't have a gender then you're not
+                    a person</q>.  I think I might understand why 
+                    they did it, but it doesn't change how messed
+                    up it is to deny personhood to an entire group 
+                    like that.  If the goal of this is to convince
+                    me that the author's definition of map is 
+                    better than the one I started with, this 
+                    exercise isn't doing a very good job at it. 
+                    It's starting to look more like a <q>vacuous
+                    statement</q>.  Given that non-binary people
+                    exist, the only logical conclusion is that the
+                    map <m>\mathbf{P} \rightarrow \mathbf{G}</m> 
+                    doesn't exist. Any conditional statement 
+                    beginning with <q>if 
+                    <m>\mathbf{P} \rightarrow \mathbf{G}</m> is a
+                    map from the set of persons to genders</q> is 
+                    therefore automatically true because the 
+                    hypothesis is always false.  
+                </p>
+                <p>
+                    Gender has been a recurring theme throughout 
+                    the text so far.  We saw it in Session 5 when 
+                    talking about determination problems, in 
+                    <q>Composition of opposed maps</q> at the end 
+                    of Part 2, in Article 3 Exercise 17, 
+                    Session 12 Exercise 3, Session 15 Exercise 6,
+                    and now again in Session 21 Exercise 3.  
+                    Looking over my notes, we've gradually moved 
+                    from looking at gender being defined as a map 
+                    in <m>\mathcal{S}</m> to a map in 
+                    <m>\mathcal{S}^{\circlearrowright, \circlearrowleft}</m>
+                    that preserves the structure of <q>father</q> 
+                    and <q>mother</q> maps.  The idea here was that 
+                    gender is preserved under the operations <q>father</q>
+                    and <q>mother</q> because it becomes a constant map 
+                    after composition.
+                </p>
+                <p>
+                    The authors referred to this as <q>objectification
+                    of the subjective</q>, implying that we can infer 
+                    a person's gender from examining the behavior of 
+                    these <q>mother</q> and <q>father</q> maps.  In 
+                    Session 15, I joked that this model excluded 
+                    Stormtroopers as people because as clones of a 
+                    male they lack a well defined <q>mother</q> map, 
+                    but the truth is that this joke was merely a 
+                    reflection of the fact that this model of 
+                    gender fails to work for me specifically 
+                    because I don't consider myself to have a 
+                    <q>father map</q>.  
+                </p>
+                <p>
+                    Okay, maybe the truth is a little more 
+                    complicated. I have something like a 
+                    <q>father map</q>, but it's a map from 
+                    <m>\mathbf{P} \rightarrow \mathbf{P} \times \mathbf{P}</m>
+                    rather than <m>\mathbf{P} \rightarrow \mathbf{P}</m> so
+                    it doesn't preserve the structure of this <q>gender map</q>
+                    in quite the same way.   
+                </p>
+                <p>
+                    Growing up, there was a family legend suggesting
+                    that one of my ancestors was Native American.  In
+                    2020, I decided to take a DNA test to determine 
+                    whether or not there was any truth to it and 
+                    <url href="https://suburbanlion.com/blog/2020/11/14/land-acknowledgement/">
+                    wrote about the experience on my blog</url>.  
+                    What I omitted from the original post was the 
+                    fact that my half-sister took the same test so 
+                    we could compare results, and I inadvertently 
+                    found out that I was born through a process of 
+                    in vitro fertilization using donor sperm.  My 
+                    parents chose to keep this secret from me until
+                    such a time that I was going to find it out anyway,
+                    and I'm still not exactly sure how to feel about it.  
+           
+                </p>
+                <p>
+                    It's kind of interesting that back in Session 1
+                    I chose to look at a product of 
+                    <m>\text{NATURE} \times \text{NURTURE}</m> 
+                    because this parallels the properties of my <q>father map</q>.
+                    I have a <q>nature father</q> that provided genetic material 
+                    and a <q>nurture father</q> that was actually involved in my 
+                    life.  Under my old definition of <q>father map</q> it would 
+                    be easy for me to think of the output being <em>undefined</em>,
+                    but the definitions used in the text exclude this as a 
+                    possibility for the specified domain and codomain.  The fact
+                    that one input corresponds to two outputs means that my 
+                    <q>father map</q> does not meet the criteria for an endomap
+                    on <m>\mathbf{P}</m>. The authors are using <q>gender</q> as
+                    an example of a universal property, but it's not a universal 
+                    property if there are people it doesn't apply to.
+                </p>
+                <p>
+                    I've commented before how the sections including classroom 
+                    dialogues have been fun to read, but I'm not sure if this 
+                    <q>father map</q> problem is a question I'd be able to bring
+                    up in class. While looking back at the <em>Composition of 
+                    opposed maps</em> section for clues to this problem, the 
+                    idea of being put in Alysia's shoes is terrifying.  Would 
+                    I have the guts to say <q>I don't have a father map</q> in
+                    a class full of strangers?  Probably not.  It's far more 
+                    likely that I would lie about the personal situation in 
+                    favor of a simpler mathematical model.  
+                </p>
+                <p>
+                    I think what makes it even more frustrating is the fact
+                    that the logical half of my brain is screaming <q>IT 
+                    DOESN'T EVEN MATTER!!</q> this whole time. With the 
+                    way that L&amp;S have explicitly defined the product,
+                    there should still be exactly one map such that all
+                    triangles commute. The universal mapping property is 
+                    worded in such a way that it shouldn't matter whether
+                    I have two dads or no dads <mdash/> there's still an
+                    unique isomorphism between the models.  It's just 
+                    easier to see without the additional complexity.
+                </p>
+                <p>
+                    Looking back over Session 12 again, the authors 
+                    make it very clear that the model of <q>gender</q> 
+                    in Exercise 3 is completely detached from reality.
+                    They explicitly state that <q>[y]ou will notice 
+                    that this category contains many objects and maps
+                    that cannot reasonably be interpreted as a set of 
+                    people with <sq>father</sq> and <sq>mother</sq> maps</q>.
+                    There's this underlying notion that even if this model 
+                    of gender is <q>wrong</q>, it can still be <q>useful</q>.
+                    I get that basic idea in principle, but this doesn't 
+                    change how dehumanizing it feels to be excluded. How 
+                    much harm are we willing to impose for the sake of 
+                    utility? IVF was a relatively new procedure when the
+                    first edition of this text was printed, but more recent 
+                    evidence suggests that 
+                    <url href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6765402/">
+                    people like myself are a rapidly 
+                    growing demographic</url>. At some point mathematicians 
+                    will need to stop assuming everyone comes from a 
+                    traditional family structure.
+
+                </p>
+                <p>
+                    I don't think I'm exaggerating when I say this is 
+                    a <q>traumatic experience</q>. I probably wouldn't 
+                    have even recognized it had it not been for my 
+                    experiences learning about 
+                    <url href="https://www.apa.org/ed/schools/primer/trauma" >
+                    trauma sensitive
+                    instruction</url>.  I have to constantly remind 
+                    myself that I need to treat myself with grace and 
+                    kindness in this situation. 
+
+                </p>
+                <p>
+                    Having read Eugenia Chen's <em>X+Y</em> before 
+                    starting this venture through L&amp;S, I kind 
+                    of expected gender to make an appearance. What 
+                    I didn't expect was to start questioning my own
+                    <mdash/> again.  I
+                    <url href="https://suburbanlion.com/blog/2020/03/19/choosing-whiteness/" >
+                    wrote before</url> about the ways in which I 
+                    consciously chose to identify as male, but now 
+                    there's this alternate definition where I'm not
+                    so sure about the label. I have a gender map in
+                    <m>\mathcal{S}</m> but not in 
+                    <m>\mathcal{S}^{\circlearrowright, \circlearrowleft}</m>. 
+                    It's almost as if category theory has just handed me an 
+                    objective definition by which I am non-binary, 
+                    should I choose to accept it, and I feel a little 
+                    frightened about the prospects.
+                </p>
+                <p>
+                    Perhaps the big idea here is that I need to do a
+                    better job of distinguishing between maps in
+                    <m>\mathcal{S}</m> and maps in 
+                    <m>\mathcal{S}^{\circlearrowright, \circlearrowleft}</m>.
+                    In Session 12, maybe they were dropping a hint when they 
+                    describe a <q>person</q> who is <q>its own <sq>mother</sq>
+                    and its own <sq>father</sq></q>.  Such a <sq>person</sq>
+                    would satisfy the properties of a terminal object 
+                    <m>T^{\circlearrowright, \circlearrowleft}</m> 
+                    in the category 
+                    <m>\mathcal{S}^{\circlearrowright, \circlearrowleft}</m>.
+                    This would at least give me an object to observe the system 
+                    through.  I could enumerate all possible maps in 
+                    <m>\mathcal{S}</m> and sort them into two groups based 
+                    on whether or not they preserve the structure in
+                    <m>\mathcal{S}^{\circlearrowright, \circlearrowleft}</m>.   
+                </p>
+        </solution>
+        
+    </example>
+    <p>
+        That kind of took a lot out of me,  so I think I'm just
+        going to sketch out some general ideas about this exercise
+        and call it a week.
+    </p>
+    <example>
+        <title>Exercise 3:</title>
+        <statement>
+            <p>
+                Return to Exercise 3 of Session 12...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                In order for <m>\mathbf{G} \times \mathbf{C}</m> to be a 
+                <em>product</em>, it must satisfy the following conditions:
+            </p>
+            <p>
+                First, we need to show <m>\mathbf{G} \times \mathbf{C}</m> 
+                is an object in 
+                <m>\mathcal{S}^{\circlearrowleft, \circlearrowright}</m>, 
+                and we need a pair of maps 
+                <m>\mathbf{G} \times \mathbf{C} \xrightarrow{p_1} \mathbf{G}</m> 
+                and 
+                <m>\mathbf{G} \times \mathbf{C} \xrightarrow{p_2} \mathbf{C}</m>.
+                Second, we need to show that for every object 
+                <m>T</m> 
+                and every pair of maps <m>T \xrightarrow{q_1} \mathbf{G}</m>
+                and <m>T \xrightarrow{q_2} \mathbf{C}</m>, 
+                there is exactly one map 
+                <m>T \xrightarrow{q} \mathbf{G} \times \mathbf{C}</m>
+                for which <m>q_1 = p_1 \circ q</m> and <m>q_2 = p_2 \circ q</m>.
+            </p>
+            <p>
+                Ignoring the wildcard object <m>T</m> for now,
+                we can take all this information and construct
+                an external diagram of the sitation as follows:
+            </p>
+            <figure xml:id="fig-session21-ex3-1">
+                <title>External Diagram of Product <m>\mathbf{G} \times \mathbf{C}</m></title>
+                <image width="90%" xml:id="img-session21-ex3-1">
+                <latex-image>
+                    \begin{tikzpicture}
+                        \node (X) at (0,2) {$\mathbf{P}$};
+                        \node (P) at (0,0) {$\mathbf{G} \times \mathbf{C}$};
+                        \node (A) at (-2,0) {$\mathbf{G}$};
+                        \node (B) at (2,0) {$\mathbf{G}$};
+        
+                        \path[-{stealth}]
+                            (X) edge node[right] {$q$} (P)
+                            (P) edge node[below] {$p_1$} (A)
+                            (P) edge node[below] {$p_2$} (B)
+                            (X) edge[bend right] node[left] {$q_1$} (A)
+                            (X) edge[bend left] node[right] {$q_2$} (B);
+        
+                    \end{tikzpicture}
+                </latex-image>
+                </image>
+            </figure>
+        
+        
+            <p>
+                The first task was essentially the goal of Session 12 
+                Exercise 3. Last time I exhaustively listed the options,
+                but I think there's a more direct approach where we 
+                can construct a map from the product of endomaps to 
+                the endomaps of products.
+            </p>
+            <p>   
+                Given any <m>p</m> in 
+                <m>\mathbf{P}^{\circlearrowleft m_P, \circlearrowright f_P}</m>,
+                and structure preserving maps
+                <m>\mathbf{P}^{\circlearrowleft m_P, \circlearrowright f_P}
+                    \xrightarrow{q_1} \mathbf{G}^{\circlearrowleft m_G, \circlearrowright f_G}
+                </m> and <m>\mathbf{P}^{\circlearrowleft m_P, \circlearrowright f_P}
+                    \xrightarrow{q_2} \mathbf{C}^{\circlearrowleft m_C, \circlearrowright f_C}
+                </m>,
+                we can define a map 
+                <m>\mathbf{P}^{\circlearrowleft m_P, \circlearrowright f_P} 
+                    \xrightarrow{q} (\mathbf{G} \times \mathbf{C})^{\circlearrowleft m_{G \times C}, \circlearrowright f_{G \times C}}</m>
+                 such that 
+                <m>m_{G \times C} \circ q \circ p 
+                    = \langle m_G \circ q_1 \circ p, m_C \circ q_2 \circ p \rangle
+                    = \langle q_1 \circ m_P \circ p, q_2 \circ f_P \circ p \rangle
+                </m>
+                and 
+                <m>f_{G \times C} \circ q \circ p 
+                    = \langle f_G \circ q_1 \circ p, f_C \circ q_2 \circ p \rangle
+                    = \langle q_1 \circ f_P \circ p, q_2 \circ f_P \circ p \rangle</m>.        
+            </p>
+            <p>
+                Since <m>\mathbf{P}^{\circlearrowleft m_P, \circlearrowright f_P}
+                    \xrightarrow{q_1} \mathbf{G}^{\circlearrowleft m_G, \circlearrowright f_G}
+                </m> needs to preserve the structure of <m>\mathcal{S}^{\circlearrowleft \circlearrowright}</m>,
+                we must have the property that <m>q_1 m_P = m_G q_1</m> and
+                <m>q_1 f_P = f_G q_1</m>.  Likewise, <m>\mathbf{P}^{\circlearrowleft m_P, \circlearrowright f_P}
+                    \xrightarrow{q_2} \mathbf{C}^{\circlearrowleft m_C, \circlearrowright f_C}
+                </m> must preserve <m>q_2 \circ m_P = m_C \circ q_2</m> and 
+                <m>q_2 \circ f_P = f_C \circ q_2</m>.  By substituting into our definition
+                of <m>q</m>, we get the following:
+            </p>
+            <me>m_{G \times C} \circ q \circ p = \langle m_G \circ q_1 \circ p, m_C \circ q_2 \circ p \rangle</me>
+            <me> = \langle q_1 \circ m_P \circ p, q_2 \circ m_P \circ p \rangle = q m_P p</me>
+            <me>f_{G \times C} \circ q \circ p = \langle f_G \circ q_1 \circ p, f_C \circ q_2 \circ p \rangle</me>.        
+            <me> = \langle q_1 \circ f_P \circ p, q_2 \circ f_C \circ p \rangle = q f_P p</me>
+            <p>
+                Since this is true for any <m>p</m>, we can equate the maps
+                <m>m_{G \times C} \circ q = q \circ m_P</m>
+                and <m>f_{G \times C} \circ q = q \circ f_P</m>.  This demonstrates
+                that <m>\mathbf{P} \rightarrow \mathbf{G} \times \mathbf{C}</m> is a valid
+                map in the category. 
+            </p>
+            <p>
+                Next, let's have a look at our projection maps
+                <m>p_1,p_2</m> defined by <m>p_1 \langle x_1, x_2 \rangle = x_1</m>
+                and <m>p_2 \langle x_1, x_2 \rangle = x_2</m>. 
+                For any person <m>p</m>,
+                we'd defined
+                <m>q \circ p = \langle q_1 p, q_2 p\rangle</m>.
+                Applying our projection maps <m>p_1, p_2</m> on the
+                left gives us <m>p_1 \circ q \circ p = q_1 p</m>
+                and <m>p_2 \circ q \circ p = q_2 p</m>. This gives us
+                the properties that <m>q_1 = p_1 \circ q</m>
+                and <m>q_2 = p_2 \circ q</m>.  
+                I should probably point out that 
+                the necessary structure preservation properties 
+                <m>m_G \circ p_1 = p_1 \circ m_{G \times C}</m>,
+                <m>f_G \circ p_1 = p_1 \circ f_{G \times C}</m>, 
+                <m>m_C \circ p_2 = p_2 \circ m_{G \times C}</m>, and
+                <m>f_C \circ p_2 = p_2 \circ f_{G \times C}</m>, all follow directly 
+                from our choice of <m>m_{G \times C} = m_G \times m_C</m> 
+                and <m>f_{G \times C} = f_G \times f_C</m>.
+            </p>
+        
+            <p>
+                I think it might also be helpful to reproduce the diagrams 
+                from Session 12 in the style used by this Session:
+            </p>
+        
+            <figure xml:id="fig-session21-ex3-2">
+                <caption>
+                    Endomaps <m>m</m> and <m>f</m> on <m>\mathbf{G} \times \mathbf{C}</m>
+                    expressed in Product Form.
+                </caption>
+                <image width="75%" xml:id="img-session21-ex3-2">
+                    <latex-image>
+                        \begin{tikzpicture}
+                        \node (HW) at (1,1) {he-wolf};
+                        \node (HB) at (3,1) {he-bear};
+        
+                        \node (SW) at (1,-1) {she-wolf};
+                        \node (SB) at (3,-1) {she-bear};
+        
+                        \node[red] (MT) at (2,-1.5) {$m_{G \times C}$};
+                        \node[blue] (FT) at (2,.4) {$f_{G \times C}$};
+        
+                        \draw (2,0) circle (2.5cm);
+        
+                        \path[-{Stealth},font=\scriptsize,>=angle 90]
+                            (HW) edge[red] (SW)
+                            (HW) edge[blue,bend right] (HB)
+                            (SW) edge[red,->,>={Stealth},loop,out=250, in=290,looseness=8] (SW)
+                            (SW) edge[blue] (HB)
+                            (HB) edge[red] (SB)
+                            (HB) edge[blue,bend right] (HW)
+                            (SB) edge[red,->,>={Stealth},loop,out=250, in=290,looseness=8] (SB)
+                            (SB) edge[blue] (HW)
+                        ;
+        
+                     
+                        \node (FN) at (-3,-1) {female};
+                        \node (MN) at (-3,1) {male};
+        
+                        \node[red] (MM) at (-2.4,-0.65) {$m_G$};
+                        \node[blue] (FM) at (-3.6,0.65) {$f_G$};
+                        
+        
+                        \draw (-3,0) circle [y radius=2.5,x radius=.75];
+                        \path[-{Stealth},font=\scriptsize,>=angle 90]
+            
+                        (FN) edge[red,->,>={Stealth},loop,out=225, in=315,looseness=6] (FN)
+                        (MN) edge[blue,->,>={Stealth},loop,out=135, in=45,looseness=6] (MN)
+                        (MN) edge[red,bend left] (FN)
+                        (FN) edge[blue,bend left] (MN)
+                        ;
+        
+        
+        
+                        \node (FN) at (1,-5) {wolf};
+                        \node (MN) at (3,-5) {bear};
+        
+                        \node[red] (MM) at (2,-5.65) {$m_C$};
+                        \node[blue] (FM) at (2,-4.8) {$f_C$};
+                        
+        
+                        \draw (2,-5) circle [x radius=2.5,y radius=.75];
+                        \path[-{Stealth},font=\scriptsize,>=angle 90]
+          
+                        (FN) edge[red,->,>={Stealth},loop,out=250, in=290,looseness=8] (FN)
+                        (MN) edge[red,->,>={Stealth},loop,out=250, in=290,looseness=8] (MN)
+                        ($(MN.north)-(.1,0)$) edge[blue,bend right=60] ($(FN.north)+(.1,0)$)
+                        ($(FN.north)-(.1,0)$) edge[blue,bend left=70] ($(MN.north)+(.1,0)$)
+                        ;             
+                      
+        
+                        \coordinate (LP) at (-2,0);
+                        \coordinate (RP) at (-1,0);
+                        
+                        \coordinate (TP) at (2,-3);
+                        \coordinate (BP) at (2,-4);
+        
+                        \path[-{Stealth},font=\scriptsize,>=angle 90]
+                            (RP) edge (LP)
+                            (TP) edge (BP);
+                             
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                I think that one of the key ideas here is to 
+                identify a <em>terminal object</em> in the 
+                category <m>\mathcal{S}^{\circlearrowleft \circlearrowright}</m>. 
+                I'm going to make the claim that the 
+                following object has the desired properties:
+        
+            </p>
+        
+        
+            <figure xml:id="fig-session21-ex3-3">
+                <title>Terminal object in <m>\mathcal{S}^{\circlearrowleft \circlearrowright}</m></title>
+                <image width="40%" xml:id="img-session21-ex3-3">
+                <latex-image>
+                    \begin{tikzpicture}
+                        \node (EQ) at (-1,0) {$\mathbf{T} = $};
+                        \node (P) at (1,0) {$\bullet$};
+                        \draw (0,-1) rectangle (2,1);
+        
+                        \path[-{stealth}]
+                            (P) edge[red,->,>={Stealth},loop,out=45, in=315,looseness=8] (P)
+                            (P) edge[blue,->,>={Stealth},loop,out=135, in=225,looseness=8] (P)
+                            ;
+        
+                    \end{tikzpicture}
+                </latex-image>
+                </image>
+            </figure>
+            <p>
+                Since there's only one point in the set, any point 
+                mapped to <m>\mathbf{T}</m> must map everything to 
+                the only point.  
+                Since both endomaps are the identity map on this point,
+                each endomap from the source space must get mapped to the 
+                identity in order to preserve structure.  Having a
+                terminal object allows us to 
+                define a set of 5 unique maps:
+                 <me>\mathbf{T} \rightarrow \mathbf{T}</me>
+                 <me>\mathbf{P} \rightarrow \mathbf{T}</me>
+                 <me>\mathbf{G} \rightarrow \mathbf{T}</me>
+                 <me>\mathbf{C} \rightarrow \mathbf{T}</me>
+                 <me>\mathbf{G} \times \mathbf{C} \rightarrow \mathbf{T}</me>
+            </p>
+            <p>
+                I think one of the important features of this object
+                is that it can't be mapped back to any of elements 
+                in <m>\mathbf{G} \times \mathbf{C}</m>.  There's are 4 maps from
+                <m>\mathbf{1} \rightarrow \mathbf{G} \times \mathbf{C}</m>,
+                but none of them preserve the structure of
+                <m>\mathbf{T}^{\circlearrowleft m_T,\circlearrowright f_T}</m> 
+                because <m>m_{G \times C},f_{G \times C}</m> are different maps
+                while <m>m_T = f_T</m> for the only element in <m>\mathbf{T}</m>.
+                There's a unique set of isomorphism in <m>\mathcal{S}</m> given by
+                <m>\mathbf{1} \mathrel{\substack{\longrightarrow \\ \longleftarrow}} \mathbf{T}</m>,
+                <m>\mathbf{1} \mathrel{\substack{\longrightarrow \\ \longleftarrow}} \mathbf{G}</m>, 
+                <m>\mathbf{1} \mathrel{\substack{\longrightarrow \\ \longleftarrow}} \mathbf{C}</m>,
+                <m>\mathbf{1} \mathrel{\substack{\longrightarrow \\ \longleftarrow}} \mathbf{G} \times \mathbf{C}</m>, 
+                and 
+                <m>\mathbf{1} \mathrel{\substack{\longrightarrow \\ \longleftarrow}} \mathbf{P}</m>.
+                However, none of the composite maps <m>\mathcal{S}</m>-maps 
+                <m>\mathbf{T} \rightarrow \mathbf{G}</m>, <m>\mathbf{T} \rightarrow \mathbf{C}</m>,
+                <m>\mathbf{T} \rightarrow \mathbf{G} \times \mathbf{C}</m>
+                preserve the structure required of maps in
+                <m>\mathcal{S}^{\circlearrowleft, \circlearrowright}</m> because
+                there's two unique maps in the codomain and only one in 
+                the domain. This seems like a reasonable way to say our product
+                uniquely commutes, which is what we needed to complete the proof.
+            </p>
+            <p>
+                I've been trying to avoid using the sum here, but I think this
+                relation is nicely summarized by the following diagram:
+            </p>
+            <figure xml:id="fig-session21-ex3-4">
+                <title>External Diagram of relations between product and sum</title>
+                <image width="90%" xml:id="img-session21-ex3-4">
+                <latex-image>
+                    \begin{tikzpicture}
+                        \node (X) at (-2,0) {$\mathbf{4}$};
+                        \node (P) at (0,0) {$\mathbf{2} \times \mathbf{2}$};
+                        \node (A) at (1,1) {$\mathbf{2}$};
+                        \node (B) at (1,-1) {$\mathbf{2}$};
+                        \node (S) at (3,0) {$\mathbf{2} + \mathbf{2}$};
+                        \node (Y) at (5,0) {$\mathbf{4}$};
+                        
+        
+                        \path[-{stealth}]
+                            (X) edge (P)
+                            (X) edge[bend left] (A)
+                            (X) edge[bend right] (B)
+                            (A) edge[bend left] (Y)
+                            (B) edge[bend right] (Y)
+                            (P) edge (A)
+                            (P) edge (B)
+                            (A) edge (S)
+                            (B) edge (S)
+                            (S) edge (Y);
+        
+                    \end{tikzpicture}
+                </latex-image>
+                </image>
+            </figure>
+        
+            <p>
+                Once we start looking at the maps from 
+                <m>\mathbf{4} \rightarrow \mathbf{4}</m> 
+                which are invertable, the number of ways of
+                breaking them into pairs is limited. One of
+                the things I noticed while exploring was that
+                if I defined a <q>parent of opposite gender</q>
+                map <m>\mathbf{P} \xrightarrow{\alpha} \mathbf{P}</m>,
+                composing this map with <m>q</m> to get 
+                <m>\mathbf{G} \times \mathbf{C}</m> into
+                a cycle of length 4 under the respective operation 
+                <m>\alpha'</m>.  
+            </p>
+            <me>
+                \alpha' \text{he-wolf} = \text{she-wolf}
+            </me>
+            <me>
+                \alpha' \text{she-wolf} = \text{he-bear}
+            </me>
+            <me>
+                \alpha' \text{he-bear} = \text{she-bear}
+            </me>
+            <me>
+                \alpha' \text{she-bear} = \text{he-wolf}
+            </me>
+        
+            <p>
+                Some further investigation into the maps 
+                <m>m_{G \times C}, f_{G \times C}</m> revealed 
+                other interesting patterns as well.  For example,
+                I found we have the following relations:
+                <me>m_{G \times C} \circ m_{G \times C} = m_{G \times C}</me>
+                <me>f_{G \times C} \circ m_{G \times C} = f_{G \times C}</me>
+                <me>m_{G \times C} \circ m_{G \times C} \circ m_{G \times C} = m_{G \times C}</me>
+                <me>f_{G \times C} \circ f_{G \times C} \circ f_{G \times C} = f_{G \times C}</me> 
+            </p>
+        
+            <p>
+                The structure of these relations reminded me of the 
+                presentations of dynamical systems we say is Session 15.
+                In particular, it got me thinking about the way I was trying 
+                to standardize my presentations using an isomorphism
+                <m>\mathbb{N} \leftrightarrow \mathbb{N} \times \mathbb{N}</m>.
+                In particular, there were two different ways of enumerating
+                my table of
+                <m>\langle \text{generator}, \text{iterations} \rangle</m>
+                pairs:
+            </p>
+        
+        
+            <figure xml:id="fig-session21-ex3-5">
+                <title>Traversing generators along two different diagonals</title>
+                <image width="90%" xml:id="img-session21-ex3-5">
+                    <latex-image>
+                        \begin{tikzpicture}
+                        \node (NH) at (-1,1) {$\mathbb{N} = $};
+                        \node (N0) at (0,1) {$0$};
+                        \node (N1) at (1,1) {$1$};
+                        \node (N2) at (2,1) {$2$};
+                        \node (N3) at (3,1) {$3$};
+                        \node (N4) at (4,1) {$4$};
+                        \node (N5) at (5,1) {$5$};
+        
+                        \node (N6) at (6,1) {...};
+        
+                        \node (TH) at (-1,0) {$\alpha^0$};
+                        \node (T0) at (0,0) {$a$};
+                        \node (T1) at (1,0) {$b$};
+                        \node (T2) at (2,0) {$c$};
+                        \node (T3) at (3,0) {$d$};
+                        \node (T4) at (4,0) {$\alpha a$};
+                        
+                        \node (T5) at (5,0) {...};
+        
+                        \node (A1TH) at (-1,-1) {$\alpha^1$};
+                        \node (A1T0) at (0,-1) {$\alpha a$};
+                        \node (A1T1) at (1,-1) {$\alpha b$};
+                        \node (A1T2) at (2,-1) {$\alpha c$};
+                        \node (A1T3) at (3,-1) {$\alpha d$};
+                        \node (A1T4) at (4,-1) {$\alpha^2 a$};
+                        \node (A1T5) at (5,-1) {...};
+        
+                        \node (A2TH) at (-1,-2) {$\alpha^2$};
+                        \node (A2T0) at (0,-2) {$\alpha^2 a$};
+                        \node (A2T1) at (1,-2) {$\alpha^2 b$};
+                        \node (A2T2) at (2,-2) {$\alpha^2 c$};
+                        \node (A2T3) at (3,-2) {$\alpha^2 d$};
+                        \node (A2T4) at (4,-2) {$\alpha^3 a$};
+                        \node (A2T5) at (5,-2) {...};
+                        5,-2) {...};
+        
+           
+                        \path[-{stealth},blue,bend right]
+                            (T0) edge (A1T0)
+                            (A1T0) edge (T1)
+                            (T1) edge (A2T0)
+                            (A2T0) edge (A1T1)
+                            (A1T1) edge (T2)
+                            ;
+        
+                         
+                        \path[-{stealth},red,bend right]
+                         (T0) edge (T1)
+                         (T1) edge (A1T0)
+                        (A1T0) edge (T2)
+                        (T2) edge (A1T1)
+                        (A1T1) edge (A2T0)
+                        ;   
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                These two methods both enumerate all possible 
+                values, but the do so in a slightly different order.
+                When the ordered pairs all commute, such that
+                <m>\langle x_1, x_2 \rangle = \langle x_2, x_1 \rangle</m>,
+                then the two representations converge to a single solution.
+                Perhaps this is why the phrase <q>all triangles commute</q> 
+                does such heavy lifting.  
+            </p>
+            <p>
+                I can't help but wonder if the point of this whole 
+                <m>\mathcal{S}^{\circlearrowleft,\circlearrowright}</m>
+                category is to generalize from my <em>zig-zag</em> ordering
+                of elements into two separate operators <mdash/> such that
+                <m>m</m> increments the row and <m>f</m> increments the column.
+                Even two observers have different enumeration maps, each 
+                map will have a unique pair of <m>m,f</m> maps such that 
+                they both agree every value in the table.
+            </p>
+            <p>
+                I don't think I've fully answered this exercise
+                quite yet, but at least I'll have some better notes 
+                for next time this model shows up.
+            </p>
+        </solution>        
+    </example>
+
+
+
+
+</section>
