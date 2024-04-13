@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session22">
+    <title>Session 22: Universal mapping properties, Incidence Relations</title>
+    <p>
+       I didn't quite make it all the way through the first 
+       exercise here, but that's okay.  I think I made it far
+       enough that I have some ideas to work with.
+    </p>
+   <example>
+    <title>Exercise 1: (part 1/?)</title>
+    <statement>
+        <p>
+            Consider the diagram of graphs...
+        </p>
+    </statement>
+    <solution>
+        <p>
+            We're given a <q>diagram of graphs</q> 
+            with the shape of the bipointed object below:
+        </p>
+        <figure xml:id="fig-session22-ex1-1">
+            <title>Given Diagram for Session 22 Exercise 1</title>
+            <image width="60%" xml:id="img-session22-ex1-1">
+            <latex-image>
+                \begin{tikzpicture}
+                    \node (P) at (0,1) {$P$};
+                    \node (A) at (2,2) {$B_1$};
+                    \node (B) at (2,0) {$B_2$};
+    
+                    \path[-{stealth}]
+                        (P) edge (A)
+                        (P) edge (B);
+    
+                \end{tikzpicture}
+            </latex-image>
+            </image>
+        </figure>
+        <p>
+            I'm thinking that the idea here is replace the objects
+            representing our domain and codomain with <q>dots</q>,
+            so we can treat the maps like <q>arrows</q>.  There should 
+            be unique maps to the terminal object 
+            <m>P \rightarrow T, B_1 \rightarrow T,
+                B_2 \rightarrow T</m> that have the following
+                 structure:
+            </p>
+           
+        <figure xml:id="fig-session22-ex1-2">
+            <title>Replacing objects with <q>dots</q></title>
+            <image width="60%" xml:id="img-session22-ex1-2">
+            <latex-image>
+                \begin{tikzpicture}
+                    \node (P) at (0,1) {$\boxed{\bullet}$};
+                    \node (A) at (2,2) {$\boxed{\bullet}$};
+                    \node (B) at (2,0) {$\boxed{\bullet}$};
+    
+                    \path[-{stealth}]
+                        (P) edge (A)
+                        (P) edge (B);
+    
+                \end{tikzpicture}
+            </latex-image>
+            </image>
+        </figure>     
+        <p>
+            All together, there are 5 objects in the diagram: 
+            3 dots referring to <m>P,B_1,B_2</m> respectively,
+            and two arrows referring to the respective projection
+            maps.  I'm going to use this to construct a table 
+            of elements and their respective source and target 
+            maps by using self referential arrows for the points:
+        </p>
+        <table>
+            <title>List of objects in diagram</title>
+            <tabular>
+                <row>
+                    <cell>Object</cell>
+                    <cell>Description</cell>
+                    <cell>Source</cell>
+                    <cell>Target</cell>
+                </row>
+        
+                <row>
+                    <cell>0</cell>
+                    <cell><m>P \rightarrow T</m></cell>
+                    <cell>0</cell>
+                    <cell>0</cell>
+                </row>
+                <row>
+                    <cell>1</cell>
+                    <cell><m>B_1 \rightarrow T</m></cell>
+                    <cell>1</cell>
+                    <cell>1</cell>
+                </row>
+                <row>
+                    <cell>2</cell>
+                    <cell><m>B_2 \rightarrow T</m></cell>
+                    <cell>2</cell>
+                    <cell>2</cell>
+                </row>
+                <row>
+                    <cell>3</cell>
+                    <cell><m>P \rightarrow B_1</m></cell>
+                    <cell>0</cell>
+                    <cell>1</cell>
+                </row>
+                <row>
+                    <cell>4</cell>
+                    <cell><m>P \rightarrow B_2</m></cell>
+                    <cell>0</cell>
+                    <cell>2</cell>
+                </row>
+            </tabular>
+        </table>
+        <p>
+            The two arrows in the diagram represent the two different
+            maps from <m>P</m>, so we can map from <m>A</m> to the 
+            above diagram in two distinct ways:
+        </p>
+        <figure xml:id="fig-session22-ex1-3">
+            <title>Maps from <q>arrow</q> to diagram</title>
+            <image width="60%" xml:id="img-session22-ex1-3">
+            <latex-image>
+                \begin{tikzpicture}
+                    \node (X0) at (-3.5,1) {$\bullet$};
+                    \node (X1) at (-2.5,1) {$\bullet$};
+                    \draw (-4,0) rectangle (-2,2);
+    
+                    \node (P) at (0,1) {$\bullet$};
+                    \node (A) at (2,2) {$\bullet$};
+                    \node (B) at (2,0) {$\bullet$};
+                    \draw (-1,-1) rectangle (3,3);
+    
+    
+                    \coordinate (M0) at (-3,1.1);
+                    \coordinate (M1) at (-3,.9);
+                    \coordinate (M2) at (1.1,1.6);
+                    \coordinate (M3) at (1.1,.4);
+    
+    
+    
+                    \path[-{stealth}]
+                        (P) edge (A)
+                        (P) edge (B)
+                        (X0) edge (X1)
+                        (X0) edge[blue,bend left] (P)
+                        (X0) edge[red,bend right] (P)
+                        (X1) edge[blue,bend left] (A)
+                        (X1) edge[red,bend right] (B)
+                        (M0) edge[blue,bend left,dashed] node[above,blue] {$m_1$} (M2)
+                        (M1) edge[red,bend right,dashed] node[below,red] {$m_2$} (M3)                    
+                        ;
+    
+                \end{tikzpicture}
+            </latex-image>
+            </image>
+        </figure>
+        <p>
+            These two maps <m>m_1,m_2</m> are <q>incident</q> at the one dot
+            that represented <m>P</m> in our original diagram.  We can
+            name these by referring to the <q>source</q> and 
+            <q>target</q> maps which are the only two maps <m>D \rightarrow A</m>:
+        </p>
+    
+        <figure xml:id="fig-session22-ex1-5">
+            <title>Two Unique Maps from <m>D \rightarrow A</m></title>
+            <image width="60%" xml:id="img-session22-ex1-5">
+            <latex-image>
+                \begin{tikzpicture}
+                    \node (X0) at (-3.5,1) {$\bullet$};
+                    \draw (-4,0) rectangle (-3,2);
+    
+    
+                    \node (Y0) at (0.5,1) {$\bullet$};
+                    \node (Y1) at (3.5,1) {$\bullet$};
+                    \draw (0,0) rectangle (4,2);
+    
+    
+                    \coordinate (M0) at (-3,1.1);
+                    \coordinate (M1) at (-3,.9);
+                    \coordinate (M2) at (1,1.1);
+                    \coordinate (M3) at (1,.9);
+    
+    
+    
+                    \path[-{stealth}]
+                        (Y0) edge (Y1)
+                
+                        (X0) edge[blue,bend left] node[above,blue] {$s$} (Y0)
+                        (X0) edge[red,bend right] node[below,red] {$t$} (Y1)                 
+                        ;
+    
+                \end{tikzpicture}
+            </latex-image>
+            </image>
+        </figure>
+    
+        <p>
+            This means we can express the incidence relation by
+            the equation <m>m_1 s = m_2 s</m>, or by asserting the
+            commutativity of the diagram below:
+        </p>
+    
+        <figure xml:id="fig-session22-ex1-6">
+            <title>Incidence relation expressed as commutative diagram</title>
+            <image width="60%" xml:id="img-session22-ex1-6">
+            <latex-image>
+                \begin{tikzpicture}
+                    \node (D) at (0,2) {$\mathbf{1}$};
+                    \node (A0) at (2,2) {$D$};
+                    \node (A1) at (0,0) {$A$};
+                    \node (P) at (2,0) {$P$};
+    
+                    \path[-{stealth}]
+                        (D) edge node[above] {$s$} (A0)
+                        (D) edge node[left] {$s$} (A1)
+                        (A0) edge node[right] {$m_1$} (P)
+                        (A1) edge node[below] {$m_2$} (P)
+                        ;
+    
+                \end{tikzpicture}
+            </latex-image>
+            </image>
+        </figure>
+        <p>
+            I think I'm on the right track here, but I'm not 
+            quite sure how it fits into the big picture yet.
+        </p>
+    </solution>
+   </example>
+    
+
+
+</section>
