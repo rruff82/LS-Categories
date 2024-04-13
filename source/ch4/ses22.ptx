@@ -51,9 +51,9 @@
             <image width="60%" xml:id="img-session22-ex1-2">
             <latex-image>
                 \begin{tikzpicture}
-                    \node (P) at (0,1) {$\boxed{\bullet}$};
-                    \node (A) at (2,2) {$\boxed{\bullet}$};
-                    \node (B) at (2,0) {$\boxed{\bullet}$};
+                    \node (P) at (0,1) {$\boxed{\circlearrowleft \bullet \circlearrowright}$};
+                    \node (A) at (2,2) {$\boxed{\circlearrowleft \bullet \circlearrowright}$};
+                    \node (B) at (2,0) {$\boxed{\circlearrowleft \bullet \circlearrowright}$};
     
                     \path[-{stealth}]
                         (P) edge (A)
@@ -198,7 +198,10 @@
     
         <p>
             This means we can express the incidence relation by
-            the equation <m>m_1 s = m_2 s</m>, or by asserting the
+            the equation <m>m_1 s = m_2 s</m>, which in the 
+            categorgy <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>
+            should imply <m>s' m_1 = s' m_2</m>
+            or basically asserting the
             commutativity of the diagram below:
         </p>
     
@@ -213,10 +216,10 @@
                     \node (P) at (2,0) {$P$};
     
                     \path[-{stealth}]
-                        (D) edge node[above] {$s$} (A0)
-                        (D) edge node[left] {$s$} (A1)
-                        (A0) edge node[right] {$m_1$} (P)
-                        (A1) edge node[below] {$m_2$} (P)
+                        (D) edge node[above] {$x$} (A0)
+                        (D) edge node[left] {$x$} (A1)
+                        (A0) edge node[right] {$s$} (P)
+                        (A1) edge node[below] {$s$} (P)
                         ;
     
                 \end{tikzpicture}
