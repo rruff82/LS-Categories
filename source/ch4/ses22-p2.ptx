@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session22-p2">
+    <title>Session 22: Universal mapping properties, Incidence Relations, Part 2</title>
+    <p>
+       Continuing from last week...
+    </p>
+   <example>
+    <title>Exercise 1: (part 2/?)</title>
+    <statement>
+        <p>
+            Consider the diagram of graphs...
+        </p>
+    </statement>
+    <solution>
+        <p>
+            It look's like the reason why I might have been getting
+            confused was that my commutative diagram was incorrect.
+            I think part of the confusion is that I'm confusing
+            the objects <m>X \xrightarrow{p} P,P \xrightarrow{p_1} B_1,P \xrightarrow{p_2} B_2</m>
+            in <m>X</m> with the maps to the terminal object given by
+            <m>P \rightarrow T,B_1 \rightarrow T,B_2 \rightarrow T</m>
+            so I'm not really sure if my maps <m>m_1,m_2</m> are
+            the same as the projection maps <m>p_1,p_2</m> or not.   
+            Perhaps it will be easier if I name my three <q>dots</q>
+            <m>D \xrightarrow{d_0} P, D \xrightarrow{d_1} B_1, D \xrightarrow{d_2} B_2</m>
+            relative to the respective terminal maps
+            <m>P \xrightarrow{\bar{d_0}} T,B_1 \xrightarrow{\bar{d_1}} T,B_2 \xrightarrow{\bar{d_2}} T</m>.
+            These should form a unique commutive diagram as follows:
+        </p> 
+        <figure xml:id="fig-session22-ex1-dots">
+            <title>Relation between dots and product</title>
+            <image width="60%" xml:id="img-session22-ex1-dots">
+            <latex-image>
+                \begin{tikzpicture}
+                    \node (D) at (0,0) {$D$};
+                    \node (P) at (2,0) {$P$};
+                    \node (B1) at (4,1) {$B_1$};
+                    \node (B2) at (4,-1) {$B_2$};
+                    \node (T) at (6,0) {$T$};
+
+
+                    \path[-{stealth}]
+                        (D) edge node[above] {$d_0$} (P)
+                        (D) edge[bend left] node[above] {$d_1$} (B1)
+                        (D) edge[bend right] node[below] {$d_2$} (B2)
+
+                        (P) edge node[above left] {$p_1$} (B1)
+                        (P) edge node[below left] {$p_2$} (B2)
+                        (P) edge node[above] {$\bar{d_0}$} (T)
+                        (B1) edge node[above right] {$\bar{d_1}$} (T)
+                        (B2) edge node[below right] {$\bar{d_2}$} (T)
+                        ;
+                \end{tikzpicture}
+            </latex-image>
+            </image>
+        </figure>
+        <p>
+            The maps <m>m_1,m_2</m> are defined by being the only
+            two maps from <m>A \rightarrow P</m> that preserve 
+            source and target relations. The fact that these
+            arrows share a common source can be expressed through
+            the commutative diagram below:
+        </p>
+        <figure xml:id="fig-session22-ex1-7">
+            <title>Incidence relation expressed as commutative diagram (Fixed?)</title>
+            <image width="60%" xml:id="img-session22-ex1-7">
+            <latex-image>
+                \begin{tikzpicture}
+                    \node (D) at (0,2) {$D$};
+                    \node (A0) at (2,2) {$A$};
+                    \node (A1) at (0,0) {$A$};
+                    \node (Q) at (2,0) {$P$};
+
+
+                    \path[-{stealth}]
+                        (D) edge node[above] {$s$} (A0)
+                        (D) edge node[left] {$s$} (A1)
+                        (A0) edge node[right] {$m_1$} (Q)
+                        (A1) edge node[below] {$m_2$} (Q)
+                        ;
+                \end{tikzpicture}
+            </latex-image>
+            </image>
+        </figure>
+
+        <p>
+            Suppose we have two arbitrary arrows 
+            <m>A \xrightarrow{x_1} X,A \xrightarrow{x_2} X</m>
+            with the same source.  We can express that fact as
+            <m>x_1 s = x_2 s</m> or saying the following 
+            diagram commutes:
+       </p>
+    
+       <figure xml:id="fig-session22-ex1-8">
+        <title>Incidence relation of arrows with shared source</title>
+        <image width="60%" xml:id="img-session22-ex1-8">
+        <latex-image>
+            \begin{tikzpicture}
+                \node (D) at (0,2) {$D$};
+                \node (A0) at (2,2) {$A$};
+                \node (A1) at (0,0) {$A$};
+                \node (Q) at (2,0) {$X$};
+
+                \node (P) at (3,-1) {$D$};
+
+
+                \path[-{stealth}]
+                    (D) edge node[above] {$s$} (A0)
+                    (D) edge node[left] {$s$} (A1)
+                    (A0) edge node[right] {$x_1$} (Q)
+                    (A1) edge node[below] {$x_2$} (Q)
+                    (D) edge node[above right] {$x$} (Q)
+                    (Q) edge node[above right] {$\bar{x}$} (P)
+                    ;
+            \end{tikzpicture}
+        </latex-image>
+        </image>
+    </figure>
+
+    <p>
+        If <m>x_1 \neq x_2</m>, the fact that these arrows 
+        share a source implies the targets of these arrows must
+        be different.  Having a map <m>X \rightarrow P</m>
+        in <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>
+        gives us a pair of maps <m>s',t'</m> such that
+        <m>x s = s' x</m> and <m>x t = t' x</m>.  Knowing 
+        that <m>x_1 t \neq x_2 t</m> means the set
+         <m>\{x_1 t, x_2 t\}</m> is isomorphic to
+        the shape <m>\mathbf{2}</m>. Since the set
+        <m>\{B_1,B_2\}</m> is also isomorphic to 
+        <m>\mathbf{2}</m>, there's a guaranteed
+         isomorphism between them.  Since we have 
+         shown <m>D \rightarrow P</m> has the form
+         of a product, we can these maps together as
+
+         follows:
+        
+    </p>
+    <figure xml:id="fig-session22-ex1-9">
+        <title>Completed diagram showing product</title>
+        <image width="80%" xml:id="img-session22-ex1-9">
+        <latex-image>
+            \begin{tikzpicture}
+                \node (D) at (0,2) {$D$};
+                \node (A0) at (2,2) {$A$};
+                \node (A1) at (0,0) {$A$};
+                \node (X) at (2,0) {$X$};
+
+                \node (P) at (4,-2) {$P$};
+                \node (B1) at (6,-2) {$B_1$};
+                \node (B2) at (4,-4) {$B_2$};
+                \node (T) at (6,-4) {$T$};
+
+                \path[-{stealth}]
+                    (D) edge node[above] {$s$} (A0)
+                    (D) edge node[left] {$s$} (A1)
+                    (A0) edge node[right] {$x_1$} (X)
+                    (A1) edge node[below] {$x_2$} (X)
+                    (D) edge node[above right] {$x$} (X)
+                    (X) edge node[above right] {$p$} (P)
+                    (P) edge node[above] {$p_1$} (B1)
+                    (P) edge node[left] {$p_2$} (B2)
+
+                    (P) edge node[above] {$\bar{d_0}$} (T)
+                    (B1) edge node[above right] {$\bar{d_1}$} (T)
+                    (B2) edge node[below right] {$\bar{d_2}$} (T)
+
+                    (A0) edge node[above] {$t'$} (B1)
+                    (A1) edge node[above] {$t'$} (B2)
+                    ;
+            \end{tikzpicture}
+        </latex-image>
+        </image>
+    </figure>
+    <p>
+        I suppose I should also note some how that these maps might
+        <q>reduce</q> but the same basic structure should still hold.
+    </p>
+   </solution>
+   </example> 
+   <p>
+        I'm still not exactly confident in all this, so I'm 
+        going to leave open the possibility of coming back here
+        after I have some time to look at Exercise 2.
+   </p> 
+
+</section>
