@@ -203,7 +203,7 @@
                 in the category, any map <m>X \xrightarrow{f} Y</m>
                 corresponds to analagous sequence 
                 <m>I \rightarrow X \xrightarrow{f} Y \rightarrow T</m>
-                by treating the self-referenced arrow <m>A</m> as the 
+                by treating the naked arrow <m>A</m> as the 
                 initial object <m>I</m> and naked dot <m>D</m> as
                 the terminal object <m>T</m>.
             </p>
