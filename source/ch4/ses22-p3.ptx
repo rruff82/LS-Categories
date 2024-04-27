@@ -1,0 +1,259 @@
+<section xml:id="session22-p3">
+    <title>Session 22: Universal mapping properties, Incidence Relations, Part 3</title>
+    <p>
+        I think I'm going to start off on the second exercise
+        this week so that I can keep moving forward.  Maybe this 
+        will afford me some time to look at Session 15.
+    </p>
+    <example>
+        <title>Exercise 2:</title>
+        <statement>
+            <p>
+                <p>
+                    What is a figure of shape...
+                </p>
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Our given shape is defined as
+                <m>A_2 = \boxed{\bullet \rightarrow \bullet \rightarrow \bullet}</m>.
+                We have collect of <q>three dots</q> which I'll
+                name <m>D_3 = \{d_0,d_1,d_2\}</m> with 
+                <m>\forall i: s d_i = t d_i = d_i</m> and <q>two arrows</q>
+                <m>\{a_0,a_1\}</m>
+                which I'll name <m>a_0</m> such that <m>s a_0 = d_0</m> 
+                and <m> t a_0 = d_1</m>,
+                and <m>a_2</m> such that <m>s a_2 = d_1</m> 
+                and <m> t a_2 = d_2</m>.
+            </p>
+            <p>
+                There are <q>3 choose 2 = 3</q> ways that two of our
+                three dots could overlap.  In the case where 
+                <m>d_0 = d_1</m>,it produces the shape
+                <m>\boxed{\circlearrowleft \bullet \rightarrow \bullet}</m>,
+                for <m>d_1 = d_2</m> it produces 
+                <m>\boxed{\bullet \rightarrow \bullet \circlearrowright}</m>,
+                and for <m>d_0 = d_2</m> it produces the shape 
+                <m>\boxed{\bullet \mathrel{\substack{\rightarrow \\ \leftarrow}} \bullet} </m>.
+            
+                There's precisely one way all three dots could overlap
+                such that <m>d_0 = d_1 = d_2</m>
+                which has shape <m>\boxed{\circlearrowleft \bullet \circlearrowright}</m>.
+                This last option admits one additional way of being singular,
+                and that is when <m>a_0 = a_1</m>, this produces
+                the final shape <m>\boxed{\bullet \circlearrowright}</m>.
+            </p>
+        </solution>
+    </example>
+
+    <example>
+        <title>Exercise 3 (implicit):</title>
+        <statement>
+            <p>
+                Reflections on how this stuff applies to 
+                where I got stuck Session 15...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                In Session 15, our endomaps 
+                <m>X^{\circlearrowright \alpha}</m>
+                and <m>Y^{\circlearrowright \beta}</m> had the 
+                following shapes:
+            </p>
+            <figure xml:id="fig-session22-ex3">
+                <title>Definitions of <m>X^{\circlearrowright \alpha}</m> and <m>Y)^{\circlearrowright \beta}</m></title>
+                <image width="90%" xml:id="img-session22-ex3">
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \coordinate (XC) at (-4,0);
+                            \node (X1) at ($(XC)+(-1.25,1.75)$) {$x_1$};
+                            \node (X2) at ($(XC)+(-0.25,.75)$) {$x_2$};
+                            \node (X3) at ($(XC)+(0.5,0)$) {$x_3$};
+                            \node (X4) at ($(XC)+(2,1)$) {$x_4$};
+                            \node (X5) at ($(XC)+(-2.5,1)$) {$x_5$};
+                            \node (X6) at ($(XC)+(-1.5,0)$) {$x_6$};
+                            \node (X7) at ($(XC)+(-0.5,-1.5)$) {$x_7$};
+                            \node (X8) at ($(XC)+(-2.5,-1)$) {$x_8$};
+                            \node (X9) at ($(XC)+(2,-1)$) {$x_9$};
+                            \node (XL) at ($(XC)+(0,3.5)$) {$X^{\circlearrowright \alpha}$};
+                            \draw (XC) circle [x radius=3.5,y radius=2.5];   
+                            \path[-{stealth}]
+                                (X1) edge (X5)
+                                (X5) edge (X6)
+                                (X6) edge (X7)
+                                (X7) edge (X8)
+                                (X8) edge (X6)
+                                (X2) edge (X6)
+                                (X3) edge (X7)
+                                (X4) edge[bend right] (X9)
+                                (X9) edge[bend right] (X4)
+                                ;
+                            
+                                \coordinate (YC) at (4,0);
+                                \coordinate (YC) at (4,0);
+                                \node (Y1) at ($(YC)+(-1.75,1.5)$) {$y_1$};
+                                \node (Y2) at ($(YC)+(-0.25,1.75)$) {$y_2$};
+                                \node (Y3) at ($(YC)+(1.75,0.1)$) {$y_3$};
+                                \node (Y4) at ($(YC)+(1,2)$) {$y_4$};
+                                \node (Y5) at ($(YC)+(-1.5,0.75)$) {$y_5$};
+                                \node (Y6) at ($(YC)+(-1.5,0)$) {$y_6$};
+                                \node (Y7) at ($(YC)+(-0.5,-1)$) {$y_7$};
+                                \node (Y8) at ($(YC)+(-1.5,-1.5)$) {$y_8$};
+        
+                                \node (Y9) at ($(YC)+(-2.5,-.75)$) {$y_9$};
+                                \node (Y10) at ($(YC)+(1.5,-.75)$) {$y_{10}$};
+                                \node (Y11) at ($(YC)+(1,-1.6)$) {$y_{11}$};
+                                \node (Y12) at ($(YC)+(0.5,-.3)$) {$y_{12}$};
+                                \node (Y13) at ($(YC)+(2,1.5)$) {$y_{13}$};
+                                \node (YL) at ($(YC)+(0,3.5)$) {$Y^{\circlearrowright \beta}$};
+                                \draw (YC) circle [x radius=3.5,y radius=2.5];   
+                                \path[-{stealth}]
+                                    (Y1) edge (Y5)
+                                    (Y2) edge (Y5)
+                                  
+                                    (Y5) edge (Y6)
+                                    (Y6) edge (Y7)
+                                    (Y7) edge (Y8)
+                                    (Y8) edge (Y9)
+                                    (Y9) edge (Y6)
+                                    (Y3) edge (Y10)
+                                    (Y10) edge (Y11)
+                                    (Y11) edge (Y12)
+                                    (Y12) edge (Y10)
+                                    (Y4) edge[bend right] (Y13)
+                                    (Y13) edge[bend right] (Y4)
+                                    ;
+                                 
+            
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </figure>
+            <p>
+                Since these are both endomaps, we know
+                there's a isomorphism betweeen dots and arrows.
+                For every <m>x_i \in X</m> there's a unique
+                arrow <m>a_i</m> originating at the respective dot,
+                and similarly an arrow <m>b_j</m> for each <m>y_j \in Y</m>.
+                What varies from dot to dot are the number 
+                of arrows with that dot as a target.  During 
+                <xref ref="session15-p5">Session 15 (Part 5)</xref> 
+                I was referring to
+                a map I called <q>incoming arrow count</q>, 
+                which I think might connected to this notion
+                of <q>incidence</q>, but at the time I was focused 
+                more on dots than arrows so maybe something will
+                reveal itself by looking at them as arrows instead.
+            </p>
+            <p>
+                I'm also wondering if this object <m>A_2</m> that
+                was introduced here is related to what I've been calling
+                <q>tails</q>.  If I take <m>A_0</m> to be the
+                <q>naked dot</q> and <m>A_1</m> to be the naked arrow,
+                then I can use <m>A_n</m> to represent arbitrarily long
+                distances to a terminal object.  This might give me a
+                more objective way of defining the map I previously 
+                called <q>number of steps to stabilize</q>.
+            </p>
+            <p>
+                Speaking of terminal objects, I've been thinking that
+                my answer to Article 4 Exercise 4 might be incorrect.
+                My assumption that <m>Y = \mathbf{1}</m> misses the fact
+                that any n-cycle <m>C_n</m> is potentially a terminal object
+                in <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>.  
+                I think the distinction that I failed to make was that 
+                <m>s</m> and <m>t</m> aren't necessarily the same map,
+                they just need to have <em>inverses</em> because
+                there exactly one arrow leading into and out of
+                each point. Perhaps the terminal object in
+                <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m> 
+                could be defined diectly as some factor of the identity map.  
+            </p>
+            <p>
+                The other thing that I've been curious about was 
+                Article 4 Exercise 6.  What if the special property
+                of <m>\mathbb{N}</m> being hinted at here was really
+                the uniqueness of prime factorizations?  Given any
+                number <m>n</m>, there's a unique representation
+                <m>n = p_1^{q_1} \times p_2^{q_2} \times ... \times p_n^{q_n}</m>
+                where <m>p_i</m> are the prime numbers and <m>q_j \in \mathbb{N}</m>.
+                This would explain our little side venture to
+                prove <m>C_24 \rightarrow C_8 \times C_3</m> in 
+                <xref ref="session21">Session 21 (Part 1)</xref>.
+            </p>
+            <p>
+                After playing around with this a bit in 
+                <url href="https://github.com/rruff82/LS-Categories/blob/main/assets/notebooks/ls-ses22.ipynb">
+                 Python</url>, I have a couple of observations.
+                First, I noticed that my <q>incoming arrow counts</q>
+                is essentially <q>G.degree(N)-1</q> and I think this
+                <em>off-by-one error</em> might be related to why I 
+                was short maps in Session 15.  
+            </p>
+            <p>
+                The other thing I started thinking about is the 
+                choice of notation.  I began wondering if the
+                words choice of <q>arrow</q>, <q>binary</q>, 
+                <q>cycle</q>, and <q>dot</q> has a double
+                meaning when interpreted as the sequence of maps 
+                <m>A \rightarrow B \rightarrow C \rightarrow D</m>.
+                If <m>I,T</m> are the initial and terminal objects
+                in the category, any map <m>X \xrightarrow{f} Y</m>
+                corresponds to analagous sequence 
+                <m>I \rightarrow X \xrightarrow{f} Y \rightarrow T</m>
+                by treating the self-referenced arrow <m>A</m> as the 
+                initial object <m>I</m> and naked dot <m>D</m> as
+                the terminal object <m>T</m>.
+            </p>
+            <p>
+                It also seemed weird how the 
+                authors introduce the <q>heavy arrow</q> to 
+                represent <q>epimorphism</q> then proceed to
+                not use it again for the rest of the session.
+                If the naming of objects <m>A,B,C,D</m> has a 
+                double meaning, then maybe the choice of
+                <m>r,s,t</m> are important also.  Perhaps
+                the maps defined by <q>retraction</q>,
+                <q>source</q>, and <q>target</q> can be 
+                defined by sasifying the associative 
+                property on the sequence of maps
+                <m>I \xrightarrow{r} X \xrightarrow{s} Y \xrightarrow{t} T</m>.
+            </p>
+            <p>
+                I also found myself finding interesting properties
+                of the maps 
+                <m>\mathbb{N} \rightleftarrows \mathbb{N} \times \mathbb{N}</m>.
+                I think I'm starting to understand the relevance
+                of defining incidence relations.  By <q>stepping out</q>
+                through mapping <m>\langle s,t \rangle \rightarrow n_1</m>  and 
+                <m>\langle t,s \rangle \rightarrow n_2</m> we can
+                use the unique <m>\mathcal{S}</m>-map
+                <m>\{n_1\} \times \{n_2\} \rightarrow \{n\}</m>
+                compare whether or not <m>s</m> and <m>t</m> are
+                the <q>same map</q>.  If they are, then we have a 
+                terminal object in 
+                <m>\mathcal{S}^{\bullet \downarrow_\bullet^\bullet \downarrow}</m>.
+                If they are not, then define have a new
+                pair of maps <m>s',t'</m> which we can apply
+                the process two a second time.
+            </p>
+        </solution>
+        
+    </example>
+    <p>
+        In addition to the work here done in
+        Python, I also spent some time this 
+        week learning
+        <url href="https://lean-lang.org/">Lean</url>
+        through this little
+        <url href="https://adam.math.hhu.de/#/g/leanprover-community/NNG4"> 
+        Natural Number Game
+        </url>.  I'm still a ways away from articulating
+        these exercises as proofs in Lean, but I'm starting to
+        see some connections between <q><m>\leq</m> World</q>
+        and the problems I'm working on here.
+    </p>
+   
+</section>
