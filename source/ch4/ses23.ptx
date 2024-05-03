@@ -1,0 +1,263 @@
+<section xml:id="session23">
+    <title>Session 23: More on universal mapping properties</title>
+    <p>
+        Oh boy! More on universal mapping properties!
+    </p>
+    <example>
+        <title>Exercise 1: (part 1/?)</title>
+        <statement>
+            <p>
+                Formulate and prove in two ways...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Alright, I think I need to start here by assuming
+                that the category <m>\mathcal{C}</m> has an initial
+                object <m>I</m> and terminal object <m>T</m>.  To 
+                make the definitions of these simplier, I'm going to 
+                introduce the notation <m>|I \xrightarrow{s_T} T| = 1</m>
+                to denote there exists precisely one map 
+                <m>s_T</m> with 
+                domain <m>I</m> and codomain <m>T</m>.
+            </p>
+            <me>
+                \exists I \in \mathcal{C}: \forall X \in \mathcal{C}:
+                |I \xrightarrow{s_X} X| = 1
+            </me>
+            <me>
+                \exists T \in \mathcal{C}: \forall X \in \mathcal{C}:
+                |X \xrightarrow{t_X} T| = 1
+            </me>
+            <p>
+                We can rewrite these definitions using the reflexive property
+                to demonstrate that <m>|I \rightarrow I| = 1</m>
+                and <m>|T \rightarrow T| = 1</m>. Since every object 
+                in the category has an identity map, these two 
+                endomaps must be the respective identities <m>1_I</m>
+                and <m>1_T</m>.
+            </p>
+            <p>
+                As a category, <m>\mathcal{C}</m> must also have an
+                associative property such that for any maps
+                <m>A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h} D</m>
+                we must have <m>h \circ (g \circ f) = (h \circ g) \circ f</m>.
+                In particular, let's consider the case where <m>A = I</m>,
+                <m>D = T</m> and <m>g = 1_X</m>.  Since there is only 
+                one map <m>I \xrightarrow{s_T} T</m>, both sides of the 
+                associative property must equal to this map.
+                Namely, 
+               <m>t_X \circ (1_X \circ s_X) = (t_X \circ 1_X) \circ s_X = s_T = t_X \circ s_X</m>.
+        
+            </p>
+            <p>
+                Now suppose we have an arbitrary pair of maps
+                <m>X \xrightarrow{f_1} B_1</m> and 
+                <m>X \xrightarrow{f_2} B_2</m>. Use the definition
+                of terminal object, we can define two unique maps:
+                <m>B_1 \xrightarrow{t_1} T</m> and 
+                <m>B_1 \xrightarrow{t_2} T</m>.  Likewise, the 
+                definition of initial object gives us two more:
+                <m>I \xrightarrow{s_1} B_1</m> and 
+                <m>I \xrightarrow{s_2} B_2</m>.  Let's draw these
+                out in a commutative diagram.
+            </p>
+            <image width="90%" xml:id="img-session23-ex1-1">
+                <shortdescription>Commutative diagram of product with initial and terminal objects</shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                        \node (I) at (0,0) {$I$};
+                        \node (X) at (2,0) {$X$};
+                        \node (B1) at (4,1) {$B_1$};
+                        \node (B2) at (4,-1) {$B_2$};
+                        \node (T) at (6,-3) {$T$};
+                        \path[-{stealth}] 
+                            (I) edge node[above] {$s_X$} (X)
+                            (I) edge[bend left] node[above] {$s_1$} (B1)
+                            (I) edge[bend right] node[above] {$s_2$} (B2)
+                            
+                            (X) edge node[above] {$f_1$} (B1)
+                            (X) edge node[above] {$f_2$} (B2)
+                            (B1) edge node[above, right] {$t_1$} (T)
+                            (B2) edge node[above] {$t_2$} (T)
+                            (I) edge[bend right] node[above] {$s_T$} (T)
+                            (X) edge[bend right] node[above] {$t_X$} (T)
+                            ;
+        
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                The uniqueness of our maps <m>s_T,s_X,t_X</m> means that
+                we can use them to describe some equivalences between
+                our other maps.  
+            </p>
+            <me>
+                s_1 = f_1 \circ s_X 
+            </me>
+            <me>
+                s_2 = f_2 \circ s_X
+            </me>
+            <me>
+                s_T = t_1 \circ s_1 = t_2 \circ s_2
+            </me>
+            <me>
+                t_X = t_1 \circ f_1 = t_2 \circ f_2
+            </me>
+            <p>
+                Since we already know <m>s_T = t_X \circ s_X</m>,
+                we can combine the results above to say
+            <m>s_T = t_1 \circ f_1 \circ s_X = t_2 \circ f_2 \circ s_X</m>.
+        
+            </p>
+            <p>
+                Now let's consider a pair of products
+                <m>P</m> and <m>Q</m> in this category.
+                We'll need three maps for each: <m>X \xrightarrow{p} P,
+                    P \xrightarrow{p_1} B_1,
+                    P \xrightarrow{p_2} B_2
+                </m> and <m>X \xrightarrow{q} Q,
+                    Q \xrightarrow{q_1} B_1,
+                    Q \xrightarrow{q_2} B_2
+                </m> respectively.  The uniqueness of initial 
+                and terminal objects implies we have a set of unique
+                maps <m>I \xrightarrow{s_P} P</m>, <m>I \xrightarrow{s_Q} Q</m>,
+                <m>P \xrightarrow{t_P} T</m>, and <m>Q \xrightarrow{s_Q} T</m>
+                  These maps can be arranged 
+                together in the following diagram:
+            </p>
+            <image width="90%" xml:id="img-session23-ex1-2">
+                <shortdescription></shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                        \node (I) at (0,0) {$I$};
+                        \node (X) at (2,0) {$X$};
+                        \node (P) at (4,1) {$P$};
+                        \node (Q) at (4,-1) {$Q$};
+                        \node (B1) at (6,2) {$B_1$};
+                        \node (B2) at (6,-2) {$B_2$};
+                        \node (T) at (8,0) {$T$};
+                        \path[-{stealth}]
+                            (I) edge node[above] {$s_X$} (X) 
+                            (I) edge[bend left]  node[above] {$s_1$} (B1)
+                            (I) edge[bend right]  node[above] {$s_2$} (B2)
+                            (X) edge node[above] {$p$} (P)
+                            (X) edge node[above] {$q$} (Q)
+                            (P) edge node[above] {$p_1$} (B1)
+                            (P) edge node[above right] {$p_2$} (B2)
+                            (Q) edge node[below right] {$q_1$} (B1)
+                            (Q) edge node[below] {$q_2$}  (B2)
+                            (B1) edge node[above] {$t_1$} (T)
+                            (B2) edge node[above] {$t_2$} (T)
+                            (I) edge[bend left] node[above] {$s_P$} (P)
+                            (I) edge[bend right] node[above] {$s_Q$} (Q)
+                            (P) edge node[above] {$t_P$} (T)
+                            (Q) edge node[below] {$t_Q$} (T)
+                            (X) edge[dotted] (T)
+                        ;
+                        
+                        
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                Suppose for a moment that the unique map 
+                <m>I \xrightarrow{s_T} T</m> is 
+                an isomorphism.  The existence of a map
+                <m>T \xrightarrow{s_T^{-1}} I</m> would immediately
+                define an isomorphism <m>P \leftrightarrows Q</m>
+                through the following unique compositions:
+                <me>
+                   P \xrightarrow{t_P} T \xrightarrow{s_T^{-1}} I
+                   \xrightarrow{s_Q} Q 
+                </me>
+                <me>
+                    Q \xrightarrow{t_Q} T \xrightarrow{s_T^{-1}} I
+                    \xrightarrow{s_P} P 
+                 </me>
+                 Having such maps would also define an isomorphism
+                 between <m>B_1 \leftrightarrows B_2</m>, uniquely
+                 determined by the following compositions:
+                 <me>B_1 \xrightarrow{t_1} T \xrightarrow{s_T^{-1}} I
+                    \xrightarrow{s_2} B_2
+                 </me>
+                 <me>B_2 \xrightarrow{t_2} T \xrightarrow{s_T^{-1}} I
+                    \xrightarrow{s_1} B_1
+                 </me>
+                 Since that would essentially complete our proof, 
+                 I think we can proceed with the assumption that
+                 there is no inverse for <m>s_T</m>. The non-existence
+                 of an inverse implies that we're either missing 
+                 a section 
+                 <m>T \xrightarrow{s} I \xrightarrow{s_T} T = 1_T</m> 
+                 or retraction 
+                 <m>I \xrightarrow{s_T} T \xrightarrow{r} I = 1_I</m>.
+            </p>
+            <p>
+                 All of our maps come from <m>\mathcal{S}</m>, where 
+                 the initial object is the empty set <m>\emptyset</m>.
+                 In <m>\mathcal{S}</m>, there is a map from 
+                 <m>\emptyset \rightarrow \mathbf{1}</m> but not
+                 from <m>\mathbf{1} \rightarrow \emptyset</m>.  If the
+                 nature of initial and terminal objects is preserved,
+                 then we must have uniquely defined isomorpisms
+                  <m>\emptyset \leftrightarrows I</m> and 
+                  <m>\mathbf{1} \leftrightarrows T</m>.  The fact that
+                  <m>s_T</m> is not invertable means there must be at
+                  least one point that gets lost in the process.
+            </p>
+            <p>
+                I think this allows use to define a unique 
+                composition sequence: 
+                <me>I \rightarrow T \rightarrow \mathbf{1} \rightarrow X \rightarrow T</me>
+                If that's is a unique composition, so is the following:
+                <me>X \rightarrow T \rightarrow \mathbf{1} \rightarrow X</me>
+            </p>
+            <p>
+                I've been wondering if this map sequence 
+                <m>I \rightarrow T \rightarrow \mathbf{1}</m>
+                is the reason why the authors introduced the <q>heavy 
+                arrow</q> notation in Session 22.  There is at most one
+                such map the composition is equal to the identity map <m>1_X</m>.
+                This map is an epimorphism because it can be precomposed to 
+                any object without changing it.
+            </p>
+            <p>
+                This means we can still use the same techique to form
+                our bijections, it just has one additional stop along the
+                way:
+            </p>
+            <me>
+                P \xrightarrow{t_P} T \rightarrow \mathbf{1} \rightarrow X
+                \xrightarrow{q} Q 
+             </me>
+             <me>
+                P \xrightarrow{t_P} T \rightarrow  \mathbf{1} \rightarrow X
+                \xrightarrow{q} Q 
+              </me>
+        
+              <me>B_1 \xrightarrow{t_1} T \rightarrow  \mathbf{1} \rightarrow X
+                 \xrightarrow{f_2} B_2
+              </me>
+              <me>B_2 \xrightarrow{t_2} T \rightarrow \mathbf{1} \rightarrow X
+                 \xrightarrow{f_1} B_1
+              </me>
+              <p>
+                Assuming that's correct, that would complete our direct proof.
+                However, stepping out through the singleton <m>\mathbf{1}</m>
+                in <m>\mathcal{S}</m> feels like a <q>hack</q>.  I can't help
+                but wonder if there's a better approach to this.  Maybe I can
+                somehow use <m>\mathbb{N}</m> as an initial object
+                to enumerate the points of <m>X</m>?  That would certainly 
+                make things a lot easier.
+              </p>
+        </solution>
+    </example>
+    <p>
+        I still feel like I'm missing something,
+        so I think I'm going to break there and explore
+        the second half of the exercise next week. 
+    </p>
+
+    
+</section>
