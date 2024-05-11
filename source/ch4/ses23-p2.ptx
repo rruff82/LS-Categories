@@ -1,0 +1,457 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session23-p2">
+    <title>Session 23: More on universal mapping properties, Part 2</title>
+    <p>
+        Let's pick up with the second half of Exercise 1:
+    </p>
+    <example>
+        <title>Exercise 1: (Part 2/?)</title>
+        <statement>
+            <p>
+                Continued from last week...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Let's begin with reconstructing the diagram:
+            </p>
+            <image width="60%" xml:id="img-session23-ex1-3">
+                <shortdescription>Structure of maps in <m>\mathcal{C}_{B_1 B_2}</m></shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                        \node (X) at (2,0) {$X$};
+                        \node (Y) at (4.5,0) {$Y$};
+                        \node (B1) at (6,2) {$B_1$};
+                        \node (B2) at (6,-2) {$B_2$};
+                        \path[-{stealth}]
+        
+                            (X) edge node[above] {$f$} (Y)
+                            
+                            (X) edge node[above] {$\phi_1$} (B1)
+                            (X) edge node[below] {$\phi_2$} (B2)
+                            (Y) edge node[below right] {$\psi_1$} (B1)
+                            (Y) edge node[above right] {$\psi_2$}  (B2)
+        
+                        ;
+                        
+                        
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                The goal here is use these objects <m>B_1</m> and
+                <m>B_2</m> in <m>\mathcal{C}</m> as the 
+                basis for constructing a new category 
+                <m>\mathcal{C}_{B_1 B_2}</m>.
+            </p>
+            <p>
+                We define an <em>object</em> in <m>\mathcal{C}_{B_1 B_2}</m>
+                as an object of <m>\mathcal{C}</m> equiped with a pair 
+                of maps to <m>B_1</m> and <m>B_2</m>.
+            </p>
+            <p>
+                We define a <em>map</em> in <m>\mathcal{C}_{B_1 B_2}</m>
+                as a map in <m>\mathcal{C}</m> which preserves the
+                structure of the commutative diagram above.  
+                Specifically, any map <m>X \xrightarrow{f} Y</m>
+                in <m>\mathcal{C}_{B_1 B_2}</m> must satisfy the relations
+                <m>\psi_1 f = \phi_1</m> and <m>\psi_2 f = \phi_2</m>.
+            </p>
+            <p>
+                Since every <m>\mathcal{C}_{B_1 B_2}</m>-map comes from a 
+                map <m>\mathcal{C}</m>, it must have a defined domain 
+                and codomain. Likewise, since the objects in 
+                <m>\mathcal{C}_{B_1 B_2}</m> come from objects in
+                <m>\mathcal{C}</m> they must each have an identity
+                map.  For any object <m>X</m> in 
+                <m>\mathcal{C}_{B_1 B_2}</m>,
+                a simple substitution <m>\phi_1 1_X = \phi_1</m> and
+                 <m>\phi_2 1_X = \phi_2</m> 
+                shows the identity maps from <m>\mathcal{C}</m>
+                preserve structure.  
+            </p>
+            <p>
+                Let's take a second to verify
+                that <m>\mathcal{C}_{B_1 B_2}</m> is closed under composition.
+                Consider two maps <m>X \xrightarrow{f} Y \xrightarrow{g} Z</m>.
+        
+            </p>
+            <image width="90%" xml:id="img-session23-ex1-4">
+                <shortdescription>Composition in <m>\mathcal{C}_{B_1 B_2}</m></shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                        \node (A) at (0,0) {$X$};
+                        \node (B) at (2,0) {$Y$};
+                        \node (C) at (4,0) {$Z$};
+                        \node (B1) at (8,2) {$B_1$};
+                        \node (B2) at (8,-2) {$B_2$};
+                        \path[-{stealth}]
+        
+                            (A) edge node[above] {$f$} (B)
+                            (B) edge node[above] {$g$} (C)
+               
+                            (A) edge[bend left] node[above] {$\phi_1$} (B1)
+                            (A) edge[bend right] node[below] {$\phi_2$} (B2)
+                            (B) edge[bend left] node[below right] {$\psi_1$} (B1)
+                            (B) edge[bend right] node[above right] {$\psi_2$}  (B2)
+                            (C) edge[bend left] node[below right] {$\chi_1$} (B1)
+                            (C) edge[bend right] node[above right] {$\chi_2$}  (B2)
+                     
+                        ;
+                        
+                        
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                We can assume the following relations from 
+                the definition of <m>\mathcal{C}_{B_1 B_2}</m>-map: 
+                <me>\psi_1 f = \phi_1</me>
+                <me>\psi_2 f = \phi_2</me>
+                <me>\chi_1 g = \psi_1</me>
+                <me>\chi_2 g = \psi_2</me>
+                In order for <m>g \circ f</m> to be a valid
+                <m>\mathcal{C}_{B_1 B_2}</m>-map, we need to 
+                establish both <m>\chi_1 (g \circ f) = \phi_1</m>
+                and <m>\chi_1 (g \circ f) = \phi_1</m>.  This follows
+                easily from the associative property in <m>\mathcal{C}</m>
+                and substitution with the relations above:
+                <me>\chi_1 (g \circ f) = (\chi_1 \circ g) \circ f = \psi_1 \circ f = \phi_1</me>
+                <me>\chi_2 (g \circ f) = (\chi_2 \circ g) \circ f = \psi_2 \circ f = \phi_2</me>
+            </p>
+            <p>
+                The only thing left to prove is the associative law.
+                Let's consider a set of 
+                three <m>\mathcal{C}_{B_1 B_2}</m>-maps 
+                <m>A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h} D</m>.
+                Each of these maps needs to correspond with a pair 
+                of maps to <m>B_1</m> and <m>B_2</m>, as per 
+                the following diagram:
+            </p>
+            <image width="90%" xml:id="img-session23-ex1-5">
+                <shortdescription>Associative property in <m>\mathcal{C}_{B_1 B_2}</m></shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                        \node (A) at (0,0) {$A$};
+                        \node (B) at (2,0) {$B$};
+                        \node (C) at (4,0) {$C$};
+                        \node (D) at (6,0) {$D$};
+                        \node (B1) at (8,2) {$B_1$};
+                        \node (B2) at (8,-2) {$B_2$};
+                        \path[-{stealth}]
+        
+                            (A) edge node[above] {$f$} (B)
+                            (B) edge node[above] {$g$} (C)
+                            (C) edge node[above] {$h$} (D)
+        
+                            
+                            (A) edge[bend left] node[above] {$\phi_1$} (B1)
+                            (A) edge[bend right] node[below] {$\phi_2$} (B2)
+                            (B) edge[bend left] node[below right] {$\psi_1$} (B1)
+                            (B) edge[bend right] node[above right] {$\psi_2$}  (B2)
+                            (C) edge[bend left] node[below right] {$\chi_1$} (B1)
+                            (C) edge[bend right] node[above right] {$\chi_2$}  (B2)
+                            (D) edge[bend left] node[below right] {$\omega_1$} (B1)
+                            (D) edge[bend right] node[above right] {$\omega_2$}  (B2)
+        
+                        ;
+                        
+                        
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                By our definition of composition above, 
+                we know we have 
+                <m>g \circ f</m> satisfying 
+                <m>\chi_1 (g \circ f) = \phi_1</m>
+                and <m>\chi_2 (g \circ f) = \phi_2</m>.
+                Postcompose with <m>h</m> to get 
+                <m>h \circ (g \circ f)</m> with 
+                <m>\omega_1 (h \circ (g \circ f)) = \chi_1 (g \circ f) = \phi_1</m>
+                and 
+                <m>\omega_1 (h \circ (g \circ f)) = \chi_1 (g \circ f) = \phi_1</m>.
+            </p>
+            <p>
+                Similarly, we must have <m>h \circ g</m>
+                satisfying <m>\omega_1 (h \circ g) = \psi_1</m> 
+                and  <m>\omega_2 (h \circ g) = \psi_2</m>.
+                Precompose with <m>f</m> to get 
+                <m>(h \circ g) \circ f</m> with 
+                <m>\omega_1 ((h \circ g) \circ f) = (\omega_1 (h \circ g)) \circ f
+                   = \psi_1 f = \phi_1</m>
+                and 
+                <m>\omega_2 ((h \circ g) \circ f) = (\omega_2 (h \circ g)) \circ f
+                    = \psi_2 f = \phi_2</m>.
+            </p>
+            <p>
+                Since we know that the associative property holds in
+                <m>\mathcal{C}</m> and have shown that it satisfies
+                the structure preservation of <m>\mathcal{C}_{B_1 B_2}</m>,
+                that should complete the proof that <m>\mathcal{C}_{B_1 B_2}</m>
+                is a valid category.
+            </p>
+            <p>
+                Knowing <m>\mathcal{C}_{B_1 B_2}</m> is a category,
+                what should the terminal object look like?
+                Per definition, a terminal object <m>T</m> should have 
+                the property that for every object <m>X</m> in 
+                <m>\mathcal{C}_{B_1 B_2}</m>, there is exactly 
+                one map <m>X \xrightarrow{\tau} T</m>.  As an 
+                object in <m>\mathcal{C}_{B_1 B_2}</m>, the terminal
+                object <m>T</m> must be accompanied by a 
+                pair of maps <m>T \xrightarrow{\tau_1} B_1</m> 
+                and <m>T \xrightarrow{\tau_2} B_1</m> such that 
+                <m>\tau_1 \tau = \phi_1</m> and <m>\tau_2 \tau = \phi_2</m>
+                where <m>\phi_1,\phi_2</m> are the respective pair of maps
+                associated with <m>X</m>.
+            </p>
+            <p>
+                Since every object has an identity map, this rule must 
+                also apply to <m>T</m>. Since any <m>X \rightarrow T</m>
+                is unique, then the uniqueness of <m>T \rightarrow T</m>
+                implies it could only be the map <m>1_T</m>. Clearly
+                <m>1_T</m> satisfies <m>\tau_1 1_T = \tau_1</m> and 
+                <m>\tau_2 1_T = \tau_2</m>.
+            </p>
+            <p>
+                Now suppose we have a <m>\mathcal{C}</m>-map 
+                <m>B_1 \xrightarrow{\beta} T</m>, which we should
+                by the definition of terminal object. In order for this map
+                to be a map in <m>\mathcal{C}_{B_1 B_2}</m>,
+                we'd need a pair of maps <m>B_1 \xrightarrow{\beta_1} B_1</m> 
+                and <m>B_2 \xrightarrow{\beta_2} B_2</m> 
+                which preserve the structure of the following
+                diagram:
+            </p>
+            <image width="60%" xml:id="img-session23-ex1-6">
+                <shortdescription>Structure preservation of <m>B_1 \rightarrow T</m></shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                        \node (W) at (0,0) {$T$};
+                        \node (X) at (2,0) {$B_1$};
+                        \node (Y) at (4.5,0) {$T$};
+                        \node (B1) at (6,2) {$B_1$};
+                        \node (B2) at (6,-2) {$B_2$};
+                        \path[-{stealth}]
+                            (W) edge node[above] {$\tau_1$} (X)
+                            (X) edge node[above] {$\beta$} (Y)
+                            
+                            (X) edge node[above] {$\beta_1$} (B1)
+                            (X) edge node[below] {$\beta_2$} (B2)
+                            (Y) edge node[below right] {$\tau_1$} (B1)
+                            (Y) edge node[above right] {$\tau_2$}  (B2)
+                        ;
+            
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                These maps need to preserve the structure of 
+                the relations <m>\tau_1 \beta = \beta_1</m> 
+                and <m>\tau_2 \beta = \beta_2</m>. Since 
+                <m>\beta \circ \tau_1</m> is a map from <m>T \rightarrow T</m>,
+                of which there is only one,
+                we're forced to conclude that <m>\beta \circ \tau_1 = 1_T</m>.
+                Precomposing our structure preserving relations with <m>\tau_1</m>
+                gives us:
+                <me>\tau_1 \beta \tau_1 = \tau_1 1_T = \tau_1 = \beta_1 \tau_1</me>
+                <me>\tau_2 \beta \tau_1 = \tau_2 1_T = \tau_2 = \beta_2 \tau_1</me>
+            </p>
+            <p>
+                If we take <m>\tau_2 = \beta_2 \tau_1</m> and precompose with 
+                <m>\beta</m> again, we get
+                <m>\tau_2 \beta = \beta_2 \tau_1 \beta</m> which simplifies to
+                <m>\beta_2 = \beta_2 \beta_1</m> whichs implies that 
+                <m>\beta_1 = 1_{B_1} = \tau_1 \circ \beta</m>.  It would 
+                also follow that <m>\beta_2</m> is uniquely determined 
+                by the sequence of maps <m>B_1 \xrightarrow{\beta} T \xrightarrow{\tau_2} B_2</m>.
+                Essentially, since the objects <m>T,B_1,B_2</m> are all 
+                isomorphic to each other in <m>\mathcal{C}</m> we can 
+                use the uniqueness of the maps there to guarantee the
+                uniqueness of our maps in <m>\mathcal{C}_{B_1 B_2}</m>.
+            </p>
+            <p>
+                I'm thinking that the idea here is that there is not 
+                just a bijection between the objects <m>X</m> and <m>T</m>, 
+                but one between the pairs of maps 
+                <m>\langle \phi_1, \phi_2 \rangle</m> and 
+                <m>\langle \tau_1, \tau_2 \rangle</m> themselves.  
+                Consequently, any bijection between 
+                <m>\boxed{P,\pi_1,\pi_2} \leftrightarrows \boxed{T,\tau_1,\tau_2}</m>
+                automatically defines an unique bijection 
+                <m>\boxed{X,\phi_1,\phi_2} \leftrightarrows \boxed{P,\pi_1,\pi_2}</m>
+                through composition.
+            </p>
+        </solution>
+    </example>
+    <example>
+        <title>Exercise 2: (part 1/?)</title>
+        <statement>
+            <p>
+                Try to create the definition of a 'sum'...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                I attempted something similar to this back in Article 4
+                Exercise 19. We let <m>I</m> be a <q>possibly empty</q> set
+                of indices and let <m>C_i</m> be a <q>possibly duplicated</q>
+                object in the category.  This gave us the following 
+                definition of <q>sum family</q>: 
+                <xref ref="def-art4-ex18-sum-family"/>
+            </p>
+            <p>
+                I'm not sure if I need all that for this exercise though.
+                I think I might get away with using only the definitions of 
+                initial object, terminal object, and sum.  I'm going 
+                to mirror the wording of product from Session 21.
+            </p>
+            <definition xml:id="def-session23-ex2-initial">
+                <statement>
+                    <p>
+                        <m>S</m> is an initial object of <m>\mathcal{C}</m>
+                        if for every object <m>X</m> of <m>\mathcal{C}</m>
+                        there is exactly one <m>\mathcal{C}</m>-map
+                        <m>S \rightarrow X</m>.
+                    </p>
+                    
+                </statement>
+        
+            </definition>
+            <definition xml:id="def-session23-ex2-terminal">
+                <statement>
+                    <p>
+                        <m>T</m> is an terminal object of <m>\mathcal{C}</m>
+                        if for every object <m>X</m> of <m>\mathcal{C}</m>
+                        there is exactly one <m>\mathcal{C}</m>-map
+                        <m>X \rightarrow T</m>.
+                    </p>
+                    
+                </statement>
+        
+            </definition>
+            <definition xml:id="def-session23-ex2-sum">
+                <statement>
+                    <p>Suppose that <m>A</m> and <m>B</m> are objects in
+                    a category <m>\mathcal{C}</m>. A <em>sum</em>
+                    of <m>A</m> and <m>B</m> (in <m>\mathcal{C}</m>)
+                    is:</p>
+                    <ol><li>an object <m>S</m> in <m>\mathcal{C}</m></li>
+                        <li>
+                            a pair of maps, 
+                            <m>A \xrightarrow{s_1} S,B \xrightarrow{s_2} S</m> 
+                            in <m>\mathcal{C}</m> satisfying: for every object
+                            <m>I</m> and every pair of maps 
+                            <m>A \xrightarrow{r_1} I, B \xrightarrow{r_2} I</m>,
+                            there is exactly one map <m>S \xrightarrow{r} I</m>
+                        </li>
+                    </ol>
+                    <p>
+                        Pictorially:
+                    </p>
+                    <image width="60%" xml:id="img-session23-ex2-sum-def">
+                        <shortdescription>Commutative diagram of sum</shortdescription>
+                        <latex-image>
+                            \begin{tikzpicture}
+                                \node (I) at (4,0) {$I$};
+                                \node (S) at (2,0) {$S$};
+                                \node (A) at (0,1) {$A$};
+                                \node (B) at (0,-1) {$B$};
+        
+                                \path[-{stealth}]
+                                    (A) edge node[above] {$s_1$} (S)
+                                    (B) edge node[below] {$s_2$} (S)
+                                    (S) edge node[above] {$r$} (I)
+                                    (A) edge[bend left] node[above] {$r_1$} (I)
+                                    (B) edge[bend right] node[below] {$r_2$} (I)
+                                    
+                                    ;
+                                
+                            \end{tikzpicture}
+                        </latex-image>
+                    </image>
+                </statement>
+        
+            </definition>
+            <p>
+                I think we'll also need the following uniqueness theorem,
+                which we proved in Article 4 Exercise 7:
+            </p>
+            <theorem xml:id="thm-session23-initial-object-uniqueness">
+                <statement>
+                    <p>
+                        If <m>S,I</m> are both initial in <m>\mathcal{C}</m>
+                        then the unique map <m>S \rightarrow I</m> is an 
+                        isomorphism.
+                    </p>
+                </statement>
+            </theorem>
+            <p>
+                In the category <m>\mathcal{S}</m>, we can think of 
+                our initial object <m>I</m> as the empty set <m>\emptyset</m>.
+                There is a unique map from <m>\emptyset</m> to any other 
+                object in <m>\mathcal{S}</m> because there's no elements 
+                for any arrows to originate at.  Likewise, we can 
+                think of the terminal object in <m>\mathcal{S}</m>
+                as the singleton <m>\mathbf{1}</m> since there's only one
+                object for the arrows to point to.
+            </p>
+            <p>
+                By substituting <m>A = \emptyset</m> and <m>B = \mathbf{1}</m>, we can 
+                form the following diagram:
+            </p>
+            <image width="60%" xml:id="img-session23-ex2-1">
+                <shortdescription>Sum of initial and terminal object</shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                        \node (I) at (4,0) {$I$};
+                        \node (S) at (2,0) {$\emptyset+\mathbf{1}$};
+                        \node (A) at (0,1) {$\emptyset$};
+                        \node (B) at (0,-1) {$\mathbf{1}$};
+        
+                        \path[-{stealth}]
+                            (A) edge node[above] {$i_1$} (S)
+                            (B) edge node[below] {$i_2$} (S)
+                            (A) edge node[left] {$i_0$} (B)
+                            (S) edge node[above] {$j$} (I)
+                            (A) edge[bend left] node[above] {$j_1$} (I)
+                            (B) edge[bend right] node[below] {$j_2$} (I)
+                            ;
+                        
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                Since <m>i_1</m> is a unique map, it follows 
+                that <m>i_1 = i_2 \circ i_0</m>.  Likewise,
+                we must also have <m>j_1 = j \circ i_1</m> and 
+                <m>j_2 = j \circ i_2</m>.  We can subsitute our 
+                expressions to get 
+                <me>j_1 = j \circ (i_2 \circ i_0) = (j \circ i_2) \circ i_0</me>
+                <me>\implies j_1 = j_2 i_0</me>
+                There is no map from
+                <m>\mathbf{1} \rightarrow \emptyset</m> in <m>\mathcal{S}</m>,  
+                so the only possible choice of <m>I</m> for the diagram above 
+                is the sum <m>\emptyset+\mathbf{1}</m> with 
+                <m>j = 1_{\emptyset+\mathbf{1}}</m> respectively.
+            </p>
+            <p>
+                There's a lot to unpack here but I'm wondering if the importance is that
+                looping the sequence <m>S \rightarrow I \rightarrow S \rightarrow I</m>
+                provides a way to construct the monoid <m>\mathbb{N}</m>.
+                Given a map <m>\mathbb{N} \rightarrow I</m>,
+                the compositions 
+                <m>\mathbb{N} \rightarrow I \rightarrow C_i</m>
+                would give us all the information we need about
+                the structure of <m>X</m>. 
+            </p>
+        </solution>
+    </example>
+
+    <p>
+        I think that's a good place to stop for the week
+        and let this sink in.  Until next time!
+    </p>
+</section>
