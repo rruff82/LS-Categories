@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session23-p3">
+    <title>Session 23: More on universal mapping properties, Part 3</title>
+    <p>
+        I didn't really make any progress on the exercise I started 
+        last week, so I'm just going to try and get some ideas out.
+        I also checked in the Python code that I was playing with
+        <url href="https://github.com/rruff82/LS-Categories/blob/main/assets/notebooks/ls-ses23.ipynb" >
+            here</url>.  Looking back, it seems like it's as all
+            over the place as I am. 
+    </p>
+    <example>
+        <title>Session 23 Brain-storming</title>
+        <statement>
+            <p>
+                Trying to collect my thoughts...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                One of the things I was exploring in Python
+                was about how I used the adjacency matrix
+                to develop my presentation. I started wondering
+                if there was a connection between my <c>ones_vec</c>
+                and the universal quantifier. Since each node in 
+                the graph corresponds to a one-hot vector, I thought
+                maybe this vector could stand in for <q>all points</q>.  
+            </p>
+            <p>
+                One of the interesting things I observed is that the 
+                <c>ones_vec</c> took twelve steps for <m>Y^\beta</m>
+                to repeat but only five steps for <m>X^\alpha</m>.  
+                This was strange because I expected the product of a 
+                two-cycle and three-cycle to take a minimum of six 
+                steps.  I think the reason this is shorter has to
+                do with how multiplication by my <c>ones_vec</c> 
+                contains less information than the exponents of 
+                the matrix itself.
+            </p>
+            <p>
+                The other idea I found myself playing with was the
+                idea that my previous bijection
+                 <m>\mathbb{N} \leftrightarrows \mathbb{N} \times \mathbb{N}</m>,
+                using a diagonal based ordering,
+                wasn't necessarily <q>unique</q>.  By using the 
+                uniqueness of prime factorizations, however,
+                it should be possible to build a unique map 
+                <m>\mathbb{N} \leftrightarrows \mathbb{N}^{m}</m>
+                for arbitrarily large <m>m</m>.  Using factors of 
+                two, 
+                I was able to build a second bijection
+                <m>\mathbb{N} \leftrightarrows \mathbb{N} \times \mathbb{N}</m>.
+                The only troublesome part of this process was getting the 
+                domain and codomain to align properly.  
+            </p>
+            <p>
+                With these bijections <m>\mathbb{N} \leftrightarrows \mathbb{N} \times \mathbb{N}</m>
+                comes this idea of <q>uplifting an endomap</q>.  My idea is that
+                if I can enumerate the points of <m>X</m> with <m>n \in \mathbb{N}</m>,
+                then each arrow of the endomap <m>X^\alpha</m> can be mapped to 
+                a number in <m>\mathbb{N}</m> that expresses the source-target
+                relationship in <m>\mathbb{N} \times \mathbb{N}</m>.  This 
+                only works on endomaps because of the one-to-one relationship, but maybe I can
+                use the prime factorization to extend this idea to an 
+                arbitrary graph somehow.
+            </p>
+            <p>
+                I've also found myself thinking about the gender problems 
+                again this week.  In particular, I'm wondering if the real
+                reason for the use of the word <q>gender</q> is really just a surface 
+                level similarity between the chromosome pairs <c>XX</c>
+                and <c>XY</c> with maps defined over domain and codomains
+                specifed by <m>X \rightarrow X</m> and <m>X \rightarrow Y</m>.
+                This is consistent with my hypotheses about my two missing maps
+                from Session 15 being the result of improperly accounting
+                for the case where <m>X</m> and <m>Y</m> are potentially the
+                same object.
+            </p>
+            <p>
+                In the same vein, I'm also wondering if I've been thinking 
+                about the binary relationship of <m>B_1,B_2</m> wrong.
+                I've been thinking of these two objects like
+                <m>\{\text{true},\text{false}\}</m> values, but 
+                maybe the binary operation I should be paying attention
+                to is <q>set membership</q> itself.  If I have some
+                map <m>X \xrightarrow{f} Y</m>, maybe there's some
+                way to check if <m>Y \subset X</m> using the properties 
+                of the sum <m>X+Y</m>?
+            </p>
+        </solution>
+    </example>
+
+
+</section>
