@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session23-p4">
+    <title>Session 23: More on universal mapping properties, Part 4</title>
+    
+    <p>
+        Let's try to wrap up this session this week
+        so I can keep moving forward.
+    </p>
+    <example>
+        <title>Exercise 2: (Part 2/2)</title>
+        <statement><p>
+            Continued from Session 23 Part 2</p></statement>
+        <solution>
+            <p>
+                I think I want to start here by organizing the
+                information I have so far (or at least what I think
+                I have).
+            </p>
+            <tabular>
+                <row>
+                    <cell>Category</cell>
+                    <cell>Initial Object</cell>
+                </row>
+                <row>
+                    <cell><m>\mathcal{C}</m></cell>
+                    <cell><m>I</m></cell>
+                </row>
+                <row>
+                    <cell><m>\mathcal{S}</m></cell>
+                    <cell><m>\emptyset</m></cell>
+                </row>
+                <row>
+                    <cell><m>\mathcal{S}^\circlearrowright</m></cell>
+                    <cell><m>\mathbb{N}^{()+1}</m>?</cell>
+                </row>
+                <row>
+                    <cell><m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m></cell>
+                    <cell>?</cell>
+                </row>
+            </tabular>
+            <p>
+                If I'm right about <m>\mathbb{N}^{()+1}</m> being the initial
+                object in <m>\mathcal{S}^\circlearrowright</m>, maybe the initial
+                object in <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>
+                will somehow pair each arrow with its opposite.  The authors have 
+                previously discussed an object <m>\Omega</m> which acts like
+                the inverse to <m>\mathbb{N}^{()+1}</m>.  This would take a 
+                graph like <m>\boxed{\bullet \rightarrow \bullet \circlearrowleft}</m>
+                and pair it with the graph <m>\boxed{\bullet \leftarrow \bullet \circlearrowleft}</m>.
+                This second graph is important because while it can exist 
+                in <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>,
+                it does not exist in <m>\mathcal{S}^\circlearrowright</m> because
+                an endomap can't have two arrows originating at the same point.
+            </p>
+            <p>
+                In the category <m>S</m> we already saw that our 
+                definition of product means that  
+                <m>\emptyset \rightarrow \emptyset+\mathbf{1}</m>
+                and <m>\mathbf{1} \rightarrow \emptyset+\mathbf{1}</m>
+                are two uniquely defined maps.  If we think of the sum
+                as <q>put together with no overlap and no interaction</q>,
+                combining the empty set with anything doesn't change it giving
+                us a unique map defined by 
+                <m>\emptyset+\mathbf{1} \rightarrow \mathbf{1}</m>.
+                Combining something with a new object necessarily
+                would have to change the set, so we'd need to have
+                <m>\mathbf{1} + \mathbf{1} = \mathbf{2}</m>. 
+                This effectively establishes a bijection between
+                <m>\mathbb{N}</m> and sets of the respective sizes:
+                <m>\{\emptyset,\mathbf{1},\mathbf{2},...\}</m>.
+            </p>
+            <p>
+                In the category <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>
+                our terminal objects aren't points but loops.  However,
+                there should be an isomorphism between the set of
+                <m>n</m> points and a cycle of that length.  
+                If we think of <m>\mathbb{N}</m> as a <q>cycle of length 0</q>, 
+                then <m>C_0 = \mathbb{N}</m> allows use to form an isomorphism
+                <m>\mathbb{N} \leftrightarrows \{\emptyset,\mathbf{1},\mathbf{2},...\}
+                    \leftrightarrows
+                    \{\mathbb{N},C_1,C_2,...\}
+                </m>.
+            </p>
+            <p>
+                While experimenting with Lean 4 the other week,
+                I noticed that the category theory library contained
+                separate definitions for <q>small</q> and <q>large</q>
+                categories.  The documentation suggested that the difference 
+                was that a <q>large category</q> could contain itself as 
+                an object.  I'm starting to wonder if that property is 
+                related to role of <m>\mathbb{N}</m> in this bijection 
+                <m>\mathbb{N} 
+                    \leftrightarrows
+                    \{\mathbb{N},C_1,C_2,...\}
+                </m>.
+            </p>
+            <p>
+                In <m>\mathcal{S}^\circlearrowright</m>, we 
+                observed that there were
+                <m>n</m> possible structure preserving maps from
+                <m>C_n \rightarrow C_n</m>. Maybe we can use the 
+                notion of <q>initial object</q> to narrow that down
+                to one.  Given any cycle <m>C_n</m>, we have a unique
+                map <m>I \rightarrow C_n</m> that we could use 
+                to identify which element is <q>point 0</q>.   
+            </p>
+            <p>
+                Consider the cycle of two.  There are precisely two
+                <m>\mathcal{S}^\circlearrowright</m>-maps 
+                <m>C_2 \rightarrow C_2</m>.  If we combine the
+                cycle with the initial object, we get a unique
+                map <m>I \rightarrow C_2+I</m> and through composition
+                with the unique map <m>I \rightarrow C_2</m> can construct
+                a unique map <m>C_2 \rightarrow C_2+I</m>. However,
+                this operation <m>+I</m> can't preserve the 
+                structure of <m>\mathbb{N}^{()+1}</m> because there is no
+                map <m>C_2 \rightarrow C_3</m> in
+                 <m>\mathcal{S}^\circlearrowright</m>.  It would follow
+                that <em>any</em> composition 
+                <m>\mathbb{N} \rightarrow I \rightarrow C_n</m> would have 
+                to be unique.
+            </p>
+            <p>
+                In an attempt to put this all together, I'm thinking that 
+                an my objects in 
+                <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>
+                should have a general structure that looks like this:
+            </p>
+            <image width="50%">
+                <shortdescription>Possible initial object</shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                        \node (A0) at (0,3) {$\bullet$};
+                        \node (A1) at (0,2) {$\bullet$};
+                        \node (A2) at (0,1) {...};
+                        \node (C0) at (0,0) {$\bullet$};
+                        \node (C1) at (1,-1) {$\bullet$};
+                        \node (C2) at (0,-2) {...};
+                        \node (C3) at (-1,-1) {$\bullet$};
+                        \path[-{stealth}]
+                            (A0) edge (A1)
+                            (A1) edge (A2)
+                            (A2) edge (C0)
+                            (C0) edge[bend left] (C1)
+                            (C1) edge[bend left] (C2)
+                            (C2) edge[bend left] (C3)
+                            (C3) edge[bend left] (C0)
+                     
+                            ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                If the <q>cycle</q> has a length <m>n</m> and the tail
+                has length <m>m</m> then there's precisely one map from
+                tail of length <m>m+n</m> to this object.  This is consistent 
+                with my earlier hypothesis that our initial object in 
+                <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>
+                is actually just <m>\mathbb{N}</m> itself. 
+            </p>
+        </solution>
+    </example>
+    <p>
+        Having <q>tried</q> the exercise, I think it's about time
+        to press on and hope the authors clarify things a bit more.
+    </p>
+
+</section>
