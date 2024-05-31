@@ -1,0 +1,689 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session24">
+    <title>Session 24: Uniqueness of products and definition of sum</title>
+    <p>
+        I feel kind of relieved by this chapter.  Some 
+        of the things I've been conjecturing have been
+        make more explicit. There are still some loose
+        ends for me to tie up, but I feel like I've gotten
+        some confirmation that I'm on the right track.
+    </p>
+    <example>
+        <title>Exercise 1:</title>
+        <statement>
+            <p>
+                Formulate and prove...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Suppose that <m>S,j_1,j_2</m> and 
+                <m>\bar{S},\bar{j_1},\bar{j_2}</m> 
+                are both sums of <m>B_1,B_2</m> in 
+                a given category.  
+            </p>
+            <image width="75%">
+                <shortdescription>Maps defined by the two sums</shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}[scale=1.5]
+                        \node (S1) at (0,0) {$S$};
+                        \node (B1) at (1,1) {$B_1$};
+                        \node (B2) at (1,-1) {$B_2$};
+                        \node (T1) at (4,0) {$\bar{S}$};
+                        \node (C1) at (5,1) {$B_1$};
+                        \node (C2) at (5,-1) {$B_2$};
+                        \path[-{stealth}]
+                            (B1) edge node[above] {$j_1$} (S1)
+                            (B2) edge node[below] {$j_2$} (S1)
+                            
+                            (C1) edge node[above] {$\bar{j_1}$} (T1)
+                            (C2) edge node[below] {$\bar{j_2}$} (T1)
+                        ;
+        
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                The definition of <m>S</m> as a sum says that
+                for any two maps <m>B_1 \xrightarrow{f_1} X</m>
+                and <m>B_2 \xrightarrow{f_2} X</m>, there is 
+                exactly one map <m>S \xrightarrow{f} X</m> 
+                such that <m>f_1 = f j_1</m> and <m>f_2 = f j_2</m>.
+                This shows that the following diagram commutes:
+            </p>
+            <image width="50%">
+                <shortdescription>Commutative diagram of sum</shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                    \node (S) at (2,0) {$S$};
+                    \node (X) at (-2,0) {$X$};
+                    \node (B1) at (4,2) {$B_1$};
+                    \node (B2) at (4,-2) {$B_2$};      
+                    \path[-{stealth}]
+                        (B1) edge node[below] {$j_1$} (S)
+                        (B2) edge node[above] {$j_2$} (S)
+                        
+                        (B1) edge node[above] {$f_1$} (X)
+                        (B2) edge node[below] {$f_2$} (X)
+                        (S) edge node[above] {$f$} (X)
+                ;
+        
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                By choosing <m>X = \bar{S}</m>, there must be a 
+                unique map <m>S \xrightarrow{h} \bar{S}</m> such 
+                that <m>\bar{j_1} = h j_1</m> and <m>\bar{j_2} = h j_2</m>.
+            </p>
+            <image width="50%">
+                <shortdescription>Commutative diagram of sum</shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                    \node (S) at (2,0) {$S$};
+                    \node (X) at (-2,0) {$\bar{S}$};
+                    \node (B1) at (4,2) {$B_1$};
+                    \node (B2) at (4,-2) {$B_2$};      
+                    \path[-{stealth}]
+                        (B1) edge node[below] {$j_1$} (S)
+                        (B2) edge node[above] {$j_2$} (S)
+                        
+                        (B1) edge node[above] {$\bar{j_1}$} (X)
+                        (B2) edge node[below] {$\bar{j_2}$} (X)
+                        (S) edge node[above] {$h$} (X)
+                    ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                We'd like to demonstrate that this map is an isomorphism,
+                so we need to to find an inverse to it.  Since <m>\bar{S}</m>
+                is also a product in the category, this defines a unique
+                map <m>\bar{S} \xrightarrow{k} S</m> for which 
+                <m>j_1 = k \bar{j_1}</m> and <m>j_2 = k \bar{j_2}</m>.
+            </p>
+        
+            <image width="50%">
+                <shortdescription>Commutative diagram from second sum</shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                    \node (S) at (2,0) {$\bar{S}$};
+                    \node (X) at (-2,0) {$S$};
+                    \node (B1) at (4,2) {$B_1$};
+                    \node (B2) at (4,-2) {$B_2$};      
+                    \path[-{stealth}]
+                        (B1) edge node[below] {$\bar{j_1}$} (S)
+                        (B2) edge node[above] {$\bar{j_2}$} (S)
+                        
+                        (B1) edge node[above] {$j_1$} (X)
+                        (B2) edge node[below] {$j_2$} (X)
+                        (S) edge node[above] {$k$} (X)
+                    ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                Let's make the claim that <m>h,k</m> are inverses.
+                Namely, that <m>k h = 1_S</m> and <m>h k = 1_\bar{S}</m>.
+                Consider the following compositions:
+            </p>
+            <me>(k h) j_1 = k (h j_1) = k \bar{j_1} = j_1</me>
+            <me>(k h) j_2 = k (h j_2) = k \bar{j_2} = j_2</me>
+            <p>
+                The map <m>k h</m> composed with <m>j_1</m> gives
+                <m>j_1</m> and composed with <m>j_2</m> gives 
+                <m>j_2</m>.  By choosing <m>f_1 = j_1</m>
+                and <m>f_2 = j_2</m>, the definition of sum says that
+                there's a unique map satisfying <m>f j_1 = j_1</m>
+                and <m>f j_2 = j_2</m>.  Since this is uniquely
+                satisfied by <m>f = 1_S</m>, we've can conclude
+                that <m>k h = 1_S</m>.
+            </p>
+            <p>
+                Likewise, we can reverse the roles of <m>S,\bar{S}</m>
+                and examine the following compositions:
+            </p>
+            <me>(h k) \bar{j_1} = h (k \bar{j_1}) = h j_1 = \bar{j_1}</me>
+            <me>(h k) \bar{j_2} = h (k \bar{j_2}) = h j_1 = \bar{j_2}</me>
+            <p>
+                By the same reasoning, the unique map <m>g</m> for which 
+                all <m>g \bar{j_1} = \bar{j_1}</m> and 
+                <m>g \bar{j_2} = \bar{j_2}</m> could only be the 
+                unique identity map <m>g = 1_\bar{S}</m>.  It follows 
+                that <m>h k = 1_\bar{S}</m> and completes the proof
+                that <m>S</m> is isomorphic to <m>\bar{S}</m>.
+            </p>
+            <p>
+                Having proved the result, I still feel like 
+                there's a weak spot in my understanding of that last 
+                step.  I'm thinking it has to do with the properties 
+                of <q>epimorphisms</q> and <q>monomorphisms</q> in 
+                relation to the identity map.  In the proof for the 
+                product, we rely on the fact that pre-composing by <m>hk</m>
+                didn't change anything while in the proof for
+                sum we rely on the fact that post-composing by
+                <m>k h</m> didn't change anything. 
+                My hunch is that this is related to the connection between
+                the section, retraction, and inverse.  If an inverse map
+                exists, then the section and retraction are both equal to it.
+            </p>
+        </solution>
+    </example>  
+    <example>
+        <title>Exercise 2:</title>
+        <statement>
+            <p>
+                  Prove the following...
+            </p>
+        </statement>
+    <solution>
+        <p>Part (a):</p>
+        <p>
+            Let's draw the left and right side separately, then 
+            compare results.  Using the depiction of the sum,
+            we can draw <m>D+D</m> as the following map:
+        </p>
+        <image width="60%">
+            <shortdescription>Graphical depiction of D plus D</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}
+                    \draw (-2,1) rectangle (2,3);
+                    \node (B1) at (-1,2) {$\bullet$};
+                    \node (B2) at (1,2) {$\bullet$};
+                    \draw (-3,-3) rectangle (-1,-1);
+                    \node (D1) at (-2,-2) {$\bullet$};
+                    \draw (1,-3) rectangle (3,-1);
+                    \node (D2) at (2,-2) {$\bullet$};
+                
+                    \path[-{stealth}]
+                        (D1) edge node[left] {$j_1$} (B1)
+                        (D2) edge node[right] {$j_2$} (B2)
+                    ;
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+        <p>
+            Next, we can draw out <m>2 \times D</m>:
+        </p>
+        <image width="60%">
+            <shortdescription>Graphical depiction of 2 times D</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}   
+
+                    \draw (-3,1) rectangle (-1,3);
+                    \node (A1) at (-2,2) {$\bullet$};
+                    \coordinate (AR) at (-1,2);
+    
+                    \draw (1,-3) rectangle (5,-1);
+                    \node (B1) at (2,-2) {$\bullet$};
+                    \node (B2) at (4,-2) {$\bullet$};
+                    \coordinate (BT) at (3,-1);
+                    
+    
+                    \draw (1,1) rectangle (5,3);
+                    \node (P1) at (2,2) {$\bullet$};
+                    \node (P2) at (4,2) {$\bullet$};
+                    \coordinate (PL) at (1,2);
+                    \coordinate (PB) at (3,1);
+                
+                    \path[-{stealth}]
+                        (P1) edge[dashed] (B1)
+                        (P2) edge[dashed] (B2)
+                        (P1) edge[dashed,bend right] (A1)
+                        (P2) edge[dashed,bend right] (A1)
+    
+                        (B1) edge[>={stealth},loop right] (B1)
+                        (B2) edge[>={stealth},loop right] (B2)
+                        (P1) edge[>={stealth},loop right] (P1)
+                        (P2) edge[>={stealth},loop right] (P2)
+                        (PL) edge node[below] {$p_1$} (AR)
+                        (PB) edge node[right] {$p_2$} (BT)
+    
+                    ;
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+    
+        <p>
+            Having these two diagrams, how do I then compare them
+            for equality?  I think the idea is to show they can be
+            factored through the terminal object.  In particular,
+            the maps from arrows to the terminal object form a
+            bijection between the arrows in the sum and product.
+    
+        </p>
+        <image width="90%">
+            <shortdescription>Graphical depiction of factoring through 1</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}[scale=.8]
+
+                    \draw (-7,1) rectangle (-3,3);
+                    \node (C1) at (-6,2) {$\bullet$};
+                    \node (C2) at (-4,2) {$\bullet$};
+                    \draw (-8,-3) rectangle (-6,-1);
+                    \node (D1) at (-7,-2) {$\bullet$};
+                    \draw (-4,-3) rectangle (-2,-1);
+                    \node (D2) at (-3,-2) {$\bullet$};
+                
+                    \path[-{stealth}]
+                        (D1) edge node[left] (J1) {$j_1$} (C1)
+                        (D2) edge node[right] (J2) {$j_2$} (C2)
+                    ;
+    
+    
+                    \draw (2,1) rectangle (4,3);
+                    \node (A1) at (3,2) {$\bullet$};
+                    \coordinate (AR) at (4,2);
+    
+                    \draw (6,-3) rectangle (10,-1);
+                    \node (B1) at (7,-2) {$\bullet$};
+                    \node (B2) at (9,-2) {$\bullet$};
+                    \coordinate (BT) at (8,-1);
+                    
+    
+                    \draw (6,1) rectangle (10,3);
+                    \node (P1) at (7,2) {$\bullet$};
+                    \node (P2) at (9,2) {$\bullet$};
+                    \coordinate (PL) at (6,2);
+                    \coordinate (PB) at (8,1);
+                
+    
+                    \path[-{stealth}]
+                        (P1) edge[dashed] (B1)
+                        (P2) edge[dashed] (B2)
+                        (P1) edge[dashed,bend right] (A1)
+                        (P2) edge[dashed,bend right] (A1)
+    
+                        (B1) edge[>={stealth},loop right] (B1)
+                        (B2) edge[>={stealth},loop right] (B2)
+                        (P1) edge[>={stealth},loop right] (P1)
+                        (P2) edge[>={stealth},loop right] (P2)
+                        (PL) edge node[below] (I1) {$p_1$} (AR)
+                        (PB) edge node[right] (I2) {$p_2$} (BT)
+                    ;
+    
+                    \draw (0,0) circle (1cm);
+                    \node (T) at (0,0) {$\bullet$};
+    
+                    \path[{stealth}-{stealth},red]
+                        (C1) edge (T)
+                        (C2) edge (T)
+                        (D1) edge (T)
+                        (D2) edge (T)
+                        (J1) edge[dashed,bend left] (T)
+                        (J2) edge[dashed,bend left] (T)
+    
+                        (A1) edge (T)
+                        (P1) edge (T)
+                        (P2) edge (T)
+                        (B1) edge (T)
+                        (B2) edge (T)
+                        (I1) edge[dashed] (T)
+                        (I2) edge[dashed] (T)
+    
+                    ;
+    
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+        <p>
+            The important characteristic I notice in this diagram
+            is that that while we have 2 maps <m>A \rightarrow T</m>
+            on each side, we have 4 maps <m>D \rightarrow T</m>
+            and on the left and 5 maps <m>D \rightarrow T</m> on the 
+            right.  This makes me wonder if two of the dots in 
+            the product need to collapse down to a single dot somehow.
+            I'm wondering if I can resolve this difference 
+            by treating the terminal object as one of the elements
+            in <m>2</m>.
+        </p>
+        <p>
+            I'm also not yet accounting for the <q>self-loops</q>
+            either. I'm thinking the way to resolve this is to
+            treat the self-loops in the products as the
+            identity maps on <m>B_1,B_2</m>.  I can 
+            group the two sets <m>B_1,B_2</m> on the left
+            into a the sum <m>B_1+B_2</m> and form a bijection
+            with my product <m>2 \times D</m>.
+        </p>
+        <p>
+            Putting both of these changes together gives us 
+            the following diagram:
+        </p>
+        <image width="90%">
+            <shortdescription>Graphical depiction of isomorphism betwen D+D and 2 times D</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}[scale=.8]
+
+                    \draw (-7,1) rectangle (-3,3);
+                    \node (C1) at (-6,2) {$\bullet$};
+                    \node (C2) at (-4,2) {$\bullet$};
+                    \draw (-8,-3) rectangle (-6,-1);
+                    \node (D1) at (-7,-2) {$\bullet$};
+                    \draw (-4,-3) rectangle (-2,-1);
+                    \node (D2) at (-3,-2) {$\bullet$};
+                
+                    \path[-{stealth}]
+                        (D1) edge node[left] (J1) {$j_1$} (C1)
+                        (D2) edge node[right] (J2) {$j_2$} (C2)
+                    ;
+    
+    
+     
+    
+                    \draw (6,-3) rectangle (10,-1);
+                    \node (B1) at (7,-2) {$\bullet$};
+                    \node (B2) at (9,-2) {$\bullet$};
+                    \coordinate (BT) at (8,-1);
+                    
+    
+                    \draw (6,1) rectangle (10,3);
+                    \node (P1) at (7,2) {$\bullet$};
+                    \node (P2) at (9,2) {$\bullet$};
+                    \coordinate (PL) at (6,2);
+                    \coordinate (PB) at (8,1);
+                
+                    \coordinate (CT) at (7,-1.5);
+                    \node (CR) at (7.5,-2) {};
+                
+    
+                    \path[-{stealth}]
+                        (P1) edge[dashed] (B1)
+                        (P2) edge[dashed] (B2)
+    
+                        (B2) edge[>={stealth},loop right] (B2)
+                        (CR) edge[>={stealth},loop right] (CR)
+                        (P1) edge[>={stealth},loop right] (P1)
+                        (P2) edge[>={stealth},loop right] (P2)
+                        (PB) edge node[left] (I1) {$p_1$} (CT)
+                        (PB) edge node[right] (I2) {$p_2$} (BT)
+                    ;
+    
+                    \draw (B1) circle (.5cm);
+    
+                    \path[{stealth}-{stealth},red]
+                        (C1) edge (B1)
+                        (C2) edge (B2)
+                        (D1) edge (P1)
+                        (D2) edge (P2)
+                        (J1) edge[dashed,bend left] (I1)
+                        (J2) edge[dashed,bend left] (I2)
+    
+                    ;
+    
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+        <p>
+            Now every <q>dot</q> maps to a <q>self-loop</q>.
+            Since there's exactly one map
+            <m>\boxed{\bullet} \rightarrow \boxed{\bullet \circlearrowleft}</m>
+            our isomorphism above must be the <q>only</q>
+            one. I say <q>only</q> in quotes, because the
+            chose of assigning <m>p_1,p_2</m> to <m>j_1,j_2</m>
+            is arbitrarily chosen but <em>any</em> choice 
+            is isomporphic to the other.  There's a unique map
+            <m>\alpha</m> such that 
+            <m>\alpha \langle p_1, p_2 \rangle = \langle p_2, p_1 \rangle</m>
+            and this map would have corresponding <m>\beta</m>
+            such that <m>\beta \langle j_1, j_2 \rangle = \langle j_2, j_1 \rangle</m>.
+        </p>
+        <p>
+            Now let's look at Part (b), which says 
+            <m>D \times D = D</m>.  It seems like
+            it should be obvious from the diagram of 
+            the graph product:
+        </p>
+        <image width="60%">
+            <shortdescription>Graphical depiction of D times D</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}
+                    
+                    \draw (-3,1) rectangle (-1,3);
+                    \node (A1) at (-2,2) {$\bullet$};
+                    \coordinate (AR) at (-1,2);
+    
+                    \draw (1,-3) rectangle (3,-1);
+                    \node (B1) at (2,-2) {$\bullet$};
+                    \coordinate (BT) at (2,-1);
+    
+                    \draw (1,1) rectangle (3,3);
+                    \node (P1) at (2,2) {$\bullet$};
+                    \coordinate (PB) at (2,1);
+                    \coordinate (PL) at (1,2);
+
+                    \path[-{stealth}]
+                        (PL) edge node[below] {$p_1$} (AR)
+                        (PB) edge node[left] {$p_2$} (BT)
+                    ;
+    
+                    \draw (0,0) circle (5cm);
+                    \coordinate (CR) at (5,0);
+                    \draw (7,-1) rectangle (9,1);
+                    \coordinate (RL) at (7,0);
+                    \node (DT) at (8,0) {$\bullet$};
+                    
+                    \path[{stealth}-{stealth},red]
+                        (CR) edge (RL)
+                        (A1) edge[dashed] (DT)
+                        (B1) edge[dashed] (DT)
+                        (P1) edge[dashed] (DT)
+                    ;
+                    
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+        <p>
+            Every shape in the product is uniquely 
+            determined based on the point that the 
+            product is mapped to.  Our map is fully 
+            determined by the domain and codomain.
+        </p>
+        <p>
+            For Part (C), we've already seen the graph of 
+            <m>D+D</m>, so that just leaves <m>A \times D</m>
+            which can be depicted as follows:
+        </p>
+        <image width="60%">
+            <shortdescription>Graphical depiction of A times D</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}
+                    
+                
+                    \draw (-3,1) rectangle (-1,3);
+                    \node (A1) at (-2,2) {$\bullet$};
+                    \coordinate (AR) at (-1,2);
+    
+                    \draw (1,-3) rectangle (5,-1);
+                    \node (B1) at (2,-2) {$\bullet$};
+                    \node (B2) at (4,-2) {$\bullet$};
+                    \coordinate (BT) at (3,-1);
+    
+                    \draw (1,1) rectangle (5,3);
+                    \node (P1) at (2,2) {$\bullet$};
+                    \node (P2) at (4,2) {$\bullet$};
+                    \coordinate (PB) at (3,1);
+                    \coordinate (PL) at (1,2);
+                
+                    \path[-{stealth}]
+                        (P1) edge[dashed] (B1)
+                        (P2) edge[dashed] (B2)
+                        (P1) edge[dashed,bend right] (A1)
+                        (P2) edge[dashed,bend right] (A1)
+                        
+                        (B1) edge (B2)
+                        (P1) edge (P2)
+                    ;
+    
+    
+                    \path[-{stealth}]
+                    (PL) edge node[below] {$p_1$} (AR)
+                    (PB) edge node[left] {$p_2$} (BT)
+                ;
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+        <p>
+            I think in this case we establish the bijection 
+            between <m>j_1,j_2</m> and the inherent 
+            source and target maps of the arrow <m>s,t</m>.
+            However, it's not exactly clear to me how
+            quite yet so lets try to factor through <m>\mathbf{1}</m>
+            again.
+        </p>
+        <image width="95%">
+            <shortdescription>
+                Graphical depiction of A times D = D + D
+                factored through 1
+            </shortdescription>
+            <latex-image>
+                \begin{tikzpicture}[scale=.8]
+                \draw (-7,1) rectangle (-3,3);
+                \node (C1) at (-6,2) {$\bullet$};
+                \node (C2) at (-4,2) {$\bullet$};
+                \draw (-8,-3) rectangle (-6,-1);
+                \node (D1) at (-7,-2) {$\bullet$};
+                \draw (-4,-3) rectangle (-2,-1);
+                \node (D2) at (-3,-2) {$\bullet$};
+            
+                \path[-{stealth}]
+                    (D1) edge node[left] (J1) {$j_1$} (C1)
+                    (D2) edge node[right] (J2) {$j_2$} (C2)
+                ;
+    
+    
+                \draw (2,1) rectangle (4,3);
+                \node (A1) at (3,2) {$\bullet$};
+                \coordinate (AR) at (4,2);
+    
+                \draw (6,-3) rectangle (10,-1);
+                \node (B1) at (7,-2) {$\bullet$};
+                \node (B2) at (9,-2) {$\bullet$};
+                \coordinate (BT) at (8,-1);
+                
+    
+                \draw (6,1) rectangle (10,3);
+                \node (P1) at (7,2) {$\bullet$};
+                \node (P2) at (9,2) {$\bullet$};
+                \coordinate (PL) at (6,2);
+                \coordinate (PB) at (8,1);
+            
+    
+                \path[-{stealth}]
+                    (P1) edge[dashed] (B1)
+                    (P2) edge[dashed] (B2)
+                    (P1) edge[dashed,bend right] (A1)
+                    (P2) edge[dashed,bend right] (A1)
+                    
+                    (B1) edge (B2)
+                    (P1) edge (P2)
+                    (PL) edge node[below] (I1) {$p_1$} (AR)
+                    (PB) edge node[right] (I2) {$p_2$} (BT)
+                ;
+    
+                \draw (0,0) circle (1cm);
+                \node (T) at (0,0) {$\bullet$};
+    
+                \path[{stealth}-{stealth},red]
+                    (C1) edge (T)
+                    (C2) edge (T)
+                    (D1) edge (T)
+                    (D2) edge (T)
+                    (J1) edge[dashed,bend left] (T)
+                    (J2) edge[dashed,bend left] (T)
+    
+                    (A1) edge (T)
+                    (P1) edge (T)
+                    (P2) edge (T)
+                    (B1) edge (T)
+                    (B2) edge (T)
+                    (I1) edge[dashed] (T)
+                    (I2) edge[dashed] (T)
+    
+                ;
+    
+            \end{tikzpicture}
+            </latex-image>
+        </image>
+        <p>
+            Like before, maybe the key here is 
+            to group the terminal object and 
+            dot together as a single object.
+            This would give us the following
+            isomorphism:
+        </p>
+        <image width="90%">
+            <shortdescription>Graphical depiction of isomorphism betwen D+D and A times D</shortdescription>
+            <latex-image>
+     
+                \begin{tikzpicture}[scale=.8]
+                    \draw (-7,1) rectangle (-3,3);
+                    \node (C1) at (-6,2) {$\bullet$};
+                    \node (C2) at (-4,2) {$\bullet$};
+                    \draw (-8,-3) rectangle (-6,-1);
+                    \node (D1) at (-7,-2) {$\bullet$};
+                    \draw (-4,-3) rectangle (-2,-1);
+                    \node (D2) at (-3,-2) {$\bullet$};
+                
+                    \path[-{stealth}]
+                        (D1) edge node[left] (J1) {$j_1$} (C1)
+                        (D2) edge node[right] (J2) {$j_2$} (C2)
+                    ;
+    
+    
+     
+    
+                    \draw (6,-3) rectangle (10,-1);
+                    \node (B1) at (7,-2) {$\bullet$};
+                    \node (B2) at (9,-2) {$\bullet$};
+                    \coordinate (BT) at (8,-1);
+                    
+    
+                    \draw (6,1) rectangle (10,3);
+                    \node (P1) at (7,2) {$\bullet$};
+                    \node (P2) at (9,2) {$\bullet$};
+                    \coordinate (PL) at (6,2);
+                    \coordinate (PB) at (8,1);
+                
+                    \coordinate (CT) at (7,-1.5);
+                    \node (CR) at (7.5,-2) {};
+                
+    
+                    \path[-{stealth}]
+                        (P1) edge[dashed] (B1)
+                        (P2) edge[dashed] (B2)
+    
+                        (CR) edge (B2)
+                        (P1) edge (P2)
+                        (PB) edge node[left] (I1) {$p_1$} (CT)
+                        (PB) edge node[right] (I2) {$p_2$} (BT)
+                    ;
+    
+                    \draw (B1) circle (.5cm);
+    
+                    \path[{stealth}-{stealth},red]
+                        (C1) edge (B1)
+                        (C2) edge (B2)
+                        (D1) edge (P1)
+                        (D2) edge (P2)
+                        (J1) edge[dashed,bend left] (I1)
+                        (J2) edge[dashed,bend left] (I2)
+    
+                    ;
+    
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+        <p>
+            And that complete our proof!  Or at least,
+            I think it does...
+        </p>
+    </solution>
+</example>
+    <p>
+        This seems like a good place to stop for the 
+        week.  I know if I start looking at Session 15
+        again it's going to get complicated.
+    </p>
+</section>
