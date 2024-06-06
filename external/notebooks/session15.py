@@ -338,3 +338,49 @@ def make_assignment_generator(gen,poss_vals):
 def make_map_by_assignment_vector(setA,setB,assignments):
     return {setA[i]:setB[assignments[i]] for i in range(len(setA))}
 
+def get_session15_endomaps():
+    x_nodes = ["X"+str(i) for i in range(9)]
+    x_edges = [
+        (x_nodes[0],x_nodes[4]),
+        (x_nodes[1],x_nodes[5]),
+        (x_nodes[2],x_nodes[6]),
+        (x_nodes[3],x_nodes[8]),
+        (x_nodes[4],x_nodes[5]),
+        (x_nodes[5],x_nodes[6]),
+        (x_nodes[6],x_nodes[7]),
+        (x_nodes[7],x_nodes[5]),
+        (x_nodes[8],x_nodes[3])
+    ]
+    XG = nx.DiGraph()
+    XG.add_nodes_from(x_nodes)
+    XG.add_edges_from(x_edges)
+
+    y_nodes = ["Y"+y for y in ["p", "q", "r", "s", "t", "v", "u", "m", "l", "w", "x", "y", "z"]]
+    
+    y_edges = [
+        (y_nodes[0],y_nodes[2]),
+        (y_nodes[1],y_nodes[2]),
+        (y_nodes[2],y_nodes[4]),
+        (y_nodes[3],y_nodes[4]),
+        (y_nodes[4],y_nodes[5]),
+        (y_nodes[5],y_nodes[6]),
+        (y_nodes[6],y_nodes[3]),
+        (y_nodes[7],y_nodes[8]),
+        (y_nodes[8],y_nodes[7]),
+        (y_nodes[9],y_nodes[10]),
+        (y_nodes[10],y_nodes[11]),
+        (y_nodes[11],y_nodes[9]),
+        (y_nodes[12],y_nodes[11])
+    ]
+    YG = nx.DiGraph()
+    YG.add_nodes_from(y_nodes)
+    YG.add_edges_from(y_edges)
+    return XG,YG
+
+def make_cycle(n):
+    nodes = range(n)
+    edges = [(i,(i+1)%n) for i in nodes]
+    G = nx.DiGraph()
+    G.add_nodes_from(nodes)
+    G.add_edges_from(edges)
+    return G
