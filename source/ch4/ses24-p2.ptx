@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session24-p2">
+    <title>Session 24: Uniqueness of products and definition of sum, Part 2</title>
+    <p>
+        I left of at the last exercise, which has both an 
+        <q>easy part</q> and a <q>hard part</q>.  Let's see
+        what kind of progress I can make. 
+    </p>
+    <example>
+        <title>Exercise 3:</title>
+        <statement>
+            <p>
+                Reread Section 5 of Session 15...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                As a means of exploring this, I booted up my 
+                Python interpreter again.  The code accompanying 
+                this week's Exercise can be found 
+                <url href="https://github.com/rruff82/LS-Categories/blob/main/assets/notebooks/ls-ses24.ipynb">
+                    here</url>.
+            </p>
+            <p>
+                For part (a), I took a naive approach to constructing 
+                <m>X^{\circlearrowright \alpha} + Y^{\circlearrowright \beta}</m>
+                by basically concatenating the lists of generators and relations.  
+                I used Python's built in <c>hash</c> method to construct unique
+                names for the nodes in <m>X+Y</m>, then translated the original 
+                relations to use the new names. 
+            </p>
+            <p>
+                To check that the sum was indeed this simple, I used the 
+                <c>reconstruct_endomap</c> method I built previously
+                to confirm that the presentation produced a graph with
+                the expected shape.  Specifically, the following
+                graph <m>(X+Y)^{\circlearrowright \gamma}</m> can be thought of as having 8 generators <m>a,b,c,d,p,q,m,z</m>
+                and 8 relations <m>\gamma^5 a = \gamma^2 a</m>,
+                <m>\gamma b = \gamma^2 a</m>, <m>\gamma c = \gamma^3 a</m>, 
+                <m>\gamma^2 d = d</m>, <m>\gamma^6 p = \gamma^2 p</m>, 
+                <m>\gamma q = \gamma p</m>, <m>\gamma^2 m = m</m>, 
+                and <m>\gamma^4 z = \gamma z</m>:
+            </p>
+                <image width="90%">
+                    <shortdescription>Sum of endomaps on X and Y</shortdescription>
+                    
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \coordinate (XC) at (-4,0);
+                            \node (X1) at ($(XC)+(-1.25,1.75)$) {$a$};
+                            \node (X2) at ($(XC)+(-0.25,.75)$) {$b$};
+                            \node (X3) at ($(XC)+(0.5,0)$) {$c$};
+                            \node (X4) at ($(XC)+(2,1)$) {$d$};
+                            \node (X5) at ($(XC)+(-2.5,1)$) {$\alpha a$};
+                            \node (X6) at ($(XC)+(-1.5,0)$) {$\alpha^2 a$};
+                            \node (X7) at ($(XC)+(-0.5,-1.5)$) {$\alpha^3 a$};
+                            \node (X8) at ($(XC)+(-2.5,-1)$) {$\alpha^4 a$};
+                            \node (X9) at ($(XC)+(2,-1)$) {$\alpha d$};
+                       
+                            \path[-{stealth}]
+                                (X1) edge (X5)
+                                (X5) edge (X6)
+                                (X6) edge (X7)
+                                (X7) edge (X8)
+                                (X8) edge (X6)
+                                (X2) edge (X6)
+                                (X3) edge (X7)
+                                (X4) edge[bend right] (X9)
+                                (X9) edge[bend right] (X4)
+                                ;
+                            
+                                \coordinate (YC) at (4,0);
+                                \node (Y1) at ($(YC)+(-1.75,1.5)$) {$p$};
+                                \node (Y2) at ($(YC)+(-0.25,1.75)$) {$q$};
+                                \node (Y3) at ($(YC)+(1.75,0)$) {$z$};
+                                \node (Y4) at ($(YC)+(1,2)$) {$m$};
+                                \node (Y5) at ($(YC)+(-1.5,0.75)$) {$r$};
+                                \node (Y6) at ($(YC)+(-1.5,0)$) {$t$};
+                                \node (Y7) at ($(YC)+(-0.5,-1)$) {$v$};
+                                \node (Y8) at ($(YC)+(-1.5,-1.5)$) {$u$};
+        
+                                \node (Y9) at ($(YC)+(-2.5,-.75)$) {$s$};
+                                \node (Y10) at ($(YC)+(1.5,-.75)$) {$y$};
+                                \node (Y11) at ($(YC)+(1,-1.5)$) {$w$};
+                                \node (Y12) at ($(YC)+(0.75,-.5)$) {$x$};
+                                \node (Y13) at ($(YC)+(2,1.5)$) {$l$};
+                             
+                                
+                                \path[-{stealth}]
+                                    (Y1) edge (Y5)
+                                    (Y2) edge (Y5)
+                                  
+                                    (Y5) edge (Y6)
+                                    (Y6) edge (Y7)
+                                    (Y7) edge (Y8)
+                                    (Y8) edge (Y9)
+                                    (Y9) edge (Y6)
+                                    (Y3) edge (Y10)
+                                    (Y10) edge (Y11)
+                                    (Y11) edge (Y12)
+                                    (Y12) edge (Y10)
+                                    (Y4) edge[bend right] (Y13)
+                                    (Y13) edge[bend right] (Y4)
+                                    ;
+                           \draw (0,0) circle [x radius=8,y radius=3.5];   
+                         
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+                <p>
+                    That basically concludes Part (a).
+                </p>
+                <p>
+                    For part (b), I tried to cheat.  I used the 
+                    <c>graph_product</c> function I wrote previously,
+                    applied it to the graphs of <m>X</m> and <m>Y</m>,
+                    then passed the output into my previously coded
+                    <c>make_presentation</c> method.  It resulted 
+                    in a crazy-looking presentation with 59 generators 
+                    that made little sense at all.
+                </p>
+                <p>
+                    Under closer scrutiny, I noticed that my 
+                    <c>graph_product</c> wasn't behaving as expected.
+                    Specifically, it failed to preserve commutivity
+                    of <m>2 \times D</m> and <m>D \times 2</m>.  In 
+                    an effort to fix this, I ended up writing a 
+                    <c>graph_sum</c> method using matrix operations
+                    and used that as a foundation for rewriting my
+                    <c>graph_product</c>.  After confirming that 
+                    it fixed the glitch, I tried again.
+                </p>
+                <p>
+                    With my corrections in place, the resulting product
+                    <m>X^{\circlearrowright \alpha} \times Y^{\circlearrowright \beta}</m>
+                    had 9 generators and 9 relations:
+                </p>
+                <c>{'generators': [0, 1, 12, 13, 14, 25, 26, 27, 38],
+                    'relations': [((0, 6), (0, 2)),
+                     ((1, 1), (0, 1)),
+                     ((12, 4), (12, 1)),
+                     ((13, 1), (0, 1)),
+                     ((14, 1), (0, 1)),
+                     ((25, 1), (12, 1)),
+                     ((26, 1), (0, 1)),
+                     ((27, 1), (0, 1)),
+                     ((38, 1), (12, 1))]}</c>
+                <p>
+                Going from 8 generators to 9  seems to make a lot 
+                more sense than having 59 generators.         
+                It also seems to support a hypothesis I had about a
+                connection between the generators and the 
+                eigenvalues of the adjacency matrix.  However,
+                this <c>make_presentation</c> that I implemented 
+                earlier was designed specifically for <q>endomaps</q>.
+                It's entirely plausible that there's still another
+                error in my code to find. 
+                </p>
+                <p>
+                In fact, I'm quite certain there's still a problem
+                because I'm getting <q>null</q> presentations for 
+                4 out of my 6 sub-products.  I think it's more likely
+                that I'm looking for a presentation with 16 
+                generators, each one being a product between the 
+                generators of <m>X^{\circlearrowright \alpha}</m>
+                and <m>Y^{\circlearrowright \beta}</m>.  The reason
+                my algorithm fails is that it can't identify 
+                a generator for shapes like <m>C_2 \times C_2</m> 
+                is that there isn't a one-to-one correspondence 
+                between <q>dots</q> and <q>arrows</q> unless I somehow
+                expand it to <m>C_4</m> first. 
+                </p>
+                <p>
+                Presently, my guess that the only two shapes in 
+                the product for which my <c>make_presentation</c>
+                produces <q>something</q> are the two products where
+                both shapes in the product have <q>tails</q>. 
+                Perhaps what the remaining shapes have in common
+                is that the map from the initial object to that 
+                shape is unique.
+                </p>
+                <p>
+                    If the generators of my product are, in
+                    fact, the products of the generators,
+                    than maybe the key to finding the relations
+                    lies in the result of Session 21 Exercise 2.
+                    If the product of two cycles with lengths
+                    <m>m,n</m> is a cycle of length <m>lcm(m,n)</m>,
+                    maybe we can use that information to help
+                    find the corresponding relations.
+                </p>
+                <p>
+                    In this case, it works nicely because there's a 
+                    one-to-one relationship between our generators
+                    and the relations, so the product would have
+                    both 16 generators and 16 relations.
+                </p>
+                <p>
+                    Each generator (which has a relation) 
+                    could have that relation written in the
+                    the form <m>\gamma^a g_n = \gamma^b g_n</m>
+                    for some <m>a,b \in \mathbb{N}</m>
+                    such that <m>a > b</m>, and 
+                    <m>a - b</m> would give the cycle length.
+                    In addition, this number <m>b</m> defines 
+                    the <q>tail length</q> associated with that
+                    shape.  Based on the fact that my generators seem
+                    to disappear, I'd guess that the
+                    tail length of the product is the minimum 
+                    of the two shapes being multiplied, but I'm not 
+                    really sure.
+                </p>
+        </solution>
+    </example>
+    <p>
+        I'm a little unsatisfied with that result,
+        but I think I've explored it enough to keep 
+        moving forward.  
+    </p>
+    
+</section>
