@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session25">
+    <title>Session 25: Labelings and products of graphs</title>
+
+    <p>
+        I started moving forward this week, but found
+        myself doubling back to debug my code from the last 
+        Exercise in Session 24.  I think these things
+        are connected, so I'm kind of just using this 
+        week to flesh out some ideas.
+    </p>
+    <example>
+        <title>Exercise 1:</title>
+        <statement>
+            <p>
+                Find a graph <m>2_A</m>...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                I've already been thinking of a shape with two
+                arrows in a path as per the following diagram:
+            </p>
+            <me>2_A = \boxed{\bullet \longrightarrow 
+                \bullet \longrightarrow \bullet}</me>
+            <p>
+                I think the sort this imposes on <m>X</m>
+                has something to do with those <q>tails</q>
+                on my presentations.  Specifically, if I'm
+                thinking of this graph as an endomap, 
+                it forms a sequence:
+                <me>2_A =\boxed{\bullet \longrightarrow 
+                    \bullet \longrightarrow \bullet}</me>
+                <me>1_A =\boxed{\bullet \longrightarrow \bullet}</me>
+                <me>0_A = \boxed{\bullet} = D</me>
+            </p>
+            <p>
+                What makes this graph interesting is the 
+                possible ways the dots in the graph could potentially
+                collapse through incidence. We could have 
+                the last two points combine to produce the 
+                idempotent
+                <m>
+                    \boxed{\bullet \longrightarrow \bullet \circlearrowleft}
+                </m>,
+                the first and last collapse to 
+                form a 2-cycle <m>C_2 = \boxed{\bullet \leftrightarrows \bullet}</m>.
+                the first two collapse to form
+                a non-endomap <m>\boxed{\circlearrowright \bullet
+                 \longrightarrow \bullet}</m>,
+                 or all three dots collapse to form the terminal object
+                <m>\boxed{\circlearrowright \bullet \circlearrowleft}</m>.
+        
+                If the cycle <m>C_2</m> was described as separating <m>X</m> into 
+                <q>dots mapped to <m>u</m></q> and <q>dots mapped to <m>v</m></q>,
+                this graph <m>A_2</m> would seem to divide <m>X</m>
+                into <q>arrows mapped from <m>u</m></q> and <q>arrows mapped from <m>v</m></q>.
+            </p>
+            <p>
+                That non-map <m>\boxed{\circlearrowright \bullet
+                    \longrightarrow \bullet}</m> seems particularly interesting.
+                If I have some arbitrary endomap <m>X^{\circlearrowright \alpha}</m>,
+                I can think of this map <m>X\rightarrow 2_A</m> as mapping each 
+                <q>dot</q> to the product of maps <m>\langle 1_X, \alpha \rangle</m>.
+                
+            </p>
+            <p>
+                This reminds me of the peg game from Session 17.  Perhaps
+                the solution to that problem lies in finding a map
+                from the <q>arrows mapped from <m>u</m></q> to 
+                <q>dots mapped to <m>v</m></q> for the specific
+                starting state <m>u</m> and ending state <m>v</m>.
+                The title of this session seems to imply that I might
+                have been on track by how I approached Session 11
+                Exercise 8.  The general idea would be to color 
+                all the points/arrows accessible from the start red,
+                color all the points/arrows accessible from the end blue,
+                and those two points are connected if and only 
+                if there exists some kind of purple <q>object</q>. 
+            </p>
+            <p>
+                I'm not really sure how to articulate <q>how</q> 
+                this sorting works at the moment, but it seems like
+                this graph is certainly full of interesting properties.
+            </p>
+        </solution>
+    </example>
+    <example>
+        <title>Session 24 Debugging</title>
+        <statement>
+            <p>
+                Continued from last time...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Looking over my code from last week,
+                I noticed another problem with my Python
+                code.  While I fixed the commutation problem,
+                I broke my graph product.  Instead of <m>C_2 \times C_2</m>
+                giving me 2 cycles of two as expected, I was 
+                getting the graph described in this session
+                as <m>2_D</m>.  Upon
+                fixing my graph product, it took me back
+                up to 59 generators again.  I'm starting to
+                believe that my original result might have
+                actually been right.  The new <c>graph_product</c>
+                function I came up with was defined as follows:
+            </p>
+            <pre>
+        def graph_product(A,B):
+            # for our product, the nodes are pairs of nodes
+            a_size,b_size = len(A.nodes),len(B.nodes)
+            new_size = a_size*b_size
+            print(f"Nodes = {a_size} x {b_size} -> {new_size}")
+            p_nodes = [str([a,b]) for a in A.nodes for b in B.nodes]
+            print(p_nodes,len(p_nodes))
+            p_edges = [(str([a[0],b[0]]),str([a[1],b[1]])) for a in A.edges for b in B.edges]
+            print(p_edges,len(p_edges))
+            output = nx.DiGraph()
+            output.add_nodes_from(p_nodes)
+            output.add_edges_from(p_edges)
+            
+            return output
+        </pre>
+            <p>
+                I still think there's a better way of doing this
+                using matrix operations and I think it might be 
+                connected to that shape <m>2_A</m> that I was 
+                looking at.  Instead of padding my matrices with
+                zeros like I did with <c>graph_sum</c>, I'm thinking
+                I can stack an identity matrix and adjacency matrix 
+                together to separate the dots and arrows of a given
+                endomap. 
+            </p>
+            <p>
+                Using the endomaps from Session 15, 
+                separated <m>X^{\circlearrowright \alpha}</m>
+                into a sum of two objects and <m>Y^{\circlearrowright \beta}</m>
+                into a sum of three objects.  Notably
+                one object, <m>C_2</m>, falls into both sets.
+                What's interesting is that <m>C_2</m> has only one
+                generator, but <m>C_2 \times C_2</m> requires two.
+                Using my <c>graph_product</c> between
+                pairs of these subgraphs showed that the relationship
+                between the number of generators wasn't as straight 
+                forward as I thought.
+            </p>
+            <p>
+                If my hypothesis about the generators being 
+                <q>non-zero eigenvalues</q> is correct, then
+                those 59 generators do in fact come from the 
+                products of the disjoint shapes of <m>X</m>
+                and <m>Y</m>.  
+            </p>
+            <tabular>
+                <row>
+                    <cell>Subgraph Presentations</cell>
+                    <cell><me>\boxed{x_0,x_1,x_2}</me>  <me>\alpha^5 x_0 = \alpha^2 x_0</me>,
+                        <me>\alpha^5 x_0 = \alpha^2 x_0</me>
+                        <me>\alpha^2 x_0 = \alpha x_1</me>
+                        <me>\alpha^3 x_0 = \alpha x_2</me>
+                    </cell>
+                    <cell><me>\boxed{x_3}</me><me>\alpha^2 x_3 = x_3</me>
+                    </cell>
+                    
+
+                </row>
+                <row>
+                    <cell><me>\boxed{y_0}</me> <me>\beta^4 y_0 = \beta y_0</me></cell>
+                    
+                    <cell>Expect 16 generators</cell>
+                    <cell>Expect 2 generators</cell>
+
+
+                </row>
+                <row>
+                    <cell><me>\boxed{y_1,y_2}</me>  <me>\beta^6 y_1 = \beta^2 y_1</me>
+                        <me>\beta y_1 = \beta y_2</me></cell>
+                    <cell>Expect 29 generators</cell>
+
+                    <cell>Expect 4 generators</cell>
+                    
+                </row>
+                <row>
+                    <cell><me>\boxed{y_3}</me>  <me>\beta^2 y_3 = \beta y_3</me></cell>
+                    <cell>Expect 6 generators</cell>
+                    <cell>Expect 2 generators</cell>
+                    
+                </row>
+            </tabular>
+            <p>
+                These generators of the subproducts sum up to 59 total!
+                The fact that <m>59 = \frac{9 \times 13 + 1}{2}</m>
+                is probably not a conincidence. Back when I was working 
+                in game development, we used to use <q>homogenized vectors</q>
+                based around defining a equivalence class
+                from <m>\langle x_0,y_0,z_0,1 \rangle</m> to
+                <m>\langle x_1,y_1,z_1,w \rangle</m> by the relation
+                <m>\langle x_0,y_0,z_0 \rangle = \langle x_1/w,y_1/w,z_1/w \rangle</m>
+                By adding a dimension, we can turn a <q>translation</q>
+                into a matrix product.  I'm wondering if something 
+                like that is going on here.   
+            </p>
+            <p>
+                I also thought that <q>unraveling</q> my matrices
+                might tell me something about the products.  Since 
+                each arrow is a non-zero element in the adjacency
+                matrix, I can take the outer product of flattened
+                matrices to find where my arrows might be in the 
+                product.  Since the <m>9 \times 9</m> matrix has 
+                81 elements with exactly 9 non-zero and the 
+                <m>13 \times 13</m> has 169 elements with exactly
+                13 non-zero, I can take the outer product to form
+                a <m>81 \times 169</m> matrix with exactly 117 
+                non-zero elements.  I think with some clever
+                linear algebra it might be possible to reshape
+                this <m>81 \times 169</m> matrix into a 
+                <m>117 \times 117</m> matrix representing the 
+                product with a pair of projection matrices of shape
+                <m>9 \times 117</m> and <m>13 \times 117</m>
+                respectively.
+            </p>
+            <p>
+                In the same way that I thought <m>2_A</m> might
+                be like stacking an identity and adjacency matrix
+                together, I think I could extend this idea to an
+                arbitrary <m>N_A</m> using powers of the adjacency 
+                matrix.  By using 13 powers of the <m>9 \times 9</m>
+                matrix and 9 powers of the <m>13 \times 13</m> matrix
+                I can produce matrices of the shapes I'm looking for:
+                <m>9 \times 117</m> and <m>13 \times 117</m>.
+                However, I haven't figured out what to do with those 
+                matrices to produce the product quite yet.
+            </p>
+        </solution>
+    </example>
+
+   
+</section>

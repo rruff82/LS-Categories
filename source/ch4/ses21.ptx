@@ -248,7 +248,7 @@
                         \path[-{stealth}]
                             (N) edge node[right] {$mod_{24}$} (C24)
                             (C24) edge (P)
-                            (C24) edge[bend right] node[left] {$mod_{24}$} (C8)
+                            (C24) edge[bend right] node[left] {$mod_{8}$} (C8)
                             (C24) edge[bend left] node[right] {$mod_{3}$} (C3)
                             (P) edge (C8)
                             (P) edge (C3);
@@ -564,7 +564,7 @@
                 <statement>
                     <p>
                         Given an <m>m</m>-cycle <m>C_m</m> and 
-                        an <m>n</m>-cylce <m>C_n</m>, the product
+                        an <m>n</m>-cycle <m>C_n</m>, the product
                         <m>C_m \times C_n</m> is composed of 
                         <m>gcd(n,m)</m> cycles of length 
                         <m>lcm(n,m)</m> where <m>gcd</m>
@@ -578,7 +578,7 @@
                 but it was precisely this observation that 
                 led to my solution in Exercise 1.  Assuming 
                 this holds, <m>C_{12} \times C_{8}</m> should
-                have 4 cylces of length 24. I confirmed this 
+                have 4 cycles of length 24. I confirmed this 
                 with NetworkX <c>simple_cycles</c> function,
                 assuming I did my graph product right of course.
             </p>
