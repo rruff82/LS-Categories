@@ -124,6 +124,8 @@
       <xi:include href="ch4/ses24.ptx" />
       <xi:include href="ch4/ses24-p2.ptx" />
       <xi:include href="ch4/ses25.ptx" />
+      <xi:include href="ch4/ses25-p2.ptx" />
+      
     </chapter>
 
     <backmatter xml:id="backmatter">

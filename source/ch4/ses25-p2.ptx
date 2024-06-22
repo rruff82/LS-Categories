@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session25-p2">
+    <title>Session 25: Labelings and products of graphs, Part 2</title>
+
+    <p>
+        As I continued to read further, I realized my solution
+        to last week's Exercise is probably not correct.  I'm
+        also beginning to think that I need to finish my solution
+        to certain outstanding problems (i.e. Session 15) before I can proceed
+        any further.  It's possible I might be stuck here a while...
+    </p>
+
+    <example>
+        <title>Exercise 1: (Part 2/?)</title>
+        <statement>
+            <p>
+                Proofreading last week's work...
+            </p>
+        </statement>
+        <solution>
+            <p>
+Immediately after this Exercise, the author's define a graph
+<m>A_2</m> with the exact graph I thought was going to be
+<m>2_A</m>.  It seems incredibly unlikely that <m>A_2 = 2_A</m>
+would be the same graph, so my answer is almost certainly 
+wrong. I decided to take a closer look at the examples leading
+up to his.
+            </p>
+            <p>
+                I've been starting to form a tighter connection
+                between the graphs and the adjacency matrices.
+                The object <m>D</m> defined as the 
+                <q>naked dot</q> is essentially a 
+                <m>1\times1</m> matrix given by
+                <m>\begin{bmatrix}
+                    0
+                    \end{bmatrix}</m>.  Likewise,
+                the <q>naked arrow</q> <m>A</m> can be
+                thought of a <m>2\times2</m> matrix
+                given by <m>\begin{bmatrix}
+                    0 &amp; 1 \\
+                    0 &amp; 0 
+                    \end{bmatrix}</m>.
+                By concatenating matrices along the 
+                diagonal and filling in zeroes, we
+                can produce a graph sum such that
+                <m>D+D = \begin{bmatrix}
+                    0 &amp; 0 \\
+                    0 &amp; 0 
+                    \end{bmatrix}</m> and 
+                    <m>A+A = 
+                        \begin{bmatrix}
+                        0 &amp; 1 &amp; 0 &amp; 0 \\
+                        0 &amp; 0 &amp; 0 &amp; 0 \\
+                        0 &amp; 0 &amp; 0 &amp; 1 \\
+                        0 &amp; 0 &amp; 0 &amp; 0                        
+                        \end{bmatrix}</m>.
+                        I also get a nice representation
+                        of the <q>naked loop</q> as the 
+                        matrix <m> 
+                        \begin{bmatrix} 1                    
+                        \end{bmatrix}</m>.
+                    </p>
+            <p>
+                However,
+                it's important to note that this method 
+                of a graph sum doesn't commute. The matrix
+                <m>D+A = \begin{bmatrix}
+                    0 &amp; 0 &amp; 0 \\
+                    0 &amp; 0 &amp; 1 \\
+                    0 &amp; 0 &amp; 0
+                    \end{bmatrix}</m> is distinct from
+                <m>A+D = \begin{bmatrix}
+                        0 &amp; 1 &amp; 0 \\
+                        0 &amp; 0 &amp; 0 \\
+                        0 &amp; 0 &amp; 0
+                        \end{bmatrix}</m>   
+                if we're using an element-wise comparison.
+                Even though they're not the same, they're 
+                <q>isomorphic</q> in that they both have 
+                exactly 3 dots and one arrow connecting
+                two of them so every thing has a pair.
+             </p>
+            <p>
+                Speaking of pairs, I think that's why our
+                maps to <m>C_2</m> are important.  Using
+                the matrix notation, <m>C_2</m> can be thought 
+                of as <m>\alpha = \begin{bmatrix}
+                    0 &amp; 1\\
+                    1 &amp; 0
+                    \end{bmatrix}</m> which happens to be the
+                    unique antipodal matrix satisfying 
+                    <m>\alpha^2 = I_{D+D}</m>. Multiplying 
+                    this matrix with the arrow matrix gives 
+                    me the sum of a naked dot and a loop,
+                    as represented by the matrix form
+                    <m> 
+                        \begin{bmatrix} 0 &amp; 0 \\ 0 &amp; 1                    
+                        \end{bmatrix}</m>.
+            </p>
+            <p>
+                What strikes me as interesting about this
+                matrix representation is the way the graph
+                decribed in the text as <m>2_D</m> corresponds
+                with the matrix <m> 
+                    \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 1                    
+                    \end{bmatrix}</m>. 
+                This is the unique matrix that takes every
+                element in the matrix of <m>D+D</m> and 
+                swaps zeroes to ones.  It got me wondering what
+                would happen if I applied the same operation
+                to <m>A+A</m>.  This matrix, given by <m>
+                    \begin{bmatrix} 
+                    1 &amp; 0 &amp; 1 &amp; 1 \\ 
+                    1 &amp; 1 &amp; 1 &amp; 1 \\
+                    1 &amp; 1 &amp; 1 &amp; 0 \\
+                    1 &amp; 1 &amp; 1 &amp; 1
+                                      
+                    \end{bmatrix}    
+                </m>, produces the following graph: 
+            </p>
+            <image width="50%">
+                <shortdescription>Graph that is two arrows short of completion</shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}[scale=3]
+                        \node (A1) at (0,1) {$\bullet$};
+                        \node (A2) at (1,1) {$\bullet$};
+                        \node (A3) at (0,0) {$\bullet$};
+                        \node (A4) at (1,0) {$\bullet$};
+                        \path [-{stealth}]
+                            (A1) edge[>={stealth},loop above] (A1)
+                            (A1) edge (A3)
+                            (A1) edge (A4)
+                            (A2) edge (A1)
+                            (A2) edge[>={stealth},loop above] (A2)
+                            (A2) edge (A3)
+                            (A2) edge (A4)
+                            (A3) edge (A1)
+                            (A3) edge (A2)
+                            (A3) edge[>={stealth},loop below] (A3)
+                            (A4) edge (A1)
+                            (A4) edge[>={stealth},loop below] (A4)
+                            (A4) edge (A3)
+                            (A4) edge (A2)
+                            
+
+                        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                I'm starting to think that 
+                this might be the graph <m>2_A</m>
+                that I was looking for.  The reason
+                I'm so convinced of this is the way om
+                which it resembles a particular shape 
+                on the cover of the book:
+            </p>
+            <image width="50%">
+                <shortdescription>Graph depicted on cover of book</shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}[scale=3]
+                        \node (A1) at (0,1) {$\bullet$};
+                        \node (A2) at (1,1) {$\bullet$};
+                        \path [-{stealth}]
+                            (A1) edge[>={stealth},loop left] (A1)
+                            (A1) edge[bend left] (A2)
+                            (A2) edge[bend left] (A1)
+                            (A2) edge[>={stealth},loop above] (A2)                            
+                            (A2) edge[>={stealth},loop below] (A2)
+                            
+
+                        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                Using the notation I have been, this graph
+                corresponds with the matrix given by <m> 
+                    \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 2                    
+                    \end{bmatrix}</m> (with the 2 repesenting
+                     my second self-loop).  This seems relevant
+                    because taking these
+                    elements modulo 2 and multiplying by my antipodal matrix
+                    gives me back the original arrow
+                    <m> 
+                        \begin{bmatrix} 1 &amp; 0 \\ 1 &amp; 1                    
+                        \end{bmatrix}</m>.
+            </p>
+            <p>
+                I think I want to spend a little more time
+                playing with this.  I think this notion of a
+                <q>graph negation</q> operation could have some 
+                useful properties with respect to my sum and product.
+            </p>
+        </solution>
+    </example>
+        
+</section>
