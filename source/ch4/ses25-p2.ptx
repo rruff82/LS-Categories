@@ -120,7 +120,7 @@ up to his.
                     \end{bmatrix}    
                 </m>, produces the following graph: 
             </p>
-            <image width="50%">
+            <image width="50%" xml:id="img-session25-p2-twoshort">
                 <shortdescription>Graph that is two arrows short of completion</shortdescription>
                 <latex-image>
                     \begin{tikzpicture}[scale=3]
@@ -157,7 +157,7 @@ up to his.
                 which it resembles a particular shape 
                 on the cover of the book:
             </p>
-            <image width="50%">
+            <image width="50%" xml:id="img-session25-p2-cover">
                 <shortdescription>Graph depicted on cover of book</shortdescription>
                 <latex-image>
                     \begin{tikzpicture}[scale=3]
