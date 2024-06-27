@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session17-r1">
+    <title>Revisiting Session 17,  Part 1</title>
+    <p>
+        Rather than trying to push further in Session 25,
+        I decided to take some time to revisit my work
+        on Session 17.  I thought that it would be a nice
+        change of pace to work on a problem where the solution
+        would be self-evident and I already implemented the 
+        <url href="https://rruff82.github.io/LS-Ses17-PegGame">
+        peg game in React</url>.  My logic was that if I could
+        enumerate the peg game solutions programmatically, I 
+        might be able to apply the same principles to count
+        structure preserving maps. 
+    </p>
+
+    <example>
+        <title>Revisiting Session 17's Peg Game, Part 1/?</title>
+        <statement>
+            <p>
+                Attempting to <q>solve</q> the peg game...
+            </p>
+        </statement>
+        <solution>
+
+            <p>
+                I started by taking my existing JavaScript code
+                and translating into Python.  Once I had the implementation
+                ported over, I started trying to enumerate the possible game
+                states.  Given that my original game state in JavaScript
+                is essentially an array of boolean values, I used a binary 
+                representation of the game board to turn my state 
+                into a single integer in the range from <m>0</m> to <m>2^{33}</m>. 
+                Under this representation, my intitial state corresponded with
+                <m>8589869055</m> and terminal state corresponded with <m>65536</m>. 
+                A hypothetical solution would correspond to a sequence of
+                32 game states beginning and ending with the specified values,
+                such that each step is a valid move.
+            </p>
+            <p>
+                There's a <em>slight problem</em> with this approach,
+                namely that it would would essentially require
+                me to work with a <m>2^{33} \times 2^{33}</m> 
+                adjacency matrix in order to model how these 
+                states are connected with each other.  While I <em>could</em> 
+                step through and evalauate which states are accessible 
+                from every other state, it would take an extraordinary amount
+                of time to do so.  
+            </p>
+            <p>
+                This, in turn, got me thinking about the adjacency matrices
+                of graphs that I was looking at last week.  Like my game states,
+                these too could be turned into integers by thinking of the 
+                matrix elements as the bits of a single number <m>n</m>. 
+                If you could also encode the size <m>s</m> of the matrix
+                into an ordered pair <m>\langle n, s \rangle</m>, that would 
+                give you all the information you need to reconstruct the adjacency
+                matrix.  If you knew the graph is an <em>endomap</em>, the size 
+                wouldn't even be necessary because the size of matrix would be
+                uniquely determined by the number of bits in the <q>on</q> 
+                state <mdash/> because this graph would necessarily have
+                a one-to-one relation between <em>dots</em> and 
+                <em>arrows</em>.
+            </p>
+            <p>
+                That's where I had an epiphany.  My terminal state for the
+                peg game isn't just a board with one filled slot in the center,
+                as my bitfield representation depicted, but rather that peg in 
+                the center needs to correspond with exactly one of the initial
+                32 pegs placed on the board.  Since each peg can only move
+                up 2, down 2, left 2, or right 2, they essentially forced into four
+                distinct groups based on whether they are in <q>odd or even</q>
+                <q>rows and columns</q>.  I numbered these <em>slot groups</em> 
+                0 through 3 as per the following arrangement:
+            </p>
+            <pre>
+          020  
+          131  
+        0202020
+        1313131
+        0202020
+          131  
+          020
+            </pre>
+            <p>
+                This labeling makes it clear that only four of the original
+                32 pegs can ever end up the center slot.  Furthermore, these
+                same four pegs have a one-to-one correspondence
+                with the four possible peices which are removed first 
+                because the opening move must move one of those same four 
+                to the center also.  Pairing an opening move with a closing 
+                move would define a class of 4 possible solutions up to rotation
+                and reflection.
+            </p>
+            <p>
+                Without loss of generality, we can assume the first move to
+                put the board into the following state:
+            </p>
+        <pre>
+          XXX  
+          XOX  
+        XXXOXXX
+        XXXXXXX
+        XXXXXXX
+          XXX  
+          XXX
+        </pre>
+            <p>
+                We also know that the peg that ends up in the center 
+                must be one of the original set of four first moves.
+                If this last peg is one other than the first moved,
+                that first peg will need to move out of the center slot
+                at some point before a new peg can move in.  That final
+                peg can also not be removed by any move, but every other 
+                peg is removed by exactly one peg.  The relationship 
+                between the pegs removed and the pegs moved is <q>onto</q>
+                but not necessary <q>one-to-one</q>.  
+                Similarly, the slots in the corners of the game board
+                have a special property: each of these corner pegs 
+                can't be removed until after it's moved.  
+            </p>
+            <p>
+                All of these conditions could be used together to help 
+                narrow down the possible solution space.  Each solution
+                must correspond to a sequence of 31 <q>removals</q>, with 
+                every one of the 32 pegs except the terminal one
+                having exactly one turn in which it is removed.  If I think
+                of the first move and the last move as being paired together,
+                this essentially would give me a retraction.  Similarly,
+                there should be some kind of section on this map which
+                identifies which peg moves in a given turn.  We can <q>sort</q>
+                the pegs based on ones which may move more than once, 
+                move at least once, or get removed without ever moving at all.  
+            </p>
+            <p>
+                By looking at these points as a <q>sequence of removals</q>,
+                I can effectively narrow down my search space to <m>31!</m>
+                possible permutations. This is far less than the <m>2^{33}!</m>
+                sequences of game states I was originally looking at,
+                but still too many for practical purposes.
+            </p>
+            <p>
+                In an effort to explore this, I tried to see how well I could 
+                recreate the game state from a given sequence of removals.  
+                This turned out to be a little more difficult than I anticipated.
+                There are various different board states which knowing which peice 
+                is removed in a given turn is not sufficient identify a unique 
+                move.  It's entirely possible that turns could arise in which
+                a given peg could be jumped by two different pegs.  You wouldn't 
+                know which peg does the jumping by looking at the sequence leading
+                up to that point, so this information would need to be encoded 
+                somehow by the removals after that turn. 
+            </p>
+            <p>
+                I'm starting to think that the key to this lies in keeping 
+                track of the domains and codomains of each these <q>maps</q>.
+                In the same way that thinking of a difference between 
+                <q>slot space</q> and <q>peg space</q> helped reduce my number 
+                of options, maybe I can somehow use a <em>product</em> of the 
+                <q>peg moved</q> and <q>peg removed</q> to help narrow my 
+                solutions further.  
+            </p>
+            <p>
+                Before I wrap up for the week, I think I want to document 
+                some of the maps I've encountered with this problem so
+                far.  I'm thinking this will be useful reference to have
+                as I start organizing a sequece of compositions that 
+                results in a <q>solution</q>.  I put solution in quotes,
+                because identifying the exact structure of that object 
+                seems to be a large part of the problem to begin with.
+                So far, I've had to identify the following maps:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        A map from <m>\mathbf{7} \times \mathbf{7} \longrightarrow
+                        \{\text{slot},\text{no-slot}\} </m> identifying the 33 slots 
+                        on the 7 by 7 board.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A map from 
+                        <m>S_{33} \longrightarrow \mathbf{7} \times \mathbf{7}
+                          </m> assigning each of the 33 slots with its
+                          respective row and column pair. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A map from 
+                        <m>P_{32} \longrightarrow S_{33}
+                          </m> assigning each of the 32 pegs with its
+                          initial slot. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A map from <m>P_{32} \longrightarrow \{\text{removed},\text{not-removed}\}
+                        </m> that identifies which pegs are eventually 
+                        removed in a given solution.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A map from <m>\mathbf{1} \longrightarrow P_{32}
+                        </m> that identifies the last peg remaining on the board.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A map from <m>\mathbf{1} \longrightarrow P_{32}
+                        </m> that identifies the first peg removed from the board.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A map from <m>P_{32} \longrightarrow P_{32}
+                        </m> that pairs each point with the peg that 
+                        removes it <em>or</em> itself if it's the 
+                        last peg.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        An isomorphism from <m>P_{32} \leftrightarrows T_{32}
+                        </m> that pairs each point with the number of 
+                        the turn in which is removed from the board, 
+                        with the last peg being being thought of
+                        as removed in the last turn.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        An map from <m>T_{32} \longrightarrow P_{32}
+                        </m> that maps each turn to the peg that 
+                        moves in that turn.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A map from <m>P_{32} \longrightarrow \{\text{moves},\text{removed-without-moving}\}
+                        </m> that sorts pegs into ones that move and ones that 
+                        never move.
+                    </p>
+                </li>
+                
+                <li>
+                    <p>
+                        A map from <m>P_{32} \longrightarrow \{\text{must-move-before-removed},\text{removable-without-moving}\}
+                        </m> that sorts pegs based on whether they can be removed before
+                        they are moved or not.  
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        A sequence of maps from <m>P_{32} \longrightarrow P_{31} \longrightarrow ... </m>
+                        representing the coimages of the pegs left on the 
+                        board after each turn.
+                    </p>
+                </li>
+        
+                <li>
+                    <p>
+                        A set of maps from <m>P_{n} \longrightarrow S_{33}</m>
+                        representing the state of the board with <m>n</m>
+                        pegs left.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                    Several isomorphisms <m>S_{33} \leftrightarrow S_{33}</m> 
+                    corresponding to rotations and reflections of the game board.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                    Some map <m>\mathbf{1} \rightarrow \mathbb{N}</m> describing 
+                    the number of potential solutions up to rigid transformation.
+                    </p>
+                </li>
+        
+                <li>
+                <p>
+                    A map <m>T_{32} \longrightarrow P_{32} \times P_{32}</m>
+                    that maps each of the turns to a <m>\langle \text{moved}, \text{removed} \rangle</m>
+                    pair.
+                </p></li>
+            </ul>
+            <p>
+                While exploring, it seemed like one possible strategy might to
+                work forward and backwards simultaneously by  
+                pairing up the turns from the beginning with turns from 
+                the end.  I wonder if this might have some relation
+                to the <q>graph negation</q> operation that I was looking at
+                last week.  I think if I can somehow combine this idea with
+                the approach to Session 10 Exercise 4, I might be able to
+                find a point where the forward and backward paths intersect.
+        
+            </p>
+        </solution>
+    </example>
+    <p>
+        My code from this week can be found 
+        <url href="https://github.com/rruff82/LS-Categories/blob/main/assets/notebooks/ls-ses17-r1.ipynb">
+            here
+        </url>, but I also checked in some additional Python stuff
+        I've been working on over the past couple weeks.  The
+        goal of this is to use the <q>known solutions</q> of 
+        exercises to write unit tests that help verify the 
+        integrity of my proofs.  I'm hoping that structuring 
+        my code this way will make it easier to ensure that
+        I don't break anything when I try to do things like 
+        reimplementing my graph product using matrix operations.
+    </p>
+</section>
