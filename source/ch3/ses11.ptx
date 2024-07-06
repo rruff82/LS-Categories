@@ -157,6 +157,12 @@
                 structure of our endomap.  That means there are a total of
                 3 possible maps, each being a permutation of the loop.
             </p>
+            <blockquote>
+                <p>
+                [EDIT: I now know this solution to be incorrect.
+                See <xref ref="session25-p3">Session 25 Part 3</xref>
+                for details.]</p>
+            </blockquote>
                 </solution>
     </example>
 
