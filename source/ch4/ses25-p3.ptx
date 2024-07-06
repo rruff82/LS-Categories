@@ -253,7 +253,7 @@
                 Implementing doesn't address either of the two parts to this 
                 question though.  I found the use of parity in this implementation
                 kind of interesting.  It reminds me of an old programming problem
-                where you have a linked links and want to determine if it contains
+                where you have a linked list and want to determine if it contains
                 a cycle.  One of the ways you can approach it is to iterate
                 through the list with pointers that skip elements at 
                 two relatively prime rates, i.e. by 2s and 3s.  If you reach
