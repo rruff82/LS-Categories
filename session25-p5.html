@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Session 25: Labelings and products of graphs, Part 5</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="L&amp;S Cat Theory">
+<meta property="book:author" content="Ryan Ruff">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">L&amp;S Cat Theory:</span> <span class="subtitle">Attempted solutions to "Conceptual Mathematics" by Lawvere and Schanuel</span></a></h1>
+<p class="byline">Ryan Ruff</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="session25-p4.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="part4.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="introduction.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="about.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is this?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session1.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Session 1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part1.html" class="internal"><span class="codenumber">2</span> <span class="title">Part 1: The Category of Sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Article 1: Sets, maps, composition</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-session2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Session 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-session3.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Session 3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part2.html" class="internal"><span class="codenumber">3</span> <span class="title">Part 2: The Algebra of Composition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Article 2: Isomorphisms, Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2-p2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Article 2: Isomorphisms, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article2-p3.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Article 2: Isomorphisms, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session4.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Session 4: Division of maps: Isomorphisms</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session5.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Session 5: Division of maps: Sections and retractions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session6.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Session 6: Two general aspects or uses of maps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session7.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Session 7: Isomorphisms and coordinates</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session8.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Session 8: Pictures of a map</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session9.html" class="internal"><span class="codenumber">3.9</span> <span class="title">Session 9: Retracts and idempotents</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quiz1.html" class="internal"><span class="codenumber">3.10</span> <span class="title">Quiz</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quiz2.html" class="internal"><span class="codenumber">3.11</span> <span class="title">Summary/Quiz on Opposed Maps</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session10.html" class="internal"><span class="codenumber">3.12</span> <span class="title">Session 10: Brouwer’s theorems</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="part3.html" class="internal"><span class="codenumber">4</span> <span class="title">Part 3: Categories of Structured Sets</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Article 3: Examples of Categories, Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Article 3: Examples of Categories, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p3.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Article 3: Examples of Categories, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p4.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Article 3: Examples of Categories, Part 4</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article3-p5.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Article 3: Examples of Categories, Part 5</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session11.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Session 11: Ascending to categories of richer structures</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session12.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Session 12: Categories of Diagrams</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session13.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Session 13: Monoids</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session14.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Session 14: Maps preserve positive properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Session 15: Objectification of Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p2.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Session 15: Objectification of Properties, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p3.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Session 15: Objectification of Properties, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p4.html" class="internal"><span class="codenumber">4.13</span> <span class="title">Session 15: Objectification of Properties, Part 4</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p5.html" class="internal"><span class="codenumber">4.14</span> <span class="title">Session 15: Objectification of Properties, Part 5</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p6.html" class="internal"><span class="codenumber">4.15</span> <span class="title">Session 15: Objectification of Properties, Part 6</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session15-p7.html" class="internal"><span class="codenumber">4.16</span> <span class="title">Session 15: Objectification of Properties, Part 7</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session16.html" class="internal"><span class="codenumber">4.17</span> <span class="title">Session 16: Idempotents, involutions, and graphs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session17.html" class="internal"><span class="codenumber">4.18</span> <span class="title">Session 17: Some uses of graphs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session18.html" class="internal"><span class="codenumber">4.19</span> <span class="title">Session 18: Review of Test 2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="part4.html" class="internal"><span class="codenumber">5</span> <span class="title">Part 4: Elementary Universal Mapping Properties</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article4.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Article 4: Universal Mapping Properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article4-p2.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Article 4: Universal Mapping Properties, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article4-p3.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Article 4: Universal Mapping Properties, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article4-p4.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Article 4: Universal Mapping Properties, Part 4</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article4-p5.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Article 4: Universal Mapping Properties, Part 5</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article4-p6.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Article 4: Universal Mapping Properties, Part 6</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article4-p7.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Article 4: Universal Mapping Properties, Part 7</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article4-p8.html" class="internal"><span class="codenumber">5.8</span> <span class="title">Article 4: Universal Mapping Properties, Part 8</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="article4-p9.html" class="internal"><span class="codenumber">5.9</span> <span class="title">Article 4: Universal Mapping Properties, Part 9</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session19.html" class="internal"><span class="codenumber">5.10</span> <span class="title">Session 19: Terminal objects</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session20.html" class="internal"><span class="codenumber">5.11</span> <span class="title">Session 20: Points of an object</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session21.html" class="internal"><span class="codenumber">5.12</span> <span class="title">Session 21: Products in categories</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session21-p2.html" class="internal"><span class="codenumber">5.13</span> <span class="title">Session 21: Products in categories, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session22.html" class="internal"><span class="codenumber">5.14</span> <span class="title">Session 22: Universal mapping properties, Incidence Relations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session22-p2.html" class="internal"><span class="codenumber">5.15</span> <span class="title">Session 22: Universal mapping properties, Incidence Relations, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session22-p3.html" class="internal"><span class="codenumber">5.16</span> <span class="title">Session 22: Universal mapping properties, Incidence Relations, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session23.html" class="internal"><span class="codenumber">5.17</span> <span class="title">Session 23: More on universal mapping properties</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session23-p2.html" class="internal"><span class="codenumber">5.18</span> <span class="title">Session 23: More on universal mapping properties, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session23-p3.html" class="internal"><span class="codenumber">5.19</span> <span class="title">Session 23: More on universal mapping properties, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session23-p4.html" class="internal"><span class="codenumber">5.20</span> <span class="title">Session 23: More on universal mapping properties, Part 4</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session24.html" class="internal"><span class="codenumber">5.21</span> <span class="title">Session 24: Uniqueness of products and definition of sum</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session24-p2.html" class="internal"><span class="codenumber">5.22</span> <span class="title">Session 24: Uniqueness of products and definition of sum, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session25.html" class="internal"><span class="codenumber">5.23</span> <span class="title">Session 25: Labelings and products of graphs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session25-p2.html" class="internal"><span class="codenumber">5.24</span> <span class="title">Session 25: Labelings and products of graphs, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session17-r1.html" class="internal"><span class="codenumber">5.25</span> <span class="title">Revisiting Session 17,  Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session25-p3.html" class="internal"><span class="codenumber">5.26</span> <span class="title">Session 25: Labelings and products of graphs, Part 3</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session25-p4.html" class="internal"><span class="codenumber">5.27</span> <span class="title">Session 25: Labelings and products of graphs, Part 4</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="session25-p5.html" class="internal"><span class="codenumber">5.28</span> <span class="title">Session 25: Labelings and products of graphs, Part 5</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="session25-p5"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">5.28</span><span class="space"> </span><span class="title">Session 25: Labelings and products of graphs, Part 5</span>
+</h2>
+<div class="para" id="session25-p5-2">I was going to try to make it through this Session and move on, but our air conditionor had other plans for me. It’s really hard to focus on math when it’s oppressively hot like this.  Still, I’m trying to make a little progress each week so I’d like to at least attempt one exercise.</div>
+<details id="session25-p5-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.28.1</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 4: (Part 2/2?).</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para" id="session25-p5-3-2-1">Sequence of graphs...</div>
+<div class="solutions"><details id="session25-p5-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="session25-p5-3-3-1">Let’s start with (a), because I think the idea here is that <span class="process-math">\(X \longrightarrow \mathbf{0}\)</span> effectively represents <em class="emphasis">my old model of a map</em>.  I’ve been struggling with the concept of map <span class="process-math">\(P \xrightarrow{g} G\)</span> from person to gender , has been so troublesome because I allowed <span class="process-math">\(g p\)</span> to be “undefined”.  It’s not that my old method is necessarily wrong, it’s just that not allowing this situation will be necessary to accurately count the maps we want to find.</div> <div class="para" id="session25-p5-3-3-2">This question implies that we’re working in the category of graphs <span class="process-math">\(\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}\text{,}\)</span> so thus maps <span class="process-math">\(X \xrightarrow{f} \mathbf{0}\)</span> must preserve source and target maps.</div> <div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/ses25-ex4-f.svg" role="img" class="contained" alt="External diagram of f"></div> <div class="para" id="session25-p5-3-3-4">That is to say, for every map <span class="process-math">\(\mathbf{1} \xrightarrow{x}\)</span> we have both <span class="process-math">\(f_D s_X x = s_\mathbf{0} f_A x\)</span> and <span class="process-math">\(f_D t_X x = t_\mathbf{0} f_A x\text{.}\)</span> Since every map in <span class="process-math">\(\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}\)</span> comes from a map in <span class="process-math">\(\mathcal{S}\text{,}\)</span> and there’s exactly one map <span class="process-math">\(\mathbf{0} \rightarrow \mathbf{0}\text{,}\)</span> we must have <span class="process-math">\(s_\mathbf{0} = t_\mathbf{0} = 1_\mathbf{0}\text{.}\)</span> It follows that for every <span class="process-math">\(\mathbf{1} \xrightarrow{x} X\text{,}\)</span> we have <span class="process-math">\(f_D s_X x = f_A x\)</span> and <span class="process-math">\(f_D t_X x = f_A x\)</span> which implies that <span class="process-math">\(f_D s_X = f_D t_X = f_A\text{.}\)</span>
+</div> <div class="para" id="session25-p5-3-3-5">Next, let’s consider the map <span class="process-math">\(D \xrightarrow{g} X\text{.}\)</span> It too must preserve structure of source and targets:</div> <div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/ses25-ex4-g.svg" role="img" class="contained" alt="External diagram of g"></div> <div class="para" id="session25-p5-3-3-7">For any <span class="process-math">\(\mathbf{1} \xrightarrow{d} D\text{,}\)</span> we must have both <span class="process-math">\(g_D s_D d = s_X g_A d\)</span> and <span class="process-math">\(g_D t_D d = t_X g_A d\text{.}\)</span>  However, there are no arrows in <span class="process-math">\(D_A\text{!}\)</span>  It follows that <span class="process-math">\(s_D, t_D\)</span> are both the unique map <span class="process-math">\(\mathbf{0} \longrightarrow D\)</span> from the empty set to the single dot in <span class="process-math">\(D\text{.}\)</span>  Since <span class="process-math">\(s_D = t_D\text{,}\)</span> it follows from the structure preservation property that <span class="process-math">\(s_X g_A = t_X g_A = g_D\text{.}\)</span>
+</div> <div class="para" id="session25-p5-3-3-8">Furthermore, our category must be closed under composition so we can construct the following external diagram:</div> <div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/ses25-ex4-comp.svg" role="img" class="contained" alt="External diagram formed by composing the maps given in part (a)"></div> <div class="para" id="session25-p5-3-3-10">Since there are no arrows in <span class="process-math">\(D\text{,}\)</span> <span class="process-math">\(D_A = \mathbf{0}_A\)</span> as sets and therefore <span class="process-math">\(f_A \circ g_A\)</span> could only be the unique identity map on <span class="process-math">\(\mathbf{0}_A\text{.}\)</span>  It also follows that <span class="process-math">\(s_D\)</span> and <span class="process-math">\(t_D\)</span> would both need to be the unique map <span class="process-math">\(\mathbf{0} \longrightarrow D\text{.}\)</span>  However, the composition <span class="process-math">\(f_D \circ g_D\)</span> defines a map <span class="process-math">\(D \longrightarrow \mathbf{0}\)</span> which does not exist as a map in <span class="process-math">\(\mathcal{S}\text{.}\)</span>  Having both <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> together implies a contradiction.</div> <div class="para" id="session25-p5-3-3-11">Finally, let’s consider the case where neither <span class="process-math">\(f\)</span> nor <span class="process-math">\(g\)</span> are maps.  If there is no map <span class="process-math">\(X \longrightarrow \mathbf{0}\text{,}\)</span> then there’s at least one point <span class="process-math">\(\mathbf{1} \xrightarrow{x} X\)</span> with no place to send it to. By the definition of <span class="process-math">\(\mathbf{1}\text{,}\)</span> there’s a unique map <span class="process-math">\(X \xrightarrow{\bar{x}} \mathbf{1}\)</span> such that <span class="process-math">\(\bar{x} x = 1_\mathbf{1}\text{.}\)</span>  Likewise, any <span class="process-math">\(\mathbf{1} \xrightarrow{d} D\)</span> must also have a corresponding <span class="process-math">\(D \xrightarrow{\bar{d}} \mathbf{1}\)</span> such that <span class="process-math">\(\bar{d} d = 1_\mathbf{1}\text{.}\)</span>  It follows that the composition <span class="process-math">\(x \bar{d}\)</span> is a map <span class="process-math">\(D \xrightarrow{\bar{d}} \mathbf{1} \xrightarrow{x} X\)</span> which contradicts our assumption that no such map exists.</div> <div class="para" id="session25-p5-3-3-12">I think the idea here is if we can look at the objects of <span class="process-math">\(X\)</span> by looking at compositions of the form <span class="process-math">\(\mathbf{0} \rightarrow X \rightarrow \mathbf{1}\text{.}\)</span> But before we do that we need to some way of telling if <span class="process-math">\(X \neq \mathbf{0}\)</span> or <span class="process-math">\(X \neq \mathbf{1}\text{.}\)</span> Having a map <span class="process-math">\(X \rightarrow \mathbf{0}\)</span> means that <span class="process-math">\(\mathbf{0} \rightarrow X \rightarrow \mathbf{0} = 1_\mathbf{0}\)</span> and <span class="process-math">\(X \rightarrow \mathbf{0} \rightarrow X = 1_X\text{,}\)</span> constituting an isomorphsims between <span class="process-math">\(X\)</span> and the initial object.  Since having a category with sums and products guarantees a map <span class="process-math">\(\mathbf{0} \rightarrow \mathbf{1}\text{,}\)</span> the non-existence of a map <span class="process-math">\(X \rightarrow \mathbf{0}\)</span> implies the existance of unique composition <span class="process-math">\(\mathbf{0} \rightarrow X \rightarrow \mathbf{1}\text{.}\)</span> The existance of a dot <span class="process-math">\(\mathbf{1} \rightarrow D\)</span> therefore gives us our map <span class="process-math">\(X \rightarrow D\)</span> through composition.</div> <div class="para" id="session25-p5-3-3-13">Let’s move on and consider the case in part (b).</div> <div class="para" id="session25-p5-3-3-14">Suppose we have a map <span class="process-math">\(X \xrightarrow{f'} D\text{.}\)</span> We know <span class="process-math">\(s_D f' = f' s_X\)</span> and <span class="process-math">\(t_D f' = f' t_X\)</span> in the following diagram:</div> <div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/session25-p5-3-3-15.svg" role="img" class="contained" alt="External diagram of f’"></div> <div class="para" id="session25-p5-3-3-16">Since <span class="process-math">\(D\)</span> doesn’t have any arrows, that means that <span class="process-math">\(s_D, t_D\)</span> are both the unique map <span class="process-math">\(\mathbf{0} \rightarrow D\text{.}\)</span> That means that in order to preserve structure, we’d need to have <span class="process-math">\(s_D a = t_D a\)</span> for any arrow <span class="process-math">\(\mathbf{1} \xrightarrow{a} X_A\text{.}\)</span>
+</div> <div class="para" id="session25-p5-3-3-17">Now lets consider a map <span class="process-math">\(A \xrightarrow{g'} X\text{.}\)</span> We must have the following commutative diagram:</div> <div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/session25-p5-3-3-18.svg" role="img" class="contained" alt="External diagram of g’"></div> <div class="para" id="session25-p5-3-3-19">I think what I want to do with these is compose them. I’m also going to try to include the maps to/from termninal/initial objects.</div> <div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/ses25-ex4-comp-2.svg" role="img" class="contained" alt="External diagram formed by composing the maps given in part (b)"></div> <div class="para" id="session25-p5-3-3-21">After putting this all together, here are some of my observations.</div> <div class="para" id="session25-p5-3-3-22">First, both of these maps can’t exist together because <span class="process-math">\(f_A \circ g_A\)</span> is not a valid map. There is exactly one arrow in <span class="process-math">\(A_A\)</span> and zero arrows in <span class="process-math">\(D_A\text{,}\)</span> and there is no map in <span class="process-math">\(\mathcal{S}\)</span> from the singleton to the empty set.</div> <div class="para" id="session25-p5-3-3-23">I think the reason we need at least one of them to exist is related to the fact that we have two unique maps <span class="process-math">\(A \rightarrow D\)</span> named <span class="process-math">\(s,t\text{.}\)</span> I’ve indicated these by the purple.  If we have a map <span class="process-math">\(X_A \rightarrow D_A\text{,}\)</span> then that essentially gives us a map <span class="process-math">\(X_A \rightarrow \mathbf{0}\)</span> that means <span class="process-math">\(X\)</span> is isomorphic to the initial object. This retraction can’t exist if <span class="process-math">\(A \rightarrow X\)</span> is a map because there’s no retraction for the unique map <span class="process-math">\(\mathbf{2} \rightarrow \mathbf{1}\text{.}\)</span>
+</div> <div class="para" id="session25-p5-3-3-24">I’m thinking the idea between parts (c) and (d) is that I’m being set-up with a successor function for an inductive argument, so I’m going to try to summarize my progress so far.</div> <div class="para" id="session25-p5-3-3-25">The idea behind (a) was that having a map <span class="process-math">\(X \rightarrow \mathbf{0}\)</span> effectively means <span class="process-math">\(X = \mathbf{0}\)</span> by “graph isomorphism”.  If our graph is not empty, then there must be at least one point which is defined by a map <span class="process-math">\(\mathbf{1} \rightarrow X\text{.}\)</span> By the definition of “terminal object”, there’s a unique map <span class="process-math">\(D \rightarrow \mathbf{1}\)</span> that we could precompose our point by to get a map <span class="process-math">\(D \rightarrow X\text{.}\)</span>
+</div> <div class="para" id="session25-p5-3-3-26">The idea behind (b) was that a similar line of reasoning applies to our arrows.  The naked arrow has two dots and the naked dot has one. Since the map <span class="process-math">\(\mathbf{2} \rightarrow \mathbf{1}\)</span> is non-invertable, having both of these maps gives rise to a contradiction.</div> <div class="para" id="session25-p5-3-3-27">For part (c), I’m thinking of this in terms of object counts.  There’s 2 dots and 1 arrow in <span class="process-math">\(A\text{.}\)</span> There’s 3 dots and 2 arrows in <span class="process-math">\(A_2\text{.}\)</span>  We’ve got no retraction for <span class="process-math">\(\mathbf{2} \rightarrow \mathbf{1}\)</span> nor <span class="process-math">\(\mathbf{3} \rightarrow \mathbf{2}\text{,}\)</span> so any map <span class="process-math">\(A_2 \rightarrow A\)</span> must be non-invertable. Let’s see what the external diagram looks like if we attempt to compose <span class="process-math">\(A_2 \rightarrow X\)</span> with <span class="process-math">\(X \rightarrow A\text{.}\)</span>
+</div> <div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/ses25-ex4-comp-3.svg" role="img" class="contained" alt="External diagram formed by composing the maps given in part (c)"></div> <div class="para" id="session25-p5-3-3-29">Having both of these maps together is problematic because the only map <span class="process-math">\(T \rightarrow T\)</span> is necessarily the unique identity map.  Both of these maps can’t exist simultaneously because they’re not invertable.</div> <div class="para logical" id="session25-p5-3-3-30">
+<div class="para">The logical answer for part (d) would seem to be <span class="process-math">\(C = A_3\text{,}\)</span> or the following graph:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\boxed{\bullet \longrightarrow \bullet \longrightarrow \bullet \longrightarrow \bullet}
+\end{equation*}
+</div>
+<div class="para">It also seems like defining <span class="process-math">\(A_0 = D\)</span> would make an obvious choice.  We could then start to formulate our induction hypothesis: <span class="process-math">\(\forall n \in \mathbb{N}\)</span> exactly one of <span class="process-math">\(A_{n+1} \rightarrow X, X \rightarrow A_n\)</span> is a map.   There’s also likely a parallel statement for the dots under the convention that <span class="process-math">\(D_n = A_{n-1}\text{.}\)</span>
+</div>
+</div>
+</div></details></div></article></details><div class="para" id="session25-p5-4">I’m still a little fuzzy on all this, but at least this gives me something to refer back to later when I’m better able to focus.</div></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="session25-p4.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
