@@ -1,0 +1,518 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session25-p5">
+    <title>Session 25: Labelings and products of graphs, Part 5</title>
+
+    <p>
+         I was going to try to make it through this Session and
+         move on, but our air conditionor had other plans for me.
+         It's
+         really hard to focus on math when it's oppressively 
+         hot like this.  Still, I'm trying to make a little 
+         progress each week so I'd like to at least attempt
+         one exercise.
+
+    </p>
+
+    <example>
+        <title>Exercise 4: (Part 2/2?)</title>
+        <statement>
+            <p>
+                Sequence of graphs...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Let's start with (a), because I think the idea here
+                is that <m>X \longrightarrow \mathbf{0}</m> effectively
+                represents <em>my old model of a map</em>.  I've been
+                struggling with the concept of map <m>P \xrightarrow{g} G</m> from person to gender ,
+                has been so troublesome because I allowed <m>g p</m> to 
+                be <q>undefined</q>.  It's not that my old method is
+                necessarily wrong, it's just that not allowing this 
+                situation will be necessary to accurately count the maps
+                we want to find.
+           </p>
+           <p>
+                This question implies that we're working in the 
+                category of graphs 
+                <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>,
+                so thus maps <m>X \xrightarrow{f} \mathbf{0}</m>
+                 must preserve source and target maps.
+           </p>
+        
+           <image width="80%" xml:id="ses25-ex4-f">
+            <shortdescription>External diagram of f</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}[scale=1.5]
+          
+                    \node (XA) at (2,1) {$X_A$};
+                    \node (XD) at (2,0) {$X_D$};
+        
+                    \node (ZA) at (4,1) {$\mathbf{0}_A$};
+                    \node (ZD) at (4,0) {$\mathbf{0}_D$};
+        
+                    \path[-{stealth}]
+                        (XA.south east) edge node[right] {$t_X$} (XD.north east)
+                        (ZA.south east) edge node[right] {$t_\mathbf{0}$} (ZD.north east)
+                        
+        
+                        (XA.south west) edge node[left] {$s_X$} (XD.north west)
+                        (ZA.south west) edge node[left] {$s_\mathbf{0}$} (ZD.north west)
+                        
+                        (XA) edge node[above] {$f_A$} (ZA)
+                        
+                        (XD) edge node[below] {$f_D$} (ZD)
+                    ;
+        
+                \end{tikzpicture}
+            </latex-image>
+           </image>
+           <p>
+                That is to say, for every map 
+                <m>\mathbf{1} \xrightarrow{x}</m>
+                we have both <m>f_D s_X x = s_\mathbf{0} f_A x</m>
+                and <m>f_D t_X x = t_\mathbf{0} f_A x</m>.
+                Since every map in <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>
+                comes from a map in <m>\mathcal{S}</m>,
+                and there's exactly one map <m>\mathbf{0} \rightarrow \mathbf{0}</m>,
+                we must have <m>s_\mathbf{0} = t_\mathbf{0} = 1_\mathbf{0}</m>.
+                It follows that for every <m>\mathbf{1} \xrightarrow{x} X</m>,
+                we have <m>f_D s_X x = f_A x</m> and 
+                <m>f_D t_X x = f_A x</m> which implies that 
+                <m>f_D s_X = f_D t_X = f_A</m>.
+           </p>
+           <p>
+                Next, let's consider the map <m>D \xrightarrow{g} X</m>.
+                It too must preserve structure of source and targets:
+           </p>
+        
+           <image width="80%" xml:id="ses25-ex4-g">
+            <shortdescription>External diagram of g</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}[scale=1.5]
+                    \node (DA) at (0,1) {$D_A$};
+                    \node (DD) at (0,0) {$D_D$};
+                    
+                    \node (XA) at (2,1) {$X_A$};
+                    \node (XD) at (2,0) {$X_D$};
+        
+        
+                    \path[-{stealth}]
+                        (DA.south east) edge node[right] {$t_D$} (DD.north east)
+                        (XA.south east) edge node[right] {$t_X$} (XD.north east)
+                        
+        
+                        (DA.south west) edge node[left] {$s_D$} (DD.north west)
+                        (XA.south west) edge node[left] {$s_X$} (XD.north west)
+                        
+                        (DA) edge node[above] {$g_A$} (XA)
+                        
+                        (DD) edge node[below] {$g_D$} (XD)
+           
+                    ;
+        
+                \end{tikzpicture}
+            </latex-image>
+           </image>
+           <p>
+                For any <m>\mathbf{1} \xrightarrow{d} D</m>, we must 
+                have both <m>g_D s_D d = s_X g_A d</m> and 
+                <m>g_D t_D d = t_X g_A d</m>.  However,
+                there are no arrows in <m>D_A</m>!  It follows 
+                that <m>s_D, t_D</m> are both the unique map 
+                <m>\mathbf{0} \longrightarrow D</m> from 
+                the empty set to the single dot in <m>D</m>.  Since
+                <m>s_D = t_D</m>, it follows from the structure
+                preservation property that <m>s_X g_A = t_X g_A = g_D</m>.
+           </p>
+        
+           <p>
+                
+            Furthermore, our category must be closed 
+            under composition so we can construct the following 
+            external diagram:
+        </p>
+           <image width="80%" xml:id="ses25-ex4-comp">
+            <shortdescription>External diagram formed by composing
+                the maps given in part (a)</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}[scale=1.5]
+                    \node (DA) at (0,1) {$D_A$};
+                    \node (DD) at (0,0) {$D_D$};
+                    
+                    \node (XA) at (2,1) {$X_A$};
+                    \node (XD) at (2,0) {$X_D$};
+        
+                    \node (ZA) at (4,1) {$\mathbf{0}_A$};
+                    \node (ZD) at (4,0) {$\mathbf{0}_D$};
+        
+                    \path[-{stealth}]
+                        (DA.south east) edge node[right] {$t_D$} (DD.north east)
+                        (XA.south east) edge node[right] {$t_X$} (XD.north east)
+                        (ZA.south east) edge node[right] {$t_\mathbf{0}$} (ZD.north east)
+                        
+        
+                        (DA.south west) edge node[left] {$s_D$} (DD.north west)
+                        (XA.south west) edge node[left] {$s_X$} (XD.north west)
+                        (ZA.south west) edge node[left] {$s_\mathbf{0}$} (ZD.north west)
+                        
+                        (DA) edge node[above] {$g_A$} (XA)
+                        (XA) edge node[above] {$f_A$} (ZA)
+                        
+                        (DD) edge node[below] {$g_D$} (XD)
+                        (XD) edge node[below] {$f_D$} (ZD)
+        
+                        (DA) edge[bend left] node[above] {$f_A \circ g_A$} (ZA)
+                    
+                        (DD) edge[bend right] node[below] {$f_D \circ g_D$} (ZD)
+                        ;
+        
+                \end{tikzpicture}
+            </latex-image>
+           </image>
+           <p>
+             Since there are no arrows in <m>D</m>, <m>D_A = \mathbf{0}_A</m>
+             as sets and therefore <m>f_A \circ g_A</m> 
+             could only be the unique identity map on
+             <m>\mathbf{0}_A</m>.  It also follows that 
+             <m>s_D</m> and <m>t_D</m> would both need to be
+             the unique
+             map <m>\mathbf{0} \longrightarrow D</m>.  However,
+             the composition <m>f_D \circ g_D</m> defines a map
+             <m>D \longrightarrow \mathbf{0}</m> which does not 
+             exist as a map in <m>\mathcal{S}</m>.  Having 
+             both <m>f</m> and <m>g</m> together implies a 
+             contradiction. 
+           </p>
+           <p>
+             Finally, let's consider the case where neither
+             <m>f</m> nor <m>g</m> are maps.  If there is no
+             map <m>X \longrightarrow \mathbf{0}</m>, then there's
+             at least one point <m>\mathbf{1} \xrightarrow{x} X</m>
+             with no place to send it to. By the definition of 
+             <m>\mathbf{1}</m>, there's a unique map 
+             <m>X \xrightarrow{\bar{x}} \mathbf{1}</m> such that
+             <m>\bar{x} x = 1_\mathbf{1}</m>.  Likewise,
+             any <m>\mathbf{1} \xrightarrow{d} D</m> must also
+             have a corresponding <m>D \xrightarrow{\bar{d}} \mathbf{1}</m>
+             such that <m>\bar{d} d = 1_\mathbf{1}</m>.  It follows 
+             that the composition <m>x \bar{d}</m> is a map
+             <m>D \xrightarrow{\bar{d}} \mathbf{1} \xrightarrow{x} X</m>
+             which contradicts our assumption that no such map
+             exists.
+           </p>
+           <p>
+             I think the idea here is if we can look at 
+             the objects of <m>X</m> by looking at compositions
+             of the form <m>\mathbf{0} \rightarrow X \rightarrow \mathbf{1}</m>.
+             But before we do that we need to some way of telling if 
+             <m>X \neq \mathbf{0}</m> or <m>X \neq \mathbf{1}</m>. 
+             Having a map <m>X \rightarrow \mathbf{0}</m>
+             means that <m>\mathbf{0} \rightarrow X \rightarrow \mathbf{0} = 1_\mathbf{0}</m>
+             and <m>X \rightarrow \mathbf{0} \rightarrow X = 1_X</m>,
+             constituting an isomorphsims between <m>X</m> and the 
+             initial object.  Since having a category with sums and 
+             products guarantees
+             a map <m>\mathbf{0} \rightarrow \mathbf{1}</m>, the 
+             non-existence of a map <m>X \rightarrow \mathbf{0}</m>
+             implies the existance of unique composition
+              <m>\mathbf{0} \rightarrow X \rightarrow \mathbf{1}</m>.
+              The existance of a dot <m>\mathbf{1} \rightarrow D</m>
+              therefore gives us our map <m>X \rightarrow D</m> through
+              composition.
+           </p>
+        
+           <p>
+             Let's move on and consider the case in part (b).  </p>
+             
+          <p> 
+            Suppose we have a map <m>X \xrightarrow{f'} D</m>.  
+            We know <m>s_D f' = f' s_X</m> and 
+            <m>t_D f' = f' t_X</m> in the following diagram:
+           </p>
+           <image width="60%">
+            <shortdescription>External diagram of f'</shortdescription>
+            <latex-image>
+        
+                    
+                \begin{tikzpicture}[scale=1.5]
+          
+                \node (XA) at (2,1) {$X_A$};
+                \node (XD) at (2,0) {$X_D$};
+        
+                \node (ZA) at (4,1) {$D_A$};
+                \node (ZD) at (4,0) {$D_D$};
+        
+                \path[-{stealth}]
+                    (XA.south east) edge node[right] {$t_X$} (XD.north east)
+                    (ZA.south east) edge node[right] {$t_D$} (ZD.north east)
+                    
+                    (XA.south west) edge node[left] {$s_X$} (XD.north west)
+                    (ZA.south west) edge node[left] {$s_D$} (ZD.north west)
+                    
+                    (XA) edge node[above] {$f_A'$} (ZA)
+                    
+                    (XD) edge node[below] {$f_D'$} (ZD)
+                ;
+        
+                \end{tikzpicture}
+            </latex-image>
+           </image>
+           <p>
+             Since <m>D</m> doesn't have any arrows,
+              that means that <m>s_D, t_D</m> are both the unique 
+             map <m>\mathbf{0} \rightarrow D</m>. That means that
+             in order to preserve structure, we'd need to have 
+             <m>s_D a = t_D a</m> for any arrow 
+             <m>\mathbf{1} \xrightarrow{a} X_A</m>. 
+            </p>
+            <p>
+                Now lets consider a map <m>A \xrightarrow{g'} X</m>.
+                We must have the following commutative diagram:
+        
+            </p>
+            <image width="60%">
+                <shortdescription>External diagram of g'</shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}[scale=1.5]
+                    \node (DA) at (0,1) {$A_A$};
+                    \node (DD) at (0,0) {$A_D$};
+                    
+                    \node (XA) at (2,1) {$X_A$};
+                    \node (XD) at (2,0) {$X_D$};
+        
+        
+                    \path[-{stealth}]
+                        (DA.south east) edge node[right] {$t_A$} (DD.north east)
+                        (XA.south east) edge node[right] {$t_X$} (XD.north east)
+                        
+        
+                        (DA.south west) edge node[left] {$s_A$} (DD.north west)
+                        (XA.south west) edge node[left] {$s_X$} (XD.north west)
+                        
+                        (DA) edge node[above] {$g_A'$} (XA)
+                        
+                        (DD) edge node[below] {$g_D'$} (XD)
+           
+                    ;
+        
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                I think what I want to do with these is compose them.
+                I'm also going to try to include the maps to/from
+                termninal/initial objects.
+            </p>
+            <image width="80%" xml:id="ses25-ex4-comp-2">
+            <shortdescription>External diagram formed by composing
+                the maps given in part (b)</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}[scale=1.5]
+        
+                    \node (I) at (-2,0.5) {$I$};
+        
+                    \node (DA) at (0,1) {$A_A$};
+                    \node (DD) at (0,0) {$A_D$};
+                    
+                    \node (XA) at (2,1) {$X_A$};
+                    \node (XD) at (2,0) {$X_D$};
+                    
+        
+                    \node (ZA) at (4,1) {$D_A$};
+                    \node (ZD) at (4,0) {$D_D$};
+        
+                    \node (T) at (6,0.5) {$T$};
+        
+        
+                    \path[-{stealth}]
+                        (DA.south east) edge node[right] {$t_D$} (DD.north east)
+                        (XA.south east) edge node[right] {$t_X$} (XD.north east)
+                        (ZA.south east) edge node[right] {$t_\mathbf{0}$} (ZD.north east)
+                        
+        
+                        (DA.south west) edge node[left] {$s_D$} (DD.north west)
+                        (XA.south west) edge node[left] {$s_X$} (XD.north west)
+                        (ZA.south west) edge node[left] {$s_\mathbf{0}$} (ZD.north west)
+                        
+                        (DA) edge node[above] {$g_A$} (XA)
+                        (XA) edge node[above] {$f_A$} (ZA)
+                        
+                        (DD) edge node[below] {$g_D$} (XD)
+                        (XD) edge node[below] {$f_D$} (ZD)
+        
+                        (DA) edge[bend left] node[above] {$f_A \circ g_A$} (ZA)
+                    
+                        (DD) edge[bend right] node[below] {$f_D \circ g_D$} (ZD)
+                       
+                        (I) edge[red,dotted] (DD)
+                        (I) edge[red,dotted] (DA)
+                        (I) edge[red,dotted,bend right] (XD)
+                        (I) edge[red,dotted,bend left] (XA)
+                        (I) edge[red,dotted,bend right] (ZD)
+                        (I) edge[red,dotted,bend left] (ZA)
+        
+                        (I) edge[red,dotted] (T)
+        
+                        (DD) edge[blue,dotted,bend left] (T)
+                        (DA) edge[blue,dotted,bend right] (T)
+                        (XD) edge[blue,dotted,bend right] (T)
+                        (XA) edge[blue,dotted,bend left] (T)
+                        (ZD) edge[blue,dotted] (T)
+                        (ZA) edge[blue,dotted] (T)
+        
+                        (DA) edge[purple,dashed] (ZD)
+                        ;
+        
+                \end{tikzpicture}
+            </latex-image>
+           </image>
+           <p>
+                After putting this all together, here are some
+                of my observations.   
+           </p>
+           <p>
+                First, both of these maps can't exist together
+                because <m>f_A \circ g_A</m> is not a valid map.
+                There is exactly one arrow in <m>A_A</m> and 
+                zero arrows in <m>D_A</m>, and there is no map
+                in <m>\mathcal{S}</m> from the singleton to the 
+                empty set.
+           </p>
+           <p>
+                I think the reason we need at least one of them
+                to exist is related to the fact that we have 
+                two unique maps <m>A \rightarrow D</m> named <m>s,t</m>.
+                I've indicated these by the purple.  If we
+                have a map <m>X_A \rightarrow D_A</m>, then that 
+                essentially gives us a map <m>X_A \rightarrow \mathbf{0}</m>
+                that means <m>X</m> is isomorphic to the initial object.
+                This retraction can't exist if <m>A \rightarrow X</m> 
+                is a map because there's no retraction for the unique
+                map <m>\mathbf{2} \rightarrow \mathbf{1}</m>.
+           </p>
+           <p>
+                I'm thinking the idea between parts (c) and (d) is that 
+                I'm being set-up with a successor function 
+                for an inductive argument, so I'm going to
+                try to summarize my progress so far.
+           </p>
+            <p> 
+                The idea behind (a) was that 
+                having a map <m>X \rightarrow \mathbf{0}</m>
+                effectively means
+                <m>X = \mathbf{0}</m> by <q>graph isomorphism</q>.  If our
+                graph is not empty, then there must be at least one point 
+                which is defined by a map <m>\mathbf{1} \rightarrow X</m>. 
+                By the definition of <q>terminal object</q>, there's a unique
+                map <m>D \rightarrow \mathbf{1}</m> that we could precompose
+                our point by to get a map <m>D \rightarrow X</m>.
+           </p>
+           <p>
+                The idea behind (b) was that a similar line 
+                of reasoning applies to our arrows.  The naked
+                arrow has two dots and the naked dot has one.
+                Since the map <m>\mathbf{2} \rightarrow \mathbf{1}</m>
+                is non-invertable, having both of these maps 
+                gives rise to a contradiction.
+           </p>
+           <p>
+                For part (c), I'm thinking of this in terms of 
+                object counts.  There's 2 dots and 1 arrow in <m>A</m>. 
+                There's 3 dots and 2 arrows in <m>A_2</m>.  We've got 
+                no retraction for <m>\mathbf{2} \rightarrow \mathbf{1}</m>
+                nor <m>\mathbf{3} \rightarrow \mathbf{2}</m>, so any
+                map <m>A_2 \rightarrow A</m> must be non-invertable.
+                Let's see what the external diagram looks like
+                if we attempt to compose <m>A_2 \rightarrow X</m> 
+                with <m>X \rightarrow A</m>. 
+           </p>
+           <image width="80%" xml:id="ses25-ex4-comp-3">
+            <shortdescription>External diagram formed by composing
+                the maps given in part (c)</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}[scale=1.5]
+        
+                    \node (DA) at (0,1) {$2_A$};
+                    \node (DD) at (0,0) {$3_D$};
+                    
+                    \node (XA) at (2,1) {$X_A$};
+                    \node (XD) at (2,0) {$X_D$};
+                    
+                    \node (T) at (4,0.5) {$T$};
+        
+                    \node (XA2) at (6,1) {$X_A$};
+                    \node (XD2) at (6,0) {$X_D$};
+        
+                    \node (ZA) at (8,1) {$1_A$};
+                    \node (ZD) at (8,0) {$2_D$};
+        
+                    \node (T2) at (10,0.5) {$T$};
+        
+                    \path[-{stealth}]
+                        (DA.south east) edge node[right] {$t_D$} (DD.north east)
+                        (XA.south east) edge node[right] {$t_X$} (XD.north east)
+                        (XA2.south east) edge node[right] {$t_X$} (XD2.north east)
+                        
+                        (ZA.south east) edge node[right] {$t_\mathbf{0}$} (ZD.north east)
+                        
+        
+                        (DA.south west) edge node[left] {$s_D$} (DD.north west)
+                        (XA.south west) edge node[left] {$s_X$} (XD.north west)
+                        (XA2.south west) edge node[left] {$s_X$} (XD2.north west)
+                        
+                        (ZA.south west) edge node[left] {$s_\mathbf{0}$} (ZD.north west)
+                        
+                        (DA) edge node[above] {$g_A$} (XA)
+                        (XA2) edge node[above] {$f_A$} (ZA)
+                        
+                        (DD) edge node[below] {$g_D$} (XD)
+                        (XD2) edge node[below] {$f_D$} (ZD)
+        
+        
+                        (DA) edge[bend left] node[above] {$f_A \circ g_A$} (ZA)
+                    
+                        (DD) edge[bend right] node[below] {$f_D \circ g_D$} (ZD)
+                       
+                        (XA) edge[blue,dotted] (T)
+                        (XD) edge[blue,dotted] (T)
+                        (T) edge[red,dotted] (XA2)
+                        (T) edge[red,dotted] (XD2)
+                        (ZA) edge[blue,dotted] (T2)
+                        (ZD) edge[blue,dotted] (T2)
+                        ;
+        
+        
+                \end{tikzpicture}
+            </latex-image>
+           </image>
+           <p>
+                Having both of these maps together is problematic
+                because the only map <m>T \rightarrow T</m> is necessarily 
+                the unique identity map.  Both of these maps can't exist
+                simultaneously because they're not invertable.
+        
+           </p>
+           <p>
+                The logical answer for part (d) would seem to be
+                <m>C = A_3</m>, or the following graph:
+                <me>\boxed{\bullet \longrightarrow \bullet \longrightarrow \bullet \longrightarrow \bullet}</me>
+                It also seems like defining <m>A_0 = D</m> would make an
+                obvious choice.  We could then start to formulate our 
+                induction hypothesis: <m>\forall n \in \mathbb{N}
+                </m> exactly one of <m>A_{n+1} \rightarrow X, X \rightarrow A_n</m>
+                is a map.   There's also likely a
+                parallel statement for the dots under the convention that 
+                <m>D_n = A_{n-1}</m>.
+           </p>         
+        </solution>
+    </example>
+   
+   <p>
+        I'm still a little fuzzy on all this, but at least 
+        this gives me something to refer back to later
+        when I'm better able to focus.
+   </p>
+
+</section>
