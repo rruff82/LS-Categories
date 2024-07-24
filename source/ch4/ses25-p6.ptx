@@ -1,0 +1,540 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session25-p6">
+    <title>Session 25: Labelings and products of graphs, Part 6</title>
+
+   <p>
+        I'm gong to give these last two exercises a chance, then
+        I'd really like to wrap this up so I can move on. 
+   </p>
+   <example>
+    <title>Exercise 5:</title>
+    
+    
+    <statement>
+        <p>
+        In this exercise, <m>B = \boxed{\bullet \rightarrow \bullet \rightarrow \bullet}</m>
+        and <m>C = \boxed{\bullet \leftrightarrows \bullet ~~~~ \bullet}</m>...
+   </p>
+    </statement>
+    <solution>
+        <p>
+            So lets start by showing <m>B</m> is not isomorphic to <m>C</m>.
+            Since there are two arrows in <m>B</m> and two arrows in <m>C</m>,
+            any map <m>B \rightarrow C</m> must map arrows to arrows.  This means
+            that there are only two such maps that preserve structure:
+       </p>
+       <image width="75%">
+        <shortdescription>Only two maps from B to C</shortdescription>
+        <latex-image>
+            \begin{tikzpicture}
+                \draw (-1,-1) rectangle (3,1);
+                \draw (5,-1) rectangle (9,1);
+                
+                \node (A1) at (0,0) {$\bullet$};
+                \node (A2) at (1,0) {$\bullet$};
+                \node (A3) at (2,0) {$\bullet$};
+    
+    
+                \node (B1) at (6,0) {$\bullet$};
+                \node (B2) at (7,0) {$\bullet$};
+                \node (B3) at (8,0) {$\bullet$};
+    
+                \draw (-1,-4) rectangle (3,-2);
+                \draw (5,-4) rectangle (9,-2);
+                
+    
+                \node (C1) at (0,-3) {$\bullet$};
+                \node (C2) at (1,-3) {$\bullet$};
+                \node (C3) at (2,-3) {$\bullet$};
+    
+    
+                \node (D1) at (6,-3) {$\bullet$};
+                \node (D2) at (7,-3) {$\bullet$};
+                \node (D3) at (8,-3) {$\bullet$};
+    
+    
+                \path[-{stealth}]
+                    (A1) edge node[below] (F1) {} (A2)
+                    (A2) edge node[below] (F2) {} (A3)
+                    (B1) edge[bend left] node[below] (F3) {} (B2)
+                    (B2) edge[bend left] node[below] (F4) {} (B1)
+    
+                    (C1) edge node[below] (G1) {} (C2)
+                    (C2) edge node[below] (G2) {} (C3)
+                    (D1) edge[bend left] node[below] (G3) {} (D2)
+                    (D2) edge[bend left] node[below] (G4) {} (D1)
+                    
+                    
+                    ;
+    
+                \path[-{stealth},red,bend left]
+                    (A1) edge (B1)
+                    (A2) edge (B2)
+                    (A3) edge (B1)
+                    (C1) edge (D2)
+                    (C2) edge (D1)
+                    (C3) edge (D2);
+                    
+                \path[-{stealth},red,bend right,dotted]
+                    
+                    (F1) edge (F3)
+                    (F2) edge (F4)
+                    (G1) edge (G4)
+                    (G2) edge (G3)
+                    
+                    ;
+    
+            \end{tikzpicture}
+        </latex-image>
+       </image>
+     <p>
+        In both of these cases, the respective map takes 
+        3 dots in <m>B</m> and maps them to only 2 dots in
+        <m>C</m>.  Since there is no retraction from <m>\mathbf{2}</m>
+        to <m>\mathbf{3}</m>, the only two maps <m>B \rightarrow C</m>
+        are non-invertible.  This proves that <m>B</m> is not 
+        isomorphic to <m>C</m>.
+     </p>
+     <p>
+        Next, let's look at the product <m>A \times B</m>:
+     </p>
+     <image width="90%">
+        <shortdescription>Product of A times B</shortdescription>
+        <latex-image>
+            \begin{tikzpicture}
+                \draw (-3,0) rectangle (-1,3);
+                \draw (1,0) rectangle (5,3);
+                \draw (1,-3) rectangle (5,-1);
+    
+                \coordinate (AR) at (-1,1.5);
+                \coordinate (PL) at (1,1.5);
+    
+                \coordinate (BT) at (3,-1);
+                \coordinate (PB) at (3,0);
+                
+                \node (A1) at (-2,1) {$\bullet$};
+                \node (A2) at (-2,2) {$\bullet$};
+    
+                \node (P11) at (2,1) {$\bullet$};
+                \node (P21) at (2,2) {$\bullet$};
+                
+    
+                \node (P12) at (3,1) {$\bullet$};
+                \node (P22) at (3,2) {$\bullet$};
+                
+                \node (P13) at (4,1) {$\bullet$};
+                \node (P23) at (4,2) {$\bullet$};
+    
+                \node (B1) at (2,-2) {$\bullet$};
+                \node (B2) at (3,-2) {$\bullet$};
+                \node (B3) at (4,-2) {$\bullet$};
+                
+                \path[-{stealth}]
+                    (A1) edge (A2)
+                    (B1) edge (B2)
+                    (B2) edge (B3)
+    
+                    (P11) edge (P22)
+                    (P12) edge (P23)
+    
+                    (PL) edge (AR)
+                    (PB) edge (BT)
+                    ;
+            \end{tikzpicture}
+        </latex-image>
+     </image>
+     <p>
+        Similarly, let's also draw out <m>A \times C</m>:
+     </p>
+    <image>
+        <shortdescription>Product of A times C</shortdescription>
+        <latex-image>
+            \begin{tikzpicture}
+                \draw (-3,0) rectangle (-1,3);
+                \draw (1,0) rectangle (5,3);
+                \draw (1,-3) rectangle (5,-1);
+    
+                \coordinate (AR) at (-1,1.5);
+                \coordinate (PL) at (1,1.5);
+    
+                \coordinate (BT) at (3,-1);
+                \coordinate (PB) at (3,0);
+                
+                \node (A1) at (-2,1) {$\bullet$};
+                \node (A2) at (-2,2) {$\bullet$};
+    
+                \node (P11) at (2,1) {$\bullet$};
+                \node (P21) at (2,2) {$\bullet$};
+                
+    
+                \node (P12) at (3,1) {$\bullet$};
+                \node (P22) at (3,2) {$\bullet$};
+                
+                \node (P13) at (4,1) {$\bullet$};
+                \node (P23) at (4,2) {$\bullet$};
+    
+                \node (B1) at (2,-2) {$\bullet$};
+                \node (B2) at (3,-2) {$\bullet$};
+                \node (B3) at (4,-2) {$\bullet$};
+                
+                \path[-{stealth}]
+                    (A1) edge (A2)
+                    (B1) edge[bend left] (B2)
+                    (B2) edge[bend left] (B1)
+    
+                    (P11) edge (P22)
+                    (P12) edge (P21)
+    
+                    (PL) edge (AR)
+                    (PB) edge (BT)
+                    ;
+            \end{tikzpicture}
+        </latex-image>
+     </image>
+     <p>
+        In both of these cases, the product contains 2 disjoint 
+        naked arrows and 6 dots total.  An isomorphism can be constructed
+        by pairing arrows with arrows and dots with dots.  One such
+        map is shown below:
+     </p>
+    
+     <image width="65%">
+        <shortdescription>Possible isomorphism</shortdescription>
+        <latex-image>
+            \begin{tikzpicture}
+    
+                \draw (1,0) rectangle (5,3);
+    
+    
+                \node (P11) at (2,1) {$\bullet$};
+                \node (P21) at (2,2) {$\bullet$};
+                
+    
+                \node (P12) at (3,1) {$\bullet$};
+                \node (P22) at (3,2) {$\bullet$};
+                
+                \node (P13) at (4,1) {$\bullet$};
+                \node (P23) at (4,2) {$\bullet$};
+    
+                \draw (1,-4) rectangle (5,-1);
+    
+    
+                \node (Q11) at (2,-2) {$\bullet$};
+                \node (Q21) at (2,-3) {$\bullet$};
+                
+    
+                \node (Q12) at (3,-2) {$\bullet$};
+                \node (Q22) at (3,-3) {$\bullet$};
+                
+                \node (Q13) at (4,-2) {$\bullet$};
+                \node (Q23) at (4,-3) {$\bullet$};
+    
+           
+    
+                
+                \path[-{stealth}]
+    
+                (P11) edge node[below] (F1) {} (P22)
+                (P12) edge node[below] (F2) {} (P23)
+    
+                    (Q11) edge node[left] (G1) {} (Q22)
+                    (Q12) edge node[right] (G2) {} (Q21)
+    
+                    ;
+                \path[-{stealth},red,dashed]
+                    (F1) edge (G1)
+                    (F2) edge (G2);
+    
+                \path[-{stealth},red,dotted,bend left]
+    
+                    (P11) edge (Q11)
+                    (P12) edge (Q12)
+                    (P22) edge (Q22)
+                    (P23) edge (Q21)
+                    (P13) edge (Q13)
+                    (P21) edge (Q23)
+    
+    
+                ;
+            \end{tikzpicture}
+        </latex-image>
+     </image>
+    <p>
+        There should be 4 isomorphisms to choose from, but we only needed
+        one.  QED.
+    </p>
+    
+    </solution>
+
+   </example>
+   <example>
+    <title>Exercise 6:</title>
+    <statement>
+        <p>
+            Assuming that <m>X</m>, <m>B_1</m> and <m>B_2</m> are objects of 
+            a category...
+        </p>
+    </statement>
+    <solution>
+        
+<p>
+    Let's start with the products <m>X \times B_1,p_{1,1},p_{2,1}</m>
+     and <m>X \times B_2,p_{1,2},p_{2,2}</m>.
+    For any pair of maps <m>X \xrightarrow{f_1} B_1</m> and
+    <m>X \xrightarrow{f_2} B_2</m>, these products 
+    define a pair maps 
+    <m>X \xrightarrow{\langle 1_X, f_1 \rangle} X \times B_1</m> 
+    and 
+     <m>X \xrightarrow{\langle 1_X, f_2 \rangle} X \times B_2</m>
+    .  The definition of product says that there's exactly one
+    such pair of maps with that 
+    <m>p_{1,1} \langle 1_X, f_1 \rangle = 1_{X}</m>,
+    <m>p_{2,1} \langle 1_X, f_1 \rangle = f_1</m>,
+    <m>p_{1,2} \langle 1_X, f_2 \rangle = 1_{X}</m>, and
+    <m>p_{2,2} \langle 1_X, f_2 \rangle = f_2</m>.
+    These products can be diagrammed as follows:
+</p>
+<image width="50%">
+    <shortdescription>X times B_1</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}[scale=1.5]
+
+            \node (X) at (0,0) {$X$};
+
+            \node (P) at (2,0) {$X \times B_1$};
+
+            \node (B1) at (4,1) {$X$};
+
+            \node (B2) at (4,-1) {$B_1$};
+
+            \path[-{stealth}]
+            (X) edge node[above] {$\langle 1_X, f_1 \rangle$}  (P)
+            (P) edge[bend left] node[below] {$p_{1,1}$} (B1)
+            (P) edge[bend right] node[above] {$p_{2,1}$} (B2)
+            (X) edge[bend left] node[above] {$1_X$} (B1)
+            (X) edge[bend right] node[below] {$f_2$} (B2)
+            ;
+
+        \end{tikzpicture}
+    </latex-image>
+</image>
+
+<image width="50%">
+    <shortdescription>X times B_2</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}[scale=1.5]
+        \node (X) at (0,0) {$X$};
+
+        \node (P) at (2,0) {$X \times B_2$};
+
+        \node (B1) at (4,1) {$X$};
+
+        \node (B2) at (4,-1) {$B_2$};
+
+        \path[-{stealth}]
+            (X) edge node[above] {$\langle 1_X, f_2 \rangle$}  (P)
+            (P) edge[bend left] node[below] {$p_{1,2}$} (B1)
+            (P) edge[bend right] node[above] {$p_{2,2}$} (B2)
+            (X) edge[bend left] node[above] {$1_X$} (B1)
+            (X) edge[bend right] node[below] {$f_2$} (B2)
+        ;
+
+        \end{tikzpicture}
+    </latex-image>
+</image>
+<p>
+    Let's now construct a third product
+    <m>B_1 \times B_2, p_{1,3}, p_{2,3}</m> to fit the following
+    diagram:
+</p>
+<image width="50%">
+    <shortdescription>B_1 times B_2</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}[scale=1.5]
+        \node (X) at (0,0) {$X$};
+
+        \node (P) at (2,0) {$B_1 \times B_2$};
+
+        \node (B1) at (4,1) {$B_1$};
+
+        \node (B2) at (4,-1) {$B_2$};
+
+
+        \path[-{stealth}]
+            (X) edge node[above] {$\langle f_1, f_2 \rangle$}  (P)
+            (P) edge[bend left] node[below] {$p_{1,3}$} (B1)
+            (P) edge[bend right] node[above] {$p_{2,3}$} (B2)
+            (X) edge[bend left] node[above] {$f_1$} (B1)
+            (X) edge[bend right] node[below] {$f_2$} (B2)
+        ;
+
+            
+        \end{tikzpicture}
+    </latex-image>
+</image>
+<p>
+    Next, let's consider the sum of <m>B_1</m> and <m>B_2</m>.
+    For any pair of maps <m>B_1 \xrightarrow{g_1} X</m> and
+    <m>B_2 \xrightarrow{g_2} X</m>, our sum defines a 
+    pair of maps <m>B_1 \xrightarrow{j_{1,1}} B_1+B_2</m>
+    and  <m>B_2 \xrightarrow{j_{2,1}} B_1+B_2</m> such that
+    there is a unique 
+    map <m>B_1+B_2 \xrightarrow{g} X</m> satisfying 
+    <m>g j_{1,1} = g_1</m> and <m>g j_{1,1} = g_2</m> 
+</p>
+<image width="50%">
+    <shortdescription>Sum of B_1 and B_2</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}[scale=1.5]
+        \node (X) at (4,0) {$X$};
+
+        \node (P) at (2,0) {$B_1 + B_2$};
+
+        \node (B1) at (0,1) {$B_1$};
+
+        \node (B2) at (0,-1) {$B_2$};
+
+
+        \path[-{stealth}]
+            (P) edge node[above] {$g$}  (X)
+            (B1) edge[bend left] node[below] {$j_{1,1}$} (P)
+            (B2) edge[bend right] node[above] {$j_{2,1}$} (P)
+            (B1) edge[bend left] node[above] {$g_1$} (X)
+            (B2) edge[bend right] node[below] {$g_2$} (X)
+        ;       
+        \end{tikzpicture}
+    </latex-image>
+</image>
+<p>
+    We can combine the sum and and product diagrams to 
+    get the following:
+</p>
+
+<image width="75%">
+    <shortdescription>B_1 times B_2</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}[scale=1.5]
+        \node (X) at (0,0) {$X$};
+
+        \node (P) at (2,0) {$B_1 \times B_2$};
+
+        \node (B1) at (4,1) {$B_1$};
+
+        \node (B2) at (4,-1) {$B_2$};
+
+        \node (S) at (6,0) {$B_1+B_2$};
+
+        \node (XT) at (8,0) {$X$};
+        
+
+        \path[-{stealth}]
+            (X) edge node[above] {$\langle f_1, f_2 \rangle$}  (P)
+            (P) edge[bend left] node[below] {$p_{1,3}$} (B1)
+            (P) edge[bend right] node[above] {$p_{2,3}$} (B2)
+            (X) edge[bend left] node[above] {$f_1$} (B1)
+            (X) edge[bend right] node[below] {$f_2$} (B2)
+
+
+            (S) edge node[above] {$g$} (XT)
+            (B1) edge[bend left] node[below] {$j_{1,1}$} (S)
+            (B2) edge[bend right] node[above] {$j_{2,1}$} (S)
+            (B1) edge[bend left] node[above] {$g_1$} (XT)
+            (B2) edge[bend right] node[below] {$g_2$} (XT)
+
+            (P) edge node[above] {$j_1$} (S)
+
+
+        ;
+            
+        \end{tikzpicture}
+    </latex-image>
+</image>
+<p>
+    Since our maps <m>f_1,f_2</m> and <m>g_1,g_2</m> are arbitrary,
+    we can choose them to satisfy <m>g j_1 \langle f_1 f_2 \rangle = 1_X</m>.
+</p>
+<p>
+    I think we're also going to need a fourth product for 
+    <m>X \times (B_1 + B_2)</m>.  This should correspond 
+    to the following diagram:
+</p>
+
+<image width="75%">
+    <shortdescription>X times (B_1 + B_2)</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}[scale=1.75]
+        \node (X) at (0,0) {$X$};
+
+        \node (P) at (2,0) {$X \times (B_1+B_2)$};
+
+        \node (B1) at (4,1) {$X$};
+
+        \node (B2) at (4,-1) {$B_1+B_2$};
+
+        \path[-{stealth}]
+            (X) edge node[above] {$\langle 1_X, j \langle f_1 f_2 \rangle \rangle$}  (P)
+            (P) edge[bend left] node[below] {$p_{1,4}$} (B1)
+            (P) edge[bend right] node[above] {$p_{2,4}$} (B2)
+            (X) edge[bend left] node[above] {$1_X$} (B1)
+            (X) edge[bend right] node[below] {$j \langle f_1 f_2 \rangle$} (B2)
+        ;
+
+        \end{tikzpicture}
+    </latex-image>
+</image>
+<p>
+    We're also going to need another sum for
+     <m>(X \times B_1) + (X \times B_2) </m>.  It should 
+    conform to the following diagram:
+</p>
+
+<image width="50%">
+    <shortdescription>Sum of X times B_1 and X times B_2</shortdescription>
+    <latex-image>
+        \begin{tikzpicture}[scale=1.5]
+        \node (X) at (4,0) {$X$};
+
+        \node (P) at (2,0) {$(X \times B_1) + (X \times B_2)$};
+
+        \node (B1) at (0,1) {$X \times B_1$};
+
+        \node (B2) at (0,-1) {$X \times B_2$};
+
+
+        \path[-{stealth}]
+            (P) edge node[above] {$h$}  (X)
+            (B1) edge[bend left] node[below] {$j_{1,2}$} (P)
+            (B2) edge[bend right] node[above] {$j_{2,2}$} (P)
+            (B1) edge[bend left] node[above] {$p_{1,1}$} (X)
+            (B2) edge[bend right] node[below] {$p_{1,2}$} (X)
+        ;       
+        \end{tikzpicture}
+    </latex-image>
+</image>
+<p>
+    Our definition sum says there is exactly one map
+    <m>X \xrightarrow{j_2} (X \times B_1) + (X \times B_2)</m>
+    satisfying <m>h j_2 = 1_X</m>.
+</p>
+<p>
+    With that, I think we have enough maps to construct the
+    one we're looking for.
+</p>
+<me>
+    (X \times B_1) + (X \times B_2) \xrightarrow{h} X
+    \xrightarrow{\langle 1_X, j \langle f_1 f_2 \rangle \rangle} X \times (B_1 + B_2)
+</me>
+<p>
+    QED.  Or, at least I hope so. I'm a little uncertain about 
+    the existence of
+    this map <m>B_1 \times B_2 \xrightarrow{j_1} B_1+B_2</m>,
+    but it seems like a reasonable assumption.
+</p>
+    </solution>
+   </example>
+ <p>
+    And with that, I think I'm ready to push onward.
+</p>
+
+</section>
