@@ -88,6 +88,44 @@ window.MathJax = {
 <link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<style>
+#article1-4-3-3 { counter-set: article1-4-3-3 0; }
+#article1-4-3-3 > li::marker { content: ""counter(article1-4-3-3,decimal)"."; }
+#article1-4-3-3 > li { counter-increment: article1-4-3-3; }
+#article1-5-3-2 { counter-set: article1-5-3-2 0; }
+#article1-5-3-2 > li::marker { content: ""counter(article1-5-3-2,decimal)"."; }
+#article1-5-3-2 > li { counter-increment: article1-5-3-2; }
+#article1-6-3-2 { counter-set: article1-6-3-2 0; }
+#article1-6-3-2 > li::marker { content: ""counter(article1-6-3-2,decimal)"."; }
+#article1-6-3-2 > li { counter-increment: article1-6-3-2; }
+#sec-session3-4-3-2 { counter-set: sec-session3-4-3-2 0; }
+#sec-session3-4-3-2 > li::marker { content: ""counter(sec-session3-4-3-2,decimal)"."; }
+#sec-session3-4-3-2 > li { counter-increment: sec-session3-4-3-2; }
+#sec-session3-4-3-5 { counter-set: sec-session3-4-3-5 0; }
+#sec-session3-4-3-5 > li::marker { content: ""counter(sec-session3-4-3-5,decimal)"."; }
+#sec-session3-4-3-5 > li { counter-increment: sec-session3-4-3-5; }
+#article2-5-3-4 { counter-set: article2-5-3-4 0; }
+#article2-5-3-4 > li::marker { content: ""counter(article2-5-3-4,decimal)"."; }
+#article2-5-3-4 > li { counter-increment: article2-5-3-4; }
+#article2-8-3-2 { counter-set: article2-8-3-2 0; }
+#article2-8-3-2 > li::marker { content: ""counter(article2-8-3-2,decimal)"."; }
+#article2-8-3-2 > li { counter-increment: article2-8-3-2; }
+#session7-3-3-2 { counter-set: session7-3-3-2 0; }
+#session7-3-3-2 > li::marker { content: ""counter(session7-3-3-2,decimal)"."; }
+#session7-3-3-2 > li { counter-increment: session7-3-3-2; }
+#session10-6-3-12 { counter-set: session10-6-3-12 0; }
+#session10-6-3-12 > li::marker { content: ""counter(session10-6-3-12,decimal)"."; }
+#session10-6-3-12 > li { counter-increment: session10-6-3-12; }
+#session15-p4-3-3-4 { counter-set: session15-p4-3-3-4 0; }
+#session15-p4-3-3-4 > li::marker { content: ""counter(session15-p4-3-3-4,decimal)"."; }
+#session15-p4-3-3-4 > li { counter-increment: session15-p4-3-3-4; }
+#session15-p4-3-3-6 { counter-set: session15-p4-3-3-6 0; }
+#session15-p4-3-3-6 > li::marker { content: ""counter(session15-p4-3-3-6,decimal)"."; }
+#session15-p4-3-3-6 > li { counter-increment: session15-p4-3-3-6; }
+#def-session23-ex2-sum-1-2 { counter-set: def-session23-ex2-sum-1-2 0; }
+#def-session23-ex2-sum-1-2 > li::marker { content: ""counter(def-session23-ex2-sum-1-2,decimal)"."; }
+#def-session23-ex2-sum-1-2 > li { counter-increment: def-session23-ex2-sum-1-2; }
+</style>
 </head>
 <body class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
@@ -203,6 +241,7 @@ window.MathJax = {
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="session25-p3.html" class="internal"><span class="codenumber">5.26</span> <span class="title">Session 25: Labelings and products of graphs, Part 3</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="session25-p4.html" class="internal"><span class="codenumber">5.27</span> <span class="title">Session 25: Labelings and products of graphs, Part 4</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="session25-p5.html" class="internal"><span class="codenumber">5.28</span> <span class="title">Session 25: Labelings and products of graphs, Part 5</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session25-p6.html" class="internal"><span class="codenumber">5.29</span> <span class="title">Session 25: Labelings and products of graphs, Part 6</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -216,7 +255,7 @@ window.MathJax = {
 </h3></summary><article class="example example-like knowl__content"><div class="para" id="article3-p3-3-2-1">In a reflexive graph...</div>
 <div class="solutions"><details id="article3-p3-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="article3-p3-3-3-1">Let’s start with our definition:</div> <figure class="figure figure-like" id="fig-article3-ex15-1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex15-1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.2<span class="period">.</span></span><span class="space"> </span>Definition of "reflexive graph"</figcaption></figure> <div class="para" id="article3-p3-3-3-3">Given this, we want to show <span class="process-math">\(e_1 = i s\)</span> and <span class="process-math">\(e_0 = i t\)</span> satisfy <span class="process-math">\(e_k e_j = e_j\)</span> for <span class="process-math">\(k, j = 0, 1\text{.}\)</span>  Since there’s only four cases, it shouldn’t be too much effort to list them all out:</div> <ul class="disc">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.2<span class="period">.</span></span><span class="space"> </span>Definition of "reflexive graph"</figcaption></figure> <div class="para" id="article3-p3-3-3-3">Given this, we want to show <span class="process-math">\(e_1 = i s\)</span> and <span class="process-math">\(e_0 = i t\)</span> satisfy <span class="process-math">\(e_k e_j = e_j\)</span> for <span class="process-math">\(k, j = 0, 1\text{.}\)</span>  Since there’s only four cases, it shouldn’t be too much effort to list them all out:</div> <ul class="disc" id="article3-p3-3-3-4">
 <li id="article3-p3-3-3-4-1"><div class="para" id="article3-p3-3-3-4-1-1"><span class="process-math">\(\displaystyle e_0 e_0 = i t i t = i 1_P t = i t = e_0\)</span></div></li>
 <li id="article3-p3-3-3-4-2"><div class="para" id="article3-p3-3-3-4-2-1"><span class="process-math">\(\displaystyle e_0 e_1 = i t i s = i 1_P s = i s = e_1\)</span></div></li>
 <li id="article3-p3-3-3-4-3"><div class="para" id="article3-p3-3-3-4-3-1"><span class="process-math">\(\displaystyle e_1 e_0 = i s i t = i 1_P t = i t = e_0\)</span></div></li>
@@ -229,7 +268,7 @@ window.MathJax = {
 </div>
 <div class="solutions"><details id="article3-p3-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="article3-p3-4-3-1">First, let’s formulate our definition with a diagram:</div> <figure class="figure figure-like" id="fig-article3-ex16-1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/img-article3-ex16-1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.4<span class="period">.</span></span><span class="space"> </span>Structure preserving maps on reflexive graphs?</figcaption></figure> <div class="para" id="article3-p3-4-3-3">Where this gets interesting is when we look at all possible paths we can follow between <span class="process-math">\(Y\)</span> and <span class="process-math">\(P\)</span> in addition to the ones between <span class="process-math">\(X\)</span> and <span class="process-math">\(Q\text{.}\)</span>  To follow the pattern of the previous categories, we’d need to enforce all 3 of the following:</div> <ul class="disc">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.4<span class="period">.</span></span><span class="space"> </span>Structure preserving maps on reflexive graphs?</figcaption></figure> <div class="para" id="article3-p3-4-3-3">Where this gets interesting is when we look at all possible paths we can follow between <span class="process-math">\(Y\)</span> and <span class="process-math">\(P\)</span> in addition to the ones between <span class="process-math">\(X\)</span> and <span class="process-math">\(Q\text{.}\)</span>  To follow the pattern of the previous categories, we’d need to enforce all 3 of the following:</div> <ul class="disc" id="article3-p3-4-3-4">
 <li id="article3-p3-4-3-4-1"><div class="para" id="article3-p3-4-3-4-1-1"><span class="process-math">\(\displaystyle f_D s = s' f_A\)</span></div></li>
 <li id="article3-p3-4-3-4-2"><div class="para" id="article3-p3-4-3-4-2-1"><span class="process-math">\(\displaystyle f_D t = t' f_A\)</span></div></li>
 <li id="article3-p3-4-3-4-3"><div class="para" id="article3-p3-4-3-4-3-1"><span class="process-math">\(\displaystyle f_A i = i' f_D\)</span></div></li>
