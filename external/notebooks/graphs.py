@@ -7,8 +7,10 @@ NAKED_ARROW = nx.DiGraph({"s":["t"]})
 
 
 def follow_endomap(G,n):
-  return list(G.successors(n))[0]
-
+    try:
+        return list(G.successors(n))[0]
+    except IndexError:
+        return n
 
 def graph_sum(A,B,make_injections=False):
     MA,MB = nx.to_numpy_array(A),nx.to_numpy_array(B)
@@ -44,14 +46,14 @@ def graph_product(A,B,make_projections=False):
     output.add_nodes_from(p_nodes)
     output.add_edges_from(p_edges)
     if make_projections:
-        pMA = np.hstack([np.eye(MA.shape[0])] * b_size)
-        pMB = np.hstack([np.eye(MB.shape[0])] * a_size)
+        pMA = np.hstack([np.eye(a_size)] * b_size)
+        pMB = np.hstack([np.eye(b_size)] * a_size)
         p1 = {
             "domain":output,
             "codomain":A,
             "map":pMA
         }
-        j2 = {
+        p2 = {
             "domain":output,
             "codomain":B,
             "map":pMB
@@ -61,40 +63,64 @@ def graph_product(A,B,make_projections=False):
     return output
 
 def graph_isometry(GA,GB):
+    print(f"Testing for isometry of {GA} {GB}")
     MA,MB = nx.to_numpy_array(GA),nx.to_numpy_array(GB)
+    
     if MA.shape != MB.shape:
-        return None
+        # different numbers of dots
+        print(f"Not isometric: different numbers of dots")
+        return False
+    
+    size = MA.shape[0]
+    
     if np.allclose(MA,MB):
-        # same graph
-        return [np.eye(MA.shape[0])]*2
-        
-    AU,AS,AVh = np.linalg.svd(MA) # MA = AU @ AS @ AVh
-    BU,BS,BVh = np.linalg.svd(MB) # MB = BU @ BS @ BVh
-
-    if not np.allclose(AS,BS):
+        # exact same graph
+        print(f"Isometric: same adjacency matrix")
+        return True
+    
+    MA_flat = np.reshape(MA,(size*size,))
+    MB_flat = np.reshape(MB,(size*size,))
+    
+    MA_ac = np.sum(MA_flat)
+    MB_ac = np.sum(MB_flat)
+    print(f"Arrow counts: {MA_ac} {MB_ac}")
+    if not np.equal(MA_ac,MB_ac):
+        # different arrow counts
+        print(f"Not isometric: different arrow counts")
+        return True
+    
+    
+    eigvals_A,eigvecs_A = np.linalg.eig(MA)
+    eigvals_B,eigvecs_B = np.linalg.eig(MB)
+    
+    
+    
+    if not np.allclose(eigvals_A,eigvals_B):
         # different singular values
-        return None
+        print(f"Not isometric: different eigen values")
+        return False
 
-    # shared diagonal matrix    
-    DM = np.diag(AS)
 
-    assert np.allclose(MA,AU@DM@AVh)
-    assert np.allclose(MB,BU@DM@BVh)
+    test_A = eigvecs_A @ np.diag(eigvals_A) @ eigvecs_A.conj().T
+    print(test_A)
+    assert np.allclose(test_A,MA)
     
-    # to get from A -> B
+    print("Isometric: all tests pass")
     
-    print("_________________________")
-    m1 = BU @ AVh
-    m2 = AU @ BVh
-    print(f"m1:\n{m1}\nm2:{m2}")
+    print(eigvals_A,eigvecs_A)
     
-    print(f"m1 @ A: {m1@MA}")
-    print(f"m2 @ B: {m2@MB}")
+    print(eigvals_B,eigvecs_B)
+    
+    p1 = eigvecs_B @ eigvecs_A.T 
+    p2 = eigvecs_A @ eigvecs_B.T 
 
-    print(MA,MB)
-    print("_________________________")
     
-    return [m1,m2]
+    print(p1,p2)
+    
+    print(p1@MA)
+    print(p2@MB)
+    
+    return True
     
 
 def make_A_N(n):
