@@ -10,317 +10,342 @@
        This session also refers back to Exercise 20 of Article and 
        I wasn't quite satisfied with my previous work there.
     </p>
-    <p>
-        Exercise 1:
-    </p>
-    <p>
-        Using the above definitions...
-    </p>
-   <p>
-       We're asked to prove the following:
-       <me>
-\begin{bmatrix}
-f_{AX} &amp; f_{AY}\\
-f_{BX} &amp; f_{BY}
-\end{bmatrix} 
-\cdot 
-\begin{bmatrix}
-g_{XU} &amp; g_{XV}\\
-g_{XV} &amp; g_{YV}
-\end{bmatrix} 
-= 
-\begin{bmatrix}
-g_{XU} \circ f_{AX} + g_{YU} \circ f_{AY} &amp; g_{XV} \circ f_{AX} + g_{YV} \circ f_{AY}\\
-g_{XU} \circ f_{BX} + g_{YU} \circ f_{BY} &amp; g_{XV} \circ f_{BX} + g_{YV} \circ f_{BY}
-\end{bmatrix} 
-       </me>
-       Since that's kind of a lengthy expression, I'm going to
-       call it <m>f \cdot g = h: A+B \longrightarrow U \times V</m> such that
-      <me>
-        \begin{bmatrix}
-        h_{AU} &amp; h_{AV}\\
-        h_{BV} &amp; h_{YV}
-        \end{bmatrix} 
-        =  
-        \begin{bmatrix}
-g_{XU} \circ f_{AX} + g_{YU} \circ f_{AY} &amp; g_{XV} \circ f_{AX} + g_{YV} \circ f_{AY}\\
-g_{XU} \circ f_{BX} + g_{YU} \circ f_{BY} &amp; g_{XV} \circ f_{BX} + g_{YV} \circ f_{BY}
-\end{bmatrix} 
-      </me>
-   </p>
-   <p>
-     Let's start by taking a look at the map <m>h_{AU} = g_{XU} \circ f_{AX} + g_{YU} \circ f_{AY}</m>.
-     By the definition of <q>matrix addition</q>, we've defined
-     <m>A \xrightarrow{h_{AU}} U</m> to be the unique map
-     such that:
-     <me>
-        \begin{bmatrix}
-        1_{AA} &amp; g_{XU} \circ f_{AX}\\
-        0_{UA} &amp; 1_{UU}
-        \end{bmatrix} 
-        \cdot
-        \begin{bmatrix}
-        1_{AA} &amp; g_{YU} \circ f_{AY}\\
-        0_{UA} &amp; 1_{UU}
-        \end{bmatrix} 
-        =
-        \begin{bmatrix}
-        1_{AA} &amp; h_{AU}\\
-        0_{UA} &amp; 1_{UU}
-        \end{bmatrix} 
-     </me>
+    <example>
+        <title>Exercise 1:</title>
+        <statement>
+            <p>
+                Using the above definitions...
+            </p>
+        </statement>
+        <solution>
 
-     Applying the definition of <q>matrix multiplication</q>
-     to this gives us:
-     <me>
-        h_{AU} = 
-        \begin{bmatrix}
-        1_{AA} &amp; g_{YU} \circ f_{AY}\\
-        0_{UA} &amp; 1_{UU}
-        \end{bmatrix} \circ
-        \begin{bmatrix}
-        1_{A} &amp; 0_{AU} \\
-        0_{UA} &amp; 1_{U}
-        \end{bmatrix}^{-1} \circ 
-        \begin{bmatrix}
-        1_{AA} &amp; g_{XU} \circ f_{AX}\\
-        0_{UA} &amp; 1_{UU}
-        \end{bmatrix} 
-
-     </me>
-    By similar reasoning, we can also deduce the following:
-    <me>
-        h_{AV} = 
-        \begin{bmatrix}
-        1_{AA} &amp; g_{YV} \circ f_{AY}\\
-        0_{VA} &amp; 1_{VV}
-        \end{bmatrix} \circ
-        \begin{bmatrix}
-        1_{A} &amp; 0_{AV} \\
-        0_{VA} &amp; 1_{V}
-        \end{bmatrix}^{-1} \circ 
-        \begin{bmatrix}
-        1_{AA} &amp; g_{XV} \circ f_{AX}\\
-        0_{VA} &amp; 1_{VV}
-        \end{bmatrix} 
-
-     </me>
-
-     <me>
-        h_{BU} = 
-        \begin{bmatrix}
-        1_{BB} &amp; g_{YU} \circ f_{BY}\\
-        0_{UB} &amp; 1_{UU}
-        \end{bmatrix} \circ
-        \begin{bmatrix}
-        1_{B} &amp; 0_{BU} \\
-        0_{UB} &amp; 1_{U}
-        \end{bmatrix}^{-1} \circ 
-        \begin{bmatrix}
-        1_{BB} &amp; g_{XU} \circ f_{BX}\\
-        0_{UB} &amp; 1_{UU}
-        \end{bmatrix} 
-
-     </me>
-     <me>
-        h_{BV} = 
-        \begin{bmatrix}
-        1_{BB} &amp; g_{YV} \circ f_{BY}\\
-        0_{VB} &amp; 1_{VV}
-        \end{bmatrix} \circ
-        \begin{bmatrix}
-        1_{B} &amp; 0_{BV} \\
-        0_{VB} &amp; 1_{V}
-        \end{bmatrix}^{-1} \circ 
-        \begin{bmatrix}
-        1_{BB} &amp; g_{XV} \circ f_{BX}\\
-        0_{VB} &amp; 1_{VV}
-        \end{bmatrix} 
-     </me>
-   </p>
-   <p>
-     It follows that we can expand our defintion of <m>h =         \begin{bmatrix}
-        h_{AU} &amp; h_{AV}\\
-        h_{BV} &amp; h_{YV}
-        \end{bmatrix}  </m>
-     into a big <q>nested matrix</q>:
-    <me>
-        \begin{bmatrix}
-        \begin{bmatrix}
-        1_{AA} &amp; g_{YU} \circ f_{AY}\\
-        0_{UA} &amp; 1_{UU}
-        \end{bmatrix} \circ
-        \begin{bmatrix}
-        1_{A} &amp; 0_{AU} \\
-        0_{UA} &amp; 1_{U}
-        \end{bmatrix}^{-1} \circ 
-        \begin{bmatrix}
-        1_{AA} &amp; g_{XU} \circ f_{AX}\\
-        0_{UA} &amp; 1_{UU}
-        \end{bmatrix} 
-
-         &amp; 
+            <p>
+                We're asked to prove the following:
+                <me>
          \begin{bmatrix}
-         1_{AA} &amp; g_{YV} \circ f_{AY}\\
-         0_{VA} &amp; 1_{VV}
-         \end{bmatrix} \circ
-         \begin{bmatrix}
-         1_{A} &amp; 0_{AV} \\
-         0_{VA} &amp; 1_{V}
-         \end{bmatrix}^{-1} \circ 
-         \begin{bmatrix}
-         1_{AA} &amp; g_{XV} \circ f_{AX}\\
-         0_{VA} &amp; 1_{VV}
+         f_{AX} &amp; f_{AY}\\
+         f_{BX} &amp; f_{BY}
          \end{bmatrix} 
-         \\
+         \cdot 
          \begin{bmatrix}
-         1_{BB} &amp; g_{YU} \circ f_{BY}\\
-         0_{UB} &amp; 1_{UU}
-         \end{bmatrix} \circ
-         \begin{bmatrix}
-         1_{B} &amp; 0_{BU} \\
-         0_{UB} &amp; 1_{U}
-         \end{bmatrix}^{-1} \circ 
-         \begin{bmatrix}
-         1_{BB} &amp; g_{XU} \circ f_{BX}\\
-         0_{UB} &amp; 1_{UU}
+         g_{XU} &amp; g_{XV}\\
+         g_{XV} &amp; g_{YV}
          \end{bmatrix} 
-        &amp; 
-        \begin{bmatrix}
-        1_{BB} &amp; g_{YV} \circ f_{BY}\\
-        0_{VB} &amp; 1_{VV}
-        \end{bmatrix} \circ
-        \begin{bmatrix}
-        1_{B} &amp; 0_{BV} \\
-        0_{VB} &amp; 1_{V}
-        \end{bmatrix}^{-1} \circ 
-        \begin{bmatrix}
-        1_{BB} &amp; g_{XV} \circ f_{BX}\\
-        0_{VB} &amp; 1_{VV}
-        \end{bmatrix} 
-        \end{bmatrix} 
-    </me>
-    
-   </p>
-   <p>
-     We need to show this is equivalent to <m>f \cdot g =
-        g \circ \alpha \circ f</m> where <m>\alpha = 
-            \begin{bmatrix}
-            1_{X} &amp; 0_{XY}\\
-            0_{YX} &amp; 1_{Y}
-            \end{bmatrix} ^{-1}
-        </m>.  In matrix form, we've defined <m>f \cdot g</m> to be:
-        <me>
-            \begin{bmatrix}
-            f_{AX} &amp; f_{AY}\\
-            f_{BX} &amp; f_{BY}
-            \end{bmatrix} 
-            \cdot 
-            \begin{bmatrix}
-            g_{XU} &amp; g_{XV}\\
-            g_{XV} &amp; g_{YV}
-            \end{bmatrix} 
-            =     
-            \begin{bmatrix}
-            g_{XU} &amp; g_{XV}\\
-            g_{XV} &amp; g_{YV}
-            \end{bmatrix} \circ
-            \begin{bmatrix}
-            1_{X} &amp; 0_{XY} \\
-            0_{YX} &amp; 1_{Y}
-            \end{bmatrix}^{-1} \circ 
-            \begin{bmatrix}
-            f_{AX} &amp; f_{AY}\\
-            f_{BX} &amp; f_{BY}
-            \end{bmatrix} 
-            
-        </me>
+         = 
+         \begin{bmatrix}
+         g_{XU} \circ f_{AX} + g_{YU} \circ f_{AY} &amp; g_{XV} \circ f_{AX} + g_{YV} \circ f_{AY}\\
+         g_{XU} \circ f_{BX} + g_{YU} \circ f_{BY} &amp; g_{XV} \circ f_{BX} + g_{YV} \circ f_{BY}
+         \end{bmatrix} 
+                </me>
+         
+         
+                 Since that's kind of a lengthy expression, I'm going to
+                 call it <m>f \cdot g = h: A+B \longrightarrow U \times V</m> such that
+                <me>
+                 h=
+                  \begin{bmatrix}
+                  h_{AU} &amp; h_{AV}\\
+                  h_{BV} &amp; h_{YV}
+                  \end{bmatrix} 
+                </me>
+                <me>
+                 = \begin{bmatrix}
+                 f_{AX} &amp; f_{AY}\\
+                 f_{BX} &amp; f_{BY}
+                 \end{bmatrix} 
+                 \cdot 
+                 \begin{bmatrix}
+                 g_{XU} &amp; g_{XV}\\
+                 g_{XV} &amp; g_{YV}
+                 \end{bmatrix} 
+                </me>
+                <me>
+                 = \begin{bmatrix}
+                 g_{XU} \circ f_{AX} + g_{YU} \circ f_{AY} &amp; g_{XV} \circ f_{AX} + g_{YV} \circ f_{AY}\\
+                 g_{XU} \circ f_{BX} + g_{YU} \circ f_{BY} &amp; g_{XV} \circ f_{BX} + g_{YV} \circ f_{BY}
+                 \end{bmatrix} 
+                </me>
+                
+         
+                The matrix product <m>f \cdot g</m> is defined relative
+                to a preferred operator <m>X+Y \xrightarrow{\alpha} X \times Y
+                 =         \begin{bmatrix}
+                 1_X &amp; 0_{XY} \\
+                 0_{YX} &amp; 1_Y
+                 \end{bmatrix} 
+                </m>
+         
+                using the matrix form:
+         <me>\begin{bmatrix}
+             f_{AX} &amp; f_{AY}\\
+             f_{BX} &amp; f_{BY}
+             \end{bmatrix} 
+             \cdot 
+             \begin{bmatrix}
+             g_{XU} &amp; g_{XV}\\
+             g_{XV} &amp; g_{YV}
+             \end{bmatrix} 
+         =
+         \begin{bmatrix}
+         g_{XU} &amp; g_{XV}\\
+         g_{XV} &amp; g_{YV}
+         \end{bmatrix} \circ
+             \begin{bmatrix}
+             1_X &amp; 0_{XY} \\
+             0_{YX} &amp; 1_Y
+             \end{bmatrix}^{-1} \circ
+             \begin{bmatrix}
+             f_{AX} &amp; f_{AY}\\
+             f_{BX} &amp; f_{BY}
+             \end{bmatrix} 
+         </me>
+             We can write this simply
+              <m>f \cdot g = g \circ \alpha^{-1} \circ f = h</m>.
+                I should note that the domains and codomains of these maps are 
+                <m>A+B \xrightarrow{f} X \times Y</m>, 
+                <m>X+Y \xrightarrow{g} U \times V</m> and 
+                <m>A+B \xrightarrow{h} U \times V</m> .  We can define
+                the elements of those matrices using the injections
+                 and projections of the category. For example:
+                <me>A \xrightarrow{f_{AX}} X = A \xrightarrow{j_1} 
+                 A+B \xrightarrow{f} X \times Y \xrightarrow{p_1} X</me>.
+             </p>
+         
+         
+         
+            <p>
+              Let's start by taking a look at the map <m>h_{AU} = g_{XU} \circ f_{AX} + g_{YU} \circ f_{AY}</m>.
+              By the definition of <q>matrix addition</q>, we've defined
+              <m>A \xrightarrow{h_{AU}} U</m> to be the unique map
+              such that:
+              <me>
+                 \begin{bmatrix}
+                 1_{AA} &amp; g_{XU} \circ f_{AX}\\
+                 0_{UA} &amp; 1_{UU}
+                 \end{bmatrix} 
+                 \cdot
+                 \begin{bmatrix}
+                 1_{AA} &amp; g_{YU} \circ f_{AY}\\
+                 0_{UA} &amp; 1_{UU}
+                 \end{bmatrix} 
+                 =
+                 \begin{bmatrix}
+                 1_{AA} &amp; h_{AU}\\
+                 0_{UA} &amp; 1_{UU}
+                 \end{bmatrix} 
+              </me>
+         
+         
+         
+              Applying the definition of <q>matrix multiplication</q>
+              to this gives us:
+              <me>
+                 \begin{bmatrix}
+                 1_{AA} &amp; h_{AU}\\
+                 0_{UA} &amp; 1_{UU}
+                 \end{bmatrix}  = 
+                 \begin{bmatrix}
+                 1_{AA} &amp; g_{YU} \circ f_{AY}\\
+                 0_{UA} &amp; 1_{UU}
+                 \end{bmatrix} \circ
+                 \begin{bmatrix}
+                 1_{A} &amp; 0_{AU} \\
+                 0_{UA} &amp; 1_{U}
+                 \end{bmatrix}^{-1} \circ 
+                 \begin{bmatrix}
+                 1_{AA} &amp; g_{XU} \circ f_{AX}\\
+                 0_{UA} &amp; 1_{UU}
+                 \end{bmatrix} 
+         
+              </me>
+              Let's take a closer look at the domains and codomains of
+              that composition:
+              <me>
+                 A+U \longrightarrow A \times U 
+                 \longrightarrow A+U \longrightarrow A \times U
+              </me>
+              
+         
+             By similar reasoning, we can also deduce the following:
+             <me>
+                 \begin{bmatrix}
+                 1_{AA} &amp; h_{AV}\\
+                 0_{VA} &amp; 1_{VV}
+                 \end{bmatrix}  = 
+                 \begin{bmatrix}
+                 1_{AA} &amp; g_{YV} \circ f_{AY}\\
+                 0_{VA} &amp; 1_{VV}
+                 \end{bmatrix} \circ
+                 \begin{bmatrix}
+                 1_{A} &amp; 0_{AV} \\
+                 0_{VA} &amp; 1_{V}
+                 \end{bmatrix}^{-1} \circ 
+                 \begin{bmatrix}
+                 1_{AA} &amp; g_{XV} \circ f_{AX}\\
+                 0_{VA} &amp; 1_{VV}
+                 \end{bmatrix} 
+         
+              </me>
+         
+              <me>
+                 \begin{bmatrix}
+                 1_{BB} &amp; h_{BU}\\
+                 0_{UB} &amp; 1_{UU}
+                 \end{bmatrix}  = 
+                 \begin{bmatrix}
+                 1_{BB} &amp; g_{YU} \circ f_{BY}\\
+                 0_{UB} &amp; 1_{UU}
+                 \end{bmatrix} \circ
+                 \begin{bmatrix}
+                 1_{B} &amp; 0_{BU} \\
+                 0_{UB} &amp; 1_{U}
+                 \end{bmatrix}^{-1} \circ 
+                 \begin{bmatrix}
+                 1_{BB} &amp; g_{XU} \circ f_{BX}\\
+                 0_{UB} &amp; 1_{UU}
+                 \end{bmatrix} 
+         
+              </me>
+              <me>
+                 \begin{bmatrix}
+                 1_{BB} &amp; h_{BV}\\
+                 0_{VA} &amp; 1_{VV}
+                 \end{bmatrix}  = 
+                 \begin{bmatrix}
+                 1_{BB} &amp; g_{YV} \circ f_{BY}\\
+                 0_{VB} &amp; 1_{VV}
+                 \end{bmatrix} \circ
+                 \begin{bmatrix}
+                 1_{B} &amp; 0_{BV} \\
+                 0_{VB} &amp; 1_{V}
+                 \end{bmatrix}^{-1} \circ 
+                 \begin{bmatrix}
+                 1_{BB} &amp; g_{XV} \circ f_{BX}\\
+                 0_{VB} &amp; 1_{VV}
+                 \end{bmatrix} 
+              </me>
+            </p>
+            <p>
+              Maybe I can take these maps and turn them
+              into a big <q>nested matrix</q>:
+             <me>
+                 \begin{bmatrix}
+                 \begin{bmatrix}
+                 1_{AA} &amp; h_{AU}\\
+                 0_{UA} &amp; 1_{UU}
+                 \end{bmatrix}
+                  &amp; 
+                  \begin{bmatrix}
+                  1_{AA} &amp; h_{AV}\\
+                  0_{VA} &amp; 1_{VV}
+                  \end{bmatrix}
+         
+                  \\
+                  \begin{bmatrix}
+                  1_{BB} &amp; h_{BU}\\
+                  0_{UB} &amp; 1_{UU}
+                  \end{bmatrix}
+                 &amp; 
+                 \begin{bmatrix}
+                 1_{BB} &amp; h_{BV}\\
+                 0_{VB} &amp; 1_{VV}
+                 \end{bmatrix}
+                 \end{bmatrix} 
+             </me>
+             
+            </p>
+            <p>
+             The components of that matrix should have the following
+             domains and codomains:
+             <me>
+                 \begin{bmatrix}
+                 A+U \longrightarrow A \times U &amp;
+                 A+V \longrightarrow A \times V \\
+                 B+U \longrightarrow B \times U &amp; 
+                 B+V \longrightarrow B \times V
+                 \end{bmatrix}  
+             </me>
+            </p>
+            <p>
+               Maybe I should be thinking of this identity matrix <m>\alpha^{-1}</m> in 
+               terms of it's properties?
+               The idea being that <m>\alpha \circ \alpha^{-1} = 1_{X+Y}</m>
+               and <m>\alpha^{-1} \circ \alpha = 1_{X \times Y}</m> for <em>any</em> 
+               <m>X</m> and <m>Y</m> in the category. 
+               What if I were to choose <m>X = A + B</m> and <m>Y = U + V</m>?
+             </p>
+             <p>
+                 Our linear category should already contain 
+                 isomorphisms <m>A+B \leftrightarrows A \times B</m> and 
+                 <m>U+V \leftrightarrows U \times V</m>.  If we also
+                 have an isomorphism <m>(A+B)+(U+V) \leftrightarrows (A + B) \times (U + V) </m>,
+                 then we should be able to use the injections and projections
+                 to define an isomorphism <m>A+B \leftrightarrows U \times V</m>.
+             </p>
+             <p>
+                 Consider the following:
+                 <me>(A+B) \times (U + V) \xrightarrow{p_1} (A+B) \xrightarrow{\alpha^{-1}} (A \times B) \xrightarrow{j_1} (A \times B) + (U \times V)</me>
+                 <me>(A+B) \times (U + V) \xrightarrow{p_2} (U+V) \xrightarrow{\alpha^{-1}} (U \times B) \xrightarrow{j_2} (A \times B) + (U \times V)</me>
+             </p>
+             <p>
+                 Our definition of product and sum mean we have unique
+                 maps <m>j,p</m> satisfying <m>j \circ \alpha^{-1} \circ p = \begin{bmatrix}
+                     1_{A+B} &amp; 0_{(A+B)(U+V)} \\
+                     0_{(U+V)(A+B)} &amp; 1_{U+V}
+                     \end{bmatrix}^{-1}</m> defined from 
+                     <m>(A+B) \times (U + V) \longrightarrow (A \times B) + (U \times V)</m>.
+         
+                 If we precompose by <m>p_1</m> and post compose by <m>j_1</m>,
+                 then we get a map <m>A + B \longrightarrow U \times V</m>
+                 which has the same domain and codomain as <m>h</m>.
+             </p>
+             <p>
+                 If I'm interpreting this right, this gives us a 
+                 special matrix <m>
+                     \begin{bmatrix}
+                     j_1 \circ p_1 &amp;
+                     j_1 \circ p_2 \\
+                     j_2 \circ p_1 &amp; 
+                     j_2 \circ p_2
+                     \end{bmatrix}  
+                 </m> that works for <em>any</em> map 
+                 <m>X+Y\rightarrow X \times Y</m> by interchanging
+                 the roles of product and coproduct.  Maybe that's the
+                 key to showing this <m>        \begin{bmatrix}
+                     \begin{bmatrix}
+                     1_{AA} &amp; h_{AU}\\
+                     0_{UA} &amp; 1_{UU}
+                     \end{bmatrix}
+                      &amp; 
+                      \begin{bmatrix}
+                      1_{AA} &amp; h_{AV}\\
+                      0_{VA} &amp; 1_{VV}
+                      \end{bmatrix}
+             
+                      \\
+                      \begin{bmatrix}
+                      1_{BB} &amp; h_{BU}\\
+                      0_{UB} &amp; 1_{UU}
+                      \end{bmatrix}
+                     &amp; 
+                     \begin{bmatrix}
+                     1_{BB} &amp; h_{BV}\\
+                     0_{VB} &amp; 1_{VV}
+                     \end{bmatrix}
+                     \end{bmatrix} = h</m>? 
+                     
+             </p>
+        </solution>
+    </example>
+
+    <p>
+        I think starting to see why 
+         the distributive property
+        to fail in a <q>linear category</q>.
+         
+        I want to spend a little more time exploring
+        so I'll pick this up next week.
+
         
-   </p>
-   <p>
-     I think what's tripping me up here is that I'm not sure
-     how to handle the <q>matrix composition</q>.  Really,
-     <m>\begin{bmatrix}
-     f_{AX} &amp; f_{AY}\\
-     f_{BX} &amp; f_{BY}
-     \end{bmatrix}</m> is just our map <m>A+B \xrightarrow{f} X \times Y</m> 
-     and   <m>          \begin{bmatrix}
-     g_{XU} &amp; g_{XV}\\
-     g_{XV} &amp; g_{YV}
-     \end{bmatrix} </m> is our map 
-     <m>X+Y \xrightarrow{g} U \times V</m>.
-     Our map <m>\alpha = 
-        \begin{bmatrix}
-        1_{X} &amp; 0_{XY}\\
-        0_{YX} &amp; 1_{Y}
-        \end{bmatrix} ^{-1}
-    </m> is the inverse of our <q>preferred map</q> 
-    <m>X+Y \rightarrow X \times Y</m> so <m>\alpha</m>
-    is a uniquely defined map <m>X \times Y \rightarrow X+Y</m>
-    that connects <m>f</m> and <m>g</m> like so:
-    <me>
-        A+B \xrightarrow{f} X \times Y \xrightarrow{\alpha} X+Y \xrightarrow{g} U \times V
-        
-    </me>
-    
-
-    We're certain such <m>\alpha</m> exists because in a <em>linear category</em>
-    every <q>identity matrix</q> is invertable.
-    That means that 
-    something like 
-   <m>  \begin{bmatrix}
-      1_{A} &amp; 0_{AU} \\
-      0_{UA} &amp; 1_{U}
-      \end{bmatrix}^{-1}</m> is defined in such a way that
-      <m>  \begin{bmatrix}
-          1_{A} &amp; 0_{AU} \\
-          0_{UA} &amp; 1_{U}
-          \end{bmatrix}^{-1} 
-      \circ \begin{bmatrix}
-      1_{A} &amp; 0_{AU} \\
-      0_{UA} &amp; 1_{U}
-      \end{bmatrix} = 1_{A+U}
-  </m>
-  and 
-  <m>  \begin{bmatrix}
-      1_{A} &amp; 0_{AU} \\
-      0_{UA} &amp; 1_{U}
-      \end{bmatrix}
-  \circ \begin{bmatrix}
-  1_{A} &amp; 0_{AU} \\
-  0_{UA} &amp; 1_{U}
-  \end{bmatrix}^{-1}  = 1_{A \times U}
-</m>
- </p>
-
-
-   <p>
-      Maybe I should be thinking of this identity matrix <m>\alpha^{-1}</m> in 
-      terms of it's properties?
-      The idea being that <m>\alpha \circ \alpha^{-1} = 1_{X+Y}</m>
-      and <m>\alpha^{-1} \circ \alpha = 1_{X \times Y}</m> for <em>any</em> 
-      <m>X</m> and <m>Y</m> in the category. 
-      What if I were to choose <m>X = A + B</m> and <m>Y = U + V</m>?
-    </p>
-    <p>
-        Our linear category should already contain 
-        isomorphisms <m>A+B \leftrightarrows A \times B</m> and 
-        <m>U+V \leftrightarrows U \times V</m>.  If we also
-        have an isomorphism <m>(A+B)+(U+V) \leftrightarrows (A + B) \times (U + V) </m>,
-        then we should be able to use the injections and projections
-        to define an isomorphism <m>A+B \leftrightarrows U \times V</m>.
-    </p>
-    <p>
-        Consider the following:
-        <me>(A+B) \times (U + V) \xrightarrow{p_1} (A+B) \xrightarrow{\alpha^{-1}} (A \times B) \xrightarrow{j_1} (A \times B) + (U \times V)</me>
-        <me>(A+B) \times (U + V) \xrightarrow{p_2} (U+V) \xrightarrow{\alpha^{-1}} (U \times B) \xrightarrow{j_2} (A \times B) + (U \times V)</me>
-    </p>
-    <p>
-        Our definition of product and sum mean we have unique
-        maps <m>j,p</m> satisfying <m>j \circ \alpha^{-1} \circ p = \begin{bmatrix}
-            1_{A+B} &amp; 0_{(A+B)(U+V)} \\
-            0_{(U+V)(A+B)} &amp; 1_{U+V}
-            \end{bmatrix}^{-1}</m> defined from 
-            <m>(A+B) \times (U + V) \longrightarrow (A \times B) + (U \times V)</m>.
     </p>
 </section>
