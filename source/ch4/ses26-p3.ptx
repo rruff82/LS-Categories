@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session26-p3">
+    <title>Session 26: Distributive categories and linear categories, Part 3</title>
+
+    <p>
+        Let's try to wrap this up!
+    </p>
+    <example>
+        <title>Exercise 2: (Part 2/2)</title>
+        <statement>
+            <p>
+                Continued from last week...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                I'm going to start by taking a step back and looking 
+                at what I'm really trying to prove here.  This exercise
+                was worded using <q>if and only if</q>, so I need to 
+                prove both of the following statements:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        If an initial object is isomorphic to a terminal object,
+                        then the category has zero maps.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        If a category has zero maps, then
+                        an initial object is isomorphic to a terminal
+                        object.
+                    </p>
+                </li>
+            </ul>
+            <p>
+                In a category with initial and terminal objects,
+                we're assured to have exactly one map 
+                <m>S \xrightarrow{m} T</m>.
+                This map is an isomorphism <q>if and only if</q>
+                there's a respective inverse map 
+                <m>T \xrightarrow{m^{-1}} S</m> such that <m>m^{-1} \circ m = 1_S</m>
+                and <m>m \circ m^{-1} = 1_T</m>. 
+            </p>
+            <p>
+                We've defined <q>zero maps</q> by the property that 
+                any map composed with a zero map produces another zero
+                map.  In symbolic form:
+                <me>
+                    \forall A \xrightarrow{f} B, B \xrightarrow{g} C:
+                    \text{zero_map}(f) \lor \text{zero_map}(g) \implies
+                    \text{zero_map}(g \circ f)
+                </me>
+            </p>
+            <p>
+                Okay, lets focus on the first statement.
+                We assume <m>m^{-1}</m> exists then need to
+                show that it gives rise to some <q>zero map</q>. 
+                Specifically, I think we can define 
+                <m>X \xrightarrow{0_{XY}} Y</m> relative to
+                the uniquely defined maps <m>X \xrightarrow{t_x} T</m>
+                and <m>S \xrightarrow{s_y} Y</m>. 
+                Simply define <m>0_{XY}</m> as the composition
+                <m>X \xrightarrow{t_x} T \xrightarrow{m^{-1}} 
+                    S \xrightarrow{s_y} Y
+                </m>.
+        
+            </p>
+            <p>
+                So how can we demonstrate that <m>0_{XY}</m> 
+                is a <q>zero map</q>? We'd need to look at 
+                every possible composition <m>A \xrightarrow{f} X 
+                    \xrightarrow{0_{XY}} Y</m> and
+                    <m>X \xrightarrow{0_{XY}} Y \xrightarrow{g} B</m>
+                to ensure we get another zero map.</p><p>
+                We can define <m>A \xrightarrow{0_{AY}} Y</m>
+                relative to the unique maps <m>A \xrightarrow{t_a} T</m>
+                and <m>S \xrightarrow{s_y} Y</m> 
+                by <m>A \xrightarrow{t_a} T \xrightarrow{m^{-1}} 
+                    S \xrightarrow{s_y} Y
+                </m>.  If <m>0_{XY} \circ f \neq 0_{AY}</m>, there 
+                would need to be some point <m>T \xrightarrow{a} A</m>
+                such that <m>0_{XY} \circ f \circ a \neq 0_{AY} \circ a</m>.
+                Expanding with our definitions of the zero maps:
+                <me>
+                    s_y \circ m^{-1} \circ t_x \circ f \circ a
+                    \neq
+                    s_y \circ m^{-1} \circ t_a \circ a
+                </me>
+                Which can only happen if
+                <me> t_x \circ f \neq t_a 
+                </me> 
+        
+        
+                But 
+                <m>A \xrightarrow{t_a} T</m> is a uniquely defined map 
+                with that codomain and domain! It follows from
+                this contradiction that 
+                our assumption <m>0_{XY} \circ f \neq 0_{AY}</m>
+                is false, and consequently that 
+                <m>0_{XY} \circ f = 0_{AY}</m> is a zero map.
+        
+            </p><p>
+                Likewise, we can define <m>X \xrightarrow{0_{XB}} B</m>
+                relative to the unique maps <m>X \xrightarrow{t_x} T</m>
+                and <m>S \xrightarrow{s_b} B</m> 
+                by <m>X \xrightarrow{t_a} T \xrightarrow{m^{-1}} 
+                    S \xrightarrow{s_b} B
+                </m>. If we assume <m>g \circ 0_{XY} \neq 0_{XB}</m>,
+                then there must exist some <m>T \xrightarrow{x} X</m>
+                satisfying <m>g \circ 0_{XY} \circ x \neq 0_{XB} x</m>.
+                Expanding this gives us the following:
+                <me>
+                    g \circ s_y \circ m^{-1} \circ t_x \circ x 
+                    \neq s_b \circ m^{-1} \circ t_x \circ x
+                </me>
+                Which can only happen when:
+                <me>
+                    g \circ s_y \neq s_b
+                </me>
+                Since <m>s_b</m> is the unique map with that domain and
+                codomain, we get a contradiction.
+                Our assumption that <m>g \circ 0_{XY} \neq 0_{XB}</m>
+                must therefore be false.
+            </p>
+            <p>
+                Essentially, by having a map <m>T \xrightarrow{m^{-1}} S</m>
+                we can define a zero map <m>0_{AB}</m> between any objects 
+                <m>A,B</m> in <m>\mathcal{C}</m> through the unique composition
+                <m>A \rightarrow T \xrightarrow{m^{-1}} S \rightarrow B</m>.
+            </p>
+            <p>
+                Having demonstrated that we can construct our zero maps
+                from <m>m^{-1}</m>, let's attempt to do the reverse.
+            </p>
+            <p>
+                Suppose we have a zero maps <m>0_{XY},0_{AY},0_{XB}</m> 
+                with the property 
+                that for any maps <m>A \xrightarrow{f} X</m> and
+                <m>Y \xrightarrow{g} B</m>, the composition 
+                <m>0_{XY} \circ f = 0_{AY}</m> and <m>g \circ 0_{XY} = 0_{XB}</m>.
+                The associative property of the category says that
+                <m>g \circ (0_{XY} \circ f) = (g \circ 0_{XY}) \circ f</m>,
+                so we must have the case that
+                <m>g \circ 0_{AY} = 0_{XB} \circ f = 0_{AB}</m>.
+            </p>
+            <p>
+                If this is true for any maps <m>f,g</m>,
+                let's choose the uniquely defined maps 
+                <m>f = S \xrightarrow{j_1} (S+T)</m> 
+                and <m>g = (S \times T) \xrightarrow{p_2} T</m>.  It follows from
+                the above that 
+                <m>g \circ 0_{S(S+T)} = 0_{X(S \times T)} \circ f = 0_{ST} </m>.
+        
+                Let's see we can assemble this into the commutative
+                diagram from last week:
+            </p>
+            <image>
+                <shortdescription>Commutative diagram 
+                    for 0_{(S + T)(S times T)}
+                </shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                    \node (B1) at (-5,1) {$S$};
+                    \node (B2) at (-5,-1) {$T$};
+        
+                    \node (S) at (-3,0) {$S+T$};
+                    \node (X) at (-1,0) {$T$};
+                    \path[-{stealth}]
+                    (B1) edge[bend left] node[below left] {$j_1$} (S)
+                    (B2) edge[bend right] node[above left] {$j_2$} (S)
+                    (B1) edge[bend left] node[above right] {$j \circ j_1 = 0_{ST}$} (X)
+                    (B2) edge[bend right] node[below right] {$j \circ j_2 = 1_T$} (X)
+                    (S) edge node[above] {$j$} (X)
+                    ;  
+                    
+                    \node (C1) at (5,1) {$S$};
+                    \node (C2) at (5,-1) {$T$};
+                    \node (P) at (3,0) {$S \times T$};
+                    \node (Y) at (1,0) {$T$};
+                    \path[-{stealth}]
+                    (P) edge[bend left] node[below right] {$p_1$} (C1)
+                    (P) edge[bend right] node[above right] {$p_2$} (C2)
+                    (Y) edge[bend left] node[above left] {$p_1 \circ p$} (C1)
+                    (Y) edge[bend right] node[below left] {$p_2 \circ p = 1_T$} (C2)
+                    (Y) edge node[above] {$p$} (P)
+          
+                     (X) edge node[above] {$1_T$} (Y)
+                     
+                     (B1) edge[bend left] node[above] {$1_S$} (C1)
+                     (B2) edge[bend right] node[below] {$1_T$} (C2)
+        
+                     (S) edge[bend right] node[above] {$0_{(S + T)(S \times T)}$} (P)
+                     ;
+        
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                In this diagram, we get a zero map from
+                <m>T \rightarrow S</m>
+                defined through this unique composition
+                <m>p_1 \circ p \circ j \circ j_2</m>.
+                This map has a inverse given by 
+                <m>p_2 \circ p \circ j \circ j_1</m>.
+                Knowing that <m>j \circ j_2 = 1_T</m> and
+                <m>p_2 \circ p = 1_T</m>, we could simplify
+                these maps down to <m>p_1 \circ p = 0_{ST}</m> and 
+                <m>j \circ j_1 = 0_{TS}</m>.  These maps 
+                satisfy the property of the <m>m^{-1}</m> we were 
+                looking for,
+                namely that <m>0_{ST} \circ 0_{TS} = 1_T</m>
+                and <m>0_{TS} \circ 0_{ST} = 1_S</m>.
+            </p>
+            <p>
+                With that, I believe this exercise is complete.
+            </p>
+        </solution>
+    </example>
+
+   
+</section>
