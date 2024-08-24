@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27">
+    <title>Session 27: Examples of universal constructions</title>
+    <p>
+        Let's jump right in!
+    </p>
+    <example>
+        <title>Exercise 1:</title>
+        <statement>
+            <p>
+                Prove that if <m>A</m> and <m>B</m> are objects and 
+                <m>A \times B = \mathbf{1}</m>, then
+                <m>A = B = \mathbf{1}</m>...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                They asked me to <sq>translate</sq>, so that's what
+                I'll try to do!
+            </p>
+            <p>
+                With the statement <m>A \times B = \mathbf{1}</m>,
+                we're assuming we have we have a pair of
+                 projection maps 
+                <m>A \xleftarrow{p_1} \mathbf{1} \xrightarrow{p_2} B</m>
+                such that for <q>every</q> object <m>X</m> with maps 
+                <m>A \xrightarrow{f_1} X \xleftarrow{f_2} B</m> there
+                is exactly one map <m>X \xrightarrow{f} \mathbf{1}</m>
+                with <m>f_1 = p_1 f</m> and <m>f_2 = p_2 f</m>.
+                 Our category
+                must allow compositions so we know we have some map
+                <m>X \xrightarrow{f} \mathbf{1} \xrightarrow{f_1} A</m>
+                 in <m>\mathcal{C}</m>.
+            </p> <p>
+                Suppose <m>g : X \rightarrow A</m> is a another map 
+                in <m>\mathcal{C}</m> such that <m>g \neq p_1 f</m>.
+            </p><p>
+               For <m>g \neq p_1 f</m> to be true, 
+               there where would need to exist some
+                <m>\mathbf{1} \xrightarrow{x} X</m> such that 
+                <m>g x \neq p_1 f x</m>.  Or more explicitly:
+                <me>\mathbf{1} \xrightarrow{x} X \xrightarrow{g} A
+                    \neq
+                    \mathbf{1} \xrightarrow{x} X \xrightarrow{f} \mathbf{1} \xrightarrow{p_1} A
+                </me>
+                However, the composition <m>f x</m> is a
+                map <m>\mathbf{1} \rightarrow \mathbf{1}</m>
+                and there's only one such map: namely the identity
+                 <m>1_\mathbf{1}</m>.
+                The right side of this can be simplified using the associative 
+                property <m>p_1 f x = p_1 1_\mathbf{1} = p_1</m>.
+                This implies <m>f</m> and <m>g</m>
+                are the same map.
+          
+            </p>
+            <p>
+                Thus, there is exactly one map <m>X \rightarrow A</m>
+                and one map <m>X \rightarrow B</m>.  This implies
+                <m>A</m> and <m>B</m> are <em>terminal objects</em>.
+            </p>
+            <p>
+                And that completes the proof.
+            </p>
+        </solution>
+    </example>
+
+    
+    <p>
+        This proof seems deceptively simple.  
+        I feel like the rest of these exercises are going 
+        to get deep, so I'm going to rest here for now.
+    </p>
+</section>
