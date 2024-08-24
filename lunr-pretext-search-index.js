@@ -2233,6 +2233,24 @@ var ptx_lunr_docs = [
   "body": " Exercise 2: (Part 2\/2)   Continued from last week...    I'm going to start by taking a step back and looking at what I'm really trying to prove here. This exercise was worded using if and only if , so I need to prove both of the following statements:    If an initial object is isomorphic to a terminal object, then the category has zero maps.    If a category has zero maps, then an initial object is isomorphic to a terminal object.    In a category with initial and terminal objects, we're assured to have exactly one map . This map is an isomorphism if and only if there's a respective inverse map such that and .  We've defined zero maps by the property that any map composed with a zero map produces another zero map. In symbolic form:   Okay, lets focus on the first statement. We assume exists then need to show that it gives rise to some zero map . Specifically, I think we can define relative to the uniquely defined maps and . Simply define as the composition .  So how can we demonstrate that is a zero map ? We'd need to look at every possible composition and to ensure we get another zero map. We can define relative to the unique maps and by . If , there would need to be some point such that . Expanding with our definitions of the zero maps: Which can only happen if But is a uniquely defined map with that codomain and domain! It follows from this contradiction that our assumption is false, and consequently that is a zero map. Likewise, we can define relative to the unique maps and by . If we assume , then there must exist some satisfying . Expanding this gives us the following: Which can only happen when: Since is the unique map with that domain and codomain, we get a contradiction. Our assumption that must therefore be false.  Essentially, by having a map we can define a zero map between any objects in through the unique composition .  Having demonstrated that we can construct our zero maps from , let's attempt to do the reverse.  Suppose we have a zero maps with the property that for any maps and , the composition and . The associative property of the category says that , so we must have the case that .  If this is true for any maps , let's choose the uniquely defined maps and . It follows from the above that . Let's see we can assemble this into the commutative diagram from last week:   Commutative diagram for 0_{(S + T)(S times T)}    In this diagram, we get a zero map from defined through this unique composition . This map has a inverse given by . Knowing that and , we could simplify these maps down to and . These maps satisfy the property of the we were looking for, namely that and .  With that, I believe this exercise is complete.   "
 },
 {
+  "id": "session27",
+  "level": "1",
+  "url": "session27.html",
+  "type": "Section",
+  "number": "5.33",
+  "title": "Session 27: Examples of universal constructions",
+  "body": " Session 27: Examples of universal constructions  Let's jump right in!   Exercise 1:   Prove that if and are objects and , then ...    They asked me to translate , so that's what I'll try to do!  With the statement , we're assuming we have we have a pair of projection maps such that for every object with maps there is exactly one map with and . Our category must allow compositions so we know we have some map in .  Suppose is a another map in such that . For to be true, there where would need to exist some such that . Or more explicitly: However, the composition is a map and there's only one such map: namely the identity . The right side of this can be simplified using the associative property . This implies and are the same map.  Thus, there is exactly one map and one map . This implies and are terminal objects .  And that completes the proof.    This proof seems deceptively simple. I feel like the rest of these exercises are going to get deep, so I'm going to rest here for now.  "
+},
+{
+  "id": "session27-3",
+  "level": "2",
+  "url": "session27.html#session27-3",
+  "type": "Example",
+  "number": "5.33.1",
+  "title": "Exercise 1:.",
+  "body": " Exercise 1:   Prove that if and are objects and , then ...    They asked me to translate , so that's what I'll try to do!  With the statement , we're assuming we have we have a pair of projection maps such that for every object with maps there is exactly one map with and . Our category must allow compositions so we know we have some map in .  Suppose is a another map in such that . For to be true, there where would need to exist some such that . Or more explicitly: However, the composition is a map and there's only one such map: namely the identity . The right side of this can be simplified using the associative property . This implies and are the same map.  Thus, there is exactly one map and one map . This implies and are terminal objects .  And that completes the proof.   "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
