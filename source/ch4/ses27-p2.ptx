@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27-p2">
+    <title>Session 27: Examples of universal constructions, Part 2</title>
+    <p>
+        I think I want to try something a little different with this 
+        next exercise and write out the proofs for sum and product 
+        side by side. 
+    </p>
+    <example>
+        <title>Exercise 2:</title>
+        <statement>
+            <p>
+                a) Show that if <m>C</m> has the property...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Part a)
+            </p>
+            <sidebyside widths="45% 45%">
+                <p>
+                    Given <m>C</m> such that for every <m>X</m> there 
+                    is at most one map <m>X \longrightarrow C</m>, prove
+                   <image>
+                    <shortdescription>Two identity maps in a product</shortdescription>
+                    <latex-image>
+        
+                        \begin{tikzpicture}
+                            \node (X) at (0,0) {$C$};
+                            \node (B1) at (2,1) {$C$};
+                            \node (B2) at (2,-1) {$C$};
+                            \path[-{stealth}]
+                                (X) edge node[above left] {$1_C$} (B1)
+                                (X) edge node[below left] {$1_C$} (B2)
+                            ;
+                        \end{tikzpicture}
+                    </latex-image>
+                   </image>
+                    is a product.
+                </p>
+                <p>
+                    Given <m>C</m> such that for every <m>X</m> there 
+                    is at most one map <m>C \longrightarrow X</m>, prove
+                    <image>
+                        <shortdescription>Two identity maps in a sum</shortdescription>
+                        <latex-image>
+        
+                            \begin{tikzpicture}
+                                \node (X) at (0,0) {$C$};
+                                \node (B1) at (-2,1) {$C$};
+                                \node (B2) at (-2,-1) {$C$};
+                                \path[-{stealth}]
+                                    (B1) edge node[above right] {$1_C$} (X)
+                                    (B2) edge node[below right] {$1_C$} (X)
+                                ;
+        
+                            \end{tikzpicture}
+                        </latex-image>
+                       </image>
+                    is a sum.
+                </p>
+            </sidebyside>
+        
+            <sidebyside widths="45% 45%">
+                <p>
+                    For 
+                    <m>C, C \xrightarrow{p_1 = 1_C} C, 
+                        C \xrightarrow{p_2 = 1_C} C</m>
+                    to be a product, we need to
+                    prove that for any object <m>X</m> and pair of maps 
+                    <m>X \xrightarrow{f_1} C</m> and
+                    <m>X \xrightarrow{f_2} C</m>, we 
+                    have exactly one map <m>X \xrightarrow{f} C</m>
+                    for which <m>f_1 = p_1 f</m> and <m>f_2 = p_2 f</m>.
+                
+                </p> 
+                <p>
+                    For 
+                    <m>C, C \xrightarrow{j_1 = 1_C} C, 
+                        C \xrightarrow{j_2 = 1_C} C</m>
+                    to be a sum, we need to
+                    prove that for any object <m>X</m> and pair of maps 
+                    <m>C \xrightarrow{g_1} X</m> and
+                    <m>C \xrightarrow{g_2} X</m>, we 
+                    have exactly one map <m>C \xrightarrow{g} X</m>
+                    for which <m>g_1 = g j_1</m> and <m>f_2 = g j_1</m>.
+                </p>
+            </sidebyside>
+            <sidebyside widths="45% 45%">   
+            <p>Let <m>X \xrightarrow{f_1} C</m> and 
+                <m>X \xrightarrow{f_2} C</m> be an arbitrary
+                pair of maps
+                map in the category.  
+            </p>
+            <p>Let <m>C \xrightarrow{g_1} X</m> and 
+                <m>C \xrightarrow{g_2} X</m> be an arbitrary
+                pair of maps
+                map in the category.  
+            </p>
+        
+            </sidebyside>
+            <sidebyside widths="45% 45%">
+                <p>
+                    We've defined <m>C</m> such there is <q>at most</q>
+                    one map <m>X \xrightarrow{f} C</m>.  Given that
+                    <m>f_1,f_2</m> exist, they must both be equal to
+                     this unique map <m>f</m>. 
+                    
+                </p>
+                <p>
+                    We've defined <m>C</m> such there is <q>at most</q>
+                    one map <m>C \xrightarrow{g} X</m>.  Given that
+                    <m>g_1,g_2</m> exist, they must both be equal to
+                     this unique map <m>g</m>. 
+                </p>
+            </sidebyside>
+        
+            <sidebyside widths="45% 45%">
+                <p>
+                    Since <m>f = f_1 = f_2</m> and <m>p_1 = p_2 = 1_C</m>, 
+                    <m>f_1 = p_1 f</m> and <m>f_2 = p_2 f</m> both become
+                    the composition
+                    <m>f = 1_C f</m>.  This follows directly from the
+                    definition of the identity map, so we've 
+                    effectively demonstrated that <m>C,1_C,1_C</m> is 
+                    a product.
+                </p>
+                <p>
+                    Since <m>g = g_1 = g_2</m> and <m>j_1 = j_2 = 1_C</m>, 
+                    <m>g_1 = g j_1</m> and <m>g_2 = g j_2</m> both become
+                    the composition
+                    <m>g = g 1_C</m>.  This follows directly from the
+                    definition of the identity map, so we've 
+                    effectively demonstrated that <m>C,1_C,1_C</m> is 
+                    a sum.
+                </p>
+            </sidebyside>
+        
+        
+            <p>
+                Part b)
+            </p>
+            <sidebyside widths="45% 45%">
+                <p>Show that [the above property]
+                    is equivalent to the statement 
+                    that the unique map <m>C \longrightarrow \mathbf{1}</m> 
+                    is a <em>monomorphism</em>.
+        
+                </p>
+                <p>Show that [the above property]
+                    is equivalent to the statement 
+                    that the unique map <m>\mathbf{0} \longrightarrow C</m> 
+                    is a <em>epimorphism</em>.
+                </p>
+            </sidebyside>
+        
+        
+            <sidebyside widths="45% 45%">
+                <p>
+                    A <em>monomorphism</em>  
+                    <m>C \xrightarrow{r} \mathbf{1}</m> is 
+                    defined as an
+                    <q>injective map</q> such that for every pair 
+                    of maps <m>\mathbf{1} \xrightarrow{c_1} C</m>
+                    and <m>\mathbf{1} \xrightarrow{c_2} C</m>,
+                    <m>r \circ c_1 = r \circ c_2</m>
+                    implies <m>c_1 = c_2</m>.
+                </p>
+                <p>
+                    A <em>epimorphism</em>  
+                    <m>\mathbf{0} \xrightarrow{s} C</m> is 
+                    defined as an
+                    <q>surjective map</q> such that for every pair 
+                    of maps <m>\mathbf{1} \xrightarrow{c_1} C</m>
+                    and <m>\mathbf{1} \xrightarrow{c_2} C</m>,
+                    <m>c_1 \circ s = c_2 \circ s</m>
+                    implies <m>c_1 = c_2</m>.
+                </p>
+            </sidebyside>
+            <sidebyside widths="45% 45%">
+                <p>
+                    Consider the composition defined by
+                    <m>r \circ f: X \rightarrow \mathbf{1}</m>.
+                    By the definition of terminal object, 
+                there is exactly one map <m>X \longrightarrow \mathbf{1} </m>,
+                so <m>r \circ f</m> must be this unique map.  Thus, having 
+                <m>f</m> with the <q>at most one map</q> property implies
+                <m>r</m> is a <em>monomorphism</em>.
+                </p> 
+                   <p>
+                    Consider the composition defined by
+                    <m>g \circ s: \mathbf{0} \rightarrow X</m>.
+                    By the definition of initial object, 
+                there is exactly one map <m>\mathbf{0} \longrightarrow X</m>,
+                so <m>g \circ s</m> must be this unique map.  Thus, having 
+                <m>g</m> with the <q>at most one map</q> property implies
+                <m>s</m> is a <em>epimorphism</em>.
+                </p>
+            </sidebyside>
+        
+            <sidebyside widths="45% 45%">
+                <p>
+                    Next, we must prove the converse.  We start by 
+                    supposing <m>r</m> is a <q>monomorphism</q>.
+                </p>
+                <p>
+                    Next, we must prove the converse.  We start by 
+                    supposing <m>s</m> is a <q>epimorphism</q>.
+                </p>
+            </sidebyside>
+
+            <sidebyside widths="45% 45%">
+                <p> 
+                    The statement <m>r \circ c_1 = r \circ c_2 \implies c_1 = c_2</m>
+                    is logically equivalent to the contrapositive
+                    <m>c_1 \neq c_2 \implies r \circ c_1 \neq r \circ c_2</m>.
+                    However, <m>r \circ c_1</m> and <m>r \circ c_2</m> are both 
+                    defined with domain and codomains of <m>\mathbf{1} \longrightarrow \mathbf{1}</m>
+                    and the definition of terminal objects says this map
+                    is unique.
+        
+                </p>
+                <p>
+                    The statement <m>c_1 \circ s = c_2 \circ s \implies c_1 = c_2</m>
+                    is logically equivalent to the contrapositive
+                    <m>c_1 \neq c_2 \implies c_1 \circ s \neq c_2 \circ s</m>.
+                    However, <m>c_1 \circ s</m> and <m>c_2 \circ s</m> are both 
+                    defined with domain and codomains of <m>\mathbf{0} \longrightarrow \mathbf{1}</m>
+                    and the definition of initial objects says this map
+                    is unique.
+                </p>
+            </sidebyside>
+            <sidebyside widths="45% 45%">
+                <p>
+                    By assuming there are two maps
+                    <m>X \xrightarrow{f_1} C</m> and <m>X \xrightarrow{f_2} C</m>
+                    with <m>f_1 \neq f_2</m>,
+                    there would need to exist some a map
+                    <m>\mathbf{1} \xrightarrow{x} X</m> such that
+                    <m>f_1 x \neq f_2 x</m>.  However, this means the 
+                    compositions <m>X \xrightarrow{f_1} C \xrightarrow{r} \mathbf{1}</m>
+                    and <m>X \xrightarrow{f_2} C \xrightarrow{r} \mathbf{1}</m>
+                    are both maps <m>X \rightarrow \mathbf{1}</m>.
+                    By the definition of terminal object, 
+                    there is only one such map <m>X \rightarrow \mathbf{1}</m>
+                    so we're forced to conclude that 
+                    <m>r f_1 = r f_2</m> are both equivalent to this
+                    unique map.        
+        
+            
+                </p>
+                <p>
+                    By assuming there are two maps
+                    <m>C \xrightarrow{g_1} X</m> and <m>C \xrightarrow{g_2} X</m>
+                    with <m>g_1 \neq g_2</m>,
+                    there would need to exist some a map
+                    <m>\mathbf{1} \xrightarrow{c} C</m> such that
+                    <m>g_1 c \neq g_2 c</m>.  However, this means the 
+                    compositions <m>\mathbf{0} \xrightarrow{s} C \xrightarrow{g_1} X</m>
+                    and <m>\mathbf{0} \xrightarrow{s} C \xrightarrow{g_2} X</m>
+                    are both maps <m>\mathbf{0} \rightarrow X</m>. 
+                    By the definition of initial object, there is only one such map
+                    <m>\mathbf{0} \rightarrow X</m> so we're forced to conclude that
+                    <m>g_1 s = g_2 s</m> are both equivalent to this unique map.
+        
+                </p>
+            </sidebyside>
+        
+            <sidebyside widths="45% 45%">
+                <p>
+                    Effectively, if we have a monomorphism 
+                    <m>r: C \rightarrow \mathbf{1}</m> we can construct 
+                    the unique map <m>X \xrightarrow{f} C</m> relative to 
+                    <m>r^{-1}: \mathbf{1} \rightarrow C</m> by way of the composition
+                    <m>X \rightarrow \mathbf{1} \xrightarrow{r^{-1}} C</m>.
+                    If such an inverse exists it must necessarily be unique,
+                    so the <q>at most one map</q> property follows from this uniqueness.
+                </p>
+                <p>
+                    Effectively, if we have a epimorphism 
+                    <m>s: \mathbf{0} \rightarrow C</m> we can construct 
+                    the unique map <m>C \xrightarrow{g} X</m> relative to 
+                    <m>s^{-1}: C \rightarrow \mathbf{0}</m> by way of the composition
+                    <m>C \xrightarrow{s^{-1}} \mathbf{0} \rightarrow X</m>.
+        
+                    If such an inverse exists it must necessarily be unique,
+                    so the <q>at most one map</q> property follows from this uniqueness.
+                </p>
+            </sidebyside>
+
+        </solution>
+    </example>
+
+    <p>
+        I think that was good practice.  The two proofs are basically the 
+        same but mirrored.  It still seems weird how we used points 
+        to test for equality when there's no points in <m>\mathbf{0}</m> 
+        for the category of sets, but hopefully the next exercise will help
+        with that.
+    </p>
+
+</section>
