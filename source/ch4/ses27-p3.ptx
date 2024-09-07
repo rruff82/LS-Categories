@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27-p3">
+    <title>Session 27: Examples of universal constructions, Part 3</title>
+    <p>
+        I feel like this week's problem is related to my earlier
+        attempts to enumerate all possible graphs.  I would 
+        feel a lot more confident about my answer here if
+         I had some way of 
+        telling that no object other than the ones I found have 
+        the property, and induction would give me a way to do so.
+
+    </p>
+    <example>
+        <title>Exercise 3:</title>
+        <statement>
+            <p>
+                Find all objects <m>C</m> in...
+            </p>
+        </statement>
+        <solution>
+
+            <p>
+                We're looking for objects in <m>\mathcal{S}</m>,
+                <m>\mathcal{S}^{\circlearrowright}</m>, and
+                <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>,
+                such that the following is a product:
+                <image width="40%">
+                    <shortdescription>Product <m>C \times C \rightarrow C</m></shortdescription>
+                    <latex-image>
+                        \begin{tikzpicture}
+                            \node (X) at (0,0) {$C$};
+                            \node (B1) at (2,1) {$C$};
+                            \node (B2) at (2,-1) {$C$};
+                            \path[-{stealth}]
+                                (X) edge node[above] {$1_C$} (B1)
+                                (X) edge node[below] {$1_C$} (B2)
+                            ;
+        
+                        \end{tikzpicture}
+                    </latex-image>
+                </image>
+            </p>
+            <p>
+                Based on the preceeding text, we know <m>\mathbf{0}</m>
+                satisfies this property, at least in <m>\mathcal{S}</m>.
+                If <m>X</m> is non-empty there's no map 
+                <m>X \rightarrow \mathbf{0}</m>,  and if <m>X</m>
+                is empty there is exactly one.
+            </p>
+            <p>
+                I'm thinking that <m>\mathbf{1}</m> should have this property
+                also, at least in <m>\mathcal{S}</m>.  By the definition of terminal object, there
+                is exactly one map <m>X \rightarrow \mathbf{1}</m> for 
+                any <m>X</m> in <m>\mathcal{C}</m>.  Any two maps
+                <m>\mathbf{1} \xrightarrow{f_1} \mathbf{1}</m> and
+                <m>\mathbf{1} \xrightarrow{f_2} \mathbf{1}</m> could only 
+                possibly be the unique identity map <m>1_\mathbf{1}</m>,
+                so <m>f_1 = f_2 = 1_\mathbf{1}</m> would all be the same 
+                map.
+            </p>
+            <p>
+                Well, what happens if <m>C = \mathbf{2}</m>?  Suppose
+                <m>X \xrightarrow{f_1} \mathbf{2}</m> and 
+                <m>X \xrightarrow{f_2} \mathbf{2}</m> are 
+                arbitrary maps in the category.  Is there a unique
+                <m>X \xrightarrow{f} \mathbf{2}</m> such that 
+                <m>f_1 = 1_\mathbf{2} f</m> and <m>f_2 = 1_\mathbf{2} f</m>?
+            </p>
+            <p>
+                Maybe I can construct one using the unique <q>antipodal</q>
+                map <m>\mathbf{2} \xrightarrow{\alpha} \mathbf{2}</m>
+                by using the property that <m>\alpha^2 = 1_\mathbf{2}</m>.
+                For any map <m>X \xrightarrow{f_1} 2</m>, there is a corresponding
+                map <m>\alpha f</m> with the property that <m>\alpha f_1 \neq f_1</m>. We could 
+                then check this map against <m>X \xrightarrow{f_2} \mathbf{2}</m> to see whether
+                or they are the same map.
+                The statement <m>f_2 = \alpha f_1</m> says that 
+                <m>\forall \mathbf{1} \xrightarrow{x} X</m> we have
+                <m>f_2 x = \alpha f_1 x</m>.  Equivalently, 
+                <m>\neg \exists \mathbf{1} \xrightarrow{x} X</m>
+                with <m>f_2 x \neq \alpha f_1 x</m>.  Postcompose
+                both sides by <m>\alpha</m> to get 
+                <m>\alpha f_2 x \neq \alpha \alpha f_1 x</m>, and 
+                apply <m>\alpha^2 = 1_\mathbf{2}</m> to get
+                <m>\neg \exists \mathbf{1} \xrightarrow{x} X: \alpha f_2 x \neq f_1 x</m>.
+                This would be equivalent to saying 
+                <m>\alpha f_2 = f_1</m>.
+            </p>
+        
+            <p>
+                In a category with an initial object <m>I</m> and terminal
+                object <m>T</m>, there's exactly one map <m>I \rightarrow \mathbf{2}</m>
+                exactly one map <m>\mathbf{2} \rightarrow T</m>,
+                exactly one map <m>I \rightarrow I</m>, and
+                exactly one map <m>T \rightarrow T</m>.  There are precisely
+                four maps <m>\mathbf{2} \rightarrow \mathbf{2}</m>,
+                so maybe we can pair up them up somehow 
+                these with those four cases.
+            </p>
+            <p>
+                Given some <m>X \xrightarrow{f} \mathbf{2}</m>,
+                we need <m>I \rightarrow X \xrightarrow{f} \mathbf{2}
+                </m> to be the unique map <m>I \rightarrow \mathbf{2}</m>
+                and
+                need <m>X \xrightarrow{f} \mathbf{2} \rightarrow T</m>
+                to be the unique map <m>X \rightarrow T</m>.
+                However, <m>I \rightarrow X \xrightarrow{f} \mathbf{2}
+                    \xrightarrow{\alpha} \mathbf{2}</m> is also
+                a map <m>I \rightarrow \mathbf{2}</m> so it must 
+                be the same as our unique one. Likewise,
+                the composition <m>X \xrightarrow{f} \mathbf{2} \rightarrow T</m>
+                would need to be the same as
+                <m>X \xrightarrow{f} \mathbf{2} \xrightarrow{\alpha} \mathbf{2} \rightarrow T</m>
+                since both are the unique map <m>X \rightarrow T</m>.
+            </p>
+            <p>
+                As I start to talk myself in circles here, I'm starting 
+                to wonder if our objects <m>C</m> our necessarily the
+                cycles <m>C_n</m> of length <m>n</m>.  In the category
+                <m>\mathcal{S}^{\circlearrowright}</m>, the above 
+                map <m>f</m> must preserve the structure of <m>\alpha</m>
+                such that <m>f \alpha = \alpha f</m>.  For any object
+                <m>C_n</m>, we have two unique identity maps defined by 
+                <m>\alpha^0 = 1_X</m> and <m>\alpha^n = 1_X</m> respectively.
+            </p>
+            <p>
+                Likewise, a cycle in 
+                <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>
+                would have two distinct identities also.  There's one cycle 
+                going <q>clockwise</q> and another <q>counter-clockwise</q>,
+                and both cycles loop back to the beginning.  It would make
+                sense that the set of objects <m>C</m> for which <m>C \mathrel{
+                    \substack{ 1_C \\ \longrightarrow \\ \longrightarrow \\ 1_C}    
+                }
+                    C 
+                </m> is a product are precisely those
+                which are isomorphic to the terminal object.
+            </p>
+        
+        </solution>
+    </example>
+
+    <p> I'm not sure if I'm 
+        satisfied with my work here, but I also can't wait to see
+       what comes next!  This following section about Cantor's isomorphism 
+        <m>\mathbb{N} \leftrightarrows \mathbb{N} \times \mathbb{N}</m>
+       seems very similar to how I tried 
+        to count my structure preserving maps before.  Maybe I'll
+        finally figure out what I did wrong back in Session 15!
+ </p>
+</section>
