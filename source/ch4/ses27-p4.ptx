@@ -1,0 +1,421 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27-p4">
+    <title>Session 27: Examples of universal constructions, Part 4</title>
+    <p>
+        I had previously done some 
+        <url href="https://github.com/rruff82/LS-Categories/blob/main/assets/notebooks/ls-ses15-ex9-before.ipynb">
+            Python work
+        </url> way back in Session 15 regarding the
+        <url href="https://en.wikipedia.org/wiki/Pairing_function">
+            Pairing function
+        </url>, so this week's exercise provided a 
+        good opportunity to better understand how it works under
+        the hood. 
+
+    </p>
+    <example>
+        <title>Exercise 4:</title>
+        <statement>
+            <p>
+                The inverse, call it <m>g</m>, of the isomorphism...
+            </p>
+        </statement>
+        <solution>
+
+            <p>
+                We're given a map 
+                <m>f: \mathbb{N} \rightarrow \mathbb{N} \times \mathbb{N}</m>
+                that enumerates pairs of natural numbers in a diagonal order.
+                I had originally defined this in Python as follows:
+            </p>
+        
+            <p>
+                For the purposes of this problem, we're really only 
+                going to need the first 5 values.  Specifically:
+                <m>f(0) = (0,0)</m>, <m>f(1) = (1,0)</m>, 
+                <m>f(2) = (0,1)</m>, <m>f(3) = (2,0)</m>, 
+                <m>f(4) = (1,1)</m>, and <m>f(5) = (0,2)</m>.
+                We're given than the inverse map 
+                <m>g:  \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{N}</m>
+                has a form defined by
+                <me>
+                    g(x,y) = \frac{1}{2}(ax^2+bxy+cy^2+dx+ey)
+                </me>
+                
+            </p>
+            <p>
+                The first part of this question follows from 
+                some simple substitions.  Reversing our 6 point pairings
+                for <m>f</m> defines the following pairings for
+                <m>g</m>: 
+                <m>g(0,0) = 0</m>, <m>g(1,0) = 1</m>, 
+                <m>g(0,1) = 2</m>, <m>g(2,0) = 3</m>, 
+                <m>g(1,1) = 4</m>,  and <m>g(0,2) = 5</m>.
+            </p>
+            <p>
+                Since we've already assumed <m>g</m> has a specific form,
+                these expressions become the following:
+                <me>
+                    g(0,0) = \frac{1}{2}(a \cdot 0^2+b \cdot 0 
+                        \cdot 0 +c \cdot 0^2+d \cdot 0 + e \cdot 0)
+                        = 0
+                </me>
+                Which matches our expected result.
+                <me>
+                    g(1,0) = \frac{1}{2}(a \cdot 1^2+b \cdot 1 
+                        \cdot 0 +c \cdot 0^2+d \cdot 1 + e \cdot 0)
+                        = \frac{1}{2}(a + d) = 1
+                </me>
+                Which implies that <m>d = 2-a</m>. 
+                <me>
+                    g(0,1) = \frac{1}{2}(a \cdot 0^2+b \cdot 0 
+                        \cdot 1 +c \cdot 1^2+d \cdot 0 + e \cdot 1)
+                        = \frac{1}{2}(c + e) = 2
+                </me>
+                Which implies that <m>e = 4-c</m>.
+                <me>
+                    g(2,0) = \frac{1}{2}(a \cdot 2^2+b \cdot 2 
+                    \cdot 0 +c \cdot 0^2+d \cdot 2 + e \cdot 0)
+                    = \frac{1}{2}(4a+2d) = 3
+                </me>
+                 With our previous subsititions, 
+                 <m>\frac{1}{2}(4a+2d) = 3 \implies 
+                    4a+2(2-a) = 6</m> which gives us
+                    <m>a = d = 1</m>.
+                <me>
+                    g(1,1) = \frac{1}{2}(a \cdot 1^2+b \cdot 1 
+                    \cdot 1 +c \cdot 1^2+d \cdot 1 + e \cdot 1)
+                    = \frac{1}{2}(a+b+c+d+e) = 4
+                </me>
+                Applying our previous substitions gives 
+                us <m>\frac{1}{2}(a+b+c+d+e) = 4 \implies
+                    \frac{1}{2}(b+6) = 4
+                </m>, which means <m>b = 2</m>.
+                <me>
+                    g(0,2) = \frac{1}{2}(a \cdot 0^2+b \cdot 0 
+                    \cdot 2 +c \cdot 2^2+d \cdot 0 + e \cdot 2)
+                    = \frac{1}{2}(4c+2e) = 5
+                </me>
+                Applying our substitions gives us
+                    <m>\frac{1}{2}(4c+2e) = 5 \implies
+                        \frac{1}{2}(4c+2(4-c)) = 5</m>
+                which means that <m>c = 1</m> and <m>e = 3</m>.
+            </p>
+            <p>
+                Having found all our constants, we can define
+                <m>g</m> as 
+                <me>
+                    g(x,y) = \frac{1}{2}(x^2+2xy+y^2+x+3y)
+                </me>
+            </p>
+            <p>
+                For comparison, the Python code I wrote previously
+                went like this:
+        <c>
+        def zig_zag(n):
+            last = (0,0)
+            idx = 0
+            while idx &lt; n:
+                yield last
+                idx += 1
+                if last[1] == 0:
+                    last = (0,last[0]+1)
+                else:
+                    last = (last[0]+1,last[1]-1)
+        
+        def triangular(n):
+            return int((n+1)*n/2)
+        
+        def reverse_zig_zag(p):
+            my_sum = p[0]+p[1]
+            my_triangle = triangular(my_sum)
+            return my_triangle+p[0]
+        </c>
+        
+            </p>
+            <p>
+                I think my implementation is equivalent,
+                only I swapped the order of the arguments
+                <m>x,y</m>.  My <c>zig_zag</c> function took repeated
+                <q>south-east treks</q> instead.
+            </p>
+            <p>
+                I think the key lies in the fact that 
+                <m>(x+y)(x+y+1) = x^2+2xy+y^2+x+y</m>.  Knowing 
+                this fact
+                allows us to rewrite <m>g</m> as follows:
+                <me>
+                   g(x,y) =\frac{1}{2}(x^2+2xy+y^2+x+3y)=
+                </me>
+                <me>
+                   = \frac{1}{2}(x^2+2xy+y^2+x+y+2y)
+                </me>  
+                
+                <me>
+                    = \frac{1}{2}(x^2+2xy+y^2+x+y)+\frac{1}{2}(2y)
+                 </me>
+                 <me>
+                    = \frac{1}{2}(x+y)(x+y+1)+y
+                 </me>
+                  
+            </p>
+            <p>
+                In my Python code, I had slightly abstracted
+                this by referring to <q>trianglular numbers</q>
+                as defined by the expression <m>\frac{1}{2}n(n+1)</m>.
+                If we subsitute <m>n = x+y</m> we get the 
+                <m>\frac{1}{2}(x+y)(x+y+1)</m>.  Since I also swapped
+                the order of the arguments, I needed to add 
+                an <m>x</m> instead of a <m>y</m> to match up
+                with my ordering of the product.
+            </p>
+            <p>
+                So what does it mean to prove this <m>g</m> 
+                is <q>an isomorphism of sets</q>? Well, we'd
+                need to show <m>f \circ g = 1_{\mathbb{N}\times\mathbb{N}}</m>
+                and <m>g \circ f = 1_{\mathbb{N}}</m>.  
+            </p>
+        
+            <p>
+                I think we might be able to 
+                show <m>g \circ f = 1_{\mathbb{N}}</m>
+                using induction.  We know
+                <m>(g \circ f)(0) = 0</m> and <m>(g \circ f)(1) = 1</m> 
+                because of how we constructed <m>g</m>.  
+                If we further assume <m>(g \circ f)(n) = n</m> for 
+                <m>n &gt; 0</m>,
+                can we prove <m>(g \circ f)(n+1) = n+1</m> also?        
+            </p>
+            <p>
+                Suppose <m>f(n) = (x,y)</m>.  We can define
+                <m>f(n+1)</m> as <m>(y+1,0)</m> for <m>x = 0</m>
+                and <m>(x-1,y+1)</m> for <m>x &gt; 0</m>
+                to simulate the repeated
+                <q>northwest treks</q>. 
+            </p>
+            <p>
+                For <m>x = 0</m>, we can simplify <m>g</m>:
+                <me>
+                   g(0,y) = \frac{1}{2}(y^2+3y)
+                </me>
+                But <m>x=0</m> also means that our successor is 
+                <m>(y+1,0)</m>, and we have
+                <me>
+                    g(y+1,0) = \frac{1}{2}((y+1)^2+(y+1))
+                 </me>
+                 <me>
+                     = \frac{1}{2}(y^2+2y+1+y+1)
+                 </me>
+                 
+                 <me>
+                    = \frac{1}{2}((y^2+3y)+ (2y+1))
+                </me>
+                <me>
+                    = \frac{1}{2}(y^2+3y+2)
+                </me>
+                <me>  
+                    = \frac{1}{2}(y^2+3y)+1
+                </me>
+                <me>
+                    = g(0,y)+1 
+                </me>
+            </p>
+            <p>
+                For any
+                <m>(x,y)</m> where <m>x &gt; 0</m>, we'd have
+                <me>g(x-1,y+1) = \frac{1}{2}((x-1)^2+2(x-1)(y+1)+(y+1)^2+(x-1)+3(y+1))
+                </me>
+                <me> = \frac{1}{2}((x-1)^2+2(x-1)(y+1)+(y+1)^2+(x-1)+3(y+1))
+                </me>
+                
+                <me> = \frac{1}{2}( (x^2-2x+1) 
+                    + 2(xy+x-y-1)
+                    + (y^2 + 2y + 1)
+                    + x-1  + 3y+ 3)
+                </me>
+                <me> = \frac{1}{2}( 
+                    x^2 -2x + 1 
+        
+                    + 2xy+2x-2y-2
+                    + y^2 + 2y + 1
+                    + x-1  + 3y+ 3)
+        
+                </me>
+                <me> = \frac{1}{2}( 
+                    x^2 + 2xy + y^2 
+                    -2x +2x + x
+                
+                    -2y + 2y+ 3y
+                    + 1 -2
+                     + 1 -1
+                     + 3)
+                    
+                </me>
+                <me> = \frac{1}{2}( 
+                    x^2 + 2xy + y^2 
+                    + x
+                
+                    + 3y
+                    + 2)
+                    
+                </me>
+                <me> = \frac{1}{2}( 
+                    x^2 + 2xy + y^2 
+                    + x
+                
+                    + 3y) + 1  
+                </me>
+                <me> = g(x,y) + 1  
+                </me>
+            </p>
+            <p>
+                Having met our induction hypothesis in both cases, we can
+                now confidently say <m>g \circ f = 1_\mathbb{N}</m>.
+            </p>
+            <p>
+                What about the opposite direction?  Can we use the 
+                same tactic to show 
+                <m>f \circ g = 1_{\mathbb{N} \times \mathbb{N}}</m>?
+            </p>
+            <p>
+                We can establish some trivial cases to start with.
+                For <m>x = y = 0</m> we have <m>(f \circ g) (0,0) = 
+                    f(0) = (0,0)</m>.
+                For <m>x = 1, y = 0</m> we have <m>(f \circ g) (1,0) = 
+                        f(1) = (1,0)</m>.
+                For <m>x = 0, y = 1</m> we have <m>(f \circ g) (0,1) = 
+                            f(2) = (0,1)</m>.
+                For <m>x = 1, y = 1</m> we have <m>(f \circ g) (1,1) = 
+                            f(4) = (1,1)</m>. 
+            </p>
+            <p>
+                Now lets suppose <m>(f \circ g) (x,y) = (x,y)</m>.
+                If we can prove that <m>(f \circ g) (x+1,y) = (x+1,y)</m>,
+                <m>(f \circ g) (x,y+1) = (x,y+1)</m>, 
+                and <m>(f \circ g) (x+1,y+1) = (x+1,y+1)</m>,
+                that should allow us to use induction to prove 
+                it for all <m>x,y</m>.
+            </p>
+            <p>
+                Let's consider <m>g(x+1,y)</m> first. 
+                <me>g(x+1,y) = \frac{1}{2}((x+1)^2+2(x+1)y+y^2+(x+1)+3y)</me>
+                <me> = \frac{1}{2}(
+                    x^2+2x+1+
+                    2xy+2y+
+                    y^2+x+1+3y)</me>
+                <me> = \frac{1}{2}(
+                        x^2+2xy+y^2
+                        +x+3y + 2(x+y+1))</me>
+                <me> = \frac{1}{2}(
+                            x^2+2xy+y^2
+                            +x+3y) + x+y+1</me>
+                <me> = g(x,y) + x+y+1</me>  
+                This result is somewhate interesting because every diagonal
+                has a constant sum given by <m>x+y</m>.                                   
+            </p>
+            <p>
+                Likewise, we can expand <m>g(x,y+1)</m> as follows:
+                <me>
+                    g(x,y+1) =\frac{1}{2}(x^2+2x(y+1)+(y+1)^2+x+3(y+1))
+                </me>
+                <me>
+                    =\frac{1}{2}(
+                        x^2+2xy+2x+y^2+2y+1+x+3y+3)
+                </me>
+                
+                <me>
+                    =\frac{1}{2}(
+                        x^2+2xy+y^2+x+3y+2x+2y+1+3)
+                </me>
+                        
+                <me>
+                    =\frac{1}{2}(
+                        x^2+2xy+y^2+x+3y+2(x+y+3))
+                </me>
+                <me>
+                    =\frac{1}{2}(
+                        x^2+2xy+y^2+x+3y)+x+y+2
+                </me>
+                <me>
+                    =g(x,y)+x+y+2
+                </me>
+            </p>
+            <p>
+                Well, that's doubly interesting.  It follows 
+                from both of those results that
+                <m>g(x+1,y) = g(x,y+1)+1</m> for all <m>x,y</m>.
+            </p>
+            <p>
+                Let's consider the last case <m>g(x+1,y+1)</m>.
+                Substituting into <m>g</m>...
+                <me>
+                    g(x+1,y+1) =\frac{1}{2}((x+1)^2+2(x+1)(y+1)+(y+1)^2+(x+1)+3(y+1))
+                </me>
+                <me>
+                 = \frac{1}{2}(
+                    x^2+2x+1
+                    +2(xy+x+y+1)
+                    +y^2+2y+1
+                    +x+1+
+                    3y+3)
+                </me>
+                <me>
+                    = \frac{1}{2}(
+                       x^2+2x+1
+                       +2xy+2x+2y+2
+                       +y^2+2y+1
+                       +x+1+
+                       3y+3)
+                   </me>
+                   <me>
+                    = \frac{1}{2}(
+                       x^2+2xy+y^2+x+3y
+                       +2x+2x
+                       +2y+2y
+                       +1+2+1+1+3)
+                   </me>
+                   <me>
+                    = \frac{1}{2}(
+                       x^2+2xy+y^2+x+3y
+                       +4x
+                       +4y
+                       +8)
+                   </me>
+                   <me>
+                    = \frac{1}{2}(
+                       x^2+2xy+y^2+x+3y)
+                       +2x+2y+4
+                   </me>
+                   <me>
+                    = g(x,y)+
+                       2x+2y+4 
+                   </me>     
+                   Note that we could also infer
+                   <m>g(x+1,y+1) = g(x,y+1)+x+y+2</m> here
+                   based on our previous result.
+                   We might even go so far as to say
+                   <m>g(x+1,y+1)+g(x,y) = g(x,y+1)+g(x+1,y)+1</m>
+                   for all <m>x,y</m>.  We can easily 
+                   verify that <m>g(1,1)+g(0,0) = 4+0 = 4</m>
+                   and <m>g(0,1)+g(1,0)+1 = 1+2+1 = 4</m> for our initial
+                   case.  
+            </p>
+            <p>
+                 It feels like this induction is still a little unclear.
+                 Essentially, I'm doing this weird thing where I'm
+                 inducing over <m>n</m> such that <m>x+y \leq n</m>
+                 to prove the statement for all <m>x,y</m>. 
+            </p>
+
+        
+            
+
+        </solution>
+    </example>
+    <p>
+            I think I'm going to stop here and let 
+            these ideas <q>simmer</q> a bit longer.
+    </p>
+
+</section>
