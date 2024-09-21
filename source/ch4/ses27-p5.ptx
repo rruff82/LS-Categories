@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27-p5">
+    <title>Session 27: Examples of universal constructions, Part 5</title>
+    <p>
+        I think I want to come back to Exercise 4 again
+        to see if I can address the remaining parts of the
+        question.
+    </p>
+    <example>
+        <title>Exercise 4: (Part 2)</title>
+        <statement>
+            <p>
+                Continued from last week...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                In one of my previous sessions, I implemented 
+                this map 
+                <m>
+                    f: \mathbb{N} \rightarrow \mathbb{N} \times \mathbb{N}
+                </m> that I'm looking for in <url href="https://github.com/rruff82/LS-Categories/blob/main/assets/notebooks/numbertheory.py">Python</url>
+                as follows:
+            </p>
+        <c>def from_zig_zag_N(n):
+            # inverse of reverse_zig_zag
+            # see also https://en.wikipedia.org/wiki/Pairing_function
+            w = floor((sqrt(8*n+1)-1)/2)
+            t = (w*w+w)/2
+            x = n-t
+            y = w-x
+            return (int(x),int(y))</c>
+            <p>
+                The only difference is that I'll need to swap <m>x</m>
+                and <m>y</m> to match the book's northwest ordering. 
+            </p>
+            <p>
+                Given <m>g(x,y)
+                    = \frac{1}{2}(x^2+2xy+y^2+x+3y)
+                </m>, we can compose with <m>f</m> 
+                one of two ways:
+                <m>f \circ g: \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{N} \times \mathbb{N}</m>
+                or <m>g \circ f: \mathbb{N} \rightarrow \mathbb{N}</m>.
+        
+            </p>
+            <p>
+                Performing the necessary swap from my code above,
+                lets define <m>y = n - t</m> and <m>x = w - y</m>
+                where <m>w = \lfloor \frac{\sqrt{8n+1}-1}{2} \rfloor</m>
+                and <m>t = \frac{w^2+w}{2}</m>.  Applying these to
+                <m>g(x,y)</m>:
+                <me>
+                    \frac{1}{2}(x^2+2xy+y^2+x+3y)
+                </me>
+                <me>
+                    = \frac{1}{2}(x+y)(x+y+1)+y
+                </me>
+                <me>
+                    = \frac{1}{2}((w-y)+y)((w-y)+y+1)+y
+                </me>
+                <me>
+                    = \frac{1}{2}w(w+1)+y
+                </me>
+                <me>
+                    = \frac{1}{2}(w)(w+1)+(n - t)
+                </me>
+                <me>
+                    = \frac{1}{2}(w)(w+1) + n - \frac{w^2+w}{2}
+                </me>
+                <me>
+                    = n
+                </me>
+        
+            </p>
+            <p>
+                That shouldn't be suprising given that 
+                I proved <m>g \circ f = 1_\mathbb{N}</m> last week
+                using induction. What about the other composition?
+                I'm still not quite confident I've established 
+                that  <m>f \circ g = 1_{\mathbb{N} \times \mathbb{N}}</m>. 
+           </p>
+            <p>
+                Maybe it might be helpful to evaluate <m>f(n)</m>
+                for some small values of <m>n</m>.  We can think of <m>w,t,x,y</m>
+                as maps <m>\mathbb{N} \rightarrow \mathbb{N}</m>.
+            </p><p>
+                For <m>n=0</m>:
+                 <me>w(0) = \lfloor \frac{\sqrt{8 \cdot 0+1}-1}{2} \rfloor
+                    = \lfloor \frac{\sqrt{1}-1}{2} \rfloor = \lfloor \frac{0}{2} \rfloor = 0
+                </me>
+                <me>t(0) = \frac{0^2+0}{2} = 0</me>
+                <me>y(0) = n-t(0) = 0-0 = 0</me>
+                <me>x(0) = w(0)-y(0) = 0-0 = 0</me>
+                For <m>n=1</m>:
+                <me>w(1) = \lfloor \frac{\sqrt{8 \cdot 1+1}-1}{2} \rfloor
+                    = \lfloor \frac{\sqrt{9}-1}{2} \rfloor = \lfloor \frac{3-1}{2} \rfloor = 1
+                </me>
+                <me>t(1) = \frac{1^2+1}{2} = \frac{2}{2} = 1</me>
+                <me>y(1) = 1-t(1) = 1-1 = 0</me>
+                <me>x(1) = w(1)-y(1) = 1-0 = 1</me>
+                For <m>n=2</m>:
+                <me>w(2) = \lfloor \frac{\sqrt{8 \cdot 2+1}-1}{2} \rfloor
+                    = \lfloor \frac{\sqrt{17}-1}{2} \rfloor = 1
+                </me>
+                <me>t(2) = 1</me>
+                <me>y(2) = 2-t(2) = 2-1 = 1</me>
+                <me>x(2) = w(2)-y(2) = 1-1 = 0</me>
+                For <m>n=3</m>:
+                <me>w(3) = \lfloor \frac{\sqrt{8 \cdot 3+1}-1}{2} \rfloor
+                    = \lfloor \frac{\sqrt{25}-1}{2} \rfloor = \lfloor \frac{4}{2} \rfloor = 2
+                </me>
+                <me>t(3) = \frac{2^+2}{2} = \frac{6}{2} = 3</me>
+                <me>y(3) = 3-t(3) = 3-3 = 0</me>
+                <me>x(3) = w(3)-y(3) = 2-0 = 2</me>
+                For <m>n=4</m>:
+                <me>w(4) = \lfloor \frac{\sqrt{8 \cdot 4+1}}{2} \rfloor
+                    = \lfloor \frac{\sqrt{33}}{2} \rfloor = 2
+                </me>
+                <me>t(4) = 3</me>
+                <me>y(4) = 4-t(4) = 4-3 = 1</me>
+                <me>x(4) = w(4)-y(4) = 2-1 = 1</me>
+                For <m>n=5</m>:
+                <me>w(5) = \lfloor \frac{\sqrt{8 \cdot 5+1}-1}{2} \rfloor
+                    = \lfloor \frac{\sqrt{41}-1}{2} \rfloor = 2
+                </me>
+                <me>t(5) = 3</me>
+                <me>y(5) = 5-t(5) = 5-3 = 2</me>
+                <me>x(5) = w(5)-y(5) = 2-2 = 0</me>
+                For <m>n=6</m>:
+                <me>w(6) = \lfloor \frac{\sqrt{8 \cdot 6+1}}{2} \rfloor
+                    = \lfloor \frac{\sqrt{49}-1}{2} \rfloor = 3
+                </me>
+                <me>t(6) = \frac{3^2+3}{2} = \frac{12}{2} = 6</me>
+                <me>y(6) = 6-t(5) = 6-6 = 0</me>
+                <me>x(6) = 3-y(6) = 3-0 = 3</me>
+            </p>
+            <p>
+                I'm beginning to see some patterns here.
+                The sequence <m>w(n)</m> goes
+                <m>\{0,1,1,2,2,2,3,3,3,3,4,....\}</m>
+                which has <m>n+1</m> copies of each <m>n</m>.
+                The sequence <m>t(n)</m> goes 
+                <m>\{0,1,1,3,3,3,6,6,6,6,10,...\}</m>
+                are matching <m>n+1</m> repeated copies of 
+                my <q>triangular numbers</q> <m>\{0,1,3,6,10,...\}</m>.
+                Those numbers are important because they satisfy
+                <m>\frac{n(n+1)}{2} = \sum\limits^n_{k=0} k</m>.  Each
+                triangular number <m>T_k</m> is determined by the sum of some
+                consecutive set of natural numbers, so we should have
+                 <m>T_{k+1} = T_k + k+1</m> for all <m>k \in \mathbb{N}</m>.
+                What's unclear to me is where <m>w</m> comes from.
+            </p>
+            <p>
+                Given a map <m>w = \lfloor \frac{\sqrt{8n+1}-1}{2} \rfloor</m>,
+                we basically have a compound inequality
+                which needs to be satisfied:
+                <me>\frac{\sqrt{8n+1}-1}{2} \leq w &lt; \frac{\sqrt{8n+1}-1}{2}+1</me>
+                
+                We can rewrite <m>\frac{\sqrt{8n+1}-1}{2}+1</m>
+                into <m>\frac{\sqrt{8n+1}+1}{2}</m>:
+                <me>\frac{\sqrt{8n+1}-1}{2} \leq w &lt; \frac{\sqrt{8n+1}+1}{2}</me>
+                Multiply everything by <m>2</m>:
+                <me>\sqrt{8n+1}-1 \leq 2 w &lt; \sqrt{8n+1}+1</me>
+                Add <m>1</m>:
+                <me>\sqrt{8n+1} \leq 2 w + 1&lt; \sqrt{8n+1}+2</me>
+                For <m>k \geq 1</m>, <m>k^2 \geq k</m> so our inequality 
+                should hold if we square everything:
+                <me>8n+1 \leq (2w+1)^2 &lt; (8n+1) + 4\sqrt{8n+1} + 4</me>
+                <me>8n+1 \leq 4w^2 + 4w + 1 &lt; 8n+5 + 4\sqrt{8n+1}</me>
+                <me>8n \leq 4w^2 + 4w &lt; 8n+4 + 4\sqrt{8n+1}</me>
+                <me>n \leq \frac{w^2 + w}{2} &lt; n+\frac{1+\sqrt{8n+1}}{2}</me>
+            </p>
+            <p>
+                The expression <m>\frac{1+\sqrt{8n+1}}{2}</m> is basically
+                <m>w+1</m>, so...
+        
+                <me>n \leq \frac{w^2 + w}{2} &lt; n+w+1</me>
+            </p>
+            <p>
+                This seems very similar to the definition of 
+                <m>T_{k+1}</m> above. Maybe that's the key to
+                finishing my induction proof from last week? 
+            </p>
+            <p>
+                It's pretty clear that <m>w</m> is not invertable
+                since output values repeat for the floor function,
+                but mabye solving <m>        
+                \omega = \frac{\sqrt{8n+1}-1}{2}</m> for <m>n</m> 
+                might give me 
+                some clue to go forward.
+                <me>\omega = \frac{\sqrt{8n+1}-1}{2}</me>
+                <me>2 \omega = \sqrt{8n+1}-1</me>
+                <me>2 \omega + 1 = \sqrt{8n+1}</me>
+                <me>(2 \omega + 1)^2 = (\sqrt{8n+1})^2</me>
+                <me>4 \omega^2 +4\omega + 1 = 8 n + 1</me>
+                <me>4 \omega^2 +4\omega= 8 n</me>
+                <me>\frac{\omega^2 +\omega}{2} = n</me>
+            </p>
+            <p>
+                And our triangular numbers show up again!
+                So our choice of <m>w</m> is basically defined by
+                the unique inverse of the trianglular numbers
+                in the <em>reals</em>.  
+            </p>
+            <p>
+                The final part of this question asks why
+                the map <m>f_1</m> can't be a polynomial, 
+                and maybe it's because those triangular numbers
+                <m>T_n</m> have a unique inverse in
+                 <m>\mathbb{R}_{\geq 0}</m> that map is 
+                 non-polynomial in nature.
+        
+            </p>
+        </solution>
+        
+    </example>
+
+    <p>
+        There's still some things here I'm uncertain about,
+        but I feel better having at least attempted the rest 
+        of the exercise.
+        
+    </p>
+   
+</section>
