@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27-p6">
+    <title>Session 27: Examples of universal constructions, Part 6</title>
+    <p>
+        Time to find out what an <q>equalizer</q> is!
+    </p>
+    <example>
+        <title>Exercise 5:</title>
+        <statement>
+            <p>
+                If both <m>E, p</m> and <m>F, q</m> are equalizers...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                The text has defined an <em>equalizer</em> of 
+                two maps <m>f,g: X \rightarrow Y</m> as a map
+                <m>E \xrightarrow{p} X</m> if <m>fp = gp</m>
+                and for each <m>T \xrightarrow{x} X</m> for which
+                <m>fx=gx</m>, there is exactly one <m>T \xrightarrow{e_E} E</m>
+                for which <m>x = p e_E</m>.
+            </p>
+            <p>
+                Since <m>F, q</m> is also an equalizer of the same pair
+                <m>f,g</m>, then <m>F \xrightarrow{q} X</m> must
+                satisfy <m>fq = gq</m> and for each <m>T \xrightarrow{x} X</m>
+                for which <m>fx=gx</m>, there is exactly one <m>T \xrightarrow{e_F} F</m>
+                for which <m>x = q e_F</m>.
+            </p>
+            <p>
+                We're asked to prove that there is a unique map <m>F \xrightarrow{e} E</m>
+                for which <m>p e = q</m> is an isomorphism.  
+            </p>
+            <p>
+                By the definition of <m>T</m> as a terminal object, 
+                there is a unique 
+                map <m>E \xrightarrow{\bar{e_E}} T</m> and a unique map 
+                <m>F \xrightarrow{\bar{e_F}} T</m>. I claim that
+                <m>e_E \circ \bar{e_F}</m> is actually the unique map 
+                <m>F \xrightarrow{e} E</m> for which <m>p e = q</m> and 
+                <m>e_F \circ \bar{e_E}</m> is its unique inverse
+                <m>E \xrightarrow{e^{-1}} F</m>.
+                To establish this, I need to show <m>pe=q</m>, <m>e^{-1} e = 1_F</m>,
+                and <m>e e^{-1} = 1_E</m>.
+            </p>
+            <p>
+                Suppose <m>F \xrightarrow{pe} X \neq F \xrightarrow{q} X</m>.  There would need to exist some 
+                some <m>T \xrightarrow{f'} F</m> such that 
+                <m>p e f' \neq q f'</m>.  Expanding <m>e</m> with my above
+                defintion gives us <m>p e_E \bar{e_F} f' \neq q f'</m>.
+                Since <m>\bar{e_F} f'</m> is a map <m>T \rightarrow T</m>
+                it could only be the unique map <m>1_T</m>. It follows that
+                <m>p e_E \bar{e_F} f' = p e_E 1_T = p e_E \neq q f'</m>.
+                Since <m>q f'</m> is a map <m>T \xrightarrow{x} X</m>,
+                the definition of <m>E, p</m> as an equalizer says that for there
+                is exactly one map <m>p e_E = x</m> for all <m>x</m> satisfying
+                <m>fx = gx</m>, contradicting our
+                assumption that <m>pe \neq q</m> and implying that in fact
+                <m>pe = q</m>.
+            </p>
+            <p>
+                Expanding <m>e^{-1} e</m> using those definitions above
+                gives us <m>(e_F \circ \bar{e_E}) \circ (e_E \circ \bar{e_F})</m>
+                .  We can regroup these terms using the associative property 
+                to get <m>e_F \circ (\bar{e_E} \circ e_E) \circ \bar{e_F}</m>.
+                Since <m>(\bar{e_E} \circ e_E)</m> is a map <m>T \rightarrow T</m>,
+                it could only be the unique map <m>1_T</m>. Our expression
+                for <m>e^{-1} e</m> becomes <m>e_F \circ 1_T \circ \bar{e_F}</m>
+                or simply <m>e_F \circ \bar{e_F}</m>.
+        
+            </p>
+            <p>
+                Suppose <m>e_F \circ \bar{e_F} \neq 1_F</m>. 
+                There would need to be 
+                some <m>T \xrightarrow{f'} F</m> such that 
+                <m>e_F \bar{e_F} f' \neq f'</m>.  However,
+                <m>\bar{e_F} f': T \rightarrow T</m> could only possibly 
+                be the map <m>1_T</m>.  It follows that <m>e_F \neq f'</m>,
+                but this contradicts our definition of <m>e_F</m> as an
+                equalizer if we post-compose by <m>q</m> to get
+                <m>q e_F \neq q f'</m>.  The composition
+                <m>q f'</m> is a map <m>T \rightarrow X</m>
+                <m>q e_F = x</m> so any <m>q f' \neq q e_F</m>
+                would contradict the definition of <m>e_F</m>
+                as an equalizer.
+            </p>
+        
+            <p>
+               Likewise, expanding <m>e e^{-1}</m> gives us
+               <m>(e_E \circ \bar{e_F}) \circ (e_F \circ \bar{e_E})</m>.
+               Once again, the terms in the middle can be regrouped 
+               to get <m>e_E \circ (\bar{e_F} \circ e_F) \circ \bar{e_E}</m>
+               and we can use the fact that <m>\bar{e_F} \circ e_F = 1_T</m>
+               to simplify down to <m>e_E \bar{e_E}</m>.  If <m>e_E \bar{e_E}</m>
+               were anything other than <m>1_E</m>, it would contradict 
+               our definition of <m>e_E</m> as an equalizer.
+            </p>
+        </solution>
+    </example>
+   
+    <p>
+        This is still a bit confusing, but hopefully the follow-up 
+        exercises shed some more light on it.
+    </p>
+</section>
