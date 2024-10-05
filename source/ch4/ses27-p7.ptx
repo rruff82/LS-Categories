@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27-p7">
+    <title>Session 27: Examples of universal constructions, Part 7</title>
+    <p>
+        Continuing where I left off with equalizers...
+    </p>
+    <example>
+        <title>Exercise 6:</title>
+        <statement>
+            <p>
+                Any map <m>p</m> which is an equalizer...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Given that <m>E \xrightarrow{p} X</m> is an 
+                equalizer of the pair
+                <m>X \substack{
+                    f \\ \longrightarrow \\ \longrightarrow \\ g
+                } Y</m>, we know that for each <m>T \xrightarrow{x} X</m>
+                for which <m>f x = g x</m> there is exactly one map
+                <m>T \xrightarrow{e} E</m> for which <m>x=pe</m>.  
+            </p>
+            <p>
+                To demonstrate that <m>E \xrightarrow{p} X</m> is a monomorphsim,
+                we need to show injectivity: that for any pair of maps
+                <m>T \xrightarrow{e_1} E</m> and 
+                <m>T \xrightarrow{e_2} E</m>, 
+                <m>p e_1 = p e_2</m> implies <m>e_1 = e_2</m>.
+            </p>
+            <p>
+                The contrapositive of this definition says
+                that <m>e_1 \neq e_2</m>
+                implies <m>p e_1 \neq p e_2</m>.
+            </p>
+            
+            <p>
+                So let's assume <m>p</m> is <em>not a monomorphism</em>. 
+            </p>
+        
+            <p>
+                In that case, we'd have arbitrary pair of maps
+                <m>T \xrightarrow{e_1} E</m> and 
+                <m>T \xrightarrow{e_2} E</m> with <m>e_1 \neq e_2</m>, 
+                but for which <m>p e_1 = p e_2</m>.
+            </p>
+            <p>
+                If <m>e_1 \neq e_2</m>, there 
+                exists some <m>\mathbf{1} \xrightarrow{s} T</m> such that
+                <m>e_1 s \neq e_2 s</m>.  But there is only one 
+                map <m>\mathbf{1} \xrightarrow{s} T</m> by the definition
+                of terminal objects.
+                Since all terminal objects are isomorphic, we have a 
+                unique map <m>T \xrightarrow{r} \mathbf{1}</m>
+                such that <m>r s = 1_\mathbf{1}</m> and <m>s r = 1_T</m>.
+            </p>
+        
+        
+            <p>
+                Let's use these maps to define two points
+                <m>\mathbf{1} \xrightarrow{x_1} X</m> and <m>\mathbf{1} \ \xrightarrow{x_2} X</m> 
+                by the compositions <m>x_1 = p e_1 s</m>
+                and <m>x_2 = p e_2 s</m>.  Since there's a unique inverse
+                map <m>X \xrightarrow{\bar{x}} \mathbf{1}</m> corresponding
+                to each point <m>\mathbf{1} \xrightarrow{x} X</m>,
+                the following compositions must both produce the only map
+                <m>\mathbf{1} \rightarrow \mathbf{1}</m>, our  
+                identity map <m>1_\mathbf{1}</m>:
+            </p>
+            <me>
+                \mathbf{1} \xrightarrow{s} T  \xrightarrow{e_1} E
+                \xrightarrow{p} X \xrightarrow{\bar{x_1}} \mathbf{1}
+            </me>
+            <me>
+                \mathbf{1} \xrightarrow{s} T \xrightarrow{e_2} E
+                \xrightarrow{p} X \xrightarrow{\bar{x_2}} \mathbf{1}
+            </me>
+            <p>
+               Since we've already assumed <m>p e_1 = p e_2</m>,
+               that means that <m>\bar{x_1} = \bar{x_2}</m>.  This 
+               brings us to a contradiction because the inverse maps
+               are supposed to be unique for <m>x_1 \neq x_2</m>.  There
+               is no retraction for the map <m>\{x_1,x_2\} \rightarrow \mathbf{1}</m>.
+               
+               It follows that our assumption was wrong, and <m>p</m>
+               is, in fact, a monomorphism.
+             </p>
+             <p>
+                I'm thinking that the big idea here is that
+                having two points <m>\mathbf{1} \xrightarrow{x_1} X</m>
+                and <m>\mathbf{1} \xrightarrow{x_2} X</m> and two 
+                maps <m>X \substack{
+                    f \\ \longrightarrow \\ \longrightarrow \\ g
+                } Y</m> allows
+                use to define four points <m>\mathbf{1} \rightarrow Y</m>,
+                but if the <q>points in</q> are isomorphic to the
+                <q>points out</q>, then those four points need collapse 
+                to form pairs of two after we apply <m>f,g</m>.  
+                Either <m>f x_1 = g x_1</m> and 
+                <m>f x_2 = g x_2</m>, or <m>f x_1 = g x_2</m>
+                and <m>f x_2 = g x_1</m>.
+             </p>
+        </solution>
+    </example>
+   
+     <p>
+        I'm not really confident in all this, so I may need to come 
+        back here later.
+     </p>
+</section>
