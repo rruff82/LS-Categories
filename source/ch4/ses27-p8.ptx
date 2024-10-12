@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27-p8">
+    <title>Session 27: Examples of universal constructions, Part 8</title>
+    <p>
+        Let's keep pushing forward...
+    </p>
+    <example>
+        <title>Exercise 5:</title>
+        <statement>
+            <p>
+                If <m>B \xrightarrow{\alpha} A \xrightarrow{\beta} B</m>...
+
+            </p>
+        </statement>
+        <solution>
+            <p>
+                We're given that <m>1_B = \beta \alpha</m> and 
+                <m>f = \alpha \beta</m> is idempotent. Recall that
+                <m>A \xrightarrow{f} A</m> is idempotent if and only if <m>f f = f</m>.
+                This fact follows from associative and identity properties:
+                <me>f f = (\alpha \beta) (\alpha \beta) = \alpha (\beta \alpha) \beta
+                    = \alpha 1_B \beta = \alpha \beta = f</me>.
+            </p>
+            <p>
+                We're asked to prove that <m>\alpha</m> is an 
+                <em>equalizer</em> for the pair <m>f, 1_A</m>.  
+                Per the definition, <m>B \xrightarrow{\alpha} A</m>
+                is an equalizer of <m>f, 1_A</m> if 
+                <m>f \alpha = 1_A \alpha</m> and for each 
+                <m>T \xrightarrow{x} A</m> for which <m>f x = 1_A x</m>,
+                there is exactly one <m>T \xrightarrow{e} B</m> for 
+                which <m>x = \alpha e</m>.
+            </p>
+            <p>
+                Let's start by demonstrating that <m>f \alpha = 1_A \alpha</m>.
+            
+            </p>
+            <p>
+                Given that <m>f = \alpha \beta</m>, we can precompose by
+                <m>\alpha</m> to get
+                <m>f \alpha = (\alpha \beta) \alpha</m>.
+                By the associative property, 
+                <m>(\alpha \beta) \alpha = \alpha (\beta \alpha)</m>, and 
+                <m>\beta \alpha = 1_B</m>.  Subsitute and rewrite the identity maps
+                to get
+                <m>f \alpha = \alpha 1_B = \alpha = 1_A \alpha</m>.  
+            </p>
+            <p>
+                Step one: complete. Our next one look a little trickier.
+            </p>
+            <p>
+                For every 
+                <m>T \xrightarrow{x} A</m> for which
+              <m>f x = 1_A x</m> (or simply <m>f x = x</m>), we need to prove there
+                is exactly one map
+                <m>T \xrightarrow{e} B</m> for which <m>x = \alpha e</m>.
+            </p>
+            <p>
+                First, we need to demonstrate that some such <m>e</m>
+                must exist, then prove that we can't have 
+                more than one such map.
+            </p>
+            <p>
+                It seems obvious that for any <m>T \xrightarrow{x} A</m>
+                satisfying <m>f x = x</m>
+                the existance 
+                of some <m>T \xrightarrow{e} B</m> would be
+                guaranteed by the composition <m>\beta x</m>.
+                Clearly <m>T \xrightarrow{x} A \xrightarrow{\beta} B</m>
+                has the appropriate domain and codomain. Given <m>e = \beta x</m>,
+                it follows that we can postcompose both sides by 
+                <m>\alpha</m> to show <m>\alpha e = \alpha \beta x = f x = x</m>.
+                The only remaining part of the question is: why can't we have more than one such map?
+            </p>
+        <p>
+            Suppose we have a second map <m>T \xrightarrow{e'} B</m> 
+            satisfying <m>\alpha e' = x</m> for some <m>e' \neq e</m>.
+            For us to have <m>e' \neq e</m> 
+            we'd need to have 
+            a point <m>\mathbf{1} \xrightarrow{t} T</m> such that
+            <m>e' t \neq e t</m>.  However, there is precisely one 
+            map <m>\mathbf{1} \rightarrow T</m> by the definition of 
+            terminal objects and that map needs to be an isomorphism.
+        </p>
+        <p>
+            Since we know <m>\alpha e' = \alpha e = x</m>, we can postcompose
+            by <m>\beta</m> and apply <m>\beta \alpha = 1_B</m> to get <m>\beta \alpha e' = e'= \beta \alpha e = e = \beta x</m>
+            This contradicts our assumption that <m>e' \neq e</m> and proves 
+            <m>e</m> is unique.
+        </p>
+           
+            <p>
+                This feels a bit like a <q>vacuous truth</q>.  
+               If there's no <m>T \xrightarrow{x} A</m> such that 
+               <m>f x = x</m>, then it doesn't matter what the 
+               conclusion of the conditional statement is. 
+        
+            </p>
+        </solution>
+    </example>
+    <p>
+        I feel like this is another week
+        with another unsatisfactory answer.
+        I'm left wondering if I was supposed to 
+        invoke a sum or product somehow to ensure
+        the uniqueness of my map.
+    </p>
+
+  
+</section>
