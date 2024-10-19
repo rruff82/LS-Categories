@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27-p9">
+    <title>Session 27: Examples of universal constructions, Part 9</title>
+    <p>
+       I'm feeling a little lost here so I'll have to break this 
+        one into parts.
+    </p>
+    <example>
+        <title>Exercise 8: (Part 1)</title>
+        <statement>
+            <p>
+               Any parallel pair <m>X \mathrel{\substack{
+                f \\ \longrightarrow \\ \longrightarrow \\ g}} Y</m>
+                of maps in sets...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                I'm going out on a limb with my metagaming here and 
+                hypothesize that the arrows named by
+                the equalizer are related to the either
+                the <q>section of the product</q> or
+                <q>retraction from the sum</q>. The diagram below
+                the problem and choice of letter <m>p</m> are just too 
+                convenient.
+            </p>
+            <p>
+                Let's consider a simple example <m>\mathbb{N} \mathrel{\substack{
+                    f \\ \longrightarrow \\ \longrightarrow \\ g}} \mathbb{N}_6</m>
+                defined by <m>f(x) = \text{mod}_3 x</m>
+                and <m>g(x) = \text{mod}_6 x</m>.   The output of 
+                <m>f</m> would be the sequence <m>0,1,2,0,1,2,0,1,2...</m>
+                and the output of <m>g</m> would be the sequence
+                <m>0,1,2,3,4,5,0,1,2,...</m>. 
+            </p>
+            <p>
+                I'm thinking that 
+                my equalizer should be the map 
+                <m>\mathbb{N} \xrightarrow{p} \mathbb{N}</m> 
+                that produces a sequences of indices where
+                <m>f,g</m> have the same outputs.  These two
+                sequences match up for the first 3 of 
+                every 6 steps, producing the sequence
+                the sequence <m>0,1,2,6,7,8,12,13,14,...</m>.
+                This map can be defined by the formula
+                 <m>p(x) = 6 \lfloor \frac{x}{3} \rfloor + \text{mod}_3 x</m>,
+                 but it strikes me as interesting that we kind of need to
+                 <q>step out</q> through <m>\mathbb{Q}</m> in order to
+                 do division.
+            </p>
+            <p>
+                So how can I demonstrate that <m>p</m> is an equalizer?
+                Well, it makes sense that <m>E = \mathbb{N}</m>
+                because there are countably infinite solutions to
+                <m>f x = g x</m>.  It is also true that for each 
+                <m>T \xrightarrow{x} \mathbb{N}</m> such that 
+                <m>f x = g x</m> there is exactly
+                one <m>T \xrightarrow{e} \mathbb{N}</m> such 
+                that <m>x = p e</m> because <m>p</m> is <q>strictly
+                monotonic</q> and therefore one-to-one.  In this case
+                our <m>e</m> would be uniquely defined by its relation
+                to the inverse of <m>p</m>. I could probably even work
+                out <m>p^{-1}</m> for my particular example if I had to, but 
+                I think I'm already trivializing the proof I'm looking 
+                for by choosing an example where <m>f g = f</m> in the
+                first place.
+            </p>
+            <p>
+                I think what's going on here is that we can 
+                test for equality two different ways by checking
+                if <m>f-g=0</m> 
+                or <m>g-f=0</m>. For any point where <m>f x = g x</m>,
+                it must be true that <m>f x - g x = 0</m> and 
+                <m>g x - f x = 0</m>.  Even if we have <m>f x \neq g x</m>, 
+                we'd still be guaranteed to have the 
+                sum <m>(fx - g x) + (g x - f x) = 0</m> and 
+                <m>(g x - f x) + (f x - g x) = 0</m>.  Perhaps the trick 
+                to this will
+                be expressing <m>f-g</m> and <m>g-f</m> in terms of the 
+                initial and terminal objects.
+            </p>
+            <p>
+                Let's come back to the original question, which had 
+                to deal with an arbitrary equalizer <m>E \xrightarrow{p} X</m>
+                to an arbitrary pair of parallel maps <m> X \mathrel{\substack{
+                    f \\ \longrightarrow \\ \longrightarrow \\ g}} Y</m>.
+                By definition, <m>f p = g p</m> and for every
+                <m>T \xrightarrow{x} X</m> for which <m>f x = g x</m>, there
+                is exactly one <m>T \xrightarrow{e} E</m> for which 
+                <m>x = p e</m>.
+            </p>
+            <p>
+                Perhaps we can break this down in four cases:
+                <ol>
+                    <li>
+                        <p>
+                            <m>E</m> is neither initial nor terminal
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>E</m> is initial but not terminal
+                        </p>
+                    </li>
+        
+                    <li>
+                        <p>
+                            <m>E</m> is terminal but not initial
+                        </p>
+                    </li>
+                    
+                    <li>
+                        <p>
+                            <m>E</m> is both initial and terminal
+                        </p>
+                    </li>
+                </ol>
+            </p>
+            <p>
+                For an initial object <m>I</m>, we'd be able 
+                to express a <q>zero map</q> <m>I \xrightarrow{\mathbf{0}_{IT}} T</m> through        the following composition:
+                <me>I \xrightarrow{\mathbf{0}_{IT}} T \xrightarrow{x} X \mathrel{\substack{
+                    f \\ \longrightarrow \\ \longrightarrow \\ g}} Y 
+                    \xrightarrow{\bar{y}} T</me>
+                Since that map is unique, <m>\mathbf{0}_{IT} = 
+                    \bar{y} \circ f \circ x \circ \mathbf{0}_{IT} = 
+                    \bar{y} \circ g \circ x \circ \mathbf{0}_{IT}</m> 
+                    for all <m>T \xrightarrow{x} X</m>. 
+            </p>
+            <p>
+                If <m>E</m> is an initial object then it would be
+                isomorphic to <m>I</m>.  This gives us maps
+                <m>E \xrightarrow{\mathbf{0}_{IE}} I</m> and 
+                <m>I \xrightarrow{\mathbf{0}_{EI}} E</m> satisfying
+                <m>\mathbf{0}_{EI} \circ \mathbf{0}_{IE} = 1_E</m> and
+                <m>\mathbf{0}_{IE} \circ \mathbf{0}_{EI} = 1_I</m>. 
+                Effectively, the unique map <m>E \xrightarrow{p} X</m> 
+                would meet the definition of an equalizer
+                because <m>f p</m> and <m>g p</m> would both need to be
+                unique map <m>E \rightarrow Y</m>.  
+            </p>
+            <p>  
+                So what if <m>E</m> is <em>not</em> an initial object?
+                The definition of <m>I</m> implies that the map
+                <m>I \rightarrow E</m> is unique, but <m>E</m> <em>not</em>
+                being intial implies this map is non-invertible: there
+                is no retraction <m>E \rightarrow I</m>.  That
+                in turn gives us a pair of maps 
+                <m>e_1 \neq e_2</m> satisfying 
+                <m>I \rightarrow T \mathrel{\substack{
+                    e_1 \\ \longrightarrow \\ \longrightarrow \\ e_2}} E
+                </m> and a unique map  
+                <m>E \xrightarrow{\bar{e}} T</m> such that <m>\bar{e} e_1 = \bar{e} e_2 = 1_T</m>. 
+                Maybe this is where I need to invoke the
+                product? 
+            </p>
+            <p>
+                I think I'll need to spend some more time on this.
+            </p>
+        </solution>
+    </example>
+
+
+</section>
