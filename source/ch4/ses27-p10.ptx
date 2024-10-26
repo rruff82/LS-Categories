@@ -1,0 +1,651 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27-p10">
+    <title>Session 27: Examples of universal constructions, Part 10</title>
+    <p>
+       This is the first session to go into <q>double digit</q> 
+       parts.  That's okay though.  I haven't had as much time to
+       work on this and I feel like working out before moving on
+       will be necessary for understanding what comes next.
+    </p>
+    <example>
+        <title>Exercise 8: (Part 2/2)</title>
+        <statement>
+            <p>
+               Parallel maps continued...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                I think this time I want to approach this more
+                visually.  After all, the question explicitly 
+                talks about the graph reprepresentation.  Let's 
+                start with another simple example of parallel maps
+                <m>X \mathrel{\substack{f \\ \longrightarrow \\ \longrightarrow \\  g}} Y</m>.
+        
+            </p>
+            <image width="80%" xml:id="img-article27-ex8-1"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \node (Dom) at (0,4) {$X$};
+                    \node (CoDom) at (6,4) {$Y$};
+        
+                    \path[-{stealth}]
+            (Dom) edge[red,dashed,bend left] node[above] {$f$} (CoDom)
+            (Dom) edge[blue,dotted,bend right] node[below] {$g$}  (CoDom);
+        
+                    \draw (0,-3.5) circle [x radius=2, y radius=4];
+                    \draw (6,-4) circle [x radius=2, y radius=4.5];
+        
+        
+                    \node (X1) at (0,-0) {$x_{1}$};
+        \node (X2) at (0,-1) {$x_{2}$};
+        \node (X3) at (0,-2) {$x_{3}$};
+        \node (X4) at (0,-3) {$x_{4}$};
+        \node (X5) at (0,-4) {$x_{5}$};
+        \node (X6) at (0,-5) {$x_{6}$};
+        \node (X7) at (0,-6) {$x_{7}$};
+        \node (X8) at (0,-7) {$x_{8}$};
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            (X1) edge[red,dashed,bend left] (Y1)
+            (X1) edge[blue,dotted,bend right] (Y1)
+            (X2) edge[red,dashed,bend left] (Y2)
+            (X2) edge[blue,dotted,bend right] (Y3)
+            (X3) edge[red,dashed,bend left] (Y4)
+            (X3) edge[blue,dotted,bend right] (Y4)
+            (X4) edge[red,dashed,bend left] (Y4)
+            (X4) edge[blue,dotted,bend right] (Y4)
+            (X5) edge[red,dashed,bend left] (Y5)
+            (X5) edge[blue,dotted,bend right] (Y6)
+            (X6) edge[red,dashed,bend left] (Y5)
+            (X6) edge[blue,dotted,bend right] (Y6)
+            (X7) edge[red,dashed,bend left] (Y7)
+            (X7) edge[blue,dotted,bend right] (Y8)
+            (X8) edge[red,dashed,bend left] (Y8)
+            (X8) edge[blue,dotted,bend right] (Y7)
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                I tried to make sure these maps were neither
+                onto nor one-to-one, and tried to include 
+                a variety of relationships between mapped pairs.
+                I'll keep the notation of <q>red dashed</q> for <m>f</m> and
+                <q>blue dotted</q> for <m>g</m> as I go forward.
+            </p>
+            <p>
+                I think my <q>simpliest non-trivial equalizer</q> 
+                to this parallel pair of maps is the 
+                unique map defined by
+                <m>\{x_1\} \rightarrow \{y_1\}</m>.  Clearly <m>f x_1 = g x_1</m>
+                in my diagram, and the map <m>T \rightarrow \{x_1\}</m> 
+                is uniquely defined. This equalizer would be illustrated
+                by the solid arrow in the following diagram:
+            </p>
+            <image width="80%" xml:id="img-article27-ex8-2"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \draw (0,-3.5) circle [x radius=2, y radius=4];
+                    \draw (6,-4) circle [x radius=2, y radius=4.5];
+        
+                    \node (X1) at (0,-0) {$x_{1}$};
+        \node (X2) at (0,-1) {$x_{2}$};
+        \node (X3) at (0,-2) {$x_{3}$};
+        \node (X4) at (0,-3) {$x_{4}$};
+        \node (X5) at (0,-4) {$x_{5}$};
+        \node (X6) at (0,-5) {$x_{6}$};
+        \node (X7) at (0,-6) {$x_{7}$};
+        \node (X8) at (0,-7) {$x_{8}$};
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            (X1) edge[red,dashed,bend left] (Y1)
+            (X1) edge[blue,dotted,bend right] (Y1)
+            (X2) edge[red,dashed,bend left] (Y2)
+            (X2) edge[blue,dotted,bend right] (Y3)
+            (X3) edge[red,dashed,bend left] (Y4)
+            (X3) edge[blue,dotted,bend right] (Y4)
+            (X4) edge[red,dashed,bend left] (Y4)
+            (X4) edge[blue,dotted,bend right] (Y4)
+            (X5) edge[red,dashed,bend left] (Y5)
+            (X5) edge[blue,dotted,bend right] (Y6)
+            (X6) edge[red,dashed,bend left] (Y5)
+            (X6) edge[blue,dotted,bend right] (Y6)
+            (X7) edge[red,dashed,bend left] (Y7)
+            (X7) edge[blue,dotted,bend right] (Y8)
+            (X8) edge[red,dashed,bend left] (Y8)
+            (X8) edge[blue,dotted,bend right] (Y7)
+            (X1) edge (Y1)
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        
+            <p>
+                I use the 
+                extra qualifiers to exlude the maps from <m>\{\}</m>,
+                because that's our initial object
+                when we're working in <m>\mathcal{S}</m>.  Maybe it would
+                be appropriate to call these maps 
+                <m>\{\} \xrightarrow{p_0} X</m> and 
+                <m>\{x_1\} \xrightarrow{p_1} X</m>, in an effort to 
+                enumerate all possible equalizers.
+            </p>
+            <p>
+                The next equalizer I see is the unique map
+                <m>\{x_3\} \xrightarrow{p_2} X</m>.
+            </p>
+            <image width="80%" xml:id="img-article27-ex8-3"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \draw (0,-3.5) circle [x radius=2, y radius=4];
+                    \draw (6,-4) circle [x radius=2, y radius=4.5];
+        
+                    \node (X1) at (0,-0) {$x_{1}$};
+        \node (X2) at (0,-1) {$x_{2}$};
+        \node (X3) at (0,-2) {$x_{3}$};
+        \node (X4) at (0,-3) {$x_{4}$};
+        \node (X5) at (0,-4) {$x_{5}$};
+        \node (X6) at (0,-5) {$x_{6}$};
+        \node (X7) at (0,-6) {$x_{7}$};
+        \node (X8) at (0,-7) {$x_{8}$};
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            (X1) edge[red,dashed,bend left] (Y1)
+            (X1) edge[blue,dotted,bend right] (Y1)
+            (X2) edge[red,dashed,bend left] (Y2)
+            (X2) edge[blue,dotted,bend right] (Y3)
+            (X3) edge[red,dashed,bend left] (Y4)
+            (X3) edge[blue,dotted,bend right] (Y4)
+            (X4) edge[red,dashed,bend left] (Y4)
+            (X4) edge[blue,dotted,bend right] (Y4)
+            (X5) edge[red,dashed,bend left] (Y5)
+            (X5) edge[blue,dotted,bend right] (Y6)
+            (X6) edge[red,dashed,bend left] (Y5)
+            (X6) edge[blue,dotted,bend right] (Y6)
+            (X7) edge[red,dashed,bend left] (Y7)
+            (X7) edge[blue,dotted,bend right] (Y8)
+            (X8) edge[red,dashed,bend left] (Y8)
+            (X8) edge[blue,dotted,bend right] (Y7)
+            (X3) edge (Y4)
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                Once again, it's both true that <m>f x_3 = g x_3 = y_4</m>
+                in the diagram and the map <m>T \rightarrow \{x_3\}</m>
+                would need to be uniquely defined by domain and codomain. 
+            </p>
+            <p>
+                We can find yet another example like this given by
+                <m>\{x_4\} \xrightarrow{p_3} \{y_4\}</m>:
+            </p>
+            <image width="80%" xml:id="img-article27-ex8-4"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \draw (0,-3.5) circle [x radius=2, y radius=4];
+                    \draw (6,-4) circle [x radius=2, y radius=4.5];
+        
+                    \node (X1) at (0,-0) {$x_{1}$};
+        \node (X2) at (0,-1) {$x_{2}$};
+        \node (X3) at (0,-2) {$x_{3}$};
+        \node (X4) at (0,-3) {$x_{4}$};
+        \node (X5) at (0,-4) {$x_{5}$};
+        \node (X6) at (0,-5) {$x_{6}$};
+        \node (X7) at (0,-6) {$x_{7}$};
+        \node (X8) at (0,-7) {$x_{8}$};
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            (X1) edge[red,dashed,bend left] (Y1)
+            (X1) edge[blue,dotted,bend right] (Y1)
+            (X2) edge[red,dashed,bend left] (Y2)
+            (X2) edge[blue,dotted,bend right] (Y3)
+            (X3) edge[red,dashed,bend left] (Y4)
+            (X3) edge[blue,dotted,bend right] (Y4)
+            (X4) edge[red,dashed,bend left] (Y4)
+            (X4) edge[blue,dotted,bend right] (Y4)
+            (X5) edge[red,dashed,bend left] (Y5)
+            (X5) edge[blue,dotted,bend right] (Y6)
+            (X6) edge[red,dashed,bend left] (Y5)
+            (X6) edge[blue,dotted,bend right] (Y6)
+            (X7) edge[red,dashed,bend left] (Y7)
+            (X7) edge[blue,dotted,bend right] (Y8)
+            (X8) edge[red,dashed,bend left] (Y8)
+            (X8) edge[blue,dotted,bend right] (Y7)
+            (X4) edge (Y4)
+        
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                As before, we have
+                both <m>f x_4 = g x_4</m> and <m>T \rightarrow \{x_4\}</m>
+                unique.  In fact, these maps are the only three maps 
+                <m>T \xrightarrow{x_i} X</m> for which <m>f x_i = g x_i</m>.
+            </p>
+            <p>
+                I think where this gets complicated is that we can combine
+                these maps through set union to produce new equalizers.
+                Consider what happens the map 
+                <m>\{x_1,x_3\} \xrightarrow{p_4} X</m> such that there is a 
+                unique <m>\{x_1,x_3\} \xrightarrow{\bar{p_4}} X</m>
+                such that <m>\bar{p_4} p_4 = 1_{\{x_1,x_3\}}</m>. 
+                When we compose this 
+                with <m>f,g</m> we get the following:
+            </p>
+            <image width="80%" xml:id="img-article27-ex8-5"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \draw (0,-3.5) circle [x radius=2, y radius=4];
+                    \draw (6,-4) circle [x radius=2, y radius=4.5];
+        
+                    \node (X1) at (0,-0) {$x_{1}$};
+        \node (X2) at (0,-1) {$x_{2}$};
+        \node (X3) at (0,-2) {$x_{3}$};
+        \node (X4) at (0,-3) {$x_{4}$};
+        \node (X5) at (0,-4) {$x_{5}$};
+        \node (X6) at (0,-5) {$x_{6}$};
+        \node (X7) at (0,-6) {$x_{7}$};
+        \node (X8) at (0,-7) {$x_{8}$};
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            (X1) edge[red,dashed,bend left] (Y1)
+            (X1) edge[blue,dotted,bend right] (Y1)
+            (X2) edge[red,dashed,bend left] (Y2)
+            (X2) edge[blue,dotted,bend right] (Y3)
+            (X3) edge[red,dashed,bend left] (Y4)
+            (X3) edge[blue,dotted,bend right] (Y4)
+            (X4) edge[red,dashed,bend left] (Y4)
+            (X4) edge[blue,dotted,bend right] (Y4)
+            (X5) edge[red,dashed,bend left] (Y5)
+            (X5) edge[blue,dotted,bend right] (Y6)
+            (X6) edge[red,dashed,bend left] (Y5)
+            (X6) edge[blue,dotted,bend right] (Y6)
+            (X7) edge[red,dashed,bend left] (Y7)
+            (X7) edge[blue,dotted,bend right] (Y8)
+            (X8) edge[red,dashed,bend left] (Y8)
+            (X8) edge[blue,dotted,bend right] (Y7)
+            (X1) edge (Y1)
+            (X3) edge (Y4)
+        
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                Again, we have the case that <m>f x_1 = g x_1</m>
+                and <m>f x_3 = g x_3</m>.  For each of those
+                two values, there are unique maps 
+                <m>\{x_1,x_3\} \rightarrow \{x_1\}</m> and
+                <m>\{x_1,x_3\} \rightarrow \{x_3\}</m>
+                that produce those two respective points in <m>X</m>.
+            </p>
+            <p>
+                For the same reason, we should also have a 
+                equalizer <m>\{x_1,x_4\} \xrightarrow{p_5} X</m>:
+            </p>
+            <image width="80%" xml:id="img-article27-ex8-6"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \draw (0,-3.5) circle [x radius=2, y radius=4];
+                    \draw (6,-4) circle [x radius=2, y radius=4.5];
+        
+                    \node (X1) at (0,-0) {$x_{1}$};
+        \node (X2) at (0,-1) {$x_{2}$};
+        \node (X3) at (0,-2) {$x_{3}$};
+        \node (X4) at (0,-3) {$x_{4}$};
+        \node (X5) at (0,-4) {$x_{5}$};
+        \node (X6) at (0,-5) {$x_{6}$};
+        \node (X7) at (0,-6) {$x_{7}$};
+        \node (X8) at (0,-7) {$x_{8}$};
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            (X1) edge[red,dashed,bend left] (Y1)
+            (X1) edge[blue,dotted,bend right] (Y1)
+            (X2) edge[red,dashed,bend left] (Y2)
+            (X2) edge[blue,dotted,bend right] (Y3)
+            (X3) edge[red,dashed,bend left] (Y4)
+            (X3) edge[blue,dotted,bend right] (Y4)
+            (X4) edge[red,dashed,bend left] (Y4)
+            (X4) edge[blue,dotted,bend right] (Y4)
+            (X5) edge[red,dashed,bend left] (Y5)
+            (X5) edge[blue,dotted,bend right] (Y6)
+            (X6) edge[red,dashed,bend left] (Y5)
+            (X6) edge[blue,dotted,bend right] (Y6)
+            (X7) edge[red,dashed,bend left] (Y7)
+            (X7) edge[blue,dotted,bend right] (Y8)
+            (X8) edge[red,dashed,bend left] (Y8)
+            (X8) edge[blue,dotted,bend right] (Y7)
+            (X1) edge (Y1)
+            (X4) edge (Y4)
+        
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                Given that we seem to be okay to combine 
+                <m>p_1</m> with <m>p_2</m> or <m>p_3</m>, 
+                what happens if we combine maps <m>p_2</m>
+                and <m>p_3</m> together.  Consider the following 
+                composite <m>\{x_3,x_4\} \xrightarrow{p_6} X</m>:
+            </p>
+            <image width="80%" xml:id="img-article27-ex8-7"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \draw (0,-3.5) circle [x radius=2, y radius=4];
+                    \draw (6,-4) circle [x radius=2, y radius=4.5];
+        
+                    \node (X1) at (0,-0) {$x_{1}$};
+        \node (X2) at (0,-1) {$x_{2}$};
+        \node (X3) at (0,-2) {$x_{3}$};
+        \node (X4) at (0,-3) {$x_{4}$};
+        \node (X5) at (0,-4) {$x_{5}$};
+        \node (X6) at (0,-5) {$x_{6}$};
+        \node (X7) at (0,-6) {$x_{7}$};
+        \node (X8) at (0,-7) {$x_{8}$};
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            (X1) edge[red,dashed,bend left] (Y1)
+            (X1) edge[blue,dotted,bend right] (Y1)
+            (X2) edge[red,dashed,bend left] (Y2)
+            (X2) edge[blue,dotted,bend right] (Y3)
+            (X3) edge[red,dashed,bend left] (Y4)
+            (X3) edge[blue,dotted,bend right] (Y4)
+            (X4) edge[red,dashed,bend left] (Y4)
+            (X4) edge[blue,dotted,bend right] (Y4)
+            (X5) edge[red,dashed,bend left] (Y5)
+            (X5) edge[blue,dotted,bend right] (Y6)
+            (X6) edge[red,dashed,bend left] (Y5)
+            (X6) edge[blue,dotted,bend right] (Y6)
+            (X7) edge[red,dashed,bend left] (Y7)
+            (X7) edge[blue,dotted,bend right] (Y8)
+            (X8) edge[red,dashed,bend left] (Y8)
+            (X8) edge[blue,dotted,bend right] (Y7)
+            (X3) edge (Y4)
+            (X4) edge (Y4)
+        
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                We still have the case that <m>f x_i = g x_i</m>
+                for <m>x_i</m> in <m>\{x_3,x_4\}</m>, but does this
+                map satisfy the <q>exactly one</q> 
+                property?  
+            </p>
+            <p>
+                At first, I didn't think it would, but I'm beginning 
+                to be more convinced that it does. There are unique
+                maps <m>\{x_3,x_4\} \rightarrow \{x_3\}</m> and 
+                <m>\{x_3,x_4\} \rightarrow \{x_4\}</m> that could be
+                paired one-to-one with the two unique 
+                maps <m>T \rightarrow \{x_3\}</m> and <m>T \rightarrow \{x_4\}</m>.
+            </p>
+            <p>
+                So let's take this one last step and combine all three
+                into one last equalizer 
+                <m>\{x_1,x_3,x_4\} \xrightarrow{p_7} X</m>:
+            </p>
+            <image width="80%" xml:id="img-article27-ex8-8"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \draw (0,-3.5) circle [x radius=2, y radius=4];
+                    \draw (6,-4) circle [x radius=2, y radius=4.5];
+        
+                    \node (X1) at (0,-0) {$x_{1}$};
+        \node (X2) at (0,-1) {$x_{2}$};
+        \node (X3) at (0,-2) {$x_{3}$};
+        \node (X4) at (0,-3) {$x_{4}$};
+        \node (X5) at (0,-4) {$x_{5}$};
+        \node (X6) at (0,-5) {$x_{6}$};
+        \node (X7) at (0,-6) {$x_{7}$};
+        \node (X8) at (0,-7) {$x_{8}$};
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            (X1) edge[red,dashed,bend left] (Y1)
+            (X1) edge[blue,dotted,bend right] (Y1)
+            (X2) edge[red,dashed,bend left] (Y2)
+            (X2) edge[blue,dotted,bend right] (Y3)
+            (X3) edge[red,dashed,bend left] (Y4)
+            (X3) edge[blue,dotted,bend right] (Y4)
+            (X4) edge[red,dashed,bend left] (Y4)
+            (X4) edge[blue,dotted,bend right] (Y4)
+            (X5) edge[red,dashed,bend left] (Y5)
+            (X5) edge[blue,dotted,bend right] (Y6)
+            (X6) edge[red,dashed,bend left] (Y5)
+            (X6) edge[blue,dotted,bend right] (Y6)
+            (X7) edge[red,dashed,bend left] (Y7)
+            (X7) edge[blue,dotted,bend right] (Y8)
+            (X8) edge[red,dashed,bend left] (Y8)
+            (X8) edge[blue,dotted,bend right] (Y7)
+            (X3) edge (Y4)
+            (X4) edge (Y4)
+            (X1) edge (Y1)
+        
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                So, I think this gives me a set of 8 equalizers all together:
+                <m>\{\} \xrightarrow{p_0} X</m>,
+                <m>\{x_1\} \xrightarrow{p_1} X</m>,
+                <m>\{x_3\} \xrightarrow{p_2} X</m>,
+                <m>\{x_4\} \xrightarrow{p_3} X</m>,
+                <m>\{x_1,x_3\} \xrightarrow{p_4} X</m>,
+                <m>\{x_1,x_4\} \xrightarrow{p_5} X</m>,
+                <m>\{x_3,x_4\} \xrightarrow{p_6} X</m>,
+                and
+                <m>\{x_1,x_3,x_4\} \xrightarrow{p_7} X</m>.  That last one 
+                strikes me as being <q>special</q> in that it combines all the
+                others.  It also strikes me as notable that there are exactly 
+                as many equalizers as points in <m>X</m>, but that might just 
+                be a coincidence.
+            </p>
+            <p>
+                This is nice and all, but I think I'm straying from the 
+                question.  I should really be concerned with the interpretation
+                of this pair <m>f,g</m> as defining a endomap on <m>X+Y</m>
+                where I treat <m>f</m> as the source and <m>g</m> as the target.
+                Let's see what happens to my last diagram when I add the arrows
+                in <m>Y</m>:
+            </p>
+            <image width="80%" xml:id="img-article27-ex8-9"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \draw (0,-3.5) circle [x radius=2, y radius=4];
+                    \draw (6,-4) circle [x radius=2, y radius=4.5];
+        
+                    \node (X1) at (0,-0) {$x_{1}$};
+        \node (X2) at (0,-1) {$x_{2}$};
+        \node (X3) at (0,-2) {$x_{3}$};
+        \node (X4) at (0,-3) {$x_{4}$};
+        \node (X5) at (0,-4) {$x_{5}$};
+        \node (X6) at (0,-5) {$x_{6}$};
+        \node (X7) at (0,-6) {$x_{7}$};
+        \node (X8) at (0,-7) {$x_{8}$};
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            (X1) edge[red,dashed,bend left] (Y1)
+            (X1) edge[blue,dotted,bend right] (Y1)
+            (X2) edge[red,dashed,bend left] (Y2)
+            (X2) edge[blue,dotted,bend right] (Y3)
+            (X3) edge[red,dashed,bend left] (Y4)
+            (X3) edge[blue,dotted,bend right] (Y4)
+            (X4) edge[red,dashed,bend left] (Y4)
+            (X4) edge[blue,dotted,bend right] (Y4)
+            (X5) edge[red,dashed,bend left] (Y5)
+            (X5) edge[blue,dotted,bend right] (Y6)
+            (X6) edge[red,dashed,bend left] (Y5)
+            (X6) edge[blue,dotted,bend right] (Y6)
+            (X7) edge[red,dashed,bend left] (Y7)
+            (X7) edge[blue,dotted,bend right] (Y8)
+            (X8) edge[red,dashed,bend left] (Y8)
+            (X8) edge[blue,dotted,bend right] (Y7)
+            (X3) edge (Y4)
+            (X4) edge (Y4)
+            (X1) edge (Y1)
+            (Y1) edge[->,>={Stealth},loop right] (Y1)
+            (Y2) edge[bend left] (Y3)
+            (Y4) edge[->,>={Stealth},loop right] (Y4)
+            (Y5) edge[bend left] (Y6)
+            (Y7) edge[bend left] (Y8)
+            (Y8) edge[bend left] (Y7)
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                Note that I could have just easily 
+                swap interpretations to make <m>g</m> the 
+                source and <m>f</m> the target.
+            </p>
+            <image width="80%" xml:id="img-article27-ex8-10"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \draw (0,-3.5) circle [x radius=2, y radius=4];
+                    \draw (6,-4) circle [x radius=2, y radius=4.5];
+        
+                    \node (X1) at (0,-0) {$x_{1}$};
+        \node (X2) at (0,-1) {$x_{2}$};
+        \node (X3) at (0,-2) {$x_{3}$};
+        \node (X4) at (0,-3) {$x_{4}$};
+        \node (X5) at (0,-4) {$x_{5}$};
+        \node (X6) at (0,-5) {$x_{6}$};
+        \node (X7) at (0,-6) {$x_{7}$};
+        \node (X8) at (0,-7) {$x_{8}$};
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            (X1) edge[red,dashed,bend left] (Y1)
+            (X1) edge[blue,dotted,bend right] (Y1)
+            (X2) edge[red,dashed,bend left] (Y2)
+            (X2) edge[blue,dotted,bend right] (Y3)
+            (X3) edge[red,dashed,bend left] (Y4)
+            (X3) edge[blue,dotted,bend right] (Y4)
+            (X4) edge[red,dashed,bend left] (Y4)
+            (X4) edge[blue,dotted,bend right] (Y4)
+            (X5) edge[red,dashed,bend left] (Y5)
+            (X5) edge[blue,dotted,bend right] (Y6)
+            (X6) edge[red,dashed,bend left] (Y5)
+            (X6) edge[blue,dotted,bend right] (Y6)
+            (X7) edge[red,dashed,bend left] (Y7)
+            (X7) edge[blue,dotted,bend right] (Y8)
+            (X8) edge[red,dashed,bend left] (Y8)
+            (X8) edge[blue,dotted,bend right] (Y7)
+            (X3) edge (Y4)
+            (X4) edge (Y4)
+            (X1) edge (Y1)
+            (Y1) edge[->,>={Stealth},loop right] (Y1)
+            (Y3) edge[bend right] (Y2)
+            (Y4) edge[->,>={Stealth},loop right] (Y4)
+            (Y6) edge[bend right] (Y5)
+            (Y7) edge[bend right] (Y8)
+            (Y8) edge[bend right] (Y7)
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                In both cases, it would seem that the equalizer
+                has the property that it maps points in <m>X</m> to
+                explicit self-loops of this endomap <m>Y^\beta</m>.
+                With those fixed points, it doesn't matter which of <m>f,g</m>
+                is the source and target because they're both the same
+                point anyway.  Maybe that's all this exercise was looking for
+                in the end?
+            </p>
+        
+        </solution>
+    </example>
+    <p>
+        Having hit what feels like an <em>Occam's Razor</em>
+        type situation, I think I can stop here and start
+        progressing again next week.
+    </p>
+  
+</section>
