@@ -257,6 +257,7 @@ window.MathJax = {
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="session27-p7.html" class="internal"><span class="codenumber">5.39</span> <span class="title">Session 27: Examples of universal constructions, Part 7</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="session27-p8.html" class="internal"><span class="codenumber">5.40</span> <span class="title">Session 27: Examples of universal constructions, Part 8</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="session27-p9.html" class="internal"><span class="codenumber">5.41</span> <span class="title">Session 27: Examples of universal constructions, Part 9</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session27-p10.html" class="internal"><span class="codenumber">5.42</span> <span class="title">Session 27: Examples of universal constructions, Part 10</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -269,7 +270,8 @@ window.MathJax = {
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.24.1</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 1: (Part 2/?).</span>
 </h3></summary><article class="example example-like knowl__content"><div class="para" id="session25-p2-3-2-1">Proofreading last week’s work...</div>
 <div class="solutions"><details id="session25-p2-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para" id="session25-p2-3-3-1">Immediately after this Exercise, the author’s define a graph <span class="process-math">\(A_2\)</span> with the exact graph I thought was going to be <span class="process-math">\(2_A\text{.}\)</span>  It seems incredibly unlikely that <span class="process-math">\(A_2 = 2_A\)</span> would be the same graph, so my answer is almost certainly wrong. I decided to take a closer look at the examples leading up to his.</div> <div class="para" id="session25-p2-3-3-2">I’ve been starting to form a tighter connection between the graphs and the adjacency matrices. The object <span class="process-math">\(D\)</span> defined as the “naked dot” is essentially a <span class="process-math">\(1\times1\)</span> matrix given by <span class="process-math">\(\begin{bmatrix}
+<div class="para" id="session25-p2-3-3-1">Immediately after this Exercise, the author’s define a graph <span class="process-math">\(A_2\)</span> with the exact graph I thought was going to be <span class="process-math">\(2_A\text{.}\)</span>  It seems incredibly unlikely that <span class="process-math">\(A_2 = 2_A\)</span> would be the same graph, so my answer is almost certainly wrong. I decided to take a closer look at the examples leading up to his.</div>
+<div class="para" id="session25-p2-3-3-2">I’ve been starting to form a tighter connection between the graphs and the adjacency matrices. The object <span class="process-math">\(D\)</span> defined as the “naked dot” is essentially a <span class="process-math">\(1\times1\)</span> matrix given by <span class="process-math">\(\begin{bmatrix}
 0
 \end{bmatrix}\text{.}\)</span>  Likewise, the “naked arrow” <span class="process-math">\(A\)</span> can be thought of a <span class="process-math">\(2\times2\)</span> matrix given by <span class="process-math">\(\begin{bmatrix}
 0 &amp; 1 \\
@@ -285,7 +287,8 @@ window.MathJax = {
 0 &amp; 0 &amp; 0 &amp; 0                        
 \end{bmatrix}\text{.}\)</span> I also get a nice representation of the “naked loop” as the matrix <span class="process-math">\(\begin{bmatrix} 1                    
 \end{bmatrix}\text{.}\)</span>
-</div> <div class="para" id="session25-p2-3-3-3">However, it’s important to note that this method of a graph sum doesn’t commute. The matrix <span class="process-math">\(D+A = \begin{bmatrix}
+</div>
+<div class="para" id="session25-p2-3-3-3">However, it’s important to note that this method of a graph sum doesn’t commute. The matrix <span class="process-math">\(D+A = \begin{bmatrix}
 0 &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 1 \\
 0 &amp; 0 &amp; 0
@@ -293,22 +296,29 @@ window.MathJax = {
 0 &amp; 1 &amp; 0 \\
 0 &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 0
-\end{bmatrix}\)</span> if we’re using an element-wise comparison. Even though they’re not the same, they’re “isomorphic” in that they both have exactly 3 dots and one arrow connecting two of them so every thing has a pair.</div> <div class="para" id="session25-p2-3-3-4">Speaking of pairs, I think that’s why our maps to <span class="process-math">\(C_2\)</span> are important.  Using the matrix notation, <span class="process-math">\(C_2\)</span> can be thought of as <span class="process-math">\(\alpha = \begin{bmatrix}
+\end{bmatrix}\)</span> if we’re using an element-wise comparison. Even though they’re not the same, they’re “isomorphic” in that they both have exactly 3 dots and one arrow connecting two of them so every thing has a pair.</div>
+<div class="para" id="session25-p2-3-3-4">Speaking of pairs, I think that’s why our maps to <span class="process-math">\(C_2\)</span> are important.  Using the matrix notation, <span class="process-math">\(C_2\)</span> can be thought of as <span class="process-math">\(\alpha = \begin{bmatrix}
 0 &amp; 1\\
 1 &amp; 0
 \end{bmatrix}\)</span> which happens to be the unique antipodal matrix satisfying <span class="process-math">\(\alpha^2 = I_{D+D}\text{.}\)</span> Multiplying this matrix with the arrow matrix gives me the sum of a naked dot and a loop, as represented by the matrix form <span class="process-math">\(\begin{bmatrix} 0 &amp; 0 \\ 0 &amp; 1                    
 \end{bmatrix}\text{.}\)</span>
-</div> <div class="para" id="session25-p2-3-3-5">What strikes me as interesting about this matrix representation is the way the graph decribed in the text as <span class="process-math">\(2_D\)</span> corresponds with the matrix <span class="process-math">\(\begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 1                    
+</div>
+<div class="para" id="session25-p2-3-3-5">What strikes me as interesting about this matrix representation is the way the graph decribed in the text as <span class="process-math">\(2_D\)</span> corresponds with the matrix <span class="process-math">\(\begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 1                    
 \end{bmatrix}\text{.}\)</span> This is the unique matrix that takes every element in the matrix of <span class="process-math">\(D+D\)</span> and swaps zeroes to ones.  It got me wondering what would happen if I applied the same operation to <span class="process-math">\(A+A\text{.}\)</span>  This matrix, given by <span class="process-math">\(\begin{bmatrix} 
 1 &amp; 0 &amp; 1 &amp; 1 \\ 
 1 &amp; 1 &amp; 1 &amp; 1 \\
 1 &amp; 1 &amp; 1 &amp; 0 \\
 1 &amp; 1 &amp; 1 &amp; 1
 \end{bmatrix}    
-\text{,}\)</span> produces the following graph:</div> <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-session25-p2-twoshort.svg" role="img" class="contained" alt="Graph that is two arrows short of completion"></div> <div class="para" id="session25-p2-3-3-7">I’m starting to think that this might be the graph <span class="process-math">\(2_A\)</span> that I was looking for.  The reason I’m so convinced of this is the way om which it resembles a particular shape on the cover of the book:</div> <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-session25-p2-cover.svg" role="img" class="contained" alt="Graph depicted on cover of book"></div> <div class="para" id="session25-p2-3-3-9">Using the notation I have been, this graph corresponds with the matrix given by <span class="process-math">\(\begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 2                    
+\text{,}\)</span> produces the following graph:</div>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-session25-p2-twoshort.svg" role="img" class="contained" alt="Graph that is two arrows short of completion"></div>
+<div class="para" id="session25-p2-3-3-7">I’m starting to think that this might be the graph <span class="process-math">\(2_A\)</span> that I was looking for.  The reason I’m so convinced of this is the way om which it resembles a particular shape on the cover of the book:</div>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/img-session25-p2-cover.svg" role="img" class="contained" alt="Graph depicted on cover of book"></div>
+<div class="para" id="session25-p2-3-3-9">Using the notation I have been, this graph corresponds with the matrix given by <span class="process-math">\(\begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 2                    
 \end{bmatrix}\)</span> (with the 2 repesenting my second self-loop).  This seems relevant because taking these elements modulo 2 and multiplying by my antipodal matrix gives me back the original arrow <span class="process-math">\(\begin{bmatrix} 1 &amp; 0 \\ 1 &amp; 1                    
 \end{bmatrix}\text{.}\)</span>
-</div> <div class="para" id="session25-p2-3-3-10">I think I want to spend a little more time playing with this.  I think this notion of a “graph negation” operation could have some useful properties with respect to my sum and product.</div>
+</div>
+<div class="para" id="session25-p2-3-3-10">I think I want to spend a little more time playing with this.  I think this notion of a “graph negation” operation could have some useful properties with respect to my sum and product.</div>
 </div></details></div></article></details></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="session25.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="session17-r1.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>

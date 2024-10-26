@@ -257,6 +257,7 @@ window.MathJax = {
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="session27-p7.html" class="internal"><span class="codenumber">5.39</span> <span class="title">Session 27: Examples of universal constructions, Part 7</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="session27-p8.html" class="internal"><span class="codenumber">5.40</span> <span class="title">Session 27: Examples of universal constructions, Part 8</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="session27-p9.html" class="internal"><span class="codenumber">5.41</span> <span class="title">Session 27: Examples of universal constructions, Part 9</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session27-p10.html" class="internal"><span class="codenumber">5.42</span> <span class="title">Session 27: Examples of universal constructions, Part 10</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -358,7 +359,8 @@ A \xrightarrow{f_{AX}} X = A \xrightarrow{j_1}
 A+B \xrightarrow{f} X \times Y \xrightarrow{p_1} X\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="session26-3-3-2">
+</div>
+<div class="para logical" id="session26-3-3-2">
 <div class="para">Let’s start by taking a look at the map <span class="process-math">\(h_{AU} = g_{XU} \circ f_{AX} + g_{YU} \circ f_{AY}\text{.}\)</span> By the definition of “matrix addition”, we’ve defined <span class="process-math">\(A \xrightarrow{h_{AU}} U\)</span> to be the unique map such that:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -467,7 +469,8 @@ A+U \longrightarrow A \times U
 \end{bmatrix} 
 \end{equation*}
 </div>
-</div> <div class="para logical" id="session26-3-3-3">
+</div>
+<div class="para logical" id="session26-3-3-3">
 <div class="para">Maybe I can take these maps and turn them into a big “nested matrix”:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -494,7 +497,8 @@ A+U \longrightarrow A \times U
 \end{bmatrix} 
 \end{equation*}
 </div>
-</div> <div class="para logical" id="session26-3-3-4">
+</div>
+<div class="para logical" id="session26-3-3-4">
 <div class="para">The components of that matrix should have the following domains and codomains:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -506,9 +510,12 @@ B+V \longrightarrow B \times V
 \end{bmatrix}  
 \end{equation*}
 </div>
-</div> <div class="para" id="session26-3-3-5">Maybe I should be thinking of this identity matrix <span class="process-math">\(\alpha^{-1}\)</span> in terms of it’s properties? The idea being that <span class="process-math">\(\alpha \circ \alpha^{-1} = 1_{X+Y}\)</span> and <span class="process-math">\(\alpha^{-1} \circ \alpha = 1_{X \times Y}\)</span> for <em class="emphasis">any</em> <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> in the category. What if I were to choose <span class="process-math">\(X = A + B\)</span> and <span class="process-math">\(Y = U + V\text{?}\)</span>
-</div> <div class="para" id="session26-3-3-6">Our linear category should already contain isomorphisms <span class="process-math">\(A+B \leftrightarrows A \times B\)</span> and <span class="process-math">\(U+V \leftrightarrows U \times V\text{.}\)</span>  If we also have an isomorphism <span class="process-math">\((A+B)+(U+V) \leftrightarrows (A + B) \times (U + V) \text{,}\)</span> then we should be able to use the injections and projections to define an isomorphism <span class="process-math">\(A+B \leftrightarrows U \times V\text{.}\)</span>
-</div> <div class="para logical" id="session26-3-3-7">
+</div>
+<div class="para" id="session26-3-3-5">Maybe I should be thinking of this identity matrix <span class="process-math">\(\alpha^{-1}\)</span> in terms of it’s properties? The idea being that <span class="process-math">\(\alpha \circ \alpha^{-1} = 1_{X+Y}\)</span> and <span class="process-math">\(\alpha^{-1} \circ \alpha = 1_{X \times Y}\)</span> for <em class="emphasis">any</em> <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> in the category. What if I were to choose <span class="process-math">\(X = A + B\)</span> and <span class="process-math">\(Y = U + V\text{?}\)</span>
+</div>
+<div class="para" id="session26-3-3-6">Our linear category should already contain isomorphisms <span class="process-math">\(A+B \leftrightarrows A \times B\)</span> and <span class="process-math">\(U+V \leftrightarrows U \times V\text{.}\)</span>  If we also have an isomorphism <span class="process-math">\((A+B)+(U+V) \leftrightarrows (A + B) \times (U + V) \text{,}\)</span> then we should be able to use the injections and projections to define an isomorphism <span class="process-math">\(A+B \leftrightarrows U \times V\text{.}\)</span>
+</div>
+<div class="para logical" id="session26-3-3-7">
 <div class="para">Consider the following:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -520,11 +527,13 @@ B+V \longrightarrow B \times V
 (A+B) \times (U + V) \xrightarrow{p_2} (U+V) \xrightarrow{\alpha^{-1}} (U \times B) \xrightarrow{j_2} (A \times B) + (U \times V)
 \end{equation*}
 </div>
-</div> <div class="para" id="session26-3-3-8">Our definition of product and sum mean we have unique maps <span class="process-math">\(j,p\)</span> satisfying <span class="process-math">\(j \circ \alpha^{-1} \circ p = \begin{bmatrix}
+</div>
+<div class="para" id="session26-3-3-8">Our definition of product and sum mean we have unique maps <span class="process-math">\(j,p\)</span> satisfying <span class="process-math">\(j \circ \alpha^{-1} \circ p = \begin{bmatrix}
 1_{A+B} &amp; 0_{(A+B)(U+V)} \\
 0_{(U+V)(A+B)} &amp; 1_{U+V}
 \end{bmatrix}^{-1}\)</span> defined from <span class="process-math">\((A+B) \times (U + V) \longrightarrow (A \times B) + (U \times V)\text{.}\)</span> If we precompose by <span class="process-math">\(p_1\)</span> and post compose by <span class="process-math">\(j_1\text{,}\)</span> then we get a map <span class="process-math">\(A + B \longrightarrow U \times V\)</span> which has the same domain and codomain as <span class="process-math">\(h\text{.}\)</span>
-</div> <div class="para" id="session26-3-3-9">If I’m interpreting this right, this gives us a special matrix <span class="process-math">\(\begin{bmatrix}
+</div>
+<div class="para" id="session26-3-3-9">If I’m interpreting this right, this gives us a special matrix <span class="process-math">\(\begin{bmatrix}
 j_1 \circ p_1 &amp;
 j_1 \circ p_2 \\
 j_2 \circ p_1 &amp; 

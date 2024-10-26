@@ -257,6 +257,7 @@ window.MathJax = {
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="session27-p7.html" class="internal"><span class="codenumber">5.39</span> <span class="title">Session 27: Examples of universal constructions, Part 7</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="session27-p8.html" class="internal"><span class="codenumber">5.40</span> <span class="title">Session 27: Examples of universal constructions, Part 8</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="session27-p9.html" class="internal"><span class="codenumber">5.41</span> <span class="title">Session 27: Examples of universal constructions, Part 9</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session27-p10.html" class="internal"><span class="codenumber">5.42</span> <span class="title">Session 27: Examples of universal constructions, Part 10</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -269,17 +270,20 @@ window.MathJax = {
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.37.1</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 4: (Part 2).</span>
 </h3></summary><article class="example example-like knowl__content"><div class="para" id="session27-p5-3-2-1">Continued from last week...</div>
 <div class="solutions"><details id="session27-p5-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para" id="session27-p5-3-3-1">In one of my previous sessions, I implemented this map <span class="process-math">\(f: \mathbb{N} \rightarrow \mathbb{N} \times \mathbb{N}\)</span> that I’m looking for in <a class="external" href="https://github.com/rruff82/LS-Categories/blob/main/assets/notebooks/numbertheory.py" target="_blank">Python</a><details class="ptx-footnote" aria-live="polite" id="session27-p5-3-3-1-3"><summary class="ptx-footnote__number" title="Footnote 5.37.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="session27-p5-3-3-1-3"><code class="code-inline tex2jax_ignore">github.com/rruff82/LS-Categories/blob/main/assets/notebooks/numbertheory.py</code></div></details> as follows:</div> <code class="code-inline tex2jax_ignore">def from_zig_zag_N(n):
+<div class="para" id="session27-p5-3-3-1">In one of my previous sessions, I implemented this map <span class="process-math">\(f: \mathbb{N} \rightarrow \mathbb{N} \times \mathbb{N}\)</span> that I’m looking for in <a class="external" href="https://github.com/rruff82/LS-Categories/blob/main/assets/notebooks/numbertheory.py" target="_blank">Python</a><details class="ptx-footnote" aria-live="polite" id="session27-p5-3-3-1-3"><summary class="ptx-footnote__number" title="Footnote 5.37.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="session27-p5-3-3-1-3"><code class="code-inline tex2jax_ignore">github.com/rruff82/LS-Categories/blob/main/assets/notebooks/numbertheory.py</code></div></details> as follows:</div>
+<code class="code-inline tex2jax_ignore">def from_zig_zag_N(n):
             # inverse of reverse_zig_zag
             # see also https://en.wikipedia.org/wiki/Pairing_function
             w = floor((sqrt(8*n+1)-1)/2)
             t = (w*w+w)/2
             x = n-t
             y = w-x
-            return (int(x),int(y))</code> <div class="para" id="session27-p5-3-3-3">The only difference is that I’ll need to swap <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> to match the book’s northwest ordering.</div> <div class="para" id="session27-p5-3-3-4">Given <span class="process-math">\(g(x,y)
+            return (int(x),int(y))</code><div class="para" id="session27-p5-3-3-3">The only difference is that I’ll need to swap <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> to match the book’s northwest ordering.</div>
+<div class="para" id="session27-p5-3-3-4">Given <span class="process-math">\(g(x,y)
 = \frac{1}{2}(x^2+2xy+y^2+x+3y)
 \text{,}\)</span> we can compose with <span class="process-math">\(f\)</span> one of two ways: <span class="process-math">\(f \circ g: \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{N} \times \mathbb{N}\)</span> or <span class="process-math">\(g \circ f: \mathbb{N} \rightarrow \mathbb{N}\text{.}\)</span>
-</div> <div class="para logical" id="session27-p5-3-3-5">
+</div>
+<div class="para logical" id="session27-p5-3-3-5">
 <div class="para">Performing the necessary swap from my code above, lets define <span class="process-math">\(y = n - t\)</span> and <span class="process-math">\(x = w - y\)</span> where <span class="process-math">\(w = \lfloor \frac{\sqrt{8n+1}-1}{2} \rfloor\)</span> and <span class="process-math">\(t = \frac{w^2+w}{2}\text{.}\)</span>  Applying these to <span class="process-math">\(g(x,y)\text{:}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -317,8 +321,10 @@ window.MathJax = {
 = n
 \end{equation*}
 </div>
-</div> <div class="para" id="session27-p5-3-3-6">That shouldn’t be suprising given that I proved <span class="process-math">\(g \circ f = 1_\mathbb{N}\)</span> last week using induction. What about the other composition? I’m still not quite confident I’ve established that  <span class="process-math">\(f \circ g = 1_{\mathbb{N} \times \mathbb{N}}\text{.}\)</span>
-</div> <div class="para" id="session27-p5-3-3-7">Maybe it might be helpful to evaluate <span class="process-math">\(f(n)\)</span> for some small values of <span class="process-math">\(n\text{.}\)</span>  We can think of <span class="process-math">\(w,t,x,y\)</span> as maps <span class="process-math">\(\mathbb{N} \rightarrow \mathbb{N}\text{.}\)</span>
+</div>
+<div class="para" id="session27-p5-3-3-6">That shouldn’t be suprising given that I proved <span class="process-math">\(g \circ f = 1_\mathbb{N}\)</span> last week using induction. What about the other composition? I’m still not quite confident I’ve established that  <span class="process-math">\(f \circ g = 1_{\mathbb{N} \times \mathbb{N}}\text{.}\)</span>
+</div>
+<div class="para" id="session27-p5-3-3-7">Maybe it might be helpful to evaluate <span class="process-math">\(f(n)\)</span> for some small values of <span class="process-math">\(n\text{.}\)</span>  We can think of <span class="process-math">\(w,t,x,y\)</span> as maps <span class="process-math">\(\mathbb{N} \rightarrow \mathbb{N}\text{.}\)</span>
 </div>
 <div class="para logical" id="session27-p5-3-3-8">
 <div class="para">For <span class="process-math">\(n=0\text{:}\)</span>
@@ -482,7 +488,9 @@ y(6) = 6-t(5) = 6-6 = 0
 x(6) = 3-y(6) = 3-0 = 3
 \end{equation*}
 </div>
-</div> <div class="para" id="session27-p5-3-3-9">I’m beginning to see some patterns here. The sequence <span class="process-math">\(w(n)\)</span> goes <span class="process-math">\(\{0,1,1,2,2,2,3,3,3,3,4,....\}\)</span> which has <span class="process-math">\(n+1\)</span> copies of each <span class="process-math">\(n\text{.}\)</span> The sequence <span class="process-math">\(t(n)\)</span> goes <span class="process-math">\(\{0,1,1,3,3,3,6,6,6,6,10,...\}\)</span> are matching <span class="process-math">\(n+1\)</span> repeated copies of my “triangular numbers” <span class="process-math">\(\{0,1,3,6,10,...\}\text{.}\)</span> Those numbers are important because they satisfy <span class="process-math">\(\frac{n(n+1)}{2} = \sum\limits^n_{k=0} k\text{.}\)</span>  Each triangular number <span class="process-math">\(T_k\)</span> is determined by the sum of some consecutive set of natural numbers, so we should have <span class="process-math">\(T_{k+1} = T_k + k+1\)</span> for all <span class="process-math">\(k \in \mathbb{N}\text{.}\)</span> What’s unclear to me is where <span class="process-math">\(w\)</span> comes from.</div> <div class="para logical" id="session27-p5-3-3-10">
+</div>
+<div class="para" id="session27-p5-3-3-9">I’m beginning to see some patterns here. The sequence <span class="process-math">\(w(n)\)</span> goes <span class="process-math">\(\{0,1,1,2,2,2,3,3,3,3,4,....\}\)</span> which has <span class="process-math">\(n+1\)</span> copies of each <span class="process-math">\(n\text{.}\)</span> The sequence <span class="process-math">\(t(n)\)</span> goes <span class="process-math">\(\{0,1,1,3,3,3,6,6,6,6,10,...\}\)</span> are matching <span class="process-math">\(n+1\)</span> repeated copies of my “triangular numbers” <span class="process-math">\(\{0,1,3,6,10,...\}\text{.}\)</span> Those numbers are important because they satisfy <span class="process-math">\(\frac{n(n+1)}{2} = \sum\limits^n_{k=0} k\text{.}\)</span>  Each triangular number <span class="process-math">\(T_k\)</span> is determined by the sum of some consecutive set of natural numbers, so we should have <span class="process-math">\(T_{k+1} = T_k + k+1\)</span> for all <span class="process-math">\(k \in \mathbb{N}\text{.}\)</span> What’s unclear to me is where <span class="process-math">\(w\)</span> comes from.</div>
+<div class="para logical" id="session27-p5-3-3-10">
 <div class="para">Given a map <span class="process-math">\(w = \lfloor \frac{\sqrt{8n+1}-1}{2} \rfloor\text{,}\)</span> we basically have a compound inequality which needs to be satisfied:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -531,14 +539,17 @@ x(6) = 3-y(6) = 3-0 = 3
 n \leq \frac{w^2 + w}{2} &lt; n+\frac{1+\sqrt{8n+1}}{2}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="session27-p5-3-3-11">
+</div>
+<div class="para logical" id="session27-p5-3-3-11">
 <div class="para">The expression <span class="process-math">\(\frac{1+\sqrt{8n+1}}{2}\)</span> is basically <span class="process-math">\(w+1\text{,}\)</span> so...</div>
 <div class="displaymath process-math">
 \begin{equation*}
 n \leq \frac{w^2 + w}{2} &lt; n+w+1
 \end{equation*}
 </div>
-</div> <div class="para" id="session27-p5-3-3-12">This seems very similar to the definition of <span class="process-math">\(T_{k+1}\)</span> above. Maybe that’s the key to finishing my induction proof from last week?</div> <div class="para logical" id="session27-p5-3-3-13">
+</div>
+<div class="para" id="session27-p5-3-3-12">This seems very similar to the definition of <span class="process-math">\(T_{k+1}\)</span> above. Maybe that’s the key to finishing my induction proof from last week?</div>
+<div class="para logical" id="session27-p5-3-3-13">
 <div class="para">It’s pretty clear that <span class="process-math">\(w\)</span> is not invertable since output values repeat for the floor function, but mabye solving <span class="process-math">\(\omega = \frac{\sqrt{8n+1}-1}{2}\)</span> for <span class="process-math">\(n\)</span> might give me some clue to go forward.</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -575,7 +586,9 @@ n \leq \frac{w^2 + w}{2} &lt; n+w+1
 \frac{\omega^2 +\omega}{2} = n
 \end{equation*}
 </div>
-</div> <div class="para" id="session27-p5-3-3-14">And our triangular numbers show up again! So our choice of <span class="process-math">\(w\)</span> is basically defined by the unique inverse of the trianglular numbers in the <em class="emphasis">reals</em>.</div> <div class="para" id="session27-p5-3-3-15">The final part of this question asks why the map <span class="process-math">\(f_1\)</span> can’t be a polynomial, and maybe it’s because those triangular numbers <span class="process-math">\(T_n\)</span> have a unique inverse in <span class="process-math">\(\mathbb{R}_{\geq 0}\)</span> that map is non-polynomial in nature.</div>
+</div>
+<div class="para" id="session27-p5-3-3-14">And our triangular numbers show up again! So our choice of <span class="process-math">\(w\)</span> is basically defined by the unique inverse of the trianglular numbers in the <em class="emphasis">reals</em>.</div>
+<div class="para" id="session27-p5-3-3-15">The final part of this question asks why the map <span class="process-math">\(f_1\)</span> can’t be a polynomial, and maybe it’s because those triangular numbers <span class="process-math">\(T_n\)</span> have a unique inverse in <span class="process-math">\(\mathbb{R}_{\geq 0}\)</span> that map is non-polynomial in nature.</div>
 </div></details></div></article></details><div class="para" id="session27-p5-4">There’s still some things here I’m uncertain about, but I feel better having at least attempted the rest of the exercise.</div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="session27-p4.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="session27-p6.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>

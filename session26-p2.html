@@ -257,6 +257,7 @@ window.MathJax = {
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="session27-p7.html" class="internal"><span class="codenumber">5.39</span> <span class="title">Session 27: Examples of universal constructions, Part 7</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="session27-p8.html" class="internal"><span class="codenumber">5.40</span> <span class="title">Session 27: Examples of universal constructions, Part 8</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="session27-p9.html" class="internal"><span class="codenumber">5.41</span> <span class="title">Session 27: Examples of universal constructions, Part 9</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="session27-p10.html" class="internal"><span class="codenumber">5.42</span> <span class="title">Session 27: Examples of universal constructions, Part 10</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -269,7 +270,8 @@ window.MathJax = {
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.31.1</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 1: (Part 2/2).</span>
 </h3></summary><article class="example example-like knowl__content"><div class="para" id="session26-p2-3-2-1">Continued from last week</div>
 <div class="solutions"><details id="session26-p2-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para" id="session26-p2-3-3-1">I’m starting to get the feeling that I’m <em class="emphasis">overthinking</em> this exercise and the real purpose was to connect the matrix product with composition.  I’ve been basing my Python code around the properties of the adjacency matrix representation of a graph, but this idea really wasn’t explicitly made in the text anywhere.</div> <div class="para logical" id="session26-p2-3-3-2">
+<div class="para" id="session26-p2-3-3-1">I’m starting to get the feeling that I’m <em class="emphasis">overthinking</em> this exercise and the real purpose was to connect the matrix product with composition.  I’ve been basing my Python code around the properties of the adjacency matrix representation of a graph, but this idea really wasn’t explicitly made in the text anywhere.</div>
+<div class="para logical" id="session26-p2-3-3-2">
 <div class="para">If I’m just thinking of a traditional “matrix product”, I would evaluate <span class="process-math">\(f \cdot g\)</span> as follows:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -295,7 +297,8 @@ f_{BX} \cdot g_{XV} + f_{BY} \cdot g_{YV}
 \end{bmatrix} 
 \end{equation*}
 </div>
-</div> <div class="para logical" id="session26-p2-3-3-3">
+</div>
+<div class="para logical" id="session26-p2-3-3-3">
 <div class="para">My work from last week has a number of errors.   Particularly, I mistakely had a duplicate <span class="process-math">\(f_{XV}\)</span> where my <span class="process-math">\(f_{YV}\)</span> should have been, and the text defined <span class="process-math">\(\alpha\)</span> opposite to how I did.  Specifically, they use <span class="process-math">\(X \times Y \xrightarrow{\alpha} X+Y\)</span> such that <span class="process-math">\(\alpha^{-1} \circ \alpha = 1_{X \times Y}\)</span> and <span class="process-math">\(\alpha \circ \alpha^{-1} = 1_{X + Y}\)</span> for <span class="process-math">\(X+Y \xrightarrow{\alpha^{-1}} X \times Y\text{.}\)</span> Using that notation, can write our matrix product <span class="process-math">\(f \cdot g\)</span> as <span class="process-math">\(g \circ \alpha \circ f\text{.}\)</span> This gives us the following:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -307,7 +310,8 @@ g_{XV}   \circ \alpha \circ f_{BX} +  g_{YV}\circ \alpha \circ f_{BY}
 \end{bmatrix} 
 \end{equation*}
 </div>
-</div> <div class="para logical" id="session26-p2-3-3-4">
+</div>
+<div class="para logical" id="session26-p2-3-3-4">
 <div class="para">So I think the trink to this is that our category must have identity maps and an associative property.  Given a product <span class="process-math">\(f \cdot g = g \circ \alpha \circ f\text{,}\)</span> we could theoretically substitute <span class="process-math">\(f = \alpha^{-1}\)</span> or <span class="process-math">\(g = \alpha^{-1}\text{.}\)</span>  That gives us <span class="process-math">\(\alpha^{-1} \cdot g = g \circ \alpha \circ \alpha^{1} = g\)</span> and <span class="process-math">\(f \cdot \alpha^{-1} = \alpha^{-1} \circ \alpha \circ f
 = f\text{.}\)</span>   This would give us the following two equivalences:</div>
 <div class="displaymath process-math">
@@ -366,7 +370,8 @@ g_{XV}   \circ \alpha \circ 0_{YX} +  g_{YV}\circ \alpha \circ 1_{Y}
 \end{bmatrix} 
 \end{equation*}
 </div>
-</div> <div class="para" id="session26-p2-3-3-5">Using the properties of our identity maps and zero maps, we can simplify those to the following:</div>
+</div>
+<div class="para" id="session26-p2-3-3-5">Using the properties of our identity maps and zero maps, we can simplify those to the following:</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix}
@@ -380,7 +385,8 @@ f_{BX} &amp; f_{BY}
 0_{BY} +  \alpha \circ f_{BY}
 \end{bmatrix}   
 \end{equation*}
-</div>and<div class="displaymath process-math">
+</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix}
 g_{XU} &amp; g_{XV}\\
@@ -485,15 +491,27 @@ g_{XV} \circ f_{BX} +  g_{YV}\circ f_{BY}
 \end{bmatrix}
 \end{equation*}
 </div>
-</div> <div class="para" id="session26-p2-3-3-9">And that completes our proof.</div>
+</div>
+<div class="para" id="session26-p2-3-3-9">And that completes our proof.</div>
 </div></details></div></article></details><details id="session26-p2-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.31.2</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise 2: (Part 1/?).</span>
 </h3></summary><article class="example example-like knowl__content"><div class="para" id="session26-p2-4-2-1">Prove that a category with initial and terminal objects...</div>
 <div class="solutions"><details id="session26-p2-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="session26-p2-4-3-1">Assuming that our category has intial and terminal objects, any objects <span class="process-math">\(S_1, S_2\)</span> that are initial must be isomorphic and any objects <span class="process-math">\(T_1, T_2\)</span> that are terminal must be isomorphic. Without loss of generality, we can think of there being a unique objects <span class="process-math">\(S,T\)</span> together with isomorphisms <span class="process-math">\(S_1 \leftrightarrows S \leftrightarrows S_2\)</span> and <span class="process-math">\(T_1 \leftrightarrows T \leftrightarrows T_2\text{.}\)</span>
-</div> <div class="para" id="session26-p2-4-3-2">Since our category must also have sums and products, lets consider an arbitrary map <span class="process-math">\(X \xrightarrow{f} Y\text{.}\)</span> By the definition of <span class="process-math">\(S\)</span> as initial there’s precisely one map <span class="process-math">\(S \rightarrow X\)</span> and by the defintion of <span class="process-math">\(T\)</span> as terminal there’s precisely one map <span class="process-math">\(Y \rightarrow T\text{.}\)</span>
-</div> <div class="para" id="session26-p2-4-3-3">Since our category also has sums and products, consider the sum <span class="process-math">\(S+X\text{.}\)</span>  There should be set of 3 maps <span class="process-math">\(j,j_1,j_2\)</span> satisfying the following commutative diagram:</div> <div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/session26-p2-4-3-4.svg" role="img" class="contained" alt="Commutative diagram of S+X"></div> <div class="para" id="session26-p2-4-3-5">Likewise, the definition of a product implies the existence of maps <span class="process-math">\(p,p_1,p_2\)</span> sasifying the following:</div> <div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/session26-p2-4-3-6.svg" role="img" class="contained" alt="Commutative diagram of Y times T"></div> <div class="para" id="session26-p2-4-3-7">Thus, for any map <span class="process-math">\(X \xrightarrow{f} Y\)</span> we have the following combined diagram:</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/session26-p2-4-3-8.svg" role="img" class="contained" alt="Commutative diagram of combined sum and product"></div> <div class="para" id="session26-p2-4-3-9">By the fact that there is precisely one map <span class="process-math">\(S \rightarrow T\text{,}\)</span> the composition <span class="process-math">\(p_2 \circ p \circ f \circ j \circ j_1\)</span> must be that very same map.  Since <span class="process-math">\(f\)</span> can be any map, why not choose <span class="process-math">\(X = Y\)</span> and <span class="process-math">\(f = 1_X\text{?}\)</span>  That would give use the following diagram:</div> <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/session26-p2-4-3-10.svg" role="img" class="contained" alt="Commutative diagram of combined sum and product for f = 1_X"></div> <div class="para" id="session26-p2-4-3-11">It follows from the uniqueness of the identity map that <span class="process-math">\(1_X = p_1 \circ p \circ j \circ j_2 = 1_X \circ 1_X\text{.}\)</span> We’d also be able to define the unique map <span class="process-math">\(S \rightarrow T\)</span> as the composition <span class="process-math">\(p_2 \circ p \circ j \circ j_1 = S \rightarrow X \rightarrow T\text{.}\)</span>
-</div> <div class="para" id="session26-p2-4-3-12">This all seems relevant, but considering that I haven’t invoked the definition of a “zero map” yet I must still be missing something.</div>
+</div>
+<div class="para" id="session26-p2-4-3-2">Since our category must also have sums and products, lets consider an arbitrary map <span class="process-math">\(X \xrightarrow{f} Y\text{.}\)</span> By the definition of <span class="process-math">\(S\)</span> as initial there’s precisely one map <span class="process-math">\(S \rightarrow X\)</span> and by the defintion of <span class="process-math">\(T\)</span> as terminal there’s precisely one map <span class="process-math">\(Y \rightarrow T\text{.}\)</span>
+</div>
+<div class="para" id="session26-p2-4-3-3">Since our category also has sums and products, consider the sum <span class="process-math">\(S+X\text{.}\)</span>  There should be set of 3 maps <span class="process-math">\(j,j_1,j_2\)</span> satisfying the following commutative diagram:</div>
+<div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/session26-p2-4-3-4.svg" role="img" class="contained" alt="Commutative diagram of S+X"></div>
+<div class="para" id="session26-p2-4-3-5">Likewise, the definition of a product implies the existence of maps <span class="process-math">\(p,p_1,p_2\)</span> sasifying the following:</div>
+<div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/session26-p2-4-3-6.svg" role="img" class="contained" alt="Commutative diagram of Y times T"></div>
+<div class="para" id="session26-p2-4-3-7">Thus, for any map <span class="process-math">\(X \xrightarrow{f} Y\)</span> we have the following combined diagram:</div>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/session26-p2-4-3-8.svg" role="img" class="contained" alt="Commutative diagram of combined sum and product"></div>
+<div class="para" id="session26-p2-4-3-9">By the fact that there is precisely one map <span class="process-math">\(S \rightarrow T\text{,}\)</span> the composition <span class="process-math">\(p_2 \circ p \circ f \circ j \circ j_1\)</span> must be that very same map.  Since <span class="process-math">\(f\)</span> can be any map, why not choose <span class="process-math">\(X = Y\)</span> and <span class="process-math">\(f = 1_X\text{?}\)</span>  That would give use the following diagram:</div>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/session26-p2-4-3-10.svg" role="img" class="contained" alt="Commutative diagram of combined sum and product for f = 1_X"></div>
+<div class="para" id="session26-p2-4-3-11">It follows from the uniqueness of the identity map that <span class="process-math">\(1_X = p_1 \circ p \circ j \circ j_2 = 1_X \circ 1_X\text{.}\)</span> We’d also be able to define the unique map <span class="process-math">\(S \rightarrow T\)</span> as the composition <span class="process-math">\(p_2 \circ p \circ j \circ j_1 = S \rightarrow X \rightarrow T\text{.}\)</span>
+</div>
+<div class="para" id="session26-p2-4-3-12">This all seems relevant, but considering that I haven’t invoked the definition of a “zero map” yet I must still be missing something.</div>
 </div></details></div></article></details><div class="para" id="session26-p2-5">I think I’m going to pause here and think about this some more.</div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="session26.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="session26-p3.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
