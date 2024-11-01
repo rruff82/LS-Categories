@@ -129,7 +129,7 @@
             <p>
                 The existence of some <m>X \xrightarrow{f} Y</m> necessarily means 
                 we have maps <m>T \xrightarrow{x_i} X \xrightarrow{f} Y \xrightarrow{\bar{y_i}} T</m>.
-                I'm thinking we could have takethe product <m>X\rightarrow X \times X</m>
+                I'm thinking we could have take the product <m>X\rightarrow X \times X</m>
                  that maps <m>x_i</m> to the pair <m>\langle x_i,x_i\rangle</m>.
                 and then somehow compare this with 
                 the projection map <m>X \rightarrow X \times Y</m> that pairs each <m>x_i</m> with the respective 
