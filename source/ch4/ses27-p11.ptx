@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27-p11">
+    <title>Session 27: Examples of universal constructions, Part 11</title>
+
+    <example>
+        <title>Exercise 9: (Part 1/?)</title>
+        <statement>
+            <p>
+                For any map <m>X \xrightarrow{f} Y</m>...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                I don't know if this will become relevant, but I've
+                got this overwhelming urge to complete the diagram
+                above this problem:
+            </p>
+            <image width="60%" xml:id="img-session27-ex9-1">
+                <latex-image>
+                    \begin{tikzpicture}[scale=4]
+                        \node (XtY) at (0,1) {$X \times Y$};
+                        \node (X) at (0,0) {$X$};
+                        \node (Y) at (1,1) {$Y$};
+                        \node (XpY) at (1,0) {$X + Y$};
+                        \coordinate (HOFF) at (0.05,0);
+        
+                        \coordinate (VOFF) at (0,0.05);
+                        \path[-{stealth}]
+                            ($(XtY.south)+(HOFF)$) edge node[right] {$p_1$} ($(X.north)+(HOFF)$)
+                            ($(X.north)-(HOFF)$) edge node[left] {$s$} ($(XtY.south)-(HOFF)$)
+                            
+                            (XtY) edge node[above] {$p_2$} (Y)
+                            ($(X.east)+(VOFF)$) edge node[above] {$j_1$} ($(XpY.west)+(VOFF)$)
+                            ($(XpY.west)-(VOFF)$) edge node[below] {$r$} ($(X.east)-(VOFF)$)
+             
+        
+                            (Y) edge node[right] {$j_2$} (XpY)
+                            (X) edge node[below right] {$f$} (Y)
+                        ;
+        
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                My intuition suggests that the existence of a
+                retraction like <m>r</m> in the diagram depends
+                whether or not <m>Y \subset X</m>.
+                I think that's conceptually related to the <q>dual</q> 
+                of this exercise.
+            </p>
+            <p>
+                I think there's also an implication that the result
+                I'm looking for follows from
+                the <q>universal property of products</q>.  This was defined 
+                over a (possibly empty) set of indices <m>I</m> where each
+                <m>i</m> in <m>I</m> defines a (possibly duplicated) object
+                <m>C_i</m> in the category <m>\mathcal{C}</m>.
+            </p>
+            <definition xml:id="def-product-universal">
+                <statement>
+                    <p>
+                        A <term>product</term> is an object <m>P</m>
+                        together with maps <m>P \xrightarrow{p_1} C_i</m>
+                        (one for each <m>i</m>), having the universal property:
+                    </p>
+                    <p>
+                        Given any object <m>X</m> and any maps <m>X \xrightarrow{f_i} C_i</m>
+                        (one for each <m>i</m>), there is exactly one map
+                        <m>X \xrightarrow{p} P</m> such that <m>p_i p = f_i</m>
+                        for each <m>i</m> in <m>I</m>.
+                    </p>
+                </statement>
+            </definition>
+            <p>
+                In this hypothetical category <m>\mathcal{C}</m> with 
+                initial object <m>S</m> and terminal object <m>T</m>,
+                there should be unique maps <m>\alpha,\beta</m> where 
+                <m>S \xrightarrow{\alpha} X \xrightarrow{f} Y \xrightarrow{\beta} T</m>
+                satisfy the associative property.  Let's start
+                enumerating these objects <m>C_i</m> of our category:
+                <m>C_0 = S</m>, <m>C_1 = X</m>, <m>C_2 = Y</m>, 
+                <m>C_3 = T</m>.
+            </p>
+            <p>
+                By the universalized definition of product, 
+                for any <m>X</m> there should be
+                a unique object <m>P</m> and map <m>X \xrightarrow{f} P</m>,
+                and maps <m>P \xrightarrow{p_i} C_i</m> for each <m>i</m>
+                such that <m>p_i f = f_i</m> for every <m>X \xrightarrow{f_i} C_I</m>.  
+                Since this product is also an object in the category,
+                let's call it <m>C_4 = S \times X \times Y \times T</m>.  What if we just need to 
+                iterate over all of these <m>C_i</m> to handle the cases
+                where <m>X = Y</m> and <m>X \neq Y</m> at the same time?
+            </p>
+            <p>
+                Let's start with <m>X = C_0 = S</m>.  Any map <m>X \xrightarrow{f_0} C_0</m>
+                would have to the unique map <m>S \xrightarrow{1_S} S</m>.
+                Likewise, any <m>X \xrightarrow{f_1} C_1</m> would
+                be the unique map <m>S \rightarrow X</m>,  
+                <m>X \xrightarrow{f_2} C_2</m> would
+                be the unique map <m>S \rightarrow Y</m>,  
+                <m>X \xrightarrow{f_3} C_3</m> would
+                be the unique map <m>S \rightarrow T</m>, 
+                <m>X \xrightarrow{f_4} C_4</m> would
+                be the unique map <m>S \rightarrow X \times Y</m>.  
+            </p>
+            <p>
+                Let's move on <m>X = C_1 = X</m>.  If any 
+                map <m>X \xrightarrow{f_0} C_0</m> existed,
+                that would imply that <m>X</m> is itself 
+                an intial object.  We could then used the uniqueness
+                of the inverse map <m>C_1 \rightarrow C_0</m> to uniquely define the rest 
+                of the maps we're looking for through precomposition with the 
+                maps we saw previously.  In fact, I think we can go one step 
+                further and assume that no <m>C_i \rightarrow C_0</m> exists
+                for any <m>i &gt; 0</m>.
+            </p>
+            <p>
+                Assuming that no map <m>X \rightarrow C_0</m> exists,
+                then it seems reasonable to conclude that the only 
+                way <m>P \xrightarrow{p_1} X</m> can satisfy <m>p_1 p = f_1</m>
+                for all <m>X \xrightarrow{f_1} X</m> 
+                is if <m>p_1 p = 1_X</m> for all <m>X</m>.  
+                I think this partially explains the wildcard notation of
+                <m>?</m> in the definition
+                of <m>\Gamma = \langle ?, f \rangle</m>.
+            </p>
+            <p>
+                The existence of some <m>X \xrightarrow{f} Y</m> necessarily means 
+                we have maps <m>T \xrightarrow{x_i} X \xrightarrow{f} Y \xrightarrow{\bar{y_i}} T</m>.
+                I'm thinking we could have takethe product <m>X\rightarrow X \times X</m>
+                 that maps <m>x_i</m> to the pair <m>\langle x_i,x_i\rangle</m>.
+                and then somehow compare this with 
+                the projection map <m>X \rightarrow X \times Y</m> that pairs each <m>x_i</m> with the respective 
+                <m>y_i = f x_i</m>.  I'm thinking we can do this by 
+                <q>stepping out</q> somehow through a shared map
+                <m>X \rightarrow X \times (X+Y)</m>.
+            </p>
+        </solution>
+        
+    </example>
+
+    <p>
+        I'm starting to get a little lost at this point, so I think
+        I'll try to spend some more time on this later.
+    </p>
+    
+</section>
