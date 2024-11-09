@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27-p12">
+    <title>Session 27: Examples of universal constructions, Part 12</title>
+
+ <example>
+        <title>Exercise 9: (Part 2/?)</title>
+        <statement>
+            <p>
+                Continued from last week...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                So I think I made things unnecessarily difficult
+                last time with how I chose to enumerate the 
+                objects of the category.  I'm starting to think
+                it would be simpler if I define <m>C_0 = S</m>
+                and <m>C_1 = T</m>. If our category has a product,
+                then there's a unique object <m>C_2 = S \times T</m>
+                such that the diagram below would commute.  
+
+            </p>
+            <image width="60%" xml:id="img-session27-ex9-2">
+                <latex-image>
+                    \begin{tikzpicture}[scale=4]
+                        \node (XtY) at (0,1) {$S \times T$};
+                        \node (X) at (0,0) {$S$};
+                        \node (Y) at (1,1) {$T$};
+                        \coordinate (HOFF) at (0.05,0);
+        
+                        \coordinate (VOFF) at (0,0.05);
+                        \path[-{stealth}]
+                            ($(XtY.south)+(HOFF)$) edge ($(X.north)+(HOFF)$)
+                            ($(X.north)-(HOFF)$) edge ($(XtY.south)-(HOFF)$)
+                            (XtY) edge (Y)
+                            (X) edge (Y)
+                        ;
+        
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                Since <m>S</m> is initial there's a unique map
+                <m>S \xrightarrow{p} S \times T</m>. That means
+                the compositions with our projection maps
+                would need to be the unique maps
+                <m>p_1 p = S \rightarrow S</m>
+                and 
+                <m>p_2 p = S \rightarrow T</m>.  It seems to 
+                follow that
+                the product of an initial object with any object
+                would also need to be initial itself. 
+            </p>
+            <p>
+                Now let's allow <m>X \xrightarrow{f} Y</m> to
+                be an arbitrary map in the category. If 
+                we define <m>\Gamma = X \xrightarrow{\langle ?,f \rangle} X \times Y</m>
+                to map each <m>1 \xrightarrow{x_i} X</m> in 
+                <m>X</m> to the respective pair 
+                <m>\langle x_i, f x_i \rangle</m>, then clearly
+                this definition implies both
+                both 
+                <m>p_X \Gamma = 1_X</m> and <m>p_Y \Gamma = f</m>.
+                
+            </p>
+            <p>
+                Since <m>p_X \Gamma = 1_X</m>, that means <m>\Gamma</m>
+                is a section for <m>p_X</m>.  Maybe we just need to 
+                prove its unique?
+            </p>
+            <p>
+                Suppose some other map <m>X \xrightarrow{g} X \times Y</m>
+                satisfied <m>p_X g = 1_X</m> and <m>p_Y g = f</m>.  The condition
+                that <m>\Gamma \neq g</m> implies the existence of 
+                a point <m>T \xrightarrow{x} X</m> such that
+                <m>\Gamma x \neq g x</m>.  Maybe we can try precomposing 
+                by <m>S \rightarrow T</m>?  That would give us two 
+                separate maps <m>S \rightarrow Y</m> which is supposed to be 
+                uniquely defined.  This contradiction means our assumption is 
+                false and <m>\Gamma</m> is unique.
+            </p>
+            <p>
+                I'm wondering if the main idea here 
+                is that even if <m>X \xrightarrow{f} Y</m>
+                is not invertible, the map defined here as 
+                <m>X \xrightarrow{\Gamma} X \times Y
+                </m> <em>must be</em>.
+                For <m>f^{-1}</m> to not exist, there must be some
+                <m>T \xrightarrow{y} Y</m> with two different maps
+                <m>T \xrightarrow{x_1} X</m> and <m>T \xrightarrow{x_2} X</m>
+                satisfying <m>y = f x_1 = f x_2</m>. Even
+                if <m>f</m> isn't one-to-one, we come up with
+                a map that is by treating the points
+                <m>\langle x_1, y \rangle</m> and 
+                <m>\langle x_2, y \rangle</m> as two distinct values. 
+            </p>
+      </solution>
+        
+    </example>
+    <p>
+        I'm not sure if I'm leaving this off in any better state
+        than it was last week, but I'm also not sure if it's worth
+        spending any more time on.  In my defense, it's been a 
+        <em>difficult</em> week.
+    </p>
+ 
+    
+</section>
