@@ -2449,6 +2449,24 @@ var ptx_lunr_docs = [
   "body": " Exercise 9: (Part 2\/?)   Continued from last week...    So I think I made things unnecessarily difficult last time with how I chose to enumerate the objects of the category. I'm starting to think it would be simpler if I define and . If our category has a product, then there's a unique object such that the diagram below would commute.     Since is initial there's a unique map . That means the compositions with our projection maps would need to be the unique maps and . It seems to follow that the product of an initial object with any object would also need to be initial itself.  Now let's allow to be an arbitrary map in the category. If we define to map each in to the respective pair , then clearly this definition implies both both and .  Since , that means is a section for . Maybe we just need to prove its unique?  Suppose some other map satisfied and . The condition that implies the existence of a point such that . Maybe we can try precomposing by ? That would give us two separate maps which is supposed to be uniquely defined. This contradiction means our assumption is false and is unique.  I'm wondering if the main idea here is that even if is not invertible, the map defined here as  must be . For to not exist, there must be some with two different maps and satisfying . Even if isn't one-to-one, we come up with a map that is by treating the points and as two distinct values.   "
 },
 {
+  "id": "session27-p13",
+  "level": "1",
+  "url": "session27-p13.html",
+  "type": "Section",
+  "number": "5.45",
+  "title": "Session 27: Examples of universal constructions, Part 13",
+  "body": " Session 27: Examples of universal constructions, Part 13  The end of the session is in sight, but simultaneously seems so far away. I still feel like I'm uncertain about whether or not my depection of the equalizer in Exercise 8 is correct, and now I'm attempting to build upon a shaky foundation. I guess I just keep building until it falls apart then diagnose why?   Exercise 10:   Given two parallel maps ...    Let's start by using the same parallel maps that I used in Exercise 8, shown here:     My equalizer (of questionable accuracy) for these maps looked like this:     In particular, I'm not really sure how I'm supposed to handle the pair . Something tells me my equalizer is supposed to either group these objects together to satisfy that exactly one property or just exclude them.  Setting those concerns aside for now, let's start with visualizing the graphs and . Let's rotate the points of and lay out our product in an array:     Our graphs can be added to this diagram as maps as so:     Note that there's precisely three points where the arrows of match up with each other, and those correspond with the three arrows in the depiction of my equalizer:     This interpretation leads to believe that my equalizer from Exercise 8 is, in fact, the correct one. The product also gives me a way of defining the equalizer more explicitly:     I think I'm satisfied with that as an explanation for now, but I'm still a little curious how things would work if and intersect.  "
+},
+{
+  "id": "session27-p13-3",
+  "level": "2",
+  "url": "session27-p13.html#session27-p13-3",
+  "type": "Example",
+  "number": "5.45.1",
+  "title": "Exercise 10:.",
+  "body": " Exercise 10:   Given two parallel maps ...    Let's start by using the same parallel maps that I used in Exercise 8, shown here:     My equalizer (of questionable accuracy) for these maps looked like this:     In particular, I'm not really sure how I'm supposed to handle the pair . Something tells me my equalizer is supposed to either group these objects together to satisfy that exactly one property or just exclude them.  Setting those concerns aside for now, let's start with visualizing the graphs and . Let's rotate the points of and lay out our product in an array:     Our graphs can be added to this diagram as maps as so:     Note that there's precisely three points where the arrows of match up with each other, and those correspond with the three arrows in the depiction of my equalizer:     This interpretation leads to believe that my equalizer from Exercise 8 is, in fact, the correct one. The product also gives me a way of defining the equalizer more explicitly:    "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
