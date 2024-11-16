@@ -1,0 +1,315 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27-p13">
+    <title>Session 27: Examples of universal constructions, Part 13</title>
+    <p>
+       The end of the session is in sight, but simultaneously seems so
+       far away.  I still feel like I'm uncertain about whether or not
+       my depection of the equalizer in <xref ref="session27-p10">Exercise 8</xref> 
+       is correct, and now I'm attempting to build upon a shaky foundation.  
+       I guess I just keep building until it falls apart then diagnose why?
+    </p>
+
+
+    <example>
+        <title>Exercise 10:</title>
+        <statement>
+            <p>
+               Given two parallel maps
+               <m>X \mathrel{\substack{f \\ \longrightarrow \\ \longrightarrow \\  g}} Y</m>...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Let's start by using the same parallel maps
+                <m>X \mathrel{\substack{f \\ \longrightarrow \\ \longrightarrow \\  g}} Y</m>
+                that I used in Exercise 8, shown here:
+            </p>
+            <image width="80%" xml:id="img-article27-ex10-ex8ref1"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \node (Dom) at (0,4) {$X$};
+                    \node (CoDom) at (6,4) {$Y$};
+        
+                    \path[-{stealth}]
+            (Dom) edge[red,dashed,bend left] node[above] {$f$} (CoDom)
+            (Dom) edge[blue,dotted,bend right] node[below] {$g$}  (CoDom);
+        
+                    \draw (0,-3.5) circle [x radius=2, y radius=4];
+                    \draw (6,-4) circle [x radius=2, y radius=4.5];
+        
+        
+                    \node (X1) at (0,-0) {$x_{1}$};
+        \node (X2) at (0,-1) {$x_{2}$};
+        \node (X3) at (0,-2) {$x_{3}$};
+        \node (X4) at (0,-3) {$x_{4}$};
+        \node (X5) at (0,-4) {$x_{5}$};
+        \node (X6) at (0,-5) {$x_{6}$};
+        \node (X7) at (0,-6) {$x_{7}$};
+        \node (X8) at (0,-7) {$x_{8}$};
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            (X1) edge[red,dashed,bend left] (Y1)
+            (X1) edge[blue,dotted,bend right] (Y1)
+            (X2) edge[red,dashed,bend left] (Y2)
+            (X2) edge[blue,dotted,bend right] (Y3)
+            (X3) edge[red,dashed,bend left] (Y4)
+            (X3) edge[blue,dotted,bend right] (Y4)
+            (X4) edge[red,dashed,bend left] (Y4)
+            (X4) edge[blue,dotted,bend right] (Y4)
+            (X5) edge[red,dashed,bend left] (Y5)
+            (X5) edge[blue,dotted,bend right] (Y6)
+            (X6) edge[red,dashed,bend left] (Y5)
+            (X6) edge[blue,dotted,bend right] (Y6)
+            (X7) edge[red,dashed,bend left] (Y7)
+            (X7) edge[blue,dotted,bend right] (Y8)
+            (X8) edge[red,dashed,bend left] (Y8)
+            (X8) edge[blue,dotted,bend right] (Y7)
+        ;
+                    \end{tikzpicture}
+        
+                </latex-image>
+            </image>
+            <p>
+                My equalizer (of questionable accuracy) for these maps
+                looked like this:
+            </p>
+            <image width="80%" xml:id="img-article27-ex10-ex8ref2"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \draw (0,-3.5) circle [x radius=2, y radius=4];
+                    \draw (6,-4) circle [x radius=2, y radius=4.5];
+        
+                    \node (X1) at (0,-0) {$x_{1}$};
+        \node (X2) at (0,-1) {$x_{2}$};
+        \node (X3) at (0,-2) {$x_{3}$};
+        \node (X4) at (0,-3) {$x_{4}$};
+        \node (X5) at (0,-4) {$x_{5}$};
+        \node (X6) at (0,-5) {$x_{6}$};
+        \node (X7) at (0,-6) {$x_{7}$};
+        \node (X8) at (0,-7) {$x_{8}$};
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            (X1) edge[red,dashed,bend left] (Y1)
+            (X1) edge[blue,dotted,bend right] (Y1)
+            (X2) edge[red,dashed,bend left] (Y2)
+            (X2) edge[blue,dotted,bend right] (Y3)
+            (X3) edge[red,dashed,bend left] (Y4)
+            (X3) edge[blue,dotted,bend right] (Y4)
+            (X4) edge[red,dashed,bend left] (Y4)
+            (X4) edge[blue,dotted,bend right] (Y4)
+            (X5) edge[red,dashed,bend left] (Y5)
+            (X5) edge[blue,dotted,bend right] (Y6)
+            (X6) edge[red,dashed,bend left] (Y5)
+            (X6) edge[blue,dotted,bend right] (Y6)
+            (X7) edge[red,dashed,bend left] (Y7)
+            (X7) edge[blue,dotted,bend right] (Y8)
+            (X8) edge[red,dashed,bend left] (Y8)
+            (X8) edge[blue,dotted,bend right] (Y7)
+            (X3) edge (Y4)
+            (X4) edge (Y4)
+            (X1) edge (Y1)
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                In particular, I'm not really sure how I'm supposed to handle
+                the pair <m>x_3,x_4</m>.  Something tells me my equalizer is
+                supposed to either group these objects together to satisfy that 
+                <q>exactly one</q> property or just exclude them.
+            </p>
+            <p>
+                Setting those concerns aside for now, let's start with
+                visualizing the graphs <m>\Gamma_f = \langle ?,f \rangle</m>
+                and
+                <m>\Gamma_g = \langle ?,g \rangle</m>.
+                Let's rotate the points of <m>Y</m> and lay out our product
+                in an array:
+            </p>
+            <image width="100%" xml:id="img-article27-ex10-1"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \node (X1) at (0,-0) {$x_{1}$};
+                    \node (X2) at (0,-1) {$x_{2}$};
+                    \node (X3) at (0,-2) {$x_{3}$};
+                    \node (X4) at (0,-3) {$x_{4}$};
+                    \node (X5) at (0,-4) {$x_{5}$};
+                    \node (X6) at (0,-5) {$x_{6}$};
+                    \node (X7) at (0,-6) {$x_{7}$};
+                    \node (X8) at (0,-7) {$x_{8}$};
+                    \node (Y1) at (3,-10) {$y_{1}$};
+                    \node (Y2) at (4,-10) {$y_{2}$};
+                    \node (Y3) at (5,-10) {$y_{3}$};
+                    \node (Y4) at (6,-10) {$y_{4}$};
+                    \node (Y5) at (7,-10) {$y_{5}$};
+                    \node (Y6) at (8,-10) {$y_{6}$};
+                    \node (Y7) at (9,-10) {$y_{7}$};
+                    \node (Y8) at (10,-10) {$y_{8}$};
+                    \node (Y9) at (11,-10) {$y_{9}$};
+        
+                    \draw (0,-3.5) circle [x radius=1.5, y radius=4];
+                    \draw (7,-10) circle [x radius=4.5, y radius=1.5];
+        
+                    \foreach \i in {1,2,...,8}{
+                        \foreach \j in {1,2,...,9}{
+                            \node (P \i \j) at (2+\j,1-\i) {$\langle x_\i, y_\j \rangle$};
+        
+                        }
+                    }
+                    
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                Our graphs <m>\Gamma_x,\Gamma_y</m> can be added to this
+                diagram as maps <m>X \rightarrow X \times Y</m> as so:
+            </p>
+            <image width="100%" xml:id="img-article27-ex10-2"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \node (X1) at (0,-0) {$x_{1}$};
+                    \node (X2) at (0,-1) {$x_{2}$};
+                    \node (X3) at (0,-2) {$x_{3}$};
+                    \node (X4) at (0,-3) {$x_{4}$};
+                    \node (X5) at (0,-4) {$x_{5}$};
+                    \node (X6) at (0,-5) {$x_{6}$};
+                    \node (X7) at (0,-6) {$x_{7}$};
+                    \node (X8) at (0,-7) {$x_{8}$};
+                    \node (Y1) at (3,-10) {$y_{1}$};
+                    \node (Y2) at (4,-10) {$y_{2}$};
+                    \node (Y3) at (5,-10) {$y_{3}$};
+                    \node (Y4) at (6,-10) {$y_{4}$};
+                    \node (Y5) at (7,-10) {$y_{5}$};
+                    \node (Y6) at (8,-10) {$y_{6}$};
+                    \node (Y7) at (9,-10) {$y_{7}$};
+                    \node (Y8) at (10,-10) {$y_{8}$};
+                    \node (Y9) at (11,-10) {$y_{9}$};
+        
+                    \draw (0,-3.5) circle [x radius=1.5, y radius=4];
+                    \draw (7,-10) circle [x radius=4.5, y radius=1.5];
+        
+                    \foreach \i in {1,2,...,8}{
+                        \foreach \j in {1,2,...,9}{
+                            \node (P \i \j) at (2+\j,1-\i) {$\bullet$};
+        
+                        }
+                    }
+        
+                    \coordinate (P) at (1.9,1.1);
+        
+                    \path[-{stealth}]
+            (X1) edge[red,dashed,bend left] ($(P)+(1,-1)$)
+            (X1) edge[blue,dotted,bend right] ($(P)+(1,-1)$)
+        
+            (X3) edge[red,dashed,bend left] ($(P)+(4,-3)$)
+            (X3) edge[blue,dotted,bend right] ($(P)+(4,-3)$)
+            (X4) edge[red,dashed,bend left] ($(P)+(4,-4)$)
+            (X4) edge[blue,dotted,bend right] ($(P)+(4,-4)$)
+            (X5) edge[red,dashed,bend left] ($(P)+(5,-5)$)
+            (X5) edge[blue,dotted,bend right] ($(P)+(6,-5)$)
+            (X6) edge[red,dashed,bend left] ($(P)+(5,-6)$)
+            (X6) edge[blue,dotted,bend right] ($(P)+(6,-6)$)
+            (X7) edge[red,dashed,bend left] ($(P)+(7,-7)$)
+            (X7) edge[blue,dotted,bend right] ($(P)+(8,-7)$)
+            (X8) edge[red,dashed,bend left] ($(P)+(8,-8)$)
+            (X8) edge[blue,dotted,bend right] ($(P)+(7,-8)$)
+            
+            ;
+                    
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                Note that there's precisely three points where the
+                arrows of <m>f,g</m> match up with each other,
+                and those correspond with the three arrows in the 
+                depiction of my equalizer:
+            </p>
+        
+        
+            
+        <image width="100%" xml:id="img-article27-ex10-3"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \node (X1) at (0,-0) {$x_{1}$};
+                    \node (X2) at (0,-1) {$x_{2}$};
+                    \node (X3) at (0,-2) {$x_{3}$};
+                    \node (X4) at (0,-3) {$x_{4}$};
+                    \node (X5) at (0,-4) {$x_{5}$};
+                    \node (X6) at (0,-5) {$x_{6}$};
+                    \node (X7) at (0,-6) {$x_{7}$};
+                    \node (X8) at (0,-7) {$x_{8}$};
+                    \node (Y1) at (3,-10) {$y_{1}$};
+                    \node (Y2) at (4,-10) {$y_{2}$};
+                    \node (Y3) at (5,-10) {$y_{3}$};
+                    \node (Y4) at (6,-10) {$y_{4}$};
+                    \node (Y5) at (7,-10) {$y_{5}$};
+                    \node (Y6) at (8,-10) {$y_{6}$};
+                    \node (Y7) at (9,-10) {$y_{7}$};
+                    \node (Y8) at (10,-10) {$y_{8}$};
+                    \node (Y9) at (11,-10) {$y_{9}$};
+        
+                    \draw (0,-3.5) circle [x radius=1.5, y radius=4];
+                    \draw (7,-10) circle [x radius=4.5, y radius=1.5];
+        
+                    \foreach \i in {1,2,...,8}{
+                        \foreach \j in {1,2,...,9}{
+                            \node (P \i \j) at (2+\j,1-\i) {$\bullet$};
+        
+                        }
+                    }
+        
+                    \coordinate (P) at (1.9,1.1);
+        
+                    \path[-{stealth}]
+            (X1) edge[purple,thick,bend left] ($(P)+(1,-1)$)
+            (X3) edge[purple,thick,bend left] ($(P)+(4,-3)$)
+            (X4) edge[purple,thick,bend left] ($(P)+(4,-4)$)
+            
+            ;
+                    
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                This interpretation leads to believe that my
+                equalizer from Exercise 8 is, in fact, 
+                the correct one.  The product also 
+                gives me a way of defining the equalizer
+                more explicitly:
+                <me>e(x) =
+                    \begin{cases} 
+              \langle x_1,y_1 \rangle &amp; \text{if}\, x = x_1 \\
+              \langle x_3,y_4 \rangle &amp; \text{if}\, x = x_3 \\
+              \langle x_4,y_4 \rangle &amp; \text{if}\, x = x_4
+           \end{cases}
+                </me>
+                
+            </p>
+        
+        </solution>
+    </example>
+    
+    <p>
+        I think I'm satisfied with that as an explanation
+        for now, but I'm still a little curious how things would work
+        if <m>X</m> and <m>Y</m> intersect.
+    </p>
+</section>
