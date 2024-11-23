@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27-p14">
+    <title>Session 27: Examples of universal constructions, Part 14</title>
+
+
+    <example>
+        <title>Exercise 11:</title>
+        <statement>
+            <p>
+                Say that <m>Y \xrightarrow{h} Z</m> is <em>cosolution</em>...
+            </p>
+        </statement>
+        <solution>
+            <p>
+                We're defining a <em>cosolution</em> <m>Y \xrightarrow{h} Z</m> 
+                such that <m>h f = h g</m>
+                for a pair of parallel maps 
+                <m>X \mathrel{\substack{f \\ \longrightarrow \\ \longrightarrow \\ g}} Y</m>.
+                We want to show that if this cosolution is <q>universal</q>,
+                any other cosolution <m>Y \xrightarrow{h'} Z'</m>
+                can be uniquely expressed as <m>h' = q h</m>.
+            </p>
+            <p>
+                Well, I think the first step would be figuring out what
+                this <m>q</m> is. Based on the equation <m>h' = q h</m>,
+                we can infer that the domain and codomain are 
+                <m>Z \xrightarrow{q} Z'</m>.  </p>
+                <p>The choice of <m>q</m> also 
+                seems like a successor reference to the <m>p</m> in the
+                definition of equalizer.  
+                My intuition suggests that the <q>universality</q>
+                of our cosolution implies that the map <m>q</m> is 
+                the unique <em>isomorphism</em> such that <m>q^{-1} q = 1_Z</m>
+                and <m>q q^{-1} = 1_{Z'}</m>.
+            </p>
+            <p>
+                We want to show that <m>h</m> is an <q>epimorphism</q>.
+                This was defined back in Article II as a map <m>Y \xrightarrow{h} Z</m>
+                such that for any
+                object <m>T</m> and pair of maps <m>Z \mathrel{\substack{t_1 \\ \longrightarrow \\ \longrightarrow \\ t_2}} T</m>,
+                if <m>t_1 h = t_2 h</m> then <m>t_1 = t_2</m>.
+            </p>
+            <p>
+                Having laid out that information, what if we assume 
+                <m>h</m> is not an <q>epimorphism</q>?
+                The statement <m>t_1 h = t_2 h \implies t_1 = t_2</m>
+                is only false
+                when we have two maps <m>Z \mathrel{\substack{t_1 \\ \longrightarrow \\ \longrightarrow \\ t_2}} T</m>
+                satisfying <m>t_1 h = t_2 h</m> but with <m>t_1 \neq t_2</m>. 
+                However, if <m>T</m> is a terminal object then there's precisely
+                one map <m>Z \rightarrow T</m> so no such <m>t_1, t_2</m> can 
+                exist.   It follows that our assumption was false
+                and <m>h</m> is an epimorphism. 
+            </p>
+            <p>
+                That seems so simple I'm not even sure if I trust it.
+                I feel like I need to more explicitly connect the 
+                map <m>Z \xrightarrow{q} Z'</m> to this somehow.
+                It seems completely reasonable that if <m>Z</m> and 
+                <m>Z'</m> are both terminal objects they'd have to 
+                be isomorphic, but I'm not really sure I've established
+                either of them in such a way.  Nor did I reference the original
+                maps <m>f,g</m>.  I was also expecting a need 
+                to invoke the sum <m>X+Y</m>.
+            </p>
+            <p>
+                Before I wrap up this exercise, let's also try to
+                address the parenthetical. I think it would be good
+                to attempt a formal definition of co-equalizer by 
+                swapping domain and codomains around in the definition
+                of equalizer:
+            </p>
+            <definition xml:id="def-coequalizer-ses27-ex11">
+                <statement>
+                    <p>
+                        <m>Y \xrightarrow{q} E</m> is a
+                         <term>co-equalizer</term> of 
+                         <m>X \mathrel{\substack{f \\ \longrightarrow \\ \longrightarrow \\ g}} Y</m>
+                        if <m>q f = q g</m> and for each
+                        <m>Y \xrightarrow{\bar{y}} T</m> for which
+                        <m>\bar{y} f = \bar{y} g</m>, there is
+                        exactly
+                        one <m>E \xrightarrow{\bar{h}} T</m>
+                        for which <m>\bar{y} = \bar{h} q</m>.
+                    </p>
+                </statement>
+            </definition>
+            <p>
+                I'm not really sure if that's correct.  In naively 
+                swapping all the arrows like I did, I ended up naming
+                maps <m>\bar{h},\bar{y}</m> that are uniquely defined 
+                by domain and codomain.  The idea of using a <q>for each</q>
+                statement over such uniquely defined maps seems like 
+                a contradiction in terms.  Maybe I need to turn my equation
+                around and express it in terms of a unique
+                <m>T \xrightarrow{h} E</m> satisfying <m>q y = h</m> 
+                for all <m>T \xrightarrow{y} Y</m>?
+            </p>
+        </solution>
+
+    </example>
+    
+    <p>
+       I know there's only one exercise left in the session,
+       but it looks like it has a lot of parts to it.  Hopefully
+       my answer here is <q>close enough</q> to give me something
+       to work with moving forward.  
+    </p>
+
+</section>
