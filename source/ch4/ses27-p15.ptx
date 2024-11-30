@@ -1,0 +1,354 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27-p15">
+    <title>Session 27: Examples of universal constructions, Part 15</title>
+
+    <example>
+        <title>
+        Exercise 12: (Part 1/?)
+        </title>
+        <statement>
+<p>
+    For a given map <m>Y \xrightarrow{h} Z</m>, consider...
+</p>
+        </statement>
+        <solution>
+
+<p>
+    So I think I want to start by looking at the same maps
+    I've been working with in the previous exercises. In Part 10,
+    I noted that any arbirtary pair of parallel maps 
+      <m>X \mathrel{\substack{f \\ \longrightarrow \\ \longrightarrow \\  g}} Y</m>.
+    corresponds to <em>two</em> endomaps on <m>Y</m> depending on 
+    which map we consider the <q>source</q> and <q>target</q>:    
+
+</p>
+<sidebyside>
+    
+            <image width="40%" xml:id="img-article27-ex12-beta1"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \draw (0,-3.5) circle [x radius=2, y radius=4];
+                    \draw (6,-4) circle [x radius=2, y radius=4.5];
+        
+                    \node (X1) at (0,-0) {$x_{1}$};
+        \node (X2) at (0,-1) {$x_{2}$};
+        \node (X3) at (0,-2) {$x_{3}$};
+        \node (X4) at (0,-3) {$x_{4}$};
+        \node (X5) at (0,-4) {$x_{5}$};
+        \node (X6) at (0,-5) {$x_{6}$};
+        \node (X7) at (0,-6) {$x_{7}$};
+        \node (X8) at (0,-7) {$x_{8}$};
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            (X1) edge[red,dashed,bend left] (Y1)
+            (X1) edge[blue,dotted,bend right] (Y1)
+            (X2) edge[red,dashed,bend left] (Y2)
+            (X2) edge[blue,dotted,bend right] (Y3)
+            (X3) edge[red,dashed,bend left] (Y4)
+            (X3) edge[blue,dotted,bend right] (Y4)
+            (X4) edge[red,dashed,bend left] (Y4)
+            (X4) edge[blue,dotted,bend right] (Y4)
+            (X5) edge[red,dashed,bend left] (Y5)
+            (X5) edge[blue,dotted,bend right] (Y6)
+            (X6) edge[red,dashed,bend left] (Y5)
+            (X6) edge[blue,dotted,bend right] (Y6)
+            (X7) edge[red,dashed,bend left] (Y7)
+            (X7) edge[blue,dotted,bend right] (Y8)
+            (X8) edge[red,dashed,bend left] (Y8)
+            (X8) edge[blue,dotted,bend right] (Y7)
+            (X3) edge (Y4)
+            (X4) edge (Y4)
+            (X1) edge (Y1)
+            (Y1) edge[->,>={Stealth},loop right] (Y1)
+            (Y2) edge[bend left] (Y3)
+            (Y4) edge[->,>={Stealth},loop right] (Y4)
+            (Y5) edge[bend left] (Y6)
+            (Y7) edge[bend left] (Y8)
+            (Y8) edge[bend left] (Y7)
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+
+
+            <image width="40%" xml:id="img-article27-ex12-beta2"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \draw (0,-3.5) circle [x radius=2, y radius=4];
+                    \draw (6,-4) circle [x radius=2, y radius=4.5];
+        
+                    \node (X1) at (0,-0) {$x_{1}$};
+        \node (X2) at (0,-1) {$x_{2}$};
+        \node (X3) at (0,-2) {$x_{3}$};
+        \node (X4) at (0,-3) {$x_{4}$};
+        \node (X5) at (0,-4) {$x_{5}$};
+        \node (X6) at (0,-5) {$x_{6}$};
+        \node (X7) at (0,-6) {$x_{7}$};
+        \node (X8) at (0,-7) {$x_{8}$};
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            (X1) edge[red,dashed,bend left] (Y1)
+            (X1) edge[blue,dotted,bend right] (Y1)
+            (X2) edge[red,dashed,bend left] (Y2)
+            (X2) edge[blue,dotted,bend right] (Y3)
+            (X3) edge[red,dashed,bend left] (Y4)
+            (X3) edge[blue,dotted,bend right] (Y4)
+            (X4) edge[red,dashed,bend left] (Y4)
+            (X4) edge[blue,dotted,bend right] (Y4)
+            (X5) edge[red,dashed,bend left] (Y5)
+            (X5) edge[blue,dotted,bend right] (Y6)
+            (X6) edge[red,dashed,bend left] (Y5)
+            (X6) edge[blue,dotted,bend right] (Y6)
+            (X7) edge[red,dashed,bend left] (Y7)
+            (X7) edge[blue,dotted,bend right] (Y8)
+            (X8) edge[red,dashed,bend left] (Y8)
+            (X8) edge[blue,dotted,bend right] (Y7)
+            (X3) edge (Y4)
+            (X4) edge (Y4)
+            (X1) edge (Y1)
+            (Y1) edge[->,>={Stealth},loop right] (Y1)
+            (Y3) edge[bend right] (Y2)
+            (Y4) edge[->,>={Stealth},loop right] (Y4)
+            (Y6) edge[bend right] (Y5)
+            (Y7) edge[bend right] (Y8)
+            (Y8) edge[bend right] (Y7)
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+</sidebyside>
+<p>
+    We can take these two diagrams and think of them
+    as inducing two endomaps on <m>Y</m> if we're willing
+    to fill in the implicit self-loops implied by the graph:
+</p>
+
+<sidebyside>
+    
+            <image width="40%" xml:id="img-article27-ex12-beta1-2"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \draw (6,-4) circle [x radius=2.5, y radius=4.5];
+        
+   
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            
+            (Y1) edge[->,>={Stealth},loop right] (Y1)
+            (Y2) edge[bend left] (Y3)
+            (Y4) edge[->,>={Stealth},loop right] (Y4)
+            (Y5) edge[bend left] (Y6)
+            (Y7) edge[bend left] (Y8)
+            (Y8) edge[bend left] (Y7)
+
+            (Y3) edge[->,>={Stealth},loop left,dotted,purple] (Y3)
+            (Y6) edge[->,>={Stealth},loop left,dotted,purple] (Y6)
+            (Y9) edge[->,>={Stealth},loop left,dotted,purple] (Y9)
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+
+
+            <image width="40%" xml:id="img-article27-ex12-beta2-2"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \draw (6,-4) circle [x radius=2.5, y radius=4.5];
+        
+                 
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+ (Y1) edge[->,>={Stealth},loop right] (Y1)
+            (Y3) edge[bend right] (Y2)
+            (Y4) edge[->,>={Stealth},loop right] (Y4)
+            (Y6) edge[bend right] (Y5)
+            (Y7) edge[bend right] (Y8)
+            (Y8) edge[bend right] (Y7)
+
+            (Y2) edge[->,>={Stealth},loop left,dotted,purple] (Y2)
+            (Y5) edge[->,>={Stealth},loop left,dotted,purple] (Y5)
+            (Y9) edge[->,>={Stealth},loop left,dotted,purple] (Y9)
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+</sidebyside>
+<p>
+    If I call these maps
+    <m>Y \mathrel{\substack{\beta_1 \\ \longrightarrow \\ \longrightarrow \\  \beta_2}} Y</m>
+    , then I can proceed to compose the two of them together.
+    Whether I compose <m>\beta_1 \circ \beta_2</m> or 
+    <m>\beta_2 \circ \beta_1</m>, the resulting 
+    map should be <m>1_Y</m> because swapping the roles of
+    <m>f</m> and <m>g</m> effectively reverses the arrows.
+    Perhaps this is what the involution <m>\sigma</m> is 
+    supposed to do, but on <m>X</m> somehow? 
+</p>
+<p>
+    I feel 
+    like I still need to have
+    some way of ascertaing if <m>y_7,y_8</m> and <m>x_7,x_8</m>
+    are the <q>exact same objects</q> or not.
+   
+    I think I can do this stepping out through the sum to define 
+    an endomap on <m>X+Y</m>.  It's just hard to picture this because my
+    map is already depicting <m>X</m> and <m>Y</m> as separate
+    sets. 
+</p>
+<p>
+    Consider the following possible depiction of our endomap extended to the
+ sum
+    :
+</p>
+ <image width="80%" xml:id="img-article27-ex12-beta1-sum"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                     \draw (3,-4) circle [x radius=6, y radius=6];
+        
+        
+                    \node (X1) at (0,-0) {$x_{1}$};
+        \node (X2) at (0,-1) {$x_{2}$};
+        \node (X3) at (0,-2) {$x_{3}$};
+        \node (X4) at (0,-3) {$x_{4}$};
+        \node (X5) at (0,-4) {$x_{5}$};
+        \node (X6) at (0,-5) {$x_{6}$};
+        \node (X7) at (0,-6) {$x_{7}$};
+        \node (X8) at (0,-7) {$x_{8}$};
+        \node (Y1) at (6,-0) {$y_{1}$};
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y7) at (6,-6) {$y_{7}$};
+        \node (Y8) at (6,-7) {$y_{8}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            (X2) edge (Y2)
+            (X5) edge (Y5)
+            (X6) edge (Y5)
+            (X7) edge (Y7)
+            (X8) edge (Y8)
+            (X3) edge (Y4)
+            (X4) edge (Y4)
+            (X1) edge (Y1)
+            (Y1) edge[->,>={Stealth},loop right] (Y1)
+            (Y2) edge[bend left] (Y3)
+            (Y4) edge[->,>={Stealth},loop right] (Y4)
+            (Y5) edge[bend left] (Y6)
+            (Y7) edge[bend left] (Y8)
+            (Y8) edge[bend left] (Y7)
+
+           (Y3) edge[->,>={Stealth},loop left] (Y3)
+            (Y6) edge[->,>={Stealth},loop left] (Y6)
+            (Y9) edge[->,>={Stealth},loop left] (Y9)
+
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+    <p>
+        It seems completely reasonable that <q>in reality</q>
+        <m>x_7 = y_7</m>, <m>x_8 = y_8</m>, and maybe even <m>x_1 = y_1</m>.  So how do I 
+        distinguish the endomap above from the following endomap on a potential
+        <m>X_h</m>?
+    </p>
+
+ <image width="80%" xml:id="img-article27-ex12-beta1-sum-2"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                     \draw (3,-4) circle [x radius=6, y radius=6];
+        
+        
+                    \node (X1) at (0,-0) {$x_{1}$};
+        \node (X2) at (0,-1) {$x_{2}$};
+        \node (X3) at (0,-2) {$x_{3}$};
+        \node (X4) at (0,-3) {$x_{4}$};
+        \node (X5) at (0,-4) {$x_{5}$};
+        \node (X6) at (0,-5) {$x_{6}$};
+        \node (X7) at (0,-6) {$x_{7}$};
+        \node (X8) at (0,-7) {$x_{8}$};
+        
+        \node (Y2) at (6,-1) {$y_{2}$};
+        \node (Y3) at (6,-2) {$y_{3}$};
+        \node (Y4) at (6,-3) {$y_{4}$};
+        \node (Y5) at (6,-4) {$y_{5}$};
+        \node (Y6) at (6,-5) {$y_{6}$};
+        \node (Y9) at (6,-8) {$y_{9}$};
+        \path[-{stealth}]
+            (X2) edge (Y2)
+            (X5) edge (Y5)
+            (X6) edge (Y5)
+            (X3) edge (Y4)
+            (X4) edge (Y4)
+
+            (Y2) edge[bend left] (Y3)
+            (Y4) edge[->,>={Stealth},loop right] (Y4)
+            (Y5) edge[bend left] (Y6)
+            (X7) edge[bend left] (X8)
+            (X8) edge[bend left] (X7)
+
+           (X1) edge[->,>={Stealth},loop left] (X1)
+
+           (Y3) edge[->,>={Stealth},loop left,dotted,purple] (Y3)
+            (Y6) edge[->,>={Stealth},loop left,dotted,purple] (Y6)
+            (Y9) edge[->,>={Stealth},loop left,dotted,purple] (Y9)
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        <p>
+            I'm starting to wonder if there's some parallels between
+            <m>Z</m> and <m>\mathbb{Z}</m>, in that if maybe I can assign
+            an index <m>n \in \mathbb{N}</m> to points  
+            <m>x_n \in X</m> then maybe I can use a notion of 
+            <q>negative</q> to map from <m>y_m \in Y</m> to <m>x_n</m>
+            in a way that preserves structure from a common map 
+            <m>\mathbb{N} \rightarrow X+Y</m>.
+            If I consider that my <q>equalizer</q> gave me a map
+            from
+            <m>\{x_1,x_3,x_4\}</m>, maybe my <q>coequalizer</q>
+            has some connection to the remaining points 
+            <m>\{x_2,x_5,x_6,x_7,x_8\}</m>?
+        </p>
+        </solution>
+    </example>
+
+    <p>
+        I feel like there's a lot more for me to think about here,
+        so perhaps another week on this is merited.
+    </p>
+</section>
