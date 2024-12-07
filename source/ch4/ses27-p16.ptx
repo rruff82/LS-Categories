@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27-p16">
+    <title>Session 27: Examples of universal constructions, Part 16</title>
+    <example>
+        <title>Exercise 12 (Part 2/?):</title>
+        <statement>
+            <p>
+                Continued from last week...
+            </p>
+        </statement>
+        <solution>
+   <p>
+        Let's start by taking a <q>step back</q> and look
+        what we're <em>really assuming</em> here.
+        We're given a map <m>Y \xrightarrow{h} Z</m>
+        and asked to consider <q>all parallel pairs</q> 
+        <m>X \mathrel{\substack{f \\ \longrightarrow \\ \longrightarrow \\  g}} Y</m>.
+    </p>
+    <p>
+        Looking back over the reading for this session,
+        the authors are incredibly strict about getting 
+        Danilo to say <q>For each object <m>X</m> in <m>\mathcal{C}</m>
+        there is exactly one map...</q>.
+        I think I was on the right track earlier when I started
+        referring to the objects of the category by index.
+    </p>
+    <p>
+        Let's assume our initial object of the category is <m>S</m>
+        and terminal object is <m>T</m>. We'll call <m>S = C_0</m>
+        and <m>T = C_1</m>.  Our triple of maps <m>f,g,h</m> 
+        necessitates the existence of three objects <m>X,Y,Z</m>,
+        which may or may not be isomorphic to the objects we've already 
+        defined.  
+    </p>
+    <p>
+        By the definition of initial object, there 
+        there is <q>exactly one map</q> from
+        <m>C_0 \xrightarrow{f_i} C_i</m> for every <m>C_i</m> in
+        <m>\mathcal{C}</m>. 
+        Clearly our category must have a unique map
+        <m>C_0 \xrightarrow{f_0} C_0 = 1_S</m> by the 
+        <q>identity property</q> of 
+        the category <m>\mathcal{C}</m> and definition of
+        initial object. The map <m>C_0 \xrightarrow{f_1} C_1</m>
+        would be uniquely defined by domain and codomain also.
+    
+    </p>
+    <p>
+        Similarly,  by the definition of terminal object
+        there's uniquely defined maps 
+        <m>C_i \xrightarrow{g_i} C_1</m>
+        for every object in the category. It's therefore safe 
+        to conclude that <m>f_1 = g_0</m> need to both
+        be the unique map <m>S \rightarrow T</m>. 
+        If <m>f_1</m> is invertible, it would imply
+        every object is isomorphic to the initial object.
+    </p>
+    <p>
+       Consider an object <m>C_2</m> defined by the disjoint 
+       union of <m>C_0+C_1</m>. By the definition of coproduct,
+       for any object <m>C_i</m> in the category <m>\mathcal{C}</m>
+
+       there should be a unique map <m>C_0+C_1 \xrightarrow{j} C_2</m> such that the following
+       diagram commutes:      
+    </p>
+     <image width="60%" xml:id="img-session27-ex12-p2-1">
+                <latex-image>
+                    \begin{tikzpicture}[scale=4]
+                         \node (X) at (0,0) {$C_0$};
+                        \node (Y) at (1,1) {$C_1$};
+                        \node (XpY) at (1,0) {$ C_0 + C_1 $};
+                        
+                        \node (T) at (1.42,-.42) {$ C_2 $};
+
+
+                        \coordinate (HOFF) at (0.05,0);
+        
+                        \coordinate (VOFF) at (0,0.05);
+                        \path[-{stealth}]
+
+                            (X) edge node[above] {$j_1$} (XpY)
+                            
+        
+                            (Y) edge node[left] {$j_2$} (XpY)
+                            (X) edge node[below right] {$f_1$} (Y)
+
+                            (XpY) edge node[above right] {$j$} (T)
+                            
+                            (X) edge[bend right] node[below left] {$f_2$} (T)
+                            (Y) edge[bend left] node[above right] {$g_2^{-1}$} (T)
+                        ;
+        
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        <p>
+            By assigning our initial objects indexes such that
+            <m>C_0</m> is initial and <m>C_1</m> is terminal,
+            we've basically set us up to say that 
+            <m>f_i</m> is non-invertible for every <m>i</m>
+            with the exception of <m>f_0</m>.
+            Likewise, very <m>g_i</m> needs to be invertible
+            for every <m>i</m> with the execption of <m>g_0</m>.
+            Generalizing this notion, we could simply 
+            say that any object <m>X</m> in the 
+            category <m>\mathcal{C}</m>
+            has a uniquely defined set of 3 maps 
+            <m>C_0 \xrightarrow{f_x} X \xrightarrow{g_x} C_1 \xrightarrow{\bar{g_x}} X</m>
+            such that <m>\bar{g_x} g_x = 1_X</m>.
+        </p>
+        <p>
+            How convenient? The wild-card <m>X</m> is effectively
+            a collection of maps
+            isomorphic to <m>\mathbf{3}</m> and the last object
+            we named was <m>C_2</m>.  It's almost like <m>X</m>
+            wants to be <m>C_3</m>, but is it?  Given some 
+            <m>Y \neq X</m>, there would need to some 
+            point in <m>Y</m> which doesn't come from <m>X</m>.
+            We could join that point and keep counting to construct
+            a monoid <m>\mathbb{N}</m>.
+        </p>
+        <p>
+            I think that actually gives me an idea about how 
+            to answer to the first part of this.  Maybe the unique 
+            map <m>h</m> is the retraction that returns the index
+            of the object <m>C_i</m>? 
+        </p>
+        <p>
+            Consider a map <m>\mathbb{N} \xrightarrow{i} X</m>
+            that indexes every <m>\mathbf{1} \xrightarrow{x_i} X</m>.
+            This map defines a unique inverse map 
+            <m>X \xrightarrow{r_X} \mathbb{N}</m> that returns the index
+            given the element.
+            Similar maps exist for the objects <m>Y</m> and <m>Z</m>
+            , but there 
+            could be at most one map 
+            or <m>Z \xrightarrow{r_Z} \mathbb{N}</m> that will preserve the indexes
+            from <m>X</m> for all
+            <m>
+            X \mathrel{\substack{f \\ \longrightarrow \\ \longrightarrow \\  g}} Y \xrightarrow{h} Z
+            </m>.  We could then compose <m>i r_Z</m>
+            to get a unique map <m>Z \rightarrow X</m>.
+        </p>
+        <p>
+            I think that's basically the requirements of our 
+            <q>directed graph</q>?  Choosing 
+            <m>X_h = \mathbb{N}</m> to preserve the index of
+            the elements of <m>X</m>
+            gives us a unique retraction <m>r</m> that preserves 
+            the structure of every source and target map 
+               <m>
+            \mathbb{N} \xrightarrow{i} X \mathrel{\substack{s \\ \longrightarrow \\ \longrightarrow \\  t}} Y \xrightarrow{r} \mathbb{N}
+            </m>.  This establishes our <q>reflexive</q> property.
+
+        </p>
+  
+        </solution>
+    </example>
+    
+    <p>
+        I think I'm comfortable with that being my progress
+        for the week.  It gives me a possible solution to 
+        distinguishing the endomaps I was concerned about last
+        week and gives me a clearer definition of <m>X_h</m> 
+        to work with as I move forward. 
+    </p>
+    <p>
+        I'm still not quite sure about my definition of 
+        coequalizer from earlier, but my attempts to
+        improve it this week weren't very fruitful either.  
+        I'm beginning think part of the big
+        idea is that every map <m>X \xrightarrow{f} Y</m>
+        corresponds to a unique endomap <m>X+Y \xrightarrow{e} X+Y</m>.
+        It's almost like I'm using the parallel maps in <m>\mathcal{S}</m>
+        to construct a pair of maps in <m>\mathcal{S}^\circlearrowright</m>,
+
+        then interpreting those as a pair of maps in 
+        <m>\mathcal{S}^{\downarrow_\bullet^\bullet \downarrow}</m>
+        so that I can ultimately compare them for equality. 
+
+    </p>
+
+</section>
