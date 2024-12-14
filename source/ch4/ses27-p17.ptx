@@ -1,0 +1,714 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session27-p17">
+    <title>Session 27: Examples of universal constructions, Part 17</title>
+    <example>
+        <title>Exercise 12 (Part 3/3):</title>
+        <statement>
+            <p>
+                Continued from last week...
+            </p>
+        </statement>
+        <solution>
+   <p>
+        I think I'd like to start by recapping what I've 
+        established so far.  
+    </p>
+    <p>
+        We've seen that any pair of parallel maps 
+          <m>X \mathrel{\substack{f \\ \longrightarrow \\ \longrightarrow \\  g}} Y</m>
+        has an interpretation as a graph which defines 
+        an pair of endomaps <m>\beta_1,\beta_2</m> on <m>Y</m>
+        depending on which map we consider the source and 
+        target.  Since swapping the source and target <q>inverts</q>
+        the map, we know <m>\beta_1 \beta_2 = \beta_2 \beta_1 = 1_Y</m>.
+    </p>
+    <p>
+        By indexing the objects <m>C_i</m> of our category
+        <m>\mathcal{C}</m>
+        in such a way that <m>C_0</m> is initial and <m>C_1</m>
+        is terminal, for any object <m>C_i</m> in
+        the category we can define a unique pair of maps
+        <m>C_0 \xrightarrow{f_i} C_i</m> and <m>C_i \xrightarrow{g_i} C_1</m>.
+        
+
+    </p>
+    <p>
+        Given this convention, 
+        I can think of my <m>X = C_i</m> and <m>Y = C_j</m>
+        for two (possibly equal) indices <m>i,j</m>.  This would
+        give a unique composition of maps
+        <m>
+            C_0 \xrightarrow{f_i} C_i 
+            \mathrel{\substack{f \\ \longrightarrow \\ \longrightarrow \\  g}}
+            C_j \xrightarrow{g_j} C_1
+        </m>.  Since categories are closed 
+        under composition, the compositions <m>g_j f</m>
+        and <m>g_j g</m> would both need to be 
+        the unique map <m>g_i: C_i \rightarrow C_1</m>.
+    </p>
+    <p>
+        So what happens when we throw <m>Y \xrightarrow{h} Z</m>
+        into this mix? 
+    </p>
+    <p>
+        Suppose this object <m>Z = C_k</m> for some index <m>k</m>.
+        This gives lets us rewrite  
+          <m>X \mathrel{\substack{f \\ \longrightarrow \\ \longrightarrow \\  g}}
+          Y \xrightarrow{h} Z
+          </m> as 
+                <m>
+            C_0 \xrightarrow{f_i} C_i 
+            \mathrel{\substack{f \\ \longrightarrow \\ \longrightarrow \\  g}}
+            C_j \xrightarrow{h} C_k \xrightarrow{g_k} C_1
+        </m>.         Our composition
+        <m>g_k h</m> would need to be the unique
+        map <m>C_j \xrightarrow{g_j} C_1</m>.
+    </p>
+    <p>
+        If <m>f = g</m>, then clearly 
+        any map <m>Y \xrightarrow{h} Z</m> would 
+        satisfy <m>h f = h g</m>.  We only need 
+        a specific choice of <m>h</m> if there's some
+        <m>C_1 \xrightarrow{x} X</m> for which
+        <m>f x \neq g x</m>.   This implicitly 
+        defines a pair of points 
+        <m>C_1  
+        \mathrel{\substack{y_1 \\ \longrightarrow \\ \longrightarrow \\  y_2}}
+          Y
+        </m>
+        such that <m>y_1 = f x</m>, 
+        <m>y_2 = g x</m>, and <m>y_1 \neq y_2</m>, but <m>h y_1 = h y_2</m>.
+        
+    </p>
+
+    <p>
+        Maybe this is where it would be helpful to define maps
+        <m>X \xrightarrow{\langle f,g \rangle} Y \times Y</m>
+        and <m>X \xrightarrow{\langle g,f \rangle} Y \times Y</m>.
+        We could also potentially define an operator 
+        <m>Y \times Y \xrightarrow{\alpha} Y \times Y</m>
+        that swaps the order of any <m>\langle y_1,y_2 \rangle</m>
+        to become <m>\langle y_2,y_1 \rangle</m>, and thus 
+        establishing
+         <m>\langle f,g \rangle = \alpha \langle g,f \rangle</m>
+         and <m>\alpha^2 = 1_{Y \times Y}</m>.
+    </p>
+    <p>
+        Well, we've already defined two endomaps  
+        <m>Y
+         \mathrel{\substack{\beta_1 \\ \longrightarrow \\ \longrightarrow \\  \beta_2}} Y
+       </m>.  What if we look at how those behave when we 
+       look at them as a products <m>Y \xrightarrow{\langle 1_Y,\beta_1 \rangle } Y \times Y</m>
+       and
+       <m>Y \xrightarrow{\langle 1_Y,\beta_2 \rangle } Y \times Y</m>?  
+       Or maybe even <m>Y \xrightarrow{\langle \beta_1,\beta_2 \rangle } Y \times Y</m>
+       and
+       <m>Y \xrightarrow{\langle \beta_2,\beta_1 \rangle } Y \times Y</m>?
+    </p>
+    <p>
+        Out of sheer curiousity,
+        let's draw out a graph product of what 
+        <m>Y^{\circlearrowleft \beta_1} \times Y^{\circlearrowleft \beta_2}</m> might look like:
+        
+    </p>
+<image width="90%" xml:id="img-session27-ex12-p17-1"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \draw (-5,1) rectangle (-3,-9);
+                    \draw (0,-10) rectangle (10,-12);
+
+                    \draw (0,1) rectangle (10,-9);
+                    
+                \node (X1) at (1,-11) {$y_{1}$};
+        \node (X2) at (2,-11) {$y_{2}$};
+        \node (X3) at (3,-11) {$y_{3}$};
+        \node (X4) at (4,-11) {$y_{4}$};
+        \node (X5) at (5,-11) {$y_{5}$};
+        \node (X6) at (6,-11) {$y_{6}$};
+        \node (X7) at (7,-11) {$y_{7}$};
+        \node (X8) at (8,-11) {$y_{8}$};
+        \node (X9) at (9,-11) {$y_{9}$};
+   
+        \node (Y1) at (-4,-0) {$y_{1}$};
+        \node (Y2) at (-4,-1) {$y_{2}$};
+        \node (Y3) at (-4,-2) {$y_{3}$};
+        \node (Y4) at (-4,-3) {$y_{4}$};
+        \node (Y5) at (-4,-4) {$y_{5}$};
+        \node (Y6) at (-4,-5) {$y_{6}$};
+        \node (Y7) at (-4,-6) {$y_{7}$};
+        \node (Y8) at (-4,-7) {$y_{8}$};
+        \node (Y9) at (-4,-8) {$y_{9}$};
+
+        \path[-{stealth}]
+            
+(Y1) edge[->,>={Stealth},loop left] (Y1)
+            (Y3) edge[bend right] (Y2)
+            (Y4) edge[->,>={Stealth},loop left] (Y4)
+            (Y6) edge[bend right] (Y5)
+            (Y7) edge[bend right] (Y8)
+            (Y8) edge[bend right] (Y7)
+
+            (Y2) edge[->,>={Stealth},loop left] (Y2)
+            (Y5) edge[->,>={Stealth},loop left] (Y5)
+            (Y9) edge[->,>={Stealth},loop left] (Y9)
+
+            (X1) edge[->,>={Stealth},loop below] (X1)
+            (X2) edge[bend left] (X3)
+            (X4) edge[->,>={Stealth},loop below] (X4)
+            (X5) edge[bend left] (X6)
+            (X7) edge[bend left] (X8)
+            (X8) edge[bend left] (X7)
+
+            (X3) edge[->,>={Stealth},loop below] (X3)
+            (X6) edge[->,>={Stealth},loop below] (X6)
+            (X9) edge[->,>={Stealth},loop below] (X9)
+
+        ;
+
+                \node (Z11) at (1,-0) {$\bullet$};
+                \node (Z12) at (1,-1) {$\bullet$};
+                \node (Z13) at (1,-2) {$\bullet$};
+                \node (Z14) at (1,-3) {$\bullet$};
+                \node (Z15) at (1,-4) {$\bullet$};
+                \node (Z16) at (1,-5) {$\bullet$};
+                \node (Z17) at (1,-6) {$\bullet$};
+                \node (Z18) at (1,-7) {$\bullet$};
+                \node (Z19) at (1,-8) {$\bullet$};
+                \node (Z21) at (2,-0) {$\bullet$};
+                \node (Z22) at (2,-1) {$\bullet$};
+                \node (Z23) at (2,-2) {$\bullet$};
+                \node (Z24) at (2,-3) {$\bullet$};
+                \node (Z25) at (2,-4) {$\bullet$};
+                \node (Z26) at (2,-5) {$\bullet$};
+                \node (Z27) at (2,-6) {$\bullet$};
+                \node (Z28) at (2,-7) {$\bullet$};
+                \node (Z29) at (2,-8) {$\bullet$};
+                \node (Z31) at (3,-0) {$\bullet$};
+                \node (Z32) at (3,-1) {$\bullet$};
+                \node (Z33) at (3,-2) {$\bullet$};
+                \node (Z34) at (3,-3) {$\bullet$};
+                \node (Z35) at (3,-4) {$\bullet$};
+                \node (Z36) at (3,-5) {$\bullet$};
+                \node (Z37) at (3,-6) {$\bullet$};
+                \node (Z38) at (3,-7) {$\bullet$};
+                \node (Z39) at (3,-8) {$\bullet$};
+
+                \node (Z41) at (4,-0) {$\bullet$};
+                \node (Z42) at (4,-1) {$\bullet$};
+                \node (Z43) at (4,-2) {$\bullet$};
+                \node (Z44) at (4,-3) {$\bullet$};
+                \node (Z45) at (4,-4) {$\bullet$};
+                \node (Z46) at (4,-5) {$\bullet$};
+                \node (Z47) at (4,-6) {$\bullet$};
+                \node (Z48) at (4,-7) {$\bullet$};
+                \node (Z49) at (4,-8) {$\bullet$};
+
+                \node (Z51) at (5,-0) {$\bullet$};
+                \node (Z52) at (5,-1) {$\bullet$};
+                \node (Z53) at (5,-2) {$\bullet$};
+                \node (Z54) at (5,-3) {$\bullet$};
+                \node (Z55) at (5,-4) {$\bullet$};
+                \node (Z56) at (5,-5) {$\bullet$};
+                \node (Z57) at (5,-6) {$\bullet$};
+                \node (Z58) at (5,-7) {$\bullet$};
+                \node (Z59) at (5,-8) {$\bullet$};
+
+                \node (Z61) at (6,-0) {$\bullet$};
+                \node (Z62) at (6,-1) {$\bullet$};
+                \node (Z63) at (6,-2) {$\bullet$};
+                \node (Z64) at (6,-3) {$\bullet$};
+                \node (Z65) at (6,-4) {$\bullet$};
+                \node (Z66) at (6,-5) {$\bullet$};
+                \node (Z67) at (6,-6) {$\bullet$};
+                \node (Z68) at (6,-7) {$\bullet$};
+                \node (Z69) at (6,-8) {$\bullet$};
+
+                \node (Z71) at (7,-0) {$\bullet$};
+                \node (Z72) at (7,-1) {$\bullet$};
+                \node (Z73) at (7,-2) {$\bullet$};
+                \node (Z74) at (7,-3) {$\bullet$};
+                \node (Z75) at (7,-4) {$\bullet$};
+                \node (Z76) at (7,-5) {$\bullet$};
+                \node (Z77) at (7,-6) {$\bullet$};
+                \node (Z78) at (7,-7) {$\bullet$};
+                \node (Z79) at (7,-8) {$\bullet$};
+
+                \node (Z81) at (8,-0) {$\bullet$};
+                \node (Z82) at (8,-1) {$\bullet$};
+                \node (Z83) at (8,-2) {$\bullet$};
+                \node (Z84) at (8,-3) {$\bullet$};
+                \node (Z85) at (8,-4) {$\bullet$};
+                \node (Z86) at (8,-5) {$\bullet$};
+                \node (Z87) at (8,-6) {$\bullet$};
+                \node (Z88) at (8,-7) {$\bullet$};
+                \node (Z89) at (8,-8) {$\bullet$};
+
+                \node (Z91) at (9,-0) {$\bullet$};
+                \node (Z92) at (9,-1) {$\bullet$};
+                \node (Z93) at (9,-2) {$\bullet$};
+                \node (Z94) at (9,-3) {$\bullet$};
+                \node (Z95) at (9,-4) {$\bullet$};
+                \node (Z96) at (9,-5) {$\bullet$};
+                \node (Z97) at (9,-6) {$\bullet$};
+                \node (Z98) at (9,-7) {$\bullet$};
+                \node (Z99) at (9,-8) {$\bullet$};
+
+        \coordinate (P11) at (0,-5);
+        \coordinate (P12) at (-3,-5);
+        
+        \coordinate (P21) at (5,-9);
+        \coordinate (P22) at (5,-10);
+
+        \path[-{stealth}]
+            (Z11) edge[->,>={Stealth},loop above] (Z11)
+            (Z21) edge[bend right] (Z31)
+            (Z31) edge[->,>={Stealth},loop above] (Z31)
+            (Z41) edge[->,>={Stealth},loop above] (Z41)
+            (Z51) edge[bend right] (Z61)
+            (Z61) edge[->,>={Stealth},loop above] (Z61)
+            (Z71) edge[bend right] (Z81)
+            (Z81) edge[bend right] (Z71)
+            (Z91) edge[->,>={Stealth},loop above] (Z91)
+
+            (Z12) edge[->,>={Stealth},loop above] (Z12)
+            (Z22) edge[bend right] (Z32)
+            (Z32) edge[->,>={Stealth},loop above] (Z32)
+            (Z42) edge[->,>={Stealth},loop above] (Z42)
+            (Z52) edge[bend right] (Z62)
+            (Z62) edge[->,>={Stealth},loop above] (Z62)
+            (Z72) edge[bend right] (Z82)
+            (Z82) edge[bend right] (Z72)
+            (Z92) edge[->,>={Stealth},loop above] (Z92)
+            
+            (Z13) edge[bend right] (Z12)
+            (Z23) edge[bend right] (Z32)
+            (Z33) edge[bend right] (Z32)
+            (Z43) edge[bend right] (Z42)
+            (Z53) edge[bend right] (Z62)
+            (Z63) edge[bend right] (Z62)
+            (Z73) edge[bend right] (Z82)
+            (Z83) edge[bend left] (Z72)
+            (Z93) edge[bend right] (Z92)
+
+            (Z14) edge[->,>={Stealth},loop above] (Z14)
+            (Z24) edge[bend right] (Z34)
+            (Z34) edge[->,>={Stealth},loop above] (Z34)
+            (Z44) edge[->,>={Stealth},loop above] (Z44)
+            (Z54) edge[bend right] (Z64)
+            (Z64) edge[->,>={Stealth},loop above] (Z64)
+            (Z74) edge[bend right] (Z84)
+            (Z84) edge[bend right] (Z74)
+            (Z94) edge[->,>={Stealth},loop above] (Z94)
+
+            (Z15) edge[->,>={Stealth},loop above] (Z15)
+            (Z25) edge[bend right] (Z35)
+            (Z35) edge[->,>={Stealth},loop above] (Z35)
+            (Z45) edge[->,>={Stealth},loop above] (Z45)
+            (Z55) edge[bend right] (Z65)
+            (Z65) edge[->,>={Stealth},loop above] (Z65)
+            (Z75) edge[bend right] (Z85)
+            (Z85) edge[bend right] (Z75)
+            (Z95) edge[->,>={Stealth},loop above] (Z95)
+
+            (Z16) edge[bend right] (Z15)
+            (Z26) edge[bend right] (Z35)
+            (Z36) edge[bend right] (Z35)
+            (Z46) edge[bend right] (Z45)
+            (Z56) edge[bend right] (Z65)
+            (Z66) edge[bend right] (Z65)
+            (Z76) edge[bend right] (Z85)
+            (Z86) edge[bend left] (Z75)
+            (Z96) edge[bend right] (Z95)
+
+            (Z17) edge[bend right] (Z18)
+            (Z27) edge[bend right] (Z38) 
+            (Z37) edge[bend right] (Z38)
+            (Z47) edge[bend right] (Z48)
+            (Z57) edge[bend right] (Z68)
+            (Z67) edge[bend right] (Z68)
+            (Z77) edge[bend left] (Z88)
+            (Z87) edge[bend left] (Z78)
+            (Z97) edge[bend right] (Z98)
+
+            (Z18) edge[bend right] (Z17)
+            (Z28) edge[bend left] (Z37)
+            (Z38) edge[bend right] (Z37)
+            (Z48) edge[bend right] (Z47)
+            (Z58) edge[bend left] (Z67) 
+            (Z68) edge[bend right] (Z67)
+            (Z78) edge[bend left] (Z87)
+            (Z88) edge[bend left] (Z77)
+            (Z98) edge[bend right] (Z97)
+
+            (Z19) edge[->,>={Stealth},loop above] (Z19)
+            (Z29) edge[bend right] (Z39)
+            (Z39) edge[->,>={Stealth},loop above] (Z39)
+            (Z49) edge[->,>={Stealth},loop above] (Z49)
+            (Z59) edge[bend right] (Z69)
+            (Z69) edge[->,>={Stealth},loop above] (Z69)
+            (Z79) edge[bend right] (Z89)
+            (Z89) edge[bend right] (Z79)
+            (Z99) edge[->,>={Stealth},loop above] (Z99)
+
+            (P11) edge (P12)
+            (P21) edge (P22)
+
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+    <p>
+        I don't really know what I was looking for here,
+        but it seems interesting that this particular endomap
+        <m>Y \times Y \xrightarrow{\beta} Y \times Y</m>
+        seems to satisfy <m>\beta^3 = \beta</m>. 
+    </p>
+    <p>
+        Let's see if this property generalizes to a different
+        map.  Consider the map <m>X^{\circlearrowleft \alpha}</m>
+        defined in Session 15.  What happens if we take the product
+        <m>X^{\circlearrowleft \alpha} \times X^{\circlearrowleft \alpha}</m>?
+    </p>
+
+    <image width="90%" xml:id="img-session27-ex12-p17-2"> 
+                <latex-image>
+                    \begin{tikzpicture}
+                    \draw (-5,1) rectangle (-3,-9);
+                    \draw (0,-10) rectangle (10,-12);
+
+                    \draw (0,1) rectangle (10,-9);
+                    
+                \node (X1) at (1,-11) {$x_{1}$};
+        \node (X2) at (2,-11) {$x_{2}$};
+        \node (X3) at (3,-11) {$x_{3}$};
+        \node (X4) at (4,-11) {$x_{4}$};
+        \node (X5) at (5,-11) {$x_{5}$};
+        \node (X6) at (6,-11) {$x_{6}$};
+        \node (X7) at (7,-11) {$x_{7}$};
+        \node (X8) at (8,-11) {$x_{8}$};
+        \node (X9) at (9,-11) {$x_{9}$};
+   
+        \node (Y1) at (-4,-0) {$x_{1}$};
+        \node (Y2) at (-4,-1) {$x_{2}$};
+        \node (Y3) at (-4,-2) {$x_{3}$};
+        \node (Y4) at (-4,-3) {$x_{4}$};
+        \node (Y5) at (-4,-4) {$x_{5}$};
+        \node (Y6) at (-4,-5) {$x_{6}$};
+        \node (Y7) at (-4,-6) {$x_{7}$};
+        \node (Y8) at (-4,-7) {$x_{8}$};
+        \node (Y9) at (-4,-8) {$x_{9}$};
+
+        \path[-{stealth}]
+            
+(Y1) edge[bend right] (Y2)
+(Y2) edge[bend right] (Y3)
+(Y3) edge[bend right] (Y4)
+(Y4) edge[bend right] (Y5)
+(Y5) edge[bend right] (Y3)
+(Y6) edge[bend right] (Y3)
+(Y7) edge[bend right] (Y4)
+(Y8) edge[bend right] (Y9)
+(Y9) edge[bend right] (Y8)
+
+(X1) edge[bend right] (X2)
+(X2) edge[bend right] (X3)
+(X3) edge[bend right] (X4)
+(X4) edge[bend right] (X5)
+(X5) edge[bend right] (X3)
+(X6) edge[bend right] (X3)
+(X7) edge[bend right] (X4)
+(X8) edge[bend right] (X9)
+(X9) edge[bend right] (X8)
+
+
+        ;
+
+                \node (Z11) at (1,-0) {$\bullet$};
+                \node (Z12) at (1,-1) {$\bullet$};
+                \node (Z13) at (1,-2) {$\bullet$};
+                \node (Z14) at (1,-3) {$\bullet$};
+                \node (Z15) at (1,-4) {$\bullet$};
+                \node (Z16) at (1,-5) {$\bullet$};
+                \node (Z17) at (1,-6) {$\bullet$};
+                \node (Z18) at (1,-7) {$\bullet$};
+                \node (Z19) at (1,-8) {$\bullet$};
+                \node (Z21) at (2,-0) {$\bullet$};
+                \node (Z22) at (2,-1) {$\bullet$};
+                \node (Z23) at (2,-2) {$\bullet$};
+                \node (Z24) at (2,-3) {$\bullet$};
+                \node (Z25) at (2,-4) {$\bullet$};
+                \node (Z26) at (2,-5) {$\bullet$};
+                \node (Z27) at (2,-6) {$\bullet$};
+                \node (Z28) at (2,-7) {$\bullet$};
+                \node (Z29) at (2,-8) {$\bullet$};
+                \node (Z31) at (3,-0) {$\bullet$};
+                \node (Z32) at (3,-1) {$\bullet$};
+                \node (Z33) at (3,-2) {$\bullet$};
+                \node (Z34) at (3,-3) {$\bullet$};
+                \node (Z35) at (3,-4) {$\bullet$};
+                \node (Z36) at (3,-5) {$\bullet$};
+                \node (Z37) at (3,-6) {$\bullet$};
+                \node (Z38) at (3,-7) {$\bullet$};
+                \node (Z39) at (3,-8) {$\bullet$};
+
+                \node (Z41) at (4,-0) {$\bullet$};
+                \node (Z42) at (4,-1) {$\bullet$};
+                \node (Z43) at (4,-2) {$\bullet$};
+                \node (Z44) at (4,-3) {$\bullet$};
+                \node (Z45) at (4,-4) {$\bullet$};
+                \node (Z46) at (4,-5) {$\bullet$};
+                \node (Z47) at (4,-6) {$\bullet$};
+                \node (Z48) at (4,-7) {$\bullet$};
+                \node (Z49) at (4,-8) {$\bullet$};
+
+                \node (Z51) at (5,-0) {$\bullet$};
+                \node (Z52) at (5,-1) {$\bullet$};
+                \node (Z53) at (5,-2) {$\bullet$};
+                \node (Z54) at (5,-3) {$\bullet$};
+                \node (Z55) at (5,-4) {$\bullet$};
+                \node (Z56) at (5,-5) {$\bullet$};
+                \node (Z57) at (5,-6) {$\bullet$};
+                \node (Z58) at (5,-7) {$\bullet$};
+                \node (Z59) at (5,-8) {$\bullet$};
+
+                \node (Z61) at (6,-0) {$\bullet$};
+                \node (Z62) at (6,-1) {$\bullet$};
+                \node (Z63) at (6,-2) {$\bullet$};
+                \node (Z64) at (6,-3) {$\bullet$};
+                \node (Z65) at (6,-4) {$\bullet$};
+                \node (Z66) at (6,-5) {$\bullet$};
+                \node (Z67) at (6,-6) {$\bullet$};
+                \node (Z68) at (6,-7) {$\bullet$};
+                \node (Z69) at (6,-8) {$\bullet$};
+
+                \node (Z71) at (7,-0) {$\bullet$};
+                \node (Z72) at (7,-1) {$\bullet$};
+                \node (Z73) at (7,-2) {$\bullet$};
+                \node (Z74) at (7,-3) {$\bullet$};
+                \node (Z75) at (7,-4) {$\bullet$};
+                \node (Z76) at (7,-5) {$\bullet$};
+                \node (Z77) at (7,-6) {$\bullet$};
+                \node (Z78) at (7,-7) {$\bullet$};
+                \node (Z79) at (7,-8) {$\bullet$};
+
+                \node (Z81) at (8,-0) {$\bullet$};
+                \node (Z82) at (8,-1) {$\bullet$};
+                \node (Z83) at (8,-2) {$\bullet$};
+                \node (Z84) at (8,-3) {$\bullet$};
+                \node (Z85) at (8,-4) {$\bullet$};
+                \node (Z86) at (8,-5) {$\bullet$};
+                \node (Z87) at (8,-6) {$\bullet$};
+                \node (Z88) at (8,-7) {$\bullet$};
+                \node (Z89) at (8,-8) {$\bullet$};
+
+                \node (Z91) at (9,-0) {$\bullet$};
+                \node (Z92) at (9,-1) {$\bullet$};
+                \node (Z93) at (9,-2) {$\bullet$};
+                \node (Z94) at (9,-3) {$\bullet$};
+                \node (Z95) at (9,-4) {$\bullet$};
+                \node (Z96) at (9,-5) {$\bullet$};
+                \node (Z97) at (9,-6) {$\bullet$};
+                \node (Z98) at (9,-7) {$\bullet$};
+                \node (Z99) at (9,-8) {$\bullet$};
+
+        \coordinate (P11) at (0,-5);
+        \coordinate (P12) at (-3,-5);
+        
+        \coordinate (P21) at (5,-9);
+        \coordinate (P22) at (5,-10);
+
+        \path[-{stealth}]
+            (Z11) edge[bend left] (Z22)
+            (Z21) edge[bend left] (Z32)
+            (Z31) edge[bend left] (Z42)
+            (Z41) edge[bend left] (Z52)
+            (Z51) edge[bend left] (Z32)
+            (Z61) edge[bend left] (Z32)
+            (Z71) edge[bend left] (Z42)
+            (Z81) edge[bend left] (Z92)
+            (Z91) edge[bend left] (Z82)
+
+            (Z12) edge[bend left] (Z23)
+            (Z22) edge[bend left] (Z33)
+            (Z32) edge[bend left] (Z43)
+            (Z42) edge[bend left] (Z53)
+            (Z52) edge[bend left] (Z33)
+            (Z62) edge[bend left] (Z33)
+            (Z72) edge[bend left] (Z43)
+            (Z82) edge[bend left] (Z93)
+            (Z92) edge[bend left] (Z83)
+
+            (Z13) edge[bend left] (Z24)
+            (Z23) edge[bend left] (Z34)
+            (Z33) edge[bend left,blue] (Z44)
+            (Z43) edge[bend left,dashed,blue] (Z54)
+            (Z53) edge[bend left,dotted,blue] (Z34)
+            (Z63) edge[bend left] (Z34)
+            (Z73) edge[bend left] (Z44)
+            (Z83) edge[bend left,purple] (Z94)
+            (Z93) edge[bend left,purple] (Z84)
+
+            (Z14) edge[bend left] (Z25)
+            (Z24) edge[bend left] (Z35)
+            (Z34) edge[bend left,dotted,blue] (Z45)
+            (Z44) edge[bend left,blue] (Z55)
+            (Z54) edge[bend left,dashed,blue] (Z35)
+            (Z64) edge[bend left] (Z35)
+            (Z74) edge[bend left] (Z45)
+            (Z84) edge[bend left,purple] (Z95)
+            (Z94) edge[bend left,purple] (Z85)
+
+            (Z15) edge[bend left] (Z23)
+            (Z25) edge[bend left] (Z33)
+            (Z35) edge[bend left,dashed,blue] (Z43)
+            (Z45) edge[bend left,dotted,blue] (Z53)
+            (Z55) edge[bend left,blue] (Z33) 
+            (Z65) edge[bend left] (Z33)
+            (Z75) edge[bend left] (Z43)
+            (Z85) edge[bend left,purple] (Z93)
+            (Z95) edge[bend left,purple] (Z83)
+            
+            (Z16) edge[bend left] (Z23)
+            (Z26) edge[bend left] (Z33)
+            (Z36) edge[bend left] (Z43)
+            (Z46) edge[bend left] (Z53)
+            (Z56) edge[bend left] (Z33)
+            (Z66) edge[bend left] (Z33)
+            (Z76) edge[bend left] (Z43)
+            (Z86) edge[bend left] (Z93)
+            (Z96) edge[bend left] (Z83)
+         
+            (Z17) edge[bend left] (Z24)
+            (Z27) edge[bend left] (Z34)
+            (Z37) edge[bend left] (Z44)
+            (Z47) edge[bend left] (Z54)
+            (Z57) edge[bend left] (Z34)
+            (Z67) edge[bend left] (Z34)
+            (Z77) edge[bend left] (Z44)
+            (Z87) edge[bend left] (Z94)
+            (Z97) edge[bend left] (Z84)
+
+            (Z18) edge[bend left] (Z29)
+            (Z28) edge[bend left] (Z39)
+            (Z38) edge[bend left,purple,dashed] (Z49)
+            (Z48) edge[bend left,purple,dashed] (Z59)
+            (Z58) edge[bend left,purple,dashed] (Z39)
+            (Z68) edge[bend left] (Z39)
+            (Z78) edge[bend left] (Z49)
+            (Z88) edge[bend left,red,dashed] (Z99)
+            (Z98) edge[bend left,red] (Z89)
+
+            (Z19) edge[bend right] (Z28)
+            (Z29) edge[bend right] (Z38)
+            (Z39) edge[bend right,purple,dashed] (Z48)
+            (Z49) edge[bend right,purple,dashed] (Z58)
+            (Z59) edge[bend left,purple,dashed] (Z38)
+            (Z69) edge[bend left] (Z38)
+            (Z79) edge[bend left] (Z48)
+            (Z89) edge[bend left,red] (Z98)
+            (Z99) edge[bend left,red,dashed] (Z88) 
+
+            (P11) edge (P12)
+            (P21) edge (P22)
+ 
+        ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+    <p>
+        Okay, that's pretty ugly.  But is it helpful?
+    </p>
+    <p>
+        This product contains 2 cycles of two (red),
+        2 cycles of six (purple), and 3 cycles of three (blue).
+        No matter where you start in the graph, you end up 
+        in one of those cycles after two steps.   After 
+        six more steps, you'll loop through all of points in
+        that cycle (perhaps more than once).  We're guaranteed
+        this <m>X^{\circlearrowleft \alpha}</m> will satisfy
+         <m>\alpha^8 = \alpha^2</m>.  Likewise, the respective map
+        <m>X \times X \xrightarrow{\bar{\alpha}} X \times X</m>,
+        should also satisfy <m>\bar{\alpha}^8 = \bar{\alpha}^2</m>.
+        </p>
+        <p>
+        I also noticed that the points given by
+        <m>\langle x_i,x_i \rangle</m> effectively
+        contain a copy of the endomap <m>\alpha</m> along the 
+        diagonal of our product.  This was not the case when
+        we took the product of two different maps
+        <m>\beta_1,\beta_2</m>. The only points where the diagonal
+        has a well-defined endomap are the points 
+        <m>\{y_1,y_4,y_7,y_8,y_9\}</m>.  
+    </p>
+    <p>
+        That's a lot of interesting information, but I feel
+        like I'm straying off topic.
+        Let's attempt to revise our definition 
+        of coequalizer first:
+        
+    </p>
+            <definition xml:id="def-coequalizer-ses27-ex12">
+                <statement>
+                    <p>
+                        <m>Y \xrightarrow{q} X_h</m> is a
+                         <term>coequalizer</term> of 
+                         <m>X \mathrel{\substack{f \\ \longrightarrow \\ \longrightarrow \\ g}} Y</m>
+                        if <m>q f = q g</m> and 
+        and for every <m>Y \xrightarrow{h} Z</m> for which
+        <m>h f = h g</m>, there is exacly one <m>Z \xrightarrow{z} X_h</m>
+        for which <m>q = z h</m>.  
+                    </p>
+                </statement>
+            </definition>
+    <p>
+        I'm not sure if that's correct or not, but think there
+        are some improvements over my last one at least.
+        Firstly, I'm not trying to iterate over unique maps.
+        Secondly, in the same way that the equalizer iterates over
+        solutions, the coequalizer iterates over cosolutions.
+    </p>
+    <p>
+        My guess is that this <m>X_h</m> is probably something
+        like  
+       <m>Y+Y</m>.  This would give me the two injection maps
+       <m>X_h \mathrel{\substack{j_1 \\ \longrightarrow \\ \longrightarrow \\ j_2}} Y</m>
+       that could match the maps described in the exercise.  I'm wondering 
+       if these would need to be <q>structure preserving</q> equivalents
+       of the endomaps <m>\beta_1,\beta_2</m>? 
+
+    </p>
+    <p> 
+        Since we further have a unique map
+         <m>Y \times Y \rightarrow Y+Y</m>,
+
+        that would essentially give us <q>jointly monomorphic</q>
+        property when we compose with 
+        <m>X \xrightarrow{\langle f, g \rangle} Y \times Y</m>
+        because <m>q</m> is an monomorphism.
+    </p>
+    <p>
+        That leaves the transitive property.  I'm thinking that
+        the idea here would be to define two 
+        cosolutions <m>Y \xrightarrow{h_1} Z_1</m>
+        and <m>Y \xrightarrow{h_2} Z_2</m>, then use the
+        universal <m>q</m> to construct an isomorphism 
+        between them.  There should be a unique map <m>Z_1 \xrightarrow{t_1} T</m>
+        a unique map <m>Z_2 \xrightarrow{t_2} T</m>, and 
+        unique map <m>Y \xrightarrow{t} T</m>.  
+        Since our definition implies the existence of maps
+        <m>Z_1 \xrightarrow{z_1} X_h</m>
+        and <m>Z_2 \xrightarrow{z_2} X_h</m>, the uniqueness
+        of terminal objects implies <m>q = z_1 h_1 = z_2 h_2</m>.
+    </p>
+        </solution>
+    </example>
+    
+     <p>
+        I'm still feeling a little uncertain about some 
+        things here, but I think that's <q>good enough
+        for now</q>.  Hopefully the following session
+        will provide more context clues.
+     </p>
+ 
+</section>
