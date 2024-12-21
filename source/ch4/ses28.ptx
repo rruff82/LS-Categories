@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session28">
+    <title>Session 28: The category of pointed sets</title>
+    <p>
+        I think I need to start with some proof-reading of 
+        the named exercises from Article IV before I attempt
+        the new ones.  It's pretty clear from the reading 
+        this week that my original notion of 
+        <m>\mathbf{1}/\mathcal{S}</m> was <em>way off</em>.
+    </p>
+    <example>
+        <title>Proof-reading of Article IV, Exercises: 8,9,20</title>
+        
+        <statement>
+    <p>
+        As seen in <xref ref="article4-p3"/>,
+
+        <xref ref="article4-p8"/>, and 
+        <xref ref="article4-p9"/>.
+    </p>
+        </statement>
+        <solution>
+  <p>
+        Some of my key take-aways from the reading this
+        week were that: 
+    </p>
+    <ul>
+        <li>
+            <p>
+                not every <m>\mathbf{1}/\mathcal{S}</m> is invertible
+                (as I had falsely assumed earlier)
+            </p>
+
+        </li>
+        <li>
+            <p>
+                                <q>the empty set is not
+        an object of this category</q>
+            </p>
+        </li>
+        <li>
+            <p>
+                values which are <q>undefined</q> get sent to the
+                <em>distiguished point</em> 
+            </p>
+        </li>
+    </ul>
+    <p>
+        I think there's a close connection between this
+        category <m>\mathbf{1}/\mathcal{S}</m> as a form
+        of <q>trinary logic</q>. In <xref ref="session21-p2"/>,
+        I examined this idea with respect to the existence 
+        of a <q>gender map</q>.  We can make a <q>binary</q>
+        question into a <q>trinary</q> one by adding an option
+        for <q>undefined</q>. 
+    </p>
+    <p>
+        I'm also wondering if this is connected to what 
+        I was doing in <xref ref="session27-p15"/>. 
+        We can interpret a pair of maps 
+        <m>X \mathrel{\substack{\longrightarrow \\ \longrightarrow}}
+          Y</m>
+          as inducing an endomap <m>Y^{\circlearrowright \beta}</m>
+          and it's inverse <m>\beta^{-1}</m>.  However,
+         just because the endomap is invertable doesn't mean
+         the original maps are. By
+        adding in a <q>distinguished point</q>,
+        I'm thinking that will introduce a way to 
+        tell if <m>X</m> and <m>Y</m> are the same object
+        or not, because it gives me a place to send 
+        the point <m>y_9</m> in my example
+        that did not come from any 
+        <m>\mathbf{1} \xrightarrow{x_i} X</m>.  
+    </p>
+    <p>
+        I think the diagrams from Exercise 20 are
+        still relevant, but I want to have one more
+        as a reference:
+    </p>
+     <figure xml:id="fig-ses28-art4-sum-prod">
+          <caption>
+              Product and Sum Families Combined (revised)</caption>
+          <image width="80%" xml:id="img-ses28-art4-sum-prod"> 
+          <latex-image>
+  \begin{tikzpicture}[scale=1]
+  
+  
+  \node (S) at (5,-3) {$\mathbf{0}+\mathbf{1}+X+Y$};
+  
+  \node (X) at (0,0) {$X$};
+  
+  \node (P) at (1,2) {$\mathbf{0} \times \mathbf{1} \times X \times Y$};
+  \node (Y) at (6,1) {$Y$};
+  \node (A) at (3,1) {$\mathbf{0}$};
+  \node (B) at (3,0) {$\mathbf{1}$};
+  \node (C) at (3,-1) {$X$};
+  \node (D) at (3,-2) {$Y$};
+  
+  
+  
+  \path[-{Stealth}, font=\scriptsize,>=angle 90] 
+            (S) edge node[above right] {$g$} (Y)
+            (A) edge node[below left] {$j_0$} (S)
+            (B) edge node[below left] {$j_1$} (S)
+            (C) edge node[below left] {$j_2$} (S)
+            (D) edge node[below left] {$j_3$} (S)
+            (A) edge node[above] {$g_0$} (Y)
+            (B) edge node[above] {$g_1$} (Y)
+            (C) edge node[above] {$g_2$} (Y)
+            (D) edge node[above] {$g_3$} (Y)
+            (X) edge node[above left] {$f$} (P)
+            (P) edge node[above right] {$p_0$} (A)
+            (P) edge node[above right] {$p_1$} (B)
+            (P) edge node[above right] {$p_2$} (C)
+            (P) edge node[above right] {$p_3$} (D)
+            (X) edge node[above right] {$f_0$} (A)
+            (X) edge node[above right] {$f_1$} (B)
+            (X) edge node[above right] {$f_2$} (C)            
+            (X) edge node[above right] {$f_3$} (D)
+  ;
+  
+  \end{tikzpicture}
+          </latex-image>
+          </image>
+        </figure>
+        <p>
+            I'm also thinking I'll need an updated 
+            <q>universal sum</q> definition, so let's 
+            attempt that also:
+        </p>
+        <definition xml:id="def-">
+            <statement>
+                <p>
+                    A <term>sum</term> of an indexed family
+                    is an object <m>Q</m> together with
+                    maps <m>C_i \xrightarrow{q_i} Q</m>
+                    (one for each <m>i</m>) having the universal
+                    property:
+                </p>
+            <p>
+                Given any object <m>Y</m> and maps 
+                <m>C_i \xrightarrow{g_i} Y</m>, there
+                is exactly one map <m>Q \xrightarrow{g} Y</m>
+                such that all triangles below commute, or 
+                <m>g q_i = g_i</m> for all <m>i</m>.
+            </p>
+            <image width="40%" xml:id="img-ses28-art4-universal-sum">
+                <shortdescription></shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                      \node (C) at (0,0) {$C_i$};
+                      \node (Q) at (1.5,1.5) {$Q$};
+                      \node (Y) at (3,0) {$Y$};    
+                      \path[-{stealth}]
+                        (C) edge node[above left] {$q_i$} (Q)
+                        (Q) edge node[above right] {$g$}(Y)
+                        (C) edge node[below] {$g_i$} (Y)
+                      ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+
+            </statement>
+        </definition>
+        </solution>
+    </example>
+
+
+    <p>
+        Having collected some resources to start with,
+        I think I can stop here and take a closer look
+        at the first exercise next time.
+    </p>
+</section>
