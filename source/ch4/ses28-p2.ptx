@@ -1,0 +1,363 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xml:id="session28-p2">
+    <title>Session 28: The category of pointed sets, Part 2</title>
+    
+    <p>
+        I think I'd like to start this time with exploring
+        some simple examples of maps in <m>\mathbf{1} / \mathcal{S}</m>.
+    </p>
+    <example>
+        <title>Exercise 1:</title>
+        <statement>
+            <p>
+                Both parts of the distributive laws...
+            </p>
+        </statement>
+        <solution>
+    <p>
+        First, we know that the initial object <m>\mathbf{0}</m>
+        is <em>not</em> an empty set.  In <m>\mathbf{1} / \mathcal{S}</m>,
+        we need to pair the object <m>\mathbf{0}</m> with a map
+        <m>\mathbf{1} \xrightarrow{\mathbf{0}_0} \mathbf{0}</m>
+        to the <q>distinguished point</q>.  Let's depict this 
+        object visually as <m>\mathbf{0} = \boxed{\star}</m>.
+    </p>
+    <p>
+        Similary, the terminal object <m>\mathbf{1}</m> is also a 
+        set with a single distinguished point <m>\boxed{\star}</m>.
+        Since there's only one object in <m>\mathbf{1}</m>,
+        the map to this distinquished point would technically 
+        the identity map <m>\mathbf{1} \xrightarrow{1_\mathbf{1}} \mathbf{1}</m>.
+    </p>
+    <p>
+        Since <m>\mathbf{0} = \mathbf{1}</m>, the products 
+        defined by <m>\mathbf{0} \times \mathbf{1}</m>,
+        <m>\mathbf{1} \times \mathbf{0}</m>, 
+        <m>\mathbf{0} \times \mathbf{0}</m>, and 
+        <m>\mathbf{1} \times \mathbf{1}</m> would all
+        need to be isomorphic to <m>\mathbf{0} = \mathbf{1}</m> 
+        as depicted by the following 
+        diagram:
+    </p>
+        <image width="40%" xml:id="img-ses28-trivial-product">
+                <shortdescription></shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                      \node (C) at (0,1) {$\boxed{\star}$};
+                      \node (Q) at (1,1) {$\boxed{\star}$};
+                      \node (Y) at (1,0) {$\boxed{\star}$};   
+                      \path[-{stealth}]
+                        (Q) edge (C)
+                        (Q) edge (Y)
+                      ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+
+    <p>
+       Since we've defined sums in this category
+       by <q>gluing together at the base point</q>,
+       it also means that 
+       the sums <m>\mathbf{0} + \mathbf{1}</m>,
+        <m>\mathbf{1} + \mathbf{0}</m>, 
+        <m>\mathbf{0} + \mathbf{0}</m>, and 
+        <m>\mathbf{1} + \mathbf{1}</m> would also all
+        need to be isomorphic to <m>\mathbf{0} = \mathbf{1}</m>: 
+    </p>
+
+        <image width="40%" xml:id="img-ses28-trivial-sum">
+                <shortdescription></shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                      \node (C) at (0,1) {$\boxed{\star}$};
+                      \node (Q) at (0,0) {$\boxed{\star}$};
+                      \node (Y) at (1,0) {$\boxed{\star}$};   
+                      \path[-{stealth}]
+                        (C) edge (Q)
+                        (Y) edge (Q)
+                      ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+    <p>
+        So when happens when there's some object <m>X</m>
+        in my category which is neither initial nor 
+        terminal?  It seems reasonable that simpliest
+        such object would be a set with both a 
+        disinguished and non-distinuguished point
+        such as <m>A = \boxed{\star ~ ~ \bullet}</m>.
+        Since we have a unique map <m>\mathbf{0} \rightarrow A</m>
+        by the definition of initial object, and a unique map
+        <m>A \rightarrow \mathbf{1}</m> by the definition of 
+        terminal object, the associative property of the 
+        category says that we should be able to compose 
+        these maps around the unique identity map
+         <m>1_A</m>.  The composition <m>
+        \mathbf{0} \rightarrow A \xrightarrow{1_A} 
+            A  \rightarrow \mathbf{1}
+        </m> should look something like this:
+    </p>
+
+
+        <image width="40%" xml:id="img-ses28-trivial-composition">
+                <shortdescription></shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                      \node (A0) at (0,0) {$\star$};
+                      \node (B0) at (2,0) {$\star$};
+                      \node (B1) at (2,1) {$\bullet$};
+                      
+                      \node (C0) at (4,0) {$\star$};   
+                      \node (C1) at (4,1) {$\bullet$};
+                      
+                      \node (D0) at (6,0) {$\star$}; 
+
+
+                      \draw (-.5,-.5) rectangle (0.5,0.5);
+                      \draw (1.5,-.5) rectangle (2.5,1.5);
+                      \draw (3.5,-.5) rectangle (4.5,1.5);
+                      \draw (5.5,-.5) rectangle (6.5,0.5);
+                      
+
+                      \path[-{stealth}]
+                        (A0) edge (B0)
+                        (B0) edge (C0)
+                        (B1) edge (C1)
+                        (C0) edge (D0)
+                        (C1) edge (D0)
+                      ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+    <p>
+        Suppose we have some other endomap 
+        <m>A \xrightarrow{e} A</m>
+        such that <m>e \neq 1_{A}</m>.
+        Since every map <m>X \xrightarrow{f} Y</m>
+        in <m>\mathbf{1} / \mathcal{S}</m>
+        must preserve the structure of the 
+        distinguished point such that <m>f x_0 = y_0</m>
+        for the maps <m>\mathbf{1} \xrightarrow{x_0} X</m>
+        and <m>\mathbf{1} \xrightarrow{y_0} Y</m>.
+        Since in our case <m>X = A = Y</m>, that means 
+        our <m>e</m> must satisfy <m>e a_0 = a_0</m>
+        for the distinguished map <m>\mathbf{1} \xrightarrow{a_0} A</m>.
+        Thus, the condition that <m>e \neq 1_A</m> implies that
+        the only other point in <m>A</m>, let's 
+        call it <m>a_1</m>, must be mapped to 
+        something other than itself, which necessarily means that
+        <m>e a_1 = a_0</m>.  This map
+        <m>e</m> would need to be the standard
+        idempotent <m>\boxed{
+            \circlearrowright \star \leftarrow \bullet}</m>
+    </p>
+    <p>
+        So, what happens when we take the product 
+        <m>\mathbf{0} \times A</m>?  Pictorally
+        it should resemble the following:
+    </p>
+      <image width="40%" xml:id="img-ses28-trivial-product-2">
+                <shortdescription></shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                      \node (X0) at (0,2) {$\star$};
+                      \node (P0) at (2,2) {$\star$};
+                      \node (Y0) at (2,0) {$\star$};
+                      
+                      \node (P1) at (3,2) {$\bullet$};
+                      \node (Y1) at (3,0) {$\bullet$};   
+                      \draw (-.5,1.5) rectangle (.5,2.5);
+                      \draw (1.5,1.5) rectangle (3.5,2.5);
+                      \draw (1.5,-.5) rectangle (3.5,.5);
+                      
+                      \path[-{stealth}]
+                        (P0) edge (X0)
+                        (P0) edge (Y0)
+                        (P1) edge (Y1)
+                      ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        <p>
+            The big question here is whether 
+            or not the map <m>\mathbf{0} \xrightarrow{p} \mathbf{0} \times A</m>
+            is an <q>isomorphism</q>.  By definition,
+            <m>p</m> is an isomorphism if and only if there exists
+            a map
+            <m>\mathbf{0} \times A \xrightarrow{p^{-1}} \mathbf{0}</m>
+            satisfying <m>p^{-1} p = 1_\mathbf{0}</m> and 
+            <m>p p^{-1} = 1_\mathbf{0} \times A </m>.  </p> 
+        <p> 
+            Clearly, the projection map
+            <m>\mathbf{0} \times A \xrightarrow{p_1} \mathbf{0}</m>
+            satisfies the properties of a <q>section</q>. The composition
+            <m>p_1 p</m> has domain and codomain 
+            <m>\mathbf{0} \rightarrow \mathbf{0}</m> and would therefore
+            need to be the unique map <m>1_\mathbf{0}</m>.  If 
+             a retraction <m>p^{-1}</m> exists, it must be equivalent
+            to the section.  Does the composition
+            defined by
+            <m>\mathbf{0} \times A \xrightarrow{p p_1} \mathbf{0} \times A</m>
+            result in the identity map <m>1_{\mathbf{0} \times A}</m>? 
+
+            My gut tells me no, but its not exactly clear why.
+        </p>
+        <p> There must exist a pair of maps 
+            <m>\mathbf{1} \mathrel{\substack{
+                \langle \star, \star \rangle \\ 
+                \longrightarrow \\ \longrightarrow \\
+                \langle \star, \bullet \rangle
+                }} \mathbf{0} \times A</m> to the two points 
+                in the product.  Post composing by 
+                <m>p_2</m> would then give us a pair of maps
+                to <m>A</m> defined by
+                            <m>\mathbf{1} \mathrel{\substack{
+                p_2 \langle \star, \star \rangle \\ 
+                \longrightarrow \\ \longrightarrow \\
+                p_2 \langle \star, \bullet \rangle
+                }} A</m>.  However, as a maps in 
+                <m>\mathbf{1} / \mathcal{S}</m>, 
+                these maps must satisfy 
+                both send the distinguished point
+                in <m>\mathbf{1}</m> to the distinguished point
+                in <m>A</m>.  This feels like a contradiction
+                in terms.  
+            Perhaps I'm confusing myself by referring to the 
+            distinuguished objects in <m>\mathbf{0}</m>
+            and <m>\mathbf{1}</m> by the same symbol?
+        </p>
+        <p>
+            Let's draw it out again, but this time 
+            add the <q>sum</q> 
+            <m>\mathbf{0}+\mathbf{0} \times A +A</m> into the picture as well:
+        </p>
+
+      <image width="40%" xml:id="img-ses28-sum-product-1">
+                <shortdescription></shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                     \node (X0) at (0,2) {$\star_0$};
+                      \node (P0) at (2,2) {$\star_\times$};
+                      \node (Y0) at (2,0) {$\star_A$};
+                      
+                      \node (P1) at (3,2) {$\bullet$};
+                      \node (Y1) at (3,0) {$\bullet$};   
+                      \draw (-.5,1.5) rectangle (.5,2.5);
+                      \draw (1.5,1.5) rectangle (3.5,2.5);
+                      \draw (1.5,-.5) rectangle (3.5,.5);
+
+                      \draw (-.5,-.5) circle (1.5cm);
+
+                      \node (Z0) at (0,0) {$\star_+$};
+                      \node (Z1) at (-1,0) {$\bullet$};
+                      \node (Z2) at (0,-1) {$\bullet$};
+                      
+                      \path[-{stealth}]
+                        (P0) edge (X0)
+                        (P0) edge (Y0)
+                        (P1) edge (Y1)
+                        (X0) edge (Z0)
+                        (Y0) edge (Z0)
+                        (P0) edge (Z0)
+                        (P1) edge (Z1)
+                        (Y1) edge (Z2)
+                      ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+        <p>
+            What I find interesting about this is the fact 
+            that <m>A \times A</m> would need to have 
+            3 non-distinguished points instead of just two:
+        </p>
+         <image width="40%" xml:id="img-ses28-trivial-product-3">
+                <shortdescription></shortdescription>
+                <latex-image>
+                    \begin{tikzpicture}
+                      \node (X0) at (0,2) {$\star$};
+                      \node (X1) at (0,3) {$\bullet$};
+                      
+                      \node (P00) at (2,2) {$\star$};
+                      \node (P10) at (2,3) {$\bullet$};
+                      
+                      \node (Y0) at (2,0) {$\star$};
+                      
+                      \node (P01) at (3,2) {$\bullet$};
+                      \node (P11) at (3,3) {$\bullet$};
+                      \node (Y1) at (3,0) {$\bullet$};   
+                      \draw (-.5,1.5) rectangle (.5,3.5);
+                      \draw (1.5,1.5) rectangle (3.5,3.5);
+                      \draw (1.5,-.5) rectangle (3.5,.5);
+                      
+                      \path[-{stealth}]
+                        (P00) edge (X0)
+                        (P00) edge (Y0)
+                        (P01) edge (Y1)
+                        (P11) edge[bend right] (X1)
+                        (P10) edge (X1)
+                        (P11) edge[bend left] (Y1)
+                      ;
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+            <p>
+                This is interesting because 
+                <m>A+A</m> gets two non-distinguished
+                points.  Maybe I wasn't far off when 
+                I originally considered the map
+                <m>\mathbf{0} \rightarrow \mathbf{0} \times A</m>
+                to behave like <q>monoid</q>?
+            What if the solution I'm really looking for 
+            here is the object
+            <m>A = \mathbb{N}</m>?
+        </p>
+        <p>
+            Consider this.  For any map <m>X \xrightarrow{f} Y</m>
+             in <m>\mathbf{1} / \mathcal{S}</m>,
+             we can think of <m>X=C_i</m> and <m>Y=C_j</m>
+             for some <q>preferred</q> indexing of the objects in the category.
+             If there is further some indexing of objects in <m>X</m>
+             such that a map <m>\mathbb{N} \xrightarrow{p} X</m>
+             enumerates the elements of <m>x</m>, we 
+             can pair every point in every object with a 
+             pair of indexes in 
+             <m>\mathbb{N} \times \mathbb{N}</m> such that one projection map
+             points to the index of the object <m>C_i</m> in the category
+             and the other returns the index <m>p</m> of a particular 
+             map <m>\mathbf{1} \xrightarrow{x_p} X</m>.
+        </p>
+        <p>
+            What makes <m>\mathbb{N}</m> special here is that 
+            theres a unique isomorphism 
+            <m>\mathbb{N} \leftrightarrows \mathbb{N} \times \mathbb{N}</m>
+            in <m>\mathcal{S}</m>
+             that we previously saw in <xref ref="session27-p4"/>.
+             I also remember  the authors establishing that it does <m>not</m> preserve 
+            the structure of <m>\mathbb{N}^{\circlearrowright \sigma}</m>.
+        </p><p>
+            
+            
+            Likewise, I think the same is true of the unique
+            isomorphism <m>\mathbb{N} \leftrightarrows \mathbb{N}+\mathbb{N}</m>.
+            Maybe we can those projections and injections
+            to construct an isomporphism 
+            <m>\mathbb{N} \times \mathbb{N} \leftrightarrows \mathbb{N}+\mathbb{N}</m>
+            that matches up with our <q>identity matrix</q> some how?
+        </p>
+        <p>
+            I also find it curious that the fundamental theorem 
+            of arithmetic hasn't come into play yet.  It seems like
+            that further gives me maps <m>\mathbb{N} \rightarrow \mathbb{N}^m</m>
+            for arbitrarily large <m>m</m> by using the uniqueness 
+            of the prime-factorization of numbers.  It seems like 
+            would behave similarly to <m>\mathbf{1}/\mathcal{S}</m>
+            in that the objects <m>0,1</m> would require special treatment.    
+        </p> 
+            </solution>
+    </example>
+    <p>
+        I'm not sure I've gotten very far on this proof yet, 
+        but at least it feels like the brainstorming was productive?
+    </p>
+</section>
